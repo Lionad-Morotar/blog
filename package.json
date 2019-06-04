@@ -27,6 +27,8 @@
     "vuepress": "^0.14.5"
   },
   "dependencies": {
+    "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
     "markdown-it-katex": "^2.0.3"
   }
 }
