@@ -28,14 +28,14 @@ module.exports = {
 function genSidebarConfig (title) {
   return [
     {
-      title,
+      title: 'My Blogs',
       collapsable: false,
       children: [
-        '📝你本可以少写些if-else',
-        '🚀150行代码带你实现小程序中的数据侦听',
-        '从一个越写越慢的编辑器中聊聊优化思路',
-        '深入探索Scoped-CSS实现原理',
-        '听说你还在手写懒加载'
+        '005-你本可以少写些if-else',
+        '004-150行代码带你实现小程序中的数据侦听',
+        '003-从一个越写越慢的编辑器中聊聊优化思路',
+        '002-深入探索Scoped-CSS实现原理',
+        '001-听说你还在手写懒加载'
       ]
     }
   ]

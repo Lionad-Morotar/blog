@@ -1,8 +1,4 @@
-// disable the search box
-.search-box
-  display none
-
-// disable outbound link icon
+// 禁用A标签后面携带的链接标志
 .icon.outbound
   display none
 
@@ -107,130 +103,8 @@
 body
   -webkit-font-smoothing antialiased
 
-h1,
-h2,
-h3
-  margin-top 1.5em
-  margin-bottom 0
-  text-align left
-  color var(--text-black)
-
-h1
-  font-family "Playfair Display", serif
-  font-size 48px
-
-h2
-  font-family "Lato", sans-serif
-  font-size 30px
-  font-weight 700
-  line-height 70px
-  letter-spacing 1px
-
-h3
-  margin-top 1em
-  font-family "Lato", sans-serif
-  font-size 24px
-  font-weight 700
-  line-height 70px
-  letter-spacing 1px
-
-p
-  margin-top 2em
-  margin-bottom 0
-  font-family "Lora"
-  font-size 21px
-  color var(--text-black)
-  line-height 2
-  text-rendering optimizeLegibility
-  text-align justify
-  font-style normal
-  word-break break-all
-  & + p
-    margin-top 1em
-
-h1 + p,
-h2 + p,
-h3 + p
-  margin-top 0
-
-li
-  margin-top 1em
-  font-family "Lora"
-  font-size 21px
-  letter-spacing 0.28px
-  line-height 2
-  code
-    font-size 18px
-
-a:visited,
-a:active
-  color var(--text-black)
-  opacity .8
-
-a
-  color var(--text-black)
-  text-decoration underline
-  text-decoration-color var(--text-gray--lighter)
-  text-underline-position under
-  user-select none
-  transition text-decoration-color .2s
-  cursor pointer
-  &:hover
-    text-decoration-color var(--text-gray)
-
-blockquote
-  margin 1em 0
-  padding .4em 0 .5em 2em
-  border-left solid 4px var(--text-gray)
-  font-size 22px
-  color var(--text-gray)
-  letter-spacing 1px
-  word-break break-all
-  text-align justify
-  & > p
-    &:nth-child(1)
-      margin-top 0
-  & + p
-    margin-top .8em
-
-h1 + blockquote,
-h2 + blockquote,
-h3 + blockquote
-  margin-top 2em
-
-ol,
-ul
-  padding-inline-start 2.45em
-  padding-inline-end 2.45em
-
-mark,
-.highlighted
-  background #7DFFB3
-
-code
-  background rgba(0,0,0,.05)
-  border-radius 3px
-  margin 0 3px
-  padding 3px .3em
-  font-size 20px
-  font-family var(--font-code)
-
-strong
-  color var(--text-black--lighter)
-
-pre
-  margin-top 2em
-  padding 20px
-  border-radius 4px
-  background rgba(0,0,0,.05)
-  line-height 1.75
-  font-family var(--font-code)
-  font-size 16px
-  color var(--text-black)
-  white-space pre-wrap
-  word-break break-word
-  & + p
-    margin-top 1.8em
+::selection
+  background-color lavender
 
 .first-letter
   overflow-wrap break-word
@@ -248,5 +122,131 @@ pre
   font-family "Lato", sans-serif
   color var(--text-gray)
 
-::selection
-  background-color lavender
+.page
+  h1,
+  h2,
+  h3
+    margin-top 1.5em
+    margin-bottom 0
+    text-align left
+    color var(--text-black)
+
+  h1
+    font-family "Playfair Display", serif
+    font-size 48px
+
+  h2
+    font-family "Lato", sans-serif
+    font-size 30px
+    font-weight 700
+    line-height 70px
+    letter-spacing 1px
+
+  h3
+    margin-top 1em
+    font-family "Lato", sans-serif
+    font-size 24px
+    font-weight 700
+    line-height 70px
+    letter-spacing 1px
+
+  p
+    margin-top 2em
+    margin-bottom 0
+    font-family "Lora"
+    font-size 21px
+    color var(--text-black)
+    line-height 2
+    text-rendering optimizeLegibility
+    text-align justify
+    font-style normal
+    word-break break-all
+    & + p
+      margin-top 1em
+
+  h1 + p,
+  h2 + p,
+  h3 + p
+    margin-top 0
+
+  li
+    margin-top 1em
+    font-family "Lora"
+    font-size 21px
+    letter-spacing 0.28px
+    line-height 2
+    code
+      font-size 18px
+
+  a:visited,
+  a:active
+    color var(--text-black)
+    opacity .8
+
+  a
+    color var(--text-black)
+    text-decoration underline
+    text-decoration-color var(--text-gray--lighter)
+    text-underline-position under
+    user-select none
+    transition text-decoration-color .2s
+    cursor pointer
+    &:hover
+      text-decoration-color var(--text-gray)
+
+  blockquote
+    margin 1em 0
+    padding .4em 0 .5em 2em
+    border-left solid 4px var(--text-gray)
+    font-size 22px
+    color var(--text-gray)
+    letter-spacing 1px
+    word-break break-all
+    text-align justify
+    & > p
+      &:nth-child(1)
+        margin-top 0
+    & + p
+      margin-top .8em
+
+  h1 + blockquote,
+  h2 + blockquote,
+  h3 + blockquote
+    margin-top 2em
+
+  ol,
+  ul
+    padding-inline-start 2.45em
+    padding-inline-end 2.45em
+
+  mark,
+  .highlighted
+    background #7DFFB3
+
+  code
+    background rgba(0,0,0,.05)
+    border-radius 3px
+    margin 0 3px
+    padding 3px .3em
+    font-size 20px
+    font-family var(--font-code)
+
+  strong
+    color var(--text-black--lighter)
+
+  pre
+    margin-top 2em
+    padding 20px
+    border-radius 4px
+    background rgba(0,0,0,.05)
+    line-height 1.75
+    font-family var(--font-code)
+    font-size 16px
+    color var(--text-black)
+    white-space pre-wrap
+    word-break break-word
+    & + p
+      margin-top 1.8em
+
+
+
