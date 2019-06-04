@@ -2,9 +2,11 @@
   "name": "mgear-blogs",
   "version": "0.0.0",
   "description": "Lionad-Morotar's Blogs",
+  "author": "Lionad <tangnad@qq.com>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vuepress dev blogs",
+    "build": "vuepress build blogs"
   },
   "repository": {
     "type": "git",
@@ -16,10 +18,15 @@
     "fe",
     "vuepress"
   ],
-  "author": "Lionad-Morotar",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Lionad-Morotar/blogs/issues"
   },
-  "homepage": "https://github.com/Lionad-Morotar/blogs#readme"
+  "homepage": "https://github.com/Lionad-Morotar/blogs#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.5"
+  },
+  "dependencies": {
+    "markdown-it-katex": "^2.0.3"
+  }
 }
