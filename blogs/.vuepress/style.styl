@@ -1,3 +1,23 @@
+// Override CSS
+
+.page
+  padding-left: 0;
+
+.sidebar
+  width: 25em
+
+.content
+  padding-top: 8em !important
+  max-width 60em !important
+.home
+  .content
+    margin: 0 !important
+    padding: 0 !important
+    text-align: center
+
+div[class*="language-"]
+  background-color: rgba(0,0,0,.85);
+
 // 禁用A标签后面携带的链接标志
 .icon.outbound
   display none
@@ -96,10 +116,6 @@
   --text-gray--lighter rgba(0, 0, 0, .3)
   --font-code "Fira", "Consolas", "Monaco", "Courier New", "Courier", "monospace"
 
-*
-  margin 0
-  padding 0
-
 body
   -webkit-font-smoothing antialiased
 
@@ -123,6 +139,20 @@ body
   color var(--text-gray)
 
 .page
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  i,
+  code,
+  blockquote
+    margin 0
+    padding 0
+    border: 0;
+
   h1,
   h2,
   h3
