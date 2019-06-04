@@ -1,0 +1,25 @@
+{
+  "name": "mgear-blogs",
+  "version": "0.0.0",
+  "description": "Lionad-Morotar's Blogs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lionad-Morotar/blogs.git"
+  },
+  "keywords": [
+    "blogs",
+    "fe-blogs",
+    "fe",
+    "vuepress"
+  ],
+  "author": "Lionad-Morotar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lionad-Morotar/blogs/issues"
+  },
+  "homepage": "https://github.com/Lionad-Morotar/blogs#readme"
+}
