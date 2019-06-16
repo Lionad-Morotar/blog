@@ -4,6 +4,7 @@ module.exports = {
 
   base: "/",
   dest: "./dist",
+  ga: "UA-142194237-1",
 
   /** page config */
 
@@ -25,7 +26,7 @@ module.exports = {
       { text: "GitHub", link: "https://github.com/Lionad-Morotar" }
     ],
     sidebar: {
-      '/articles/': genSidebarConfig('Blog')
+      '/articles/': genSidebarConfig()
     },
     lastUpdated: 'Last Updated'
   },
@@ -43,7 +44,14 @@ module.exports = {
 function genSidebarConfig (title) {
   return [
     {
-      title: 'My Blogs',
+      title: '心流',
+      collapsable: true,
+      children: [
+        // ...
+      ]
+    },
+    {
+      title: '博客',
       collapsable: false,
       children: [
         '005-你本可以少写些if-else',
