@@ -1,15 +1,22 @@
 module.exports = {
-  title: "MGear",
-  description: "Lionad-Guirotar Blogs",
+
+  /** develop config */
+
   base: "/",
   dest: "./dist",
 
+  /** page config */
+
+  title: "MGear | 前端🔗世界",
+  description: "Lionad 的个人博客, 心流历程以及其它一些好玩的东西",
   head:[
     [
       "link", 
       { rel: 'shortcut icon', href: '/favicon.ico' }
     ]
   ],
+
+  /** theme config */
 
   themeConfig: {
     nav: [
@@ -22,6 +29,8 @@ module.exports = {
     },
     lastUpdated: 'Last Updated'
   },
+
+  /** markdown config */
 
   markdown: {
     anchor: { permalink: false },
