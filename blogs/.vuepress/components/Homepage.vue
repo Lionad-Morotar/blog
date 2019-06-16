@@ -22,7 +22,7 @@
         <div class="socials">
           <div v-for="item in data.socials">
             <a :href="item.link" target="_blank">
-              <img :src="'/icons/'+item.title+'.svg'" :alt="item.title" :title="item.title">
+              <img class="link-svgs" :src="item.icon || '/icons/'+item.title+'.svg'" :alt="item.title" :title="item.title">
             </a>
           </div>
         </div>
@@ -89,6 +89,7 @@ body {
       width: 100%;
       height: auto;
       max-width: 150px;
+      border: solid 3px white;
       border-radius: 500rem;
     }
   }
@@ -159,9 +160,10 @@ body {
       justify-content: center;
       flex-wrap: wrap;
 
-      img {
+      .link-svgs, img {
         width: 32px;
         margin: 1em;
+        border-radius: 3px;
         cursor: pointer;
       }
     }
@@ -199,13 +201,11 @@ body {
   }
 
   .footer {
+    margin-top: auto;
     padding: 1rem;
-    // border-top 1px solid lighten(#bdc3c7, 50%)
-    font-weight: 200;
     font-size: 1rem;
     text-align: center;
-    color: lighten($footColor, 25%);
-    margin-top: auto;
+    color: #111;
   }
 }
 
