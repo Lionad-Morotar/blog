@@ -1,9 +1,15 @@
 module.exports = {
   title: "MGear",
   description: "Lionad-Guirotar Blogs",
-  head: [["link", { rel: "icon", href: `/favicon.svg` }]],
   base: "/",
   dest: "./dist",
+
+  head:[
+    [
+      "link", 
+      { rel: 'shortcut icon', href: '/favicon.ico' }
+    ]
+  ],
 
   themeConfig: {
     nav: [
