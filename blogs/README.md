@@ -8,7 +8,9 @@ socials:
 - title: github
   link: https://github.com/Lionad-Morotar
 - title: email
-  link: 'mailto:tangnad[at]qq.com'
+  link: 'mailto:1806234223@qq.com' 
+- title: juejin
+  link: 'https://juejin.im/user/5b209f666fb9a01e66165c5a'
 footer: Made with ♥ by Lionad-Guirotar. Powered by VuePress
 ---
 
