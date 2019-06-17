@@ -19,7 +19,7 @@
         <div class="interests">
           <span>{{data.interests}}</span>
         </div>
-        <div class="socials">
+        <div class="my-socials">
           <div v-for="item in data.socials">
             <a :href="item.link" target="_blank">
               <img class="link-svgs" :src="item.icon || '/icons/'+item.title+'.svg'" :alt="item.title" :title="item.title">
@@ -82,6 +82,8 @@ body {
 
   .avatar {
     position: relative;
+    width: 156px;
+    height: 156px;
     z-index: 1;
 
     img {
@@ -152,7 +154,7 @@ body {
       border-top: 1px solid rgba(34, 36, 38, 0.1);
     }
 
-    .socials {
+    .my-socials {
       border-top: 1px solid rgba(34, 36, 38, 0.1);
       display: flex;
       flex-direction: row;
