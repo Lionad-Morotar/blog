@@ -154,6 +154,8 @@ export default {
 @import './styles/config.styl';
 
 body {
+  user-select: none;
+  
   .fixed {
     position: fixed;
     top: 0;
