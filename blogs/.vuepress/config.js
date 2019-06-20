@@ -21,9 +21,8 @@ module.exports = {
 
   themeConfig: {
     nav: [
-      { text: "Home", link: "/" },
-      { text: "Blogs", link: "/articles/" },
-      { text: "GitHub", link: "https://github.com/Lionad-Morotar" }
+      { text: "Homepage", link: "/" },
+      { text: "Contents", link: "/articles/" },
     ],
     sidebar: {
       '/articles/': genSidebarConfig()
@@ -60,7 +59,21 @@ function genSidebarConfig (title) {
         '002-深入探索Scoped-CSS实现原理',
         '001-听说你还在手写懒加载'
       ]
-    }
+    },
+    {
+      title: '单曲',
+      collapsable: true,
+      children: [
+        // ...
+      ]
+    },
+    {
+      title: '推荐',
+      collapsable: true,
+      children: [
+        // ...
+      ]
+    },
   ]
 }
 

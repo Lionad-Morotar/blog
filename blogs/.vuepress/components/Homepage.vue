@@ -1,5 +1,25 @@
 <template>
   <div class="home">
+
+    <!-- background images -->
+    <css-doodle class="fixed" @click="generate">
+      :doodle {
+        @grid: 18 / 100vmax;
+        opacity: .1;
+      }
+      --hue: calc(180 + 1.5 * @row() * @col());
+      background: hsl(var(--hue), 45%, 65%);
+      margin: -.5px;
+      transition: @r(.5s) ease;
+      clip-path: polygon(@pick(
+        '0 0, 100% 0, 100% 100%',
+        '0 0, 100% 0, 0 100%',
+        '0 0, 100% 100%, 0 100%',
+        '100% 0, 100% 100%, 0 100%'
+      ));
+    </css-doodle>
+
+    <!-- card -->
     <div class="wrapper">
       <div class="avatar">
         <img :src="$withBase(data.avatar)" alt>
@@ -39,6 +59,7 @@
 
       <div class="footer" v-if="data.footer">{{ data.footer }}</div>
     </div>
+    
   </div>
 </template>
 
@@ -46,19 +67,41 @@
 export default {
   computed: {
     data() {
-      return this.$page.frontmatter;
+      return {
+        ...this.$page.frontmatter,
+        cssDoodle: null,
+        bgUpdateTick: null,
+      }
     }
-  }
-};
+  },
+  mounted () {
+    this.bgUpdateTick = setInterval(() => {
+      this.generate()
+    }, 2500)
+  },
+  destroyed () {
+    clearInterval(this.bgUpdateTick)
+  },
+  methods: {
+    generate (event) {
+      const doodle = this.cssDoodle || (this.cssDoodle = document.querySelector('css-doodle'), this.cssDoodle)
+      doodle.update()
+    }
+  },
+}
 </script>
 
 <style lang="stylus">
 @import './styles/config.styl';
 
 body {
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
   .home {
-    max-width: 100%;
-    background-color: $homeBgColor;
+    max-width 100%;
     min-height: calc(100vh - 6rem);
     display: flex;
     padding: 2.4rem 2rem 0;
