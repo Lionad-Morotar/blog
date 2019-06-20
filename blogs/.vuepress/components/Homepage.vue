@@ -2,7 +2,7 @@
   <div class="home">
 
     <!-- background images -->
-    <css-doodle class="fixed" @click="generate">
+    <css-doodle class="fixed" @click="generateShape">
       :doodle {
         @grid: 18 / 100vmax;
         opacity: .1;
@@ -64,6 +64,54 @@
 </template>
 
 <script>
+
+let curBGType = 1
+const bgType = [
+  `
+    :doodle {
+      @grid: 18 / 100vmax;
+      opacity: .1;
+    }
+    --hue: calc(180 + 1.5 * @row() * @col());
+    background: hsl(var(--hue), 45%, 65%);
+    margin: -.5px;
+    transition: @r(.5s) ease;
+    clip-path: polygon(@pick(
+      '0 0, 100% 0, 100% 100%',
+      '0 0, 100% 0, 0 100%',
+      '0 0, 100% 100%, 0 100%',
+      '100% 0, 100% 100%, 0 100%'
+    ));
+  `,
+  `
+    :doodle {
+      @grid: 18 / 100vmax;
+      opacity: .1;
+    }
+    --hue: calc(180 + 1.5 * @row() * @col());
+    background: hsl(var(--hue), 45%, 65%);
+    margin: -.5px;
+    transition: @r(.8s) ease;
+    clip-path: polygon(
+      @rand(100%) 0, 100% @rand(100%), 0 @rand(100%)
+    );
+  `,
+  `
+    :doodle {
+      @grid: 7 / 100vmax;
+      background: #fcfcfc;
+      opacity: .1;
+    }
+    @shape: clover 5;
+    background: hsla(
+      calc(360 - @i() * 4), 70%, 68%, @r(.8)
+    );
+    transform:
+      scale(@r(.2, 1.5))
+      translate(@m2(@r(-50%, 50%)));
+  `
+]
+
 export default {
   computed: {
     data() {
@@ -75,17 +123,28 @@ export default {
     }
   },
   mounted () {
-    this.bgUpdateTick = setInterval(() => {
-      this.generate()
-    }, 2500)
+    this.setBGUpdateInterval()
   },
   destroyed () {
-    clearInterval(this.bgUpdateTick)
+    this.clearBGUpdateInterval()
   },
   methods: {
-    generate (event) {
+    setBGUpdateInterval () {
+      this.bgUpdateTick = setInterval(() => {
+        this.generate()
+      }, 2500)
+    },
+    clearBGUpdateInterval () {
+      clearInterval(this.bgUpdateTick)
+    },
+    generate (content) {
       const doodle = this.cssDoodle || (this.cssDoodle = document.querySelector('css-doodle'), this.cssDoodle)
-      doodle.update()
+      doodle.update(content)
+    },
+    generateShape () {
+      this.clearBGUpdateInterval()
+      this.setBGUpdateInterval()
+      this.generate(bgType[(curBGType ++) % bgType.length])
     }
   },
 }
