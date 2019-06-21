@@ -7,7 +7,7 @@
     <meta name="description" content="Lionad 的个人博客, 心流历程以及其它一些好玩的东西">
     <link rel="shortcut icon" href="/favicon.ico">
     
-    <link rel="preload" href="/assets/css/0.styles.2081ed39.css" as="style"><link rel="preload" href="/assets/js/app.38b69aa6.js" as="script"><link rel="preload" href="/assets/js/5.0069afe0.js" as="script"><link rel="preload" href="/assets/js/6.5f8dd3e1.js" as="script"><link rel="prefetch" href="/assets/js/10.64cb7f5d.js"><link rel="prefetch" href="/assets/js/11.bf0ac22c.js"><link rel="prefetch" href="/assets/js/12.38f2d727.js"><link rel="prefetch" href="/assets/js/2.55facdec.js"><link rel="prefetch" href="/assets/js/3.037ce3b2.js"><link rel="prefetch" href="/assets/js/4.2b7cf9fc.js"><link rel="prefetch" href="/assets/js/7.40173171.js"><link rel="prefetch" href="/assets/js/8.79851109.js"><link rel="prefetch" href="/assets/js/9.2d9c3d14.js">
+    <link rel="preload" href="/assets/css/0.styles.2081ed39.css" as="style"><link rel="preload" href="/assets/js/app.fbb408d4.js" as="script"><link rel="preload" href="/assets/js/5.0069afe0.js" as="script"><link rel="preload" href="/assets/js/6.5f8dd3e1.js" as="script"><link rel="prefetch" href="/assets/js/10.64cb7f5d.js"><link rel="prefetch" href="/assets/js/11.bf0ac22c.js"><link rel="prefetch" href="/assets/js/12.38f2d727.js"><link rel="prefetch" href="/assets/js/2.55facdec.js"><link rel="prefetch" href="/assets/js/3.6f8e4a11.js"><link rel="prefetch" href="/assets/js/4.2b7cf9fc.js"><link rel="prefetch" href="/assets/js/7.40173171.js"><link rel="prefetch" href="/assets/js/8.79851109.js"><link rel="prefetch" href="/assets/js/9.2d9c3d14.js">
     <link rel="stylesheet" href="/assets/css/0.styles.2081ed39.css">
   </head>
   <body>
@@ -116,6 +116,6 @@ selectors<span class="token punctuation">.</span><span class="token function">ea
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre></div><p>题外话, 通过以上代码, 我们发现当当前处理到三种特定类型选择器会终止循环, 停止将 <code>data-v-xxx</code> 添加到选择器末尾:</p> <ol><li>伪类 <code>::v-deep</code></li> <li>选择器 <code>&gt;&gt;&gt;</code></li> <li>选择器 <code>/deep/</code></li></ol> <p>我们可以利用这个特征, 在组件中写样式穿透, 即内部组件影响外部组件样式 (ε=ε=ε=┏(゜ロ゜;)┛ 主动样式污染), 当然这在特定的情境下是有用的, 比如当我们想主动覆盖第三方UI组件框架的样式, 却不想引入新的CSS文件, 或不想写非 Scoped CSS 模板的时候.</p> <h2 id="最后">最后</h2> <p>本人前端菜得捉急, 文中不详尽或有错的地方, 欢迎各位大佬斧正. 如果本文对你有所帮助, 那是再好不过, 看到这里都是真爱啊(笑.jpg) 劳烦<code>点赞 收藏 关注 三连击</code>!!!</p> <blockquote><p>为了方便理解, 或是防止陷入令人头疼的细节, 文中源码片段有部分删减</p></blockquote> <div id="comment"></div></div> <div class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">6/19/2019, 11:25:43 PM</span></div></div> <!----> </div> <!----></div></div>
-    <script src="/assets/js/app.38b69aa6.js" defer></script><script src="/assets/js/5.0069afe0.js" defer></script><script src="/assets/js/6.5f8dd3e1.js" defer></script>
+    <script src="/assets/js/app.fbb408d4.js" defer></script><script src="/assets/js/5.0069afe0.js" defer></script><script src="/assets/js/6.5f8dd3e1.js" defer></script>
   </body>
 </html>

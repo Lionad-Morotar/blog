@@ -147,7 +147,7 @@ export default {
     },
     generate (content) {
       const doodle = this.cssDoodle || (this.cssDoodle = window.document.querySelector('css-doodle'), this.cssDoodle)
-      console.log('doodle', doodle)
+
       doodle && doodle.update && doodle.update(content)
     },
     generateShape () {
