@@ -1,4 +1,7 @@
-import cssDoodle from 'css-doodle'
+// import cssDoodle from 'css-doodle'
+
+// // * do not delete
+// console.log(cssDoodle)
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -9,5 +12,4 @@ export default ({
   Vue.config.ignoredElements = [
     'css-doodle'
   ]
-  Vue.use(cssDoodle)
 }

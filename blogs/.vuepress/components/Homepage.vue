@@ -123,12 +123,20 @@ export default {
     }
   },
   mounted () {
+    this.initDoodle()
     this.setBGUpdateInterval()
   },
   destroyed () {
     this.clearBGUpdateInterval()
   },
   methods: {
+    initDoodle () {
+      const cssDoodleNode = document.createElement('script')
+        cssDoodleNode.type = 'text/javascript'
+        cssDoodleNode.src = 'https://cdn.bootcss.com/css-doodle/0.7.1/css-doodle.min.js'
+
+      window.document.getElementById('app').appendChild(cssDoodleNode)
+    },
     setBGUpdateInterval () {
       this.bgUpdateTick = setInterval(() => {
         this.generate()
@@ -138,8 +146,9 @@ export default {
       clearInterval(this.bgUpdateTick)
     },
     generate (content) {
-      const doodle = this.cssDoodle || (this.cssDoodle = document.querySelector('css-doodle'), this.cssDoodle)
-      doodle.update(content)
+      const doodle = this.cssDoodle || (this.cssDoodle = window.document.querySelector('css-doodle'), this.cssDoodle)
+      console.log('doodle', doodle)
+      doodle && doodle.update && doodle.update(content)
     },
     generateShape () {
       this.clearBGUpdateInterval()
@@ -155,7 +164,7 @@ export default {
 
 body {
   user-select: none;
-  
+
   .fixed {
     position: fixed;
     top: 0;
