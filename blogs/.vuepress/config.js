@@ -21,12 +21,13 @@ module.exports = {
 
   themeConfig: {
     nav: [
-      { text: "Homepage", link: "/" },
-      { text: "Contents", link: "/articles/" },
+      { text: "社交主页", link: "/" },
+      { text: "博客内容", link: "/articles/" },
+      { text: "代码分享", link: "/codes/polyfills/" },
     ],
     sidebar: {
       '/articles/': getSidebar('articles'),
-      '/polyfills/': getSidebar('polyfills')
+      '/codes/polyfills/': getSidebar('polyfills')
     },
     lastUpdated: 'Last Updated'
   },
@@ -56,19 +57,11 @@ function getSidebar (name) {
         title: '博客',
         collapsable: false,
         children: [
-          '../polyfills/',
           '005-你本可以少写些if-else',
           '004-150行代码带你实现小程序中的数据侦听',
           '003-从一个越写越慢的编辑器中聊聊优化思路',
           '002-深入探索Scoped-CSS实现原理',
           '001-听说你还在手写懒加载'
-        ]
-      },
-      {
-        title: '代码段',
-        collapsable: false,
-        children: [
-          'polyfills'
         ]
       },
       {
@@ -92,7 +85,6 @@ function getSidebar (name) {
         title: '代码段',
         collapsable: false,
         children: [
-          '../articles/',
           'object-create'
         ]
       }

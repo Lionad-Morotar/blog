@@ -2,6 +2,6 @@
 
 ## Recommend
 
-- [Object.create](/polyfills/object-create.html)
+- [Object.create](./object-create.html)
 
 <Comments />
