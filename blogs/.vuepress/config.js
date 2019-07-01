@@ -11,10 +11,9 @@ module.exports = {
   title: "MGear | 前端🔗世界",
   description: "Lionad 的个人博客, 心流历程以及其它一些好玩的东西",
   head:[
-    [
-      "link", 
-      { rel: 'shortcut icon', href: '/favicon.ico' }
-    ]
+    ["link", { rel: 'dns-prefetch', href: '//cdn.bootcss.com' }],
+    ["link", { rel: 'dns-prefetch', href: '//utteranc.es' }],
+    ["link", { rel: 'shortcut icon', href: '/favicon.ico' }],
   ],
 
   /** theme config */
