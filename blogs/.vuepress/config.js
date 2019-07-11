@@ -56,10 +56,11 @@ function getSidebar (name) {
         title: '博客',
         collapsable: false,
         children: [
+          '006-聊聊聊此次离职毕业及其它杂乱的事情',
           '005-你本可以少写些if-else',
           '004-150行代码带你实现小程序中的数据侦听',
           '003-从一个越写越慢的编辑器中聊聊优化思路',
-          '002-深入探索Scoped-CSS实现原理',
+          '002-探索Scoped-CSS实现原理',
           '001-听说你还在手写懒加载'
         ]
       },
