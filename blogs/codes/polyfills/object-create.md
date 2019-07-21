@@ -27,7 +27,7 @@ me.class = 'javascript engineer'
 ## polyfill
 
 ```js
-if (!(create in Object)) {
+if (!('create' in Object)) {
   Object.create = function (proto, props) {
     const F = new Function()
     const obj = new F()
