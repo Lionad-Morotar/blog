@@ -131,11 +131,15 @@ export default {
   },
   methods: {
     initDoodle () {
-      const cssDoodleNode = document.createElement('script')
-        cssDoodleNode.type = 'text/javascript'
-        cssDoodleNode.src = '/js/css-doodle.min.js'
+      const isExist = customElements && customElements.get('css-doodle')
 
-      window.document.getElementById('app').appendChild(cssDoodleNode)
+      if (!isExist) {
+        const cssDoodleNode = document.createElement('script')
+          cssDoodleNode.type = 'text/javascript'
+          cssDoodleNode.src = '/js/css-doodle.min.js'
+  
+        window.document.getElementById('app').appendChild(cssDoodleNode)
+      }
     },
     setBGUpdateInterval () {
       this.bgUpdateTick = setInterval(() => {
