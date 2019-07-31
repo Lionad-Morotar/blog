@@ -322,6 +322,7 @@ body {
   .footer {
     margin-top: auto;
     padding: 1rem;
+    border: none;
     font-size: 1rem;
     text-align: center;
     color: #111;
