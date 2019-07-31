@@ -18,6 +18,7 @@ export default {
       utterances.setAttribute('theme', 'github-light')
       utterances.setAttribute('repo', `Lionad-Morotar/blogs`)
       utterances.crossorigin = 'anonymous'
+      // utterances.src = '/js/utteranc.client.js'
       utterances.src = 'https://utteranc.es/client.js'
 
       window.document.getElementById('comment').appendChild(utterances)

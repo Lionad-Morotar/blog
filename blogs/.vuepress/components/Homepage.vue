@@ -133,7 +133,7 @@ export default {
     initDoodle () {
       const cssDoodleNode = document.createElement('script')
         cssDoodleNode.type = 'text/javascript'
-        cssDoodleNode.src = 'https://cdn.bootcss.com/css-doodle/0.7.1/css-doodle.min.js'
+        cssDoodleNode.src = '/js/css-doodle.min.js'
 
       window.document.getElementById('app').appendChild(cssDoodleNode)
     },
