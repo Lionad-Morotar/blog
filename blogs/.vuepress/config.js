@@ -19,9 +19,9 @@ module.exports = {
 
   themeConfig: {
     nav: [
-      { text: "社交主页", link: "/" },
-      { text: "博客内容", link: "/articles/" },
-      { text: "代码分享", link: "/codes/polyfills/" },
+      { text: "Home", link: "/" },
+      { text: "Contents", link: "/articles/" },
+      // { text: "代码分享", link: "/codes/polyfills/" },
     ],
     sidebar: {
       '/articles/': getSidebar('articles'),
@@ -65,16 +65,13 @@ function getSidebar (name) {
       },
       {
         title: '单曲',
-        collapsable: true,
+        collapsable: false,
         children: [
-          // ...
-        ]
-      },
-      {
-        title: '推荐',
-        collapsable: true,
-        children: [
-          // ...
+          '163/wuti',
+          '163/wings-you-are-the-hero',
+          '163/奇迹之山',
+          '163/wu-wei',
+          '163/EVA'
         ]
       }
     ],
