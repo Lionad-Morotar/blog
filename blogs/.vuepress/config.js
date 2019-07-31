@@ -83,7 +83,7 @@ function getSidebar (name) {
         title: '简历 & 项目',
         collapsable: false,
         children: [
-          '微信CRM系统',
+          'CRM',
           '乘云小程序',
           '乘云新零售'
         ]
