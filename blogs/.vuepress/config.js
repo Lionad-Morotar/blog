@@ -21,10 +21,12 @@ module.exports = {
     nav: [
       { text: "Home", link: "/" },
       { text: "Contents", link: "/articles/" },
+      { text: "Resume", link: "/resume/" },
       // { text: "代码分享", link: "/codes/polyfills/" },
     ],
     sidebar: {
       '/articles/': getSidebar('articles'),
+      '/resume/': getSidebar('resume'),
       '/codes/polyfills/': getSidebar('polyfills')
     },
     lastUpdated: 'Last Updated'
@@ -76,12 +78,25 @@ function getSidebar (name) {
       }
     ],
 
+    resume: [
+      {
+        title: '简历 & 项目',
+        collapsable: false,
+        children: [
+          '微信CRM系统',
+          '乘云小程序',
+          '乘云新零售'
+        ]
+      }
+    ],
+
     polyfills: [
       {
         title: '代码段',
         collapsable: false,
         children: [
-          'object-create'
+          'object-create',
+          'bind'
         ]
       }
     ]
