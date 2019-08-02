@@ -22,12 +22,12 @@ module.exports = {
       { text: "Home", link: "/" },
       { text: "Contents", link: "/articles/" },
       { text: "Resume", link: "/resume/" },
-      // { text: "代码分享", link: "/codes/polyfills/" },
+      // { text: "代码分享", link: "/codes/gists/" },
     ],
     sidebar: {
       '/articles/': getSidebar('articles'),
       '/resume/': getSidebar('resume'),
-      '/codes/polyfills/': getSidebar('polyfills')
+      '/codes/gists/': getSidebar('gists')
     },
     lastUpdated: 'Last Updated'
   },
@@ -90,7 +90,7 @@ function getSidebar (name) {
       }
     ],
 
-    polyfills: [
+    gists: [
       {
         title: '代码段',
         collapsable: false,
