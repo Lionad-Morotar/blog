@@ -8,11 +8,11 @@ const h = React.createElement
 // styles
 const styles = {
   body: {
-    padding: '10px',
+    padding: '10px'
   },
   buttonArea: {
     padding: '10px',
-    border: 'solid 1px black',
+    border: 'solid 1px black'
   },
   modal: {
     position: 'fixed',
@@ -40,12 +40,12 @@ class ErrorBoundary extends React.Component {
   state = {
     hasCountError: false
   }
-  componentDidCatch () {
+  componentDidCatch() {
     this.setState({
       hasCountError: true
     })
   }
-  render () {
+  render() {
     if (this.state.hasCountError) {
       return <div>Error Boundary : Count Times Error</div>
     }
@@ -55,7 +55,7 @@ class ErrorBoundary extends React.Component {
 
 // Dialog
 class Dialog extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.dialogRef = React.createRef()
     this.state = {
@@ -64,108 +64,125 @@ class Dialog extends React.Component {
     }
     this.createNodes()
   }
-  componentDidMount () {
+  componentDidMount() {
     setTimeout(() => {
       this.setState({ show: true })
     }, 300)
   }
-  clearOldNodes () {
+  clearOldNodes() {
     this.node = document.querySelectorAll('.dialog')
     console.log(this.node)
     Array.prototype.slice.call(this.node).map(x => x.remove())
   }
-  createNodes () {
+  createNodes() {
     this.clearOldNodes()
     this.node = document.createElement('div')
     this.node.setAttribute('class', 'dialog')
     // this.node.setAttribute('style', Object.entries(styles.modal).map(([k, v]) => `${k}:${v}`).join(';'))
     document.body.appendChild(this.node)
   }
-  close () {
+  close() {
     this.dialogRef.current.style.color = 'white'
     setTimeout(() => {
       this.setState({ show: false })
     }, 1000)
   }
-  render () {
+  render() {
     return ReactDOM.createPortal(
-      this.state.show &&
+      this.state.show && (
         <div
           ref={this.dialogRef}
           onClick={this.close.bind(this)}
           style={styles.modal}
         >
           {this.props.children}
-        </div>,
+        </div>
+      ),
       this.node
-    ) 
+    )
   }
 }
 
 // Timer
 let timerTick = null
-function Timer () {
-  const [time, setTime] = React.useState(0)
-  if (timerTick) {
-    clearInterval(timerTick)
-    timerTick = null
-  }
-  if (!timerTick) {
-    timerTick = setInterval(() => { 
-      setTime(time + 1) 
+function Timer() {
+  const [time, setTime] = useState(0)
+  useEffect(() => {
+    if (timerTick) {
+      clearInterval(timerTick)
+    }
+    timerTick = setInterval(() => {
+      document.title = time
+      setTime(time + 1)
     }, 1000)
-  }
-  
+  }, [time])
+
   return <div>Now TimeTick : {time}</div>
 }
 
 // HOC
 const withInitValueButton = WrappedComponent => {
-  return props => <WrappedComponent value='10' {...props} />
+  return props => <WrappedComponent value="10" step="10" {...props} />
 }
 
 // Button
 class Button extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       clickCount: props.value || '0'
     }
   }
-  handleClick () {
-    this.state.clickCount = Number(this.state.clickCount) + 1
-    TextInputRef.current.value = +TextInputRef.current.value + 1
-    
-    const limitValue = +(this.props.value || '0') + 2
+  handleClick() {
+    this.addValue()
+  }
+  handleDoubleClick() {
+    this.clearValue()
+  }
+  addValue() {
+    this.state.clickCount =
+      Number(this.state.clickCount) + (+this.props.step || 1)
+    TextInputRef.current.value =
+      +TextInputRef.current.value + (+this.props.step || 1)
+
+    const limitValue = 20
     if (this.state.clickCount > limitValue) {
       this.setState({
-        clickCount:  0
+        clickCount: 0
       })
     } else {
       this.setState({
-        clickCount:  String(this.state.clickCount)
+        clickCount: String(this.state.clickCount)
       })
     }
   }
-  render () {
+  clearValue() {
+    TextInputRef.current.value = 0
+    this.setState({
+      clickCount: '0'
+    })
+  }
+  render() {
     return React.createElement(
-      "button",
-      { 
-        type: "submit",
-        onClick: this.handleClick.bind(this)
+      'button',
+      {
+        type: 'submit',
+        onClick: () => this.handleClick(),
+        onDoubleClick: () => this.handleDoubleClick()
       },
-      this.props.label + ' ' +
-        this.state.clickCount.slice(-2)
+      this.props.label +
+        ' ' +
+        (this.props.value || 1) +
+        // 引发尝试调用 undefined 引发 render 错误
+        (this.state.clickCount.slice(-2) - this.state.clickCount.slice(-2))
     )
   }
 }
-  
+
 const ButtonWithClickEffect = withInitValueButton(Button)
 
 // MsgShow
-const MsgShow = ({ msg }) => (
-  <div> Msg: {msg} </div>
-)
+const MsgShow = ({ msg }) => <div> Msg: {msg} </div>
 
 // InputForm
 const InputForm = () => (
@@ -183,10 +200,10 @@ const InputForm = () => (
 // ALertDialog - static contextType / context.provider / context.consumer
 class AlertDialog extends React.Component {
   static contextType = ThemeContext
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
-  render () {
+  render() {
     return (
       <ThemeContext.Provider value="light">
         <Dialog>
@@ -194,7 +211,7 @@ class AlertDialog extends React.Component {
           <ThemeContext.Consumer>
             {theme => 'Current Theme : ' + theme + '\n'}
           </ThemeContext.Consumer>
-          <p></p>
+          <p />
           <MsgShow msg="please ignore this dialog" />
         </Dialog>
       </ThemeContext.Provider>
@@ -202,8 +219,7 @@ class AlertDialog extends React.Component {
   }
 }
 
-
-// ! Fragment is not defined
+// 空标签是 React.Fragment 的语法糖
 ReactDOM.render(
   <>
     <p>Lionad's Demo React Codes To Explore React API</p>
