@@ -10,7 +10,7 @@ module.exports = {
 
   title: "MGear | 前端🔗世界",
   description: "Lionad 的个人博客, 心流历程以及其它一些好玩的东西",
-  head:[
+  head: [
     ["link", { rel: 'dns-prefetch', href: '//utteranc.es' }],
     ["link", { rel: 'shortcut icon', href: '/favicon.ico' }],
   ],
@@ -42,15 +42,15 @@ module.exports = {
   }
 }
 
-function getSidebar (name) {
+function getSidebar(name) {
   const sidebarConfigs = {
 
     articles: [
       {
         title: '心流',
-        collapsable: true,
+        collapsable: false,
         children: [
-          // ...
+          'flow/我的腼腆',
         ]
       },
       {
