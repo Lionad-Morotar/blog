@@ -42,6 +42,7 @@ module.exports = {
   }
 }
 
+// TODO gulp
 function getSidebar(name) {
   const sidebarConfigs = {
 
@@ -50,6 +51,7 @@ function getSidebar(name) {
         title: '心流',
         collapsable: false,
         children: [
+          'flow/一封沉默',
           'flow/我的腼腆',
         ]
       },
