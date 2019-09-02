@@ -8,7 +8,7 @@ module.exports = {
 
   /** page config */
 
-  title: "MGear | 前端🔗世界",
+  title: "MGear Blog",
   description: "Lionad 的个人博客, 心流历程以及其它一些好玩的东西",
   head: [
     ["link", { rel: 'dns-prefetch', href: '//utteranc.es' }],
@@ -21,12 +21,12 @@ module.exports = {
     nav: [
       { text: "Home", link: "/" },
       { text: "Contents", link: "/articles/" },
-      { text: "Resume", link: "/resume/" },
+      // { text: "Resume", link: "/resume/" },
       // { text: "代码分享", link: "/codes/gists/" },
     ],
     sidebar: {
       '/articles/': getSidebar('articles'),
-      '/resume/': getSidebar('resume'),
+      // '/resume/': getSidebar('resume'),
       '/codes/gists/': getSidebar('gists')
     },
     lastUpdated: 'Last Updated'
@@ -80,17 +80,17 @@ function getSidebar(name) {
       }
     ],
 
-    resume: [
-      {
-        title: '简历 & 项目',
-        collapsable: false,
-        children: [
-          'CRM',
-          '乘云小程序',
-          '乘云新零售'
-        ]
-      }
-    ],
+    // resume: [
+    //   {
+    //     title: '简历 & 项目',
+    //     collapsable: false,
+    //     children: [
+    //       'CRM',
+    //       '乘云小程序',
+    //       '乘云新零售'
+    //     ]
+    //   }
+    // ],
 
     gists: [
       {
