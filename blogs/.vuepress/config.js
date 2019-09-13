@@ -20,7 +20,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
-      { text: "Contents", link: "/articles/" },
+      { text: "Flows", link: "/articles/" },
       // { text: "Resume", link: "/resume/" },
       // { text: "代码分享", link: "/codes/gists/" },
     ],
@@ -48,7 +48,7 @@ function getSidebar(name) {
 
     articles: [
       {
-        title: '心流',
+        title: '心流 / Heart Flows',
         collapsable: false,
         children: [
           'flow/使用英文点号',
@@ -57,7 +57,7 @@ function getSidebar(name) {
         ]
       },
       {
-        title: '博客',
+        title: '博客 / Blogs',
         collapsable: false,
         children: [
           '006-聊聊聊此次离职毕业及其它杂乱的事情',
@@ -69,7 +69,7 @@ function getSidebar(name) {
         ]
       },
       {
-        title: '单曲',
+        title: '单曲 / Songs',
         collapsable: false,
         children: [
           '163/wuti',
