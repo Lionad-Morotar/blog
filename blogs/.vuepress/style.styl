@@ -60,26 +60,20 @@ div[class*='language-'] {
 
 /* 定义滚动条轨道 内阴影+圆角 */
 ::-webkit-scrollbar-track {
-  border-radius: 2px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  border-radius: 1px;
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
   background-color: #F5F5F5;
 }
 
 /* 定义滑块 内阴影+圆角 */
 ::-webkit-scrollbar-thumb {
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
+  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
   border-radius: 2px;
+  background: #c9c9c9;
   /* 线性渐变 */
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.44, #666),
-    color-stop(0.86, #aaa)
-  );
   transition: 0.3s ease-in-out;
 }
 
