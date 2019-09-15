@@ -51,6 +51,7 @@ function getSidebar(name) {
         title: '心流 / Heart Flows',
         collapsable: false,
         children: [
+          'flow/表达和孤独',
           'flow/文字与情绪',
           'flow/使用英文点号',
           'flow/一封沉默',
