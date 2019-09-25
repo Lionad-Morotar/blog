@@ -8,8 +8,8 @@ module.exports = {
 
   /** page config */
 
-  title: "MGear Blog",
-  description: "Lionad 的个人博客, 心流历程以及其它一些好玩的东西",
+  title: "Lionad-Guirotar Blogs",
+  description: "Lionad Guirotar 的个人博客, 心流历程以及其它一些好玩的东西",
   head: [
     ["link", { rel: 'dns-prefetch', href: '//utteranc.es' }],
     ["link", { rel: 'shortcut icon', href: '/favicon.ico' }],
