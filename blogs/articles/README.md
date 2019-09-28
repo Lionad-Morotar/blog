@@ -6,6 +6,10 @@
 
 ## 新的东西 | Newest
 
+- [偷取时间 | 我是个时间窃贼](/articles/flow/偷取时间.html)
+
+## 诗歌 | Poems
+
 - [隐秘 | 所有隐秘的情感，都藏在星空里](/articles/flow/隐秘.html)
 
 ## 某些推荐 | Recommend
