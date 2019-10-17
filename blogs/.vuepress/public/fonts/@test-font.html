@@ -1,0 +1,26 @@
+<html>
+  <body>
+    abcdefghijklmnopqrstuvwxyz 1234567890 -=[];',./\|<>?:"{}_+"'~`!@#$%^&*()\|
+  </body>
+
+  <style>
+    :root {
+      --font-text--general: 'Noto Serif SC', 'Consolas';
+    }
+
+    body {
+      font-family: var(--font-text--general);
+    }
+
+    @font-face {
+      font-family: 'Noto Serif SC';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local('Noto Serif SC Light'), local('NotoSerifSC-Light'),
+        url('./NotoSerifSC-Light.otf') format('woff2');
+    }
+  </style>
+</html>
+
+<!-- subfont .\@test-font.html -o c://1 -->
