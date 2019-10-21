@@ -30,7 +30,9 @@
     "gulp": "^3.9.1",
     "gulp-changed": "^4.0.2",
     "gulp-load-plugins": "^2.0.1",
+    "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
+    "node-cmd": "^3.0.0",
     "nodemon": "^1.19.2",
     "through2": "^3.0.1",
     "vuepress": "^0.14.5"
