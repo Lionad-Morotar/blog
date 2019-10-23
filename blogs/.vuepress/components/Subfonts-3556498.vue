@@ -1,3 +1,4 @@
+
 <template>
   <div class="placeholder"></div>
 </template>
@@ -7,7 +8,7 @@ export default {}
 </script>
 
 <style>
-@import './subfont/006/index.css';
+@import './subfont/3556498/index.css';
 
 .placeholder {
   content: 'import fonts';

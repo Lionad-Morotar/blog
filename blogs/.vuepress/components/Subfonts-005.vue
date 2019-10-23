@@ -7,7 +7,7 @@ export default {}
 </script>
 
 <style>
-@import './subfont/005/subfont/index.css';
+@import './subfont/005/index.css';
 
 .placeholder {
   content: 'import fonts';
