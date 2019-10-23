@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
-    "subfont": "subfont ./blogs/.vuepress/public/fonts/subfont.ejs -o c://1"
+    "subfont": "subfont ./blogs/.vuepress/public/fonts/subfont.ejs -o c://1",
+    "move": "move.ps1"
   },
   "repository": {
     "type": "git",
