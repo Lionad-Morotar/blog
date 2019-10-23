@@ -21,7 +21,7 @@ function hash(s) {
     // Convert to 32bit integer
     hash = hash & hash
   }
-  return hash
+  return String(hash).replace('-', '')
 }
 function modify(modifier) {
   return through.obj(function (file, encoding, done) {
@@ -79,7 +79,7 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/test.md'
+  'blogs/articles/README.md'
 ]
 
 // 移动字体文件到临时目录
@@ -249,7 +249,7 @@ gulp.task('font', ['move-font-file'], () => {
                 mv tmp/Subfonts-${nameHash}.vue blogs/.vuepress/components
                 `
               ))
-              .pipe(gulp.dest('/'))
+              .pipe(gulp.dest(''))
 
             console.log('| move font dir done : ', name)
 
