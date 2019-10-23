@@ -7,7 +7,7 @@ export default {}
 </script>
 
 <style lang="stylus">
-@import './subfonts/001/index.css';
+@import './subfont/001/index.css';
 
 .placeholder {
   content: 'import fonts';

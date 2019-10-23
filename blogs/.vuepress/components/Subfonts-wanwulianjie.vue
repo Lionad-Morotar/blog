@@ -7,7 +7,7 @@ export default {}
 </script>
 
 <style lang="stylus">
-@import './subfonts/wanwulianjie/fonts-0a60461fa1.css';
+@import './subfont/wanwulianjie/fonts-0a60461fa1.css';
 
 .placeholder {
   content: 'import fonts';
