@@ -121,7 +121,7 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/flow/偷取时间.md'
+  'blogs/articles/flow/文字与情绪.md'
 ]
 
 // 移动字体文件到临时目录
