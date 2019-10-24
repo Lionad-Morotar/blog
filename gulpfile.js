@@ -121,7 +121,7 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/flow/表达和孤独.md'
+  'blogs/articles/flow/使用英文点号.md'
 ]
 
 // 移动字体文件到临时目录
