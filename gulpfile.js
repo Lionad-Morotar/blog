@@ -79,42 +79,13 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/002-探索Scoped-CSS实现原理.md'
+  'blogs/articles/004-150行代码带你实现小程序中的数据侦听.md'
 ]
 
 // 移动字体文件到临时目录
 gulp.task('move-font-file', () => {
   return gulp.src('blogs/.vuepress/public/fonts/NotoSerifSC-Light.otf')
     .pipe(gulp.dest('tmp'))
-})
-
-// 用来写测试的代码
-gulp.task('test', () => {
-  const nameHash = 3556498
-  const subfontDir = 'tmp/subfont'
-  // const moveFontDir = `mv "./tmp/${nameHash}" "./blogs/.vuepress/components/subfont/"`
-  // cmd.get(moveFontDir, (err) => {
-  //   console.log(err)
-  // })
-  // gulp.src('blogs/**/*.md')
-  //   .pipe(function () {
-  //     return through.obj(function (file, enc, cb) {
-  //       this.push(file)
-  //       cb()
-  //     })
-  //   }())
-  //   .pipe(gulp.dest('.tmp'))
-  //   .pipe(function () {
-  //     return through.obj(function (file, enc, cb) {
-  //       console.log(file.path)
-  //       // this.push(file)
-  //       cb()
-  //     })
-  //   }())
-
-  cmd.run('move.ps1', (err) => {
-    console.log(err)
-  })
 })
 
 // 给 MD 文件自动添加字体子集
@@ -167,6 +138,7 @@ gulp.task('font', ['move-font-file'], () => {
     .pipe(function () {
       return through.obj(function (file, enc, cb) {
         const name = filename
+        const thisMD = this
 
         // 打包字体
         console.log('| subfont start : ', name)
@@ -252,13 +224,14 @@ gulp.task('font', ['move-font-file'], () => {
                     err
                       ? console.error(err)
                       : console.log('| move font dir done : ', name)
+
+                    thisMD.push(file)
+                    cb()
                   })
                 })
               }())
           })
         })
-        this.push(file)
-        cb()
       })
     }())
 
