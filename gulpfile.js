@@ -32,13 +32,55 @@ function modify(modifier) {
   })
 }
 
+// TODO 将 sidebar 配置化
 const fontHTML = content =>
   `
 <html>
 <body>
+  <!-- sidebar -->
+  <div>
+    {
+      title: '心流 / Heart Flows',
+      collapsable: false,
+      children: [
+        'flow/万物联结与幸福感',
+        'flow/偷取时间',
+        'flow/隐秘',
+        'flow/追寻自由与满怀希望',
+        'flow/表达和孤独',
+        'flow/文字与情绪',
+        'flow/使用英文点号',
+        'flow/一封沉默',
+        'flow/我的腼腆',
+      ]
+    },
+    {
+      title: '博客 / Blogs',
+      collapsable: false,
+      children: [
+        '006-聊聊聊此次离职毕业及其它杂乱的事情',
+        '005-你本可以少写些if-else',
+        '004-150行代码带你实现小程序中的数据侦听',
+        '003-从一个越写越慢的编辑器中聊聊优化思路',
+        '002-探索Scoped-CSS实现原理',
+        '001-听说你还在手写懒加载'
+      ]
+    },
+    {
+      title: '单曲 / Songs',
+      collapsable: false,
+      children: [
+        '163/wuti',
+        '163/wings-you-are-the-hero',
+        '163/奇迹之山',
+        '163/wu-wei',
+        '163/EVA'
+      ]
+    }
+  </div>
   <!-- normal -->
   <div>
-    abcdefghijklmnopqrstuvwxyz 1234567890 -=[];',./\\|<>?:"{}_+"'~\`!@#$%^&*()|
+    abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ 1234567890 -=[];',./\\|<>?:"{}_+"'~\`!@#$%^&*()|
   </div>
   <!-- content -->
   ${content}
@@ -79,7 +121,7 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/004-150行代码带你实现小程序中的数据侦听.md'
+  'blogs/README.md'
 ]
 
 // 移动字体文件到临时目录
@@ -100,7 +142,7 @@ gulp.task('font', ['move-font-file'], () => {
       return through.obj(function (file, enc, cb) {
         const { name } = path.parse(file.path)
         filename = name
-        nameHash = String(hash(name))
+        nameHash = String(hash(name + '' + file.path))
         this.push(file)
         cb()
       })
