@@ -79,7 +79,7 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/README.md'
+  'blogs/articles/002-探索Scoped-CSS实现原理.md'
 ]
 
 // 移动字体文件到临时目录
@@ -96,24 +96,6 @@ gulp.task('test', () => {
   // cmd.get(moveFontDir, (err) => {
   //   console.log(err)
   // })
-  gulp.src(subfontDir + '/*.css')
-    .pipe(function () {
-      return through.obj(function (file, enc, cb) {
-        const isFontsCSS = file.path.includes('fonts-')
-        isFontsCSS && this.push(file)
-        cb()
-      })
-    }())
-    .pipe($.rename('move.bat'))
-    .pipe($.replace(
-      /[.\s\S]*/i,
-      `
-      ren tmp/subfont ${nameHash}
-      mv tmp/${nameHash}' 'blogs/.vuepress/components/subfont
-      mv tmp/Subfonts-${nameHash}.vue' 'blogs/.vuepress/components
-      `
-    ))
-    .pipe(gulp.dest(''))
   // gulp.src('blogs/**/*.md')
   //   .pipe(function () {
   //     return through.obj(function (file, enc, cb) {
@@ -129,6 +111,10 @@ gulp.task('test', () => {
   //       cb()
   //     })
   //   }())
+
+  cmd.run('move.ps1', (err) => {
+    console.log(err)
+  })
 })
 
 // 给 MD 文件自动添加字体子集
@@ -150,7 +136,10 @@ gulp.task('font', ['move-font-file'], () => {
     }())
 
     // 给 MD 文件替换内容
-    .pipe($.replace(/<!-- font -->/i, `<Subfonts-${nameHash} />`))
+    .pipe($.replace(/<!-- font -->/i, function () {
+      console.log('nameHash : ', nameHash)
+      return `<Subfonts-${nameHash} />`
+    }))
     .pipe(gulp.dest('tmp'))
     // TODO 替换原文件
     // .pipe(function () {
@@ -166,7 +155,11 @@ gulp.task('font', ['move-font-file'], () => {
 
     // 将 MD 文件内容拼接到 HTML 中
     .pipe($.replace(/[.\s\S]*/i, function (match, group, offset, filecontent) {
-      return fontHTML(match.replace(/\s/g, ''))
+      return fontHTML(
+        match
+          .replace(/\s/g, '')
+          .replace(/[a-zA-Z0-9]|[`/\\]/g, '')
+      )
     }))
     .pipe($.rename({ extname: '.html' }))
     .pipe(gulp.dest('tmp'))
@@ -230,7 +223,7 @@ gulp.task('font', ['move-font-file'], () => {
             createVueComponents
           ]).then(() => {
             console.log('| subfont contents edit done : ', name)
-            console.log('| move font dir start : ', name)
+            console.log('| create move command start : ', name)
 
             gulp.src(subfontDir + '/*.css')
               .pipe(function () {
@@ -250,18 +243,18 @@ gulp.task('font', ['move-font-file'], () => {
                 `
               ))
               .pipe(gulp.dest(''))
+              .pipe(function () {
+                return through.obj(function (file) {
+                  console.log('| create move command done : ', name)
+                  console.log('| move font dir start : ', name)
 
-            console.log('| move font dir done : ', name)
-
-            // const renFontDir = `ren tmp\\subfont ${nameHash}`
-            // cmd.get(renFontDir, () => {
-            //   const moveFontDir = `mv 'tmp\\${nameHash}' 'blogs\\.vuepress\\components\\subfont'`
-            //   cmd.get(moveFontDir, () => {
-            //     const moveVueFile = `mv 'tmp\\Subfonts-${nameHash}.vue' 'blogs\\.vuepress\\components'`
-            //     cmd.get(moveVueFile, () => {
-            //     })
-            //   })
-            // })
+                  cmd.run('move.ps1', err => {
+                    err
+                      ? console.error(err)
+                      : console.log('| move font dir done : ', name)
+                  })
+                })
+              }())
           })
         })
         this.push(file)
