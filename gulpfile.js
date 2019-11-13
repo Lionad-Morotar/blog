@@ -121,7 +121,7 @@ export default {}
 `
 
 const mdFileDirs = [
-  'blogs/articles/flow/追寻自由与满怀希望.md'
+  'blogs/articles/007-近来的新工作，及喝饮料时的一些思考.md'
 ]
 
 // 移动字体文件到临时目录

@@ -66,6 +66,7 @@ function getSidebar(name) {
         title: '博客 / Blogs',
         collapsable: false,
         children: [
+          '007-近来的新工作，及喝饮料时的一些思考',
           '006-聊聊聊此次离职毕业及其它杂乱的事情',
           '005-你本可以少写些if-else',
           '004-150行代码带你实现小程序中的数据侦听',

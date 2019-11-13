@@ -1,5 +1,5 @@
 
-                ren tmp/subfont 2058670523
-                mv tmp/2058670523 blogs/.vuepress/components/subfont
-                mv tmp/Subfonts-2058670523.vue blogs/.vuepress/components
+                ren tmp/subfont 1818804017
+                mv tmp/1818804017 blogs/.vuepress/components/subfont
+                mv tmp/Subfonts-1818804017.vue blogs/.vuepress/components
                 
