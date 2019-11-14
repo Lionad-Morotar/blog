@@ -39,7 +39,11 @@ module.exports = {
     config: md => {
       md.use(require("markdown-it-katex"))
     }
-  }
+  },
+
+  plugins: [
+    'vuepress-plugin-nprogress',
+  ]
 }
 
 // TODO gulp
