@@ -151,7 +151,7 @@ gulp.task('font', ['move-font-file'], () => {
     // 给 MD 文件替换内容
     .pipe($.replace(/<!-- font -->/i, function () {
       console.log('nameHash : ', nameHash)
-      return `<Subfonts-${nameHash} />`
+      return `<Font-Subfonts-${nameHash} />`
     }))
     .pipe(gulp.dest('tmp'))
     // TODO 替换原文件
@@ -252,8 +252,8 @@ gulp.task('font', ['move-font-file'], () => {
                 /[.\s\S]*/i,
                 `
                 ren tmp/subfont ${nameHash}
-                mv tmp/${nameHash} blogs/.vuepress/components/subfont
-                mv tmp/Subfonts-${nameHash}.vue blogs/.vuepress/components
+                mv tmp/${nameHash} blogs/.vuepress/components/Font/subfont
+                mv tmp/Subfonts-${nameHash}.vue blogs/.vuepress/components/Font
                 `
               ))
               .pipe(gulp.dest(''))

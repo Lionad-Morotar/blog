@@ -1,6 +1,6 @@
 # 📝 你本可以少写些 if-else
 
-<Subfonts-005 />
+<Font-Subfonts-005 />
 
 > "...他觉得 Blub 语言已经够用了, 这时, 他的思维就已经被 Blub 语言同化了" —— Paul Graham <黑客与画家>
 
