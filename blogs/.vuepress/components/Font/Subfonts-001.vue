@@ -3,11 +3,19 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    document.body.classList.value = 'font-001'
+  }
+}
 </script>
 
-<style lang="stylus">
+<style>
 @import './subfont/001/index.css';
+
+body.font-001 {
+  font-family: 'Noto Serif SC 001';
+}
 
 .placeholder {
   content: 'import fonts';
