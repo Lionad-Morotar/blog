@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "markdown-it-katex": "^2.0.3",
+    "vuepress-plugin-medium-zoom": "^1.1.6",
     "vuepress-plugin-nprogress": "^1.1.4",
     "webpack": "^4.35.0"
   }

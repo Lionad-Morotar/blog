@@ -43,6 +43,12 @@ module.exports = {
 
   plugins: [
     'vuepress-plugin-nprogress',
+    [
+      'vuepress-plugin-medium-zoom',
+      {
+        selector: '.theme-container img'
+      }
+    ]
   ]
 }
 
