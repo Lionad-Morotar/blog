@@ -37,7 +37,7 @@
     "node-cmd": "^3.0.0",
     "nodemon": "^1.19.2",
     "through2": "^3.0.1",
-    "vuepress": "^1.0.0-alpha.30",
+    "vuepress": "^1.2.0",
     "vuepress-plugin-medium-zoom": "^1.1.6",
     "vuepress-plugin-nprogress": "^1.1.4",
     "webpack": "^4.35.0"
