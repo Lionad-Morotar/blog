@@ -21,12 +21,9 @@ module.exports = {
     nav: [
       { text: "Home", link: "/" },
       { text: "Flows", link: "/articles/" },
-      // { text: "Resume", link: "/resume/" },
-      // { text: "代码分享", link: "/codes/gists/" },
     ],
     sidebar: {
       '/articles/': getSidebar('articles'),
-      // '/resume/': getSidebar('resume'),
       '/codes/gists/': getSidebar('gists')
     },
     lastUpdated: 'Last Updated'
@@ -42,13 +39,13 @@ module.exports = {
   },
 
   plugins: [
-    'vuepress-plugin-nprogress',
-    [
-      'vuepress-plugin-medium-zoom',
-      {
-        selector: '.theme-container img'
-      }
-    ]
+    // 'vuepress-plugin-nprogress',
+    // [
+    //   'vuepress-plugin-medium-zoom',
+    //   {
+    //     selector: '.theme-container img'
+    //   }
+    // ]
   ]
 }
 
@@ -94,29 +91,6 @@ function getSidebar(name) {
           '163/奇迹之山',
           '163/wu-wei',
           '163/EVA'
-        ]
-      }
-    ],
-
-    // resume: [
-    //   {
-    //     title: '简历 & 项目',
-    //     collapsable: false,
-    //     children: [
-    //       'CRM',
-    //       '乘云小程序',
-    //       '乘云新零售'
-    //     ]
-    //   }
-    // ],
-
-    gists: [
-      {
-        title: '代码段',
-        collapsable: false,
-        children: [
-          'object-create',
-          'bind'
         ]
       }
     ]
