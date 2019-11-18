@@ -3,7 +3,7 @@ layout: Homepage
 description: '前端攻城狮 @乘云小程序'
 avatar: /avatar.gif
 head: 'Lionad-Guirotar'
-interests: '" 热情且冷淡, 敏感且迟钝 "'
+url: '/articles'
 socials:
   - title: netease-music
     link: 'https://music.163.com/#/user/home?id=64236446'

@@ -1,21 +1,14 @@
 <template>
   <div class="home">
+    <link rel="prefetch" href="/articles" />
+
     <!-- background images -->
     <css-doodle class="fixed" @click="generateShape">
-      :doodle {
-      @grid: 18 / 100vmax;
-      opacity: .1;
-      }
-      --hue: calc(180 + 1.5 * @row() * @col());
-      background: hsl(var(--hue), 45%, 65%);
-      margin: -.5px;
-      transition: @r(.5s) ease;
-      clip-path: polygon(@pick(
-      '0 0, 100% 0, 100% 100%',
-      '0 0, 100% 0, 0 100%',
-      '0 0, 100% 100%, 0 100%',
-      '100% 0, 100% 100%, 0 100%'
-      ));
+      :doodle { @grid: 18 / 100vmax; opacity: .1; } --hue: calc(180 + 1.5 *
+      @row() * @col()); background: hsl(var(--hue), 45%, 65%); margin: -.5px;
+      transition: @r(.5s) ease; clip-path: polygon(@pick( '0 0, 100% 0, 100%
+      100%', '0 0, 100% 0, 0 100%', '0 0, 100% 100%, 0 100%', '100% 0, 100%
+      100%, 0 100%' ));
     </css-doodle>
 
     <!-- card -->
@@ -26,24 +19,26 @@
       <div class="card">
         <div class="bio">
           <div class="head">
-            <span>{{data.head}}</span>
+            <span>{{ data.head }}</span>
           </div>
           <div class="info">
-            <span>{{data.info}}</span>
+            <span>{{ data.info }}</span>
           </div>
           <div class="description">
             <Content />
           </div>
         </div>
-        <div class="interests">
-          <span>{{data.interests}}</span>
+        <div class="buttons">
+          <div class="into-article">
+            <a href="/articles">进入博客</a>
+          </div>
         </div>
         <div class="my-socials">
           <div v-for="item in data.socials">
             <a :href="item.link" target="_blank">
               <img
                 class="link-svgs"
-                :src="item.icon || '/icons/'+item.title+'.svg'"
+                :src="item.icon || '/icons/' + item.title + '.svg'"
                 :alt="item.title"
                 :title="item.title"
               />
@@ -55,8 +50,9 @@
             <a
               :href="item.link"
               class="button"
-              :target="item.link.startsWith('/')?'':'_blank'"
-            >{{item.text}}</a>
+              :target="item.link.startsWith('/') ? '' : '_blank'"
+              >{{ item.text }}</a
+            >
           </div>
         </div>
       </div>
@@ -264,8 +260,7 @@ body {
         p {
           padding: 0.8em 0.5em 0;
           line-height: normal;
-          -webkit-margin-before: 0em;
-          -webkit-margin-after: 0em;
+          text-align: center;
 
           a {
             font-weight: normal;
@@ -274,9 +269,35 @@ body {
       }
     }
 
-    .interests {
+    .buttons {
       padding: 1.45em 1.5em;
       border-top: 1px solid rgba(34, 36, 38, 0.1);
+
+      .into-article {
+        margin: auto;
+        width: 150px;
+        height: 40px;
+        line-height: 40px;
+        border: solid 1px #666;
+        border-radius: 3px;
+        transition .5s;
+        cursor: pointer;
+
+        a {
+          color: #777
+        }
+
+        &:hover {
+          background #f2f2f2
+          border: solid 1px #ccc;
+        }
+
+        &:active {
+          background #eee
+          border: solid 1px #666;
+          box-shadow 0 0 10px #eee
+        }
+      }
     }
 
     .my-socials {
