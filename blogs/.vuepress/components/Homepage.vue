@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <link rel="prefetch" href="/articles" />
+    <link rel="prefetch" href="/articles/index.html" />
 
     <!-- background images -->
     <css-doodle class="fixed" @click="generateShape">
@@ -30,7 +30,7 @@
         </div>
         <div class="buttons">
           <div class="into-article">
-            <a href="/articles">进入博客</a>
+            <a href="/articles/index.html">进入博客</a>
           </div>
         </div>
         <div class="my-socials">
