@@ -27,6 +27,7 @@
   "homepage": "https://github.com/Lionad-Morotar/blogs#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
     "del": "^5.1.0",
     "gulp": "^3.9.1",
     "gulp-changed": "^4.0.2",

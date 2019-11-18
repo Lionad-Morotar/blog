@@ -4,7 +4,6 @@ module.exports = {
 
   base: "/",
   dest: "./dist",
-  ga: "UA-142194237-1",
 
   /** page config */
 
@@ -30,14 +29,16 @@ module.exports = {
 
   /** markdown config */
 
-  markdown: {
-    anchor: { permalink: false },
-    config: md => {
-      md.use(require("markdown-it-katex"))
-    }
+  extendMarkdown(md) {
+    md.use(require("markdown-it-katex"))
   },
 
+  /** plugins */
+
   plugins: [
+    ['@vuepress/google-analytics', {
+      ga: "UA-142194237-1",
+    }],
     // 'vuepress-plugin-nprogress',
     // [
     //   'vuepress-plugin-medium-zoom',
