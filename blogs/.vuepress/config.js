@@ -73,6 +73,7 @@ function getSidebar(name) {
         title: '博客 / Blogs',
         collapsable: false,
         children: [
+          '191112-一些有意思的CSS属性',
           '007-近来的新工作，及喝饮料时的一些思考',
           '006-聊聊聊此次离职毕业及其它杂乱的事情',
           '005-你本可以少写些if-else',
