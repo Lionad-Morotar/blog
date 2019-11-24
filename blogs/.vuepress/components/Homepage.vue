@@ -188,7 +188,7 @@ body {
     .home {
       padding-left: 0;
       padding-right: 0;
-      padding: 1rem 0.5rem;
+      padding: 0 5vw;
       padding-top: 2rem;
     }
   }
@@ -201,19 +201,21 @@ body {
   // justify-content: center
   align-items: center;
 
+  @avatarWidth: 31vw;
   .avatar {
     position: relative;
-    width: 156px;
-    height: 156px;
+    width: 31vw;
+    height: 31vw;
+        max-width: 150px;
+    max-height: 150px;
     z-index: 1;
 
     img {
       display: block;
       width: 100%;
       height: auto;
-      max-width: 150px;
       border: solid 3px white;
-      border-radius: 500rem;
+      border-radius: 50%;
     }
   }
 
@@ -221,7 +223,7 @@ body {
     max-width: 600px;
     width: 100%;
     position: relative;
-    top: -75px;
+    top: -8%;
     padding-top: 75px;
     margin-left: auto;
     margin-right: auto;
@@ -234,18 +236,10 @@ body {
       padding: 1em;
 
       .head {
-        margin: 10px 0px;
+        margin: 10px 0 0 0;
         font-weight: 700;
         font-size: 2.3em;
-        background-image: -webkit-linear-gradient(left, #111, #999 25%, #444 60%, #c1c1c1 75%, #333);
-        -webkit-text-fill-color: transparent;
-        text-fill-color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-background-size: 200% 100%;
-        background-size: 200% 100%;
-        -webkit-animation: masked-animation 1.3s infinite linear 0.3s alternate;
-        animation: masked-animation 1.3s infinite linear 0.3s alternate;
+        font-family none;
       }
 
       .info {
@@ -258,7 +252,7 @@ body {
         text-align: justify;
 
         p {
-          padding: 0.8em 0.5em 0;
+          padding: 0 0.5em;
           line-height: normal;
           text-align: center;
 
@@ -351,21 +345,11 @@ body {
 
   .footer {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1rem;
     border: none;
     font-size: 1rem;
     text-align: center;
     color: #111;
-  }
-}
-
-@keyframes masked-animation {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: -100% 0;
   }
 }
 </style>
