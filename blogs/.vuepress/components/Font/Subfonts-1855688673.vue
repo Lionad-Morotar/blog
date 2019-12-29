@@ -1,10 +1,13 @@
-
 <template>
   <div class="placeholder"></div>
 </template>
 
 <script>
-export default {}
+export default {
+  mounted() {
+    document.body.classList.value = 'font-1855688673'
+  }
+}
 </script>
 
 <style>
