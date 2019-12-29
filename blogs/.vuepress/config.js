@@ -58,6 +58,7 @@ function getSidebar(name) {
         title: '心流 / Heart Flows',
         collapsable: false,
         children: [
+          'flow/2019',
           'flow/万物联结与幸福感',
           'flow/偷取时间',
           'flow/隐秘',
