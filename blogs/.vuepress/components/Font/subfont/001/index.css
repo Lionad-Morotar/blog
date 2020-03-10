@@ -1,0 +1,8 @@
+@font-face {
+  font-display: swap;
+  font-family: "Noto Serif SC 001";
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  src: url(./Noto_Serif_SC-300-1e95493a6c.woff2) format("woff2"), url(./Noto_Serif_SC-300-062c778073.woff) format("woff");
+}

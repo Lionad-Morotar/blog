@@ -1,0 +1,8 @@
+@font-face {
+  font-display: swap;
+  font-family: "Noto Serif SC wanwulianjie";
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 300;
+  src: url(./Noto_Serif_SC-300-a166d21f8e.woff2) format("woff2"), url(./Noto_Serif_SC-300-15879bdbf8.woff) format("woff");
+}
