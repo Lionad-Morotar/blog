@@ -8,6 +8,7 @@
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
     "subfont": "subfont ./blogs/.vuepress/public/fonts/subfont.ejs -o c://1",
+    "install-fonttools": "pip install fonttools brotli zopfli",
     "move": "move.ps1"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "markdown-it-katex": "^2.0.3",
     "node-cmd": "^3.0.0",
     "nodemon": "^1.19.2",
+    "subfont": "^4.2.0",
     "through2": "^3.0.1",
     "vuepress": "^1.2.0",
     "vuepress-plugin-medium-zoom": "^1.1.6",
