@@ -4,3 +4,4 @@
 [] RSS
 [] 图片轮播组件
 [] 移服务器
+[] 静态资源路径，见 https://www.vuepress.cn/zh/guide/assets.html#基础路径
