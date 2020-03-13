@@ -1,4 +1,5 @@
 const sidebar = require('./sidebar.js')
+const configureWebpack = require('./webpack.config.js')
 
 module.exports = {
   /** develop config */
@@ -50,5 +51,7 @@ module.exports = {
     //     selector: '.theme-container img'
     //   }
     // ]
-  ]
+  ],
+
+  configureWebpack
 }
