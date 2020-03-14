@@ -1,5 +1,5 @@
 <template>
-  <div class="loading">
+  <div ref="loading" class="loading">
     <div class="loading__triangle" />
     <div class="loading__loading-circle"></div>
     <div class="cogs">
@@ -27,20 +27,30 @@
         <div />
       </div>
     </div>
-    <div class="loading__end">
-      <div />
-      <div />
-      <div />
-    </div>
   </div>
 </template>
 
 <script>
 export default {
   computed: {},
-  mounted() {},
-  destroyed() {},
-  methods: {}
+  mounted() {
+    this.$refs.loading.addEventListener('animationend', this.checkIsLoadingEnd)
+  },
+  beforeDestroy() {
+    this.$refs.loading.removeEventListener(
+      'animationend',
+      this.checkIsLoadingEnd
+    )
+  },
+  methods: {
+    checkIsLoadingEnd(event) {
+      const isEnd = event.target === this.$refs.loading
+      isEnd && this.loadingEnd(event)
+    },
+    loadingEnd(event) {
+      this.$emit('animationEnd')
+    }
+  }
 }
 </script>
 
@@ -56,6 +66,7 @@ $color-red-main: #985851;
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 /**
@@ -350,59 +361,20 @@ $hole-size-base: 0.7;
   }
 }
 
-/**
- * end
- */
-.loading__end {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(-100%);
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
-    width: 40px;
-    height: 40px;
-    background-color: $color-yellow-main;
-  }
-
-  div {
-    position: absolute;
-    top: calc(50% - 50vmax);
-    left: calc(50% - 50vmax);
-    width: 100vmax;
-    height: 100vmax;
-    transform: scale(0);
-  }
-  div:nth-child(1) {
-    background-color: $color-yellow-main;
-  }
-  div:nth-child(2) {
-    background-color: $color-red-main;
-  }
-  div:nth-child(3) {
-    background-color: #fff;
-  }
-}
-
 /*************************************************************************************
  * SECTION animation
  *************************************************************************************/
 $start-delay: 0s;
 $triangle-in: 0.5s;
 $loading-circle-in: 0.3s;
-$loading-end: 7.6s;
 $loading-circle-1-turn: 1.8s;
 $circle-dispear: $loading-circle-in + ($loading-circle-1-turn * 1.3);
 $cog-in: $circle-dispear + 0.2s;
+$loading-end: 7.6s;
 
 .loading {
+  animation: fadeout 0.5s ease-out $loading-end forwards;
+
   .loading__loading-circle:before {
     animation: loading__scale-box 1s ease $start-delay forwards,
       loading__transparent 1s ease $circle-dispear forwards;
@@ -452,22 +424,6 @@ $cog-in: $circle-dispear + 0.2s;
     .cog__bottom {
       animation: cog-turn1 7.3s infinite linear $cog-in + 0.6s + 0.4s,
         scale0-1 0.4s ease $cog-in + 0.6s;
-    }
-  }
-  .loading__end {
-    animation: slide-bottom 0.5s ease $loading-end forwards;
-    &::before {
-      animation: -turn1 1s linear $loading-end infinite;
-    }
-
-    div:nth-child(1) {
-      animation: loading__end 0.5s ease $loading-end + 0.35s forwards;
-    }
-    div:nth-child(2) {
-      animation: loading__end 0.5s ease $loading-end + 0.5s forwards;
-    }
-    div:nth-child(3) {
-      animation: loading__end 0.5s ease $loading-end + 0.55s forwards;
     }
   }
 }
@@ -535,15 +491,6 @@ $cog-in: $circle-dispear + 0.2s;
   }
   to {
     transform: rotate(-1turn);
-  }
-}
-
-@keyframes loading__end {
-  from {
-    transform: scale(0) rotate(0deg);
-  }
-  to {
-    transform: scale(1) rotate(-90deg);
   }
 }
 </style>
