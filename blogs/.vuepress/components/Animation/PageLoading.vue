@@ -75,7 +75,7 @@ $color-red-main: #985851;
     position: absolute;
     width: 200%;
     height: 100%;
-    background-color: #53523c;
+    background-color: #2c291f;
     opacity: 0;
   }
   &::before {
@@ -117,7 +117,7 @@ $color-red-main: #985851;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #53523c;
+    background-color: #2c291f;
     border-radius: 50%;
     transform: scale(0);
   }
