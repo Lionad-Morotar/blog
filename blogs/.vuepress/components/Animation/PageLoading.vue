@@ -1,9 +1,29 @@
 <template>
   <div class="loading">
     <div class="loading__triangle" />
-    <div class="loading__loading-box"></div>
+    <div class="loading__loading-circle"></div>
+    <div class="cogs">
+      <div class="cog cog__top">
+        <div class="cog-part top-part"></div>
+        <div class="cog-part top-part"></div>
+        <div class="cog-part top-part"></div>
+        <div class="cog-hole top-hole"></div>
+      </div>
+      <div class="cog cog__left">
+        <div class="cog-part left-part"></div>
+        <div class="cog-part left-part"></div>
+        <div class="cog-part left-part"></div>
+        <div class="cog-hole left-hole"></div>
+      </div>
+      <div class="cog cog__bottom">
+        <div class="cog-part bottom-part"></div>
+        <div class="cog-part bottom-part"></div>
+        <div class="cog-part bottom-part"></div>
+        <div class="cog-hole bottom-hole"></div>
+      </div>
+    </div>
     <div class="loading__view-box">
-      <div class="loading__loading">
+      <div class="loading__loading-text">
         <div />
       </div>
     </div>
@@ -55,7 +75,7 @@ $color-red-main: #985851;
     position: absolute;
     width: 200%;
     height: 100%;
-    background-color: #43445b;
+    background-color: #53523c;
     opacity: 0;
   }
   &::before {
@@ -85,7 +105,7 @@ $color-red-main: #985851;
 /**
  * box
  */
-.loading__loading-box {
+.loading__loading-circle {
   position: absolute;
 
   &::before,
@@ -97,16 +117,19 @@ $color-red-main: #985851;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #43445b;
+    background-color: #53523c;
     border-radius: 50%;
     transform: scale(0);
   }
   &::before {
+    border: solid white;
+    box-sizing: border-box;
     opacity: 0.1;
+    z-index: -1;
   }
 }
 @include pc-layout {
-  .loading__loading-box {
+  .loading__loading-circle {
     top: calc(50% - 325px);
     left: calc(50% - 325px);
     width: 650px;
@@ -114,11 +137,116 @@ $color-red-main: #985851;
   }
 }
 @include sp-layout {
-  .loading__loading-box {
+  .loading__loading-circle {
     top: calc(50% - (50vw - 10px));
     left: 10px;
     width: calc(100vw - 20px);
     height: calc(100vw - 20px);
+  }
+}
+
+/**
+ * cogs
+ */
+$cogs-size: 250px;
+$hole-size-base: 0.7;
+.cogs {
+  z-index: -2;
+  width: $cogs-size;
+  height: $cogs-size;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  .cog {
+    position: absolute;
+    // TODO 如果加了 Filter，齿轮周围会有渲染错误
+    // filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.1));
+    transform: scale(0);
+
+    .cog-part {
+      width: $cogs-size;
+      border-radius: 20px;
+      position: absolute;
+      height: $cogs-size;
+
+      &:nth-of-type(1) {
+        transform: rotate(30deg);
+      }
+      &:nth-of-type(2) {
+        transform: rotate(60deg);
+      }
+      &:nth-of-type(3) {
+        transform: rotate(90deg);
+      }
+    }
+    .cog-hole {
+      border-radius: 100%;
+      background: white;
+      position: absolute;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  .cog__top {
+    $base: 1;
+    $size: $cogs-size * $base;
+    width: $size;
+    height: $size;
+    transform-origin: $size/2 $size/2;
+    top: -70%;
+    .cog-part {
+      width: $size;
+      height: $size;
+      background: #ce9d7e;
+    }
+    .cog-hole {
+      width: $size * $hole-size-base;
+      height: $size * $hole-size-base;
+    }
+  }
+  .cog__left {
+    $base: 0.9;
+    $size: $cogs-size * $base;
+    width: $size;
+    height: $size;
+    transform-origin: $size/2 $size/2;
+    top: 63%;
+    left: -48%;
+    .cog-part {
+      width: $size;
+      height: $size;
+      background: #985851;
+    }
+    .cog-hole {
+      width: $size * $hole-size-base;
+      height: $size * $hole-size-base;
+    }
+  }
+  .cog__bottom {
+    $base: 0.7;
+    $size: $cogs-size * $base;
+    width: $size;
+    height: $size;
+    transform-origin: $size/2 $size/2;
+    top: 62%;
+    right: -56%;
+    .cog-part {
+      width: $size;
+      height: $size;
+      background: #ebd2ae;
+    }
+    .cog-hole {
+      width: $size * $hole-size-base;
+      height: $size * $hole-size-base;
+    }
   }
 }
 
@@ -146,7 +274,7 @@ $color-red-main: #985851;
 }
 
 /*** loading ***/
-.loading__loading {
+.loading__loading-text {
   position: absolute;
   top: 0;
   left: 0;
@@ -190,13 +318,13 @@ $color-red-main: #985851;
   }
 }
 @include pc-layout {
-  .loading__loading div {
+  .loading__loading-text div {
     top: calc(50% - 25px);
     left: calc(50% - 225px);
     width: 450px;
     height: 50px;
   }
-  .loading__loading::before {
+  .loading__loading-text::before {
     top: 20px;
     left: 20px;
     border-top: solid 10px #fff;
@@ -206,13 +334,13 @@ $color-red-main: #985851;
   }
 }
 @include sp-layout {
-  .loading__loading div {
+  .loading__loading-text div {
     top: calc(50% - 20px);
     left: 20px;
     width: calc(100% - 40px);
     height: 40px;
   }
-  .loading__loading::before {
+  .loading__loading-text::before {
     top: 10px;
     left: 10px;
     border-top: solid 5px #fff;
@@ -264,16 +392,20 @@ $color-red-main: #985851;
 }
 
 /*************************************************************************************
- * animation
+ * SECTION animation
  *************************************************************************************/
 $start-delay: 0s;
 $triangle-in: 0.5s;
-$loading-start: 0.9s;
-$loading-end: 4.6s;
+$loading-circle-in: 0.3s;
+$loading-end: 7.6s;
+$loading-circle-1-turn: 1.8s;
+$circle-dispear: $loading-circle-in + ($loading-circle-1-turn * 1.3);
+$cog-in: $circle-dispear + 0.2s;
 
 .loading {
-  .loading__loading-box:before {
-    animation: loading__scale-box 1s ease $start-delay forwards;
+  .loading__loading-circle:before {
+    animation: loading__scale-box 1s ease $start-delay forwards,
+      loading__transparent 1s ease $circle-dispear forwards;
   }
   .loading__triangle {
     &::before,
@@ -281,23 +413,45 @@ $loading-end: 4.6s;
       animation: fadein 1s ease $triangle-in forwards;
     }
   }
-  .loading__loading-box {
-    animation: loading__turn-search-wrapper 1s ease $loading-start forwards;
+  .loading__loading-circle {
+    animation: loading__turn-search-wrapper 1s ease $loading-circle-in;
   }
-  .loading__loading-box:after {
-    animation: loading__scale-box 1s ease $loading-start forwards;
+  .loading__loading-circle:after {
+    animation: loading__scale-box 1s ease $loading-circle-in forwards,
+      scale1-0 0.3s ease $circle-dispear + ($loading-circle-1-turn / 10)
+        forwards;
   }
-  .loading__loading {
+  .loading__view-box {
+    animation: destroy 0.1s ease $circle-dispear + ($loading-circle-1-turn / 10)
+      forwards;
+  }
+  .loading__loading-text {
     &::before {
-      animation: fadein 1s ease $loading-start forwards,
-        -turn1 7s ease $loading-start forwards;
+      animation: fadein 1s ease $loading-circle-in forwards,
+        -turn1 $loading-circle-1-turn ease $loading-circle-in infinite,
+        fadeout 1s ease $circle-dispear forwards;
     }
     div:after {
-      animation: slide-right 0.4s ease $loading-start + 0.2s forwards,
-        slide-left 0.4s ease $loading-start + 0.4s reverse forwards;
+      animation: slide-right 0.4s ease $loading-circle-in + 0.2s forwards,
+        slide-left 0.4s ease $loading-circle-in + 0.4s reverse forwards;
     }
     div:before {
-      animation: fadein 0.05s ease $loading-start + 0.35s forwards;
+      animation: fadein 0.05s ease $loading-circle-in + 0.35s forwards,
+        fadeout 1s ease $circle-dispear forwards;
+    }
+  }
+  .cogs {
+    .cog__top {
+      animation: cog-turn1 10s infinite linear $cog-in + 0.2s + 0.2s,
+        scale0-1 0.2s ease $cog-in + 0.2s;
+    }
+    .cog__left {
+      animation: -cog-turn1 8.8s infinite linear $cog-in + 0.4s + 0.3s,
+        scale0-1 0.3s ease $cog-in + 0.4s;
+    }
+    .cog__bottom {
+      animation: cog-turn1 7.3s infinite linear $cog-in + 0.6s + 0.4s,
+        scale0-1 0.4s ease $cog-in + 0.6s;
     }
   }
   .loading__end {
@@ -318,31 +472,9 @@ $loading-end: 4.6s;
   }
 }
 
-@keyframes loading__bloom-flower {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes loading__show-search-btn {
-  from {
-    transform: translateX(-10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
+/*************************************************************************************
+ * SECTION keyframes
+ *************************************************************************************/
 
 @keyframes loading__turn-search-wrapper {
   0% {
@@ -368,32 +500,41 @@ $loading-end: 4.6s;
   }
 }
 
-@keyframes loading__input-word {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
+@keyframes loading__transparent {
+  from {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 0px 0 rgba(255, 255, 255, 0.6),
+      0px 0px 0 0px rgba(0, 0, 0, 0.8) inset;
   }
-  50% {
-    transform: translateY(10px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+  to {
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    box-shadow: 0px 0px 0px 100000px rgba(255, 255, 255, 1),
+      0px 0px 60px 0px rgba(0, 0, 0, 0.7) inset;
+    background-color: transparent;
+    opacity: 0.3;
   }
 }
-@keyframes loading__input-word__sp {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
+
+@keyframes cog-turn1 {
+  from {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: translateY(4px);
-    opacity: 1;
+  to {
+    transform: rotate(1turn);
   }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
+}
+@keyframes -cog-turn1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-1turn);
   }
 }
 
