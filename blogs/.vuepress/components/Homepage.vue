@@ -2,354 +2,38 @@
   <div class="home">
     <link rel="prefetch" href="/articles/index.html" />
 
-    <!-- background images -->
-    <css-doodle class="fixed" @click="generateShape">
-      :doodle { @grid: 18 / 100vmax; opacity: .1; } --hue: calc(180 + 1.5 *
-      @row() * @col()); background: hsl(var(--hue), 45%, 65%); margin: -.5px;
-      transition: @r(.5s) ease; clip-path: polygon(@pick( '0 0, 100% 0, 100%
-      100%', '0 0, 100% 0, 0 100%', '0 0, 100% 100%, 0 100%', '100% 0, 100%
-      100%, 0 100%' ));
-    </css-doodle>
-
-    <!-- card -->
-    <div class="wrapper">
-      <div class="avatar">
-        <img :src="$withBase(data.avatar)" alt />
-      </div>
-      <div class="card">
-        <div class="bio">
-          <div class="head">
-            <span>{{ data.head }}</span>
-          </div>
-          <div class="info">
-            <span>{{ data.info }}</span>
-          </div>
-          <div class="description">
-            <Content />
-          </div>
-        </div>
-        <div class="buttons">
-          <div class="into-article">
-            <a href="/articles/index.html">进入博客</a>
-          </div>
-        </div>
-        <div class="my-socials">
-          <div v-for="item in data.socials">
-            <a :href="item.link" target="_blank">
-              <img
-                class="link-svgs"
-                :src="item.icon || '/icons/' + item.title + '.svg'"
-                :alt="item.title"
-                :title="item.title"
-              />
-            </a>
-          </div>
-        </div>
-        <div class="actions">
-          <div v-for="item in data.actions">
-            <a
-              :href="item.link"
-              class="button"
-              :target="item.link.startsWith('/') ? '' : '_blank'"
-              >{{ item.text }}</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="footer" v-if="data.footer">{{ data.footer }}</div>
-    </div>
+    <PageLoading />
   </div>
 </template>
 
 <script>
-let curBGType = 1
-const bgType = [
-  `
-    :doodle {
-      @grid: 18 / 100vmax;
-      opacity: .1;
-    }
-    --hue: calc(180 + 1.5 * @row() * @col());
-    background: hsl(var(--hue), 45%, 65%);
-    margin: -.5px;
-    transition: @r(.5s) ease;
-    clip-path: polygon(@pick(
-      '0 0, 100% 0, 100% 100%',
-      '0 0, 100% 0, 0 100%',
-      '0 0, 100% 100%, 0 100%',
-      '100% 0, 100% 100%, 0 100%'
-    ));
-  `,
-  `
-    :doodle {
-      @grid: 18 / 100vmax;
-      opacity: .1;
-    }
-    --hue: calc(180 + 1.5 * @row() * @col());
-    background: hsl(var(--hue), 45%, 65%);
-    margin: -.5px;
-    transition: @r(.8s) ease;
-    clip-path: polygon(
-      @rand(100%) 0, 100% @rand(100%), 0 @rand(100%)
-    );
-  `,
-  `
-    :doodle {
-      @grid: 7 / 100vmax;
-      background: #fcfcfc;
-      opacity: .1;
-    }
-    @shape: clover 5;
-    background: hsla(
-      calc(360 - @i() * 4), 70%, 68%, @r(.8)
-    );
-    transform:
-      scale(@r(.2, 1.5))
-      translate(@m2(@r(-50%, 50%)));
-  `
-]
+import PageLoading from './Animation/PageLoading'
 
 export default {
+  components: {
+    PageLoading
+  },
   computed: {
     data() {
       return {
-        ...this.$page.frontmatter,
-        cssDoodle: null,
-        bgUpdateTick: null
+        ...this.$page.frontmatter
       }
     }
   },
-  mounted() {
-    this.initDoodle()
-    this.setBGUpdateInterval()
-  },
-  destroyed() {
-    this.clearBGUpdateInterval()
-  },
-  methods: {
-    initDoodle() {
-      const isExist = customElements && customElements.get('css-doodle')
-
-      if (!isExist) {
-        const cssDoodleNode = document.createElement('script')
-        cssDoodleNode.type = 'text/javascript'
-        cssDoodleNode.src = '/js/css-doodle.min.js'
-
-        window.document.getElementById('app').appendChild(cssDoodleNode)
-      }
-    },
-    setBGUpdateInterval() {
-      this.bgUpdateTick = setInterval(() => {
-        this.generate()
-      }, 2500)
-    },
-    clearBGUpdateInterval() {
-      clearInterval(this.bgUpdateTick)
-    },
-    generate(content) {
-      const doodle =
-        this.cssDoodle ||
-        ((this.cssDoodle = window.document.querySelector('css-doodle')),
-        this.cssDoodle)
-
-      doodle && doodle.update && doodle.update(content)
-    },
-    generateShape() {
-      this.clearBGUpdateInterval()
-      this.setBGUpdateInterval()
-      this.generate(bgType[curBGType++ % bgType.length])
-    }
-  }
+  mounted() {},
+  destroyed() {},
+  methods: {}
 }
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
+@import './styles/animation.scss';
 
-body {
-  user-select: none;
-
-  .fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    color: transparent;
-  }
-
-  .home {
-    max-width: 100%;
-    min-height: calc(100vh - 6rem);
-    display: flex;
-    padding: 2.4rem 2rem 0;
-  }
-
-  @media (max-width: $MQMobileNarrow) {
-    .home {
-      padding-left: 0;
-      padding-right: 0;
-      padding: 0 5vw;
-      padding-top: 2rem;
-    }
-  }
-}
-
-.wrapper {
+.home {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  // justify-content: center
-  align-items: center;
-
-  @avatarWidth: 31vw;
-  .avatar {
-    position: relative;
-    width: 31vw;
-    height: 31vw;
-        max-width: 150px;
-    max-height: 150px;
-    z-index: 1;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border: solid 3px white;
-      border-radius: 50%;
-    }
-  }
-
-  .card {
-    max-width: 600px;
-    width: 100%;
-    position: relative;
-    top: -8%;
-    padding-top: 75px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 0.3rem;
-    text-align: center;
-
-    .bio {
-      padding: 1em;
-
-      .head {
-        margin: 10px 0 0 0;
-        font-weight: 700;
-        font-size: 2.3em;
-        font-family none;
-      }
-
-      .info {
-        padding-top: 0.5rem;
-        font-size: 1em;
-        color: rgba(0, 0, 0, 0.4);
-      }
-
-      .description {
-        text-align: justify;
-
-        p {
-          padding: 0 0.5em;
-          line-height: normal;
-          text-align: center;
-
-          a {
-            font-weight: normal;
-          }
-        }
-      }
-    }
-
-    .buttons {
-      padding: 1.45em 1.5em;
-      border-top: 1px solid rgba(34, 36, 38, 0.1);
-
-      .into-article {
-        margin: auto;
-        width: 150px;
-        height: 40px;
-        line-height: 40px;
-        border: solid 1px #666;
-        border-radius: 3px;
-        transition .5s;
-        cursor: pointer;
-
-        a {
-          color: #777
-        }
-
-        &:hover {
-          background #f2f2f2
-          border: solid 1px #ccc;
-        }
-
-        &:active {
-          background #eee
-          border: solid 1px #666;
-          box-shadow 0 0 10px #eee
-        }
-      }
-    }
-
-    .my-socials {
-      display: flex;
-      flex-direction: row;
-      // align-items: center
-      border-top: 1px solid rgba(34, 36, 38, 0.1);
-      padding: 0 30px;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      .link-svgs, img {
-        width: 32px;
-        margin: 1em;
-        border-radius: 3px;
-        cursor: pointer;
-      }
-    }
-
-    .actions {
-      border-top: 1px solid rgba(34, 36, 38, 0.1);
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      // padding 1em
-      .button {
-        background-color: $btnBgColor;
-        border: none;
-        border-radius: 0.3em;
-        color: white;
-        padding: 0.5em 1em;
-        margin: 1em 0.5em;
-        font-size: 1rem;
-        font-family: inherit;
-        font-weight: 400;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        -webkit-transition-duration: 0.4s; /* Safari */
-        transition-duration: 0.4s;
-        cursor: pointer;
-
-        &:hover {
-          background-color: $btnHvColor;
-        }
-      }
-    }
-  }
-
-  .footer {
-    position: absolute;
-    bottom: 1rem;
-    border: none;
-    font-size: 1rem;
-    text-align: center;
-    color: #111;
-  }
+  height: 100%;
 }
 </style>
