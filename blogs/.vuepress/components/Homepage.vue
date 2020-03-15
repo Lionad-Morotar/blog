@@ -122,12 +122,13 @@ export default {
       elem: document.querySelector('.wrapper-brief'),
       callback: e => this.changeSlide(e)
     })
+    this.loading = window.localStorage.getItem('is-homepage-loading-done')
+      ? false
+      : true
   },
   data() {
     return {
-      loading: window.localStorage.getItem('is-homepage-loading-done')
-        ? false
-        : true,
+      loading: false,
       swipeIndicator: null,
       slide: SLIDES[0]
     }
@@ -136,7 +137,7 @@ export default {
     // 页面加载完成后
     clearLoading() {
       this.loading = false
-      window.localStorage.setItem('is-homepage-loading-done', '1')
+      localStorage.setItem('is-homepage-loading-done', '1')
       setTimeout(() => {
         this.changeSlide({ direction: 'down' })
       }, 1000)
