@@ -227,7 +227,7 @@ export default {
   top: 100%;
   left: 0;
   right: 0;
-  height: 60vh;
+  height: 70vh;
   z-index: 2;
 }
 .page-top {
@@ -425,6 +425,7 @@ $parallax__layers: 6;
     color: #e3e3e3;
     font-size: 12px;
     letter-spacing: 0.5px;
+    border: none;
   }
 }
 .home.brief {
@@ -453,7 +454,7 @@ $parallax__layers: 6;
     }
     .avatar {
       width: 200px;
-      height: 370px;
+      height: 270px;
     }
   }
 }
