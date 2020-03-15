@@ -67,6 +67,7 @@ $color-red-main: #985851;
   height: 100%;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.95);
+  z-index: 9999;
 }
 
 /**
@@ -161,6 +162,11 @@ $color-red-main: #985851;
  */
 $cogs-size: 250px;
 $hole-size-base: 0.7;
+@include sp-layout {
+  .cogs {
+    transform: scale(0.5);
+  }
+}
 .cogs {
   z-index: -2;
   width: $cogs-size;
@@ -180,9 +186,9 @@ $hole-size-base: 0.7;
 
     .cog-part {
       width: $cogs-size;
-      border-radius: 20px;
-      position: absolute;
       height: $cogs-size;
+      border-radius: 8px;
+      position: absolute;
 
       &:nth-of-type(1) {
         transform: rotate(30deg);

@@ -1,6 +1,6 @@
 ---
 layout: Homepage
-description: '前端攻城狮 @乘云小程序'
+description: 'Lionad Guirotar 的个人博客, 心流历程以及其它一些好玩的东西 | Lionad Blogs | Lionad-Guirotar Lionad-Morotar Lionad-RedOne'
 avatar: /avatar.gif
 head: 'Lionad-Guirotar'
 url: '/articles'
@@ -24,6 +24,6 @@ socials:
 footer: Lionad-Guirotar / Made with 💗
 ---
 
-砸键盘前端 | 砸吉他 | 午夜恶魔 | 听一堆 | 吃一堆 | 兴趣泛滥 | 手残玩家
+前端工程师，有技术激情和生活态度的那种 | 午夜吉他恶魔 | 兴趣泛滥的游戏玩家
 
 <Font-Subfonts-1399044560 />
