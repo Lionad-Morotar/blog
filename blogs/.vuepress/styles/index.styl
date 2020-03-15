@@ -9,6 +9,11 @@
   --font-text--bold: 'Noto Serif SC BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
+@font-face {
+  font-family: Dhenmark;
+  src: url('/fonts/Dhenmark.ttf');
+}
+
 body {
   font-family: var(--font-text--general);
 }
@@ -16,10 +21,34 @@ body {
 .sidebar {
   width: 25em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  border: none;
 }
 
 .navbar {
   font-family: none;
+  background-color: rgba(254, 220, 200, 0.95);
+  border-bottom: solid 1px #ecdad2;
+
+  .site-name {
+    color: #221522 !important;
+
+    &::before {
+      content: ' ';
+      background: url('/images/avatar.gif');
+    }
+  }
+
+  .links {
+    background-color: #fedcc8 !important;
+  }
+
+  .search-box input {
+    background-color: #fbebe1 !important;
+  }
+
+  .search-box input:focus {
+    border-color: #843c46 !important;
+  }
 }
 
 .page-nav {
@@ -73,19 +102,20 @@ div[class*='language-'] {
 /* 定义滚动条轨道 内阴影+圆角 */
 ::-webkit-scrollbar-track {
   border-radius: 1px;
-  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
   background-color: #F5F5F5;
 }
 
 /* 定义滑块 内阴影+圆角 */
 ::-webkit-scrollbar-thumb {
   border-radius: 2px;
-  // -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
-  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.6);
   border-radius: 2px;
-  background: #c9c9c9;
-  /* 线性渐变 */
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.44, #f3e7df),
+    color-stop(0.86, #f3e7df)
+  );
   transition: 0.3s ease-in-out;
 }
 
@@ -95,8 +125,8 @@ div[class*='language-'] {
     linear,
     left bottom,
     left top,
-    color-stop(0.44, #333),
-    color-stop(0.86, #999)
+    color-stop(0.44, #e7cebf),
+    color-stop(0.86, #dab69e)
   );
   transition: 0.3s ease-in-out;
 }
@@ -1096,6 +1126,7 @@ div[class*='language-'] {
   }
 
   h1 {
+    margin-top: 0px !important;
     font-size: 48px;
   }
 

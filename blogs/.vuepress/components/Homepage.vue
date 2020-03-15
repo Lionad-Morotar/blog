@@ -125,10 +125,9 @@ export default {
   },
   data() {
     return {
-      // loading: window.localStorage.getItem('is-homepage-loading-done')
-      //   ? false
-      //   : true,
-      loading: true,
+      loading: window.localStorage.getItem('is-homepage-loading-done')
+        ? false
+        : true,
       swipeIndicator: null,
       slide: SLIDES[0]
     }
@@ -181,6 +180,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+  max-width: 100vw;
   background-color: #fedcc8;
 
   ::-webkit-scrollbar {
@@ -283,6 +283,9 @@ $parallax__layers: 6;
   text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
   letter-spacing: 2px;
   white-space: nowrap;
+  color: #221522;
+  animation: fadein 1s;
+
   &::after {
     content: ' .';
     animation: page-title-dot-blink 1.6s ease-in infinite;
