@@ -21,6 +21,7 @@ const sidebarConfigs = {
       title: '博客 / Blogs',
       collapsable: false,
       children: [
+        '200319-从最近很流行的一张CSS风景画中学到的东西',
         '191112-有关CSS的一些极有趣的东西',
         '007-近来的新工作，及喝饮料时的一些思考',
         '006-聊聊聊此次离职毕业及其它杂乱的事情',
