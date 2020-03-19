@@ -1,4 +1,4 @@
 
-ren tmp/subfont 445336933
-mv tmp/445336933 blogs/.vuepress/components/Font/subfont
-mv tmp/Subfonts-445336933.vue blogs/.vuepress/components/Font
+ren tmp/subfont 2017236747
+mv tmp/2017236747 blogs/.vuepress/components/Font/subfont
+mv tmp/Subfonts-2017236747.vue blogs/.vuepress/components/Font

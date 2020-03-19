@@ -259,7 +259,7 @@ mv tmp/Subfonts-${nameHash}.vue blogs/.vuepress/components/Font
     )
 })
 
-gulp.task('clean', () => del(['.tmp', 'tmp', 'dist'], { dot: true }))
+gulp.task('clean', () => del(['.tmp', 'tmp'], { dot: true }))
 
 // gulp.task('watch', () => {
 //   gulp.watch([...mdFileDirs], ['font'])
