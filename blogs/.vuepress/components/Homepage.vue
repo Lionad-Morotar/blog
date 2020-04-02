@@ -84,6 +84,23 @@
     <div class="wrapper wrapper-brief">
       <div class="page-title-con">
         <div class="page-title">Lionad's Blogs</div>
+        <div class="page-side-title">Newest Posts</div>
+        <div class="page-side-content">
+          <template v-for="section in articles" v-if="section.label">
+            <p class="article-list">
+              <span
+                class="article-list-label"
+                v-text="section.label + '：'"
+              ></span>
+              <span class="article-list-content">
+                <a
+                  :href="`/articles/${section.childrenRaw[0]}.html`"
+                  v-text="section.childrenRaw[0]"
+                ></a>
+              </span>
+            </p>
+          </template>
+        </div>
         <div class="page-tip">向下滑动</div>
       </div>
     </div>
@@ -96,8 +113,8 @@
 </template>
 
 <script>
+const sidebar = require('../sidebar')
 import PageLoading from './Animation/PageLoading'
-
 import SwipeIndicator from './utils/swipe-indicator'
 
 const SLIDES = ['brief', 'detail']
@@ -128,6 +145,7 @@ export default {
   },
   data() {
     return {
+      articles: sidebar.getSidebar('articles'),
       loading: false,
       swipeIndicator: null,
       slide: SLIDES[0]
@@ -138,9 +156,9 @@ export default {
     clearLoading() {
       this.loading = false
       localStorage.setItem('is-homepage-loading-done', '1')
-      setTimeout(() => {
-        this.changeSlide({ direction: 'down' })
-      }, 1000)
+      // setTimeout(() => {
+      //   this.changeSlide({ direction: 'down' })
+      // }, 1000)
     },
     // 滚动页面
     changeSlide(e) {
@@ -290,6 +308,29 @@ $parallax__layers: 6;
   &::after {
     content: ' .';
     animation: page-title-dot-blink 1.6s ease-in infinite;
+  }
+}
+.page-side-title {
+  margin-top: 1em;
+  margin-bottom: 0.7em;
+  text-align: center;
+  font-family: garamond, serif;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.page-side-content {
+  text-align: center;
+
+  .article-list {
+    margin-top: 0.4em;
+  }
+  .article-list-content {
+    &::before {
+      content: '《';
+    }
+    &::after {
+      content: '》';
+    }
   }
 }
 @include pc-layout {
