@@ -78,7 +78,10 @@
         </div> -->
       </div>
 
-      <div class="footer" v-if="data.footer">{{ data.footer }}</div>
+      <div class="footer" v-if="data.footer">
+        <span> {{ data.footer }} / </span>
+        <a href="/friends">友情链接(Links)</a>
+      </div>
     </div>
 
     <div class="wrapper wrapper-brief">
@@ -145,6 +148,7 @@ export default {
   },
   data() {
     return {
+      sidebar,
       articles: sidebar.getSidebar('articles'),
       loading: false,
       swipeIndicator: null,
@@ -317,6 +321,7 @@ $parallax__layers: 6;
   font-family: garamond, serif;
   font-size: 1.5em;
   font-weight: bold;
+  font-variant: small-caps;
 }
 .page-side-content {
   text-align: center;
@@ -467,6 +472,10 @@ $parallax__layers: 6;
     font-size: 12px;
     letter-spacing: 0.5px;
     border: none;
+
+    a {
+      color: #e3e3e3;
+    }
   }
 }
 .home.brief {

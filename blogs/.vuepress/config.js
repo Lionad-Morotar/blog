@@ -26,7 +26,8 @@ module.exports = {
       { text: 'Flows', link: '/articles/' }
     ],
     sidebar: {
-      '/articles/': sidebar.getSidebar('articles')
+      '/articles/': sidebar.getSidebar('articles'),
+      '/friends/': sidebar.getSidebar('friends')
     },
     lastUpdated: 'Last Updated'
   },

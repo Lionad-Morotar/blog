@@ -52,7 +52,9 @@ const sidebarConfigs = {
 Object.values(sidebarConfigs).map(sections => {
   sections.map(section => {
     if (!section.children) {
-      section.children = section.childrenGen(section.childrenRaw)
+      section.children = section.childrenGen
+        ? section.childrenGen(section.childrenRaw)
+        : section.childrenRaw
     }
     if (!section.childrenRaw) {
       section.childrenRaw = section.children
