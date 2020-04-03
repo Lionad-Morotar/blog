@@ -97,7 +97,7 @@
               ></span>
               <span class="article-list-content">
                 <a
-                  :href="`/articles/${section.childrenRaw[0]}.html`"
+                  :href="`/articles/${section.children[0]}.html`"
                   v-text="section.childrenRaw[0]"
                 ></a>
               </span>
