@@ -24,6 +24,7 @@ const sidebarConfigs = {
       label: '博客',
       collapsable: false,
       children: [
+        '用JS实现一些造型构成',
         '从最近很流行的一张CSS风景画中学到的东西',
         '有关CSS的一些极有趣的东西',
         '近来的新工作，及喝饮料时的一些思考',

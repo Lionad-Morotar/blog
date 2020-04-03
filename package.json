@@ -50,5 +50,7 @@
     "vuepress-plugin-nprogress": "^1.1.4",
     "webpack": "^4.35.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue-p5": "^0.8.3"
+  }
 }
