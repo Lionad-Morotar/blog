@@ -1,15 +1,13 @@
 <template>
   <div class="circle-draw">
-    <vue-p5 @setup="setup" @draw="draw" @mousepressed="mousePressed"></vue-p5>
+    <ClientOnly>
+      <vue-p5 @setup="setup" @draw="draw" @mousepressed="mousePressed"></vue-p5>
+    </ClientOnly>
   </div>
 </template>
 
 <script>
-import VueP5 from 'vue-p5'
 export default {
-  components: {
-    'vue-p5': VueP5
-  },
   data: () => ({
     lightDirection: 0,
     radius: 5,

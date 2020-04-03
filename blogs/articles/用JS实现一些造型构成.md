@@ -1,4 +1,6 @@
-# 用 JS 实现一些造型构成
+# 🍥 用 JS 实现一些造型构成
+
+用`P5.js`做了一些造型构成练习，源码都在 [Github](https://github.com/Lionad-Morotar/blogs/tree/master/blogs/.vuepress/components) 上，欢迎来星星 ⭐
 
 ## Lenses Boom
 

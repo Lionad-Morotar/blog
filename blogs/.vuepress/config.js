@@ -15,7 +15,8 @@ module.exports = {
   head: [
     ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
     ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
-    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }]
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+    ['script', { src: '/js/p5.min.js' }]
   ],
 
   /** theme config */
