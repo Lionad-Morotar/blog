@@ -25,6 +25,7 @@ export default {
 </script>
 <style lang="stylus">
 .simple-list-cmpt {
+  box-sizing: border-box;
   display: flex;
   margin-top: 2em;
   padding: 8px 12px;
