@@ -19,6 +19,8 @@ export default {
     }
   }),
   mounted() {
+    this.width = document.querySelector('h1').offsetWidth
+    this.height = this.width * 0.618
     this.calcCenter()
   },
   methods: {
@@ -92,6 +94,11 @@ export default {
 
   & > div {
     display flex
+    width 100%
+  }
+  & > div > canvas {
+    width 100% !important;
+    height unset !important;
   }
 }
 </style>
