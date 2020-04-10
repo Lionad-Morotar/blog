@@ -1,7 +1,6 @@
 ---
 layout: Homepage
 description: 'Lionad Guirotar 的个人博客, 心流历程以及其它一些好玩的东西 | Lionad Blogs | Lionad-Guirotar Lionad-Morotar Lionad-RedOne'
-avatar: /avatar.gif
 head: 'Lionad-Guirotar'
 url: '/articles'
 socials:

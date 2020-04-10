@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev blogs",
+    "dev-proxy": "justproxy -s 80 -p 8080",
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
     "subfont": "subfont ./blogs/.vuepress/public/fonts/subfont.ejs -o c://1",
@@ -38,6 +39,7 @@
     "gulp-load-plugins": "^2.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
+    "justproxy": "^1.0.0",
     "markdown-it-katex": "^2.0.3",
     "node-cmd": "^3.0.0",
     "node-sass": "^4.13.1",

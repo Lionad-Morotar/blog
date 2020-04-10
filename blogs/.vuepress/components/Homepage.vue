@@ -4,25 +4,39 @@
     <div class="parallax">
       <a href="#page-top" id="page-top" />
       <div class="parallax__layer parallax__layer__0">
-        <img src="../public/images/homepage/layer_0.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png"
+        />
       </div>
       <div class="parallax__layer parallax__layer__1">
-        <img src="../public/images/homepage/layer_1.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png"
+        />
       </div>
       <div class="parallax__layer parallax__layer__2">
-        <img src="../public/images/homepage/layer_2.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png"
+        />
       </div>
       <div class="parallax__layer parallax__layer__3">
-        <img src="../public/images/homepage/layer_3.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png"
+        />
       </div>
       <div class="parallax__layer parallax__layer__4">
-        <img src="../public/images/homepage/layer_4.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png"
+        />
       </div>
       <div class="parallax__layer parallax__layer__5">
-        <img src="../public/images/homepage/layer_5.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png"
+        />
       </div>
       <div class="parallax__layer parallax__layer__6">
-        <img src="../public/images/homepage/layer_6.png" />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png"
+        />
       </div>
       <div class="parallax__cover">
         <a href="#page-bottom" id="page-bottom" />
@@ -32,7 +46,7 @@
     <div class="wrapper wrapper-detail">
       <div class="avatar">
         <img
-          :src="$withBase(data.avatar)"
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/avatar.gif"
           alt="Lionad's Avatar"
           draggable="false"
         />
@@ -54,28 +68,6 @@
             <a href="/articles/index.html">进入博客</a>
           </div>
         </div>
-        <!-- <div class="my-socials">
-          <div v-for="item in data.socials">
-            <a :href="item.link" target="_blank">
-              <img
-                class="link-svgs"
-                :src="item.icon || '/icons/' + item.title + '.svg'"
-                :alt="item.title"
-                :title="item.title"
-              />
-            </a>
-          </div>
-        </div>
-        <div class="actions">
-          <div v-for="item in data.actions">
-            <a
-              :href="item.link"
-              class="button"
-              :target="item.link.startsWith('/') ? '' : '_blank'"
-              >{{ item.text }}</a
-            >
-          </div>
-        </div> -->
       </div>
 
       <div class="footer" v-if="data.footer">

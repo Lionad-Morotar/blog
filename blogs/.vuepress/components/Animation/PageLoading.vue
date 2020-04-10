@@ -322,7 +322,7 @@ $hole-size-base: 0.7;
       height: 100%;
     }
     &::before {
-      background-image: url(../../public/images/loading/loading.svg);
+      background-image: url(http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/loading.svg);
       background-size: auto 70%;
       background-repeat: no-repeat;
       background-position: center;
