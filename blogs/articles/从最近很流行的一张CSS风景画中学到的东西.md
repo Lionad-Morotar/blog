@@ -4,7 +4,7 @@
 
 ![An Evening in Southwold](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/browser_c5Q2Z8gnR9.jpg)
 
-天空的眩光，睡眠反射，精细的房屋细节相当惊艳，下面我们大致说一说这张图片中的一些技术细节。图画的源码地址在文末。
+天空的眩光，水面反射，精细的房屋细节相当惊艳，下面我们大致说一说这张图片中的一些技术细节。图画的源码地址在文末。
 
 ## 分析
 
