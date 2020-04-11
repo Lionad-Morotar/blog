@@ -36,6 +36,7 @@
     "gulp-load-plugins": "^2.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
+    "http-server": "^0.12.1",
     "justproxy": "^1.0.0",
     "markdown-it-katex": "^2.0.3",
     "node-cmd": "^3.0.0",
