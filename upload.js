@@ -4,7 +4,7 @@ const cmd = require('node-cmd')
 
 const distDir = './dist'
 const publicDirName = 'mgear'
-const publicOBSTarget = `obs://blog-image`
+const publicOBSTarget = `obs://blog-image/mgear`
 const websiteOBSTarget = `obs://mgear-blogs`
 
 const uploadImages = `obsutil sync ${distDir}/${publicDirName}/image ${publicOBSTarget}/image`
