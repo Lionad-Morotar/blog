@@ -11,21 +11,6 @@
 
 ## 项目运行
 
-### 前置条件
-
-如果需要使用到中文字体切分相关功能，需要安装一下环境：
-
-- python
-- node(and npm)
-
-执行一下命令：
-
-```
-npm install -g gulp@3.9.1
-npm install -g subfont
-pip install fonttools brotli zopfli
-```
-
 ### 开发环境
 
 ```

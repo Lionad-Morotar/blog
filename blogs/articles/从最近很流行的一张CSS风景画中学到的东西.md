@@ -1,7 +1,5 @@
 # 🔥 从最近流行的一幅 CSS 风景画中学习 2 个知识点
 
-<Font-Subfonts-2017236747 />
-
 最近 CodePen 流行的一张用纯 CSS 绘制的风景画令人印象深刻：
 
 ![An Evening in Southwold](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/browser_c5Q2Z8gnR9.jpg)

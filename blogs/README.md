@@ -24,5 +24,3 @@ footer: Lionad-Guirotar / Made with 💗
 ---
 
 前端工程师，有技术激情和生活态度的那种 | 午夜吉他恶魔 | 兴趣泛滥的游戏玩家
-
-<Font-Subfonts-1399044560 />

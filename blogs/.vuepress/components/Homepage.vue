@@ -239,6 +239,7 @@ export default {
   display: block;
   position: absolute;
   top: 100%;
+  top: calc(100% - 1px);
   left: 0;
   right: 0;
   height: 70vh;
@@ -264,10 +265,6 @@ $parallax__layers: 6;
 
 /** SECTION  page-title */
 
-@font-face {
-  font-family: Dhenmark;
-  src: url(./fonts/Dhenmark.ttf);
-}
 .page-title-con {
   display: flex;
   flex-direction: column;
@@ -389,10 +386,10 @@ $parallax__layers: 6;
     color: #fbebe1;
 
     .head {
-      margin-top: 1.2em;
       font-weight: bolder;
-      font-size: 2.5em;
-      font-family: none;
+      font-family: garamond;
+      font-size: 55px;
+      line-height: 1.5em;
     }
     .description {
       margin-top: 1.2em;

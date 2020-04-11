@@ -9,9 +9,6 @@
     "dev-proxy": "justproxy -s 80 -p 8080",
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
-    "subfont": "subfont ./blogs/.vuepress/public/fonts/subfont.ejs -o c://1",
-    "install-fonttools": "pip install fonttools brotli zopfli",
-    "move": "move.ps1",
     "upload": "node ./upload"
   },
   "repository": {
