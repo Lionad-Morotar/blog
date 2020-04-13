@@ -40,6 +40,8 @@ export default {
 
   .simple-list-label {
     display flex
+    flex-shrink 0
+    align-items center
   }
 
   img {
@@ -56,6 +58,11 @@ export default {
     justify-content: space-between;
     align-items: center;
 
+    @media screen and (max-width: 800px) {
+      .name {
+        display: none;
+      }
+    }
     .name a {
       font-weight: bold;
     }
