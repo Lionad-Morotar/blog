@@ -9,7 +9,8 @@
     "dev-proxy": "justproxy -s 80 -p 8080",
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
-    "upload": "node ./upload"
+    "upload": "node ./upload",
+    "post": "npm run build && npm run upload"
   },
   "repository": {
     "type": "git",
