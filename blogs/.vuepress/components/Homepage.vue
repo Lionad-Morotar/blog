@@ -72,7 +72,7 @@
 
       <div class="footer" v-if="data.footer">
         <span> {{ data.footer }} / </span>
-        <a href="/friends">与我联系 & 友情链接(Links)</a>
+        <a href="/friends" target="_blank">与我联络 & 友情链接(Links)</a>
       </div>
     </div>
 

@@ -5,9 +5,9 @@
         <img :src="img" />
       </div>
       <div class="simple-list-content">
-        <span class="name"
-          ><a :href="src" target="__blank">{{ name }}</a></span
-        >
+        <span class="name">
+          <a :href="src" target="__blank">{{ name }}</a>
+        </span>
         <span class="achieve">{{ achieve }}</span>
       </div>
     </div>
