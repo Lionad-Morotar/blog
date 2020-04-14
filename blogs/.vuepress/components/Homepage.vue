@@ -5,6 +5,7 @@
       <a href="#page-top" id="page-top" />
       <div class="parallax__layer parallax__layer__0">
         <img
+          class="cloud"
           src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png"
         />
       </div>
@@ -231,6 +232,18 @@ export default {
     display: block;
     position: absolute;
     bottom: 0;
+  }
+  img.cloud {
+    opacity: .5;
+    animation: cloud-move 20s ease alternate infinite;
+  }
+  @keyframes cloud-move {
+    from {
+      left: -5%;
+    }
+    to {
+      left: 5%;
+    }
   }
 }
 
