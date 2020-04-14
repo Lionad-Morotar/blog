@@ -372,3 +372,19 @@ div[class*='language-'] {
     }
   }
 }
+
+@media print, speech {
+  .page > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    background: white;
+  }
+  .navbar, 
+  .sidebar-mask, 
+  .sidebar {
+    display: none;
+  }
+}
