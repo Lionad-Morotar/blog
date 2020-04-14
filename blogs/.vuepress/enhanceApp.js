@@ -1,4 +1,5 @@
-import VueP5 from './components/P5/index.vue'
+import VueP5 from './components/segments/P5/index.vue'
+import WHRatio from './components/segments/WHRatio/index.vue'
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
@@ -8,4 +9,5 @@ export default ({
 }) => {
   Vue.config.ignoredElements = ['css-doodle']
   Vue.component('vue-p5', VueP5)
+  Vue.component('WHRatio', WHRatio)
 }

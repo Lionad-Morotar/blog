@@ -1,9 +1,7 @@
 <template>
-  <div class="circle-draw">
-    <ClientOnly>
-      <vue-p5 @setup="setup" @draw="draw" @mousepressed="mousePressed"></vue-p5>
-    </ClientOnly>
-  </div>
+  <WHRatio h="62%">
+    <vue-p5 @setup="setup" @draw="draw" @mousepressed="mousePressed"></vue-p5>
+  </WHRatio>
 </template>
 
 <script>
@@ -87,8 +85,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-.circle-draw {
-  display flex
+.wh-container {
   border-radius 3px
   overflow hidden
 
