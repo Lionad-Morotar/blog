@@ -418,21 +418,31 @@ export default {
   }
 }
 .card:nth-child(6) {
-  border: solid 1px #888;
+  box-sizing: border-box;
+  border: solid .5em transparent;
+  border-image: 8 repeating-linear-gradient(-45deg, #F5E66C 0, #F5E66C .5em, transparent 0, transparent 1em, #DA60D2 0, #DA60D2 1.5em, transparent 0, transparent 2em);
   background: white;
   cursor: pointer;
-  -webkit-filter: contrast(10);
+  filter: contrast(10);
 
   .card-content {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    clip-path: polygon(50% 30%, 100% 45%, 100% 55%, 50% 70%, 0% 50%);
+    // clip-path: polygon(50% 100%, 100% 0, 50% 0, 0 0);
 
     &:hover {
+      &::before {
+        content: "Paused";
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        font-weight: bolder;
+      }
       .node {
         animation-play-state: paused;
       }
@@ -441,52 +451,65 @@ export default {
 
   .node {
     flex-basis: 30px;
-    margin-right: -15px;
+    margin-top: -15px;
     width: 30px;
     height: 50px;
     filter: blur(5px);
 
     &:nth-child(1) {
-      animation: card-6 .7s ease-in .1s alternate infinite, card-6-margin .7s ease-in alternate infinite;
-      background: #F5E66C;
+      width: 80px;
+      animation: card-6 .8s ease-in .1s alternate infinite, card-6-margin .8s ease-in alternate infinite;
+      background: #DA60D2;
     }
     &:nth-child(2) {
-      animation: card-6 .7s ease-in .2s alternate infinite, card-6-margin .7s ease-in alternate infinite;
-      background: #F5866C;
+      width: 70px;
+      animation: card-6 .8s ease-in .2s alternate infinite, card-6-margin .8s ease-in alternate infinite;
+      background: #E7667E;
     }
     &:nth-child(3) {
-      animation: card-6 .7s ease-in .3s alternate infinite, card-6-margin .7s ease-in alternate infinite;
-      background: #F5866C;
+      width: 60px;
+      animation: card-6 .8s ease-in .3s alternate infinite, card-6-margin .8s ease-in alternate infinite;
+      background: #E7667E;
     }
     &:nth-child(4) {
-      animation: card-6 .7s ease-in .4s alternate infinite, card-6-margin .7s ease-in alternate infinite;
-      background: #E7667E;
+      width: 50px;
+      animation: card-6 .8s ease-in .4s alternate infinite, card-6-margin .8s ease-in alternate infinite;
+      background: #F5866C;
     }
     &:nth-child(5) {
-      animation: card-6 .7s ease-in .5s alternate infinite, card-6-margin .7s ease-in alternate infinite;
-      background: #E7667E;
+      width: 40px;
+      animation: card-6 .8s ease-in .5s alternate infinite, card-6-margin-slow .8s ease-in alternate infinite;
+      background: #F5866C;
     }
     &:nth-child(6) {
-      animation: card-6 .7s ease-in .6s alternate infinite, card-6-margin .7s ease-in alternate infinite;
-      background: #DA60D2;
+      width: 30px;
+      animation: card-6 .8s ease-in .6s alternate infinite, card-6-margin-slow .8s ease-in alternate infinite;
+      background: #F5E66C;
     }
   }
   @keyframes card-6 {
     from {
-      height: 30px;
       border-radius: 50%;
     }
     to {
-      height: 60px;
+      width: 80px;
       border-radius: 0;
     }
   }
   @keyframes card-6-margin {
     from {
-      margin-right: -15px;
+      margin-top: -13px;
     }
     to {
-      margin-right: -10px;
+      margin-top: 0px;
+    }
+  }
+  @keyframes card-6-margin-slow {
+    from {
+      margin-top: -13px;
+    }
+    to {
+      margin-top: -10px;
     }
   }
 }
@@ -543,17 +566,29 @@ export default {
 }
 .card:nth-child(8) {
   .node {
+    border: dashed 8px #71A2DB;
+    border-top: 0;
+    border-left: 0;
     background: #71A2DB;
     clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+    transition: .3s;
+    cursor: pointer;
+
+    &:nth-child(3n-1),
+    &:nth-child(3n),
+    &:nth-child(5n) {
+      border: dashed 8px #71A2DB;
+      border-top: 0;
+      border-left: 0;
+    }
 
     &:nth-child(3n-1),
     &:nth-child(3n),
     &:nth-child(5n),
     &:nth-child(6n),
     &:nth-child(7n-3) {
-      transition: .3s;
+      border: none;
       clip-path: circle(50%);
-      cursor: pointer;
 
       &:hover {
         clip-path: circle(30%);
@@ -562,11 +597,13 @@ export default {
 
     &:nth-child(2n),
     &:nth-child(3n) {
+      border: dashed 8px #CCDDF2;
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
-      cursor: default;
 
       &:hover {
         clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+        border-top: 0;
+        border-left: 0;
       }
     }
 
