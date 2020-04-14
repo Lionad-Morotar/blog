@@ -20,6 +20,12 @@
         <div class="node" v-for="item in 6"></div>
       </div>
     </div>
+    <div class="card 7">
+      <div class="node" v-for="item in 100"></div>
+    </div>
+    <div class="card 8">
+      <div class="node" v-for="item in 100"></div>
+    </div>
   </div>
 </template>
 
@@ -71,7 +77,12 @@ export default {
   }
 }
 /** Segment: CSS Pattern Start */
+.card {
+  transform: translate3d(0, 0, 0);
+}
 .card:nth-child(1) {
+  cursor: pointer;
+
   &:hover {
     .node {
       &:nth-child(2n)::before {
@@ -152,6 +163,7 @@ export default {
 }
 .card:nth-child(3) {
   overflow: hidden;
+  cursor: pointer;
 
   &:hover {
     .node {
@@ -242,10 +254,13 @@ export default {
   }
 }
 .card:nth-child(2) {
+  overflow: hidden;
+
   .node {
     background: #EE92A5;
     overflow: hidden;
     transition: .3s;
+    cursor: pointer;
 
     &:hover {
       transform: scale(1.4);
@@ -283,6 +298,8 @@ export default {
   }
 }
 .card:nth-child(4) {
+  cursor: pointer;
+
   &:hover {
     .node {
       &:nth-child(2n)::after {
@@ -356,6 +373,7 @@ export default {
   background-size:30px 30px;
   background-position:0 0;
   animation: card-5 1s infinite linear;
+  cursor: pointer;
 
   &:hover {
     animation-play-state: paused;
@@ -402,6 +420,7 @@ export default {
 .card:nth-child(6) {
   border: solid 1px #888;
   background: white;
+  cursor: pointer;
   -webkit-filter: contrast(10);
 
   .card-content {
@@ -468,6 +487,104 @@ export default {
     }
     to {
       margin-right: -10px;
+    }
+  }
+}
+.card:nth-child(7) {
+  cursor: pointer;
+
+  &:hover {
+    .node {
+      &:nth-child(3n-1)::after,
+      &:nth-child(3n)::after,
+      &:nth-child(5n)::after,
+      &:nth-child(6n)::after,
+      &:nth-child(7n-3)::after {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      &:nth-child(3n-1)::before,
+      &:nth-child(3n)::before,
+      &:nth-child(5n)::before,
+      &:nth-child(6n)::before,
+      &:nth-child(7n-3)::before {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+
+  .node {
+    background: #71A2DB;
+
+    &:nth-child(3n-1)::after,
+    &:nth-child(3n)::after,
+    &:nth-child(5n)::after,
+    &:nth-child(6n)::after,
+    &:nth-child(7n-3)::after {
+      clip-path: circle(75%);
+    }
+
+    &::before {
+      top: 1px;
+      left: 0px;
+      width: 100%;
+      height: 1px;
+      background: white;
+      box-shadow: 0 2px white, 0 4px white, 0 6px white, 0 8px white, 0 10px white, 0 12px white, 0 14px white, 0 16px white, 0 18px white;
+    }
+    &::after {
+      top: 0;
+      left: 1px;
+      width: 1px;
+      height: 100%;
+      background: white;
+      box-shadow: 2px 0 white, 4px 0 white, 6px 0 white, 8px 0 white, 10px 0 white, 12px 0 white, 14px 0 white, 16px 0 white, 18px 0 white;
+    }
+  }
+}
+.card:nth-child(8) {
+  .node {
+    background: #71A2DB;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+
+    &:nth-child(3n-1),
+    &:nth-child(3n),
+    &:nth-child(5n),
+    &:nth-child(6n),
+    &:nth-child(7n-3) {
+      transition: .3s;
+      clip-path: circle(50%);
+      cursor: pointer;
+
+      &:hover {
+        clip-path: circle(30%);
+      }
+    }
+
+    &:nth-child(2n),
+    &:nth-child(3n) {
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+      cursor: default;
+
+      &:hover {
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 50%);
+      }
+    }
+
+    &::before {
+      top: 1px;
+      left: 0px;
+      width: 100%;
+      height: 1px;
+      background: white;
+      box-shadow: 0 2px white, 0 4px white, 0 6px white, 0 8px white, 0 10px white, 0 12px white, 0 14px white, 0 16px white, 0 18px white;
+    }
+    &::after {
+      top: 0;
+      left: 1px;
+      width: 1px;
+      height: 100%;
+      background: white;
+      box-shadow: 2px 0 white, 4px 0 white, 6px 0 white, 8px 0 white, 10px 0 white, 12px 0 white, 14px 0 white, 16px 0 white, 18px 0 white;
     }
   }
 }
