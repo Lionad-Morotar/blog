@@ -1,16 +1,24 @@
 <template>
   <div class="container">
-    <div class="card">
+    <div class="card 1">
       <div class="node" v-for="item in 100"></div>
     </div>
-    <div class="card">
+    <div class="card 2">
       <div class="node" v-for="item in 100"></div>
     </div>
-    <div class="card">
+    <div class="card 3">
       <div class="node" v-for="item in 100"></div>
     </div>
-    <div class="card">
+    <div class="card 4">
       <div class="node" v-for="item in 100"></div>
+    </div>
+    <div class="card 5">
+      <div class="node"></div>
+    </div>
+    <div class="card 6">
+      <div class="card-content">
+        <div class="node" v-for="item in 6"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -272,6 +280,115 @@ export default {
         opacity: 0;
         background: white;
       }
+    }
+  }
+}
+.card:nth-child(5) {
+  background: linear-gradient(45deg, #F5CB6C 0%,#F5CB6C 20%,#F5856C 20%, #F5856C 45%,#F5CB6C 45%,#F5CB6C 70%,#F5856C 70%, #F5856C 95%,#F5CB6C 95%,#F5CB6C 100%);
+  background-size:30px 30px;
+  background-position:0 0;
+  animation: card-5 1s infinite linear;
+
+  .node {
+    &::before {
+      content: "Lionad";
+      left: -1.5em;
+      top: -.7em;
+      font-size: 50px;
+      font-family: didot;
+      font-weight: bolder;
+      color: transparent;
+      background: linear-gradient(180deg, #F5CB6C, #F5856C);
+      background-size: 1px 2px;
+      background-clip: text;
+      -webkit-background-clip: text;
+      // animation: card-5 1s infinite linear;
+      z-index: 2;
+    }
+    &::after {
+      content: "Lionad";
+      left: -1.5em;
+      top: -.7em;
+      font-size: 50px;
+      font-family: didot;
+      font-weight: bolder;
+      color: transparent;
+      text-shadow: 4px 4px 0px #F5856C;
+      box-shadow: 0 5px 0px #F5CB6C, 0 12px 0px #F5856C;
+    }
+  }
+  @keyframes card-5 {
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: 30px 0;
+    }
+  }
+}
+.card:nth-child(6) {
+  border: solid 1px #888;
+  background: white;
+  -webkit-filter: contrast(10);
+
+  .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(50% 30%, 100% 45%, 100% 55%, 50% 70%, 0% 50%);
+  }
+
+  .node {
+    flex-basis: 30px;
+    margin-right: -15px;
+    width: 30px;
+    height: 50px;
+    filter: blur(5px);
+
+    &:nth-child(1) {
+      animation: card-6 .7s ease-in .1s alternate infinite, card-6-margin .7s ease-in alternate infinite;
+      background: #F5E66C;
+    }
+    &:nth-child(2) {
+      animation: card-6 .7s ease-in .2s alternate infinite, card-6-margin .7s ease-in alternate infinite;
+      background: #F5866C;
+    }
+    &:nth-child(3) {
+      animation: card-6 .7s ease-in .3s alternate infinite, card-6-margin .7s ease-in alternate infinite;
+      background: #F5866C;
+    }
+    &:nth-child(4) {
+      animation: card-6 .7s ease-in .4s alternate infinite, card-6-margin .7s ease-in alternate infinite;
+      background: #E7667E;
+    }
+    &:nth-child(5) {
+      animation: card-6 .7s ease-in .5s alternate infinite, card-6-margin .7s ease-in alternate infinite;
+      background: #E7667E;
+    }
+    &:nth-child(6) {
+      animation: card-6 .7s ease-in .6s alternate infinite, card-6-margin .7s ease-in alternate infinite;
+      background: #DA60D2;
+    }
+  }
+  @keyframes card-6 {
+    from {
+      height: 30px;
+      border-radius: 50%;
+    }
+    to {
+      height: 60px;
+      border-radius: 0;
+    }
+  }
+  @keyframes card-6-margin {
+    from {
+      margin-right: -15px;
+    }
+    to {
+      margin-right: -10px;
     }
   }
 }

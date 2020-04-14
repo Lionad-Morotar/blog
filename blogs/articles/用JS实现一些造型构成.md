@@ -5,8 +5,7 @@
 ## CSS Patterns
 
 以下几个图案是使用CSS合成的，其中使用（或组合）了以下几个技巧：
-* 通过 Box-Shadow, Border 属性绘图
-* CSS 动画、CSS 变形、CSS 伪随机
+* CSS 动画及变形、CSS 滤镜、CSS 伪随机
 
 <br />
 
