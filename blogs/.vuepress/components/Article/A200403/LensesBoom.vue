@@ -1,6 +1,8 @@
 <template>
   <WHRatio h="62%">
-    <vue-p5 @setup="setup" @draw="draw" @mousepressed="mousePressed"></vue-p5>
+    <ClientOnly>
+      <vue-p5 @setup="setup" @draw="draw" @mousepressed="mousePressed"></vue-p5>
+    </ClientOnly>
   </WHRatio>
 </template>
 

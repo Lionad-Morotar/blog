@@ -58,7 +58,7 @@ export default {
     justify-content: space-between;
     align-items: center;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 760px) {
       .name {
         display: none;
       }
