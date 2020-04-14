@@ -72,10 +72,29 @@ export default {
 }
 /** Segment: CSS Pattern Start */
 .card:nth-child(1) {
+  &:hover {
+    .node {
+      &:nth-child(2n)::before {
+        border-bottom-color: #D2F3BF;
+      }
+      &:nth-child(3n)::before {
+        border-bottom-color: #F5CB6C;
+      }
+      &:nth-child(4n)::before,
+      &:nth-child(5n)::before,
+      &:nth-child(6n)::before,
+      &:nth-child(7n)::before,
+      &:nth-child(8n)::before,
+      &:nth-child(9n)::before {
+        border-bottom-color: #F5856C;
+      }
+    }
+  }
+
   .node {
     background: #A45963;
     border-radius: 90%;
-    animation: card-4 .4s ease alternate infinite;
+    animation: card-1 .4s ease alternate infinite;
 
     &:nth-child(2n) {
       animation-delay: .2s;
@@ -87,7 +106,7 @@ export default {
       animation-delay: .3s;
     }
 
-    @keyframes card-4 {
+    @keyframes card-1 {
       from {
         height: 19px;
       }
@@ -134,43 +153,78 @@ export default {
 .card:nth-child(3) {
   overflow: hidden;
 
+  &:hover {
+    .node {
+      &:nth-child(10n)::before {
+        transform: rotate(10deg);
+      }
+      &:nth-child(10n-1)::before {
+        transform: rotate(11deg);
+      }
+      &:nth-child(10n-2)::before {
+        transform: rotate(12deg);
+      }
+      &:nth-child(10n-3)::before {
+        transform: rotate(13deg);
+      }
+      &:nth-child(10n-4)::before {
+        transform: rotate(14deg);
+      }
+      &:nth-child(10n-5)::before {
+        transform: rotate(15deg);
+      }
+      &:nth-child(10n-6)::before {
+        transform: rotate(16deg);
+      }
+      &:nth-child(10n-7)::before {
+        transform: rotate(17deg);
+      }
+      &:nth-child(10n-8)::before {
+        transform: rotate(18deg);
+      }
+      &:nth-child(10n-9)::before {
+        transform: rotate(19deg);
+      }
+    }
+  }
+
   .node {
     background: #F5C1CB;
     filter: saturate(1.6);
 
     &:nth-child(10n)::before {
-      transform: rotate(19deg);
+      transform: rotate(-19deg);
     }
     &:nth-child(10n-1)::before {
-      transform: rotate(18deg);
+      transform: rotate(-18deg);
     }
     &:nth-child(10n-2)::before {
-      transform: rotate(17deg);
+      transform: rotate(-17deg);
     }
     &:nth-child(10n-3)::before {
-      transform: rotate(16deg);
+      transform: rotate(-16deg);
     }
     &:nth-child(10n-4)::before {
-      transform: rotate(15deg);
+      transform: rotate(-15deg);
     }
     &:nth-child(10n-5)::before {
-      transform: rotate(14deg);
+      transform: rotate(-14deg);
     }
     &:nth-child(10n-6)::before {
-      transform: rotate(14deg);
+      transform: rotate(-13deg);
     }
     &:nth-child(10n-7)::before {
-      transform: rotate(13deg);
+      transform: rotate(-12deg);
     }
     &:nth-child(10n-8)::before {
-      transform: rotate(13deg);
+      transform: rotate(-11deg);
     }
     &:nth-child(10n-9)::before {
-      transform: rotate(12deg);
+      transform: rotate(-10deg);
     }
     &::before {
       left: 0;
-      top: -10px;
+      top: -8px;
       border: solid 10px transparent;
       border-bottom-color: #D2F3BF;
       z-index: 1;
@@ -191,6 +245,11 @@ export default {
   .node {
     background: #EE92A5;
     overflow: hidden;
+    transition: .3s;
+
+    &:hover {
+      transform: scale(1.4);
+    }
 
     &::before {
       left: 8px;
@@ -224,6 +283,14 @@ export default {
   }
 }
 .card:nth-child(4) {
+  &:hover {
+    .node {
+      &:nth-child(2n)::after {
+        visibility: unset;
+      }
+    }
+  }
+
   .node {
     background: #71A2DB;
     outline: solid 1px white;
@@ -246,13 +313,14 @@ export default {
       height: 50%;
       border-radius: 50%;
       background: white;
-      animation: card-1-normal 1s linear alternate infinite;
+      animation: card-4-normal 1s linear alternate infinite;
     }
     &:nth-child(2n)::after {
-      animation: card-1-constract 1s linear alternate infinite;
+      animation: card-4-constract 1s linear alternate infinite;
       animation-delay: .3s;
+      visibility: hidden;
     }
-    @keyframes card-1-normal {
+    @keyframes card-4-normal {
       from {
         left: 45%;
         top: 45%;
@@ -266,7 +334,7 @@ export default {
         background: #F2C07D;
       }
     }
-    @keyframes card-1-constract {
+    @keyframes card-4-constract {
       from {
         left: 45%;
         top: 45%;
@@ -288,6 +356,11 @@ export default {
   background-size:30px 30px;
   background-position:0 0;
   animation: card-5 1s infinite linear;
+
+  &:hover {
+    animation-play-state: paused;
+    // animation-direction: alternate;
+  }
 
   .node {
     &::before {
@@ -339,6 +412,12 @@ export default {
     justify-content: center;
     align-items: center;
     clip-path: polygon(50% 30%, 100% 45%, 100% 55%, 50% 70%, 0% 50%);
+
+    &:hover {
+      .node {
+        animation-play-state: paused;
+      }
+    }
   }
 
   .node {
