@@ -26,6 +26,9 @@
     <div class="card 8">
       <div class="node" v-for="item in 100"></div>
     </div>
+    <div class="card 9">
+      <div class="node" v-for="item in 100"></div>
+    </div>
   </div>
 </template>
 
@@ -516,34 +519,37 @@ export default {
 .card:nth-child(7) {
   cursor: pointer;
 
-  &:hover {
-    .node {
-      &:nth-child(3n-1)::after,
-      &:nth-child(3n)::after,
-      &:nth-child(5n)::after,
-      &:nth-child(6n)::after,
-      &:nth-child(7n-3)::after {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
-      &:nth-child(3n-1)::before,
-      &:nth-child(3n)::before,
-      &:nth-child(5n)::before,
-      &:nth-child(6n)::before,
-      &:nth-child(7n-3)::before {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      }
-    }
-  }
-
   .node {
     background: #71A2DB;
+
+    &:nth-child(3n)::after,
+    &:nth-child(3n+2)::after,
+    &:nth-child(5n-3)::after,
+    &:nth-child(6n-2)::after,
+    &:nth-child(7n+1)::after {
+      animation: card-7-move .6s ease alternate infinite;
+      animation-fill-mode: backwards;
+    }
+
+    @keyframes card-7-move {
+      from {
+        clip-path: circle(50% at 0 50%);
+      }
+      50% {
+        clip-path: circle(50% at 0 50%);
+      }
+      to {
+        clip-path: circle(150% at 0 50%);
+      }
+    }
 
     &:nth-child(3n-1)::after,
     &:nth-child(3n)::after,
     &:nth-child(5n)::after,
     &:nth-child(6n)::after,
     &:nth-child(7n-3)::after {
-      clip-path: circle(75%);
+      clip-path: circle(75% at 0 50%);
+      animation: none;
     }
 
     &::before {
@@ -561,6 +567,22 @@ export default {
       height: 100%;
       background: white;
       box-shadow: 2px 0 white, 4px 0 white, 6px 0 white, 8px 0 white, 10px 0 white, 12px 0 white, 14px 0 white, 16px 0 white, 18px 0 white;
+      transition: .6s;
+    }
+  }
+  
+  &:hover {
+    .node {
+      &::after {
+        animation: none;
+      }
+      &:nth-child(3n-1)::after,
+      &:nth-child(3n)::after,
+      &:nth-child(5n)::after,
+      &:nth-child(6n)::after,
+      &:nth-child(7n-3)::after {
+        clip-path: circle(150% at 0% 50%);
+      }
     }
   }
 }
@@ -622,6 +644,43 @@ export default {
       height: 100%;
       background: white;
       box-shadow: 2px 0 white, 4px 0 white, 6px 0 white, 8px 0 white, 10px 0 white, 12px 0 white, 14px 0 white, 16px 0 white, 18px 0 white;
+    }
+  }
+}
+.card:nth-child(9) {
+  justify-content: flex-start;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    .node {
+      &:nth-child(3n) {
+        animation: card-9 .5s ease-out .3s both;
+      }
+    }
+  }
+
+  @keyframes card-9 {
+    from {
+      width: 40px;
+      flex-basis: 40px;
+      background: #F8C798;
+    }
+    to {
+      width: 20px;
+      flex-basis: 20px;
+      background: transparent;
+    }
+  }
+
+  .node {
+    border: solid 5px #F29338;
+    border-radius: 50%;
+
+    &:nth-child(3n) {
+      width: 40px;
+      flex-basis: 40px;
+      background: #F8C798;
     }
   }
 }
