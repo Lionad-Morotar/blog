@@ -24,6 +24,7 @@ const sidebarConfigs = {
       label: '博客',
       collapsable: false,
       children: [
+        '9张看面试题也写不出来的CSS图案',
         '用JS实现一些造型构成',
         '从最近很流行的一张CSS风景画中学到的东西',
         '有关CSS的一些极有趣的东西',
