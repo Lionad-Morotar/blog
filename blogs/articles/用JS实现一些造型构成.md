@@ -4,12 +4,14 @@
 
 ## CSS Patterns
 
-以下几个图案是使用CSS合成的，其中使用（或组合）了以下几个技巧：
-* CSS 动画及变形、CSS 滤镜、CSS 伪随机
+以下几个图案是使用 CSS 合成的，其中使用（或组合）了以下几个技巧：
+
+- CSS 动画及变形、CSS 滤镜、CSS 伪随机
 
 <br />
 
-<Article-A200403-CSSPatterns />
+<!-- <Article-A200403-CSSPatterns />
+<Article-A200403-CSSPatterns-2 /> -->
 
 ## Lenses Boom
 
@@ -31,5 +33,9 @@
 - 鼠标中键：清空画布
 
 <br />
+
+<Article-A200403-LensesBoom />
+
+## 用 P5.js 做的一些构成练习
 
 <Article-A200403-LensesBoom />
