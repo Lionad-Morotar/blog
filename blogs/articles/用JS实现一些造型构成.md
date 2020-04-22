@@ -2,7 +2,7 @@
 
 用`P5.js`做了一些造型构成练习，源码都在 [Github](https://github.com/Lionad-Morotar/blogs/tree/master/blogs/.vuepress/components) 上，欢迎来星星 ⭐
 
-## CSS Patterns
+<!-- ## CSS Patterns
 
 以下几个图案是使用 CSS 合成的，其中使用（或组合）了以下几个技巧：
 
@@ -10,8 +10,8 @@
 
 <br />
 
-<!-- <Article-A200403-CSSPatterns />
-<Article-A200403-CSSPatterns-2 /> -->
+<Article-A200403-CSSPatterns />
+<Article-A200403-CSSPatterns-2 />
 
 ## Lenses Boom
 
@@ -34,8 +34,16 @@
 
 <br />
 
-<Article-A200403-LensesBoom />
+<Article-A200403-LensesBoom /> -->
 
-## 用 P5.js 做的一些构成练习
+## 点的构成
 
-<Article-A200403-LensesBoom />
+<Article-A200403-DotBasic />
+
+## 线的构成
+
+<Article-A200403-LineBasic />
+
+## 面的构成
+
+<Article-A200403-AreaBasic />
