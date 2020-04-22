@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="500px" h="62%">
+    <WHRatio :h="this.height + 'px'">
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -20,10 +20,7 @@ export default {
         offsets: []
     }),
     mounted() {
-        this.width =
-            this.padding * 2 +
-            (this.cols - 1) * this.gap +
-            this.cols * this.rectW
+        this.width = document.querySelector('h1').offsetWidth
         this.height =
             this.padding * 2 +
             (this.rows - 1) * this.gap +

@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="1000px" h="400px">
+    <WHRatio h="400px">
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -9,6 +9,13 @@
 <script>
 function getCopy(vals) {
     return vals instanceof Array ? vals.map(val => getCopy(val)) : vals
+}
+function sleep(time = 17) {
+    return new Promise(resolve =>
+        setTimeout(() => {
+            resolve()
+        }, time)
+    )
 }
 
 export default {
@@ -20,7 +27,7 @@ export default {
         container: []
     }),
     mounted() {
-        this.canvasWidth = 1000
+        this.canvasWidth = document.querySelector('h1').offsetWidth
         this.canvasHeight = 400
     },
     methods: {
@@ -61,9 +68,6 @@ export default {
                 }
             })
 
-            // console.log('this.container : ', this.container)
-
-            // render
             Array(this.height)
                 .fill('')
                 .map((row, ridx) => {

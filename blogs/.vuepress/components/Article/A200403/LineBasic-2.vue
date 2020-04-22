@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="1000px" h=".62">
+    <WHRatio h=".62">
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -15,13 +15,14 @@ export default {
     data: () => ({
         canvasWidth: 0,
         canvasHeight: 0,
+        padding: 30,
         count: 30,
         container: [],
         color: '100, 100, 100'
     }),
     mounted() {
-        this.canvasWidth = 1000
-        this.canvasHeight = 1000 * 0.62
+        this.canvasWidth = document.querySelector('h1').offsetWidth
+        this.canvasHeight = this.canvasWidth * 0.62
     },
     methods: {
         setup(ctx) {
@@ -31,8 +32,14 @@ export default {
             Array(this.count)
                 .fill('')
                 .map((t, i) => {
-                    const x = Math.floor(ctx.random(this.canvasWidth))
-                    const y = Math.floor(ctx.random(this.canvasHeight))
+                    const x = Math.floor(
+                        ctx.random(this.canvasWidth - this.padding) +
+                            this.padding
+                    )
+                    const y = Math.floor(
+                        ctx.random(this.canvasHeight - this.padding) +
+                            this.padding
+                    )
                     this.container.push([x, y])
                 })
             this.container.map(dot => {
@@ -103,17 +110,17 @@ export default {
 </script>
 <style lang="stylus">
 .wh-container {
-  border-radius: 3px;
-  overflow: hidden;
+    border-radius: 3px;
+    overflow: hidden;
 
-  & > div {
-    display: flex;
-    width: 100%;
-  }
+    & > div {
+        display: flex;
+        width: 100%;
+    }
 
-  & > div > canvas {
-    width: 100% !important;
-    height: unset !important;
-  }
+    & > div > canvas {
+        width: 100% !important;
+        height: unset !important;
+    }
 }
 </style>

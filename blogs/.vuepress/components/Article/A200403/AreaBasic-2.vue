@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="1000px" h="1000px">
+    <WHRatio :w="this.canvasWidth + 'px'" :h="this.canvasHeight + 'px'">
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -21,8 +21,11 @@ export default {
         color: '22, 65, 196'
     }),
     mounted() {
-        this.canvasWidth = this.padding * 2 + 15 * 20 + 14 * 5
-        this.canvasHeight = this.padding * 2 + 15 * 20 + 14 * 5
+        this.canvasWidth = document.querySelector('h1').offsetWidth
+        this.canvasHeight =
+            this.canvasWidth < 400
+                ? this.canvasWidth
+                : this.padding * 2 + (this.count - 1) * 5 + this.count * 20
     },
     methods: {
         setup(ctx) {
@@ -50,8 +53,6 @@ export default {
                             this.container[x][y] = width
                         })
                 })
-
-            console.log(this.container)
 
             Array(this.count)
                 .fill()

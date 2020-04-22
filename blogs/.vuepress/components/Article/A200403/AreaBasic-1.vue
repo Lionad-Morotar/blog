@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="1000px">
+    <WHRatio>
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -23,8 +23,8 @@ export default {
         ]
     }),
     mounted() {
-        this.width = 1000
-        this.height = 1000
+        this.width = document.querySelector('h1').offsetWidth
+        this.height = this.width
     },
     methods: {
         setup(ctx) {
@@ -51,7 +51,7 @@ export default {
                         [0.5 * w, -1 * ow]
                     ],
                     [
-                        [0.5 * w, w + 2 * ow],
+                        [0.5 * w, w + 1 * ow],
                         [w + 1 * ow, 0.5 * w]
                     ]
                 ],
