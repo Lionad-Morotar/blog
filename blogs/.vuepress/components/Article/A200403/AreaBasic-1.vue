@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="400px" h="62%">
+    <WHRatio w="1000px">
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -11,7 +11,6 @@ export default {
     data: () => ({
         width: 0,
         height: 0,
-        rectW: 400,
         step: 30,
         w: 10,
         colors: [
@@ -24,8 +23,8 @@ export default {
         ]
     }),
     mounted() {
-        this.width = 400
-        this.height = 400
+        this.width = 1000
+        this.height = 1000
     },
     methods: {
         setup(ctx) {

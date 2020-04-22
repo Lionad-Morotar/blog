@@ -1,5 +1,5 @@
 <template>
-    <WHRatio w="1000px" h="400px">
+    <WHRatio w="1000px" h=".62">
         <ClientOnly>
             <vue-p5 @setup="setup" />
         </ClientOnly>
@@ -15,67 +15,41 @@ export default {
     data: () => ({
         canvasWidth: 0,
         canvasHeight: 0,
-        halfW: 50,
-        height: 40,
-        container: []
+        count: 30,
+        container: [],
+        color: '100, 100, 100'
     }),
     mounted() {
         this.canvasWidth = 1000
-        this.canvasHeight = 400
+        this.canvasHeight = 1000 * 0.62
     },
     methods: {
         setup(ctx) {
             ctx.createCanvas(this.canvasWidth, this.canvasHeight)
             ctx.background(233)
-            ctx.strokeWeight(0)
 
-            // calc white
-            this.stepTo({
-                ctx,
-                dots: [[0, this.halfW]],
-                cb: (dots, idx) => {
-                    const lines = Array(this.height).fill(1)
-                    const whiteCount = ctx.random((idx + 1) / 1.3)
-                    Array(Math.floor(whiteCount))
-                        .fill('')
-                        .map(item => {
-                            const whiteIdx = Math.floor(ctx.random(this.height))
-                            lines[whiteIdx] = 0
-                        })
-                    this.container.push(lines)
-                }
-            })
-            this.stepTo({
-                ctx,
-                dots: [[0, this.halfW]],
-                cb: (dots, idx) => {
-                    const lines = Array(this.height).fill(1)
-                    const whiteCount = ctx.random((this.halfW - idx + 1) / 1.3)
-                    Array(Math.floor(whiteCount))
-                        .fill('')
-                        .map(item => {
-                            const whiteIdx = Math.floor(ctx.random(this.height))
-                            lines[whiteIdx] = 0
-                        })
-                    this.container.push(lines)
-                }
-            })
-
-            // console.log('this.container : ', this.container)
-
-            // render
-            Array(this.height)
+            Array(this.count)
                 .fill('')
-                .map((row, ridx) => {
-                    Array(this.halfW * 2)
-                        .fill('')
-                        .map((col, cidx) => {
-                            ctx.fill(
-                                this.container[cidx][ridx] ? 'black' : 'white'
-                            )
-                            ctx.rect(cidx * 10, ridx * 10, 10)
-                        })
+                .map((t, i) => {
+                    const x = Math.floor(ctx.random(this.canvasWidth))
+                    const y = Math.floor(ctx.random(this.canvasHeight))
+                    this.container.push([x, y])
                 })
+            this.container.map(dot => {
+                this.container.map(dotTo => {
+                    let opacity =
+                        Math.sqrt(
+                            Math.pow(dot[0] - dotTo[0], 2),
+                            Math.pow(dot[1] - dotTo[1], 2)
+                        ) / this.canvasWidth
+                    opacity = 1 - opacity * opacity
+                    const color = `rgba(${this.color}, ${opacity})`
+
+                    ctx.stroke(color)
+                    ctx.strokeWeight(opacity * 0.2)
+                    ctx.line(...dot, ...dotTo)
+                })
+            })
         },
         stepTo({ ctx, dots, cb, step = this.step || 1, safeCount = 5000 }) {
             // console.log('dots : ', dots)
