@@ -1,7 +1,7 @@
 <template>
     <WHRatio h=".62">
         <ClientOnly>
-            <vue-p5 @setup="setup" />
+            <vue-p5 @setup="setup" @draw="draw" />
         </ClientOnly>
     </WHRatio>
 </template>
@@ -18,7 +18,8 @@ export default {
         padding: 30,
         count: 30,
         container: [],
-        color: '100, 100, 100'
+        color: '100, 100, 100',
+        xoff: 0
     }),
     mounted() {
         this.canvasWidth = document.querySelector('h1').offsetWidth
@@ -27,7 +28,6 @@ export default {
     methods: {
         setup(ctx) {
             ctx.createCanvas(this.canvasWidth, this.canvasHeight)
-            ctx.background(233)
 
             Array(this.count)
                 .fill('')
@@ -42,6 +42,27 @@ export default {
                     )
                     this.container.push([x, y])
                 })
+        },
+        draw(ctx) {
+            ctx.clear()
+            ctx.background(233)
+
+            const shouldOffset = []
+
+            this.container.map((dot, i) => {
+                if (shouldOffset.includes(i)) {
+                    this.xoff += 0.01
+                    const rand = ctx.noise(this.xoff)
+                    const offset = rand * 2
+                    // const directionX = ctx.noise(this.xoff) < 0.6 ? 1 : -1
+                    // const directionY = ctx.noise(this.xoff) < 0.6 ? 1 : -1
+                    // dot[0] += offset * directionX
+                    // dot[1] += offset * directionY
+                    dot[0] += offset
+                    dot[1] += offset
+                }
+            })
+
             this.container.map(dot => {
                 this.container.map(dotTo => {
                     let opacity =

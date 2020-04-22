@@ -54,7 +54,6 @@ function stepTo({ ctx, dots, cb, step = 1, safeCount = 5000 }) {
         idx += 1
     }
 }
-let xoff = 0
 
 export default {
     data: () => ({
@@ -63,7 +62,8 @@ export default {
         padding: 30,
         count: 30,
         container: [],
-        color: '100, 100, 100'
+        color: '100, 100, 100',
+        xoff: 0
     }),
     mounted() {
         this.canvasWidth = document.querySelector('h1').offsetWidth
@@ -88,8 +88,8 @@ export default {
                 dots.push(ctx.createVector(x, y))
             }
 
-            xoff += 0.001
-            const rand = ctx.noise(xoff)
+            this.xoff += 0.001
+            const rand = ctx.noise(this.xoff)
 
             ctx.stroke(0, 60)
             ctx.strokeWeight(1)
