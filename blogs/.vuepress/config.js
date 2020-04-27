@@ -2,72 +2,73 @@ const sidebar = require('./sidebar.js')
 const configureWebpack = require('./webpack.config.js')
 
 module.exports = {
-  /** develop config */
+    /** develop config */
 
-  base: '/',
-  dest: './dist',
+    base: '/',
+    dest: './dist',
 
-  /** page config */
+    /** page config */
 
-  title: 'Lionad Blogs',
-  description:
-    'Lionad Guirotar 的个人博客, 心流历程以及其它一些好玩的东西 | Lionad Blogs',
-  head: [
-    ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
-    ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
-    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
-    ['script', { src: 'https://cdn.bootcss.com/p5.js/1.0.0/p5.min.js' }]
-  ],
-
-  /** theme config */
-
-  themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Flows', link: '/articles/' }
+    title: 'Lionad Blogs',
+    description:
+        'Lionad Guirotar 的个人博客, 心流历程以及其它一些好玩的东西 | Lionad Blogs',
+    head: [
+        ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
+        ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
+        ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+        ['script', { src: 'https://cdn.bootcss.com/p5.js/1.0.0/p5.min.js' }]
     ],
-    sidebar: {
-      '/articles/': sidebar.getSidebar('articles'),
-      '/friends/': sidebar.getSidebar('friends')
+
+    /** theme config */
+
+    themeConfig: {
+        nav: [
+            { text: 'Home', link: '/' },
+            { text: 'Articles', link: '/articles/' },
+            { text: 'Flows', link: '/flows/' }
+        ],
+        sidebar: {
+            '/articles/': sidebar.getSidebar('articles'),
+            '/flows/': sidebar.getSidebar('flows'),
+            '/friends/': sidebar.getSidebar('friends')
+        },
+        lastUpdated: 'Last Updated'
     },
-    lastUpdated: 'Last Updated'
-  },
 
-  /** markdown config */
+    /** markdown config */
 
-  extendMarkdown(md) {
-    md.use(require('markdown-it-katex'))
-  },
+    extendMarkdown(md) {
+        md.use(require('markdown-it-katex'))
+    },
 
-  /** plugins */
+    /** plugins */
 
-  plugins: {
-    '@vuepress/google-analytics': {
-      ga: 'UA-142194237-1'
-    }
-  },
+    plugins: {
+        '@vuepress/google-analytics': {
+            ga: 'UA-142194237-1'
+        }
+    },
 
-  /** Configuration */
+    /** Configuration */
 
-  configureWebpack,
-  chainWebpack(config, isServer) {
-    // 单独配置 SASS 文件是因为一个 VuePress 的 Bug，见：https://github.com/vuejs/vuepress/issues/2148
-    for (const lang of ['sass', 'scss']) {
-      for (const name of ['modules', 'normal']) {
-        const rule = config.module.rule(lang).oneOf(name)
-        rule.uses.delete('sass-loader')
+    configureWebpack,
+    chainWebpack(config, isServer) {
+        // 单独配置 SASS 文件是因为一个 VuePress 的 Bug，见：https://github.com/vuejs/vuepress/issues/2148
+        for (const lang of ['sass', 'scss']) {
+            for (const name of ['modules', 'normal']) {
+                const rule = config.module.rule(lang).oneOf(name)
+                rule.uses.delete('sass-loader')
 
-        rule
-          .use('sass-loader')
-          .loader('sass-loader')
-          .options({
-            implementation: require('sass'),
-            sassOptions: {
-              fiber: require('fibers'),
-              indentedSyntax: lang === 'sass'
+                rule.use('sass-loader')
+                    .loader('sass-loader')
+                    .options({
+                        implementation: require('sass'),
+                        sassOptions: {
+                            fiber: require('fibers'),
+                            indentedSyntax: lang === 'sass'
+                        }
+                    })
             }
-          })
-      }
+        }
     }
-  }
 }

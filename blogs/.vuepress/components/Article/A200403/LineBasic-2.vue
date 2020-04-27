@@ -47,20 +47,20 @@ export default {
             ctx.clear()
             ctx.background(233)
 
-            const shouldOffset = []
+            const shouldOffset = this.container
 
             this.container.map((dot, i) => {
-                if (shouldOffset.includes(i)) {
-                    this.xoff += 0.01
-                    const rand = ctx.noise(this.xoff)
-                    const offset = rand * 2
-                    // const directionX = ctx.noise(this.xoff) < 0.6 ? 1 : -1
-                    // const directionY = ctx.noise(this.xoff) < 0.6 ? 1 : -1
-                    // dot[0] += offset * directionX
-                    // dot[1] += offset * directionY
-                    dot[0] += offset
-                    dot[1] += offset
-                }
+                // if (shouldOffset.includes(i)) {
+                this.xoff += 0.005
+                const rand = ctx.noise(5, 5, this.xoff)
+                const offset = 0
+                // const directionX = ctx.noise(1, 1, this.xoff) < 0.5 ? 1 : -1
+                // const directionY = ctx.noise(1, 1, this.xoff) < 0.5 ? 1 : -1
+                // dot[0] += offset * directionX
+                // dot[1] += offset * directionY
+                dot[0] += offset
+                dot[1] += offset
+                // }
             })
 
             this.container.map(dot => {
