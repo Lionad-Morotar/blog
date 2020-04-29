@@ -1,21 +1,23 @@
 
-<pre>
-心流是触达的通畅，是思考的愉悦，以及融合与创造时的成就。
+<flow>心流是触达的通畅，是思考的愉悦，以及融合与创造时的成就。
 心流即想法。想法用以解决问题，心流即设计。
 我希望我会尽可能地选择去站在永恒的那一面。
 <name>Lionad</name><time>2020年4月27日 18点26分</time>
-</pre>
+</flow>
 
 <style>
-pre {
-    margin-top: 3em !important;
-    padding: .5em 1em !important;
-    border: solid 1px #999 !important;
-    background: unset !important;
-    font-family: inherit !important;
-    font-size: 18px !important;
-    line-height: 1.8 !important;
+flow {
+    display: block;
+    margin-top: 3em;
+    padding: .5em 1em;
+    border: solid 1px #999;
+    border-radius: 4px;
+    line-height: 2.3;
+    font-size: 18px;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
+
 name,
 time {
     display: inline-block;
