@@ -2,11 +2,11 @@
 
 用`P5.js`做了一些造型构成练习，源码都在 [Github](https://github.com/Lionad-Morotar/blogs/tree/master/blogs/.vuepress/components) 上，欢迎来星星 ⭐
 
-<!-- ## CSS Patterns
+## CSS Patterns
 
 以下几个图案是使用 CSS 合成的，其中使用（或组合）了以下几个技巧：
 
-- CSS 动画及变形、CSS 滤镜、CSS 伪随机
+-   CSS 动画及变形、CSS 滤镜、CSS 伪随机
 
 <br />
 
@@ -28,13 +28,13 @@
 
 ### 说明
 
-- 鼠标左键：在新的位置开始绘画
-- 鼠标右键：停止绘画
-- 鼠标中键：清空画布
+-   鼠标左键：在新的位置开始绘画
+-   鼠标右键：停止绘画
+-   鼠标中键：清空画布
 
 <br />
 
-<Article-A200403-LensesBoom /> -->
+<Article-A200403-LensesBoom />
 
 ## 点的构成
 
