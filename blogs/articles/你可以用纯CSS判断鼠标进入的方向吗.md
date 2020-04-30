@@ -8,9 +8,7 @@
 
 在给定初始 HTML 结构下，编写代码，完成下图功能：
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/56-49.gif">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/56-49.gif)
 
 勇者 A：“害，这还不简单...”
 
@@ -28,9 +26,7 @@
 
 ### 图片效果
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/YReNvaaHms.gif">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/YReNvaaHms.gif)
 
 ### 实现
 
@@ -77,15 +73,11 @@ HTML 如下：
 
 在守夜人陈大鱼头那里，勇者们使用了四个 .block_hoverer 类标签与鼠标交互。
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/06-47.png">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/06-47.png)
 
 魔王这里则需要多一些，如下图红色区域，每一个矩形都是一个与鼠标交互的盒子：
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_wVOKIx348I.png">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_wVOKIx348I.png)
 
 这里我是用绝对定位将盒子“黏贴”到脸上，主要有三个要考虑的地方：
 
@@ -95,9 +87,7 @@ HTML 如下：
 
 如果盒子本身不旋转的话，会出现这种诡异的情况：
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_IuDFxmUd1j.png">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_IuDFxmUd1j.png)
 
 这里使用一个简单的运算去旋转盒子：
 
@@ -236,15 +226,11 @@ $part-degree: 360 / $part;
 
 当没有 hover 任何盒子时，我们给 .eye 类盒子的中心画一个圆（此时圆在盒子的中心）：
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_nts2mMjO5x.png">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_nts2mMjO5x.png)
 
 当 hover 了某个盒子之后，我们把 .eye 类盒子旋转一下，并且改变圆的位置（此时圆在盒子的右侧的中心）：
 
-<p style="text-align: center;">
-    <img src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_emdbc2WaD3.png">
-</p>
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/browser_emdbc2WaD3.png)
 
 这样的话就完成了。
 
@@ -468,3 +454,46 @@ $container-height: 500;
     }
 }
 ```
+
+## 后记
+
+昨天我在陈大鱼头的文章下评论了“我可以使用 10x10 的网格系统造一个精准度更高的玩意儿出来”，害，惨。
+
+我原本的想法是想实现一下这样的东西，见下图片（纯 CSS）：
+
+### 效果图
+
+![](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200429/gETdht0ELi.gif)
+
+### 解析
+
+不过由于 CSS 没有父级选择器，这种实现几乎没什么用，看我的 HTML 结构就知道了。
+
+```HTML
+<div class="container">
+    <p class="info">盒子外部</p>
+    <div class="boxes">
+        <div class="box" v-for="item in 5">
+            <div class="box-inner">
+                <div class="left" />
+                <div class="right" />
+                <!-- .des 类是图中会变化的那些文字的容器。通过改变其伪元素的 content 改变文字内容。 -->
+                <p class="des"></p>
+            </div>
+        </div>
+    </div>
+    <p class="info">盒子内部</p>
+</div>
+```
+
+这样的话限制很大，每一个与鼠标交互的容器底下都得放置一个展现效果的盒子（每一个 .box 类盒子下面都存放有一个单独的 .des 类盒子，.des 类盒子重复了很多次），虽然能实现精准度更高的鼠标进入方向判断，不过带来了很多重复代码，没什么用。
+
+哦对了，本文中这两个例子的 CSS 代码性能都很差，当与鼠标交互的元素增加到 200 个左右开始，我的电脑就开始出现肉眼可见的卡顿了，这玩意儿生产环境是不可能用到的，也就只能应付应付魔王了。
+
+**嗯，其实还是很好玩儿的对吧。(●ˇ∀ˇ●) 好玩儿就对了！**
+
+### 实现
+
+<br>
+
+<Article-A200429-Wall />

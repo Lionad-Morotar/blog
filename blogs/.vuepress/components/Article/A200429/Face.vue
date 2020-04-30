@@ -123,8 +123,9 @@ $container-height: 500;
             top: $y + unquote('px');
             transform: rotate((90 + $i * $part-degree) + unquote('deg'));
             &:hover ~ .head {
-                $ty: sin($angle) * $face-width / 50;
-                $tx: cos($angle) * $face-width / 50;
+                // 除 50 的话会出现诡异的小数点问题，暂时没想到解决方法，先以 49 避免问题。
+                $ty: sin($angle) * $face-width / 49;
+                $tx: cos($angle) * $face-width / 49;
                 left: calc(50% - #{$tx}px);
                 top: calc(50% - #{$ty}px);
                 .eye {
