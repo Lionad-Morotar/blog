@@ -305,6 +305,7 @@ $parallax__layers: 6;
 .page-title {
   font-family: Dhenmark;
   font-weight: bold;
+  text-align: center;
   text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
   letter-spacing: 2px;
   white-space: nowrap;
@@ -347,10 +348,13 @@ $parallax__layers: 6;
 }
 @include sp-layout {
   .page-title {
-    font-size: 3.3em;
+    font-size: 3.6em;
+    text-align: center;
+    word-break: keep-all;
+    white-space: nowrap;
 
     &::after {
-      content: '';
+      display: none;
     }
   }
 }
@@ -470,7 +474,9 @@ $parallax__layers: 6;
   .footer {
     position: absolute;
     bottom: 1rem;
+    width: 100%;
     color: #e3e3e3;
+    text-align: center;
     font-size: 12px;
     letter-spacing: 0.5px;
     border: none;
@@ -508,6 +514,12 @@ $parallax__layers: 6;
       width: 200px;
       height: 270px;
     }
+  }
+}
+@include sp-layout {
+  .card .head {
+    font-size: 40px;
+    line-height: 2.5em; 
   }
 }
 </style>
