@@ -6,9 +6,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev blogs",
+    "dev-proxy": "justproxy -s 80 -p 8080",
     "build": "vuepress build blogs",
-    "subfont": "subfont ./blogs/.vuepress/public/fonts/subfont.ejs -o c://1",
-    "move": "move.ps1"
+    "test": "npm run build && http-server -c0 ./dist",
+    "upload": "node ./upload",
+    "post": "npm run build && npm run upload"
   },
   "repository": {
     "type": "git",
@@ -29,14 +31,21 @@
     "@babel/core": "^7.4.5",
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
     "del": "^5.1.0",
+    "fibers": "^4.0.2",
     "gulp": "^3.9.1",
     "gulp-changed": "^4.0.2",
     "gulp-load-plugins": "^2.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
+    "http-server": "^0.12.1",
+    "justproxy": "^1.0.0",
     "markdown-it-katex": "^2.0.3",
     "node-cmd": "^3.0.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "subfont": "^4.2.0",
     "through2": "^3.0.1",
     "vuepress": "^1.2.0",
     "vuepress-plugin-medium-zoom": "^1.1.6",
@@ -44,6 +53,6 @@
     "webpack": "^4.35.0"
   },
   "dependencies": {
-    "gsap": "^3.0.1"
+    "p5": "^1.0.0"
   }
 }

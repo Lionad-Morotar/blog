@@ -1,20 +1,56 @@
 <template>
-  <div class="home">
-    <link rel="prefetch" href="/articles/index.html" />
+  <div :class="['home', slide]">
+    <!-- FireWatch Mountain -->
+    <div class="parallax">
+      <a href="#page-top" id="page-top" />
+      <div class="parallax__layer parallax__layer__0">
+        <img
+          class="cloud"
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png"
+        />
+      </div>
+      <div class="parallax__layer parallax__layer__1">
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png"
+        />
+      </div>
+      <div class="parallax__layer parallax__layer__2">
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png"
+        />
+      </div>
+      <div class="parallax__layer parallax__layer__3">
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png"
+        />
+      </div>
+      <div class="parallax__layer parallax__layer__4">
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png"
+        />
+      </div>
+      <div class="parallax__layer parallax__layer__5">
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png"
+        />
+      </div>
+      <div class="parallax__layer parallax__layer__6">
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png"
+        />
+      </div>
+      <div class="parallax__cover">
+        <a href="#page-bottom" id="page-bottom" />
+      </div>
+    </div>
 
-    <!-- background images -->
-    <css-doodle class="fixed" @click="generateShape">
-      :doodle { @grid: 18 / 100vmax; opacity: .1; } --hue: calc(180 + 1.5 *
-      @row() * @col()); background: hsl(var(--hue), 45%, 65%); margin: -.5px;
-      transition: @r(.5s) ease; clip-path: polygon(@pick( '0 0, 100% 0, 100%
-      100%', '0 0, 100% 0, 0 100%', '0 0, 100% 100%, 0 100%', '100% 0, 100%
-      100%, 0 100%' ));
-    </css-doodle>
-
-    <!-- card -->
-    <div class="wrapper">
+    <div class="wrapper wrapper-detail">
       <div class="avatar">
-        <img :src="$withBase(data.avatar)" alt />
+        <img
+          src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/avatar.gif"
+          alt="Lionad's Avatar"
+          draggable="false"
+        />
       </div>
       <div class="card">
         <div class="bio">
@@ -33,281 +69,369 @@
             <a href="/articles/index.html">进入博客</a>
           </div>
         </div>
-        <div class="my-socials">
-          <div v-for="item in data.socials">
-            <a :href="item.link" target="_blank">
-              <img
-                class="link-svgs"
-                :src="item.icon || '/icons/' + item.title + '.svg'"
-                :alt="item.title"
-                :title="item.title"
-              />
-            </a>
-          </div>
-        </div>
-        <div class="actions">
-          <div v-for="item in data.actions">
-            <a
-              :href="item.link"
-              class="button"
-              :target="item.link.startsWith('/') ? '' : '_blank'"
-              >{{ item.text }}</a
-            >
-          </div>
-        </div>
       </div>
 
-      <div class="footer" v-if="data.footer">{{ data.footer }}</div>
+      <div class="footer" v-if="data.footer">
+        <span> {{ data.footer }} / </span>
+        <a href="/friends" target="_blank">与我联络 & 友情链接(Links)</a>
+      </div>
     </div>
+
+    <div class="wrapper wrapper-brief">
+      <div class="page-title-con">
+        <div class="page-title">Lionad's Blogs</div>
+        <div class="page-side-title">Newest Posts</div>
+        <div class="page-side-content">
+          <template v-for="section in articles" v-if="section.label">
+            <p class="article-list">
+              <span
+                class="article-list-label"
+                v-text="section.label + '：'"
+              ></span>
+              <span class="article-list-content">
+                <a
+                  :href="`/articles/${section.children[0]}.html`"
+                  v-text="section.childrenRaw[0]"
+                ></a>
+              </span>
+            </p>
+          </template>
+        </div>
+        <div class="page-tip">向下滑动</div>
+      </div>
+    </div>
+
+    <!-- Loading Animation -->
+    <template v-if="loading">
+      <PageLoading @animationEnd="clearLoading" />
+    </template>
   </div>
 </template>
 
 <script>
-let curBGType = 1
-const bgType = [
-  `
-    :doodle {
-      @grid: 18 / 100vmax;
-      opacity: .1;
-    }
-    --hue: calc(180 + 1.5 * @row() * @col());
-    background: hsl(var(--hue), 45%, 65%);
-    margin: -.5px;
-    transition: @r(.5s) ease;
-    clip-path: polygon(@pick(
-      '0 0, 100% 0, 100% 100%',
-      '0 0, 100% 0, 0 100%',
-      '0 0, 100% 100%, 0 100%',
-      '100% 0, 100% 100%, 0 100%'
-    ));
-  `,
-  `
-    :doodle {
-      @grid: 18 / 100vmax;
-      opacity: .1;
-    }
-    --hue: calc(180 + 1.5 * @row() * @col());
-    background: hsl(var(--hue), 45%, 65%);
-    margin: -.5px;
-    transition: @r(.8s) ease;
-    clip-path: polygon(
-      @rand(100%) 0, 100% @rand(100%), 0 @rand(100%)
-    );
-  `,
-  `
-    :doodle {
-      @grid: 7 / 100vmax;
-      background: #fcfcfc;
-      opacity: .1;
-    }
-    @shape: clover 5;
-    background: hsla(
-      calc(360 - @i() * 4), 70%, 68%, @r(.8)
-    );
-    transform:
-      scale(@r(.2, 1.5))
-      translate(@m2(@r(-50%, 50%)));
-  `
-]
+const sidebar = require('../sidebar')
+import PageLoading from './Animation/PageLoading'
+import SwipeIndicator from './utils/swipe-indicator'
+
+const SLIDES = ['brief', 'detail']
 
 export default {
+  components: {
+    PageLoading
+  },
   computed: {
     data() {
       return {
-        ...this.$page.frontmatter,
-        cssDoodle: null,
-        bgUpdateTick: null
+        ...this.$page.frontmatter
       }
     }
   },
   mounted() {
-    this.initDoodle()
-    this.setBGUpdateInterval()
+    new SwipeIndicator({
+      elem: document.querySelector('.wrapper-detail'),
+      callback: e => this.changeSlide(e)
+    })
+    new SwipeIndicator({
+      elem: document.querySelector('.wrapper-brief'),
+      callback: e => this.changeSlide(e)
+    })
+    this.loading = window.localStorage.getItem('is-homepage-loading-done')
+      ? false
+      : true
   },
-  destroyed() {
-    this.clearBGUpdateInterval()
+  data() {
+    return {
+      sidebar,
+      articles: sidebar.getSidebar('articles'),
+      loading: false,
+      swipeIndicator: null,
+      slide: SLIDES[0]
+    }
   },
   methods: {
-    initDoodle() {
-      const isExist = customElements && customElements.get('css-doodle')
-
-      if (!isExist) {
-        const cssDoodleNode = document.createElement('script')
-        cssDoodleNode.type = 'text/javascript'
-        cssDoodleNode.src = '/js/css-doodle.min.js'
-
-        window.document.getElementById('app').appendChild(cssDoodleNode)
+    // 页面加载完成后
+    clearLoading() {
+      this.loading = false
+      localStorage.setItem('is-homepage-loading-done', '1')
+      // setTimeout(() => {
+      //   this.changeSlide({ direction: 'down' })
+      // }, 1000)
+    },
+    // 滚动页面
+    changeSlide(e) {
+      const slideSideEffect = {
+        up() {
+          document.querySelector('#page-top').click()
+          setTimeout(() => {
+            document.querySelector('#page-top').click()
+          }, 50)
+        },
+        down() {
+          document.querySelector('#page-bottom').click()
+          setTimeout(() => {
+            document.querySelector('#page-bottom').click()
+          }, 50)
+        }
       }
-    },
-    setBGUpdateInterval() {
-      this.bgUpdateTick = setInterval(() => {
-        this.generate()
-      }, 2500)
-    },
-    clearBGUpdateInterval() {
-      clearInterval(this.bgUpdateTick)
-    },
-    generate(content) {
-      const doodle =
-        this.cssDoodle ||
-        ((this.cssDoodle = window.document.querySelector('css-doodle')),
-        this.cssDoodle)
-
-      doodle && doodle.update && doodle.update(content)
-    },
-    generateShape() {
-      this.clearBGUpdateInterval()
-      this.setBGUpdateInterval()
-      this.generate(bgType[curBGType++ % bgType.length])
+      const idx = ['up', 'down'].findIndex(x => x === e.direction)
+      this.slide = SLIDES[idx]
+      slideSideEffect[e.direction]()
     }
   }
 }
 </script>
 
-<style lang="stylus">
-@import './styles/config.styl';
+<style lang="scss">
+@import './styles/animation.scss';
 
-body {
-  user-select: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    color: transparent;
+.home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  background-color: #fedcc8;
+
+  ::-webkit-scrollbar {
+    width: 0;
   }
+}
 
-  .home {
-    max-width: 100%;
-    min-height: calc(100vh - 6rem);
-    display: flex;
-    padding: 2.4rem 2rem 0;
+/** SECTION  Mountain */
+
+.parallax {
+  perspective: 100px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  margin-left: -1500px;
+  filter: saturate(0.45);
+  scroll-behavior: smooth;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  img {
+    display: block;
+    position: absolute;
+    bottom: 0;
   }
-
-  @media (max-width: $MQMobileNarrow) {
-    .home {
-      padding-left: 0;
-      padding-right: 0;
-      padding: 0 5vw;
-      padding-top: 2rem;
+  img.cloud {
+    opacity: .5;
+    animation: cloud-move 20s ease alternate infinite;
+  }
+  @keyframes cloud-move {
+    from {
+      left: -5%;
+    }
+    to {
+      left: 5%;
     }
   }
 }
 
-.wrapper {
-  width: 100%;
+.parallax__cover {
+  background: #2d112b;
+  display: block;
+  position: absolute;
+  top: 100%;
+  top: calc(100% - 1px);
+  left: 0;
+  right: 0;
+  height: 70vh;
+  z-index: 2;
+}
+.page-top {
+  position: absolute;
+  top: 0;
+}
+.page-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+$parallax__layers: 6;
+
+@for $i from 0 through $parallax__layers {
+  $x: ($parallax__layers - $i) / 2;
+  .parallax__layer__#{$i} {
+    transform: translateZ(-100 * $x * 1px) scale($x + 1);
+  }
+}
+
+/** SECTION  page-title */
+
+.page-title-con {
   display: flex;
   flex-direction: column;
-  // justify-content: center
-  align-items: center;
+  cursor: default;
 
-  @avatarWidth: 31vw;
+  &:hover {
+    .page-tip {
+      opacity: 0.4;
+    }
+  }
+}
+.page-tip {
+  display: inline-block;
+  margin: 3em auto;
+  padding: 2px 25px;
+  text-align: center;
+  border: solid 1px rgb(197, 140, 116);
+  border-radius: 5px;
+  line-height: 2;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.page-title {
+  font-family: Dhenmark;
+  font-weight: bold;
+  text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
+  letter-spacing: 2px;
+  white-space: nowrap;
+  color: #221522;
+  animation: fadein 1s;
+
+  &::after {
+    content: ' .';
+    animation: page-title-dot-blink 1.6s ease-in infinite;
+  }
+}
+.page-side-title {
+  margin-top: 1em;
+  margin-bottom: 0.7em;
+  text-align: center;
+  font-family: garamond, serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+.page-side-content {
+  text-align: center;
+
+  .article-list {
+    margin-top: 0.4em;
+  }
+  .article-list-content {
+    &::before {
+      content: '《';
+    }
+    &::after {
+      content: '》';
+    }
+  }
+}
+@include pc-layout {
+  .page-title {
+    font-size: 8.3em;
+  }
+}
+@include sp-layout {
+  .page-title {
+    font-size: 3.3em;
+
+    &::after {
+      content: '';
+    }
+  }
+}
+@keyframes page-title-dot-blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+/** SECTION  wrapper */
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 19vh;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateZ(0);
+  transition: 0.5s;
+  user-select: none;
+
   .avatar {
     position: relative;
-    width: 31vw;
-    height: 31vw;
-        max-width: 150px;
-    max-height: 150px;
-    z-index: 1;
+    width: 160px;
+    height: 160px;
 
     img {
       display: block;
       width: 100%;
       height: auto;
-      border: solid 3px white;
+      border: solid 5px white;
       border-radius: 50%;
     }
   }
 
   .card {
-    max-width: 600px;
-    width: 100%;
     position: relative;
-    top: -8%;
-    padding-top: 75px;
-    margin-left: auto;
-    margin-right: auto;
-    background: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 0.3rem;
     text-align: center;
+    color: #fbebe1;
 
-    .bio {
-      padding: 1em;
-
-      .head {
-        margin: 10px 0 0 0;
-        font-weight: 700;
-        font-size: 2.3em;
-        font-family none;
-      }
-
-      .info {
-        padding-top: 0.5rem;
-        font-size: 1em;
-        color: rgba(0, 0, 0, 0.4);
-      }
-
-      .description {
-        text-align: justify;
-
-        p {
-          padding: 0 0.5em;
-          line-height: normal;
-          text-align: center;
-
-          a {
-            font-weight: normal;
-          }
-        }
-      }
+    .head {
+      font-weight: bolder;
+      font-family: garamond;
+      font-size: 55px;
+      line-height: 1.5em;
+    }
+    .description {
+      margin-top: 1.2em;
+      padding: 0 1em;
     }
 
     .buttons {
-      padding: 1.45em 1.5em;
-      border-top: 1px solid rgba(34, 36, 38, 0.1);
-
       .into-article {
         margin: auto;
+        margin-top: 70px;
         width: 150px;
         height: 40px;
         line-height: 40px;
-        border: solid 1px #666;
+        border: solid 1px #fbebe1;
         border-radius: 3px;
-        transition .5s;
+        transition: 0.3s;
         cursor: pointer;
 
         a {
-          color: #777
+          color: #fbebe1;
         }
 
         &:hover {
-          background #f2f2f2
-          border: solid 1px #ccc;
+          background: #595059;
         }
 
         &:active {
-          background #eee
-          border: solid 1px #666;
-          box-shadow 0 0 10px #eee
+          background: #918a90;
         }
-      }
-    }
-
-    .my-socials {
-      display: flex;
-      flex-direction: row;
-      // align-items: center
-      border-top: 1px solid rgba(34, 36, 38, 0.1);
-      padding: 0 30px;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      .link-svgs, img {
-        width: 32px;
-        margin: 1em;
-        border-radius: 3px;
-        cursor: pointer;
       }
     }
 
@@ -320,7 +444,7 @@ body {
 
       // padding 1em
       .button {
-        background-color: $btnBgColor;
+        background-color: white;
         border: none;
         border-radius: 0.3em;
         color: white;
@@ -337,7 +461,7 @@ body {
         cursor: pointer;
 
         &:hover {
-          background-color: $btnHvColor;
+          background-color: white;
         }
       }
     }
@@ -346,10 +470,44 @@ body {
   .footer {
     position: absolute;
     bottom: 1rem;
+    color: #e3e3e3;
+    font-size: 12px;
+    letter-spacing: 0.5px;
     border: none;
-    font-size: 1rem;
-    text-align: center;
-    color: #111;
+
+    a {
+      color: #e3e3e3;
+    }
+  }
+}
+.home.brief {
+  .wrapper-brief {
+    z-index: 1;
+  }
+  .wrapper-detail {
+    opacity: 0;
+  }
+}
+.home.detail {
+  .wrapper-detail {
+    z-index: 1;
+  }
+  .wrapper-brief {
+    opacity: 0;
+    .page-tip {
+      display: none;
+    }
+  }
+}
+@include pc-layout {
+  .home {
+    .wrapper-detail {
+      padding-top: 13vh;
+    }
+    .avatar {
+      width: 200px;
+      height: 270px;
+    }
   }
 }
 </style>

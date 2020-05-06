@@ -200,8 +200,6 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/config.styl';
-
 .notion-cursor-default {
   cursor: default;
 }
