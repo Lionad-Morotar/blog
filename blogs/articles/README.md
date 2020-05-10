@@ -39,3 +39,5 @@
 ## **与我联络  &  友情链接**
 
 <a href="/friends" target="_blank">与我联络  &  友情链接(Links)</a>
+
+<Comments />
