@@ -21,9 +21,9 @@ h2 {
 这里有一个展示其强大排版能力的示例页面：
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="jpamental" data-slug-hash="wvwgGLK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Layout variations, part deux">
-  <span>See the Pen <a href="https://codepen.io/jpamental/pen/wvwgGLK">
-  Layout variations, part deux</a> by Jason Pamental (<a href="https://codepen.io/jpamental">@jpamental</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+  <span>See the Pen <a rel="nofollow" href="https://codepen.io/jpamental/pen/wvwgGLK">
+  Layout variations, part deux</a> by Jason Pamental (<a rel="nofollow" href="https://codepen.io/jpamental">@jpamental</a>)
+  on <a rel="nofollow" href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
@@ -143,9 +143,9 @@ $con.style.setProperty('--theme-color', 'gray')
 这里有一个能展示 CSS 变量超能力的极具吸引力的例子：
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="danwilson" data-slug-hash="BRdJVZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Single Div Accordion (Animated with CSS Variables)">
-  <span>See the Pen <a href="https://codepen.io/danwilson/pen/BRdJVZ">
-  Single Div Accordion (Animated with CSS Variables)</a> by Dan Wilson (<a href="https://codepen.io/danwilson">@danwilson</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+  <span>See the Pen <a rel="nofollow" href="https://codepen.io/danwilson/pen/BRdJVZ">
+  Single Div Accordion (Animated with CSS Variables)</a> by Dan Wilson (<a rel="nofollow" href="https://codepen.io/danwilson">@danwilson</a>)
+  on <a rel="nofollow" href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 

@@ -900,7 +900,7 @@
 
 ## **LAST BUT IMPORTANT**
 
-<p style="color: red;font-weight: bold">点赞、关注、评论三连，三天后从掘金文章评论中抽奖送一本<a href="https://book.douban.com/subject/5323008/">《超越平凡的版式设计》</a></p>
+<p style="color: red;font-weight: bold">点赞、关注、评论三连，三天后从掘金文章评论中抽奖送一本<a rel="nofollow" href="https://book.douban.com/subject/5323008/">《超越平凡的版式设计》</a></p>
 
 这是一本不错的排版案例参考。
 

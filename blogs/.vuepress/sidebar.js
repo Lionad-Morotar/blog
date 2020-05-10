@@ -20,8 +20,8 @@ const sidebarConfigs = {
             ]
         },
         {
-            title: '博客 / Blogs',
-            label: '博客',
+            title: '技术 / Coder',
+            label: '技术',
             collapsable: false,
             children: [
                 '你可以用纯CSS判断鼠标进入的方向吗',
@@ -39,14 +39,16 @@ const sidebarConfigs = {
             ]
         },
         {
-            title: '单曲 / Songs',
+            title: '吉他 / Plays',
             collapsable: false,
             children: [
-                '163/wings-you-are-the-hero',
+                '163/等待的风',
+                '163/约定的海洋',
+                '163/Wings',
                 '163/EVA',
                 '163/奇迹之山',
-                '163/wu-wei',
-                '163/wuti'
+                '163/WuWei',
+                '163/无题'
             ]
         }
     ]

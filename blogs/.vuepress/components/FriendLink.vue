@@ -1,26 +1,33 @@
 <template>
-  <a :href="src" target="__blank" style="text-decoration: none;">
-    <div class="simple-list-cmpt">
-      <div class="simple-list-label">
-        <img :src="img" />
-      </div>
-      <div class="simple-list-content">
-        <span class="name">
-          <a :href="src" target="__blank">{{ name }}</a>
-        </span>
-        <span class="achieve">{{ achieve }}</span>
-      </div>
-    </div>
-  </a>
+    <a
+        rel="nofollow"
+        :href="src"
+        target="__blank"
+        style="text-decoration: none;"
+    >
+        <div class="simple-list-cmpt">
+            <div class="simple-list-label">
+                <img :src="img" />
+            </div>
+            <div class="simple-list-content">
+                <span class="name">
+                    <a rel="nofollow" :href="src" target="__blank">{{
+                        name
+                    }}</a>
+                </span>
+                <span class="achieve">{{ achieve }}</span>
+            </div>
+        </div>
+    </a>
 </template>
 <script>
 export default {
-  props: {
-    img: String,
-    src: String,
-    name: String,
-    achieve: String
-  }
+    props: {
+        img: String,
+        src: String,
+        name: String,
+        achieve: String
+    }
 }
 </script>
 <style lang="stylus">
