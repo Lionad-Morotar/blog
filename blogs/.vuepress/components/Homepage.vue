@@ -254,7 +254,7 @@ export default {
 }
 
 .parallax__cover {
-    background: #2d112b;
+    background: #2d122b;
     display: block;
     position: absolute;
     top: 100%;
@@ -309,7 +309,7 @@ $parallax__layers: 6;
     transition: opacity 1s;
 }
 .page-title {
-    font-family: Dhenmark;
+    font-family: Gabriola, Dhenmark;
     font-weight: bold;
     text-align: center;
     text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
@@ -410,7 +410,7 @@ $parallax__layers: 6;
 
         .head {
             font-weight: bolder;
-            font-family: garamond;
+            font-family: 'Goudy Old Style', garamond;
             font-size: 55px;
             line-height: 1.5em;
         }
