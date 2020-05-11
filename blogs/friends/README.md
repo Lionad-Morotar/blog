@@ -46,6 +46,13 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
 ### 🏂 友情链接
 
 <FriendLink
+  img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/friends/Kicoe.jpg"
+  src="https://www.kicoe.com/"
+  name="Kicoe"
+  achieve="🌐"
+/>
+
+<FriendLink
   img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/friends/Roki.jpg"
   src="https://blog.weekii.cn/"
   name="Roki's Blog"
