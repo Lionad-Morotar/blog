@@ -7,7 +7,7 @@
     >
         <div class="simple-list-cmpt">
             <div class="simple-list-label">
-                <img :src="img" />
+                <img loading="lazy" :src="img" />
             </div>
             <div class="simple-list-content">
                 <span class="name">

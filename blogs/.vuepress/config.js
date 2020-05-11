@@ -38,6 +38,42 @@ module.exports = {
     /** markdown config */
 
     extendMarkdown(md) {
+        function imageLazyLoadPlugin(md) {
+            const defaultImageRenderer = md.renderer.rules.image
+            md.renderer.rules.image = function(
+                tokens,
+                idx,
+                options,
+                env,
+                self
+            ) {
+                const token = tokens[idx]
+
+                /* 处理 SRC */
+                // const src = token.attrGet('src')
+                // token.attrSet('data-src', src)
+                // const srcIdx = token.attrIndex('src')
+                // if (srcIdx !== -1) {
+                //     token.attrs.splice(srcIdx, 1)
+                // }
+
+                /* 处理 ClassName */
+                // const classnames = token.attrGet('class')
+                // // const modClassnames = (classnames || '')
+                // //     .split(' ')
+                // //     .push('lozad')
+                // //     .join(' ')
+                // const modClassnames = 'lozad'
+                // token.attrSet('class', modClassnames)
+
+                /* 原生懒加载 */
+                token.attrSet('loading', 'lazy')
+
+                return defaultImageRenderer(tokens, idx, options, env, self)
+            }
+        }
+
+        md.use(imageLazyLoadPlugin)
         md.use(require('markdown-it-katex'))
     },
 

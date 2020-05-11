@@ -398,6 +398,8 @@ $parallax__layers: 6;
             display: block;
             width: 100%;
             height: auto;
+            min-width: 160px;
+            min-height: 160px;
             border: solid 5px white;
             border-radius: 50%;
         }
