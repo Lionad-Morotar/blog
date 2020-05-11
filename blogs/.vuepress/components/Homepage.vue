@@ -309,7 +309,7 @@ $parallax__layers: 6;
     transition: opacity 1s;
 }
 .page-title {
-    font-family: Gabriola, Dhenmark;
+    font-family: Dhenmark, Gabriola;
     font-weight: bold;
     text-align: center;
     text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
