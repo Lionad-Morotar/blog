@@ -1,19 +1,12 @@
 <template>
-    <a
-        rel="nofollow"
-        :href="src"
-        target="__blank"
-        style="text-decoration: none;"
-    >
+    <a :href="src" target="__blank" style="text-decoration: none;">
         <div class="simple-list-cmpt">
             <div class="simple-list-label">
                 <img :src="img" />
             </div>
             <div class="simple-list-content">
                 <span class="name">
-                    <a rel="nofollow" :href="src" target="__blank">{{
-                        name
-                    }}</a>
+                    <a :href="src" target="__blank">{{ name }}</a>
                 </span>
                 <span class="achieve">{{ achieve }}</span>
             </div>
