@@ -1,12 +1,22 @@
 <template>
-    <a :href="src" target="__blank" style="text-decoration: none;">
+    <a
+        :rel="nofollow ? 'nofollow' : ''"
+        :href="src"
+        target="__blank"
+        style="text-decoration: none;"
+    >
         <div class="simple-list-cmpt">
             <div class="simple-list-label">
                 <img :src="img" />
             </div>
             <div class="simple-list-content">
                 <span class="name">
-                    <a :href="src" target="__blank">{{ name }}</a>
+                    <a
+                        :rel="nofollow ? 'nofollow' : ''"
+                        :href="src"
+                        target="__blank"
+                        >{{ name }}</a
+                    >
                 </span>
                 <span class="achieve">{{ achieve }}</span>
             </div>
@@ -19,7 +29,10 @@ export default {
         img: String,
         src: String,
         name: String,
-        achieve: String
+        achieve: String,
+        nofollow: {
+            default: false
+        }
     }
 }
 </script>

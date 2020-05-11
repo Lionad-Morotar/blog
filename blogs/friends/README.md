@@ -13,6 +13,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   src="https://space.bilibili.com/6626299"
   name="哔哩哔哩"
   achieve="B站将是我近来在网络上的主要活动区域，里面在发生各种神奇的事儿，我也想参与其中 ☀"
+  :nofollow="true"
 />
 
 <FriendLink
@@ -20,6 +21,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   src="https://music.163.com/#/user/home?id=64236446"
   name="网易云音药"
   achieve="网易云有保留一些我的吉他翻弹音频，和过去的战场信息 🥃"
+  :nofollow="true"
 />
 
 <FriendLink
@@ -27,6 +29,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   src="https://www.douban.com/people/lionad/"
   name="豆瓣"
   achieve="如果你写喜爱影音书籍的话，在豆瓣可以看到我的最近动态 📕"
+  :nofollow="true"
 />
 
 <FriendLink
@@ -34,6 +37,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   src="https://github.com/Lionad-Morotar"
   name="Github"
   achieve="Github 存有本博客的源码以及其它一些有意思的东西 💻"
+  :nofollow="true"
 />
 
 <FriendLink
@@ -41,6 +45,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   src="https://juejin.im/user/5b209f666fb9a01e66165c5a"
   name="掘金"
   achieve="掘金上有一些关于我的代码生活、代码观的动态 💻"
+  :nofollow="true"
 />
 
 ### 🏂 友情链接
