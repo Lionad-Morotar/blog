@@ -12,7 +12,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/icons/bilibili.gif"
   src="https://space.bilibili.com/6626299"
   name="哔哩哔哩"
-  achieve="B站将是我近来在网络上的主要活动区域，里面在发生各种神奇的事儿，我也想参与其中 ☀"
+  achieve="B站将是我近来在网络上的主要活动区域 ☀"
   :nofollow="true"
 />
 
@@ -20,7 +20,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/icons/netease-music.svg"
   src="https://music.163.com/#/user/home?id=64236446"
   name="网易云音药"
-  achieve="网易云有保留一些我的吉他翻弹音频，和过去的战场信息 🥃"
+  achieve="网易云有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
   :nofollow="true"
 />
 
@@ -28,7 +28,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/icons/douban.jpg"
   src="https://www.douban.com/people/lionad/"
   name="豆瓣"
-  achieve="如果你写喜爱影音书籍的话，在豆瓣可以看到我的最近动态 📕"
+  achieve="如果你也喜爱影音书籍的话，在豆瓣可以看到我的最新动态 📕"
   :nofollow="true"
 />
 
@@ -36,7 +36,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/icons/github.svg"
   src="https://github.com/Lionad-Morotar"
   name="Github"
-  achieve="Github 存有本博客的源码以及其它一些有意思的东西 💻"
+  achieve="Github 存有本博客的源码及其它一些也许意思的东西 💻"
   :nofollow="true"
 />
 
@@ -44,7 +44,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   img="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/icons/juejin.svg"
   src="https://juejin.im/user/5b209f666fb9a01e66165c5a"
   name="掘金"
-  achieve="掘金上有一些关于我的代码生活、代码观的动态 💻"
+  achieve="我在掘金上传一些关于我的代码生活、代码观的文章或是动态 💻"
   :nofollow="true"
 />
 
