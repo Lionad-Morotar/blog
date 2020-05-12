@@ -11,7 +11,9 @@ module.exports = {
 
     title: 'Lionad Blogs',
     description:
-        'Lionad Guirotar 的个人博客, 心流历程以及其它一些好玩的东西 | Lionad Blogs',
+        'Lionad Guirotar Blogs 是贪玩老虎的个人专栏。其中有给技术人员查阅的技术文章，给文艺青年阅读的杂文散文，还有老虎的一些个人动态。做一个极客范的程序员，我在前端、设计、写作、音乐等方面都有兴趣学习。除了个人资料，用户也可以在今后的首页找到与技术及阅读相关的最新资料与合集。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，我相信你能在这找到一些乐趣。',
+    keywords: 'Lionad,Guirotar,贪玩老虎,博客,写作,前端,设计,指弹,吉他',
+    robots: 'index,archive',
     head: [
         ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
         ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
