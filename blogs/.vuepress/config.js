@@ -20,7 +20,20 @@ module.exports = {
         ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
         ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
         ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
-        ['script', { src: 'https://cdn.bootcss.com/p5.js/1.0.0/p5.min.js' }]
+        ['script', { src: 'https://cdn.bootcss.com/p5.js/1.0.0/p5.min.js' }],
+        [
+            'script',
+            {},
+            `
+                var _hmt = _hmt || [];
+                (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?774d33180b32709e7d3109ce600657c1";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+                })();
+            `
+        ]
     ],
 
     /** theme config */
