@@ -5,37 +5,44 @@
             <a rel="nofollow" href="#page-top" id="page-top" />
             <div class="parallax__layer parallax__layer__0">
                 <img
+                    alt="云朵背景图片"
                     class="cloud"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__1">
                 <img
+                    alt="山岳背景图片"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__2">
                 <img
+                    alt="山岳背景图片"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__3">
                 <img
+                    alt="山岳背景图片"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__4">
                 <img
+                    alt="山岳背景图片"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__5">
                 <img
+                    alt="山岳背景图片"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__6">
                 <img
+                    alt="山岳背景图片"
                     src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png"
                 />
             </div>
