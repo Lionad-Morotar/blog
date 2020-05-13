@@ -295,6 +295,7 @@ $parallax__layers: 6;
     display: flex;
     flex-direction: column;
     cursor: default;
+    max-width: 100%;
 
     &:hover {
         .page-tip {
@@ -316,13 +317,12 @@ $parallax__layers: 6;
     transition: opacity 1s;
 }
 .page-title {
-    font-family: Dhenmark, Gabriola;
-    font-weight: bold;
+    font-family: Edo, Dhenmark, Gabriola;
+    font-weight: lighter;
     text-align: center;
     text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
     letter-spacing: 2px;
-    white-space: nowrap;
-    color: #221522;
+    color: #300c22;
     animation: fadein 1s;
 
     &::after {
@@ -331,7 +331,7 @@ $parallax__layers: 6;
     }
 }
 .page-side-title {
-    margin-top: 1em;
+    margin-top: 2em;
     margin-bottom: 0.7em;
     text-align: center;
     font-family: garamond, serif;
@@ -356,15 +356,13 @@ $parallax__layers: 6;
 }
 @include pc-layout {
     .page-title {
-        font-size: 8.3em;
+        font-size: 5.8em;
     }
 }
 @include sp-layout {
     .page-title {
         font-size: 3.6em;
         text-align: center;
-        word-break: keep-all;
-        white-space: nowrap;
 
         &::after {
             display: none;
