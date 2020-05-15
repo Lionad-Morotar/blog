@@ -2,7 +2,7 @@
 
 最近 CodePen 流行的一张用纯 CSS 绘制的风景画令人印象深刻：
 
-![An Evening in Southwold](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/browser_c5Q2Z8gnR9.jpg)
+![An Evening in Southwold](http://image.lionad.art/mgear/image/200319/browser_c5Q2Z8gnR9.jpg)
 
 天空的眩光，水面反射，精细的房屋细节相当惊艳，下面我们大致说一说这张图片中的一些技术细节。图画的源码地址在文末。
 
@@ -19,11 +19,11 @@
 
 先从看面横线开始。定位到该元素的节点。取消其 `transform` 属性。能看出它是由两种颜色的、多组长度的圆角矩形组成的，如下图：
 
-![sea line](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/browser_a5aNdMBsJV.png)
+![sea line](http://image.lionad.art/mgear/image/200319/browser_a5aNdMBsJV.png)
 
 再定位父元素的 `::before` 及 `::after` 伪元素，查看控制台的样式面板，可以知道横线是由 box-shadow 属性绘制的，如下图：
 
-![sea line box-shadow](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/browser_79GatmjU32.png)
+![sea line box-shadow](http://image.lionad.art/mgear/image/200319/browser_79GatmjU32.png)
 
 使用 `box-shadow` 画图其实是常见操作了，主要是利用其两点特性：
 
@@ -34,9 +34,9 @@
 
 大致总结一下，使用父元素进行形变和定位，然后通过父元素的 `::after` `::before` 两种伪元素的 box-shadow 绘制两种不同颜色的线条，这就是海面横线的绘制思路。其实其它图案也是这种定位+样式的思路画出来的，我们以这栋房屋举例：
 
-![房屋](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/2020-03-19-14-20-58.png)
+![房屋](http://image.lionad.art/mgear/image/200319/2020-03-19-14-20-58.png)
 
-![房屋](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/h6yxZsWcU3.gif)
+![房屋](http://image.lionad.art/mgear/image/200319/h6yxZsWcU3.gif)
 
 - 屋顶：父元素 `border-bottom` + 父元素 `::before`
 - 窗户: 父元素 `::after`
@@ -47,7 +47,7 @@
 
 现在我们看到水面纹理（也就是水面那些点点），它是使用 `background-image` 属性进行绘制的：
 
-![sea line box-shadow](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/browser_0pEYpYHqlu.png)
+![sea line box-shadow](http://image.lionad.art/mgear/image/200319/browser_0pEYpYHqlu.png)
 
 通过 `background-repeat` 属性可以创建出重复的背景图案。而在这幅图片中，点与点在竖向排列是有偏移的，所以看起来像是斜着排列。达到这种效果只需要通过逗号分隔来给 `background-image` 设置多重背景就可以了，同时，`background-size` 也可以由逗号分隔开，分别设置每一个背景的偏移量。下段代码是一个示例：
 
@@ -62,7 +62,7 @@
 
 结果如下：
 
-![结果](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/2020-03-19-09-31-44.png)
+![结果](http://image.lionad.art/mgear/image/200319/2020-03-19-09-31-44.png)
 
 通过结合 `background-image`、`blend-mode`、渐变等各种可玩的东西，能创造出超多漂亮图案，如[示例](https://codepen.io/yuanchuan/pen/yxwbXP?__cf_chl_jschl_tk__=21a7d3862a10890a1d5f1a760a8ed1a18fdac246-1584579867-0-Ad4vsPq-O265YtPPTvBmhnofuY1Z3_zrj9Uhu6ajpiBLm2iYEOYRwiRcsj9l84ZRgF7NAXtddCL7Y3kiQUXHJO2s-eaSl4PIaUogKxEcP4XRuIBEEOkwpKPiuBHkeJ3N4v4LxYauBpNC5ug8glJyfpAsMiLraRlOG0ao96kD4YJPIpkK1pfkov2_pZxO6AEAUusYfJi5vuE5rKpro_W1h4lMf02dNjIz-fLO7d_xm5sGwUQ0l98BnBns9jQpaBQFghxatbDily_m67z3R36z8G9mRIhcYFkTf6q1r-El-cMseQ9YdMT7q7XoYG6zjBQ4Tu_aB0RD3WJHg5MT0YlVaWwrmFXbmOHOVr9cm1W2fPs1)
 
@@ -72,15 +72,15 @@
 
 细心的同学应该发现了，水面纹理在接近太阳倒影的地方，看起来像逐渐消失了一样：
 
-![逐渐消失](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/2020-03-19-14-08-01.png)
+![逐渐消失](http://image.lionad.art/mgear/image/200319/2020-03-19-14-08-01.png)
 
 这是因为接近太阳倒影的地方，作者加了一层颜色与水面纹理颜色相同的渐变。如果我们去掉这层渐变，就会发现“逐渐消失”其实是一种错觉，水面纹理一直存在：
 
-![错觉](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/2020-03-19-14-12-32.png)
+![错觉](http://image.lionad.art/mgear/image/200319/2020-03-19-14-12-32.png)
 
 ### 太阳及其炫光
 
-![太阳及其炫光](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/200319/2020-03-19-15-39-43.png)
+![太阳及其炫光](http://image.lionad.art/mgear/image/200319/2020-03-19-15-39-43.png)
 
 有一个需要注意的细节是，太阳本身在 z 轴的位置与房屋相比要离我们远一些，而太阳的炫光却展示在了房屋前面。这是一个 DOM 节点位置的特殊处理。
 

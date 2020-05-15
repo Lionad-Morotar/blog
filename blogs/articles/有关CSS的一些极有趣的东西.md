@@ -16,7 +16,7 @@ h2 {
 
 一张图展示其迷人之处：
 
-![Variable fonts](http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/2019-11-21-02-03-38.gif)
+![Variable fonts](http://image.lionad.art/mgear/image/2019-11-21-02-03-38.gif)
 
 这里有一个展示其强大排版能力的示例页面：
 

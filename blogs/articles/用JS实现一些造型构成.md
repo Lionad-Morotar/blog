@@ -19,10 +19,10 @@
 
 <img
   srcset="
-    http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/2020-04-03-10-48-22_480.png 480w,
-    http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/2020-04-03-10-48-22_960.png 960w,
-    http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/2020-04-03-10-48-22_1440.png 1440w"
-  src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/2020-04-03-10-48-22_1440.png"
+    http://image.lionad.art/mgear/image/2020-04-03-10-48-22_480.png 480w,
+    http://image.lionad.art/mgear/image/2020-04-03-10-48-22_960.png 960w,
+    http://image.lionad.art/mgear/image/2020-04-03-10-48-22_1440.png 1440w"
+  src="http://image.lionad.art/mgear/image/2020-04-03-10-48-22_1440.png"
   alt="效果图"
 />
 
