@@ -3,56 +3,72 @@
         <!-- FireWatch Mountain -->
         <div class="parallax">
             <a rel="nofollow" href="#page-top" id="page-top" />
-            <div class="parallax__layer parallax__layer__0">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_0.value"
-                    alt="云朵背景图片"
-                    class="cloud"
-                />
-            </div>
-            <div class="parallax__layer parallax__layer__1">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_1.value"
-                    alt="山岳背景图片"
-                />
-            </div>
-            <div class="parallax__layer parallax__layer__2">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_2.value"
-                    alt="山岳背景图片"
-                />
-            </div>
-            <div class="parallax__layer parallax__layer__3">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_3.value"
-                    alt="山岳背景图片"
-                />
-            </div>
-            <div class="parallax__layer parallax__layer__4">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_4.value"
-                    alt="山岳背景图片"
-                />
-            </div>
-            <div class="parallax__layer parallax__layer__5">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_5.value"
-                    alt="山岳背景图片"
-                />
-            </div>
-            <div class="parallax__layer parallax__layer__6">
-                <img
-                    v-if="assetInitDone"
-                    :src="assets.parallax_6.value"
-                    alt="山岳背景图片"
-                />
-            </div>
+            <template>
+                <div class="parallax__layer parallax__layer__0">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_0.done"
+                            :src="assets.parallax_0.value"
+                            alt="云朵背景图片"
+                            class="cloud"
+                        />
+                    </transition>
+                </div>
+                <div class="parallax__layer parallax__layer__1">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_1.done"
+                            :src="assets.parallax_1.value"
+                            alt="山岳背景图片"
+                        />
+                    </transition>
+                </div>
+                <div class="parallax__layer parallax__layer__2">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_2.done"
+                            :src="assets.parallax_2.value"
+                            alt="山岳背景图片"
+                        />
+                    </transition>
+                </div>
+                <div class="parallax__layer parallax__layer__3">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_3.done"
+                            :src="assets.parallax_3.value"
+                            alt="山岳背景图片"
+                        />
+                    </transition>
+                </div>
+                <div class="parallax__layer parallax__layer__4">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_4.done"
+                            :src="assets.parallax_4.value"
+                            alt="山岳背景图片"
+                        />
+                    </transition>
+                </div>
+                <div class="parallax__layer parallax__layer__5">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_5.done"
+                            :src="assets.parallax_5.value"
+                            alt="山岳背景图片"
+                        />
+                    </transition>
+                </div>
+                <div class="parallax__layer parallax__layer__6">
+                    <transition name="fade">
+                        <img
+                            v-if="assetInitDone || assets.parallax_6.done"
+                            :src="assets.parallax_6.value"
+                            alt="山岳背景图片"
+                        />
+                    </transition>
+                </div>
+            </template>
             <div class="parallax__cover">
                 <a rel="nofollow" href="#page-bottom" id="page-bottom" />
             </div>
@@ -80,18 +96,14 @@
                 </div>
                 <div class="buttons">
                     <div class="into-article">
-                        <a rel="nofollow" href="/articles/index.html"
-                            >进入博客</a
-                        >
+                        <a rel="nofollow" href="/articles/index.html">进入博客</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer" v-if="data.footer">
                 <span> {{ data.footer }} / </span>
-                <a rel="nofollow" href="/friends" target="_blank"
-                    >与我联络 & 友情链接(Links)</a
-                >
+                <a rel="nofollow" href="/friends" target="_blank">与我联络 & 友情链接(Links)</a>
             </div>
         </div>
 
@@ -102,17 +114,9 @@
                 <div class="page-side-content">
                     <template v-for="section in articles" v-if="section.label">
                         <p class="article-list">
-                            <span
-                                class="article-list-label"
-                                v-text="section.label + '：'"
-                            ></span>
+                            <span class="article-list-label" v-text="section.label + '：'"></span>
                             <span class="article-list-content">
-                                <a
-                                    :href="
-                                        `/articles/${section.children[0]}.html`
-                                    "
-                                    v-text="section.childrenRaw[0]"
-                                ></a>
+                                <a :href="`/articles/${section.children[0]}.html`" v-text="section.childrenRaw[0]"></a>
                             </span>
                         </p>
                     </template>
@@ -146,12 +150,19 @@ export default {
             }
         }
     },
-    created() {
-        this.loading = window.localStorage.getItem('is-homepage-loading-done')
-            ? false
-            : true
+    beforeMount() {
+        this.loading = window.localStorage.getItem('is-homepage-loading-done') ? false : true
         // this.loading = true
         this.assetInitDone = !this.loading
+        if (!this.assetInitDone) {
+            this.loadingMinTimeTick = (() => {
+                const startTime = +new Date()
+                return function calc() {
+                    const endTime = +new Date()
+                    return endTime - startTime
+                }
+            })()
+        }
     },
     mounted() {
         new SwipeIndicator({
@@ -162,51 +173,57 @@ export default {
             elem: document.querySelector('.wrapper-brief'),
             callback: e => this.changeSlide(e)
         })
-        this.loadingMinTimeTick = (() => {
-            const startTime = +new Date()
-            return function calc() {
-                const endTime = +new Date()
-                return endTime - startTime
-            }
-        })()
     },
     data() {
         return {
             sidebar,
             articles: sidebar.getSidebar('articles'),
             loading: false,
-            swipeIndicator: null,
             slide: SLIDES[0],
             loadingMinTimeTick: null,
             assetInitDone: false,
             assets: {
                 parallax_0: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png'
+                    sort: 0,
+                    delay: 100 * 6,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png',
+                    cb: () => this.$set(this.assets.parallax_0, 'done', true)
                 },
                 parallax_1: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png'
+                    sort: 1,
+                    delay: 100 * 5,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png',
+                    cb: () => this.$set(this.assets.parallax_1, 'done', true)
                 },
                 parallax_2: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png'
+                    sort: 2,
+                    delay: 100 * 4,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png',
+                    cb: () => this.$set(this.assets.parallax_2, 'done', true)
                 },
                 parallax_3: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png'
+                    sort: 3,
+                    delay: 100 * 3,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png',
+                    cb: () => this.$set(this.assets.parallax_3, 'done', true)
                 },
                 parallax_4: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png'
+                    sort: 4,
+                    delay: 100 * 2,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png',
+                    cb: () => this.$set(this.assets.parallax_4, 'done', true)
                 },
                 parallax_5: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png'
+                    sort: 5,
+                    delay: 100 * 1,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png',
+                    cb: () => this.$set(this.assets.parallax_5, 'done', true)
                 },
                 parallax_6: {
-                    value:
-                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png'
+                    sort: 6,
+                    delay: 100 * 0,
+                    value: 'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png',
+                    cb: () => this.$set(this.assets.parallax_6, 'done', true)
                 }
             }
         }
@@ -215,9 +232,8 @@ export default {
         // 页面加载完成后
         loadEnd() {
             const loadCosumeTime = this.loadingMinTimeTick()
-            const minLoadTime = 5000
-            const remains =
-                minLoadTime > loadCosumeTime ? minLoadTime - loadCosumeTime : 0
+            const minLoadTime = 4000
+            const remains = minLoadTime > loadCosumeTime ? minLoadTime - loadCosumeTime : 0
 
             this.assetInitDone = true
             setTimeout(() => {

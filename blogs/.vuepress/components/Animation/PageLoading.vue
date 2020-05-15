@@ -25,44 +25,20 @@
 </template>
 
 <script>
+import utils from '../utils'
+
 export default {
     props: {
         assets: Object
     },
     computed: {},
     created() {
-        this.loadAssets()
+        utils
+            .loadAssets(this.assets)
+            .then(this.loadEnd)
+            .catch(this.loadEnd)
     },
     methods: {
-        loadAssets() {
-            Promise.all(
-                Object.entries(this.assets).map(
-                    ([key, raw]) =>
-                        new Promise(resolve => {
-                            const { value, type, cb } = raw
-                            const assetsType = type || (cb && 'cb') || 'image'
-                            switch (assetsType) {
-                                case 'image':
-                                    const image = new Image()
-                                    let isSuccess = false
-                                    image.src = value
-                                    image.onload = () => {
-                                        isSuccess = true
-                                        resolve(value)
-                                    }
-                                    image.onerror = () => {
-                                        resolve(value)
-                                    }
-                                    break
-                                default:
-                                    throw new Error(
-                                        'Unknown required data type' + raw
-                                    )
-                            }
-                        })
-                )
-            ).then(this.loadEnd)
-        },
         loadEnd(event) {
             this.$emit('loadEnd')
         }
@@ -272,7 +248,7 @@ $loading-circle-in: 0.3s;
 $loading-circle-1-turn: 1.8s;
 $circle-dispear: $loading-circle-in + 0.23s;
 $cog-in: $circle-dispear + 0.2s;
-$loading-end: 99s;
+$loading-end: 9999s;
 
 .loading {
     animation: fadeout 0.5s ease-out $loading-end forwards;
@@ -291,40 +267,33 @@ $loading-end: 99s;
         animation: loading__turn-search-wrapper 1s ease $loading-circle-in;
     }
     .loading__loading-circle:after {
-        animation: loading__scale-box 1s ease $loading-circle-in forwards,
-            fadeout 1s ease $loading-circle-in forwards;
+        animation: loading__scale-box 1s ease $loading-circle-in forwards, fadeout 1s ease $loading-circle-in forwards;
     }
     .loading__view-box {
-        animation: destroy 0.1s ease $circle-dispear +
-            ($loading-circle-1-turn / 10) forwards;
+        animation: destroy 0.1s ease $circle-dispear + ($loading-circle-1-turn / 10) forwards;
     }
     .loading__loading-text {
         &::before {
             animation: fadein 1s ease $loading-circle-in forwards,
-                -turn1 $loading-circle-1-turn ease $loading-circle-in infinite,
-                fadeout 1s ease $circle-dispear forwards;
+                -turn1 $loading-circle-1-turn ease $loading-circle-in infinite, fadeout 1s ease $circle-dispear forwards;
         }
         div:after {
             animation: slide-right 0.4s ease $loading-circle-in + 0.2s forwards,
                 slide-left 0.4s ease $loading-circle-in + 0.4s reverse forwards;
         }
         div:before {
-            animation: fadein 0.05s ease $loading-circle-in + 0.35s forwards,
-                fadeout 1s ease $circle-dispear forwards;
+            animation: fadein 0.05s ease $loading-circle-in + 0.35s forwards, fadeout 1s ease $circle-dispear forwards;
         }
     }
     .cogs {
         .cog__top {
-            animation: cog-turn1 10s infinite linear $cog-in + 0.2s + 0.2s,
-                scale0-1 0.2s ease $cog-in + 0.2s;
+            animation: cog-turn1 10s infinite linear $cog-in + 0.2s + 0.2s, scale0-1 0.2s ease $cog-in + 0.2s;
         }
         .cog__left {
-            animation: -cog-turn1 8.8s infinite linear $cog-in + 0.4s + 0.3s,
-                scale0-1 0.3s ease $cog-in + 0.4s;
+            animation: -cog-turn1 8.8s infinite linear $cog-in + 0.4s + 0.3s, scale0-1 0.3s ease $cog-in + 0.4s;
         }
         .cog__bottom {
-            animation: cog-turn1 7.3s infinite linear $cog-in + 0.6s + 0.4s,
-                scale0-1 0.4s ease $cog-in + 0.6s;
+            animation: cog-turn1 7.3s infinite linear $cog-in + 0.6s + 0.4s, scale0-1 0.4s ease $cog-in + 0.6s;
         }
     }
 }
@@ -363,16 +332,14 @@ $loading-end: 99s;
         left: 0;
         width: 100%;
         height: 100%;
-        box-shadow: 0px 0px 0px 0 rgba(255, 255, 255, 0.6),
-            0px 0px 0 0px rgba(0, 0, 0, 0.8) inset;
+        box-shadow: 0px 0px 0px 0 rgba(255, 255, 255, 0.6), 0px 0px 0 0px rgba(0, 0, 0, 0.8) inset;
     }
     to {
         top: 15%;
         left: 15%;
         width: 70%;
         height: 70%;
-        box-shadow: 0px 0px 0px 100000px rgba(255, 255, 255, 1),
-            0px 0px 60px 0px rgba(0, 0, 0, 0.7) inset;
+        box-shadow: 0px 0px 0px 100000px rgba(255, 255, 255, 1), 0px 0px 60px 0px rgba(0, 0, 0, 0.7) inset;
         background-color: transparent;
         opacity: 0.3;
     }
