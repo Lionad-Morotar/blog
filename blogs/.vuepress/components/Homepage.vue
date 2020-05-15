@@ -5,45 +5,52 @@
             <a rel="nofollow" href="#page-top" id="page-top" />
             <div class="parallax__layer parallax__layer__0">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_0.value"
                     alt="云朵背景图片"
                     class="cloud"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__1">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_1.value"
                     alt="山岳背景图片"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__2">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_2.value"
                     alt="山岳背景图片"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__3">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_3.value"
                     alt="山岳背景图片"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__4">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_4.value"
                     alt="山岳背景图片"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__5">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_5.value"
                     alt="山岳背景图片"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png"
                 />
             </div>
             <div class="parallax__layer parallax__layer__6">
                 <img
+                    v-if="assetInitDone"
+                    :src="assets.parallax_6.value"
                     alt="山岳背景图片"
-                    src="http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png"
                 />
             </div>
             <div class="parallax__cover">
@@ -115,9 +122,9 @@
         </div>
 
         <!-- Loading Animation -->
-        <template v-if="loading">
-            <PageLoading @animationEnd="clearLoading" />
-        </template>
+        <transition name="fade">
+            <PageLoading v-if="loading" @loadEnd="loadEnd" :assets="assets" />
+        </transition>
     </div>
 </template>
 
@@ -139,6 +146,13 @@ export default {
             }
         }
     },
+    created() {
+        this.loading = window.localStorage.getItem('is-homepage-loading-done')
+            ? false
+            : true
+        // this.loading = true
+        this.assetInitDone = !this.loading
+    },
     mounted() {
         new SwipeIndicator({
             elem: document.querySelector('.wrapper-detail'),
@@ -148,9 +162,13 @@ export default {
             elem: document.querySelector('.wrapper-brief'),
             callback: e => this.changeSlide(e)
         })
-        this.loading = window.localStorage.getItem('is-homepage-loading-done')
-            ? false
-            : true
+        this.loadingMinTimeTick = (() => {
+            const startTime = +new Date()
+            return function calc() {
+                const endTime = +new Date()
+                return endTime - startTime
+            }
+        })()
     },
     data() {
         return {
@@ -158,17 +176,54 @@ export default {
             articles: sidebar.getSidebar('articles'),
             loading: false,
             swipeIndicator: null,
-            slide: SLIDES[0]
+            slide: SLIDES[0],
+            loadingMinTimeTick: null,
+            assetInitDone: false,
+            assets: {
+                parallax_0: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_0.png'
+                },
+                parallax_1: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_1.png'
+                },
+                parallax_2: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_2.png'
+                },
+                parallax_3: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_3.png'
+                },
+                parallax_4: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_4.png'
+                },
+                parallax_5: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_5.png'
+                },
+                parallax_6: {
+                    value:
+                        'http://blog-image.obs.cn-east-3.myhuaweicloud.com/mgear/image/homepage/layer_6.png'
+                }
+            }
         }
     },
     methods: {
         // 页面加载完成后
-        clearLoading() {
-            this.loading = false
-            localStorage.setItem('is-homepage-loading-done', '1')
-            // setTimeout(() => {
-            //   this.changeSlide({ direction: 'down' })
-            // }, 1000)
+        loadEnd() {
+            const loadCosumeTime = this.loadingMinTimeTick()
+            const minLoadTime = 5000
+            const remains =
+                minLoadTime > loadCosumeTime ? minLoadTime - loadCosumeTime : 0
+
+            this.assetInitDone = true
+            setTimeout(() => {
+                this.loading = false
+                localStorage.setItem('is-homepage-loading-done', '1')
+            }, remains)
         },
         // 滚动页面
         changeSlide(e) {
@@ -534,5 +589,14 @@ $parallax__layers: 6;
         font-size: 40px;
         line-height: 2.5em;
     }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
 </style>
