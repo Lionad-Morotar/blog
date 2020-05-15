@@ -3,77 +3,76 @@
         <!-- FireWatch Mountain -->
         <div class="parallax">
             <a rel="nofollow" href="#page-top" id="page-top" />
-            <template>
-                <div class="parallax__layer parallax__layer__0">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_0.done"
-                            :src="assets.parallax_0.value"
-                            alt="云朵背景图片"
-                            class="cloud"
-                        />
-                    </transition>
-                </div>
-                <div class="parallax__layer parallax__layer__1">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_1.done"
-                            :src="assets.parallax_1.value"
-                            alt="山岳背景图片"
-                        />
-                    </transition>
-                </div>
-                <div class="parallax__layer parallax__layer__2">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_2.done"
-                            :src="assets.parallax_2.value"
-                            alt="山岳背景图片"
-                        />
-                    </transition>
-                </div>
-                <div class="parallax__layer parallax__layer__3">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_3.done"
-                            :src="assets.parallax_3.value"
-                            alt="山岳背景图片"
-                        />
-                    </transition>
-                </div>
-                <div class="parallax__layer parallax__layer__4">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_4.done"
-                            :src="assets.parallax_4.value"
-                            alt="山岳背景图片"
-                        />
-                    </transition>
-                </div>
-                <div class="parallax__layer parallax__layer__5">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_5.done"
-                            :src="assets.parallax_5.value"
-                            alt="山岳背景图片"
-                        />
-                    </transition>
-                </div>
-                <div class="parallax__layer parallax__layer__6">
-                    <transition name="fade">
-                        <img
-                            v-if="assetInitDone || assets.parallax_6.done"
-                            :src="assets.parallax_6.value"
-                            alt="山岳背景图片"
-                        />
-                    </transition>
-                </div>
-            </template>
+            <div class="parallax__layer parallax__layer__0">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_0.done"
+                        :src="assets.parallax_0.value"
+                        alt="云朵背景图片"
+                        class="cloud"
+                    />
+                </transition>
+            </div>
+            <div class="parallax__layer parallax__layer__1">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_1.done"
+                        :src="assets.parallax_1.value"
+                        alt="山岳背景图片"
+                    />
+                </transition>
+            </div>
+            <div class="parallax__layer parallax__layer__2">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_2.done"
+                        :src="assets.parallax_2.value"
+                        alt="山岳背景图片"
+                    />
+                </transition>
+            </div>
+            <div class="parallax__layer parallax__layer__3">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_3.done"
+                        :src="assets.parallax_3.value"
+                        alt="山岳背景图片"
+                    />
+                </transition>
+            </div>
+            <div class="parallax__layer parallax__layer__4">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_4.done"
+                        :src="assets.parallax_4.value"
+                        alt="山岳背景图片"
+                    />
+                </transition>
+            </div>
+            <div class="parallax__layer parallax__layer__5">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_5.done"
+                        :src="assets.parallax_5.value"
+                        alt="山岳背景图片"
+                    />
+                </transition>
+            </div>
+            <div class="parallax__layer parallax__layer__6">
+                <transition name="fade">
+                    <img
+                        v-if="assetInitDone || assets.parallax_6.done"
+                        :src="assets.parallax_6.value"
+                        alt="山岳背景图片"
+                    />
+                </transition>
+            </div>
             <div class="parallax__cover">
                 <a rel="nofollow" href="#page-bottom" id="page-bottom" />
             </div>
         </div>
 
+        <!-- My Info -->
         <div class="wrapper wrapper-detail">
             <div class="avatar">
                 <img src="http://image.lionad.art/mgear/image/avatar.gif" alt="Lionad's Avatar" draggable="false" />
@@ -103,6 +102,7 @@
             </div>
         </div>
 
+        <!-- Title -->
         <div class="wrapper wrapper-brief">
             <div class="page-title-con">
                 <div class="page-title">Lionad's Blogs</div>
@@ -146,7 +146,8 @@ export default {
             }
         }
     },
-    beforeMount() {
+    mounted() {
+        /* Loading */
         this.loading = window.localStorage.getItem('is-homepage-loading-done') ? false : true
         // this.loading = true
         this.assetInitDone = !this.loading
@@ -159,8 +160,8 @@ export default {
                 }
             })()
         }
-    },
-    mounted() {
+
+        /* 劫持鼠标滚轮 */
         new SwipeIndicator({
             elem: document.querySelector('.wrapper-detail'),
             callback: e => this.changeSlide(e)
@@ -229,13 +230,13 @@ export default {
         loadEnd() {
             const loadCosumeTime = this.loadingMinTimeTick()
             const minLoadTime = 4000
-            const remains = minLoadTime > loadCosumeTime ? minLoadTime - loadCosumeTime : 0
+            const remainTime = minLoadTime > loadCosumeTime ? minLoadTime - loadCosumeTime : 0
 
             this.assetInitDone = true
             setTimeout(() => {
                 this.loading = false
                 localStorage.setItem('is-homepage-loading-done', '1')
-            }, remains)
+            }, remainTime)
         },
         // 滚动页面
         changeSlide(e) {
