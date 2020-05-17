@@ -46,8 +46,8 @@ module.exports = {
         ],
         sidebar: {
             '/articles/': sidebar.getSidebar('articles'),
-            '/flows/': sidebar.getSidebar('flows'),
-            '/friends/': sidebar.getSidebar('friends')
+            '/flows/': [],
+            '/friends/': []
         },
         lastUpdated: 'Last Updated'
     },
@@ -57,13 +57,7 @@ module.exports = {
     extendMarkdown(md) {
         function imageLazyLoadPlugin(md) {
             const defaultImageRenderer = md.renderer.rules.image
-            md.renderer.rules.image = function(
-                tokens,
-                idx,
-                options,
-                env,
-                self
-            ) {
+            md.renderer.rules.image = function(tokens, idx, options, env, self) {
                 const token = tokens[idx]
 
                 /* 处理 SRC */

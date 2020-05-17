@@ -14,15 +14,15 @@ const getSrc = src => {
     fs.readdirSync(path.join(__dirname, src)).forEach(file => {
         if (fileTypes.test(file) > 0) {
             if (!mainFiles.includes(file)) {
-                filenames.push(file)
+                filenames.push(file.replace('.md', ''))
             }
         }
     })
     filenames.sort()
-    console.log('filenames : ', filenames)
 
     return filenames
 }
+console.log(getSrc('../articles/gists'))
 
 const sidebarConfigs = {
     articles: [
@@ -67,7 +67,8 @@ const sidebarConfigs = {
         {
             title: 'Memo / Gists',
             collapsable: true,
-            children: getSrc('../gists')
+            childrenGen: list => list.map(x => 'gists/' + x),
+            childrenRaw: getSrc('../articles/gists')
         },
         {
             title: '吉他 / Plays',
