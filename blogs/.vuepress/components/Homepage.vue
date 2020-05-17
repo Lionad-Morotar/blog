@@ -4,68 +4,30 @@
         <div class="parallax">
             <a rel="nofollow" href="#page-top" id="page-top" />
             <div class="parallax__layer parallax__layer__0">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_0.done"
-                        :src="assets.parallax_0.value"
-                        alt="云朵背景图片"
-                        class="cloud"
-                    />
-                </transition>
+                <img
+                    v-if="assetInitDone || assets.parallax_0.done"
+                    :src="assets.parallax_0.value"
+                    alt="云朵背景图片"
+                    class="cloud"
+                />
             </div>
             <div class="parallax__layer parallax__layer__1">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_1.done"
-                        :src="assets.parallax_1.value"
-                        alt="山岳背景图片"
-                    />
-                </transition>
+                <img v-if="assetInitDone || assets.parallax_1.done" :src="assets.parallax_1.value" alt="山岳背景图片" />
             </div>
             <div class="parallax__layer parallax__layer__2">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_2.done"
-                        :src="assets.parallax_2.value"
-                        alt="山岳背景图片"
-                    />
-                </transition>
+                <img v-if="assetInitDone || assets.parallax_2.done" :src="assets.parallax_2.value" alt="山岳背景图片" />
             </div>
             <div class="parallax__layer parallax__layer__3">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_3.done"
-                        :src="assets.parallax_3.value"
-                        alt="山岳背景图片"
-                    />
-                </transition>
+                <img v-if="assetInitDone || assets.parallax_3.done" :src="assets.parallax_3.value" alt="山岳背景图片" />
             </div>
             <div class="parallax__layer parallax__layer__4">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_4.done"
-                        :src="assets.parallax_4.value"
-                        alt="山岳背景图片"
-                    />
-                </transition>
+                <img v-if="assetInitDone || assets.parallax_4.done" :src="assets.parallax_4.value" alt="山岳背景图片" />
             </div>
             <div class="parallax__layer parallax__layer__5">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_5.done"
-                        :src="assets.parallax_5.value"
-                        alt="山岳背景图片"
-                    />
-                </transition>
+                <img v-if="assetInitDone || assets.parallax_5.done" :src="assets.parallax_5.value" alt="山岳背景图片" />
             </div>
             <div class="parallax__layer parallax__layer__6">
-                <transition name="fade">
-                    <img
-                        v-if="assetInitDone || assets.parallax_6.done"
-                        :src="assets.parallax_6.value"
-                        alt="山岳背景图片"
-                    />
-                </transition>
+                <img v-if="assetInitDone || assets.parallax_6.done" :src="assets.parallax_6.value" alt="山岳背景图片" />
             </div>
             <div class="parallax__cover">
                 <a rel="nofollow" href="#page-bottom" id="page-bottom" />
