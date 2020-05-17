@@ -1,3 +1,29 @@
+const fs = require('fs')
+const path = require('path')
+
+/**
+ * 获取目录下所有 Markdown 文件
+ * @param {String} src 路径字符串
+ * @todo 按照时间排序
+ */
+const getSrc = src => {
+    const filenames = []
+    const fileTypes = /\.md$/
+    const mainFiles = ['index.md', 'README.md']
+
+    fs.readdirSync(path.join(__dirname, src)).forEach(file => {
+        if (fileTypes.test(file) > 0) {
+            if (!mainFiles.includes(file)) {
+                filenames.push(file)
+            }
+        }
+    })
+    filenames.sort()
+    console.log('filenames : ', filenames)
+
+    return filenames
+}
+
 const sidebarConfigs = {
     articles: [
         {
@@ -39,6 +65,11 @@ const sidebarConfigs = {
             ]
         },
         {
+            title: 'Memo / Gists',
+            collapsable: true,
+            children: getSrc('../gists')
+        },
+        {
             title: '吉他 / Plays',
             collapsable: false,
             children: [
@@ -57,9 +88,7 @@ const sidebarConfigs = {
 Object.values(sidebarConfigs).map(sections => {
     sections.map(section => {
         if (!section.children) {
-            section.children = section.childrenGen
-                ? section.childrenGen(section.childrenRaw)
-                : section.childrenRaw
+            section.children = section.childrenGen ? section.childrenGen(section.childrenRaw) : section.childrenRaw
         }
         if (!section.childrenRaw) {
             section.childrenRaw = section.children

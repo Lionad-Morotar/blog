@@ -132,6 +132,16 @@ export default {
             elem: document.querySelector('.wrapper-brief'),
             callback: e => this.changeSlide(e)
         })
+        new SwipeIndicator({
+            event: 'swipe',
+            elem: document,
+            callback: e => console.log('swipe e : ', e)
+        })
+        new SwipeIndicator({
+            event: 'tapStart',
+            elem: document,
+            callback: e => console.log('tap e : ', e)
+        })
     },
     data() {
         return {
