@@ -33,7 +33,8 @@ module.exports = {
                 s.parentNode.insertBefore(hm, s);
                 })();
             `
-        ]
+        ],
+        ['script', { src: 'https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js', deferred: true }]
     ],
 
     /** theme config */
