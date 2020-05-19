@@ -43,6 +43,7 @@
     "node-cmd": "^3.0.0",
     "node-sass": "^4.13.1",
     "nodemon": "^1.19.2",
+    "raw-loader": "^4.0.1",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "subfont": "^4.2.0",
@@ -53,6 +54,7 @@
     "webpack": "^4.35.0"
   },
   "dependencies": {
+    "code-block-runner": "git://github.com/Lionad-Morotar/code-block-runner.git",
     "p5": "^1.0.0"
   }
 }
