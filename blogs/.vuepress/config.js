@@ -118,5 +118,7 @@ module.exports = {
                     })
             }
         }
-    }
+    },
+
+    extraWatchFiles: ['../../node_modules/code-block-runner/dist/main.umd.min.js']
 }
