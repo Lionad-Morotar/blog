@@ -1,8 +1,6 @@
-import CodeBlock from 'code-block-runner'
+import CodeBlock from './components/segments/CodeBlock/Editor.vue'
 import VueP5 from './components/segments/P5/index.vue'
 import WHRatio from './components/segments/WHRatio/index.vue'
-
-import 'code-block-runner/dist/main.css'
 
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
