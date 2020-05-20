@@ -1,7 +1,5 @@
 module.exports = {
-  resolve: {
-    alias: {
-      '@public': './public'
+    resolve: {
+        alias: {}
     }
-  }
 }

@@ -33,8 +33,7 @@ module.exports = {
                 s.parentNode.insertBefore(hm, s);
                 })();
             `
-        ],
-        ['script', { src: 'https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js', deferred: true }]
+        ]
     ],
 
     /** theme config */
@@ -118,7 +117,7 @@ module.exports = {
                     })
             }
         }
-    },
+    }
 
-    extraWatchFiles: ['../../node_modules/code-block-runner/dist/main.umd.min.js']
+    // extraWatchFiles: ['../../node_modules/code-block-runner/dist/*']
 }
