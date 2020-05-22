@@ -1,3 +1,37 @@
+const fs = require('fs')
+const path = require('path')
+
+console.log('Node Env Test : ', process.env.NODE_ENV)
+const baseDir = __dirname
+// ! const gistsDir = path.join(baseDir, '../articles/gists')
+// ! Do Not Refactor, Static Path to avoid vuepress build error
+const gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
+
+/**
+ * 获取目录下所有 Markdown 文件
+ * @param {String} src 路径字符串
+ * @todo 按照时间排序
+ */
+const getSrc = src => {
+    const filenames = []
+    const fileTypes = /\.md$/
+    const mainFiles = ['index.md', 'README.md']
+    try {
+        fs.readdirSync(src).forEach(file => {
+            if (fileTypes.test(file) > 0) {
+                if (!mainFiles.includes(file)) {
+                    filenames.push(file.replace('.md', ''))
+                }
+            }
+        })
+    } catch (err) {
+        console.error('Error in getSRC : ', err)
+    }
+    filenames.sort()
+    return filenames
+}
+console.log('GetSRC Test : ', getSrc(gistsDir))
+
 const sidebarConfigs = {
     articles: [
         {
@@ -39,6 +73,12 @@ const sidebarConfigs = {
             ]
         },
         {
+            title: 'Memo / Gists',
+            collapsable: true,
+            childrenGen: list => list.map(x => 'gists/' + x),
+            childrenRaw: getSrc(gistsDir)
+        },
+        {
             title: '吉他 / Plays',
             collapsable: false,
             children: [
@@ -57,9 +97,7 @@ const sidebarConfigs = {
 Object.values(sidebarConfigs).map(sections => {
     sections.map(section => {
         if (!section.children) {
-            section.children = section.childrenGen
-                ? section.childrenGen(section.childrenRaw)
-                : section.childrenRaw
+            section.children = section.childrenGen ? section.childrenGen(section.childrenRaw) : section.childrenRaw
         }
         if (!section.childrenRaw) {
             section.childrenRaw = section.children

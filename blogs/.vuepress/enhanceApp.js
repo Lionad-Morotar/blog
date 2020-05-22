@@ -1,3 +1,4 @@
+import CodeBlock from './components/segments/CodeBlock/Editor.vue'
 import VueP5 from './components/segments/P5/index.vue'
 import WHRatio from './components/segments/WHRatio/index.vue'
 
@@ -10,4 +11,5 @@ export default ({
     Vue.config.ignoredElements = ['css-doodle']
     Vue.component('vue-p5', VueP5)
     Vue.component('WHRatio', WHRatio)
+    Vue.component('CodeBlock', CodeBlock)
 }

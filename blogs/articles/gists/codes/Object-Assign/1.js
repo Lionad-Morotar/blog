@@ -1,0 +1,11 @@
+console.log(
+    Object.assign(
+        {}, 
+        null, 
+        undefined, 
+        'abc',
+        true, 
+        999, 
+        Symbol('foo')
+    )
+)
