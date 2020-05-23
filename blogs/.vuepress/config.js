@@ -97,6 +97,7 @@ module.exports = {
 
         md.use(imageLazyLoadPlugin)
         md.use(require('markdown-it-katex'))
+        md.use(require('markdown-it-toc-done-right'))
     },
 
     /** plugins */

@@ -56,7 +56,7 @@ const sidebarConfigs = {
         {
             title: '技术 / Coder',
             label: '技术',
-            collapsable: false,
+            collapsable: true,
             children: [
                 '你可以用纯CSS判断鼠标进入的方向吗',
                 '9张看面试题也写不出来的CSS图案',
@@ -80,7 +80,7 @@ const sidebarConfigs = {
         },
         {
             title: '吉他 / Plays',
-            collapsable: false,
+            collapsable: true,
             children: [
                 '163/等待的风',
                 '163/约定的海洋',

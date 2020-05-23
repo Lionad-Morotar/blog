@@ -83,36 +83,37 @@ export default {
 <style src="./css/codemirror.min.css"></style>
 
 <style lang="stylus">
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
 .editor
-  margin: 0
-  padding: 0
-  width: 100%
-  height: 100%
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 
-pre
-  padding: 16px
-  overflow: auto
-  font-size: 85%
-  line-height: 1.45
-  background-color: #f6f8fa
-  border-radius: 3px
+  .editor
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 100%
 
-pre > code
-  padding: 0
-  margin: 0
-  font-size: 100%
-  word-break: normal
-  white-space: pre
-  background: transparent
-  border: 0
+  pre
+    padding: 16px
+    overflow: auto
+    font-size: 85%
+    line-height: 1.45
+    background-color: #f6f8fa
+    border-radius: 3px
 
-.CodeMirror
-  font-family: 'consolas'
+  pre > code
+    padding: 0
+    margin: 0
+    font-size: 100%
+    word-break: normal
+    white-space: pre
+    background: transparent
+    border: 0
+
+  .CodeMirror
+    font-family: 'consolas'
 </style>
 
 <style lang="stylus" scoped>
