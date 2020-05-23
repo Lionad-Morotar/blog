@@ -234,12 +234,7 @@ div[class*='language-'] {
     line-height: 2;
   }
 
-  a:visited, a:active {
-    color: var(--text-black);
-    opacity: 0.8;
-  }
-
-  a {
+  a:not(.header-anchor) {
     color: var(--text-black);
     text-decoration: underline;
     text-decoration-color: var(--text-gray--lighter);
@@ -247,10 +242,26 @@ div[class*='language-'] {
     user-select: none;
     transition: text-decoration-color 0.2s;
     cursor: pointer;
+
+    &:visited, &:active {
+      color: var(--text-black);
+      opacity: 0.8;
+    }
+
+    &:hover {
+      text-decoration-color: var(--text-gray);
+    }
   }
 
-  a:hover {
-    text-decoration-color: var(--text-gray);
+  a.header-anchor {
+    position: relative;
+    top: -0.05em;
+    float: unset;
+    margin-top: 0;
+    margin-left: -1.7em;
+    padding-right: 0;
+    text-decoration: none !important;
+    transition: 0.3s;
   }
 
   blockquote {
@@ -286,6 +297,7 @@ div[class*='language-'] {
   ol, ul {
     padding-inline-start: 2.45em;
     padding-inline-end: 2.45em;
+    list-style: square inside;
   }
 
   mark, .highlighted {
@@ -308,7 +320,6 @@ div[class*='language-'] {
   strong {
     font-family: var(--font-text--bold);
     font-weight: 500;
-    color: var(--text-black--lighter);
   }
 
   pre {
@@ -352,6 +363,31 @@ div[class*='language-'] {
     background-color: lavender;
   }
 
+  h2, h3 {
+    box-sizing: border-box;
+    position: relative;
+    left: -0.7em;
+    margin: 2em 0 1em 0 !important;
+    padding: 0 0.5em !important;
+    line-height: 1.5em;
+    background: #221522;
+    color: #fefefe;
+    text-transform: uppercase;
+    border-radius: 3px;
+    width: calc(100% + 0.7em);
+    font-weight: normal;
+
+    .header-anchor {
+      margin-left: -2.7em;
+      padding-right: 1em;
+    }
+  }
+
+  h3 {
+    padding: 0 0.6em !important;
+    background: #777;
+  }
+
   @media screen and (max-width: 760px) {
     h1 {
       font-size: 30px;
@@ -379,6 +415,15 @@ div[class*='language-'] {
 
     li code {
       font-size: 15px;
+    }
+
+    h2, h3 {
+      box-sizing: border-box;
+      position: relative;
+      padding: 0 24px !important;
+      width: 100vw;
+      left: -24px;
+      border-radius: 0;
     }
   }
 }

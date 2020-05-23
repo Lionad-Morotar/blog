@@ -60,7 +60,11 @@ module.exports = {
     },
 
     /** markdown config */
-
+    markdown: {
+        anchor: {
+            permalinkSymbol: '🔗'
+        }
+    },
     extendMarkdown(md) {
         function imageLazyLoadPlugin(md) {
             const defaultImageRenderer = md.renderer.rules.image
