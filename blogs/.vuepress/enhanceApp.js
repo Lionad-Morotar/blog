@@ -2,6 +2,9 @@ import CodeBlock from './components/segments/CodeBlock/Editor.vue'
 import VueP5 from './components/segments/P5/index.vue'
 import WHRatio from './components/segments/WHRatio/index.vue'
 
+// eslint-disable-next-line
+import siteOnloadScript from './scripts'
+
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
     options, // 附加到根实例的一些选项
