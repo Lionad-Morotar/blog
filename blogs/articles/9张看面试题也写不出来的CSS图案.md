@@ -24,7 +24,7 @@
 
 ---
 
-### 1. 圆环变形
+### 圆环变形
 
 ![圆环变形图案](http://image.lionad.art/mgear/image/200415/1DlfMqAvJH.gif)
 
@@ -95,7 +95,7 @@
   }
 ```
 
-### 2. 厕所里的瓷砖
+### 厕所里的瓷砖
 
 ![厕所里的瓷砖图案](http://image.lionad.art/mgear/image/200415/Cq4jhBX0QD.gif)
 
@@ -192,7 +192,7 @@
   }
 ```
 
-### 3. 三角与圆球印花
+### 三角与圆球印花
 
 ![三角与圆球印花图案](http://image.lionad.art/mgear/image/200415/browser_TdDhrdE1kJ.png)
 
@@ -298,7 +298,7 @@
   }
 ```
 
-### 4. 瓷砖变异
+### 瓷砖变异
 
 ![瓷砖变异图案](http://image.lionad.art/mgear/image/200415/4yjR5DrBgy.gif)
 
@@ -377,7 +377,7 @@
   }
 ```
 
-### 5. 山与云
+### 山与云
 
 ![山与云图案](http://image.lionad.art/mgear/image/200415/KkRVqm20Qd.gif)
 
@@ -488,7 +488,7 @@
   }
 ```
 
-### 6. 冰崖上生长的仙人掌
+### 冰崖上生长的仙人掌
 
 ![冰崖上生长的仙人掌图案](http://image.lionad.art/mgear/image/200415/lALUw0IGT2.gif)
 
@@ -576,7 +576,7 @@
   }
 ```
 
-### 7. No Name 2
+### No Name 2
 
 ![无题](http://image.lionad.art/mgear/image/200415/browser_OK4VHnjq1J.png)
 
@@ -634,7 +634,7 @@
   }
 ```
 
-### 8. 挤冰淇淋
+### 挤冰淇淋
 
 ![挤冰淇淋图案](http://image.lionad.art/mgear/image/200415/tLBNQ2phFI.gif)
 
@@ -713,7 +713,7 @@
   }
 ```
 
-### 9. Lionad
+### Lionad
 
 ![Lionad的名称](http://image.lionad.art/mgear/image/200415/uhhDQH3g3L.gif)
 
@@ -787,7 +787,7 @@
   }
 ```
 
-### 10.&11. 万花筒
+### 万花筒
 
 ![万花筒图案](http://image.lionad.art/mgear/image/200415/rstkkpB6P1.gif)
 
@@ -851,7 +851,7 @@
   }
 ```
 
-### 12. トラ酱（Tiger）
+### トラ酱（Tiger酱）
 
 ![Lionad的头像](http://image.lionad.art/mgear/image/200415/browser_Uufg8gfFWn.png)
 
