@@ -1,6 +1,7 @@
 import CodeBlock from './components/segments/CodeBlock/Editor.vue'
-import VueP5 from './components/segments/P5/index.vue'
-import WHRatio from './components/segments/WHRatio/index.vue'
+import VueP5 from './components/segments/P5'
+import WHRatio from './components/segments/WHRatio'
+import Spark from './components/segments/Spark'
 
 // eslint-disable-next-line
 import siteOnloadScript from './scripts'
@@ -15,4 +16,5 @@ export default ({
     Vue.component('vue-p5', VueP5)
     Vue.component('WHRatio', WHRatio)
     Vue.component('CodeBlock', CodeBlock)
+    Vue.component('Spark', Spark)
 }
