@@ -1,59 +1,60 @@
 {
-    "name": "mgear-blogs",
-    "version": "0.0.0",
-    "description": "Lionad-Morotar's Blogs",
-    "author": "Lionad <tangnad@qq.com>",
-    "main": "index.js",
-    "scripts": {
-        "dev": "vuepress dev blogs",
-        "dev-proxy": "justproxy -s 80 -p 8080",
-        "build": "vuepress build blogs",
-        "test": "npm run build && http-server -c0 ./dist",
-        "upload": "node ./upload",
-        "post": "npm run build && npm run upload"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Lionad-Morotar/blogs.git"
-    },
-    "keywords": [
-        "blogs",
-        "fe-blogs",
-        "fe",
-        "vuepress"
-    ],
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Lionad-Morotar/blogs/issues"
-    },
-    "homepage": "https://github.com/Lionad-Morotar/blogs#readme",
-    "devDependencies": {
-        "@babel/core": "^7.4.5",
-        "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
-        "del": "^5.1.0",
-        "fibers": "^4.0.2",
-        "gulp": "^3.9.1",
-        "gulp-changed": "^4.0.2",
-        "gulp-load-plugins": "^2.0.1",
-        "gulp-rename": "^1.4.0",
-        "gulp-replace": "^1.0.0",
-        "http-server": "^0.12.1",
-        "justproxy": "^1.0.0",
-        "markdown-it-katex": "^2.0.3",
-        "node-cmd": "^3.0.0",
-        "node-sass": "^4.13.1",
-        "nodemon": "^1.19.2",
-        "raw-loader": "^4.0.1",
-        "sass": "^1.26.3",
-        "sass-loader": "^8.0.2",
-        "subfont": "^4.2.0",
-        "through2": "^3.0.1",
-        "vuepress": "^1.2.0",
-        "vuepress-plugin-medium-zoom": "^1.1.6",
-        "vuepress-plugin-nprogress": "^1.1.4",
-        "webpack": "^4.35.0"
-    },
-    "dependencies": {
-        "debounce": "^1.2.0"
-    }
+  "name": "mgear-blogs",
+  "version": "0.0.0",
+  "description": "Lionad-Morotar's Blogs",
+  "author": "Lionad <tangnad@qq.com>",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev blogs",
+    "dev-proxy": "justproxy -s 80 -p 8080",
+    "build": "vuepress build blogs",
+    "test": "npm run build && http-server -c0 ./dist",
+    "upload": "node ./upload",
+    "post": "npm run build && npm run upload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lionad-Morotar/blogs.git"
+  },
+  "keywords": [
+    "blogs",
+    "fe-blogs",
+    "fe",
+    "vuepress"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lionad-Morotar/blogs/issues"
+  },
+  "homepage": "https://github.com/Lionad-Morotar/blogs#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+    "del": "^5.1.0",
+    "fibers": "^4.0.2",
+    "gulp": "^3.9.1",
+    "gulp-changed": "^4.0.2",
+    "gulp-load-plugins": "^2.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
+    "http-server": "^0.12.1",
+    "justproxy": "^1.0.0",
+    "markdown-it-katex": "^2.0.3",
+    "node-cmd": "^3.0.0",
+    "node-sass": "^4.13.1",
+    "nodemon": "^1.19.2",
+    "raw-loader": "^4.0.1",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "subfont": "^4.2.0",
+    "through2": "^3.0.1",
+    "vuepress": "^1.2.0",
+    "vuepress-plugin-medium-zoom": "^1.1.6",
+    "vuepress-plugin-nprogress": "^1.1.4",
+    "webpack": "^4.35.0"
+  },
+  "dependencies": {
+    "debounce": "^1.2.0",
+    "markdown-it-toc-done-right": "^4.1.0"
+  }
 }
