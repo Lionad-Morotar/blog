@@ -1,5 +1,7 @@
 # 🎫 instanceof、typeof、toString 优势及缺陷
 
+[TOC]
+
 ## 常用判断方法
 
 类型判断，在 Javascript 中是一个很经典的问题了。围绕类型判断，有几种常见的解决方法，下是最常用的三种：

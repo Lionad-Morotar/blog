@@ -1,5 +1,7 @@
 # 前端模块化
 
+[TOC]
+
 为什么我们需要模块化？
 
 ## 模块模式
@@ -199,7 +201,7 @@ ES Module 是官方标准，也是JavaScript语言明确的发展方向，而Com
 
 应用程序使用 WebpackJS，库文件使用 RollupJS
 
-# 阅读更多
+## 阅读更多
 
 * [模块开发的价值](https://github.com/seajs/seajs/issues/547)
 * [前端模块的历史沿革](https://www.cyj.me/programming/2018/05/22/about-module-i/)

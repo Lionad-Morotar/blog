@@ -1,5 +1,7 @@
 # 🔥 从一幅 CSS 风景画中学习 2 个绘图知识点
 
+[TOC]
+
 最近 CodePen 流行的一张用纯 CSS 绘制的风景画令人印象深刻：
 
 ![An Evening in Southwold](http://image.lionad.art/mgear/image/200319/browser_c5Q2Z8gnR9.jpg)

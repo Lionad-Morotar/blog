@@ -1,5 +1,7 @@
 # 🎨 有关 CSS 的一些极有趣的东西
 
+[TOC]
+
 ## 灵活字体
 
 <!-- > The future is variable, though the future is in the variable -->

@@ -1,5 +1,7 @@
 # HTML5 标签明细
 
+[TOC]
+
 ## strong、em、b、i
 
 在观察 VuePress 编译出的 HTML 时，我发现它把 Markdown 文件中两个星号 （**）之间的内容，用 strong 标签给包裹住了。

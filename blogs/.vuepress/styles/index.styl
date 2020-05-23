@@ -155,33 +155,19 @@ navbar-height = 3.6rem;
     left: 0px;
     top: 0px;
     display: block;
-    padding-left: 6.6em;
+    padding-left: 1.5em;
     width: sidebar-width;
     height: navbar-height;
     line-height: navbar-height;
     background: dark-black;
 
     .site-name {
+      position: absolute;
       color: #fefefe;
-      font-size: 1.7em;
-      font-family: Edo, Dhenmark, Gabriola;
-      font-weight: lighter;
-      letter-spacing: 3px;
-
-      &::before {
-        box-sizing: border-box;
-        display: inline-block;
-        position: absolute;
-        left: -3em;
-        top: 0;
-        width: navbar-height;
-        height: navbar-height;
-        border: solid 5px white;
-        background-color: white;
-        background-image: url('http://image.lionad.art/mgear/image/avatar.gif');
-        background-size: 100%;
-        content: ' ';
-      }
+      text-transform: uppercase;
+      font-size: 2em;
+      font-family: fantacy;
+      letter-spacing: 4px;
     }
   }
 
@@ -312,7 +298,7 @@ div[class*='language-'] {
   }
 
   h1 {
-    margin-top: 0px !important;
+    margin-top: 20px !important;
     font-size: 48px;
   }
 
@@ -524,9 +510,13 @@ div[class*='language-'] {
   /* ********************************************** TOC */
   .table-of-contents {
     position: fixed;
-    transform: translateX(calc(-100% - 8em)) translateY(8%);
+    transform: translateX(calc(-100% - 8em)) translateY(53px);
     text-align: right;
     list-style: none;
+
+    & > ol {
+      margin-top: 0;
+    }
 
     ul, ol {
       list-style: unset;
@@ -538,7 +528,8 @@ div[class*='language-'] {
       &:before {
         content: 'TABLE OF CONTENTS';
         padding: 3px 10px;
-        font-family: fantasy;
+        font-family: fantacy;
+        font-weight: lighter;
         letter-spacing: 2px;
         border: solid 2px;
         border-right: solid 8px;
@@ -574,6 +565,26 @@ div[class*='language-'] {
 
     & > ol > li > ol > li > a {
       font-weight: bold;
+    }
+
+    & > ol > li > ol > li {
+      margin-top: 0.1em;
+    }
+
+    & > ol > li > ol > li > ol {
+      line-height: 1.25em;
+    }
+
+    & > ol > li > ol > li > ol > li > a {
+      font-size: 14px;
+    }
+
+    & > ol > li > ol > li, & > ol > li > ol > li > ol > li {
+      transition: 0.2s;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
     }
   }
 
