@@ -640,6 +640,32 @@ div[class*='language-'] {
   }
 }
 
+@media screen and (max-width: 760px) {
+  .page {
+    padding-left: 0;
+  }
+
+  .sidebar {
+    ul.sidebar-links {
+      padding-top: 1em;
+    }
+  }
+
+  .navbar {
+    left: 0;
+
+    .home-link {
+      margin-left: 3em;
+      background: none;
+
+      .site-name {
+        font-size: 1.4em;
+        color: dark-black;
+      }
+    }
+  }
+}
+
 @media print, speech {
   .page > div {
     position: absolute;
