@@ -46,6 +46,8 @@ module.exports = {
     /** theme config */
 
     themeConfig: {
+        smoothScroll: true,
+        search: false,
         nav: [
             { text: 'Home', link: '/' },
             { text: 'Articles', link: '/articles/' },
@@ -62,7 +64,7 @@ module.exports = {
     /** markdown config */
     markdown: {
         anchor: {
-            permalinkSymbol: '🔗'
+            permalink: false
         }
     },
     extendMarkdown(md) {

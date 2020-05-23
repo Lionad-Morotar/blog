@@ -57,11 +57,12 @@ const sidebarConfigs = {
             title: '技术 / Coder',
             label: '技术',
             collapsable: true,
+            open: true,
             children: [
                 '你可以用纯CSS判断鼠标进入的方向吗',
                 '9张看面试题也写不出来的CSS图案',
                 '用JS实现一些造型构成',
-                '从最近很流行的一张CSS风景画中学到的东西',
+                '从一张CSS风景画中学到的东西',
                 '有关CSS的一些极有趣的东西',
                 '近来的新工作，及喝饮料时的一些思考',
                 '聊聊聊此次离职毕业及其它杂乱的事情',

@@ -84,7 +84,6 @@ $container-height: 500;
 
 .container {
     position: relative;
-    width: 1000px;
     height: $container-height + unquote('px');
     overflow: hidden;
     background: #feee9d;
@@ -131,9 +130,7 @@ $container-height: 500;
                 .eye {
                     &:after {
                         background-position: 100% 50%;
-                        transform: rotate(
-                            (0 + $i * $part-degree) + unquote('deg')
-                        );
+                        transform: rotate((0 + $i * $part-degree) + unquote('deg'));
                     }
                 }
             }

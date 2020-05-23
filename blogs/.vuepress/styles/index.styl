@@ -38,8 +38,16 @@ body {
   font-family: var(--font-text--general);
 }
 
+/* ********************************************** Colors */
+dark-black = #221522;
+medium-black = #777;
+light-black = #eee;
+/* ********************************************** Values */
 scrollbar-width = 10px;
+sidebar-width = 25em;
+navbar-height = 3.6rem;
 
+/* ********************************************** Scrollbar */
 ::-webkit-scrollbar {
   position: absolute;
   width: scrollbar-width;
@@ -57,9 +65,9 @@ scrollbar-width = 10px;
 
 /* 定义滑块 内阴影+圆角 */
 ::-webkit-scrollbar-thumb {
-  height: 9vh;
+  height: navbar-height;
   border-radius: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: light-black;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -70,9 +78,7 @@ scrollbar-width = 10px;
   cursor: pointer;
 }
 
-sidebar-width = 25em;
-navbar-height = 3.6rem;
-
+/* ********************************************** Sidebar */
 .sidebar {
   top: 0;
   width: sidebar-width;
@@ -87,7 +93,7 @@ navbar-height = 3.6rem;
 
   /* 整体调整 */
   & > ul.sidebar-links {
-    padding-top: navbar-height;
+    padding-top: navbar-height + 1em;
   }
 
   .sidebar-group a.sidebar-link {
@@ -130,31 +136,115 @@ navbar-height = 3.6rem;
   }
 }
 
+/* ********************************************** Navbar */
+navbar-height = 3.6rem;
+
 .navbar {
   left: sidebar-width;
   font-family: none;
-  background-color: rgba(254, 220, 200, 0.95);
-  border-bottom: solid 1px #ecdad2;
+  background-color: light-black;
+  border-bottom: 0;
+  height: navbar-height;
+  z-index: 100;
 
-  .site-name {
-    color: #221522 !important;
+  /* LOGO */
+  .home-link {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: block;
+    padding-left: 6.6em;
+    width: sidebar-width;
+    height: navbar-height;
+    line-height: navbar-height;
+    background: dark-black;
 
-    &::before {
-      content: ' ';
-      background: url('/images/avatar.gif');
+    .site-name {
+      color: #fefefe;
+      font-size: 1.7em;
+      font-family: Edo, Dhenmark, Gabriola;
+      font-weight: lighter;
+      letter-spacing: 3px;
+
+      &::before {
+        box-sizing: border-box;
+        display: inline-block;
+        position: absolute;
+        left: -3em;
+        top: 0;
+        width: navbar-height;
+        height: navbar-height;
+        border: solid 5px white;
+        background-color: white;
+        background-image: url('http://image.lionad.art/mgear/image/avatar.gif');
+        background-size: 100%;
+        content: ' ';
+      }
     }
   }
 
-  .links {
-    background-color: transparent !important;
-  }
+  /* 链接 */
+  div.links {
+    padding-left: 0;
+    top: calc(0.7em - 1.5px);
+    left: calc(((100vw - 25em - 75.75em) / 2));
+    // left: calc(((100vw - 25em - 70.3em) / 2));
+    right: unset;
+    background-color: transparent;
 
-  .search-box input {
-    background-color: #fbebe1 !important;
-  }
+    .nav-item {
+      padding: 0;
+      border: solid 3px dark-black;
+      min-width: 130px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='64' viewBox='0 0 16 32'%3E%3Cg fill='%23920000' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 30h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
+      cursor: pointer;
 
-  .search-box input:focus {
-    border-color: #843c46 !important;
+      &:hover {
+        animation: background-move 1s linear infinite;
+      }
+
+      @keyframes background-move {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: 0 64px;
+        }
+      }
+
+      .nav-link {
+        display: inline-block;
+        padding: 0 1em;
+        width: 100%;
+        font-weight: bold;
+        border-bottom: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.2s;
+      }
+
+      .router-link-active {
+        padding-left: 1.5em;
+
+        &:before {
+          position: absolute;
+          left: 0.5em;
+          bottom: 50%;
+          content: '';
+          width: 0.5em;
+          height: 0.5em;
+          background: dark-black;
+          transform: translateY(50%);
+        }
+
+        &:after {
+          content: '';
+          height: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -365,12 +455,15 @@ div[class*='language-'] {
     font-weight: 500;
   }
 
+  .extra-class {
+    border-radius: 0;
+  }
+
   pre {
     margin-top: 2em;
     padding: 20px;
-    border-radius: 4px;
+    border-radius: 0 !important;
     background: rgba(0, 0, 0, 0.05);
-    // line-height: 1.75;
     line-height: 2.3;
     font-size: 16px;
     color: var(--text-black);
@@ -407,17 +500,14 @@ div[class*='language-'] {
   }
 
   h2, h3 {
-    box-sizing: border-box;
     position: relative;
-    left: -0.7em;
     margin: 2em 0 1em 0 !important;
     padding: 0 0.5em !important;
     line-height: 1.5em;
-    background: #221522;
+    background: dark-black;
     color: #fefefe;
     text-transform: uppercase;
-    border-radius: 3px;
-    width: calc(100% + 0.7em);
+    border-radius: 1px;
     font-weight: normal;
 
     .header-anchor {
@@ -427,11 +517,7 @@ div[class*='language-'] {
   }
 
   h3 {
-    &::first-line {
-    }
-
-    padding: 0 0.6em !important;
-    background: #777;
+    background: medium-black;
   }
 
   .table-of-contents {
@@ -439,7 +525,6 @@ div[class*='language-'] {
     transform: translateX(-100%);
     text-align: right;
     list-style: none;
-    font-size: 12px !important;
   }
 
   @media screen and (max-width: 760px) {
