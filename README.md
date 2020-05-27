@@ -1,38 +1,73 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0da4478f-b076-4a50-bcba-7f5bd7a987df/deploy-status)](https://app.netlify.com/sites/lionad/deploys)
 ![Open Source Flag](https://camo.githubusercontent.com/d9ce827af4ec2b7b3c52ce4595bbb354d8b21405/68747470733a2f2f6261646765732e66726170736f66742e636f6d2f6f732f76312f6f70656e2d736f757263652e7376673f763d313032)
 
 # Lionad's Blog
 
-这里是 Lionad-Guirotar 的技术博客, [线上地址](https://lionad.netlify.com). 也许以后会加上一些稀奇古怪的东西(说不准)...
+My personal websites，build with VuePress.
 
-## 项目说明
+## Homepage
 
-博客使用 vuepress 将 markdown 文件打包为 HTML 文件。整个项目托管在了 netlify 上，还用到了 google.analytics 服务，所以国内访问应该特别慢。
+![Homepage](http://image.lionad.art/mgear/image/gists/2020-05-28-02-38-22_1920.gif)
 
-## 项目运行
+## Components
 
-### 开发环境
+### Gestures
 
-```
-npm run dev
-```
+Catch mouse events, mousewheel events and mobile events.
 
-注意，进行 vuepress 配置文件更改后（如 .vuepress/config.js），需要重新执行上述命令。
+* Usage
 
-### 项目打包
-
-```
-npm run build
+```HTML
+<Gesture :swipeDown="() => {}" :swipeTopLeft="() => {}" freezeTime="300">
+    <Children />
+</Gesture>
 ```
 
-如果需要本地预览，建议安装 `http-server` 库：
+* Props
 
-```
-npm install -g http-server
+```js
+// gestures
+{
+    'tap',
+    // 'longtap',
+    // 'doubletap',
+    // 'swipe',
+    // 'swipeLeft',
+    // 'swipeRight',
+    'swipeUp',
+    'swipeDown',
+    // 'swipeTopLeft',
+    // 'swipeTopRight',
+    // 'swipeDownLeft',
+    // 'swipeDownRight'
+    // 'rotate'
+}
+// props
+{
+    freezeTime, // debounce time interval
+    eventInvoke, // pass events to outside then do e.preventDefault or e.stopPropagation
+}
 ```
 
-然后，启动本地服务器，预览打包后的 ./dist 文件夹：
+### Sparkles
 
+Create anything with bling-bling-stars.
+
+![Homepage](http://image.lionad.art/mgear/assets/bling.gif)
+
+* Usage
+
+```HTML
+<Spark>
+    <Children />
+</Spark>
 ```
-http-server ./dist
+
+* Props
+
+```js
+{
+    color, // 星星的颜色，默认为黄色，可以传入颜色值或者 colors 对象内的键名，也支持直接传入数组
+    minDelay, // 最小生成延迟
+    maxDelay, // 最大生成延迟
+}
 ```

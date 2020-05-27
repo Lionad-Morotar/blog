@@ -18,17 +18,17 @@ const listenName = {
 const mouseWheelEventName = []
 const gestures = [
     'tap',
-    'longtap',
-    'doubletap',
-    'swipe',
-    'swipeLeft',
-    'swipeRight',
+    // 'longtap',
+    // 'doubletap',
+    // 'swipe',
+    // 'swipeLeft',
+    // 'swipeRight',
     'swipeUp',
-    'swipeDown',
-    'swipeTopLeft',
-    'swipeTopRight',
-    'swipeDownLeft',
-    'swipeDownRight'
+    'swipeDown'
+    // 'swipeTopLeft',
+    // 'swipeTopRight',
+    // 'swipeDownLeft',
+    // 'swipeDownRight'
     // 'rotate'
 ]
 export default {
@@ -53,10 +53,12 @@ export default {
                 swipeOffsetThreshold: 80
             })
         },
+        // debounce time interval
         freezeTime: {
             type: [Number, String],
             default: 1000 / 30
         },
+        // pass events to outside then do e.preventDefault or e.stopPropagation
         eventInvoke: {
             type: Function,
             default: () => {}
