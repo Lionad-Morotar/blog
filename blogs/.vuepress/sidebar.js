@@ -56,7 +56,7 @@ const sidebarConfigs = {
         {
             title: '技术 / Coder',
             label: '技术',
-            collapsable: true,
+            collapsable: false,
             open: true,
             children: [
                 '你可以用纯CSS判断鼠标进入的方向吗',

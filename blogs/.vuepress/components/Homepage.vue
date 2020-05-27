@@ -409,12 +409,12 @@ $parallax__layers: 6;
 .page-tip {
     display: inline-block;
     margin: 3em auto;
-    padding: 2px 25px;
+    padding: 2px 1.5265rem;
     text-align: center;
     border: solid 1px rgb(197, 140, 116);
-    border-radius: 5px;
+    border-radius: 1px;
     line-height: 2;
-    font-size: 12px;
+    font-size: 0.75rem;
     letter-spacing: 2px;
     opacity: 0;
     transition: opacity 1s;
@@ -423,7 +423,7 @@ $parallax__layers: 6;
     font-family: Edo, Dhenmark, Gabriola;
     font-weight: lighter;
     text-align: center;
-    text-shadow: 0 8px 12px rgba(34, 21, 34, 0.15);
+    text-shadow: 0 0.5rem 0.75rem rgba(34, 21, 34, 0.15);
     letter-spacing: 2px;
     color: #300c22;
     animation: fadein 1s;
@@ -499,8 +499,8 @@ $parallax__layers: 6;
 
     .avatar {
         position: relative;
-        width: 160px;
-        height: 160px;
+        width: 10rem;
+        height: 10rem;
 
         img {
             display: block;
@@ -519,7 +519,7 @@ $parallax__layers: 6;
         .head {
             font-weight: bolder;
             font-family: 'Goudy Old Style', garamond;
-            font-size: 55px;
+            font-size: 3.4375rem;
             line-height: 1.5em;
         }
         .description {
@@ -530,12 +530,12 @@ $parallax__layers: 6;
         .buttons {
             .into-article {
                 margin: auto;
-                margin-top: 70px;
-                width: 150px;
-                height: 40px;
-                line-height: 40px;
+                margin-top: 4.375rem;
+                width: 9.375rem;
+                height: 2.5rem;
+                line-height: 2.5rem;
                 border: solid 1px #fbebe1;
-                border-radius: 3px;
+                border-radius: 1px;
                 transition: 0.3s;
                 cursor: pointer;
 
@@ -564,7 +564,7 @@ $parallax__layers: 6;
             .button {
                 background-color: white;
                 border: none;
-                border-radius: 0.3em;
+                border-radius: 1px;
                 color: white;
                 padding: 0.5em 1em;
                 margin: 1em 0.5em;
@@ -591,7 +591,7 @@ $parallax__layers: 6;
         width: 100%;
         color: #e3e3e3;
         text-align: center;
-        font-size: 12px;
+        font-size: 0.75rem;
         letter-spacing: 0.5px;
         border: none;
 
@@ -625,8 +625,8 @@ $parallax__layers: 6;
             padding-top: 13vh;
         }
         .avatar {
-            width: 200px;
-            height: 270px;
+            width: 12.5rem;
+            height: 16.875rem;
         }
     }
 }
@@ -638,10 +638,10 @@ $parallax__layers: 6;
     }
 
     .page-side-title {
-        font-size: 16px;
+        font-size: 1rem;
     }
     .article-list {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
     .wrapper {
         padding-top: 10vh;
@@ -653,24 +653,24 @@ $parallax__layers: 6;
         }
         .card {
             .head {
-                font-size: 38px;
+                font-size: 2.375rem;
                 line-height: 2.5em;
                 white-space: nowrap;
             }
             .description {
                 margin-top: -0.5em;
-                font-size: 14px;
+                font-size: 0.875rem;
                 padding: 0 2em;
             }
             .buttons {
                 .into-article {
                     margin-top: 4em;
-                    width: 125px;
-                    height: 35px;
-                    line-height: 35px;
+                    width: 7.8125rem;
+                    height: 2.1875rem;
+                    line-height: 2.1875rem;
                     border: solid 1px #fbebe1;
-                    border-radius: 2px;
-                    font-size: 14px;
+                    border-radius: 1px;
+                    font-size: 0.875rem;
                 }
             }
         }
