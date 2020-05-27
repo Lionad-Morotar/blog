@@ -569,10 +569,53 @@ $parallax__layers: 6;
         }
     }
 }
+
 @include sp-layout {
-    .card .head {
-        font-size: 40px;
-        line-height: 2.5em;
+    .parallax {
+        margin-left: -1490px;
+        perspective: 175px;
+    }
+
+    .page-side-title {
+        font-size: 16px;
+    }
+    .article-list {
+        font-size: 14px;
+    }
+    .wrapper {
+        padding-top: 10vh;
+        overflow: hidden;
+
+        .avatar {
+            height: 30vw;
+            width: 30vw;
+        }
+        .card {
+            .head {
+                font-size: 38px;
+                line-height: 2.5em;
+                white-space: nowrap;
+            }
+            .description {
+                margin-top: -0.5em;
+                font-size: 14px;
+                padding: 0 2em;
+            }
+            .buttons {
+                .into-article {
+                    margin-top: 4em;
+                    width: 125px;
+                    height: 35px;
+                    line-height: 35px;
+                    border: solid 1px #fbebe1;
+                    border-radius: 2px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .footer > * {
+            display: block;
+        }
     }
 }
 
