@@ -54,7 +54,7 @@
                     </div>
                     <div class="buttons">
                         <div class="into-article">
-                            <a rel="nofollow" href="/articles/index.html">进入博客</a>
+                            <a href="/articles/index.html">进入博客</a>
                         </div>
                     </div>
                 </div>
