@@ -5,8 +5,6 @@ const headLink = [
     ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
     ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
     ['script', { src: 'https://cdn.bootcss.com/p5.js/1.0.0/p5.min.js' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js' }],
-    ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js' }],
     [
         'script',
         {
@@ -15,6 +13,12 @@ const headLink = [
         }
     ]
 ]
+
+// const isTestScrollTo = false
+// if (isTestScrollTo) {
+//     ['script', { src: 'https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js' }],
+//     ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js' }],
+// }
 
 if (!isDev) {
     headLink.push([

@@ -1,37 +1,65 @@
 <template>
     <div :class="['home', slide]">
         <!-- FireWatch Mountain -->
-        <div class="parallax">
-            <a rel="nofollow" href="#page-top" id="page-top" />
+        <div ref="parallax" class="parallax">
             <div class="parallax__layer parallax__layer__0">
                 <img
                     v-if="assetInitDone || assets.parallax_0.done"
                     :src="assets.parallax_0.value"
                     alt="云朵背景图片"
                     class="cloud"
+                    draggable="false"
                 />
             </div>
             <div class="parallax__layer parallax__layer__1">
-                <img v-if="assetInitDone || assets.parallax_1.done" :src="assets.parallax_1.value" alt="山岳背景图片" />
+                <img
+                    v-if="assetInitDone || assets.parallax_1.done"
+                    :src="assets.parallax_1.value"
+                    alt="山岳背景图片"
+                    draggable="false"
+                />
             </div>
             <div class="parallax__layer parallax__layer__2">
-                <img v-if="assetInitDone || assets.parallax_2.done" :src="assets.parallax_2.value" alt="山岳背景图片" />
+                <img
+                    v-if="assetInitDone || assets.parallax_2.done"
+                    :src="assets.parallax_2.value"
+                    alt="山岳背景图片"
+                    draggable="false"
+                />
             </div>
             <div class="parallax__layer parallax__layer__3">
-                <img v-if="assetInitDone || assets.parallax_3.done" :src="assets.parallax_3.value" alt="山岳背景图片" />
+                <img
+                    v-if="assetInitDone || assets.parallax_3.done"
+                    :src="assets.parallax_3.value"
+                    alt="山岳背景图片"
+                    draggable="false"
+                />
             </div>
             <div class="parallax__layer parallax__layer__4">
-                <img v-if="assetInitDone || assets.parallax_4.done" :src="assets.parallax_4.value" alt="山岳背景图片" />
+                <img
+                    v-if="assetInitDone || assets.parallax_4.done"
+                    :src="assets.parallax_4.value"
+                    alt="山岳背景图片"
+                    draggable="false"
+                />
             </div>
             <div class="parallax__layer parallax__layer__5">
-                <img v-if="assetInitDone || assets.parallax_5.done" :src="assets.parallax_5.value" alt="山岳背景图片" />
+                <img
+                    v-if="assetInitDone || assets.parallax_5.done"
+                    :src="assets.parallax_5.value"
+                    alt="山岳背景图片"
+                    draggable="false"
+                />
             </div>
             <div class="parallax__layer parallax__layer__6">
-                <img v-if="assetInitDone || assets.parallax_6.done" :src="assets.parallax_6.value" alt="山岳背景图片" />
+                <img
+                    v-if="assetInitDone || assets.parallax_6.done"
+                    :src="assets.parallax_6.value"
+                    alt="山岳背景图片"
+                    draggable="false"
+                />
             </div>
-            <div class="parallax__cover">
-                <a rel="nofollow" href="#page-bottom" id="page-bottom" />
-            </div>
+            <div class="parallax__cover" />
         </div>
 
         <!-- My Info -->
@@ -110,28 +138,6 @@ export default {
         PageLoading,
         Gesture
     },
-    computed: {
-        data() {
-            return {
-                ...this.$page.frontmatter
-            }
-        }
-    },
-    mounted() {
-        /* Loading */
-        this.loading = window.localStorage.getItem('is-homepage-loading-done') ? false : true
-        // this.loading = true
-        this.assetInitDone = !this.loading
-        if (!this.assetInitDone) {
-            this.loadingMinTimeTick = (() => {
-                const startTime = +new Date()
-                return function calc() {
-                    const endTime = +new Date()
-                    return endTime - startTime
-                }
-            })()
-        }
-    },
     data() {
         return {
             sidebar,
@@ -140,6 +146,7 @@ export default {
             slide: SLIDES[0],
             loadingMinTimeTick: null,
             assetInitDone: false,
+            scrollHeight: null,
             assets: {
                 parallax_0: {
                     sort: 0,
@@ -186,6 +193,47 @@ export default {
             }
         }
     },
+    computed: {
+        data() {
+            return {
+                ...this.$page.frontmatter
+            }
+        }
+    },
+    mounted() {
+        /* Loading */
+        this.loading = window.localStorage.getItem('is-homepage-loading-done') ? false : true
+        // this.loading = true
+        this.assetInitDone = !this.loading
+        if (!this.assetInitDone) {
+            this.loadingMinTimeTick = (() => {
+                const startTime = +new Date()
+                return function calc() {
+                    const endTime = +new Date()
+                    return endTime - startTime
+                }
+            })()
+        }
+
+        /* Calc Scroll Height */
+        const ele = document.querySelector('.parallax')
+        this.scrollHeight = ele.scrollHeight - ele.clientHeight
+        console.log('this.scrollHeight : ', this.scrollHeight)
+
+        /* requestAnimationFrame */
+        window.requestAnimFrame = (function() {
+            return (
+                window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                function(callback) {
+                    return window.setTimeout(callback, 1000 / 60)
+                }
+            )
+        })()
+    },
     methods: {
         // 页面加载完成后
         loadEnd() {
@@ -200,26 +248,43 @@ export default {
             }, remainTime)
         },
         // 滚动页面
-        changeSlide(e) {
-            const slideSideEffect = {
-                up() {
-                    document.querySelector('#page-top').click()
-                    setTimeout(() => {
-                        document.querySelector('#page-top').click()
-                    }, 50)
-                },
-                down() {
-                    document.querySelector('#page-bottom').click()
-                    setTimeout(() => {
-                        document.querySelector('#page-bottom').click()
-                    }, 50)
-                }
+        changeSlide: (function() {
+            let lastTriggerTime = 0
+            return function(e) {
+                const dateNow = +Date.now()
+                if (dateNow - lastTriggerTime < 500) return
+
+                const idx = ['up', 'down'].findIndex(x => x === e)
+                this.slide = SLIDES[idx]
+                const toHeight = [0, this.scrollHeight][idx]
+
+                this.$refs.parallax.scrollTo
+                    ? this.$refs.parallax.scrollTo(0, toHeight)
+                    : (this.$refs.parallax.scrollTop = toHeight)
+
+                // this.scroll(document.querySelector('.parallax'), toHeight)
+                // $(document.querySelector('.parallax')).scrollTo(toHeight)
             }
-            const idx = ['up', 'down'].findIndex(x => x === e)
-            this.slide = SLIDES[idx]
-            console.log('e : ', e)
-            slideSideEffect[e]()
-        },
+        })(),
+        // ! 此方案会出现 scrollTop 一直为零的问题，待排查（使用 jQuery 不会有问题）
+        // scroll(ele, height, time = 800) {
+        //     const frameTime = time / (1000 / 60)
+        //     const currentTop = ele.scrollTop
+        //     const frameHeight = Math.round((height - currentTop) / frameTime)
+        //     const toBottom = currentTop < height
+
+        //     const run = () => {
+        //         const store = ele.scrollTop
+        //         ele.scrollTo(ele.scrollLeft, store + frameHeight)
+
+        //         const continueGoBottom = toBottom && store + frameHeight < height
+        //         const continueGoTop = !toBottom && store + frameHeight > height
+        //         const go = continueGoBottom || continueGoTop
+
+        //         go && window.requestAnimFrame(run)
+        //     }
+        //     run()
+        // },
         stopMove(e) {
             if (e.type === 'touchmove' || e.type === 'mousemove') {
                 e.preventDefault()
@@ -281,6 +346,8 @@ export default {
         display: block;
         position: absolute;
         bottom: 0;
+        user-select: none;
+        -webkit-user-drag: none;
     }
     img.cloud {
         opacity: 0.5;
