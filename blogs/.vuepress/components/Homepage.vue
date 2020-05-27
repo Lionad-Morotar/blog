@@ -35,53 +35,60 @@
         </div>
 
         <!-- My Info -->
-        <div class="wrapper wrapper-detail">
-            <div class="avatar">
-                <img src="http://image.lionad.art/mgear/image/avatar.gif" alt="Lionad's Avatar" draggable="false" />
-            </div>
-            <div class="card">
-                <div class="bio">
-                    <div class="head">
-                        <span>{{ data.head }}</span>
+        <Gesture :swipeUp="() => changeSlide('up')" freezeTime="300">
+            <div class="wrapper wrapper-detail">
+                <div class="avatar">
+                    <img src="http://image.lionad.art/mgear/image/avatar.gif" alt="Lionad's Avatar" draggable="false" />
+                </div>
+                <div class="card">
+                    <div class="bio">
+                        <div class="head">
+                            <span>{{ data.head }}</span>
+                        </div>
+                        <div class="info">
+                            <span>{{ data.info }}</span>
+                        </div>
+                        <div class="description">
+                            <Content />
+                        </div>
                     </div>
-                    <div class="info">
-                        <span>{{ data.info }}</span>
-                    </div>
-                    <div class="description">
-                        <Content />
+                    <div class="buttons">
+                        <div class="into-article">
+                            <a rel="nofollow" href="/articles/index.html">进入博客</a>
+                        </div>
                     </div>
                 </div>
-                <div class="buttons">
-                    <div class="into-article">
-                        <a rel="nofollow" href="/articles/index.html">进入博客</a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footer" v-if="data.footer">
-                <span> {{ data.footer }} / </span>
-                <a href="/friends">与我联络 & 友情链接(Links)</a>
+                <div class="footer" v-if="data.footer">
+                    <span> {{ data.footer }} / </span>
+                    <a href="/friends">与我联络 & 友情链接(Links)</a>
+                </div>
             </div>
-        </div>
+        </Gesture>
 
         <!-- Title -->
-        <div class="wrapper wrapper-brief">
-            <div class="page-title-con">
-                <div class="page-title">Lionad's Blogs</div>
-                <div class="page-side-title">Newest Posts</div>
-                <div class="page-side-content">
-                    <template v-for="section in articles" v-if="section.label">
-                        <p class="article-list">
-                            <span class="article-list-label" v-text="section.label + '：'"></span>
-                            <span class="article-list-content">
-                                <a :href="`/articles/${section.children[0]}.html`" v-text="section.childrenRaw[0]"></a>
-                            </span>
-                        </p>
-                    </template>
+        <Gesture :swipeDown="() => changeSlide('down')" freezeTime="300">
+            <div class="wrapper wrapper-brief">
+                <div class="page-title-con">
+                    <div class="page-title">Lionad's Blogs</div>
+                    <div class="page-side-title">Newest Posts</div>
+                    <div class="page-side-content">
+                        <template v-for="section in articles" v-if="section.label">
+                            <p class="article-list">
+                                <span class="article-list-label" v-text="section.label + '：'"></span>
+                                <span class="article-list-content">
+                                    <a
+                                        :href="`/articles/${section.children[0]}.html`"
+                                        v-text="section.childrenRaw[0]"
+                                    ></a>
+                                </span>
+                            </p>
+                        </template>
+                    </div>
+                    <div class="page-tip">向下滑动</div>
                 </div>
-                <div class="page-tip">向下滑动</div>
             </div>
-        </div>
+        </Gesture>
 
         <!-- Loading Animation -->
         <transition name="fade">
@@ -92,14 +99,16 @@
 
 <script>
 const sidebar = require('../sidebar')
+
+import Gesture from './Segments/Gesture'
 import PageLoading from './Animation/PageLoading'
-import SwipeIndicator from './utils/swipe-indicator'
 
 const SLIDES = ['brief', 'detail']
 
 export default {
     components: {
-        PageLoading
+        PageLoading,
+        Gesture
     },
     computed: {
         data() {
@@ -122,26 +131,6 @@ export default {
                 }
             })()
         }
-
-        /* 劫持鼠标滚轮 */
-        new SwipeIndicator({
-            elem: document.querySelector('.wrapper-detail'),
-            callback: e => this.changeSlide(e)
-        })
-        new SwipeIndicator({
-            elem: document.querySelector('.wrapper-brief'),
-            callback: e => this.changeSlide(e)
-        })
-        new SwipeIndicator({
-            event: 'swipe',
-            elem: document,
-            callback: e => console.log('swipe e : ', e)
-        })
-        new SwipeIndicator({
-            event: 'tapStart',
-            elem: document,
-            callback: e => console.log('tap e : ', e)
-        })
     },
     data() {
         return {
@@ -226,9 +215,10 @@ export default {
                     }, 50)
                 }
             }
-            const idx = ['up', 'down'].findIndex(x => x === e.direction)
+            const idx = ['up', 'down'].findIndex(x => x === e)
             this.slide = SLIDES[idx]
-            slideSideEffect[e.direction]()
+            console.log('e : ', e)
+            slideSideEffect[e]()
         }
     }
 }
@@ -401,7 +391,7 @@ $parallax__layers: 6;
 }
 @include sp-layout {
     .page-title {
-        font-size: 3.6em;
+        font-size: 3em;
         text-align: center;
 
         &::after {
@@ -443,8 +433,6 @@ $parallax__layers: 6;
             display: block;
             width: 100%;
             height: auto;
-            min-width: 160px;
-            min-height: 160px;
             border: solid 5px white;
             border-radius: 50%;
         }

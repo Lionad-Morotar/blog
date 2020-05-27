@@ -30,7 +30,7 @@ const getSrc = src => {
     filenames.sort()
     return filenames
 }
-console.log('GetSRC Test : ', getSrc(gistsDir))
+// console.log('GetSRC Test : ', getSrc(gistsDir))
 
 const sidebarConfigs = {
     articles: [
