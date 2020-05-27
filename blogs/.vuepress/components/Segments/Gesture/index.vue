@@ -56,6 +56,10 @@ export default {
         freezeTime: {
             type: [Number, String],
             default: 1000 / 30
+        },
+        eventInvoke: {
+            type: Function,
+            default: () => {}
         }
     },
     data() {
@@ -130,10 +134,8 @@ export default {
     methods: {
         onMouseDown(e) {
             this.recordDown(e)
-            // this.triggerMove()
-
-            e.preventDefault()
-            e.stopPropagation()
+            this.triggerMove()
+            this.eventInvoke(e)
         },
         recordDown(e) {
             this.lastTouchstartTime = this.touchstartTime
@@ -152,18 +154,7 @@ export default {
         },
 
         onMouseMove(e) {
-            this.recordMove(e)
-
-            e.preventDefault()
-            e.stopPropagation()
-        },
-        recordMove(e) {
-            const touch = e
-            this.lastTouchstartCoord = this.touchstartCoord
-            this.touchstartCoord = {
-                pageX: touch.pageX,
-                pageY: touch.pageY
-            }
+            this.eventInvoke(e)
         },
 
         onMouseWheel(e) {
@@ -173,18 +164,14 @@ export default {
             this.wheelOffset = offset
 
             this.calcGestures()
-
-            e.preventDefault()
-            e.stopPropagation()
+            this.eventInvoke(e)
         },
 
         onMouseUp(e) {
             this.recordUp(e)
             this.calcGestures()
-            // this.unTriggerMove()
-
-            e.preventDefault()
-            e.stopPropagation()
+            this.unTriggerMove()
+            this.eventInvoke(e)
         },
         recordUp(e) {
             this.lastTouchendTime = this.touchendTime

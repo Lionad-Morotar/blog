@@ -35,7 +35,7 @@
         </div>
 
         <!-- My Info -->
-        <Gesture :swipeUp="() => changeSlide('up')" freezeTime="300">
+        <Gesture :swipeUp="() => changeSlide('up')" freezeTime="300" :eventInvoke="stopMove">
             <div class="wrapper wrapper-detail">
                 <div class="avatar">
                     <img src="http://image.lionad.art/mgear/image/avatar.gif" alt="Lionad's Avatar" draggable="false" />
@@ -67,7 +67,7 @@
         </Gesture>
 
         <!-- Title -->
-        <Gesture :swipeDown="() => changeSlide('down')" freezeTime="300">
+        <Gesture :swipeDown="() => changeSlide('down')" freezeTime="300" :eventInvoke="stopMove">
             <div class="wrapper wrapper-brief">
                 <div class="page-title-con">
                     <div class="page-title">Lionad's Blogs</div>
@@ -219,6 +219,12 @@ export default {
             this.slide = SLIDES[idx]
             console.log('e : ', e)
             slideSideEffect[e]()
+        },
+        stopMove(e) {
+            if (e.type === 'touchmove' || e.type === 'mousemove') {
+                e.preventDefault()
+                e.stopPropagation()
+            }
         }
     }
 }
