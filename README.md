@@ -6,7 +6,7 @@ My personal websites，build with VuePress.
 
 ## Homepage
 
-![Homepage](http://image.lionad.art/mgear/image/gists/2020-05-28-02-38-22_1920.gif)
+![Homepage](./blogs/.vuepress/public/mgear/image/gists/2020-05-28-02-38-22_1920.gif)
 
 ## Components
 
@@ -52,7 +52,7 @@ Catch mouse events, mousewheel events and mobile events.
 
 Create anything with bling-bling-stars.
 
-![Homepage](http://image.lionad.art/mgear/assets/bling.gif)
+![Homepage](./blogs/.vuepress/public/mgear/assets/bling.gif)
 
 * Usage
 
