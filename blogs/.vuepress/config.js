@@ -26,7 +26,7 @@ module.exports = {
 
     /** theme config */
 
-    theme: path.join(__dirname, './components/Theme/NavMask'),
+    theme: path.join(__dirname, './components/Theme/Enhance'),
     themeConfig: {
         smoothScroll: true,
         search: false,

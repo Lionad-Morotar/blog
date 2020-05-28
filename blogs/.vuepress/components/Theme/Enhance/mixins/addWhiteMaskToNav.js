@@ -1,25 +1,12 @@
-<template>
-    <ParentLayout>
-        <template #page-bottom>
-            <PageBottom />
-        </template>
-    </ParentLayout>
-</template>
-
-<script>
-import ParentLayout from '@parent-theme/layouts/Layout.vue'
-import PageBottom from '@theme/components/PageBottom.vue'
+/** @file 在导航栏上给正文加一层白色渐变遮罩 */
 
 const utils = require('../utils')
 
-export default {
-    name: 'Layout',
-    components: {
-        ParentLayout,
-        PageBottom
-    },
+module.exports = {
     mounted() {
-        !utils.isMobile() && this.addNavMask()
+        if (!utils.isMobile()) {
+            this.addNavMask()
+        }
     },
     methods: {
         addNavMask() {
@@ -41,4 +28,3 @@ export default {
         }
     }
 }
-</script>
