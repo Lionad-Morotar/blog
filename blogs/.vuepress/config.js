@@ -4,8 +4,8 @@ const sidebar = require('./sidebar')
 const headLink = require('./headLink')
 const configureWebpack = require('./webpack.config.js')
 
-const valineID = require('./secrets/valine-id')
-const valineKey = require('./secrets/valine-key')
+const valineID = require('./secrets/valine-id').default
+const valineKey = require('./secrets/valine-key').default
 
 module.exports = {
     /** develop config */
