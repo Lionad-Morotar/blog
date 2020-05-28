@@ -97,8 +97,8 @@ export default {
 
             Get(this).$store.logs.splice(0, Get(this).$store.logs.length)
             this.iframe.setHTML({
-                head: headStyle + proxyConsole + script,
-                body: html
+                head: headStyle + proxyConsole,
+                body: html + script
             })
         },
         setActivePan(panName) {

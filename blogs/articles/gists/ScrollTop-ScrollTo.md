@@ -59,6 +59,16 @@ this.scroll(document.querySelector('.parallax'), 999)
 
 预期是，每次 Run 函数执行时，ele 的 scrollTop 值都会改变，但是出现了一个很诡异的问题，如果只执行一次 Run 函数，则 ele.scrollTop 值能改变，树林和山脉能看见变化；如果加上了 `window.requestAnimFrame(run)`，ele.scrollTop 的值就始终为零。
 
+我写了一个预期应该实现的功能的 Demo：
+
+<CodeBlock
+    :border="true"
+    :visiblePans="['html', 'js','output']"
+    height="600px"
+    :html="require('!!raw-loader!./codes/ScrollTop-ScrollTo/html.html').default"
+    :js="require('!!raw-loader!./codes/ScrollTop-ScrollTo/js.js').default"
+/>
+
 ## 排查缺陷
 
 琢磨了两个多小时我就卡在这上面，期间也没有在网上搜索到类似的问题。于是我尝试引入 jQuery 相关插件，看看插件是怎么做的：
