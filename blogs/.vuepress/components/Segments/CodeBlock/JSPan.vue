@@ -15,8 +15,7 @@ export default createPan({
     name: 'js',
     editor: {
         mode: 'jsx',
-        autofocus: true,
-        autoCloseBrackets: true
+        autofocus: true
     }
 })
 </script>

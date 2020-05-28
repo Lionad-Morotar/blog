@@ -13,8 +13,7 @@ import createPan from './utils/create-pan'
 export default createPan({
     name: 'html',
     editor: {
-        mode: 'htmlmixed',
-        autoCloseTags: true
+        mode: 'htmlmixed'
     }
 })
 </script>

@@ -14,8 +14,7 @@ import createPan from './utils/create-pan'
 export default createPan({
     name: 'css',
     editor: {
-        mode: 'css',
-        autoCloseBrackets: true
+        mode: 'css'
     }
 })
 </script>

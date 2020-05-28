@@ -63,7 +63,7 @@ this.scroll(document.querySelector('.parallax'), 999)
 
 <CodeBlock
     :border="true"
-    :visiblePans="['html', 'js','output']"
+    :visiblePans="['js','output']"
     height="600px"
     :html="require('!!raw-loader!./codes/ScrollTop-ScrollTo/html.html').default"
     :js="require('!!raw-loader!./codes/ScrollTop-ScrollTo/js.js').default"
