@@ -82,7 +82,7 @@
                     </div>
                     <div class="buttons">
                         <div class="into-article">
-                            <a href="/articles/index.html">进入博客</a>
+                            <a id="into-article" href="/articles/index.html">进入博客</a>
                         </div>
                     </div>
                 </div>
@@ -126,10 +126,11 @@
 </template>
 
 <script>
-const sidebar = require('../sidebar')
-
 import Gesture from './Segments/Gesture'
 import PageLoading from './Animation/PageLoading'
+
+const sidebar = require('../sidebar')
+const utils = require('./utils')
 
 const SLIDES = ['brief', 'detail']
 
@@ -201,6 +202,11 @@ export default {
         }
     },
     mounted() {
+        /* 如果是手机，就跳过首页（不然兼容到爆炸）  */
+        if (utils.isMobile()) {
+            document.querySelector('#into-article').click()
+        }
+
         /* Loading */
         this.loading = window.localStorage.getItem('is-homepage-loading-done') ? false : true
         // this.loading = true

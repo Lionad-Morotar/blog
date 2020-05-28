@@ -4,6 +4,8 @@
     </div>
 </template>
 <script>
+const utils = require('../../utils')
+
 const listenName = {
     touchstart: 'onMouseDown',
     mousedown: 'onMouseDown',
@@ -78,7 +80,6 @@ export default {
             lastTouchendCoord: {},
             lastWheelOffset: 0,
             shouldInit: null,
-            isMobile: null,
             ele: null,
             events: {
                 listens: []
@@ -115,7 +116,6 @@ export default {
         }
     },
     mounted() {
-        this.isMobile = this.checkMobile()
         this.shouldInit = Object.keys(this.$props).find(x => gestures.includes(x) && this[x])
         if (!this.shouldInit) return
 
@@ -251,27 +251,19 @@ export default {
         // 计算需要监听的方法
         calcEventsName() {
             const listens = [
-                ...(this.isMobile
+                ...(utils.isMobile()
                     ? ['touchstart', 'touchend', 'touchcancel']
                     : this.enableMouse
                     ? ['mousedown', 'mouseup']
                     : []),
                 ...(this.enableMouseWheel ? ['onwheel' in document ? 'wheel' : 'mousewheel'] : [])
             ]
-            const moves = [...(this.isMobile ? ['touchmove'] : []), ...(this.enableMouse ? ['mousemove'] : [])]
+            const moves = [...(utils.isMobile() ? ['touchmove'] : []), ...(this.enableMouse ? ['mousemove'] : [])]
             this.events = {
                 listens,
                 moves
             }
             // console.log(this.events)
-        },
-
-        /** Utils */
-
-        // 根据 UserAgent 判断是否是手机端
-        checkMobile() {
-            var mobileUAs = ['Android', 'iPhone', 'Windows Phone', 'iPad', 'iPod']
-            return !!mobileUAs.find(mobileUA => navigator.userAgent.indexOf(mobileUA) !== -1)
         }
     }
 }
