@@ -1,3 +1,5 @@
+@import 'valine.styl';
+
 :root {
   --text-black: rgba(0, 0, 0, 0.85);
   --text-black--lighter: rgba(0, 0, 0, 0.8);
@@ -313,7 +315,9 @@ div[class*='language-'] {
 
 .page {
   padding-left: sidebar-width;
+}
 
+.page > .content__default {
   // codepen block
   .cp_embed_wrapper {
     margin-top: 1em;
@@ -482,19 +486,8 @@ div[class*='language-'] {
   }
 
   pre {
-    margin-top: 2em;
-    padding: 1.25rem;
-    border-radius: 0 !important;
-    background: rgba(0, 0, 0, 0.05);
-    line-height: 2.3;
-    font-size: 1rem;
-    color: var(--text-black);
-    white-space: pre-wrap;
-    word-break: break-word;
-  }
-
-  pre, pre * {
-    font-family: var(--font-code);
+    margin-top: 1rem;
+    padding: 1.25rem 1rem;
   }
 
   pre + p {

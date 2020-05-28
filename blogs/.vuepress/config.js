@@ -1,6 +1,11 @@
+const path = require('path')
+
 const sidebar = require('./sidebar')
 const headLink = require('./headLink')
 const configureWebpack = require('./webpack.config.js')
+
+const valineID = require('./secrets/valine-id')
+const valineKey = require('./secrets/valine-key')
 
 module.exports = {
     /** develop config */
@@ -21,6 +26,7 @@ module.exports = {
 
     /** theme config */
 
+    theme: path.join(__dirname, './components/Theme/NavMask'),
     themeConfig: {
         smoothScroll: true,
         search: false,
@@ -34,7 +40,8 @@ module.exports = {
             '/flows/': [],
             '/friends/': []
         },
-        lastUpdated: 'Last Updated'
+        nextLinks: false,
+        prevLinks: false
     },
 
     /** markdown config */
@@ -83,6 +90,19 @@ module.exports = {
     plugins: {
         '@vuepress/google-analytics': {
             ga: 'UA-142194237-1'
+        },
+        'vuepress-plugin-comment': {
+            choosen: 'valine',
+            options: {
+                el: '#valine-vuepress-comment',
+                appId: valineID,
+                appKey: valineKey,
+                placeholder: '在 Lionad Blogs 留下你的印记...',
+                avatar: 'robohash',
+                pageSize: '50',
+                highlight: false,
+                recordIP: true
+            }
         }
     },
 
@@ -107,7 +127,7 @@ module.exports = {
                     })
             }
         }
-    }
+    },
 
-    // extraWatchFiles: ['../../node_modules/code-block-runner/dist/*']
+    extraWatchFiles: ['./styles/*']
 }

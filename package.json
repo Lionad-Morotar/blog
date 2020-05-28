@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "debounce": "^1.2.0",
-    "markdown-it-toc-done-right": "^4.1.0"
+    "markdown-it-toc-done-right": "^4.1.0",
+    "vuepress-plugin-comment": "^0.7.3"
   }
 }
