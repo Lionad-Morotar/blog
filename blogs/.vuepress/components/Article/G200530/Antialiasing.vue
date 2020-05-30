@@ -24,6 +24,7 @@ export default {
 
         $ele.addEventListener('mouseover', () => {
             window.clearInterval(this.tick)
+            $ele.style.setProperty('--deg', '-175deg')
         })
         $ele.addEventListener('mouseleave', run)
 
@@ -52,16 +53,16 @@ export default {
         background: linear-gradient(var(--deg), #e4c060 50%, #be5128 50%);
     }
     .antialiasing-rect {
-        --c1: rgba(228, 192, 96, 1);
-        --c2: rgba(190, 81, 40, 1);
+        --light: rgba(228, 192, 96, 1);
+        --dark: rgba(190, 81, 40, 1);
         position: relative;
         margin-top: 1rem;
         border-radius: 1px;
-        background: linear-gradient(var(--deg), var(--c1) 50%, var(--c2) 50%);
+        background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
 
         &:after {
-            --offset: 0.4px;
-            --o: 0.5;
+            --offset: 0.7px;
+            --o: 0.6;
             content: '';
             position: absolute;
             top: var(--offset);
@@ -72,7 +73,7 @@ export default {
                 var(--deg),
                 transparent,
                 transparent calc(50% - var(--offset)),
-                rgba(190, 81, 40, var(--o)) 50%,
+                rgba(190, 81, 40, 0.3) 50%,
                 rgba(228, 192, 96, var(--o)) 50%,
                 transparent calc(50% + var(--offset)),
                 transparent
