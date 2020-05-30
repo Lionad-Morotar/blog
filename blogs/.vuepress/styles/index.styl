@@ -1,5 +1,6 @@
 @import 'valine.styl';
 @import 'components.styl';
+@import 'accessbility.styl';
 
 :root {
   --text-black: rgba(0, 0, 0, 0.85);
@@ -520,8 +521,8 @@ div[class*='language-'] {
 
   h2, h3 {
     position: relative;
-    margin: 2em 0 1em 0 !important;
-    padding: 0 0.5em !important;
+    margin: 2em 0 1em 0;
+    padding: 0 0.5em;
     line-height: 1.5em;
     background: dark-black;
     color: #fefefe;
@@ -712,21 +713,6 @@ div[class*='language-'] {
         color: dark-black;
       }
     }
-  }
-}
-
-@media print, speech {
-  .page > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: auto;
-    background: white;
-  }
-
-  .navbar, .sidebar-mask, .sidebar {
-    display: none;
   }
 }
 

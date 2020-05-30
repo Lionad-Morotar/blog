@@ -1,0 +1,39 @@
+// 打印设备和朗读设备
+@media print, speech {
+    /* ************************************************************ */
+    /* *************************************************** 版面调整 */
+    html, body, :root {
+        font-size: 12px;
+    }
+
+    .page > .content__default {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: auto;
+        background: white;
+    }
+
+    .navbar, .sidebar-mask, .sidebar, .table-of-contents, #valine-vuepress-comment {
+        display: none;
+    }
+
+    /* **************************************************************** */
+    /* *************************************************** 具体元素调整 */
+    .page > div.content__default {
+        h1 {
+            padding: 0;
+        }
+
+        h2, h3 {
+            padding: 0;
+            color: unset;
+            background: unset;
+        }
+
+        a[href^='http://']:after, a[href^='https://']:after {
+            content: ' (' attr(href) ')';
+        }
+    }
+}
