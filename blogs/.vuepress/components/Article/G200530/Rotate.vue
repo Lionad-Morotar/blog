@@ -31,6 +31,9 @@ export default {
             this.rotateDeg += 2
         }, 1000 / 30)
     },
+    beforeDestroy() {
+        window.clearInterval(this.tick)
+    },
     methods: {
         sort() {
             this.status = null
