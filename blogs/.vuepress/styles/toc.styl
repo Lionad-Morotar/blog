@@ -1,0 +1,114 @@
+.page > .content__default {
+    .table-of-contents {
+        position: fixed;
+        transform: translateX(calc(-100% - 4rem)) translateY(3.3125rem);
+        text-align: right;
+        list-style: none;
+
+        & > ol {
+            margin-top: 0;
+        }
+
+        ul, ol {
+            list-style: unset;
+            padding-inline-start: 0;
+            padding-inline-end: 0;
+        }
+
+        & > ol, & > ul {
+            ul, ol {
+                counter-reset: listIdxCounter;
+
+                li {
+                    counter-increment: listIdxCounter;
+                }
+            }
+        }
+
+        & > ol > li {
+            &:first-child:before {
+                content: 'TABLE OF CONTENTS';
+                padding: 3px 0.625rem;
+                font-family: fantacy;
+                font-weight: lighter;
+                letter-spacing: 2px;
+                border: solid 2px;
+                border-right: solid 8px;
+            }
+
+            & > ol {
+                margin-top: 1em;
+            }
+        }
+
+        // 去掉一级菜单
+        & > ol > li > a {
+            display: none;
+        }
+
+        li {
+            margin: 0;
+            line-height: unset;
+
+            a {
+                font-size: 1rem;
+                font-weight: 400;
+                font-family: var(--font-default);
+                letter-spacing: 1px;
+                text-decoration: none;
+                opacity: 1;
+
+                &::before {
+                    content: counters(listIdxCounter, '-') ' ';
+                    opacity: 0;
+                    transition: 0.5s;
+                    font-weight: bold;
+                }
+
+                &:hover {
+                    text-decoration: none;
+
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        & > ol > li > ol > li > a {
+            font-weight: bold;
+        }
+
+        & > ol > li > ol > li {
+            margin-top: 0.1em;
+        }
+
+        & > ol > li > ol > li > ol {
+            line-height: 1.25em;
+        }
+
+        & > ol > li > ol > li > ol > li > a {
+            font-size: 0.875rem;
+        }
+
+        & > ol > li > ol > li, & > ol > li > ol > li > ol > li {
+            transition: 0.2s;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
+        }
+    }
+
+    @media screen and (min-width: 2000px) {
+        .table-of-contents {
+            transform: translateX(calc(-100% - 8rem)) translateY(3.3125rem);
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        .table-of-contents {
+            display: none;
+        }
+    }
+}
