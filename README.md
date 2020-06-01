@@ -1,4 +1,5 @@
-![Open Source Flag](https://camo.githubusercontent.com/d9ce827af4ec2b7b3c52ce4595bbb354d8b21405/68747470733a2f2f6261646765732e66726170736f66742e636f6d2f6f732f76312f6f70656e2d736f757263652e7376673f763d313032)
+![Blog](https://img.shields.io/badge/Lionad--Guirotar-Blog-blueviolet)
+![MIT](https://img.shields.io/badge/License-MIT-blue)
 
 # Lionad's Blog
 
