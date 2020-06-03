@@ -1,10 +1,14 @@
 <template>
     <div ref="cmpt" class="compare-cmpt">
         <div class="left">
-            <slot name="left" />
+            <slot name="left">
+                <slot name="title" />
+            </slot>
         </div>
         <div ref="right" class="right">
-            <slot name="right" />
+            <slot name="right">
+                <slot name="title" />
+            </slot>
         </div>
         <div ref="cursor" class="cursor" />
     </div>
@@ -38,7 +42,6 @@ export default {
                 height: this.$refs.cmpt.offsetHeight
             }
             this.cursorPos = this.parentWH.width / 2
-            console.log(this.parentWH, this.cursorPos)
         },
         createDrag(e) {
             const touch = e.touches ? e.touches[0] : e
@@ -85,19 +88,31 @@ export default {
 .compare-cmpt {
     position: relative;
 
+    .title {
+        display: inline-block;
+        padding 3px 1em;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: .5px;
+        color: white;
+        text-shadow: 0 0 1px #eee;
+        z-index: 100;
+    }
+
     .left,.right {
         width: 100%;
     }
 
     .right {
         --offset: 50%;
-        clip-path: polygon(var(--offset) 0, 100% 0, 100% 100%, var(--offset) 100%);
-    }
-
-    .right {
         position: absolute;
         top: 0;
         left: 0;
+        clip-path: polygon(var(--offset) 0, 100% 0, 100% 100%, var(--offset) 100%);
+
+        .title {
+            float: right;
+        }
     }
 
     .cursor {
@@ -110,6 +125,7 @@ export default {
         background: #eee;
         cursor: grabbing;
         user-select: none;
+        z-index: 99;
 
         &:after {
             --size: 24px;
