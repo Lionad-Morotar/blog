@@ -1,9 +1,9 @@
 <template>
     <div ref="con" class="con">
-        <div>
-            <div class="circle-con"></div>
-            <div class="circle-con antialiasing"></div>
-        </div>
+        <Compare>
+            <div slot="left" class="circle-con"></div>
+            <div slot="right" class="circle-con antialiasing"></div>
+        </Compare>
         <div class="deg">
             <div class="deg">Auto rotate: {{ deg.toFixed(1) }} Degree / Lock: {{ lock ? 'true' : 'false' }}</div>
             <input type="checkbox" v-model="lock" /> Lock /
@@ -12,14 +12,15 @@
                 <button @click="() => setDegreeAndLock(degree)">{{ degree }}</button>
             </template>
         </div>
-        <div>
-            <div class="repeat-con"></div>
-            <div class="repeat-con antialiasing"></div>
-        </div>
-        <div>
-            <div class="no-antialiasing-rect"></div>
-            <div class="antialiasing-rect"></div>
-        </div>
+        <Compare>
+            <div slot="left" class="repeat-con"></div>
+            <div slot="right" class="repeat-con antialiasing"></div>
+        </Compare>
+        <br />
+        <Compare>
+            <div slot="left" class="no-antialiasing-rect"></div>
+            <div slot="right" class="antialiasing-rect"></div>
+        </Compare>
     </div>
 </template>
 
@@ -74,7 +75,6 @@ export default {
 
     .no-antialiasing-rect,
     .antialiasing-rect {
-        margin-top: 1rem;
         height: 300px;
         cursor: pointer;
         -webkit-transform: rotateZ(0);
@@ -119,7 +119,6 @@ export default {
         --c2: #e6a964;
         --c3: #5996cc;
         position: relative;
-        margin-top: 1rem;
         height: 300px;
         background-image: repeating-linear-gradient(
             var(--deg),
@@ -174,7 +173,6 @@ export default {
         $c1: #cd3f4f;
         $c2: #e6a964;
         position: relative;
-        margin-top: 1rem;
         height: 300px;
         background-image: repeating-radial-gradient(circle at 0% 50%, $c1 0, $c2 50px);
 

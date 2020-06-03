@@ -2,6 +2,7 @@ import CodeBlock from './components/segments/CodeBlock/Editor.vue'
 import VueP5 from './components/segments/P5'
 import WHRatio from './components/segments/WHRatio'
 import Spark from './components/segments/Spark'
+import Compare from './components/segments/Compare'
 import Worker from './components/segments/Worker'
 
 // eslint-disable-next-line
@@ -18,6 +19,7 @@ export default ({
     Vue.component('WHRatio', WHRatio)
     Vue.component('CodeBlock', CodeBlock)
     Vue.component('Spark', Spark)
+    Vue.component('Compare', Compare)
 
     Vue.use(Worker)
 }
