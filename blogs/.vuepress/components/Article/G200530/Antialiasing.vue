@@ -19,7 +19,7 @@
 export default {
     data() {
         return {
-            preset: [1, 42, 85, 135, 175, 266],
+            preset: [1, 42, 85, 175, 266],
             $ele: null,
             tick: null,
             deg: 0,
@@ -62,6 +62,8 @@ export default {
 <style lang="scss" scoped>
 .con {
     --deg: 0;
+    --light: rgba(228, 192, 96, 1);
+    --dark: rgba(190, 81, 40, 1);
 
     .deg {
         margin: 1rem auto;
@@ -81,7 +83,7 @@ export default {
 
     .no-antialiasing-rect {
         border-radius: 1px;
-        background: linear-gradient(var(--deg), #e4c060 50%, #be5128 50%);
+        background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
     }
     .antialiasing-rect {
         --light: rgba(228, 192, 96, 1);
@@ -91,21 +93,23 @@ export default {
         background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
 
         &:after {
-            --offset: 0.7px;
-            --o: 0.6;
+            --offsetX: 0.4px;
+            --offsetY: 0.9px;
+            --alpha: 0.6;
+            --line-width: 0.6px;
             content: '';
             position: absolute;
-            top: var(--offset);
-            left: var(--offset);
+            top: var(--offsetY);
+            left: var(--offsetX);
             width: 100%;
             height: 100%;
             background: linear-gradient(
                 var(--deg),
                 transparent,
-                transparent calc(50% - var(--offset)),
+                transparent calc(50% - var(--line-width)),
                 rgba(190, 81, 40, 0.3) 50%,
-                rgba(228, 192, 96, var(--o)) 50%,
-                transparent calc(50% + var(--offset)),
+                rgba(228, 192, 96, var(--alpha)) 50%,
+                transparent calc(50% + var(--line-width)),
                 transparent
             );
         }
