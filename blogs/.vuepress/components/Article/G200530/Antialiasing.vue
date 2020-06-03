@@ -12,6 +12,8 @@
                 <button @click="() => setDegreeAndLock(degree)">{{ degree }}</button>
             </template>
         </div>
+        <div class="repeat-con"></div>
+        <div class="repeat-con antialiasing"></div>
     </div>
 </template>
 
@@ -86,16 +88,15 @@ export default {
         background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
     }
     .antialiasing-rect {
-        --light: rgba(228, 192, 96, 1);
-        --dark: rgba(190, 81, 40, 1);
         position: relative;
         border-radius: 1px;
         background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
 
         &:after {
             --offsetX: 0.4px;
-            --offsetY: 0.9px;
-            --alpha: 0.6;
+            --offsetY: -0.1px;
+            --dark-alpha: 0.3;
+            --light-alpha: 0.6;
             --line-width: 0.6px;
             content: '';
             position: absolute;
@@ -107,11 +108,67 @@ export default {
                 var(--deg),
                 transparent,
                 transparent calc(50% - var(--line-width)),
-                rgba(190, 81, 40, 0.3) 50%,
-                rgba(228, 192, 96, var(--alpha)) 50%,
+                rgba(190, 81, 40, var(--dark-alpha)) 50%,
+                rgba(228, 192, 96, var(--light-alpha)) 50%,
                 transparent calc(50% + var(--line-width)),
                 transparent
             );
+        }
+    }
+
+    .repeat-con {
+        --c1: #cd3f4f;
+        --c2: #e6a964;
+        --c3: #5996cc;
+        position: relative;
+        margin-top: 1rem;
+        height: 300px;
+        background-image: repeating-linear-gradient(
+            var(--deg),
+            var(--c1),
+            var(--c1) 10px,
+            var(--c2) 10px,
+            var(--c2) 40px,
+            var(--c1) 40px,
+            var(--c1) 50px,
+            var(--c3) 50px,
+            var(--c3) 80px
+        );
+
+        &.antialiasing {
+            &:after {
+                --offsetX: 0.4px;
+                --offsetY: -0.1px;
+                --dark-alpha: 0.3;
+                --light-alpha: 0.6;
+                --line-width: 0.6px;
+                content: '';
+                position: absolute;
+                top: var(--offsetY);
+                left: var(--offsetX);
+                width: 100%;
+                height: 100%;
+                opacity: 0.5;
+                background-image: repeating-linear-gradient(
+                    var(--deg),
+                    var(--c3),
+                    transparent calc(0px + var(--line-width)),
+                    transparent calc(10px - var(--line-width)),
+                    var(--c2) 10px,
+                    var(--c1) 10px,
+                    transparent calc(10px + var(--line-width)),
+                    transparent calc(40px - var(--line-width)),
+                    var(--c1) 40px,
+                    var(--c2) 40px,
+                    transparent calc(40px + var(--line-width)),
+                    transparent calc(50px - var(--line-width)),
+                    var(--c3) 50px,
+                    var(--c1) 50px,
+                    transparent calc(50px + var(--line-width)),
+                    transparent calc(80px - var(--line-width)),
+                    var(--c1) 80px
+                );
+            }
         }
     }
 }
