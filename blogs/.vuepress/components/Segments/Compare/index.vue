@@ -1,14 +1,10 @@
 <template>
     <div ref="cmpt" class="compare-cmpt">
-        <div class="left">
-            <slot name="left">
-                <slot name="title" />
-            </slot>
+        <div ref="left" class="left">
+            <slot name="left" />
         </div>
         <div ref="right" class="right">
-            <slot name="right">
-                <slot name="title" />
-            </slot>
+            <slot name="right" />
         </div>
         <div ref="cursor" class="cursor" />
     </div>
@@ -19,6 +15,7 @@ export default {
     data() {
         return {
             // direction: 'vertical',
+            cursorWidth: 4,
             cursorPos: null,
             cordRec: {},
             offset: {},
@@ -27,7 +24,7 @@ export default {
         }
     },
     mounted() {
-        this.calcParentWH()
+        this.reinit()
         this.$refs.cursor.addEventListener('mousedown', this.createDrag)
         this.$refs.cursor.addEventListener('touchstart', this.createDrag)
     },
@@ -36,14 +33,19 @@ export default {
         this.$refs.cursor.removeEventListener('touchstart', this.createDrag)
     },
     methods: {
+        reinit() {
+            !this.cursorPos && this.calcParentWH()
+        },
         calcParentWH() {
             this.parentWH = {
-                width: this.$refs.cmpt.offsetWidth,
+                width: this.$refs.cmpt.offsetWidth - this.cursorWidth,
                 height: this.$refs.cmpt.offsetHeight
             }
-            this.cursorPos = this.parentWH.width / 2
+            this.cursorPos = this.parentWH.width / 2 || null
         },
         createDrag(e) {
+            this.cursorPos <= 0 && this.calcParentWH()
+
             const touch = e.touches ? e.touches[0] : e
             this.cordRec = {
                 pageX: touch.pageX,
@@ -77,6 +79,7 @@ export default {
             const offset = this.offset.x
             const pos = Math.max(0, Math.min(this.parentWH.width, this.cursorPos + offset))
             this.$refs.cursor.style.setProperty('--offset', pos + 'px')
+            this.$refs.left.style.setProperty('--offset', pos + 'px')
             this.$refs.right.style.setProperty('--offset', pos + 'px')
             this.posStore = pos
         }
@@ -87,41 +90,55 @@ export default {
 <style lang="stylus" scoped>
 .compare-cmpt {
     position: relative;
+    user-select:  none;
 
-    .title {
+    img {
+        pointer-events: none;
+    }
+
+    div.title {
+        position: absolute;
+        top: 0;
         display: inline-block;
-        padding 3px 1em;
+        padding: 0 1em 3px 1em;
         font-size: 12px;
         font-weight: bold;
         letter-spacing: .5px;
         color: white;
         text-shadow: 0 0 1px #eee;
-        z-index: 100;
     }
 
-    .left,.right {
+    .left,
+    .right {
+        --offset: 50%;
         width: 100%;
     }
 
     .right {
-        --offset: 50%;
         position: absolute;
         top: 0;
         left: 0;
-        clip-path: polygon(var(--offset) 0, 100% 0, 100% 100%, var(--offset) 100%);
 
         .title {
-            float: right;
+            right: 0;
         }
     }
 
+    .left {
+        clip-path: polygon(0 0, var(--offset) 0, var(--offset) 100%, 0 100%);;
+    }
+    .right {
+        clip-path: polygon(var(--offset) 0, 100% 0, 100% 100%, var(--offset) 100%);
+    }
+
     .cursor {
+        --width: 4px;
         --offset: 50%;
         position: absolute;
         top: 0;
         left: var(--offset);
         height: 100%;
-        width 4px;
+        width var(--width);
         background: #eee;
         cursor: grabbing;
         user-select: none;
