@@ -1,19 +1,25 @@
 <template>
     <div ref="con" class="con">
-        <div ref="panel">
-            <div class="no-antialiasing-rect"></div>
-            <div class="deg">Auto rotate: {{ deg.toFixed(1) }} Degree / Lock: {{ lock ? 'true' : 'false' }}</div>
-            <div class="antialiasing-rect"></div>
+        <div>
+            <div class="circle-con"></div>
+            <div class="circle-con antialiasing"></div>
         </div>
         <div class="deg">
+            <div class="deg">Auto rotate: {{ deg.toFixed(1) }} Degree / Lock: {{ lock ? 'true' : 'false' }}</div>
             <input type="checkbox" v-model="lock" /> Lock /
             <span>Set degree to ...</span>
             <template v-for="degree in this.preset">
                 <button @click="() => setDegreeAndLock(degree)">{{ degree }}</button>
             </template>
         </div>
-        <div class="repeat-con"></div>
-        <div class="repeat-con antialiasing"></div>
+        <div>
+            <div class="repeat-con"></div>
+            <div class="repeat-con antialiasing"></div>
+        </div>
+        <div>
+            <div class="no-antialiasing-rect"></div>
+            <div class="antialiasing-rect"></div>
+        </div>
     </div>
 </template>
 
@@ -37,18 +43,9 @@ export default {
     methods: {
         listen() {
             this.$ele = this.$refs.con
-            const run = () => {
-                this.tick = window.setInterval(() => {
-                    !this.lock && this.setDegree(((this.deg += 0.1), (this.deg %= 360)))
-                }, 1000 / 60)
-            }
-
-            const $panel = this.$refs.panel
-            $panel.addEventListener('mouseover', () => {
-                window.clearInterval(this.tick)
-            })
-            $panel.addEventListener('mouseleave', run)
-            run()
+            this.tick = window.setInterval(() => {
+                !this.lock && this.setDegree(((this.deg += 0.1), (this.deg %= 360)))
+            }, 1000 / 60)
         },
         setDegree(deg) {
             this.$ele.style.setProperty('--deg', deg + 'deg')
@@ -77,7 +74,8 @@ export default {
 
     .no-antialiasing-rect,
     .antialiasing-rect {
-        height: 400px;
+        margin-top: 1rem;
+        height: 300px;
         cursor: pointer;
         -webkit-transform: rotateZ(0);
         transform: rotateZ(0);
@@ -167,6 +165,38 @@ export default {
                     transparent calc(50px + var(--line-width)),
                     transparent calc(80px - var(--line-width)),
                     var(--c1) 80px
+                );
+            }
+        }
+    }
+
+    .circle-con {
+        $c1: #cd3f4f;
+        $c2: #e6a964;
+        position: relative;
+        margin-top: 1rem;
+        height: 300px;
+        background-image: repeating-radial-gradient(circle at 0% 50%, $c1 0, $c2 50px);
+
+        &.antialiasing {
+            &:after {
+                --offsetX: 0.4px;
+                --offsetY: -0.1px;
+                $dark-alpha: 0.3;
+                $light-alpha: 0.6;
+                --line-width: 0.6px;
+                content: '';
+                position: absolute;
+                top: var(--offsetY);
+                left: var(--offsetX);
+                width: 100%;
+                height: 100%;
+                background-image: repeating-radial-gradient(
+                    circle at 0% 50%,
+                    rgba($c2, $light-alpha) 0,
+                    transparent calc(var(--line-width)),
+                    transparent calc(50px - var(--line-width)),
+                    rgba($c1, $dark-alpha) 50px
                 );
             }
         }
