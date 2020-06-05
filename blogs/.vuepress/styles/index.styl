@@ -1,3 +1,4 @@
+@import 'navbar.styl';
 @import 'article.styl';
 @import 'responsive-em.styl';
 @import 'toc.styl';
@@ -175,107 +176,6 @@ navbar-height = 3.6rem;
 
     &::-webkit-scrollbar {
       display: block;
-    }
-  }
-}
-
-/* ********************************************** Navbar */
-navbar-height = 3.6rem;
-
-.navbar {
-  left: sidebar-width;
-  font-family: var(--font-sidebar);
-  background: transparent;
-  border-bottom: 0;
-  height: navbar-height;
-  z-index: 100;
-  background: white;
-
-  /* LOGO */
-  .home-link {
-    box-sizing: border-box;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    display: block;
-    padding-left: 1.5em;
-    width: sidebar-width;
-    height: navbar-height;
-    line-height: navbar-height;
-    background: dark-black;
-
-    .site-name {
-      position: absolute;
-      color: #fefefe;
-      text-transform: uppercase;
-      font-size: 2.2em;
-      font-family: fantacy, var(--font-sidebar);
-      letter-spacing: 0.25rem;
-    }
-  }
-
-  /* 链接 */
-  div.links {
-    padding-left: 0;
-    top: calc(0.7em - 1.5px);
-    right: 1.5em;
-    // left: calc(((100vw - 25em - 75.75em) / 2));
-    // left: calc(((100vw - 25em - 70.3em) / 2));
-    background-color: transparent;
-
-    .nav-item {
-      padding: 0;
-      border: solid 3px dark-black;
-      min-width: 8.125rem;
-      text-align: right;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='64' viewBox='0 0 16 32'%3E%3Cg fill='%23920000' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 30h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
-      cursor: pointer;
-
-      &:hover {
-        animation: background-move 1s linear infinite;
-      }
-
-      @keyframes background-move {
-        0% {
-          background-position: 0 0;
-        }
-
-        100% {
-          background-position: 0 4rem;
-        }
-      }
-
-      .nav-link {
-        box-sizing: border-box;
-        display: inline-block;
-        padding: 0 1em;
-        width: 100%;
-        font-weight: bold;
-        border-bottom: none;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: 0.2s;
-      }
-
-      .router-link-active {
-        padding-right: 1.5em;
-
-        &:before {
-          position: absolute;
-          right: 0.5em;
-          bottom: 50%;
-          content: '';
-          width: 0.5em;
-          height: 0.5em;
-          background: dark-black;
-          transform: translateY(50%);
-        }
-
-        &:after {
-          content: '';
-          height: 100%;
-        }
-      }
     }
   }
 }

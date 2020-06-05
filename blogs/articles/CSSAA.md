@@ -371,8 +371,8 @@ Well done!
 
 先模糊，再锐化，两个步骤不能反过来，同时参数的调节也很重要（很玄学）。我在自己的博客中进行实验时，以下是我的尝试的方法：
 
-* SVG 自定义滤镜
-* 使用 CSS Filter 串联 Blur 和 Constract 滤镜
+* CSS Filter 串联 SVG 自定义滤镜
+* CSS Filter 串联 Blur 和 Constract 滤镜
 
 不过很遗憾，水平有限，始终没能调出想要的效果，所以直接结案了，下一题。
 
