@@ -1,8 +1,12 @@
 <template>
     <div ref="con" class="con">
         <Compare>
-            <div slot="left" class="circle-con"></div>
-            <div slot="right" class="circle-con antialiasing"></div>
+            <div slot="left" class="circle-con">
+                <div class="title">No AA</div>
+            </div>
+            <div slot="right" class="circle-con antialiasing">
+                <div class="title">Pixel-Offset AA</div>
+            </div>
         </Compare>
         <div class="deg">
             <div class="deg">Auto rotate: {{ deg.toFixed(1) }} Degree / Lock: {{ lock ? 'true' : 'false' }}</div>
@@ -13,13 +17,21 @@
             </template>
         </div>
         <Compare>
-            <div slot="left" class="repeat-con"></div>
-            <div slot="right" class="repeat-con antialiasing"></div>
+            <div slot="left" class="repeat-con">
+                <div class="title">No AA</div>
+            </div>
+            <div slot="right" class="repeat-con antialiasing">
+                <div class="title">Pixel-Offset AA</div>
+            </div>
         </Compare>
         <br />
         <Compare>
-            <div slot="left" class="no-antialiasing-rect"></div>
-            <div slot="right" class="antialiasing-rect"></div>
+            <div slot="left" class="no-antialiasing-rect">
+                <div class="title">No AA</div>
+            </div>
+            <div slot="right" class="antialiasing-rect">
+                <div class="title">Pixel-Offset AA</div>
+            </div>
         </Compare>
     </div>
 </template>
@@ -31,8 +43,8 @@ export default {
             preset: [1, 42, 85, 175, 266],
             $ele: null,
             tick: null,
-            deg: 0,
-            lock: false
+            deg: 85,
+            lock: true
         }
     },
     mounted() {
@@ -61,7 +73,7 @@ export default {
 
 <style lang="scss" scoped>
 .con {
-    --deg: 0;
+    --deg: 85deg;
     --light: rgba(228, 192, 96, 1);
     --dark: rgba(190, 81, 40, 1);
 
@@ -76,7 +88,6 @@ export default {
     .no-antialiasing-rect,
     .antialiasing-rect {
         height: 300px;
-        cursor: pointer;
         -webkit-transform: rotateZ(0);
         transform: rotateZ(0);
     }
@@ -89,6 +100,7 @@ export default {
         position: relative;
         border-radius: 1px;
         background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
+        // filter: blur(0.5px);
 
         &:after {
             --offsetX: 0.4px;
@@ -133,6 +145,7 @@ export default {
         );
 
         &.antialiasing {
+            // filter: blur(0.5px);
             &:after {
                 --offsetX: 0.4px;
                 --offsetY: -0.1px;
@@ -177,6 +190,7 @@ export default {
         background-image: repeating-radial-gradient(circle at 0% 50%, $c1 0, $c2 50px);
 
         &.antialiasing {
+            // filter: blur(0.5px);
             &:after {
                 --offsetX: 0.4px;
                 --offsetY: -0.1px;
