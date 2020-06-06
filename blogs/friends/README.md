@@ -58,17 +58,17 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Kicoe.jpg"
-  src="https://www.kicoe.com/"
-  name="Kicoe"
-  achieve="🌐"
-/>
-
-<FriendLink
   img="http://image.lionad.art/mgear/image/friends/Roki.jpg"
   src="https://blog.weekii.cn/"
   name="Roki's Blog"
   achieve="玩塔科夫玩到半夜三点 🕒"
+/>
+
+<FriendLink
+  img="http://image.lionad.art/mgear/image/friends/Deeruby.jpg"
+  src="https://deeruby.com"
+  name="Deeruby"
+  achieve="Yijun's Blog 🍺"
 />
 
 <FriendLink
@@ -78,4 +78,9 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   achieve="有一部漂亮的索尼手机 📱"
 />
 
-
+<FriendLink
+  img="http://image.lionad.art/mgear/image/friends/Kicoe.jpg"
+  src="https://www.kicoe.com/"
+  name="Kicoe"
+  achieve="🌐"
+/>
