@@ -1,3 +1,9 @@
+<flow>IaaS 时代，基础设施即服务，用户不再需要购买实体硬件设施，预示着云计算时代的开启；
+SaaS 时代，软件及服务，各种线上能力开始在云端喷薄而出；
+BaaS 时代，仅提供应用依赖的第三方服务，只以 API 的方式提供应用依赖的后端服务；
+而在 FaaS 时代，用户直接提交代码包即可实现运行和部署，开发者不再关注底层，Serverless 必然将在这个阶段开始繁荣。
+<name><a href="https://mp.weixin.qq.com/s?src=11&timestamp=1591815301&ver=2392&signature=SWGuuBpwNZmRtyR1DmL8SJhzQf1Wt62W4skaUF1DoAi3YtYqvoCcVolly6PRfw4s8EHZTLdmnC5vHSdsH1Fr2313eLV0ZOK*YNi4MXiwY*mM5-J77QVip0Z4PErhaenF&new=1" rel="noopener noreferrer" target="_blank">佘磊@前端之巅</a></name><time>2020年6月11日 00点23分</time>
+</flow>
 
 <flow>心流是触达的通畅，是思考的愉悦，以及融合与创造时的成就。
 心流即想法。想法用以解决问题，心流即设计。
