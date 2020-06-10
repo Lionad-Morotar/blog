@@ -1,6 +1,7 @@
 const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
+    useConfetti: true,
     useCodeMirror: true
 }
 
@@ -11,6 +12,15 @@ const headLink = [
     ['script', { src: 'https://cdn.bootcss.com/p5.js/1.0.0/p5.min.js', defer: 'defer' }]
 ]
 
+// 彩带动画
+if (config.useConfetti) {
+    headLink.push([
+        'script',
+        { src: 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js', defer: 'defer' }
+    ])
+}
+
+// 代码高亮
 if (config.useCodeMirror) {
     headLink.push(
         [
