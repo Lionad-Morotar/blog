@@ -7,15 +7,24 @@
 
 <style>
 flow {
+    position: relative;
     display: block;
     margin-top: 3em;
     padding: .5em 1em;
     border: solid 1px #999;
-    border-radius: 4px;
     line-height: 2.3;
     font-size: 18px;
     white-space: pre-wrap;
     word-break: break-word;
+}
+flow:after {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: -1px;
+    width: 1rem;
+    height: 38%;
+    background: #221522;
 }
 
 name,
