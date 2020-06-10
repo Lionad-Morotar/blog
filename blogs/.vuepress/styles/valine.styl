@@ -33,6 +33,9 @@
 
 /* ********************************************** 局部调整 */
 #valine-vuepress-comment {
+    a {
+    }
+
     .vwrap {
         border: solid 2px;
         border-radius: 1px;
@@ -49,7 +52,9 @@
         }
 
         .vrow {
-            padding-top: 0;
+            position: relative;
+            // top: -30px;
+            padding: 0;
 
             .vcol-30, .status-bar, .markdown {
                 display: none;
@@ -73,21 +78,78 @@
                 padding-left: 0.5em;
                 float: left;
                 text-align: left;
+                z-index: 1;
             }
         }
 
         .vedit .vrow {
             padding: 0;
         }
+
+        .vemojis, .vpreview {
+            margin-top: 8px;
+            background: #f8f8f8;
+        }
     }
 
     .vcard {
+        .vhead {
+            .vnick {
+                text-transform: capitalize;
+            }
+
+            .vnick:hover {
+                color: inherit;
+                cursor: inherit;
+            }
+
+            a.vnick:hover {
+                color: #d7191a;
+                cursor: pointer;
+            }
+        }
+
+        .vmeta {
+            user-select: none;
+        }
+
         .vsys {
             display: none;
         }
 
+        .vimg {
+            border-radius: unset;
+            user-select: none;
+        }
+
         .vcontent {
             font-size: 1em;
+
+            & > p {
+                text-transform: capitalize;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                & a {
+                    text-transform: none;
+                }
+            }
+        }
+    }
+
+    .vpower {
+        &::before {
+            content: 'Comments / ';
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    #valine-vuepress-comment {
+        .vwrap {
+            border: solid 1px;
         }
     }
 }
