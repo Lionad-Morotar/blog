@@ -28,6 +28,10 @@ module.exports = {
             }
         },
         removeCatchSidebarScroll() {
+            const $sidebar = this.$sidebar
+            if (!$sidebar) {
+                return null
+            }
             if (utils.isMobile()) {
                 $sidebar.removeEventListener('touchstart', this.recordTouchStartXY)
                 $sidebar.removeEventListener('touchmove', this.checkStop)
