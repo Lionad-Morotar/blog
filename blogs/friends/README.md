@@ -1,6 +1,6 @@
-## 与我联络&友情链接
+# 与我联络&友情链接
 
-### 💌 与我联络
+## <spark>💌 与我联络</spark>
 
 Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱：tangnad@qq.com
 
@@ -48,7 +48,7 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   :nofollow="true"
 />
 
-### 🏂 友情链接
+## <spark>🏂 友情链接</spark>
 
 <FriendLink
   img="http://image.lionad.art/mgear/image/friends/Raptazure.png"
