@@ -1,5 +1,4 @@
 /* ********************************************** Colors */
-dark-black = #221522;
 medium-black = #777;
 light-black = #ccc;
 /* ********************************************** Values */
@@ -30,6 +29,23 @@ navbar-height = 3.6rem;
         font-family: var(--font-text--bold);
     }
 
+    h2, h3 {
+        position: relative;
+        margin: 2em 0 1em 0;
+        padding: 3px 0.5em;
+        line-height: 1.5em;
+        background: var(--dark-black);
+        color: #fefefe;
+        text-transform: uppercase;
+        border-radius: 1px;
+        font-weight: bolder;
+
+        .header-anchor {
+            margin-left: -2.7em;
+            padding-right: 1em;
+        }
+    }
+
     h1 {
         margin-top: 1.25rem !important;
         font-size: 3rem;
@@ -38,7 +54,6 @@ navbar-height = 3.6rem;
     h2 {
         font-size: 1.875rem;
         font-weight: 700;
-        line-height: 4.375rem;
         letter-spacing: 1px;
     }
 
@@ -46,8 +61,8 @@ navbar-height = 3.6rem;
         margin-top: 1em;
         font-size: 1.5rem;
         font-weight: 700;
-        line-height: 4.375rem;
         letter-spacing: 1px;
+        background: #4a1227;
     }
 
     & > p > img {
@@ -219,27 +234,6 @@ navbar-height = 3.6rem;
         color: var(--text-gray);
     }
 
-    h2, h3 {
-        position: relative;
-        margin: 2em 0 1em 0;
-        padding: 0 0.5em;
-        line-height: 1.5em;
-        background: dark-black;
-        color: #fefefe;
-        text-transform: uppercase;
-        border-radius: 1px;
-        font-weight: normal;
-
-        .header-anchor {
-            margin-left: -2.7em;
-            padding-right: 1em;
-        }
-    }
-
-    h3 {
-        background: medium-black;
-    }
-
     @media screen and (max-width: 760px) {
         h1 {
             font-size: 1.875rem;
@@ -284,7 +278,7 @@ navbar-height = 3.6rem;
         h2, h3 {
             box-sizing: border-box;
             position: relative;
-            padding: 0 1.5rem !important;
+            padding: 3px 1.5rem !important;
             width: 100vw;
             left: -1.5rem;
             border-radius: 0;
