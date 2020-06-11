@@ -16,13 +16,15 @@ Hi~，欢迎与 Lionad 交换通讯。与我通讯的最佳方式是个人邮箱
   :nofollow="true"
 />
 
-<FriendLink
-  img="http://image.lionad.art/mgear/image/icons/netease-music.svg"
-  src="https://music.163.com/#/user/home?id=64236446"
-  name="网易云音药"
-  achieve="网易云有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
-  :nofollow="true"
-/>
+<Background-Netease>
+  <FriendLink
+    img="http://image.lionad.art/mgear/image/icons/netease-music.svg"
+    src="https://music.163.com/#/user/home?id=64236446"
+    name="网易云音药"
+    achieve="网易云有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
+    :nofollow="true"
+  />
+</Background-Netease>
 
 <FriendLink
   img="http://image.lionad.art/mgear/image/icons/douban.jpg"

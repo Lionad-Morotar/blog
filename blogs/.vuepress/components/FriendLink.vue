@@ -1,16 +1,14 @@
 <template>
-    <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank" style="text-decoration: none;">
-        <div class="simple-list-cmpt">
-            <div class="con">
-                <div class="simple-list-label">
-                    <img loading="lazy" :src="img" />
-                </div>
-                <div class="simple-list-content">
-                    <span class="name">
-                        <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank">{{ name }}</a>
-                    </span>
-                    <span class="achieve">{{ achieve }}</span>
-                </div>
+    <a class="simple-list-cmpt" :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank">
+        <div class="con">
+            <div class="simple-list-label">
+                <img loading="lazy" :src="img" />
+            </div>
+            <div class="simple-list-content">
+                <span class="name">
+                    <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank">{{ name }}</a>
+                </span>
+                <span class="achieve">{{ achieve }}</span>
             </div>
         </div>
     </a>
@@ -32,6 +30,7 @@ export default {
 .simple-list-cmpt {
   --offset: 5px;
   --line-width: 10px;
+  display: block;
   position: relative;
   top: calc(-1 * var(--offset));
   left: var(--offset);
@@ -55,7 +54,7 @@ export default {
 
     &:hover {
       opacity: .95;
-      animation: blink ease 1.3s infinite;
+      animation: blink ease 1.3s infinite both;
       @keyframes blink {
         from {
           opacity: 1;
@@ -88,7 +87,7 @@ export default {
 
   &:hover {
     animation: delay-offset linear .1s both;
-    animation-delay: .2s;
+    animation-delay: .5s;
     @keyframes delay-offset {
       from {
         top: calc(-1 * var(--offset));
@@ -101,6 +100,8 @@ export default {
     }
 
     &::before {
+      top: 0;
+      left: 0;
       animation: background-move linear .7s infinite;
     }
     @keyframes background-move {

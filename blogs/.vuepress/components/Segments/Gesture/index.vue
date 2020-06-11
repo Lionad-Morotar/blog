@@ -22,6 +22,7 @@ const listenName = {
 const mouseWheelEventName = []
 const gestures = [
     'hover',
+    'hoverOut',
     'tap',
     // 'longtap',
     // 'doubletap',
@@ -82,7 +83,6 @@ export default {
             wheelOffset: 0,
             mouseEnterTime: null,
             mouseLeaveTime: null,
-            isHoverEventDone: null,
             hoverTick: null,
             // toucheds: [],
             lastTouchendTime: 0,
@@ -161,17 +161,12 @@ export default {
                 this.recordLeave({
                     timeStamp: +new Date() + Infinity
                 })
-                this.isHoverEventDone = true
             }, this.hoverTime)
         },
         onMouseLeave(e) {
             this.recordLeave(e)
         },
         recordLeave(e) {
-            if (this.isHoverEventDone) {
-                this.isHoverEventDone = false
-                return null
-            }
             if (this.mouseEnterTime && !this.mouseLeaveTime) {
                 this.mouseLeaveTime = e.timeStamp
             }
@@ -252,6 +247,7 @@ export default {
                 const { tapTimeInterval, tapOffsetThresholdSquared, swipeOffsetThreshold } = this.judgeConfig
                 const judgement = {
                     hover: () => this.mouseHoverTime >= +this.hoverTime,
+                    hoverOut: () => true,
                     tap: () => this.timeInterval < tapTimeInterval && this.pageXOffset ** 2 < tapOffsetThresholdSquared,
                     swipeUp: () => {
                         const calcMouse =
