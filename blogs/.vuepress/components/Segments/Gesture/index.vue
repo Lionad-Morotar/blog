@@ -15,10 +15,13 @@ const listenName = {
     mousemove: 'onMouseMove',
     touchcancel: 'onMouseUp',
     wheel: 'onMouseWheel',
-    mousewheel: 'onMouseWheel'
+    mousewheel: 'onMouseWheel',
+    mouseenter: 'onMouseEnter',
+    mouseleave: 'onMouseLeave'
 }
 const mouseWheelEventName = []
 const gestures = [
+    'hover',
     'tap',
     // 'longtap',
     // 'doubletap',
@@ -37,6 +40,10 @@ export default {
     name: 'gesture-cmpt',
     props: {
         ...gestures.reduce((h, c) => ((h[c] = Function), h), {}),
+        hoverTime: {
+            type: [Number, String],
+            default: 100
+        },
         enableMouse: {
             type: Boolean,
             default: true
@@ -73,6 +80,10 @@ export default {
             touchstartCoord: {},
             touchendCoord: {},
             wheelOffset: 0,
+            mouseEnterTime: null,
+            mouseLeaveTime: null,
+            isHoverEventDone: null,
+            hoverTick: null,
             // toucheds: [],
             lastTouchendTime: 0,
             lastTouchstartTime: 0,
@@ -113,6 +124,9 @@ export default {
         },
         deltaTime() {
             return this.touchendTime - this.lastTouchstartTim
+        },
+        mouseHoverTime() {
+            return this.mouseLeaveTime - this.mouseEnterTime
         }
     },
     mounted() {
@@ -134,10 +148,44 @@ export default {
         })
     },
     methods: {
+        onMouseEnter(e) {
+            if (!this.mouseEnterTime && !this.mouseLeaveTime) {
+                this.recordEnter(e)
+            }
+            this.eventInvoke(e)
+        },
+        recordEnter(e) {
+            this.mouseEnterTime = e.timeStamp
+            // 如果 Hover 时间到了，那么直接触发 Hover 事件，不需要再监听 MouseLeave
+            this.hoverTick = setTimeout(() => {
+                this.recordLeave({
+                    timeStamp: +new Date() + Infinity
+                })
+                this.isHoverEventDone = true
+            }, this.hoverTime)
+        },
+        onMouseLeave(e) {
+            this.recordLeave(e)
+        },
+        recordLeave(e) {
+            if (this.isHoverEventDone) {
+                this.isHoverEventDone = false
+                return null
+            }
+            if (this.mouseEnterTime && !this.mouseLeaveTime) {
+                this.mouseLeaveTime = e.timeStamp
+            }
+            this.calcGestures()
+            this.hoverTick && clearTimeout(this.hoverTick)
+        },
+
         onMouseDown(e) {
+            this.onRecordMove(e)
+            this.eventInvoke(e)
+        },
+        onRecordMove(e) {
             this.recordDown(e)
             this.triggerMove()
-            this.eventInvoke(e)
         },
         recordDown(e) {
             this.lastTouchstartTime = this.touchstartTime
@@ -203,6 +251,7 @@ export default {
 
                 const { tapTimeInterval, tapOffsetThresholdSquared, swipeOffsetThreshold } = this.judgeConfig
                 const judgement = {
+                    hover: () => this.mouseHoverTime >= +this.hoverTime,
                     tap: () => this.timeInterval < tapTimeInterval && this.pageXOffset ** 2 < tapOffsetThresholdSquared,
                     swipeUp: () => {
                         const calcMouse =
@@ -234,13 +283,15 @@ export default {
         })(),
 
         reset() {
-            this.touchstartTime = 0
-            this.touchendTime = 0
+            this.touchstartTime = null
+            this.touchendTime = null
             this.touchstartCoord = {}
             this.touchendCoord = {}
             this.wheelOffset = 0
-            this.lastTouchendTime = 0
-            this.lastTouchstartTime = 0
+            this.mouseEnterTime = null
+            this.mouseLeaveTime = null
+            this.lastTouchendTime = null
+            this.lastTouchstartTime = null
             this.lastTouchstartCoord = {}
             this.lastTouchendCoord = {}
             this.lastWheelOffset = 0
@@ -254,16 +305,17 @@ export default {
                 ...(utils.isMobile()
                     ? ['touchstart', 'touchend', 'touchcancel']
                     : this.enableMouse
-                    ? ['mousedown', 'mouseup']
+                    ? ['mousedown', 'mouseup', 'mouseenter', 'mouseleave']
                     : []),
                 ...(this.enableMouseWheel ? ['onwheel' in document ? 'wheel' : 'mousewheel'] : [])
             ]
             const moves = [...(utils.isMobile() ? ['touchmove'] : []), ...(this.enableMouse ? ['mousemove'] : [])]
             this.events = {
+                // 直接监听类事件
                 listens,
+                // 特殊监听事件会触发监听鼠标移动事件（如 MouseDown 时，会开始记录鼠标位移）
                 moves
             }
-            // console.log(this.events)
         }
     }
 }
