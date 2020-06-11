@@ -1,12 +1,20 @@
 <template>
-    <a class="simple-list-cmpt" :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank">
+    <a
+        class="simple-list-cmpt"
+        :rel="nofollow ? 'nofollow' : ''"
+        :href="src"
+        target="__blank"
+        style="text-decoration: none;"
+    >
         <div class="con">
             <div class="simple-list-label">
                 <img loading="lazy" :src="img" />
             </div>
             <div class="simple-list-content">
                 <span class="name">
-                    <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank">{{ name }}</a>
+                    <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank" style="text-decoration: none;">{{
+                        name
+                    }}</a>
                 </span>
                 <span class="achieve">{{ achieve }}</span>
             </div>
@@ -26,7 +34,7 @@ export default {
     }
 }
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .simple-list-cmpt {
   --offset: 5px;
   --line-width: 10px;
