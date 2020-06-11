@@ -1,6 +1,101 @@
 # ⚙ Lodash 源码学习
 
+[TOC]
+
 ## String
+
+### truncate
+
+_.truncate 这个函数的功能意外的强大，可以像以下方式使用：
+
+```js
+/**
+ * @example
+ * _.truncate('hi-diddly-ho there, neighborino', {
+ *   length: 24,
+ *   separator: /,? +/,
+ *   omission: ' [...]'
+ * })
+ * // -> 'hi-diddly-ho there [...]'
+ */
+
+function truncate(string, options) {
+    let length = +options.length || 30
+    let omission = options.opmission || '...'
+    let separator = options.separator
+
+    /* 对包含 Unicode 字符的字符串特殊处理*/
+    let strSymbols = null
+    let strLength = string.length
+    if (hasUnicode(string)) {
+        strSymbols = stringToArray(string)
+        strLength = strSymbols.length
+    }
+
+    /* 极值情况 */
+    let end = length - omission.length
+    if (length > strLength) {
+        return string
+    } else if (end < 1) {
+        return omission
+    }
+
+    /* 裁剪字符串并处理分隔符 */
+    let result = strSymbols
+        ? strSymbols.slice(0, end).join('')
+        : string.slice(0, end)
+    if (!separator) {
+        return result + omission
+    } else {
+        // 如果有分隔符，则将结果裁剪到最后一个分隔符的位置
+        if (isRegExp) {
+            end = result.length
+            if (!separator.global) {
+                separator = RegExp(separator.source, /\w*$/.exec(separator) + 'g')
+            }
+            let match = null
+            let newEnd = null
+            while ((match = separator.exec(result))) {
+                newEnd = match.index
+            }
+            if (newEnd) {
+                result = result.slice(0, newEnd)
+            }
+        } else if (string.indexOf(separator, end) !== end) {
+            const idx = result.lastIndexOf(separator)
+            if (idx !== -1) {
+                result = result.slice(0, idx)
+            }
+        }
+    }
+
+    return result + omission
+}
+```
+
+从源码中可以看到，它对包含 Unicode 的字符串做了特殊处理。
+
+尽管 ES6 增强了 Unicode 支持，但还是很弱，举一个 Unicode 乱码的例子：
+
+```js
+"𝌆".split('') // ["�", "�"]
+```
+
+所以，Lodash 先将它转换为数组再处理长度。Lodash 是使用正则匹配，将每一个 Unicode 字符都划分为数组子元素，如果是我们自己写的话，可以简化如下：
+
+```js
+Array.from('a𝌆b') // ["a", "𝌆", "b"]
+```
+
+若平常自己写工具函数时，不需要这么复杂的参数结构，可以简化如下：
+
+```js
+function truncate (s, len = 30, omission = '...') {
+    return s.length > len
+        ? s.slice(0, len) + omission
+        : String(s)
+}
+```
 
 ### repeat
 
