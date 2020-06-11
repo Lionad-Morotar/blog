@@ -61,7 +61,7 @@ const sidebarConfigs = {
             children: [
                 'CSSAA',
                 '你可以用纯CSS判断鼠标进入的方向吗',
-                '9张看面试题也写不出来的CSS图案',
+                '9种CSS图案解析',
                 '用JS实现一些造型构成',
                 '从一张CSS风景画中学到的东西',
                 '有关CSS的一些极有趣的东西',

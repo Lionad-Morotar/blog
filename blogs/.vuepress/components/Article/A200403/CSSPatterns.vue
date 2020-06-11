@@ -85,6 +85,16 @@ export default {
 /** Segment: CSS Pattern Start */
 .card {
   transform: translate3d(0, 0, 0);
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(6),
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(11) {
+      display: none;
+    }
 }
 .card:nth-child(1) {
   cursor: pointer;
@@ -679,6 +689,7 @@ export default {
   }
 }
 /** Segment: CSS Pattern End */
+
 
 @keyframes change-circle-width {
   from {
