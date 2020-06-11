@@ -1,24 +1,16 @@
 <template>
-    <a
-        :rel="nofollow ? 'nofollow' : ''"
-        :href="src"
-        target="__blank"
-        style="text-decoration: none;"
-    >
+    <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank" style="text-decoration: none;">
         <div class="simple-list-cmpt">
-            <div class="simple-list-label">
-                <img loading="lazy" :src="img" />
-            </div>
-            <div class="simple-list-content">
-                <span class="name">
-                    <a
-                        :rel="nofollow ? 'nofollow' : ''"
-                        :href="src"
-                        target="__blank"
-                        >{{ name }}</a
-                    >
-                </span>
-                <span class="achieve">{{ achieve }}</span>
+            <div class="con">
+                <div class="simple-list-label">
+                    <img loading="lazy" :src="img" />
+                </div>
+                <div class="simple-list-content">
+                    <span class="name">
+                        <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank">{{ name }}</a>
+                    </span>
+                    <span class="achieve">{{ achieve }}</span>
+                </div>
             </div>
         </div>
     </a>
@@ -38,17 +30,87 @@ export default {
 </script>
 <style lang="stylus">
 .simple-list-cmpt {
+  --offset: 5px;
+  --line-width: 10px;
+  position: relative;
+  top: calc(-1 * var(--offset));
+  left: var(--offset);
   box-sizing: border-box;
-  display: flex;
   margin-top: 2em;
-  padding: 8px 12px;
   width: 100%;
-  border: solid 1px #888;
-  border-radius: 3px;
-  transition .35s;
+  z-index: 1;
+  transition .2s;
+
+  .con {
+    box-sizing border-box;
+    padding: 8px 12px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border: solid 1px #888;
+    background: var(--color-background);
+    transition .2s;
+    opacity: 1;
+    will-change: auto;
+
+    &:hover {
+      opacity: .95;
+      animation: blink ease 1.3s infinite;
+      @keyframes blink {
+        from {
+          opacity: 1;
+          filter: saturate(1);
+        }
+        50% {
+          opacity: .9;
+          filter: saturate(1.2);
+        }
+        to {
+          opacity: 1;
+          filter: saturate(1);
+        }
+      }
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: var(--offset);
+    left: calc(-1 * var(--offset));
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--color-background) 0%, var(--color-background) 20%, #be7b68 20%, #be7b68 45%, var(--color-background) 45%, var(--color-background) 70%, #be7b68 70%, #be7b68 95%, var(--color-background) 95%, var(--color-background) 100%);
+    background-size: var(--line-width) var(--line-width);
+    z-index: -1;
+    transition .2s;
+  }
 
   &:hover {
-    background: #fcfcfc;
+    animation: delay-offset linear .1s both;
+    animation-delay: .2s;
+    @keyframes delay-offset {
+      from {
+        top: calc(-1 * var(--offset));
+        left: var(--offset);
+      }
+      to {
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &::before {
+      animation: background-move linear .7s infinite;
+    }
+    @keyframes background-move {
+      from {
+        backgroud-position: 0 0;
+      }
+      to {
+        background-position: 0 var(--line-width);
+      }
+    }
   }
 
   .simple-list-label {
