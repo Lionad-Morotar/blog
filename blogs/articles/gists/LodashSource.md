@@ -145,6 +145,30 @@ function truncate (s, len = 30, omission = '...') {
 }
 ```
 
+### padStart、padEnd
+
+功能和 ES6 的 padStart 和 padEnd 一样，参数也相同。需要注意的是它处理了 Unicode 字符。
+
+```js
+// '𝌆'.padStart(3) // -> " 𝌆"
+
+function padStart(string, length, chars) {
+    string = toString(string)
+    length = toInteger(length)
+
+    var strLength = length ? stringSize(string) : 0
+    return length && strLength < length ? createPadding(length - strLength, chars) + string : string
+}
+
+function padEnd(string, length, chars) {
+    string = toString(string)
+    length = toInteger(length)
+
+    var strLength = length ? stringSize(string) : 0
+    return length && strLength < length ? string + createPadding(length - strLength, chars) : string
+}
+```
+
 ### repeat
 
 这是二分法思路，比如重复 4 次 'a'，等同于重复 2 次 'aa'。
