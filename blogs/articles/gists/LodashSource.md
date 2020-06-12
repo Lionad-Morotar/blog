@@ -21,7 +21,7 @@ function camelCase(s) {
 }
 ```
 
-Lodash 中的转换函数要强大的多，比如 camelCase 他能将 'Foo Bar', '--foo-bar--', '__FOO_BAR__' 等形式的字符串转换为 'fooBar'。createCompounder 会创造一个迭代器，每次把匹配到的字符串传进去处理，由于匹配模式默认是词组，所以 camelCase 等函数都是建立在处理词组的基础上，而非像我自己的工具函数一样是处理单个字符。
+Lodash 中的转换函数要强大的多，比如 camelCase 他能将 'Foo Bar', '--foo-bar--', '\_\_FOO_BAR\_\_' 等形式的字符串转换为 'fooBar'。createCompounder 会创造一个迭代器，每次把匹配到的字符串传进去处理，由于匹配模式默认是词组，所以 camelCase 等函数都是建立在处理词组的基础上，而非像我自己的工具函数一样是处理单个字符。
 
 ```js
 /**
