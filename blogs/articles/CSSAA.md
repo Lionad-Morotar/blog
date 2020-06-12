@@ -1,4 +1,4 @@
-# 💫 <spark>CSS 幻术 | 抗锯齿</spark>
+# 💫 CSS 幻术 | 抗锯齿
 
 [TOC]
 
