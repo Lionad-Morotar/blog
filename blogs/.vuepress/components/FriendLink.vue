@@ -1,22 +1,18 @@
 <template>
     <a
-        class="simple-list-cmpt"
-        :class="hoverTrigger ? 'hoverTrigger' : ''"
-        :rel="nofollow ? 'nofollow' : ''"
-        :href="src"
+        class="friend-list-cmpt"
         target="__blank"
         style="text-decoration: none;"
+        :class="[hoverTrigger ? 'hover-trigger' : '']"
+        :rel="nofollow ? 'nofollow' : ''"
+        :href="src"
     >
-        <div class="con">
-            <div class="simple-list-label">
+        <div class="list-content-con">
+            <div class="friend-list-label">
                 <img loading="lazy" :src="img" />
             </div>
-            <div class="simple-list-content">
-                <span class="name">
-                    <a :rel="nofollow ? 'nofollow' : ''" :href="src" target="__blank" style="text-decoration: none;">{{
-                        name
-                    }}</a>
-                </span>
+            <div class="friend-list-content">
+                <span class="name">{{ name }}</span>
                 <span class="achieve">{{ achieve }}</span>
             </div>
         </div>
@@ -36,8 +32,9 @@ export default {
     }
 }
 </script>
+
 <style lang="stylus" scoped>
-.simple-list-cmpt {
+.friend-list-cmpt {
   --offset: 5px;
   --line-width: 10px;
   display: block;
@@ -50,7 +47,7 @@ export default {
   z-index: 1;
   transition .2s;
 
-  .con {
+  .list-content-con {
     box-sizing border-box;
     padding: 8px 12px;
     display: flex;
@@ -65,6 +62,7 @@ export default {
     &:hover {
       opacity: .95;
       animation: blink ease 1.3s infinite both;
+
       @keyframes blink {
         from {
           opacity: 1;
@@ -95,7 +93,7 @@ export default {
     transition .2s;
   }
 
-  &.hoverTrigger:hover {
+  &.hover-trigger:hover {
     animation: delay-offset linear .1s both;
     animation-delay: .5s;
     @keyframes delay-offset {
@@ -124,7 +122,7 @@ export default {
     }
   }
 
-  .simple-list-label {
+  .friend-list-label {
     display flex
     flex-shrink 0
     align-items center
@@ -137,24 +135,25 @@ export default {
     vertical-align center;
   }
 
-  .simple-list-content {
+  .friend-list-content {
     flex-grow 1;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    @media screen and (max-width: 760px) {
-      .name {
-        display: none;
-      }
-    }
-    .name a {
-      font-weight: bold;
-    }
-    .achieve {
-      text-decoration: none;
-    }
   }
+
+  .name {
+    font-weight: bold;
+  }
+  .achieve {
+    text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 760px) {
+    .name {
+      display: none;
+    }
 }
 </style>

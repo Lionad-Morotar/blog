@@ -22,10 +22,12 @@
 import Gesture from '../Segments/Gesture'
 import utils from '../utils'
 
-const images = require
-    .context('D:/@Github/blogs/blogs/.vuepress/public/mgear/image/netease/mylove', false, /.jpg$/)
-    .keys()
-    .map(key => key.replace('./', ''))
+// const images = require
+//     .context('D:/@Github/blogs/blogs/.vuepress/public/mgear/image/netease/mylove', false, /.jpg$/)
+//     .keys()
+//     .map(key => key.replace('./', ''))
+
+const images = require('./my-fav-songs-100th')
 
 const random = (min, max) => ~~(Math.random() * (max - min)) + min
 
@@ -40,8 +42,8 @@ export default {
             scrollTop: null,
             firstTime: true,
             visible: false,
-            $eles: null,
-            images: null,
+            $eles: [],
+            images: [],
             cordRec: null,
             offset: { x: 0, y: 0 }
         }
