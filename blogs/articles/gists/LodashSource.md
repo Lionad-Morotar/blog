@@ -4,6 +4,54 @@
 
 ## String
 
+### camelCase、kebabCase、snakeCase
+
+各种命名法的转化方式，算是字符串的常见操作了。一般我们喜欢使用正则去处理这些内容，像我的工具函数箱中就常备了以下函数：
+
+```js
+/**
+ * @example
+ * camelCase('a-b__cc') // -> "aBCc"
+ */
+function camelCase(s) {
+    const shouldConvert = !(s.indexOf('-') === -1 && s.indexOf('_') === -1)
+    return shouldConvert
+        ? s.replace(/[-_]+([^-_])/g, (...args) => args[1].toUpperCase())
+        : s
+}
+```
+
+Lodash 中的转换函数要强大的多，比如 camelCase 他能将 'Foo Bar', '--foo-bar--', '__FOO_BAR__' 等形式的字符串转换为 'fooBar'。createCompounder 会创造一个迭代器，每次把匹配到的字符串传进去处理，由于匹配模式默认是词组，所以 camelCase 等函数都是建立在处理词组的基础上，而非像我自己的工具函数一样是处理单个字符。
+
+```js
+/**
+ * @param {Function} callback The function to combine each word.
+ * @returns {Function} Returns the new compounder function.
+ */
+function createCompounder(callback) {
+    return function(string) {
+        // 注意，这里会去除一些特殊字符
+        return arrayReduce(words(deburr(string).replace(reApos, '')), callback, '')
+    }
+}
+
+// 将不是第一个的词组转换为大写首字母形式
+var camelCase = createCompounder(function(result, word, index) {
+    word = word.toLowerCase()
+    return result + (index ? capitalize(word) : word)
+})
+
+// 词组之间用中隔线连接
+var kebabCase = createCompounder(function(result, word, index) {
+    return result + (index ? '-' : '') + word.toLowerCase()
+})
+
+// 词组之间用下划线连接
+var snakeCase = createCompounder(function(result, word, index) {
+    return result + (index ? '_' : '') + word.toLowerCase()
+})
+```
+
 ### truncate
 
 _.truncate 这个函数的功能意外的强大，可以像以下方式使用：
