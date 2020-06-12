@@ -81,7 +81,7 @@ export default {
         this.$nextTick(() => {
             this.$eles = [...this.$refs.grid.querySelectorAll('.grid__item')]
         })
-        this.startBackground()
+        // this.startBackground()
     },
     beforeDestroy() {
         this.cancel()
@@ -258,7 +258,7 @@ export default {
             background-color: var(--dark-black);
             background-size: cover;
             background-position: 50% 50%;
-            cursor: pointer;
+            // cursor: pointer;
 
             // .name {
             //     position: absolute;
