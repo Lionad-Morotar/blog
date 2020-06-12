@@ -1,6 +1,7 @@
 <template>
     <a
         class="simple-list-cmpt"
+        :class="hoverTrigger ? 'hoverTrigger' : ''"
         :rel="nofollow ? 'nofollow' : ''"
         :href="src"
         target="__blank"
@@ -28,6 +29,7 @@ export default {
         src: String,
         name: String,
         achieve: String,
+        hoverTrigger: true,
         nofollow: {
             default: false
         }
@@ -93,7 +95,7 @@ export default {
     transition .2s;
   }
 
-  &:hover {
+  &.hoverTrigger:hover {
     animation: delay-offset linear .1s both;
     animation-delay: .5s;
     @keyframes delay-offset {

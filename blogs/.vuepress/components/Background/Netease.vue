@@ -10,6 +10,8 @@
                         <div class="name">{{ image.name }}</div>
                     </div>
                 </div>
+                <div class="info">Favourite 100th</div>
+                <div class="info-shadow">Favourite 100th</div>
             </div>
             <div class="close-btn" @click="() => this.stopBackground()"></div>
         </div>
@@ -79,7 +81,7 @@ export default {
         this.$nextTick(() => {
             this.$eles = [...this.$refs.grid.querySelectorAll('.grid__item')]
         })
-        // this.startBackground()
+        this.startBackground()
     },
     beforeDestroy() {
         this.cancel()
@@ -205,7 +207,7 @@ export default {
 }
 
 .grid {
-    --base: 0.003;
+    --base: 0.004;
     --offset-x: 0;
     --offset-y: 0;
     position: absolute;
@@ -218,56 +220,81 @@ export default {
     grid-template-rows: repeat(50, 2%);
     grid-gap: 0;
 
+    .info {
+        color: #845d53;
+        grid-area: 10/18/36/17;
+        font-size: 10rem;
+        font-weight: bolder;
+        font-family: fantacy, var(--font-sidebar);
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        text-shadow: 1px 1px 1px #845d53;
+        z-index: 1;
+        user-select: none;
+    }
+    .info-shadow {
+        color: rgba(139, 93, 82, 0.1);
+        grid-area: 1/47/50/30;
+        font-size: 20rem;
+        font-weight: bolder;
+        font-family: fantacy, var(--font-sidebar);
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        user-select: none;
+    }
+
     .grid__item {
         position: relative;
-        opacity: 0.4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.6;
         overflow: hidden;
 
         .grid__item-img {
             pointer-events: auto;
-            position: relative;
-            width: 100%;
-            height: 100%;
+            width: calc(100% + 120px);
+            height: calc(100% + 120px);
             background-color: var(--dark-black);
             background-size: cover;
             background-position: 50% 50%;
             cursor: pointer;
 
-            .name {
-                position: absolute;
-                top: 0;
-                left: 0;
-                box-sizing: border-box;
-                padding: 0 1em 3px 1em;
-                width: 100%;
-                font-size: 0.8rem;
-                font-weight: bold;
-                letter-spacing: 0.5px;
-                color: #fff;
-                background: #300c22;
-                transition: 0.3s;
-            }
+            // .name {
+            //     position: absolute;
+            //     top: 0;
+            //     left: 0;
+            //     box-sizing: border-box;
+            //     padding: 0 1em 3px 1em;
+            //     width: 100%;
+            //     font-size: 0.8rem;
+            //     font-weight: bold;
+            //     letter-spacing: 0.5px;
+            //     color: #fff;
+            //     background: #300c22;
+            //     transition: 0.3s;
+            // }
         }
 
-        &:nth-child(2),
-        &:nth-child(3) {
-            .name {
-                top: unset;
-                bottom: 0;
-            }
-            &:hover {
-                .name {
-                    top: unset;
-                    bottom: 0;
-                }
-            }
-        }
-        &:nth-child(1),
-        &:nth-child(7) {
-            .name {
-                text-align: right;
-            }
-        }
+        // &:nth-child(2),
+        // &:nth-child(3) {
+        //     .name {
+        //         top: unset;
+        //         bottom: 0;
+        //     }
+        //     &:hover {
+        //         .name {
+        //             top: unset;
+        //             bottom: 0;
+        //         }
+        //     }
+        // }
+        // &:nth-child(1),
+        // &:nth-child(7) {
+        //     .name {
+        //         text-align: right;
+        //     }
+        // }
 
         &:nth-child(1) {
             --velocity: 8;
@@ -283,7 +310,7 @@ export default {
         }
         &:nth-child(4) {
             --velocity: 13;
-            grid-area: 13 / 14 / 33 / 26;
+            grid-area: 13 / 16 / 34 / 28;
         }
         &:nth-child(5) {
             --velocity: 5;
@@ -313,6 +340,11 @@ export default {
         & {
             transform: translateX(calc(var(--velocity) * var(--offset-x) * var(--base)))
                 translateY(calc(var(--velocity) * var(--offset-y) * var(--base)));
+
+            .grid__item-img {
+                transform: translateX(calc(var(--velocity) * var(--offset-x) * var(--base) * 0.7))
+                    translateY(calc(var(--velocity) * var(--offset-y) * var(--base) * 0.7));
+            }
         }
     }
 }

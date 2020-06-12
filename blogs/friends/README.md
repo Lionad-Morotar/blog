@@ -25,6 +25,7 @@ Hi~，欢迎与 Lionad 交换通讯。
     name="网易云音药"
     achieve="网易云有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
     :nofollow="true"
+    :hoverTrigger="true"
   />
 </Background-Netease>
 
