@@ -1,11 +1,10 @@
 const fs = require('fs')
-const path = require('path')
 
 console.log('Node Env Test : ', process.env.NODE_ENV)
-const baseDir = __dirname
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
 const gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
+const awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -78,7 +77,15 @@ const sidebarConfigs = {
             title: 'Memo / Gists',
             collapsable: true,
             childrenGen: list => list.map(x => 'gists/' + x),
-            childrenRaw: getSrc(gistsDir)
+            childrenRaw: getSrc(gistsDir),
+            flag: 'G'
+        },
+        {
+            title: 'Awesome',
+            collapsable: true,
+            childrenGen: list => list.map(x => 'awesome/' + x),
+            childrenRaw: getSrc(awesomeDir),
+            flag: 'C'
         },
         {
             title: '吉他 / Plays',
