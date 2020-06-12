@@ -187,4 +187,47 @@ function repeat(s, n) {
 }
 ```
 
+## escape、unescape
+
+escape 方法能将字符串中的 `<`、`>`、`&`、`"` 等 HTML 字符转义得到适合放在页面上进行显示的内容，一般用于防止 XSS 攻击。
+
+两种方法的处理思路都是先判断是否需要转义，如果不需要则直接返回原内容，节约算力。
+
+```js
+var reEscapedHtml = /&(?:amp|lt|gt|quot|#39);/g,
+    reUnescapedHtml = /[&<>"']/g,
+    reHasEscapedHtml = RegExp(reEscapedHtml.source),
+    reHasUnescapedHtml = RegExp(reUnescapedHtml.source)
+
+var htmlUnescapes = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#39;': "'"
+}
+
+function unescape(string) {
+    string = toString(string)
+    return string && reHasEscapedHtml.test(string) 
+        ? string.replace(reEscapedHtml, c => htmlUnescapes[c]) 
+        : string
+}
+
+var htmlEscapes = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+}
+
+function escape(string) {
+    string = toString(string)
+    return string && reHasUnescapedHtml.test(string) 
+        ? string.replace(reUnescapedHtml, escapeHtmlChar) 
+        : string
+}
+```
+
 ## Array
