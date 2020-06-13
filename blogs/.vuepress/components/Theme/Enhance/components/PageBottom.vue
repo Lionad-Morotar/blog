@@ -8,11 +8,10 @@ const utils = require('../utils')
 export default {
     name: 'comment-cmpt',
     mounted() {
-        // 没有浏览 20s 则不计入统计
-        utils.isMobile() &&
-            setTimeout(() => {
-                this.initCrisp()
-            }, 1000 * 20)
+        // 没有浏览 10s 则不计入 Crisp 的统计（去除爬虫之类的影响）
+        setTimeout(() => {
+            this.initCrisp()
+        }, 1000 * 10)
     },
     methods: {
         initCrisp() {

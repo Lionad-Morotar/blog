@@ -28,7 +28,7 @@ module.exports = {
 
     theme: path.join(__dirname, './components/Theme/Enhance'),
     themeConfig: {
-        lastUpdated: 'Last Updated',
+        lastUpdated: '本文最后更新于',
         smoothScroll: true,
         search: false,
         nav: [
