@@ -99,7 +99,8 @@ module.exports = {
                 avatar: 'robohash',
                 pageSize: '50',
                 highlight: false,
-                recordIP: true
+                recordIP: true,
+                visitor: true
             }
         },
         'rss-feed': {
