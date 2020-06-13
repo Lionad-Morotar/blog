@@ -5,6 +5,8 @@
 
 My personal websites，build with VuePress, you can visit at here: [http://www.lionad.art](http://www.lionad.art)
 
+* [RSS Address](http://lionad.art/rss.xml)
+
 ## Homepage
 
 ![Homepage](./blogs/.vuepress/public/mgear/image/gists/2020-05-28-02-38-22_1920.gif)
