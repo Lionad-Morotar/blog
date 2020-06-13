@@ -262,6 +262,19 @@ export default {
             background-position: 50% 50%;
             // cursor: pointer;
 
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.2;
+                background-image: url(http://image.lionad.art/mgear/image/icons/dot.gif);
+                background-size: 2px 2px;
+                image-rendering: pixelated;
+            }
+
             // .name {
             //     position: absolute;
             //     top: 0;
