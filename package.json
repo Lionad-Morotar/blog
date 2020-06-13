@@ -39,12 +39,12 @@
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "vuepress": "^1.2.0",
-    "vuepress-plugin-rss-feed": "^1.0.0",
     "webpack": "^4.35.0"
   },
   "dependencies": {
     "debounce": "^1.2.0",
     "markdown-it-toc-done-right": "^4.1.0",
-    "vuepress-plugin-comment": "https://github.com/Lionad-Morotar/vuepress-plugin-comment"
+    "vuepress-plugin-comment": "https://github.com/Lionad-Morotar/vuepress-plugin-comment",
+    "vuepress-plugin-rss-feed": "https://github.com/Lionad-Morotar/vuepress-plugin-rss"
   }
 }
