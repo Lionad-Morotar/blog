@@ -59,21 +59,21 @@ Hi~，欢迎与 Lionad 交换通讯。
   img="http://image.lionad.art/mgear/image/friends/Raptazure.png"
   src="https://raptazure.github.io"
   name="Raptazure"
-  achieve="🌐"
+  achieve="在个人网站里记日记的少女 🎉"
 />
 
 <FriendLink
   img="http://image.lionad.art/mgear/image/friends/Roki.jpg"
   src="https://blog.weekii.cn/"
   name="Roki's Blog"
-  achieve="玩塔科夫玩到半夜三点 🕒"
+  achieve="Roki 玩塔科夫玩到半夜三点 🕒"
 />
 
 <FriendLink
   img="http://image.lionad.art/mgear/image/friends/Deeruby.jpg"
   src="https://deeruby.com"
   name="Deeruby"
-  achieve="Yijun's Blog 🍺"
+  achieve="易骏的博客 🍺"
 />
 
 <FriendLink
@@ -84,8 +84,15 @@ Hi~，欢迎与 Lionad 交换通讯。
 />
 
 <FriendLink
+  img="http://image.lionad.art/mgear/image/friends/Renwangyu.jpg"
+  src="https://blog.renwangyu.com/"
+  name="Renwangyu"
+  achieve="保持童心的80后程序猿大叔 😀"
+/>
+
+<FriendLink
   img="http://image.lionad.art/mgear/image/friends/Kicoe.jpg"
   src="https://www.kicoe.com/"
   name="Kicoe"
-  achieve="🌐"
+  achieve="和 Roki 一样在学习 go 语言的老弟 🌐"
 />
