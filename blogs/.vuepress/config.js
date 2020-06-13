@@ -28,6 +28,7 @@ module.exports = {
 
     theme: path.join(__dirname, './components/Theme/Enhance'),
     themeConfig: {
+        lastUpdated: 'Last Updated',
         smoothScroll: true,
         search: false,
         nav: [
@@ -99,6 +100,17 @@ module.exports = {
                 pageSize: '50',
                 highlight: false,
                 recordIP: true
+            }
+        },
+        'rss-feed': {
+            username: 'Lionad',
+            hostname: 'http://lionad.art',
+            selector: '.content__default',
+            count: 10,
+            filter: page => {
+                const shouldConvert = /^articles\/((flow\/)|([^\/]*\.md$))/.test(page.relativePath)
+                shouldConvert && console.log(page.relativePath)
+                return shouldConvert
             }
         }
     },
