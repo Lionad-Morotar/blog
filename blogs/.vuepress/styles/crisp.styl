@@ -1,5 +1,13 @@
+#app.no-move {
+    & ~ .crisp-client {
+        opacity: 0;
+    }
+}
+
 .crisp-client {
+    transition: 0.3s;
     pointer-events: none;
+    opacity: 1;
 }
 
 @media screen and (max-width: 760px) {
