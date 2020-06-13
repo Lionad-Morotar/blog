@@ -88,9 +88,6 @@ module.exports = {
     /** plugins */
 
     plugins: {
-        '@vuepress/google-analytics': {
-            ga: 'UA-142194237-1'
-        },
         'vuepress-plugin-comment': {
             choosen: 'valine',
             options: {

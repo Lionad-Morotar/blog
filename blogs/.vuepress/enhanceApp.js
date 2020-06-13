@@ -5,9 +5,6 @@ import Spark from './components/segments/Spark'
 import Compare from './components/segments/Compare'
 import Worker from './components/segments/Worker'
 
-// eslint-disable-next-line
-import siteOnloadScript from './scripts'
-
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
     options, // 附加到根实例的一些选项
