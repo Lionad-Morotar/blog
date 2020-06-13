@@ -17,11 +17,11 @@ module.exports = {
 
     title: 'Lionad Blogs',
     description:
-        'Lionad Guirotar Blogs 是老虎贪玩儿的个人专栏。其中有给技术人员查阅的技术文章，给文艺青年阅读的杂文散文，还有老虎的一些个人动态。做一个极客范的程序员，我在前端、设计、写作、音乐等方面都有兴趣学习。除了个人资料，用户也可以在今后的首页找到与技术及阅读相关的最新资料与合集。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，我相信你能在这找到一些乐趣。',
-    keywords: 'Lionad,Guirotar,老虎贪玩儿,博客,写作,前端,设计,指弹,吉他',
+        'Lionad Blogs 是仿生狮子的个人专栏。其中有技术文章、杂文散文，或是狮子的个人动态。他是前端工程师，也是未来的独立游戏开发，此外他对设计、音乐和写作都颇感兴趣。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，相信你能在这找到一些乐趣。',
+    keywords: 'Lionad,Guirotar,仿生狮子,博客,写作,前端,设计,写作,游戏,指弹,吉他',
     robots: 'index,archive',
-    author: 'Lionad|老虎贪玩儿',
-    copyright: 'lionad版权所有',
+    author: 'Lionad|仿生狮子',
+    copyright: 'Lionad版权所有',
     head: headLink,
 
     /** theme config */
