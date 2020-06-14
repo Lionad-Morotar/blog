@@ -2,7 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
     useConfetti: !isDev,
-    useBaiduHMT: !idDev,
+    useBaiduHMT: !isDev,
     useCodeMirror: true
 }
 
