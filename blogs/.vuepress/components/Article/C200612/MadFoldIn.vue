@@ -1,6 +1,9 @@
 <template>
     <div class="cmpt">
-        <span class="jaffee" style="--bg: url('http://image.lionad.art/mgear/image/200612/foldin.jpg');">
+        <span
+            class="jaffee"
+            style="--bg: url('http://image.lionad.art/mgear/image/200612/foldin.jpg');"
+        >
             <span class="a"></span>
             <span class="bc">
                 <span class="b"></span>
@@ -18,6 +21,7 @@ export default {}
 <style scoped>
 .cmpt {
     margin: 2em 0 4em;
+    max-height: 56vh;
     perspective: 60em;
     text-align: center;
 }

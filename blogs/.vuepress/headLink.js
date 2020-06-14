@@ -2,6 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
     useConfetti: !isDev,
+    useBaiduHMT: !idDev,
     useCodeMirror: true
 }
 
@@ -13,15 +14,14 @@ const headLink = [
 ]
 
 // 彩带动画
-if (config.useConfetti) {
+config.useConfetti &&
     headLink.push([
         'script',
         { src: 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js', defer: 'defer' }
     ])
-}
 
 // 代码高亮
-if (config.useCodeMirror) {
+config.useCodeMirror &&
     headLink.push(
         [
             'script',
@@ -60,15 +60,8 @@ if (config.useCodeMirror) {
             }
         ]
     )
-}
 
-// const isTestScrollTo = false
-// if (isTestScrollTo) {
-//     ['script', { src: 'https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js' }],
-//     ['script', { src: 'https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js' }],
-// }
-
-if (!isDev) {
+config.useBaiduHMT &&
     headLink.push([
         'script',
         { defer: 'defer' },
@@ -82,6 +75,5 @@ if (!isDev) {
             })();
         `
     ])
-}
 
 module.exports = headLink
