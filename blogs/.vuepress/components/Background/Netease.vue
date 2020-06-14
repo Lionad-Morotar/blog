@@ -6,7 +6,10 @@
         <div class="full-background-cmpt" :class="animClass">
             <div ref="grid" class="grid">
                 <div v-for="(image, idx) in images" class="grid__item">
-                    <div class="grid__item-img" :style="{ 'background-image': `url(\'${encodeURI(image.src)}\')` }">
+                    <div
+                        class="grid__item-img"
+                        :style="{ 'background-image': `url(\'${encodeURI(image.src)}\')` }"
+                    >
                         <div class="name">{{ image.name }}</div>
                     </div>
                 </div>
@@ -224,7 +227,7 @@ export default {
 
     .info {
         color: #845d53;
-        grid-area: 10/18/36/17;
+        grid-area: 9/18/36/17;
         font-size: 10rem;
         font-weight: bolder;
         font-family: fantacy, var(--font-sidebar);
@@ -353,12 +356,18 @@ export default {
         }
 
         & {
-            transform: translateX(calc(var(--velocity) * var(--offset-x) * var(--base)))
-                translateY(calc(var(--velocity) * var(--offset-y) * var(--base)));
+            transform: translate3d(
+                calc(var(--velocity) * var(--offset-x) * var(--base)),
+                calc(var(--velocity) * var(--offset-y) * var(--base)),
+                0px
+            );
 
             .grid__item-img {
-                transform: translateX(calc(var(--velocity) * var(--offset-x) * var(--base) * 0.7))
-                    translateY(calc(var(--velocity) * var(--offset-y) * var(--base) * 0.7));
+                transform: translate3d(
+                    calc(var(--velocity) * var(--offset-x) * var(--base) * 0.7),
+                    calc(var(--velocity) * var(--offset-y) * var(--base) * 0.7),
+                    0px
+                );
             }
         }
     }
