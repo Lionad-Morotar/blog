@@ -1,0 +1,66 @@
+/* ********************************************** Sidebar */
+.sidebar {
+    top: 0;
+    width: sidebar-width;
+    font-family: var(--font-sidebar);
+    border: none;
+    border-right: solid 1px #ecdad2;
+    font-size: 1rem;
+    transition: 0.3s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 99;
+    user-select: none;
+    background: white;
+
+    /* 整体调整 */
+    & > ul.sidebar-links {
+        padding-top: navbar-height + 1em;
+
+        & > li:last-child {
+            color: var(--color-background);
+            opacity: 0;
+            height: 2em;
+            overflow: hidden;
+        }
+    }
+
+    .sidebar-group a.sidebar-link {
+        text-indent: -1.35em;
+        padding-left: 4em;
+        padding-right: 2em;
+    }
+
+    .sidebar-group li {
+        background: transparent;
+        transition: 0.2s;
+        line-height: 2.5em;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 二级标题调整 */
+    ul.sidebar-sub-headers {
+        padding-left: 0;
+        border-left: 0.25rem dashed var(--medium-black);
+        font-size: 0.85em;
+        text-indent: 2.35em;
+    }
+
+    /* 悬浮样式 */
+    &:hover {
+        & > ul.sidebar-links {
+            width: sidebar-width;
+        }
+
+        &::-webkit-scrollbar {
+            display: block;
+        }
+    }
+}

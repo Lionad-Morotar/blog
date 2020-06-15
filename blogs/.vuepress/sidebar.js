@@ -5,6 +5,7 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 // ! Do Not Refactor, Static Path to avoid vuepress build error
 const gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
 const awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
+const secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -99,6 +100,13 @@ const sidebarConfigs = {
                 '163/WuWei',
                 '163/无题'
             ]
+        },
+        {
+            title: 'Secrets',
+            collapsable: true,
+            childrenGen: list => list.map(x => 'secrets/' + x),
+            childrenRaw: getSrc(secretsDir),
+            flag: 'S'
         }
     ]
 }
