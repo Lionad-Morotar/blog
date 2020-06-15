@@ -29,13 +29,16 @@ Hi~，欢迎与 Lionad 交换通讯。
   />
 </Background-Netease>
 
-<FriendLink
-  img="http://image.lionad.art/mgear/image/icons/douban.jpg"
-  src="https://www.douban.com/people/lionad/"
-  name="豆瓣"
-  achieve="如果你也喜爱影音书籍的话，在豆瓣可以看到我的最新动态 📕"
-  :nofollow="true"
-/>
+<Background-Douban>
+  <FriendLink
+    img="http://image.lionad.art/mgear/image/icons/douban.jpg"
+    src="https://www.douban.com/people/lionad/"
+    name="豆瓣"
+    achieve="如果你也喜爱影音书籍的话，在豆瓣可以看到我的最新动态 📕"
+    :nofollow="true"
+    :hoverTrigger="true"
+  />
+</Background-Douban>
 
 <FriendLink
   img="http://image.lionad.art/mgear/image/icons/github.svg"

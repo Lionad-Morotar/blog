@@ -25,12 +25,7 @@
 import Gesture from '../Segments/Gesture'
 import utils from '../utils'
 
-// const images = require
-//     .context('D:/@Github/blogs/blogs/.vuepress/public/mgear/image/netease/mylove', false, /.jpg$/)
-//     .keys()
-//     .map(key => key.replace('./', ''))
-
-const images = require('./dataset/my-fav-songs-100th')
+const doubanData = require('./dataset/douban').filter(x => +x.rate >= 4)
 
 const random = (min, max) => ~~(Math.random() * (max - min)) + min
 
@@ -73,15 +68,15 @@ export default {
     mounted() {
         const con = []
         while (con.length < 10) {
-            const num = random(0, images.length)
-            const pick = images[num]
+            const num = random(0, doubanData.length)
+            const pick = doubanData[num]
             if (!con.includes(pick) && pick) {
                 con.push(pick)
             }
         }
         this.images = con.map(x => ({
-            name: x.replace('.jpg', ''),
-            src: `http://image.lionad.art/mgear/image/netease/${x}`
+            name: x.name,
+            src: x.imageURL
         }))
         this.$nextTick(() => {
             this.$eles = [...this.$refs.grid.querySelectorAll('.grid__item')]
