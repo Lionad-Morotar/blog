@@ -12,7 +12,8 @@ export default {
     name: 'comment-cmpt',
     mounted() {
         // 没有浏览 5s 则不计入 Crisp 的统计（去除爬虫之类的影响）
-        if (process.env.NODE_ENV !== 'development') {
+        const isDev = process.env.NODE_ENV === 'development'
+        if (!isDev) {
             setTimeout(() => {
                 this.initCrisp()
             }, 1000 * 5)

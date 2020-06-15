@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html class="mdl-js" style>
+    <body>
+        <div id="header">
+            <div id="sticky">
+                <div id="filterPanel" class="scrollable">
+                    <div class="table" id="titlerow">
+                        <div class="tr">
+                            <div class="grid-wrapper">
+                                <div class="td sort type" name="formfactor">Type</div>
+                                <div class="td sort device" name="device">Device</div>
+                                <div class="td sort platform" name="platform" data-sort-direction="ascend">
+                                    Platform
+                                </div>
+                                <div class="td screen-size">
+                                    <span class="sort" name="inscreend">Screen dimensions</span
+                                    ><span class="unit selected" id="unit-in">in</span
+                                    ><span class="unit" id="unit-cm">cm</span>
+                                </div>
+                                <div class="td aspect-ratio">
+                                    <span class="sort" name="screenratio" tooltip="screenratio">Aspect Ratio</span>
+                                </div>
+                                <div class="td screen">
+                                    <span class="sort width-40 align-right" name="dpscreenw" tooltip="dpscreenw"
+                                        >Width</span
+                                    ><span class="width-20 align-center opacity-54">×</span
+                                    ><span class="sort" name="dpscreenh">Height</span
+                                    ><span class="unit selected" id="unit-dp">dp</span>
+                                </div>
+                                <div class="td screen">
+                                    <span class="sort width-40 align-right" name="pxscreenw">Width</span
+                                    ><span class="width-20 align-center opacity-54">×</span
+                                    ><span class="sort" name="dpscreenh">Height</span
+                                    ><span class="unit selected" id="unit-px">px</span>
+                                </div>
+                                <div class="td sort density" name="density">Density</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-table" class="scrollable">
+            <div class="tr sf-hidden" id="device-row-template">
+                <div class="grid-wrapper"></div>
+            </div>
+            <div class="tr device-row" data-index="0" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Android One</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">3.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">569</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">480</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">854</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="1" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Asus Zen Watch</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">1</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">1</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">213</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">213</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">320</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="2" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Dell Venue 8</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">8.4</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">4.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.1</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">800</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1600</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row selected" data-index="21" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Google Pixel</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">411</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">731</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.6</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="22" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Google Pixel XL</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">411</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">731</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.5</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="3" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">HTC One M8</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="4" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">HTC One M9</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="5" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">LG G Watch</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">1</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">1</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">187</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">187</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="6" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">LG G Watch R</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.8</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">1</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">1</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">213</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">213</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">320</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="7" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">LG G2</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.2</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.5</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="8" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">LG G3</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">480</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">853</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="9" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Moto 360</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.6</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">32</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">29</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">241</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">218</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">290</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.3</span><span class="value-bucket bucket">tvdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="10" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Moto 360 v2 42mm</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.4</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">65</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">64</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">241</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">244</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">325</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.3</span><span class="value-bucket bucket">tvdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="11" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Moto 360 v2 46mm</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.4</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">33</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">32</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">241</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">248</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">330</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.3</span><span class="value-bucket bucket">tvdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="12" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Moto G</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">3.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">720</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="13" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Moto X</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.1</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">720</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="14" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Moto X (2nd Gen)</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.2</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.5</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="15" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 10</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.1</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">8.6</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">800</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1600</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="16" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 4</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">3.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">5</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">384</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="17" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 5</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.4</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="19" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 5X</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.2</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.5</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">411</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">731</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.6</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="18" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 6</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">6.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.9</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">411</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">731</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.5</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="20" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 6P</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.8</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">411</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">731</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.5</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="23" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 7 ('12)</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">7.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">3.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">600</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">960</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">800</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.3</span><span class="value-bucket bucket">tvdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="24" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 7 ('13)</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">7.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">3.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">6.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">600</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">960</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1200</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="25" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Nexus 9</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">8.9</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">7.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">4</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1024</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2048</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1536</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="26" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy Note 4</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.8</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">480</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">853</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="27" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy S5</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.1</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.9</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.6</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="28" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy S6</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.1</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">4.0</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="29" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy S7</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.1</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">4.0</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="30" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy S7 Edge</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2560</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">4.0</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="31" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy S8</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.8</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">18.5</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">740</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2960</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">4.0</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="32" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy S8+</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">6.2</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.6</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">18.5</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">740</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2960</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">4.0</span><span class="value-bucket bucket">xxxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="33" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Samsung Galaxy Tab 10</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.1</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">5.4</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">8.6</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">800</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">800</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="34" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Samsung Gear Live</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">1</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">1</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">213</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">213</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">320</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="35" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Sony Smartwatch 3</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.1</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">1</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">1</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">213</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">213</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">320</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="40" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia C4</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">540</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">960</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="36" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia Z Ultra</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">6.4</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">3.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.6</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">540</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">960</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="37" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia Z1 Compact</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.3</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">3.7</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">720</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="38" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia Z2/Z3</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.2</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.5</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="39" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia Z3 Compact</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">360</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">640</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">720</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1280</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="42" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia Z3 Tablet</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">8.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">6.8</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">960</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">600</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1920</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1200</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="41" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">Sony Xperia Z4 Tablet</div>
+                    <div class="td platform">Android</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.1</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">8.6</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">800</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1600</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="43" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Chromebook 11</div>
+                    <div class="td platform">Chrome</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">11.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.7</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="44" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Chromebook Pixel</div>
+                    <div class="td platform">Chrome</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">12.9</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.1</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">3</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">2</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">850</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1700</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="45" data-form-factor="desktop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons desktop">desktop_mac</i></div>
+                    </div>
+                    <div class="td device">Chromebox 30</div>
+                    <div class="td platform">Chrome</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">30.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">25.4</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">15.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1600</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1600</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="46" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Apple Watch 38mm</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">0.9</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">5</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">4</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">136</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">170</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">272</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">340</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="47" data-form-factor="watch">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons watch">watch</i></div>
+                    </div>
+                    <div class="td device">Apple Watch 42mm</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">1.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.0</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">1.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">5</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">4</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">156</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">195</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">312</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">390</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="48" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">iPad</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">9.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">5.8</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">4</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="49" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">iPad Mini</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">7.9</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">4.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">6.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">4</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="50" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">iPad Mini Retina</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">7.9</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">4.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">6.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">4</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1536</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2048</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="52" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">iPad Pro</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">12.9</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.7</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">4</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2732</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2048</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="51" data-form-factor="tablet">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons tablet">tablet_android</i></div>
+                    </div>
+                    <div class="td device">iPad Retina</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">9.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">5.8</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">4</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">3</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">768</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1024</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1536</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2048</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="53" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">iPhone</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">3.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">1.9</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">2.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">3</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">2</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">480</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">480</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="54" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">iPhone 4</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">3.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.0</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">2.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">3</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">2</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">480</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">640</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">960</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="55" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">iPhone 5</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.0</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">3.5</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">320</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">568</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">640</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1136</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="56" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">iPhone 6</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">4.7</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.1</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">375</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">667</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">750</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1334</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="57" data-form-factor="handset">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons handset">phone_android</i></div>
+                    </div>
+                    <div class="td device">iPhone 6 Plus</div>
+                    <div class="td platform">iOS</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">5.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">2.7</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">4.8</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">414</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">736</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1080</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1920</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">3.0</span><span class="value-bucket bucket">xxhdpi</span
+                        ><span class="value-oversampling oversampling">(115.00%)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="64" data-form-factor="desktop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons desktop">desktop_mac</i></div>
+                    </div>
+                    <div class="td device">iMac 27</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">27.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">23.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">13.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1440</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1440</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="58" data-form-factor="desktop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons desktop">desktop_mac</i></div>
+                    </div>
+                    <div class="td device">iMac 5K</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">27.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">23.5</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">13.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1440</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">5120</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2880</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="59" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">MacBook 12</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">12.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">6.4</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">800</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2304</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1440</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling">(111.11%)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="60" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">MacBook Air 11</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">11.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.7</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="61" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">MacBook Air 13</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">13.3</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">11.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">900</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">900</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="62" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">MacBook Pro 13</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">13.3</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">11.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.0</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">800</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2560</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1600</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="63" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">MacBook Pro 15</div>
+                    <div class="td platform">OS X</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">15.4</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">13.1</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">8.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">10</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">900</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2880</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1800</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="65" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">9.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1366</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">768</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.0</span><span class="value-bucket bucket">mdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="66" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface 2</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">9.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">720</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1920</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1080</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="67" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface 3</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.8</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">9.4</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.3</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">720</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1920</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1080</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="71" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface Book</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">13.5</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">11.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">7.5</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">3</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">2</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1500</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1000</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">3000</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">2000</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="68" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface Pro</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">10.6</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">9.2</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">5.2</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">16</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">9</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1280</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">720</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">1920</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1080</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="69" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface Pro 3</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">12.0</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.0</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">6.7</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">3</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">2</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1440</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">960</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2160</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1440</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">1.5</span><span class="value-bucket bucket">hdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr device-row" data-index="70" data-form-factor="laptop">
+                <div class="grid-wrapper">
+                    <div class="td type">
+                        <div class="formfactor-icon-wrapper"><i class="material-icons laptop">laptop</i></div>
+                    </div>
+                    <div class="td device">Surface Pro 4</div>
+                    <div class="td platform">Windows</div>
+                    <div class="td screen-size">
+                        <span class="value-size width-32 align-right">12.4</span><span class="subtle unit">in</span>
+                        <span class="value-height width-32 opacity40 align-right">10.3</span
+                        ><span class="opacity40 width-20 align-center">×</span
+                        ><span class="value-width opacity40 align-right">6.9</span><span class="subtle unit">in</span>
+                    </div>
+                    <div class="td aspect-ratio">
+                        <span class="value-width width-32 align-right">3</span
+                        ><span class="width-16 align-center">:</span><span class="value-height width-32">2</span>
+                    </div>
+                    <div class="td screen screen-dp">
+                        <span class="value-width width-40 align-right">1368</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">912</span
+                        ><span class="unit subtle">dp</span>
+                    </div>
+                    <div class="td screen screen-px">
+                        <span class="value-width width-40 align-right">2736</span
+                        ><span class="width-20 align-center">×</span><span class="value-height">1824</span
+                        ><span class="unit subtle">px</span>
+                    </div>
+                    <div class="td density">
+                        <span class="value-density width-32">2.0</span><span class="value-bucket bucket">xhdpi</span
+                        ><span class="value-oversampling oversampling"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
