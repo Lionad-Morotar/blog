@@ -10,20 +10,12 @@ Hi~，欢迎与 Lionad 交换通讯。
 
 如果你对以下站点有兴趣的话，我们可以在以下网站进行相关话题的讨论交流：
 
-<FriendLink
-  img="http://image.lionad.art/mgear/image/icons/bilibili.gif"
-  src="https://space.bilibili.com/6626299"
-  name="哔哩哔哩"
-  achieve="B站将是我近来在网络上的主要活动区域 ☀"
-  :nofollow="true"
-/>
-
 <Background-Netease>
   <FriendLink
     img="http://image.lionad.art/mgear/image/icons/netease.jpg"
     src="https://music.163.com/#/user/home?id=64236446"
     name="网易云音药"
-    achieve="网易云有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
+    achieve="云音药有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
     :nofollow="true"
     :hoverTrigger="true"
   />
@@ -39,6 +31,14 @@ Hi~，欢迎与 Lionad 交换通讯。
     :hoverTrigger="true"
   />
 </Background-Douban>
+
+<FriendLink
+  img="http://image.lionad.art/mgear/image/icons/bilibili.gif"
+  src="https://space.bilibili.com/6626299"
+  name="哔哩哔哩"
+  achieve="B站即将成为我在网络中潜水的主要活动区域 ☀"
+  :nofollow="true"
+/>
 
 <FriendLink
   img="http://image.lionad.art/mgear/image/icons/github.svg"
@@ -62,7 +62,7 @@ Hi~，欢迎与 Lionad 交换通讯。
   img="http://image.lionad.art/mgear/image/friends/Raptazure.png"
   src="https://raptazure.github.io"
   name="Raptazure"
-  achieve="在个人网站里记日记的少女 🎉"
+  achieve="在个人网站里记日记的少女 (大雾 🎉"
 />
 
 <FriendLink
