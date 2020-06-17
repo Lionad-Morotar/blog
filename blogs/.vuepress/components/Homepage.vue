@@ -546,6 +546,7 @@ $parallax__layers: 6;
                 cursor: pointer;
 
                 a {
+                    display: block;
                     color: #fbebe1;
                 }
 
