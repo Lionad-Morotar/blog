@@ -59,6 +59,13 @@ Hi~，欢迎与 Lionad 交换通讯。
 ## <spark>🏂 友情链接</spark>
 
 <FriendLink
+  img="http://image.lionad.art/mgear/image/friends/Cheese.jpg"
+  src="https://vensing.com/"
+  name="Cheese"
+  achieve="有梦想，也有忧伤和理想 🌻"
+/>
+
+<FriendLink
   img="http://image.lionad.art/mgear/image/friends/Raptazure.png"
   src="https://raptazure.github.io"
   name="Raptazure"
