@@ -23,7 +23,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 
 Webpack 使用 `MiniCssExtractPlugin` 插件, 将文件(如 Vue 单文件组件)中的 CSS 代码, 经过处理后, 分离到形如`app.hash1234.css`的单独的 CSS 文件:
 
-![单独的CSS文件](http://image.lionad.art/mgear/image/browser_fYMdZDAMsI.png)
+![单独的CSS文件](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/browser_fYMdZDAMsI.png)
 
 如果没有加入防止样式污染的措施的同时, 项目中存在了大量的同名 ClassName, 那么可能会产生意想不到的 CSS 选择器权重覆盖. 这可能使后文件中某部分选择器权重更高的类影响整个应用, 而此过程通常发生在组件的编写中, 所以一般称之为组件样式污染.
 

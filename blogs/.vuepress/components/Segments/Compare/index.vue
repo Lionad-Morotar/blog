@@ -89,75 +89,75 @@ export default {
 
 <style lang="stylus" scoped>
 .compare-cmpt {
-    position: relative;
-    user-select:  none;
+  position: relative;
+  user-select: none;
 
-    img {
-        pointer-events: none;
+  img {
+    pointer-events: none;
+  }
+
+  div.title {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    padding: 0 1em 3px 1em;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: white;
+    text-shadow: 0 0 1px #eee;
+  }
+
+  .left, .right {
+    --offset: 50%;
+    width: 100%;
+  }
+
+  .right {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .title {
+      right: 0;
     }
+  }
 
-    div.title {
-        position: absolute;
-        top: 0;
-        display: inline-block;
-        padding: 0 1em 3px 1em;
-        font-size: 12px;
-        font-weight: bold;
-        letter-spacing: .5px;
-        color: white;
-        text-shadow: 0 0 1px #eee;
+  .left {
+    clip-path: polygon(0 0, var(--offset) 0, var(--offset) 100%, 0 100%);
+  }
+
+  .right {
+    clip-path: polygon(var(--offset) 0, 100% 0, 100% 100%, var(--offset) 100%);
+  }
+
+  .cursor {
+    --width: 4px;
+    --offset: 50%;
+    position: absolute;
+    top: 0;
+    left: var(--offset);
+    height: 100%;
+    width: var(--width);
+    background: #eee;
+    cursor: grabbing;
+    user-select: none;
+    z-index: 99;
+
+    &:after {
+      --size: 24px;
+      position: absolute;
+      content: '';
+      top: calc(50% - var(--size) / 2);
+      left: calc(-1 * (var(--size) / 2) + 2px);
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background-color: #eee;
+      background-image: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/resize-h.svg');
+      background-size: 80%;
+      background-position: center;
     }
-
-    .left,
-    .right {
-        --offset: 50%;
-        width: 100%;
-    }
-
-    .right {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        .title {
-            right: 0;
-        }
-    }
-
-    .left {
-        clip-path: polygon(0 0, var(--offset) 0, var(--offset) 100%, 0 100%);;
-    }
-    .right {
-        clip-path: polygon(var(--offset) 0, 100% 0, 100% 100%, var(--offset) 100%);
-    }
-
-    .cursor {
-        --width: 4px;
-        --offset: 50%;
-        position: absolute;
-        top: 0;
-        left: var(--offset);
-        height: 100%;
-        width var(--width);
-        background: #eee;
-        cursor: grabbing;
-        user-select: none;
-        z-index: 99;
-
-        &:after {
-            --size: 24px;
-            position: absolute;
-            content: '';
-            top: calc(50% - var(--size) / 2);
-            left: calc(-1 * (var(--size) / 2) + 2px);
-            width: var(--size);
-            height: var(--size);
-            border-radius: 50%;
-            background-color: #eee;
-            background-image: url('http://image.lionad.art/mgear/assets/resize-h.svg');
-            background-size: 80%;
-            background-position: center;
-        }
-    }
+  }
 }
 </style>
