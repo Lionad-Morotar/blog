@@ -12,7 +12,7 @@ Hi~，欢迎与 Lionad 交换通讯。
 
 <Background-Netease>
   <FriendLink
-    img="http://image.lionad.art/mgear/image/icons/netease.jpg"
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/netease.jpg"
     src="https://music.163.com/#/user/home?id=64236446"
     name="网易云音药"
     achieve="云音药有保留一些我的吉他翻弹音频，和旧战场信息 🥃"
@@ -23,7 +23,7 @@ Hi~，欢迎与 Lionad 交换通讯。
 
 <Background-Douban>
   <FriendLink
-    img="http://image.lionad.art/mgear/image/icons/douban.jpg"
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/douban.jpg"
     src="https://www.douban.com/people/lionad/"
     name="豆瓣"
     achieve="如果你也喜爱影音书籍的话，在豆瓣可以看到我的最新动态 📕"
@@ -33,7 +33,7 @@ Hi~，欢迎与 Lionad 交换通讯。
 </Background-Douban>
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/icons/bilibili.gif"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/bilibili.gif"
   src="https://space.bilibili.com/6626299"
   name="哔哩哔哩"
   achieve="B站即将成为我在网络中潜水的主要活动区域 ☀"
@@ -41,7 +41,7 @@ Hi~，欢迎与 Lionad 交换通讯。
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/icons/github.svg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/github.svg"
   src="https://github.com/Lionad-Morotar"
   name="Github"
   achieve="Github 存有本博客的源码及其它一些也许意思的东西 💻"
@@ -49,7 +49,7 @@ Hi~，欢迎与 Lionad 交换通讯。
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/icons/juejin.svg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/juejin.svg"
   src="https://juejin.im/user/5b209f666fb9a01e66165c5a"
   name="掘金"
   achieve="我在掘金上传一些关于我的代码生活、代码观的文章或是动态 💻"
@@ -59,49 +59,49 @@ Hi~，欢迎与 Lionad 交换通讯。
 ## <spark>🏂 友情链接</spark>
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Cheese.jpg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
   src="https://vensing.com/"
   name="Cheese"
   achieve="有梦想，也有忧伤和理想 🌻"
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Raptazure.png"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Raptazure.png"
   src="https://raptazure.github.io"
   name="Raptazure"
   achieve="在个人网站里记日记的少女 (大雾 🎉"
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Roki.jpg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Roki.jpg"
   src="https://blog.weekii.cn/"
   name="Roki's Blog"
   achieve="Roki 玩塔科夫玩到半夜三点 🕒"
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Deeruby.jpg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Deeruby.jpg"
   src="https://deeruby.com"
   name="Deeruby"
   achieve="易骏的博客 🍺"
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Wrath.png"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Wrath.png"
   src="https://wrath.cc"
   name="Wrath"
   achieve="有一部漂亮的索尼手机 📱"
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Renwangyu.jpg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Renwangyu.jpg"
   src="https://blog.renwangyu.com/"
   name="Renwangyu"
   achieve="保持童心的80后程序猿大叔 😀"
 />
 
 <FriendLink
-  img="http://image.lionad.art/mgear/image/friends/Kicoe.jpg"
+  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Kicoe.jpg"
   src="https://www.kicoe.com/"
   name="Kicoe"
   achieve="和 Roki 一样在学习 go 语言的老弟 🌐"

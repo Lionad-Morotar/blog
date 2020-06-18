@@ -30,21 +30,21 @@
 
 我们的眼睛能对物体的形状进行感知，意识到到一条实际上并不存在的“线条”。见下图，我们能感受到线条，虽然看起来不太平整：
 
-![Aliasing](http://image.lionad.art/mgear/image/200604/Aliasing.png)
+![Aliasing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Aliasing.png)
 
 下面这幅图中，带箭头的线代表我们感知的线段，其余线段相交的网格代表像素网格。从上图可以发现，只要是带箭头的线经过的地方，就会被黄颜色填充。不过理想中的线段是完美的，它完全平滑的。把不定方向的平滑线段，映射到像素排列的低 DPI 的屏幕上，就会出现信息丢失的情况。像素颗粒越大，信息丢失情况就越严重（以下就简称为锯齿）。
 
-![Aliasing-LineDirection](http://image.lionad.art/mgear/image/200604/Aliasing-LineDirection.png)
+![Aliasing-LineDirection](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Aliasing-LineDirection.png)
 
 **怎么样看起来才没有锯齿？**
 
 这里我画了一张图，可以先仔细观察，然后再站在离显示器稍微远一些的地方**眯起眼睛**看：
 
-![AntiAliasingPaint](http://image.lionad.art/mgear/image/200604/AntiAliasingPaint.png)
+![AntiAliasingPaint](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/AntiAliasingPaint.png)
 
 在像素周围，我用黄色涂鸦将丢失的信息稍加补充。图中黄色涂鸦的大小代表了像素透明度。这里有一张抗锯齿的成品图片，可以看处图形的边缘被填充了有透明度的像素：
 
-![AntiAliasingPic](http://image.lionad.art/mgear/image/200604/AntiAliasingPic.png)
+![AntiAliasingPic](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/AntiAliasingPic.png)
 
 ### 常见抗锯齿技术
 
@@ -78,25 +78,25 @@
 
 一般来说，屏幕上的每一个像素点，都是由三原色条纹（可能如红、绿、蓝三个发光点）组合而成。亚像素级抗锯齿，意味着字体渲染时，将以亚像素（如红光）为单位。不发光的像素显示黑色，其余像素在抗锯齿处理时则会显示暗色，见下图：
 
-![亚像素抗锯齿的小写字母“e”](http://image.lionad.art/mgear/image/200604/subpixels.jpg)
+![亚像素抗锯齿的小写字母“e”](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/subpixels.jpg)
 
 全像素抗锯齿，则以整颗像素（包含红蓝绿三个条纹）为单位渲染字体。抗锯齿处理时，字体若超出了一个像素的单位，会以一颗与之相邻的透明暗色像素作平滑，见下图：
 
-![抗锯齿后的“后浪”中的“后”字](http://image.lionad.art/mgear/image/200604/fullpixels.jpg)
+![抗锯齿后的“后浪”中的“后”字](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/fullpixels.jpg)
 
 “后浪”的“后”字，中间那一横，实际的宽度要小于一个像素，所以也用透明暗色渲染。除了单字，在 [@MAXVOLTAR](http://maxvoltar.com/archive/-Webkit-font-smoothing) 这篇博客，有英文排版的示例图片，以下直接引用了：
 
 * none
   
-    ![font-smooth-none](http://image.lionad.art/mgear/image/200604/font-smooth-none.png)
+    ![font-smooth-none](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-none.png)
 
 * subpixel-antialiased
   
-    ![font-smooth-subpixel](http://image.lionad.art/mgear/image/200604/font-smooth-subpixel.png)
+    ![font-smooth-subpixel](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-subpixel.png)
 
 * antiliasing
   
-    ![font-smooth-antiliasing](http://image.lionad.art/mgear/image/200604/font-smooth-antiliasing.png)
+    ![font-smooth-antiliasing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-antiliasing.png)
 
 **那三种值应该如何选择呢？**
 
@@ -115,7 +115,7 @@ Image-Rendering 属性用于设置图像缩放算法，这个属性有几种常�
 <Article-A200604-ImageRender
     process="scale"
     property="image-rendering"
-    src="http://image.lionad.art/mgear/image/200319/2020-03-19-15-39-43.png"
+    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200319/2020-03-19-15-39-43.png"
     :value="['auto', 'pixelated']"
 />
 
@@ -124,7 +124,7 @@ Image-Rendering 属性用于设置图像缩放算法，这个属性有几种常�
 <Article-A200604-ImageRender
     process="enlarge-and-shrink"
     property="image-rendering"
-    src="http://image.lionad.art/mgear/image/200319/2020-03-19-15-39-43.png"
+    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200319/2020-03-19-15-39-43.png"
     :compare="true"
     :value="[
         { value: 'auto', title: 'Auto, Normal' }, 
@@ -134,7 +134,7 @@ Image-Rendering 属性用于设置图像缩放算法，这个属性有几种常�
 
 如果你不能运行上面那个组件的话，这里有 GIF 效果：
 
-![Scale](http://image.lionad.art/mgear/image/200604/Scale.gif)
+![Scale](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Scale.gif)
 
 不知道是浏览器对多个 Scale 串联进行了优化，还是使用了某种不损失图像信息的采样算法，总之**不改变图片尺寸又想使用平滑图片是行不通的**。
 
@@ -146,7 +146,7 @@ Image-Rendering 属性用于设置图像缩放算法，这个属性有几种常�
 
 如果你不能运行上面那个组件的话，这里有图片效果：
 
-![Rotate&GPU](http://image.lionad.art/mgear/image/200604/Rotate&GPU.gif)
+![Rotate&GPU](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Rotate&GPU.gif)
 
 当元素旋转，并应用硬件加速（TranslateZ）之后，渲染出来的边缘会被平滑处理。但是如果**仅仅启用硬件加速或是单使用旋转，不能达到效果**。经过我的测试，在 Windows 端 Chrome 内核的浏览器，这种抗锯齿方式能得到一些体验——你甚至可以通过仅旋转 0.1° 来柔和边缘（虽然不明显）。
 
@@ -162,7 +162,7 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 如果上面那些组件不能运行的话，我准备了张 GIF 图片：
 
-![POAA-1](http://image.lionad.art/mgear/image/200604/POAA-1.gif)
+![POAA-1](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/POAA-1.gif)
 
 #### 原理
 
@@ -170,13 +170,13 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 我想你应该记得开篇我们提及过 FXAA。FXAA 可以简单概括为边缘寻找->重建边缘这两个步骤（并不专业，也许还会有矫正之类的我不清楚）。在[Implementing FXAA](http://blog.simonrodriguez.fr/articles/30-07-2016_implementing_fxaa.html)这篇博客中，解释了 FXAA 具体是如何运作的。对于一个已经被找到的图形边缘，经过 FXAA 处理后会变成这样，见下两幅图：
 
-![RawImage](http://image.lionad.art/mgear/image/200604/exp1.png)
+![RawImage](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/exp1.png)
 
-![After FXAA](http://image.lionad.art/mgear/image/200604/exp2.png)
+![After FXAA](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/exp2.png)
 
 给 FXAA 输入源图像，就能通过颜色或对比度确认物体的边缘，并通过改变像素周围的点的透明度，让整体看起来得到平滑。仔细想想，使用 BackgroundImage 绘图时，其实我们已经知道边缘在哪儿了。边缘不藏在国王的帽子里，它就在我们写的代码中。比方，上一小节那个圆形渐变图形的源码是这样的：
 
-![Radial](http://image.lionad.art/mgear/image/200604/Radial.png)
+![Radial](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Radial.png)
 
 ```SCSS
 .circle-con {
@@ -201,7 +201,7 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 这就是大体思路，我们并没有参与浏览器的渲染，而是通过像 FXAA 一样的后处理的方法。在已渲染的图像上做文章。不过将上述步骤仔细考虑后，会发现问题的难点在于如何生成抗锯齿条纹。
 
-![AntiAliasingPaint](http://image.lionad.art/mgear/image/200604/AntiAliasingPaint.png)
+![AntiAliasingPaint](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/AntiAliasingPaint.png)
 
 总之，我们需要继续改良思路。
 
@@ -231,15 +231,15 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 取得线段之后，将容器偏移几个单位像素，放到浏览器测试结果：
 
-![Line1](http://image.lionad.art/mgear/image/200604/Line1.png)
+![Line1](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Line1.png)
 
 可以发现，会自然而然得到颜色混合透明度组成的线段。只不过透明度的方向并不是我们想要的。我希望能够得到透明线条反过来的图样：
 
-![Line2](http://image.lionad.art/mgear/image/200604/Line2.png)
+![Line2](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/Line2.png)
 
 经过试验，我发现只需简单调换颜色的顺序就行。比方说这是在容器 50% 的位置绘制的一条线段：
 
-![yr1](http://image.lionad.art/mgear/image/200604/yr1.png)
+![yr1](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/yr1.png)
 
 ```SCSS
 .old {
@@ -258,7 +258,7 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 如果将线段颜色调换，就会变成：
 
-![ry1](http://image.lionad.art/mgear/image/200604/ry1.png)
+![ry1](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/ry1.png)
 
 ```SCSS
 .new {
@@ -279,13 +279,13 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 接下来是见证奇迹的时刻：
 
-![AntiAliasingLine](http://image.lionad.art/mgear/image/200604/AntiAliasingLine.gif)
+![AntiAliasingLine](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/AntiAliasingLine.gif)
 
 Well done!
 
 来一张成品 GIF，稍微离屏幕远一些看效果最好：
 
-![POAA-2](http://image.lionad.art/mgear/image/200604/POAA-2.gif)
+![POAA-2](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/POAA-2.gif)
 
 成品在吻合线条的基础上还增加了一些内容及调整了相关参数：
 

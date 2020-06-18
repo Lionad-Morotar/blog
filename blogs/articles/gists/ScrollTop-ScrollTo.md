@@ -10,9 +10,9 @@
 
 <img
   srcset="
-    http://image.lionad.art/mgear/image/gists/2020-05-28-02-38-22_960.gif 960w,
-    http://image.lionad.art/mgear/image/gists/2020-05-28-02-38-22_1920.gif 1440w"
-  src="http://image.lionad.art/mgear/image/gists/2020-05-28-02-38-22_1920.gif"
+    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/gists/2020-05-28-02-38-22_960.gif 960w,
+    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/gists/2020-05-28-02-38-22_1920.gif 1440w"
+  src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/gists/2020-05-28-02-38-22_1920.gif"
   alt="博客首页效果"
 />
 
