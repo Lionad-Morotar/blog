@@ -50,6 +50,7 @@
         .vheader, .vedit, #veditor {
             font-family: var(--font-text--general);
             letter-spacing: 0.5px;
+            transition: none;
         }
 
         .vrow {
@@ -153,6 +154,15 @@
     #valine-vuepress-comment {
         .vwrap {
             border: solid 1px;
+        }
+
+        .vcard {
+            .vimg {
+                position: absolute;
+                right: 0;
+                top: 0.3rem;
+                margin: 0;
+            }
         }
     }
 }

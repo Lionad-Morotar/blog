@@ -1,3 +1,27 @@
+/* 1PX 解决方案 */
+min-device-pixel-ratio(scale2, scale3) {
+    @media screen and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2) {
+        transform: scale2;
+    }
+
+    @media screen and (min-device-pixel-ratio: 3), (-webkit-min-device-pixel-ratio: 3) {
+        transform: scale3;
+    }
+}
+
+border-bottom-1px() {
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1Px solid var(--theme-black);
+        transform-origin: 0 0;
+        min-device-pixel-ratio(scaleY(0.5), scaleY(0.33));
+    }
+}
+
 /* 页面正文内容 */
 page-content-selector = '.theme-default-content:not(.custom), footer.page-edit, #page-bottom';
 

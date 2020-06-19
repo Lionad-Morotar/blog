@@ -1,0 +1,14 @@
+/* 这段规则会使下一段规则（something-padding）失效
+ * TODO 检查问题所在
+ */
+.navbar {
+    .nav-item:hover {
+        animation: background-move linear infinite;
+        animation-duration: 1s;
+    }
+}
+
+/* ********************************************** Selection */
+::something-padding {
+    something-padding: 'do not delete';
+}

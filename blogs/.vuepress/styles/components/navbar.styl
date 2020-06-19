@@ -90,23 +90,23 @@
                 }
             }
         }
-
-        // * 必须写成 .class:hover 而不是 &:hover 的形式，不然对应 mixin 中的 @css CSS 字面量部分会解析异常
-        .nav-item:hover {
-            animation: background-move linear infinite;
-            animation-duration: 1s;
-        }
     }
 }
 
 @media screen and (max-width: 760px) {
     .navbar {
-        border-bottom: solid 1px;
+        border-bottom-1px();
         background: var(--color-background);
         left: 0;
 
+        .sidebar-button {
+            padding: 0.5rem;
+            left: unset;
+            right: 1rem;
+            z-index: 1;
+        }
+
         .home-link {
-            margin-left: 3em;
             background: none;
 
             .site-name {
