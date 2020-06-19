@@ -32,30 +32,35 @@
     --timing-reduce: 999s;
 }
 
-/* * TODO 把字体 CDN 和 Image CDN 项目合并 */
+/* 给字符串添加字体存储路径前缀 */
+useFontBaseURL(path) {
+    $font-url = 'https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/fonts/';
+    return url($font-url + path);
+}
+
 @font-face {
     font-family: Dhenmark;
     font-display: swap;
-    src: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Dhenmark/Dhenmark.ttf'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Dhenmark.ttf');
+    src: useFontBaseURL('Dhenmark.ttf');
 }
 
 @font-face {
     font-family: Edo;
     font-display: swap;
-    src: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Edo/Edo.woff2'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Edo/Edo.woff'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Edo/Edo.ttf'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Edo.woff2'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Edo.woff'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Edo.ttf');
+    src: useFontBaseURL('Edo.woff2'), useFontBaseURL('Edo.woff'), useFontBaseURL('Edo.ttf');
 }
 
 @font-face {
     font-family: 'Noto Serif CJK BOLD';
     font-style: normal;
-    font-weight: 600;
+    font-weight: bold;
     font-display: swap;
-    src: local('Noto Serif CJK SemiBold'), local('NotoSerifSC-SemiBold'), local('SourceHanSerifCN-SemiBold'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff2') format('woff2'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff') format('woff');
+    src: local('Noto Serif CJK SemiBold'), local('NotoSerifSC-SemiBold'), local('SourceHanSerifCN-SemiBold'), useFontBaseURL('Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff2') format('woff2'), useFontBaseURL('Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Noto Serif CJK';
     font-style: normal;
     font-display: swap;
-    src: local('Noto Serif CJK Light'), local('NotoSerifSC-Light'), local('SourceHanSerifCN-Light'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff2') format('woff2'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff') format('woff');
+    src: local('Noto Serif CJK Light'), local('NotoSerifSC-Light'), local('SourceHanSerifCN-Light'), useFontBaseURL('Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff2') format('woff2'), useFontBaseURL('Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff') format('woff');
 }
