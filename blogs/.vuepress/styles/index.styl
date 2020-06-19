@@ -1,54 +1,18 @@
-@import 'navbar.styl';
-@import 'sidebar.styl';
-@import 'article.styl';
+/* Settings */
+@import 'setting.styl';
+/* Tools */
+@import 'tools.styl';
+/* Components */
+@import 'components/scrollbar.styl';
+@import 'components/navbar.styl';
+@import 'components/sidebar.styl';
+@import 'components/article.styl';
+@import 'components/toc.styl';
+@import 'components/valine.styl';
+@import 'components/crisp.styl';
+/* Trumps */
 @import 'responsive-em.styl';
-@import 'toc.styl';
-@import 'valine.styl';
-@import 'crisp.styl';
-@import 'components.styl';
 @import 'accessbility.styl';
-
-:root {
-  --text-black: rgba(0, 0, 0, 0.85);
-  --text-black--lighter: rgba(0, 0, 0, 0.8);
-  --text-gray: rgba(0, 0, 0, 0.54);
-  --text-gray--lighter: rgba(0, 0, 0, 0.3);
-  --font-code: 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
-  --font-text: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-text--general: 'Noto Serif CJK', 'Consolas', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-text--bold: 'Noto Serif CJK BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-sidebar: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --color-background: white;
-  --dark-black: #231622;
-  --medium-black: #300c22;
-}
-
-@font-face {
-  font-family: Dhenmark;
-  font-display: swap;
-  src: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Dhenmark/Dhenmark.ttf'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Dhenmark.ttf');
-}
-
-@font-face {
-  font-family: Edo;
-  font-display: swap;
-  src: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Edo/Edo.woff2'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Edo/Edo.woff'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Edo/Edo.ttf'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Edo.woff2'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Edo.woff'), url('http://blog-image.obs.myhuaweicloud.com/mgear/fonts/Edo.ttf');
-}
-
-@font-face {
-  font-family: 'Noto Serif CJK BOLD';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: local('Noto Serif CJK SemiBold'), local('NotoSerifSC-SemiBold'), local('SourceHanSerifCN-SemiBold'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff2') format('woff2'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Noto Serif CJK';
-  font-style: normal;
-  font-display: swap;
-  src: local('Noto Serif CJK Light'), local('NotoSerifSC-Light'), local('SourceHanSerifCN-Light'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff2') format('woff2'), url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/font-cdn@V1.2.0/dist/Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff') format('woff');
-}
 
 html, body {
   font-family: var(--font-text--general);
@@ -61,45 +25,6 @@ html, body {
     height: 100vh;
     overflow: hidden;
   }
-}
-
-/* ********************************************** Colors */
-medium-black = #777;
-light-black = #ccc;
-/* ********************************************** Values */
-scrollbar-width = 0.625rem;
-sidebar-width = 25rem;
-navbar-height = 3.6rem;
-
-/* ********************************************** Scrollbar */
-::-webkit-scrollbar {
-  position: absolute;
-  width: scrollbar-width;
-  border-radius: 0;
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-/* 定义滚动条轨道 内阴影+圆角 */
-::-webkit-scrollbar-track {
-  border-radius: 1px;
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-/* 定义滑块 内阴影+圆角 */
-::-webkit-scrollbar-thumb {
-  height: navbar-height;
-  border-radius: 1px;
-  background-color: light-black;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-/* 定义滑块悬浮样式 */
-::-webkit-scrollbar-thumb:hover {
-  background-color: medium-black;
-  cursor: pointer;
 }
 
 /* ********************************************** Selection */

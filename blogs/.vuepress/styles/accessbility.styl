@@ -1,4 +1,6 @@
 // 打印设备和朗读设备
+// 可以通过 Chrome Console -> More Tools -> Rendering -> Emulate CSS media type -> print 打开
+// 也可以直接在浏览器中使用 Ctrl + P 打印页面进行预览
 @media print, speech {
     /* ************************************************************ */
     /* *************************************************** 版面调整 */
@@ -12,7 +14,7 @@
         left: 0;
         width: 100vw;
         height: auto;
-        background: white;
+        background: var(--color-background);
     }
 
     .navbar, .sidebar-mask, .sidebar, .table-of-contents, #valine-vuepress-comment {
@@ -35,5 +37,18 @@
         a[href^='http://']:after, a[href^='https://']:after {
             content: ' (' attr(href) ')';
         }
+    }
+}
+
+/* 减弱动效
+ * @see https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media/prefers-reduced-motion
+ */
+@media screen and (prefers-reduced-motion: reduce) {
+    :root {
+        --timing-reduce: 0s;
+    }
+
+    .animation {
+        animation: none;
     }
 }

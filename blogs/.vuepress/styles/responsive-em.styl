@@ -1,30 +1,30 @@
 /* * response page padding */
-.theme-default-content:not(.custom), footer.page-edit, #page-bottom {
++page-content() {
     box-sizing: border-box;
     max-width: 60rem;
 }
 
 @media screen and (min-width: 2000px) {
-    .theme-default-content:not(.custom), footer.page-edit, #page-bottom {
+    +page-content() {
         padding-left: 12rem;
         max-width: 70rem;
     }
 }
 
 @media screen and (max-width: 1920px) {
-    .theme-default-content:not(.custom), footer.page-edit, #page-bottom {
+    +page-content() {
         padding-left: 8rem;
     }
 }
 
 @media screen and (max-width: 1440px) {
-    .theme-default-content:not(.custom), footer.page-edit, #page-bottom {
+    +page-content() {
         padding-left: 2.5rem;
     }
 }
 
 @media (max-width: 750px) {
-    .theme-default-content:not(.custom), footer.page-edit, #page-bottom {
+    +page-content() {
         padding: 1.5rem;
     }
 }

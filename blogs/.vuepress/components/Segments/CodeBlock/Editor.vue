@@ -83,108 +83,133 @@ export default {
 <style src="./css/codemirror.min.css"></style>
 
 <style lang="stylus">
-.editor
+.editor {
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
 
-  .editor
-    margin: 0
-    padding: 0
-    width: 100%
-    height: 100%
+  .editor {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-  pre
-    padding: 16px
-    overflow: auto
-    font-size: 85%
-    line-height: 1.45
-    background-color: #f6f8fa
-    border-radius: 3px
+  pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+  }
 
-  pre > code
-    padding: 0
-    margin: 0
-    font-size: 100%
-    word-break: normal
-    white-space: pre
-    background: transparent
-    border: 0
+  pre > code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
 
-  .CodeMirror
-    font-family: 'consolas'
+  .CodeMirror {
+    font-family: 'consolas';
+  }
+}
 </style>
 
 <style lang="stylus" scoped>
-.pans
-  height: calc(100% - 40px)
-  display: flex
-  position: relative
+.pans {
+  height: calc(100% - 40px);
+  display: flex;
+  position: relative;
+}
 
-.pan
-  background-color: #f9f9f9
-  position: absolute
-  top: 0
-  bottom: 0
-  overflow: auto
+.pan {
+  background-color: var(--light-gray);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
 
-  &.active-pan
-    background-color: white
+  &.active-pan {
+    background-color: white;
+  }
+}
 </style>
 
 <style lang="stylus">
-.CodeMirror
-  height: calc(100% - 40px)
-  background-color: transparent
+.CodeMirror {
+  height: calc(100% - 40px);
+  background-color: transparent;
+}
 
-.CodeMirror-gutters
-  background-color: transparent
-  border-right: none
+.CodeMirror-gutters {
+  background-color: transparent;
+  border-right: none;
+}
 
-.pan-head
-  height: 40px
-  padding: 0 10px
-  font-size: 14px
-  font-weight: bold
-  letter-spacing: .5px
-  display: flex
-  justify-content: space-between
-  align-items: center
+.pan-head {
+  height: 40px;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  svg.svg-icon
-    margin-left: 5px
-    cursor: pointer
-    width: 14px
-    height: @width
-    color: #666
-    outline: none
-    &:hover
-      color: #000
+  svg.svg-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    width: 14px;
+    height: @width;
+    color: #666;
+    outline: none;
 
-.pans.resizing
-  cursor: ew-resize
-  .pan-resizer
-    cursor: ew-resize
+    &:hover {
+      color: #000;
+    }
+  }
+}
 
-.editor.readonly
-  .CodeMirror-cursor
-    display: none !important
+.pans.resizing {
+  cursor: ew-resize;
 
-.cf-wrapper
-  height: 40px
-  line-height: 40px !important
-  z-index: 9 !important
-  padding: 0 10px !important
+  .pan-resizer {
+    cursor: ew-resize;
+  }
+}
 
-.sponsor
-  height: 40px
-  line-height 40px
-  border-top: 1px solid #ccc
-  text-align: center
-  padding: 0 10px
-  a
-    text-decoration: none
-    &:hover
-      text-decoration: underline
+.editor.readonly {
+  .CodeMirror-cursor {
+    display: none !important;
+  }
+}
+
+.cf-wrapper {
+  height: 40px;
+  line-height: 40px !important;
+  z-index: 9 !important;
+  padding: 0 10px !important;
+}
+
+.sponsor {
+  height: 40px;
+  line-height: 40px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding: 0 10px;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
 </style>

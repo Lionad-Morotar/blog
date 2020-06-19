@@ -81,7 +81,7 @@ export default {
         }
         this.images = con.map(x => ({
             name: x.replace('.jpg', ''),
-            src: `https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/netease/${x}`
+            src: `https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/netease/mylove/${x}`
         }))
         this.$nextTick(() => {
             this.$eles = [...this.$refs.grid.querySelectorAll('.grid__item')]

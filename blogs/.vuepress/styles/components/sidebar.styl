@@ -1,21 +1,21 @@
 /* ********************************************** Sidebar */
 .sidebar {
     top: 0;
-    width: sidebar-width;
+    width: var(--sidebar-width);
     font-family: var(--font-sidebar);
     border: none;
     border-right: solid 1px #ecdad2;
     font-size: 1rem;
-    transition: 0.3s;
+    transition: var(--timing-norm);
     overflow-y: scroll;
     overflow-x: hidden;
     z-index: 99;
     user-select: none;
-    background: white;
+    background: var(--color-background);
 
     /* 整体调整 */
     & > ul.sidebar-links {
-        padding-top: navbar-height + 1em;
+        padding-top: calc(var(--navbar-height) + 1em);
 
         & > li:last-child {
             color: var(--color-background);
@@ -33,11 +33,11 @@
 
     .sidebar-group li {
         background: transparent;
-        transition: 0.2s;
+        transition: var(--timing-quick);
         line-height: 2.5em;
 
         &:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--medium-gray);
         }
     }
 
@@ -56,7 +56,7 @@
     /* 悬浮样式 */
     &:hover {
         & > ul.sidebar-links {
-            width: sidebar-width;
+            width: var(--sidebar-width);
         }
 
         &::-webkit-scrollbar {

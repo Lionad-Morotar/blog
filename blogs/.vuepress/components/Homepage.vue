@@ -4,60 +4,29 @@
         <div ref="parallax" class="parallax">
             <div class="parallax__layer parallax__layer__0">
                 <img
-                    v-if="assetInitDone || assets.parallax_0.done"
                     :src="assets.parallax_0.value"
                     alt="云朵背景图片"
-                    class="cloud"
+                    class="cloud animation"
                     draggable="false"
                 />
             </div>
             <div class="parallax__layer parallax__layer__1">
-                <img
-                    v-if="assetInitDone || assets.parallax_1.done"
-                    :src="assets.parallax_1.value"
-                    alt="山岳背景图片"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_1.value" alt="山岳背景图片" draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__2">
-                <img
-                    v-if="assetInitDone || assets.parallax_2.done"
-                    :src="assets.parallax_2.value"
-                    alt="山岳背景图片"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_2.value" alt="山岳背景图片" draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__3">
-                <img
-                    v-if="assetInitDone || assets.parallax_3.done"
-                    :src="assets.parallax_3.value"
-                    alt="山岳背景图片"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_3.value" alt="山岳背景图片" draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__4">
-                <img
-                    v-if="assetInitDone || assets.parallax_4.done"
-                    :src="assets.parallax_4.value"
-                    alt="山岳背景图片"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_4.value" alt="山岳背景图片" draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__5">
-                <img
-                    v-if="assetInitDone || assets.parallax_5.done"
-                    :src="assets.parallax_5.value"
-                    alt="山岳背景图片"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_5.value" alt="山岳背景图片" draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__6">
-                <img
-                    v-if="assetInitDone || assets.parallax_6.done"
-                    :src="assets.parallax_6.value"
-                    alt="山岳背景图片"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_6.value" alt="山岳背景图片" draggable="false" />
             </div>
             <div class="parallax__cover" />
         </div>
@@ -121,17 +90,11 @@
                 </div>
             </div>
         </Gesture>
-
-        <!-- Loading Animation -->
-        <transition name="fade">
-            <PageLoading v-if="loading" @loadEnd="loadEnd" :assets="assets" />
-        </transition>
     </div>
 </template>
 
 <script>
 import Gesture from './Segments/Gesture'
-import PageLoading from './Animation/PageLoading'
 
 const sidebar = require('../sidebar')
 const utils = require('./utils')
@@ -140,17 +103,13 @@ const SLIDES = ['brief', 'detail']
 
 export default {
     components: {
-        PageLoading,
         Gesture
     },
     data() {
         return {
             sidebar,
             articles: sidebar.getSidebar('articles'),
-            loading: false,
             slide: SLIDES[0],
-            loadingMinTimeTick: null,
-            assetInitDone: false,
             scrollHeight: null,
             assets: {
                 parallax_0: {
@@ -206,57 +165,17 @@ export default {
         }
     },
     mounted() {
-        /* 如果是手机，就跳过首页（不然兼容到爆炸）  */
+        /* 如果是手机，就跳过首页（不然兼容到爆炸）*/
+        /* TODO 跳过 IOS */
         if (utils.isMobile()) {
             document.querySelector('#into-article').click()
-        }
-
-        /* Loading */
-        this.loading = window.localStorage.getItem('is-homepage-loading-done') ? false : true
-        // this.loading = true
-        this.assetInitDone = !this.loading
-        if (!this.assetInitDone) {
-            this.loadingMinTimeTick = (() => {
-                const startTime = +new Date()
-                return function calc() {
-                    const endTime = +new Date()
-                    return endTime - startTime
-                }
-            })()
         }
 
         /* Calc Scroll Height */
         const ele = document.querySelector('.parallax')
         this.scrollHeight = ele.scrollHeight - ele.clientHeight
-        console.log('this.scrollHeight : ', this.scrollHeight)
-
-        /* requestAnimationFrame */
-        window.requestAnimFrame = (function() {
-            return (
-                window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
-                function(callback) {
-                    return window.setTimeout(callback, 1000 / 60)
-                }
-            )
-        })()
     },
     methods: {
-        // 页面加载完成后
-        loadEnd() {
-            const loadCosumeTime = this.loadingMinTimeTick()
-            const minLoadTime = 4000
-            const remainTime = minLoadTime > loadCosumeTime ? minLoadTime - loadCosumeTime : 0
-
-            this.assetInitDone = true
-            setTimeout(() => {
-                this.loading = false
-                localStorage.setItem('is-homepage-loading-done', '1')
-            }, remainTime)
-        },
         // 滚动页面
         changeSlide: (function() {
             let lastTriggerTime = 0
@@ -271,30 +190,8 @@ export default {
                 this.$refs.parallax.scrollTo
                     ? this.$refs.parallax.scrollTo(0, toHeight)
                     : (this.$refs.parallax.scrollTop = toHeight)
-
-                // this.scroll(document.querySelector('.parallax'), toHeight)
-                // $(document.querySelector('.parallax')).scrollTo(toHeight)
             }
         })(),
-        // ! 此方案会出现 scrollTop 一直为零的问题，待排查（使用 jQuery 不会有问题）
-        // scroll(ele, height, time = 800) {
-        //     const frameTime = time / (1000 / 60)
-        //     const currentTop = ele.scrollTop
-        //     const frameHeight = Math.round((height - currentTop) / frameTime)
-        //     const toBottom = currentTop < height
-
-        //     const run = () => {
-        //         const store = ele.scrollTop
-        //         ele.scrollTo(ele.scrollLeft, store + frameHeight)
-
-        //         const continueGoBottom = toBottom && store + frameHeight < height
-        //         const continueGoTop = !toBottom && store + frameHeight > height
-        //         const go = continueGoBottom || continueGoTop
-
-        //         go && window.requestAnimFrame(run)
-        //     }
-        //     run()
-        // },
         stopMove(e) {
             if (e.type === 'touchmove' || e.type === 'mousemove') {
                 e.preventDefault()

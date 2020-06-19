@@ -1,0 +1,19 @@
+/* 页面正文内容 */
+page-content-selector = '.theme-default-content:not(.custom), footer.page-edit, #page-bottom';
+
+page-content() {
+    {page-content-selector} {
+        {block};
+    }
+}
+
+/* 动画时长封装
+ * 便于调整页面的可访问性
+ */
+animation-duration(time) {
+    --temp: time;
+@css {
+    animation-duration: var(--temp);
+    animation-duration: min(var(--temp), var(--timing-reduce));
+}
+}

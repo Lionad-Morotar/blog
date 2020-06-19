@@ -1,13 +1,5 @@
-/* ********************************************** Colors */
-medium-black = #777;
-light-black = #ccc;
-/* ********************************************** Values */
-scrollbar-width = 0.625rem;
-sidebar-width = 25rem;
-navbar-height = 3.6rem;
-
 .page {
-    padding-left: sidebar-width;
+    padding-left: var(--sidebar-width);
 }
 
 .page > .content__default {
@@ -20,7 +12,7 @@ navbar-height = 3.6rem;
         -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
         margin-top: 1.5em;
         margin-bottom: 0;
         border: none;
@@ -65,13 +57,21 @@ navbar-height = 3.6rem;
         background: #4a1227;
     }
 
+    h4 {
+        margin: 1.3em 0 1em 0;
+        padding: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
     & > p > img {
         display: block;
         vertical-align: middle;
     }
 
     p {
-        margin-top: 1rem;
+        margin-top: 1.3rem;
         margin-bottom: 0;
         font-size: 1.3125rem;
         color: var(--text-black);
@@ -103,8 +103,10 @@ navbar-height = 3.6rem;
         margin-top: 0.5rem;
     }
 
-    h1 + p, h2 + p, h3 + p {
-        margin-top: 0;
+    h1, h2, h3, h4 {
+        & + p {
+            margin-top: 0;
+        }
     }
 
     hr {
@@ -130,7 +132,7 @@ navbar-height = 3.6rem;
         text-decoration-color: var(--text-gray--lighter);
         text-underline-position: under;
         user-select: none;
-        transition: text-decoration-color 0.2s;
+        transition: text-decoration-color var(--timing-quick);
         cursor: pointer;
 
         &:visited, &:active {
@@ -151,7 +153,7 @@ navbar-height = 3.6rem;
         margin-left: -1.7em;
         padding-right: 0;
         text-decoration: none !important;
-        transition: 0.3s;
+        transition: var(--timing-norm);
     }
 
     blockquote {
@@ -196,7 +198,7 @@ navbar-height = 3.6rem;
     }
 
     code {
-        background: rgba(0, 0, 0, 0.05);
+        background: var(--medium-gray);
         border-radius: 3px;
         margin: 0 3px;
         padding: 3px 0.3em;

@@ -41,7 +41,7 @@
             }
         }
 
-        // 去掉一级菜单
+        // 去掉一级导航菜单
         & > ol > li > a {
             display: none;
         }
@@ -61,26 +61,28 @@
                 &::before {
                     content: counters(listIdxCounter, '-') ' ';
                     opacity: 0;
-                    transition: 0.5s;
+                    transition: var(--timing-slow);
                     font-weight: bold;
                 }
 
                 &:hover {
                     text-decoration: none;
-
-                    &::before {
-                        opacity: 1;
-                    }
                 }
             }
         }
 
-        & > ol > li > ol > li > a {
-            font-weight: bold;
-        }
-
         & > ol > li > ol > li {
             margin-top: 0.1em;
+
+            &:hover {
+                li a::before {
+                    opacity: 1;
+                }
+            }
+
+            & > a {
+                font-weight: bold;
+            }
         }
 
         & > ol > li > ol > li > ol {
@@ -92,10 +94,10 @@
         }
 
         & > ol > li > ol > li, & > ol > li > ol > li > ol > li {
-            transition: 0.2s;
+            transition: var(--timing-quick);
 
             &:hover {
-                background: rgba(0, 0, 0, 0.05);
+                background: var(--medium-gray);
             }
         }
     }
