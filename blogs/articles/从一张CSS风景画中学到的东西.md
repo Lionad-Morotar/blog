@@ -99,6 +99,6 @@
 脑洞再大一些：
 
 - 当节点只占一个像素的时候，我们就可以通过多重阴影可以画出任何图像了... 咳咳... 性能杀手，见这位老哥的示例：[box-shadow-image-generator](https://github.com/Jiasm/box-shadow-image-generator)
-- 在使用节点定位+样式绘制的思路中，如果有规律的组合节点及其样式，也就是说如果将重用的思想发挥到极致的话... (　 o=^•ェ•)o 也有这种项目：[CSS-doodle](https://css-doodle.com)
+- 在使用节点定位+样式绘制的思路中，如果有规律的组合节点及其样式，也就是说如果将重用的思想发挥到极致的话... 也有这种项目：[CSS-doodle](https://css-doodle.com)
 
-<ruby>帅气的程序哥哥，漂亮的设计姐姐们，点个赞再走呗 o(_￣ ▽ ￣_)o<rt>明示点赞</rt></ruby>
+<ruby>帅气的程序哥哥，漂亮的设计姐姐们，点个赞再走呗 **o(_￣ ▽ ￣_)o** <rt>明示点赞</rt></ruby>

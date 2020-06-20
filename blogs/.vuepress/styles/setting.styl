@@ -5,11 +5,12 @@
     --sidebar-width: 25rem;
     --navbar-height: 3.6rem;
     /* Font */
-    --font-code: 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
-    --font-text: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --font-text--general: 'Noto Serif CJK', 'Consolas', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --font-text--bold: 'Noto Serif CJK BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --font-sidebar: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-code: 'Quote', 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
+    --font-text: 'Quote', 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--noquote: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--general: 'Quote', 'Noto Serif CJK', 'Consolas', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--bold: 'Quote', 'Noto Serif CJK BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-sidebar: 'Quote', 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     /* General Color */
     --theme-black: #221522;
     --dark-black: #231622;
@@ -38,16 +39,25 @@ useFontBaseURL(path) {
     return url($font-url + path);
 }
 
+/* English Font */
 @font-face {
-    font-family: Dhenmark;
+    font-family: 'Dhenmark';
     font-display: swap;
     src: useFontBaseURL('Dhenmark.ttf');
 }
 
 @font-face {
-    font-family: Edo;
+    font-family: 'Edo';
     font-display: swap;
     src: useFontBaseURL('Edo.woff2'), useFontBaseURL('Edo.woff'), useFontBaseURL('Edo.ttf');
+}
+
+/* CJK Font */
+@font-face {
+    font-family: 'Quote';
+    src: useFontBaseURL('Noto_CJK_Quote/NotoQuote.woff2') format('woff2'), useFontBaseURL('Noto_CJK_Quote/NotoQuote.woff') format('woff'), useFontBaseURL('Noto_CJK_Quote/NotoQuote.ttf');
+    unicode-range: U+201c, U+201d, U+300C, U+300D;
+    font-display: block;
 }
 
 @font-face {

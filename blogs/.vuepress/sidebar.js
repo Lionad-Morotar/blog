@@ -40,6 +40,7 @@ const sidebarConfigs = {
             collapsable: false,
             childrenGen: list => list.map(x => 'flow/' + x),
             childrenRaw: [
+                '关于标点的那些事儿',
                 '权力斗争中的误导与假设',
                 '2019',
                 '万物联结与幸福感',
@@ -48,7 +49,6 @@ const sidebarConfigs = {
                 '追寻自由与满怀希望',
                 '表达和孤独',
                 '文字与情绪',
-                '使用英文点号',
                 '一封沉默',
                 '我的腼腆'
             ]
