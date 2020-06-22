@@ -58,7 +58,7 @@
     }
 
     h3 {
-        margin-top: 1em;
+        margin-top: 1.75em;
         font-size: 1.5rem;
         font-weight: 700;
         letter-spacing: 1px;
@@ -67,22 +67,23 @@
 
     h4 {
         display: inline-block;
-        margin-top: 1em;
+        margin-top: 1.75em;
         font-size: 1.5rem;
         font-weight: 700;
         letter-spacing: 1px;
         background: #7A5160;
     }
 
-    & > img {
-        margin: 1.75rem auto 1.55em auto;
-    }
-
     & > img, & > p > img {
         box-sizing: border-box;
         display: block;
+        margin: 1.6em auto;
         vertical-align: middle;
         border: solid 1px;
+    }
+
+    & > img {
+        margin: 1.95rem auto 1.75em auto;
     }
 
     p, details {
@@ -98,11 +99,32 @@
         outline: none;
     }
 
+    button {
+        position: relative;
+        top: -2px;
+        display: inline-block;
+        font-size: 1.3125rem;
+        border: solid 2px var(--theme-black);
+        background: var(--color-background);
+        box-shadow: 2px 2px 1px 0 var(--theme-black);
+        user-select: none;
+        cursor: pointer;
+        outline: none;
+
+        &:active {
+            left: 2px;
+            top: 0;
+            background: var(--light-gray);
+            box-shadow: none;
+        }
+    }
+
     details {
         summary {
             font-weight: bold;
             user-select: none;
             cursor: pointer;
+            outline: none;
         }
 
         summary::-webkit-details-marker {
@@ -258,9 +280,10 @@
         font-size: 1.125rem;
     }
 
-    strong {
+    em, strong {
         font-family: var(--font-text--bold);
         font-weight: 500;
+        font-style: normal; // 浏览器中的中文斜体十分难看
     }
 
     .extra-class {

@@ -1,0 +1,92 @@
+/* Box-Sizing */
+.bb {
+    box-sizing: border-box;
+}
+
+/* Display */
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dib {
+    display: inline-block;
+}
+
+/* Position */
+.pr {
+    position: relative;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+/* Margin & Padding */
+.m0 {
+    margin: 0 !important;
+}
+
+.p010 {
+    padding: 0 10px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+/* Border */
+.b1 {
+    border: solid 1px;
+}
+
+/* Width & Height */
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+/* Color */
+.bg-gray {
+    background: var(--light-gray);
+}
+
+/* Text */
+.tac {
+    text-align: center;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Other */
+.vm {
+    vertical-align: middle;
+}
+
+/* Function */
+.no-outline {
+    outline: none;
+}
+
+.ghost-center {
+    &::before {
+        display: inline-block;
+        content: '';
+        height: 100%;
+        vertical-align: middle;
+    }
+}
