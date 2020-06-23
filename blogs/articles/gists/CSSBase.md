@@ -393,6 +393,6 @@ CSS 居中往往是新手们抱怨的问题。如果对盒模型与布局不清�
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误也麻烦各位评论指出。若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=
 
-所有的 HTML、CSS、JS 都会汇总到我的[博客](https://github.com/Lionad-Morotar/blogs)项目，所有效果及组件都可以导出源码。欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~。
+所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~。
 
 * [MDN 视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)
