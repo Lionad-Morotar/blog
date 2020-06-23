@@ -59,7 +59,7 @@ const sidebarConfigs = {
             collapsable: false,
             open: true,
             children: [
-                'zebra-puzzle',
+                '斑马难题',
                 'CSSAA',
                 '你可以用纯CSS判断鼠标进入的方向吗',
                 '9种CSS图案解析',
