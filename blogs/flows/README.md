@@ -43,6 +43,7 @@ time {
 }
 name {
     margin-right: 1em;
+    font-family: var(--font-text--bold);
     font-weight: bold;
 }
 </style>

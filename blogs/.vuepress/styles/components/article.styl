@@ -121,6 +121,7 @@
 
     details {
         summary {
+            font-family: var(--font-text--bold);
             font-weight: bold;
             user-select: none;
             cursor: pointer;
@@ -180,6 +181,10 @@
         font-size: 1.3125rem;
         letter-spacing: 0.28px;
         line-height: 2;
+
+        & > * {
+            text-align: unset;
+        }
     }
 
     a {
@@ -211,6 +216,10 @@
             padding-right: 0;
             text-decoration: none !important;
             transition: var(--timing-norm);
+        }
+
+        & > svg {
+            margin-right: 2px;
         }
     }
 
