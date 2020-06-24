@@ -2,11 +2,17 @@
 
 [TOC]
 
-## 盒模型
+## 名词辨析
 
-盒模型描述了通过文档树中的元素生成以及根据视觉格式化模型布局的矩形盒子。CSS 使用“流”的概念进行自上而下，从左至右（默认）的布局，Box 是基础的渲染单位，代表了元素的展现方式，以及它们同周围元素的相互作用。渲染时，所有元素都会依据盒模型来判定其大小，位置以及属性。
+写代码和玩乐器一样，都属于动态学习的范畴，也就是说，边做边学，容易将概念融会贯通，这样会体会地更加深刻。我在大三下学期刚接触 CSS 时，曾对编码时的繁琐感到抵触，认为这是一项不值得一学的语言。这种反感保持了很久，直到近来我对 CSS 基础知识的深入了解。当知道一门语言是怎么被设计的，身处什么样的时代，要解决什么问题，才能将它独有的特征贯通。现在我会觉得 CSS，属性的层叠与组合就是最吸引人的地方。
 
-### 简单盒模型
+我曾在陈大鱼头的某篇 CSS 文章评论区，见到有一个老哥因为看不懂概念而觉得“（文章）写的乱七八糟，不清不楚”，觉得很是心酸。对知识的深入了解不能抛开概念不谈，对概念的理解以及编码实操的理解，是不同的，相互补充的，对学习是有帮助的。
+
+这里提及一些比较重要的 CSS 技术名词（或概念），做个开头吧。
+
+* 元素（Element）
+  
+元素是用来组织文档结构的基础，比如 p、span 等。每个元素都会对文档的表现起一定作用，每个元素都会在浏览器中以框（或盒子）的形式出现。
 
 通过这行代码，你可以一览页面上的盒子：
 
@@ -14,7 +20,25 @@
 $$('*').map(x => x.style.border = '1px solid')
 ```
 
-![在仿生狮子的博客中使用上一段代码](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_22_022.jpg)
+![页面上的盒子](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_22_022.jpg)
+
+* 替换元素与非替换元素
+
+大多数元素都是非替换元素，除了 img、iframe 之类的。img 元素如果不带 src 属性的话，它不指向任何内容，在文档中没有意义。如果带 src 属性，那么它的显示会被指向的图片所替代。
+
+* 块级元素
+
+一般来说，块级元素会生成一个默认天马父容器的内容区域。
+
+* 行内元素
+
+行内元素会在一个文本行中生成元素框，它不会打断这行文本。
+
+## 盒模型
+
+盒模型描述了通过文档树中的元素生成以及根据视觉格式化模型布局的矩形盒子。CSS 使用“流”的概念进行自上而下，从左至右（默认）的布局，Box 是基础的渲染单位，代表了元素的展现方式，以及它们同周围元素的相互作用。渲染时，所有元素都会依据盒模型来判定其大小，位置以及属性。
+
+### 简单盒模型
 
 简单盒模型（又或基础盒模型）在早期 IE 有一种怪异模式下的解析方式，即 Border-Box。围观群众都说 IE 早期的盒模型不遵循标准，但...
 
@@ -389,10 +413,50 @@ CSS 居中往往是新手们抱怨的问题。如果对盒模型与布局不清�
 
 若需要考虑兼容性，那么用回 Margin 吧，Margin: Auto 会成为你的好助手。
 
+### 多行文本截断
+
+<details>
+    <summary>使用 Line Clamp 属性</summary>
+    <ul>
+        <li>使用 -webkit-line-clamp 属性可以指定块容器内容的行数，同时容器需要设置 display: -webkit-box | -webkit-inline-box 且 -webkit-box-orient: vertical</li>
+        <li>
+            <div class="bg-gray elipsis-2">
+                Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline
+            </div>
+        </li>
+        <li>需要注意的是，如果设置了上下的 Padding 值，这是一种未定义情况。</li>
+        <li>
+            <div class="bg-gray p010 elipsis-2">
+                Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline
+            </div>
+            <img class="mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200624114500.png">
+        </li>
+        <li>如果需要解决 Padding 问题，可以将 Padding 换成透明 Border，或者使用父容器来控制 Padding 等方法（见下例）。</li>
+        <li>
+            <div class="bg-gray p10">
+                <p class="m0 elipsis-2" >Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline</p>
+            </div>
+        </li>
+    </ul>
+</details>
+
+<details>
+    <summary>模拟截断</summary>
+    <ul>
+        <li>使用 -webkit-line-clamp 属性可以指定块容器内容的行数，同时容器需要设置 display: -webkit-box | -webkit-inline-box 且 -webkit-box-orient: vertical</li>
+        <li>
+            <div class="p010 bg-gray elipsis-h-2" style="--line-height: 1.85; --bg-color: var(--light-gray); --dot-color: #bbb;">
+                Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline
+            </div>
+        </li>
+    </ul>
+</details>
+
 ## 阅读更多
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误也麻烦各位评论指出。若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=
 
 所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~。
 
+* [《CSS权威指南》](https://book.douban.com/subject/2308234/)
 * [MDN 视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)
