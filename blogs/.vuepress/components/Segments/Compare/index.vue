@@ -144,7 +144,7 @@ export default {
     user-select: none;
     z-index: 99;
 
-    &:after {
+    &::after {
       --size: 24px;
       position: absolute;
       content: '';

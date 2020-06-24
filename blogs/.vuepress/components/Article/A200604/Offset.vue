@@ -9,7 +9,9 @@
             </div>
         </Compare>
         <div class="deg">
-            <div class="deg">Auto rotate: {{ deg.toFixed(1) }} Degree / Lock: {{ lock ? 'true' : 'false' }}</div>
+            <div
+                class="deg"
+            >Auto rotate: {{ deg.toFixed(1) }} Degree / Lock: {{ lock ? 'true' : 'false' }}</div>
             <input type="checkbox" v-model="lock" /> Lock /
             <span>Set degree to ...</span>
             <template v-for="degree in this.preset">
@@ -102,7 +104,7 @@ export default {
         background: linear-gradient(var(--deg), var(--light) 50%, var(--dark) 50%);
         // filter: blur(0.5px);
 
-        &:after {
+        &::after {
             --offsetX: 0.4px;
             --offsetY: -0.1px;
             --dark-alpha: 0.3;
@@ -146,7 +148,7 @@ export default {
 
         &.antialiasing {
             // filter: blur(0.5px);
-            &:after {
+            &::after {
                 --offsetX: 0.4px;
                 --offsetY: -0.1px;
                 --dark-alpha: 0.3;
@@ -191,7 +193,7 @@ export default {
 
         &.antialiasing {
             // filter: blur(0.5px);
-            &:after {
+            &::after {
                 --offsetX: 0.4px;
                 --offsetY: -0.1px;
                 $dark-alpha: 0.3;

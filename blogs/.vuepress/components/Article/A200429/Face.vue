@@ -128,7 +128,7 @@ $container-height: 500;
                 left: calc(50% - #{$tx}px);
                 top: calc(50% - #{$ty}px);
                 .eye {
-                    &:after {
+                    &::after {
                         background-position: 100% 50%;
                         transform: rotate((0 + $i * $part-degree) + unquote('deg'));
                     }
@@ -171,7 +171,7 @@ $container-height: 500;
         border: 5px solid #20184e;
         border-radius: 150px 150px 10px 10px;
         overflow: hidden;
-        &:after {
+        &::after {
             background-color: #f15962;
             width: 100px;
             height: 60px;
@@ -191,7 +191,7 @@ $container-height: 500;
             background-color: #20184e;
             border-radius: 50%;
             border: 5px solid #20184e;
-            &:after {
+            &::after {
                 width: 100%;
                 height: 100%;
                 top: 0;
