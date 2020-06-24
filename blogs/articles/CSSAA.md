@@ -315,7 +315,7 @@ Well done!
     );
 
     &.antialiasing {
-        &:after {
+        &::after {
             --offsetX: 0.4px;
             --offsetY: -0.1px;
             --dark-alpha: 0.3;
