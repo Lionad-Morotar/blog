@@ -267,6 +267,51 @@ h1 {
 
 从“LVHT”这个例子可以看出我为什么觉得“层叠”是CSS最吸引人的地方了。层叠概念能体现出一种简单但深刻的知识——**设计人员总是希望用户在浏览器中与网页交互得到正确的反馈**，就好比悬浮按钮时有样式反馈，点击按钮时有激活提示——**层叠迫使设计人员（开发者）思考什么对用户而言是重要的内容，同时，“我们能提供什么信息”、“我们鼓励用户做什么**”。
 
+## 字体
+
+字体也是个大坑。
+
+### 浏览器怎样应用字体
+
+1. 创建一个字体属性数据库，包含了机器上安装的所有字体（以及浏览器内置字体）。
+2. 根据以下步骤查找匹配的字体，某些属性需要完全匹配，某些则允许匹配失败（并应用回退选项）。
+   1. 根据 font-family 的值，按逗号分隔，从左至右依次选定一种候选字体家族，继续以下匹配。
+   2. 根据 font-style 匹配。如“italic”关键字可以匹配家族中标有“italic”或“oblique”的字体。如果没有这样的字体，则匹配失败。
+   3. 根据 font-variant 匹配。如果此项失败，不会影响继续匹配。
+   4. 根据 font-weight 匹配。必定成功。
+   5. 根据 font-size 匹配。必定成功。
+3. 如果字体匹配成功，但是某字形匹配失败——比如英文字体中通常不包括中文字符——那么将此字形继续应用 font-family 中值的当前候选字体向后的匹配（返回步骤2）。
+4. 如果没有从 font-family 的值中找到候选字体，则使用浏览器默认字体。
+
+### 字体使用指南
+
+这里有一些我的几点建议：
+
+<details>
+    <summary>不使用 font-size: larger | smaller</summary>
+    <ul>
+        <li>相对值不仅改变字体大小没有统一的标准（在我的浏览器中，larger 字体大小要比父元素大 1.2 倍），但是在其它浏览器中不一定是 1.2 倍；同时，它会改变行高（我没有得出改变行高具体的规律）。下段有两个字体大小为 50px 的“字”。右侧哪一个应用了 font-size: larger。黑色边框代表字宽，字宽宽度就是字体大小。你可以尝试用鼠标选中两个字，对比它们的行高及字宽。</li>
+        <li><p class="ls0" style="font-size: 50px"><span class="b1">字</span><span class="b1" style="margin-left: 8px;font-size: larger">字</span></p></li>
+    </ul>
+</details>
+
+<details>
+    <summary>慎用 font-size: &lt;percent-value&gt; </summary>
+    <ul>
+        <li>主要考虑三点：浏览器通常会对字体大小的小数点后两位取整；嵌套层数过多会导致字体大小迅速膨胀（或缩小）；通常浏览器有最小字号限制（见例2）。</li>
+        <li>
+            <p class="ls0" style="font-size: 18px">
+                <span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span></span></span></span></span></span>
+            </p>
+        </li>
+        <li>
+            <p class="ls0" style="font-size: 30px">
+                <span class="b1">字</span><span style="margin-left: 8px; font-size: 68%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 68%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 68%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 68%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 68%;"><span class="b1">字</span></span></span></span></span></span>
+            </p>
+        </li>
+    </ul>
+</details>
+
 ## 问题&实践
 
 ### 居中方案
