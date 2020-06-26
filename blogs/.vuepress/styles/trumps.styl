@@ -2,8 +2,9 @@
  * TODO 检查问题所在
  */
 .navbar {
-    .nav-item:hover {
+    .nav-item {
         animation: background-move linear infinite;
+        animation-play-state: paused;
         animation-duration: 1s;
     }
 }
@@ -11,4 +12,10 @@
 /* ********************************************** Selection */
 ::something-padding {
     something-padding: 'do not delete';
+}
+
+.navbar {
+    .nav-item:hover {
+        animation-play-state: running;
+    }
 }
