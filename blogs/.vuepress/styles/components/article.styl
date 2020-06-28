@@ -126,6 +126,11 @@
             user-select: none;
             cursor: pointer;
             outline: none;
+
+            &:active {
+                outline: 1px solid;
+                outline-offset: 5px;
+            }
         }
 
         summary::-webkit-details-marker {

@@ -2,7 +2,7 @@
 
 [TOC]
 
-## 名词辨析
+## 概念辨析
 
 写代码和玩乐器一样，都属于动态学习的范畴，也就是说，边做边学，容易将概念融会贯通，这样会体会地更加深刻。我在大三下学期刚接触 CSS 时，曾对编码时的繁琐感到抵触，认为这是一项不值得一学的语言。这种反感保持了很久，直到近来我对 CSS 基础知识的深入了解。当知道一门语言是怎么被设计的，身处什么样的时代，要解决什么问题，才能将它独有的特征贯通。现在我会觉得 CSS，属性的层叠就是最吸引人的地方。
 
@@ -12,13 +12,15 @@
 
 * 规则&规则集
 
+一条规则由属性和值组成的声明、声明与括号形成的声明块再加上选择器组成，而一条或多条规则组合成了规则集。
+
 ![规则&规则集](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200625022018.png)
 
-* 元素（Element）
+* 元素（Elements）
   
-元素是用来组织文档结构的基础，比如 p、span 等。每个元素都会对文档的表现起一定作用，每个元素都会在浏览器中以框（或盒子）的形式出现。
+元素是用来组织文档结构的基础，比如 p、span 等。每个元素都会对文档的表现起一定作用，每个元素都会在浏览器中以矩形盒子的形式出现。
 
-通过这行代码，你可以一览页面上的盒子：
+尽管不能直接查看浏览器中的元素（盒子）的外边界，通过这行代码，但是可以设置 Border 一览其排列：
 
 ```js
 $$('*').map(x => x.style.border = '1px solid')
@@ -26,107 +28,19 @@ $$('*').map(x => x.style.border = '1px solid')
 
 ![页面上的盒子](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_22_022.jpg)
 
-* 替换元素与非替换元素
+* **块级元素**（Block-level elements）与**内联元素**（Inline-level elements）
 
-大多数元素都是非替换元素，除了 img、iframe 之类的。img 元素如果不带 src 属性的话，它不指向任何内容，在文档中没有意义。如果带 src 属性，那么它的显示会被指向的图片所替代。
+一般来说，块级元素会生成一个默认填满父容器的内容区域。其后的元素将会被“换行显示”，如 div、ul、p、h1 等都是块级元素；内联元素会在一个文本行中生成元素框，它不会打断这行文本。内联元素常也译为“行内级元素”。
 
-* 块级元素
+* **替换元素**（Replaced elements）与**非替换元素**（Nonreplaced elements）
 
-一般来说，块级元素会生成一个默认填满父容器的内容区域。
+大多数元素都是非替换元素，除了如 img、input、iframe 等元素。img 元素如果不带 src 属性的话，它不指向任何内容，在文档中没有意义。如果带 src 属性，那么它的内容区域将完全被指向的图片所替代。
 
-* 行内元素
+* 元素的**内在盒子**（Inner Display Type）与**外在盒子**（Outer Display Type）
 
-行内元素会在一个文本行中生成元素框，它不会打断这行文本。
+盒子依据 Display 的类型进行布局，主要取决于两种特征：内在盒子 和 外在盒子。两种特征分别规定了其内容和自身是怎样进行布局的。我们通常在页面上写的 Display 属性，比如 Display: Block，其实是一种省略式写法，它只规定了 Outer Display Type 为 Block，而 Inner Display Type 则会退为默认值。
 
-## VFM
-
-### 盒模型
-
-盒模型描述了通过文档树中的元素生成以及根据视觉格式化模型布局的矩形盒子。CSS 使用“流”的概念进行自上而下，从左至右（默认）的布局，Box 是基础的渲染单位，代表了元素的展现方式，以及它们同周围元素的相互作用。渲染时，所有元素都会依据盒模型来判定其大小，位置以及属性。
-
-#### 简单盒模型
-
-<abbr title="Visual Formatting Model">VFM</abbr>，决定了如何将简单盒模型转化为 Box。布局由以下因素决定：
-
-* **盒子尺寸**
-* **盒子类型**，行内盒子（inline），行内级盒子（inline-level），原子行内盒子（atomic inline-level），块盒子（block）
-* **定位方案**，普通流定位，浮动定位或是绝对定位
-* **子元素或兄弟元素**
-* **Viewport尺寸及位置**
-* **内在尺寸**，如果是替换元素的话，需要考虑元素的内在尺寸
-
-通常我们会觉得 Width 属性定义了一个元素（块级元素）的宽度，这种说法其实不太准确。Width 定义的是内容区的宽度。一般来说，内容区的宽度指下图的 width。
-
-![框模型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200626221013.png)
-
-简单盒模型（又或基础盒模型）在早期 IE 有一种怪异模式下的解析方式，即 Border-Box。围观群众都说 IE 早期的盒模型不遵循标准，但...
-
-> **IE**：我觉得盒模型应该是这样的，blahblah。<br />
-> **W3C**：明显应该是这样的才对，blahblah。<br />
-> 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br />
-> **围观群众**：听说 IE 的盒模型不标准。<br /><br />
-> ...多年过去...<br /><br />
-> **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br />
-> **[顾轶灵@知乎](https://www.zhihu.com/question/25509268/answer/30949718)**: `box-sizing` 这货就是用来擦屁股的...<br />
-
-对于四种盒尺寸，Content Box，Padding Box，Border Box 和 Margin Box ，Width 属性只作用于 Box Sizing 属性定义的内容区域中。
-
-![box-sizing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_21_018.png)
-
-以前写项目的时候，我喜欢使用通配符重置所有元素的 Box Sizing 为 Border Box，这样会使样式编写容易一些，因为 Border Box 包含了 Border 的宽度，这个宽度各符合认知，更直观些。不过，有两点需要考虑的：
-
-* 统配符往往带来不必要的性能消耗
-* 可能带来样式污染（比如污染页面上其它库）
-
-《CSS世界》中还提到，Box Sizing 发明的初衷可能是用于解决替换元素的宽度自适应的问题，比如输入框的宽度默认情况下的 100% 往往会超过父容器。所以样式重置应该这样写：
-
-```CSS
-input, textarea, img, video, object { 
-    box-sizing: border-box; 
-}
-```
-
-### 盒子的生成
-
-通常我们只讨论块盒子、行内盒子和行盒子，VFM 会根据包含块（包含其它盒子的盒子）的边界来渲染盒子，但也可能布局溢出（Overflow）。
-
-**块盒子**
-
-块级元素是类似于 Display 属性为 Block、List Item、Table 的元素。每个块级元素都会被格式化为块级盒子，而每个块级盒子都会参与 BFC 的创建。
-
-容易混淆的是，每个块级盒子可能是一个块容器盒子。块容器盒子是指，要么只包含其它块级盒子，要么只包含其它行内盒子并创建 IFC。
-
-MDN 上如此描述：
-
-> 块级盒子与块容器盒子，前者描述了元素与其父元素和兄弟元素之间的行为，而后者描述了元素跟其后代之间的行为。**只有同时是块级盒子与块容器盒子，才是块盒子。**
-
-**行内盒子**
-
-类似块级元素，如果一个元素 Display 属性为 Inline、Inline Block、Inline Table，该元素是行内级元素。行内级元素会生成行内级盒子，该盒子会参与 IFC 的创建。而行内盒子不仅是行内级盒子，它还表示其内容会影响该盒子的 IFC。不影响 IFC 的则成为 Atomic Inline Box。
-
-我们都知道一行长文本会随着父容器宽度的改变而改变其高度，那么这行文本（可能跨越多行）的行框是如何确定的呢？以下是详细步骤：
-
-1. 按一下步骤分别确定各元素行内框的高度：
-   1. 取得各行内非替换元素的 font-size 和 line-height 的值，取差值的一半，分别应用到字符框的顶部和底部；
-   2. 取得各行内替换元素的 Margin、Padding、Border 值（上和下），相加取和；
-
-line-height 是指文本行基线之间的距离。line-height 的值与体大小之差即为行间距。
-
-**行盒子**
-
-行盒子由 IFC 创建，用来显示一行文本。如果不受浮动元素影响的话，它会占据整个块盒子的宽度。
-
-## 布局
-
-盒子依据 Display 的类型进行布局，主要取决于两种特征：Inner Display Type 和 Outer Display Type。两种特征分别规定了其内容和自身是怎样进行布局的。
-
-我们通常在页面上写的 Display 属性其实是一种省略式写法，比如 Display: Block，它其实只规定了 Outer Display Type 为 Block，而 Inner Display Type 则为默认值。
-
-```js
-<display-outside>  = block | inline | run-in
-<display-inside>   = flow | flow-root | table | flex | grid | ruby
-<display-legacy>   = inline-block | inline-table | inline-flex | inline-grid
-```
+以下是我们常用的简写所代表的默认值：
 
 | Short display |  Full display   |
 | :-----------: | :-------------: |
@@ -135,62 +49,19 @@ line-height 是指文本行基线之间的距离。line-height 的值与体大�
 | Inline Block  | Inline FlowRoot |
 |     Flex      |   Block Flex    |
 
-### BFC
+可取值如下：
 
-布局时，会依据盒子的类型生成 BFC 或是 IFC，它们是用来使盒子在界面上形成一个独立的，不影响外界的容器，规定了内部内容将会按照正常流程，使用盒模型进行布局。
+```js
+<display-outside>   = block | inline
+<display-inside>    = flow | flow-root | table | flex | grid | ruby
+<display-legacy>    = inline-block | inline-table | inline-flex | inline-grid
+```
 
-最直观的感受肯定肯定是 HTML 元素，它是根元素，也是浏览器中最重要的一个独立的不影响外界（因为没有兄弟元素和父级元素）的容器。HTML 会创建 BFC，在一些情况下，其它元素也会。这里有 MDN 的一份创建 BFC 方法的清单：
-
-* 根元素
-* 浮动元素
-* 绝对定位元素
-* Overflow 不为 Visible 的块级元素
-* 行内块元素，弹性元素，网格元素
-* 表格单元格，表格标题
-* CSS3 中新增了一种 Display: FlowRoot 可以用来创建无副作用的 BFC。
-
-在 BFC 中，需要注意以下问题：
-
-* BFC 不会和外部浮动元素重叠。
-* BFC 内部的相邻的块级盒子的垂直外边距会折叠。
-* 计算 BFC 的高度时，内部浮动的盒子也会参与计算。
-
-### IFC
-
-在 IFC 中，盒子一个接着一个地排列，起点是包含块的顶点。
-
-在 IFC 中，需要注意以下问题：
-
-* 只有水平方向上的 Margin 会在盒子中保留。
-* Padding 和 Border 不会撑开行高。
-
-### 浮动
-
-Float 虽然平常用的不多，但是原理还是要清楚的，因为涉及到非常多的“看起来像 BUG”的问题。
-
-一个浮动的元素会脱离正常的文档流，然后依据 Float 属性向左或者向右浮动，直到碰到父容器的边框或者另一个浮动元素的边框为止。浮动元素，尤其是浮动的图片，很适合用来进行图文混合排版。但是由于脱离了正常文档流，非 BFC 容器不会计算内部浮动元素的高度，所以会引起父容器塌陷的问题。
-
-<div class="b1"><div class="b1 bg-gray" style="margin: auto; float:left; height: 200px; width: 200px;" /></div>
-
-<div style="clear: both" />
-
-#### 清除浮动
-
-有几种常见的解决塌陷问题的方法，记录如下：
-
-* 使用 Clear 属性：
-  * 给父容器的伪元素应用 Clear: Both；（推荐）
-  * 添加一个额外的标签，应用 Clear: Both；
-* 触发父容器的 BFC:
-  * 父元素设置 Display: FlowRoot | Flex | Grid；
-  * 父元素设置 Overflow: Hidden | Visible；
-  * 父元素也浮动；
-* 给父元素定高；
-* ...
+内在盒子通常也称作“容器盒子”。**“外在盒子”与“内在盒子”，前者描述了元素与其父元素和兄弟元素之间的行为，而后者描述了元素跟其后代之间的行为。**
 
 ## 选择器
 
-选择器要展开的内容就太多了，这里简单过一遍基础内容。
+选择器可以展开的内容太多了，而且屯着的《CSS选择器世界》一直没时间看，这里先过一遍基础内容。
 
 ### 基础内容
 
@@ -201,6 +72,7 @@ Float 虽然平常用的不多，但是原理还是要清楚的，因为涉及�
         <li><i>类选择器</i>（.Container）</li>
         <li><i>标签选择器</i>（span）</li>
         <li><i>相邻兄弟选择器</i>（br + br）</li>
+        <li><i>同胞选择器</i>（br ~ br）</li>
         <li><i>子元素选择器</i>（.Article > p）</li>
         <li><i>后代选择器</i>（.Article p）</li>
         <li><i>通配符选择器</i>（*）</li>
@@ -225,26 +97,47 @@ Float 虽然平常用的不多，但是原理还是要清楚的，因为涉及�
     </ul>
 </details>
 
-### 伪元素和伪类的区别
+### 伪元素与伪类
 
-这样理解要思路清晰一些：伪类，表示元素的一种状态，如 Focus、Active 等，同一元素多个状态之间可以并存；伪元素，则是通过选择器选取 HTML 不曾在 DOM Tree 中出现过的元素，进行样式修改，如 After、Selection 等，对于同一父元素，只能选取一个同种的伪元素。
+提到了伪类/伪元素，这里有必要提一下**伪元素和伪类的区别**。
+
+以下是我总结的理解思路：**伪类表示元素的一种状态**，如 Focus、Active 等，同一元素多个状态之间可以并存；**伪元素是通过选择器选取 HTML 不曾在 DOM Tree 中出现过的元素**，进行样式修改，如 After、Selection 等，对于同一父元素，只能选取一个同种的伪元素。
+
+那么 :hover、:focus 等和用户操作相关的是伪类还是伪元素呢？
+
+是伪类。其实并不需要特殊记法，只要记牢用户操作导致元素状态改变就行了。
 
 ### 特殊性
 
-选择器的特殊性（Specificity）由选择器本身的组件确定。特殊性值表述为 4 个部分，如： 0，0，0，0
+选择器的特殊性（Specificity）由选择器本身的组件确定。特殊性值表述为 4 个数字组成的统一的部分，如： [0，0，0，0]
 
-* 重要性声明的特殊性总是胜过非重要性声明
-* 对于行内样式，特殊性值表增加：1，0，0，0
-* 对于 ID 选择器，增加：0，1，0，0
-* 对于类选择器，属性选择器，或是伪类，增加：0，0，1，0
-* 对于元素和伪元素，增加：0，0，0，1
-* 通配符和统配选择器会给特殊性值表增加：0，0，0，0（不等于不增加，这点在下一小节有辨析）
+* 重要性声明的特殊性总是胜过非重要性声明（!important 力压群雄）
+* 对于行内样式，特殊性值表加：[1，0，0，0]
+* 对于 ID 选择器，加：[0，1，0，0]
+* 对于类选择器，属性选择器，或是伪类，加：[0，0，1，0]
+* 对于标签选择器和伪元素选择器，加：[0，0，0，1]
+* 通配选择器、子代选择器、相邻选择器、同胞选择器会给特殊性值表加：[0，0，0，0]（不等同于不增加，这点在后面有辨析）
 
 ### 继承
 
-CSS 中的继承很符合我们的常识，诸如边框、边距、填充等盒子的样式属性不能继承，而文字相关的如字体、颜色等属性就可以继承。
+《CSS世界》提到，**CSS世界的诞生就是为图文信息展示服务的**。CSS 中的继承理念很符合我们的直觉，大部分属性如边框、边距、填充等盒子的样式不能继承，而文字相关的如字体、颜色等属性就可以继承。
 
-需要额外注意的一点是，**继承得来的值得特殊性不比 0，0，0，0 要高**。假设有以下代码：
+完整的会继承的属性以下列出：
+
+* 交互样式相关属性：visibility、cursor
+* 文字排版相关属性：letter-spacing、word-spacing、white-space、line-height、color、font、 font-\*（font-family、font-size、font-style）、text-\*（text-indent、text-align、text-shadow、text-transform）
+* 表格排版相关属性：border-collapse
+* 列表排版相关属性：list-style、list-style-type、list-style-position、list-style-image
+
+#### 非继承属性
+
+有一点需要注意的是，text-decoration-* 属性看起来会被继承，但实则不然：
+
+<p class="m0" style="text-decoration: underline;">父元素 text-decoration: underline<span>子元素 text-decoration: line-through</span></p>
+
+#### 继承&特殊性
+
+需要额外注意的一点是，**继承得来的值得特殊性要比 [0，0，0，0] 低**。假设有以下代码：
 
 ```html
 <h1>This is my heading.<span>asdf</span></h1>
@@ -275,13 +168,280 @@ h1 {
 * 浏览器的默认样式
 * 声明出现在文档中的顺序越后，权重越大
 
-从最后一条规则“声明出现在文档中的顺序越后，权重越大”，可以扩展到超链接的样式设置。一般来说，超链接有“含链接属性（:link）”、“已访问（:visited）”、“鼠标悬浮（:hover）”、“激活（:active）” 四种状态的伪类可设置。由于我们总是这四个状态的重要性依次递增，所以推荐“LoveHate”顺序，即“Link、Visited、Hover、Active”。
+附：在我的 Yandex 浏览器里已经找不到显式设置用户样式的入口了，我也相信普通用户不会知晓如何设置用户样式的方法，就算知晓也不会去使用——[插件](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)要香一些。
+
+#### LVHT
+
+“LVHT”指的是我们写 CSS 时常使用的“a:link、a:visited、a:hover、a:active”顺序，主要是依靠层叠的最后一条规则“声明出现在文档中的顺序越后，权重越大”。
+
+一般来说，我们不会使用“a:active:hover、a:hover:link”等选择器。由于我们总是这四个状态的重要性依次递增，所以推荐“LVHT”顺序，也可以记为“Love&Hate”。
 
 从“LVHT”这个例子可以看出我为什么觉得“层叠”是CSS最吸引人的地方了。层叠概念能体现出一种简单但深刻的知识——**设计人员总是希望用户在浏览器中与网页交互得到正确的反馈**，就好比悬浮按钮时有样式反馈，点击按钮时有激活提示——**层叠迫使设计人员（开发者）思考什么对用户而言是重要的内容，同时，“我们能提供什么信息”、“我们鼓励用户做什么**”。
 
-## 字体与文本
+
+## VFM
+
+VFM，即“Visual Formatting Model”，决定了浏览器如何处理文档树，如何将简单盒模型转化为盒子。如果对 VFM 不清楚，往往不能理解浏览器中很多看起来怪异（常常被说是“BUG”）的布局表现。其实这些怪异的表现不是“BUG”，只是尽管 VFM 是一种开放而强大的模型，它充满细节，和我们脑海中的布局常识可能不一致；同时，又留有一些规范未覆盖的余地，供浏览器自由发挥。想进一步学习 CSS，VFM 是必须跨越的关口；掌握它，才能理解 CSS 布局的真正面目。
+
+页面上的布局往往会受到这些因素的影响：
+
+* **盒子尺寸**
+* **盒子类型**，行内盒子（inline），行内级盒子（inline-level），原子行内盒子（atomic inline-level），块盒子（block）
+* **定位方案**，普通流定位，浮动定位或是绝对定位
+* **子元素或兄弟元素**
+* **Viewport尺寸及位置**
+* **内在尺寸**，如果是替换元素的话，需要考虑元素的内在尺寸（比如，图片本身的宽度）
+
+接下来，我们选几点重要的因素详细了解一下。
+
+### 盒模型
+
+盒模型描述了如何通过元素的 Display 属性生成根据视觉格式化模型布局的矩形盒子。正常流中，CSS 使用自上而下，从左至右的布局，盒子是其中的最基础的渲染单位，代表了元素的展现方式，以及它们同周围元素的相互作用。渲染时，所有元素都会依据盒模型来判定其大小，位置以及属性。
+
+通常我们会觉得 Width 属性定义了一个元素（块级元素）的宽度，这种说法其实不太准确。Width 定义的是内容区的宽度。一般来说，内容区的宽度指下图的 width：
+
+![盒模型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200626221013.png)
+
+#### 属性 Box Sizing
+
+在早期 IE 中，盒模型有一种怪异模式下的解析方式，即 Border-Box。围观群众都说 IE 早期的盒模型不遵循标准，但...
+
+> **IE**：我觉得盒模型应该是这样的，blahblah。<br />
+> **W3C**：明显应该是这样的才对，blahblah。<br />
+> 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br />
+> **围观群众**：听说 IE 的盒模型不标准。<br /><br />
+> ...多年过去...<br /><br />
+> **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br />
+> **[顾轶灵@知乎](https://www.zhihu.com/question/25509268/answer/30949718)**: `box-sizing` 这货就是用来擦屁股的...<br />
+
+对于四种盒尺寸，Content Box，Padding Box，Border Box 和 Margin Box ，Width 属性只作用于 Box Sizing 属性定义的内容区域中。
+
+![box-sizing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_21_018.png)
+
+以前写项目的时候，我喜欢使用通配符重置所有元素的 Box Sizing 为 Border Box，这样会使样式编写容易一些，因为 Border Box 包含了 Border 的宽度，这个宽度各符合直觉。不过，有两点可能需要考虑：
+
+* 统配符可能会带来样式污染（比如污染页面引入的其它库）
+* 统配符**可能会**带来不必要的性能消耗（我没有进行过测试）
+
+《CSS世界》中还提到，属性 Box Sizing 发明的初衷可能是用于解决替换元素的宽度自适应的问题，比如输入框的宽度默认情况下的 100% 往往会超过父容器。所以建议这样写样式重置：
+
+```CSS
+input, textarea, img, video, object { 
+    box-sizing: border-box; 
+}
+```
+
+#### 外在盒子与内在盒子
+
+就像博客开头概念辨析那小节介绍的：**“外在盒子”与“内在盒子”，前者描述了元素与其父元素和兄弟元素之间的行为，而后者描述了元素跟其后代之间的行为。**
+
+* Display: block 的盒子由外在块级盒子和内在块级容器盒子组成
+* Display: inline-block 的盒子由外在内联盒子和内在块级容器盒子组成
+* Display: inline 的盒子由外在内联盒子和内在内联盒子组成
+
+### 盒子定位
+
+定位方案就三种，普通流（或正常流）定位，浮动定位或是绝对定位。
+
+* **普通流定位**，按普通流的规则从左至右、自上而下地排列盒子，Position 属性的值为 static
+* **浮动定位**，脱离文档流，Float 属性的值不为 none
+* **绝对定位**，脱离文档流，Position 属性的值为 static | fixed
+
+### BFC
+
+布局时，会依据盒子的类型生成 BFC（Block Formatting Context） 或是 IFC（Inline Formatting Context），它们使盒子在界面上形成一个独立的，不影响外界的容器。
+
+最直观的感受肯定肯定是 HTML 元素，即根元素，它是浏览器中最重要的一个独立的不影响外界的容器。根元素会创建 BFC，在一些情况下，其它元素也会。这里有 MDN 的一份创建 BFC 方法的清单：
+
+* 根元素
+* 浮动元素
+* 绝对定位元素
+* Overflow 不为 Visible 的块级元素
+* 行内块元素，弹性元素，网格元素
+* 表格单元格，表格标题
+* CSS3 中新增了一种 Display: FlowRoot 可以用来创建无副作用的 BFC。
+
+BFC 在布局时，会应用以下规则，需要注意：
+
+* BFC 不会和外部浮动元素重叠。
+* BFC 内部的相邻的块级盒子的垂直外边距会折叠。
+* 计算 BFC 的高度时，内部浮动的盒子也会参与计算。
+
+<details>
+    <summary>BFC 不会和外部浮动元素重叠</summary>
+    <ul>
+        <li>
+            <div class="b1"><div class="b1 bg-gray" style="margin: auto; float:left; height: 100px; width: 100px;">Float</div>DIV</div>
+            <div class="dib b1 bg-gray" style="height: 100px; width: 100px;">BFC</div>
+        </li>
+    </ul>
+</details>
+
+<details>
+    <summary>BFC 内部的相邻的块级盒子的垂直外边距会折叠</summary>
+    <ul>
+        <li>
+            <div class="dib b1 vm">
+                <div class="bb p010 b1 bg-gray" style="margin-bottom: 1em; height: 2em">Height 2em & Margin Bottom 1em</div>
+                <div class="bb p010 b1 bg-gray" style="margin-top: 1em; height: 2em">Height 2em & Margin Top 1em</div>
+            </div>
+        </li>
+    </ul>
+</details>
+
+<details>
+    <summary>计算 BFC 的高度时，内部浮动的盒子也会参与计算</summary>
+    <ul>
+        <li>
+            <div class="dib b1 vm"><div class="b1 bg-gray" style="margin: auto; float:left; height: 100px; width: 100px;">Float</div>BFC</div>
+        </li>
+    </ul>
+</details>
+
+### IFC
+
+如果一个块级盒内部只有行内盒子，那么会创建一个行内上下文，其内部的盒子按照 IFC 的规则水平排列。
+
+在 IFC 中，需要注意以下问题：
+
+* 内部的盒子一个接着一个地排列，起点是包含块的顶点。
+* 如果一行放不下内容，那么会被“拆”开放到下一行。
+* 只有水平方向上的 Margin 会在盒子中保留。
+* Padding 和 Border 不会撑开行高。
+
+### 浮动
+
+Float 虽然平常用的不多，但是这里单独拎出来康康。原理至少还是要了解的，因为浮动涉及到一些“看起来像 BUG”的问题。
+
+* 父容器塌陷问题
+
+浮动元素，尤其是浮动的图片，很适合用来进行图文混合排版。但是由于脱离了正常文档流，非 BFC 容器不会计算内部浮动元素的高度，所以会引起父容器塌陷的问题。
+
+<br />
+
+<div class="b1"><div class="b1 bg-gray" style="margin: auto; float:left; height: 100px; width: 100px;">FLOAT</div>IM PARENT DIV</div>
+
+<div style="clear: both" />
+
+下一小节将会介绍清除浮动的一些办法。
+
+* 浮动错位问题
+
+HTML 中两个向右浮动的元素，分别为 ONE 和 TWO，在浏览器渲染出来确实 ONE 在右侧，TWO 在左侧。
+
+<br />
+
+<div class="b1" style="overflow: auto">
+    <div class="b1 bg-gray" style="margin: auto; float:right; height: 100px; width: 100px;">FLOAT ONE</div>
+    <div class="b1 bg-gray" style="margin: auto; float:right; height: 100px; width: 100px;">FLOAT TWO</div>
+</div>
+
+一个浮动的元素会脱离正常的文档流，然后依据 Float 属性向左或者向右浮动，**直到碰到父容器的边框或者另一个浮动元素的边框为止**。所以，浮动错位问题是“特性”，不是“BUG”...
+
+#### 清除浮动
+
+有几种常见的解决塌陷问题的方法，记录如下：
+
+* 使用 Clear 属性：
+  * 给父容器的伪元素应用 Clear: Both；（推荐）
+  * 添加一个额外的标签，应用 Clear: Both；
+* 触发父容器的 BFC:
+  * 父元素设置 Display: FlowRoot | Flex | Grid；
+  * 父元素设置 Overflow: Hidden | Visible；
+  * 父元素也浮动；
+* 给父元素定高；
+* ...（欢迎补充）
+
+
+### 其它
+
+#### 显示内容类型
+
+一个显示内容类型的元素（display: contents）会在格式化从布局树中将自身移除，但是它的内容却得以保留。请联想一下 Vue 内置的 Template 标签，或是 React.Fragment，大概类似那种玩意儿... 
+
+需要注意以下几点：
+
+* 盒子不会渲染边界框，这意味着 Margin、Padding、Border 相关属性都将失效。
+* 子元素依旧能继承某些属性，这和正常盒子的行为是一致的。
+* 盒子依旧存在于文档树中，只是不渲染边界框。而 Vue 中 Template 标签是不渲染的。
+* 盒子的 ::before 和 ::after 两个伪元素都将得到保留。
+
+<details>
+    <summary>显示内容类型的元素 ::before 和 ::after 两个伪元素都将得到保留。</summary>
+    <ul>
+        <li>
+            <div class="b1 bg-gray test-0604" style="display: contents;"> & <em>CHILD</em> & </div>
+            <style>
+                .test-0604:before { content: 'BEFORE' }
+                .test-0604:after { content: 'AFTER' }
+            </style>
+        </li>
+    </ul>
+</details>
+
+#### FFC
+
+VFM 概念中除了有 BFC、IFC、TFC（Table Formatting Context），CSS3 中还新增了 FFC（Flex Formatting Context）和 GFC（Grid Formatting Context），因为可扩展讲的内容太多了，这里暂且只简单提一下 FFC。
+
+应用了 display: flex | inline-flex 的元素将会成为 Flex 容器，Flex 容器会创建 FFC 以格式化布局其子项。我们常说的“Flex 布局”，就是指“FFC”。
+
+FFC 是一种非常灵活的一维布局方式（GFC 则是强大的二维布局方式），它使子元素按照主轴方向排列，并可设置不同轴向的对齐方式。
+
+<details>
+    <summary>Flex 容器可以应用的属性</summary>
+    <ul>
+        <li>flex-direction，用于控制子元素在主轴的排列方向</li>
+        <li><img class="vm" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628061842.png" /></li>
+        <li>flex-wrap，规定子元素超出 Flex 容器边界时是否允许折行</li>
+        <li>justify-content，主轴对齐方式。</li>
+        <li>align-items，主轴对齐方式。</li>
+        <li>...</li>
+    </ul>
+</details>
+
+<details>
+    <summary>Flex 容器的子元素可以应用的属性</summary>
+    <ul>
+        <li>align-self，设置子元素在副轴的对齐方式，会覆盖父容器的 align-items 属性的值</li>
+        <li>order，子元素在主轴的排列顺序，数值越小越靠前，可以为负数</li>
+        <li>flex-basis，伸缩基准值，将会覆盖 Width 属性的值</li>
+        <li>flex-grow，扩展比率。相对其它子元素的 flex-grow 之和的比例，代表将“占据”父容器剩余空间的份数。</li>
+        <li>flex-shrink，收缩比率。作用正好相反于 flex-grow，相对于其它子元素的 flex-shrink 之和的比例，代表将“收缩”超过父容器的空间的份数。</li>
+        <li>...</li>
+    </ul>
+</details>
+
+flex-grow 光看概念有些难懂，这里用数值说明一下：假设父容器宽度 100px，子元素只有1个，宽度为 50px，flex-grow: .5，那么，子元素就会占据 100px-50px 剩余空间的 .5（自身 flex-grow 数值）除以 .5（所有子项 flex-grow 之和） 的值的百分比（100%）。
+
+可以想象，当父容器只含有一个子元素时，给子元素设置 flex-grow: 1 将会使它填充满整个父容器：
+
+<div class="b1" stype="display: flex; height: 50px;">
+    <div class="bb p010 bg-gray tac" style="margin: 1px; border: 1px dashed; flex-grow: 1; height: 50px; line-height: 50px;">DASHED-ITEM</div>
+</div>
+
+前几天在群里有老哥问：怎么在 Flex 布局中强制换行啊？
+
+我心里一惊，Flex 不是这样用的。谨记：**Flex 是一维布局**。当然，强制换行也可以做到，有很多种方法，以下展示通过子元素设置 flex-basis: 100% 达到强制换行的示例：
+
+<div class="b1" stype="display: flex; flex-wrap: wrap;">
+    <div class="bb p010 bg-gray tac" style="margin: 1px; border: 1px dashed; height: 50px; line-height: 50px;">DASHED-ITEM</div>
+    <div style="flex-basis: 100%" />
+    <div class="bb p010 bg-gray tac" style="margin: 1px; border: 1px dashed; height: 50px; line-height: 50px;">DASHED-ITEM</div>
+</div>
+
+![FFC 强制换行](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628071523.png)
+
+FFC 中稍微要注意的地方就是，子元素的 vertical-align、float、clear 属性会失效。
+
+## 文本
+
+Line Height & Vertical Align，先挖坑，以后再填。
+
+## 字体
 
 ### 浏览器怎样应用字体
+
+假使 CSS 中指定了页面运用的字体，浏览器要怎么查找与匹配它们呢？以下是详细步骤：
 
 1. 创建一个字体属性数据库，包含了机器上安装的所有字体（以及浏览器内置字体）。
 2. 根据以下步骤查找匹配的字体，某些属性需要完全匹配，某些则允许匹配失败（并应用回退选项）。
@@ -293,9 +453,11 @@ h1 {
 3. 如果字体匹配成功，但是某字形匹配失败——比如英文字体中通常不包括中文字符——那么将此字形继续应用 font-family 中值的当前候选字体向后的匹配（返回步骤2）。
 4. 如果没有从 font-family 的值中找到候选字体，则使用浏览器默认字体。
 
+关于字体，我会再写一篇《前端字体技术进阶》，不过最近要开始准备找工作啦，估计得咕一阵子...大家阔以先康康我的这篇[《关于标点的那些事儿》](http://www.lionad.art/articles/flow/关于标点的那些事儿.html)
+
 ### 字体属性使用建议
 
-这里有一些我的几点建议：
+这里有一些我在项目实践过程中总结的几点建议：
 
 <details>
     <summary>不使用 font-size: larger | smaller</summary>
@@ -308,7 +470,7 @@ h1 {
 <details>
     <summary>慎用 font-size: &lt;percent-value&gt; </summary>
     <ul>
-        <li>主要考虑三点：浏览器通常会对字体大小的小数点后两位取整；嵌套层数过多会导致字体大小迅速膨胀（或缩小）；通常浏览器有最小字号限制（见例2）。</li>
+        <li>主要考虑三点：浏览器会对字体大小的小数点取整（在我的浏览器中取整小数点后两位）；嵌套层数过多会导致字体大小迅速膨胀或缩小（见例1，增量为 1.35）；通常浏览器有最小字号限制（见例2，增量为 0.68）。</li>
         <li>
             <p class="ls0" style="font-size: 18px">
                 <span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span><span style="margin-left: 8px; font-size: 135%;"><span class="b1">字</span></span></span></span></span></span>
@@ -322,13 +484,54 @@ h1 {
     </ul>
 </details>
 
-## 问题&实践
+## 实践
+
+### CSS管理
+
+关于“如何在项目中管理CSS”的话题够写一本书了。这里简要介绍一下在我博客项目中采用的一种组织 CSS 的方法——ITCSS。
+
+平常我们写 CSS 可能会碰到以下问题：
+
+* CSS 的组织结构很松散，可以按页面组织，也同时可以按组件组织
+* 不良的组织习惯导致页面样式的继承很凌乱
+* 凌乱的继承引来更多的选择器特殊性问题
+* ...
+
+其实这一切都是 CSS 本身的特征导致的问题，CSS 本身是弱逻辑的，“装饰性”的，这注定了一般情况下我们不会重视它——没有文档、没有质量保证机制——所以写 CSS 时常常陷入“用新的样式去覆盖旧的样式”的怪圈（对，往 index.css 文件尾部添加一个带有 !important 声明的选择器）。而遵守 ITCSS 理论能够约束我们的行为，它是由 csswizardry 提倡的一种用来组织与管理项目中的样式文件的体系结构，一种元框架，或是一种 CSS 设计方法论。
+
+ITCSS（Inverted Triangle CSS） 的名字很形象，这和它的核心概念有关，它通过规范样式文件的组织结构来适应项目中特殊性不断增加的选择器们，见以下倒立的三角形：
+
+![ITCSS（Inverted Triangle CSS）](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628214218.png)
+
+* Settings：Global variables、Config switches
+* Tools：Mixins、Functions
+* Generic：Ground-zero styles（Normalize.css，resets.css）
+* Base：Unclassed HTML elements（Type selectors）
+* Objects：Cosmetic-free design patterns
+* Components：Designed components
+* Trumps：Helpers、Overrides
+
+实践理论将带来的好处显而易见：层级自上而下，选择器影响的 DOM 数量也越来越少，同时选择器特殊性递增。修改某个样式时我们可以轻易从相关组织文件中做出修改，而不影响其它样式，或是导致 CSS 样式继承的崩塌。
+
+一个使用 ITCSS 组织的项目，其 index.css 可能长这个样子：
+
+![ITCSS index.css](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628215447.png)
+
+### 命名方案
+
+**CSS 命名方案解决的主要是命名冲突和复用两个问题。**这里简单总结几种较常用的，集中了解以下，方便以后直接选坑往里面跳。
+
+* CSS Module
+* tailwind
+* BEM
+* OOCSS
+* Atomic css
+
+## 问题
 
 ### 居中方案
 
-CSS 居中往往是新手们抱怨的问题。如果对盒模型与布局不清楚的话，很多看起来“可以居中”又实际不能居中的代码常常被认为是“BUG”。其实不然，这需要我们对 CSS 作进一步的了解（详见前几个小节）才能理解 CSS 布局的真正面目。
-
-下面，我们分别探讨**水平居中**、**垂直居中**和**水平且垂直居中**三种常见问题。
+CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水平居中**、**垂直居中**和**水平且垂直居中**三种常见问题。
 
 #### 水平居中
 
@@ -563,6 +766,8 @@ CSS 居中往往是新手们抱怨的问题。如果对盒模型与布局不清�
     </ul>
 </details>
 
+
+
 ### 易混淆的点
 
 <details>
@@ -572,11 +777,42 @@ CSS 居中往往是新手们抱怨的问题。如果对盒模型与布局不清�
     </ul>
 </details>
 
+<details>
+    <summary>display: none 与 visibility: hidden 的区别</summary>
+    <ul>
+        <li>含有前者属性元素不占据任何空间；而含有后者属性的元素占据的空间将被保留。</li>
+        <li>前者会使元素的 Transition 过渡效果失效。</li>
+        <li>前者会使元素及其后代全部隐藏；后者具有继承性，子代会保持 hidden 的状态，但也可以单独设置为 visibility: visible 进行显示。</li>
+    </ul>
+</details>
+
+<details>
+    <summary>letter-spacing 与 word-spacing 的区别</summary>
+    <ul>
+        <li>前者指字母之间的间隔；后者指空格的额外大小。</li>
+        <li>word-spacing 非常适合用来调整中英文混合时的排版间隙，无需修改元素的 Margin 值，见下例：</li>
+        <li><img class="vm b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/CUFmqr7DAI.gif" /></li>
+    </ul>
+</details>
+
+<details>
+    <summary>vertical-align 默认对齐哪里？</summary>
+    <ul>
+        <li>vertical-align 必须在内联元素中才能起作用，默认值是 baseline，将对齐父元素的基线，即字母x的底端。</li>
+    </ul>
+</details>
+
 ## 阅读更多
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误也麻烦各位评论指出。若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=
 
-所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~。
+所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~
 
 * [《CSS权威指南》](https://book.douban.com/subject/2308234/)
+* [CSS-The-Definitive-Guide-4th-zh](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
+* [《CSS世界》](https://www.cssworld.cn/)
 * [MDN 视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)
+* [为什么你们就是不能加个空格呢？](https://sspai.com/post/33549)
+* [Managing CSS Projects with ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)
+* [2019年，是否可以抛弃 CSS 预处理器？](https://juejin.im/post/5dcbb766f265da4d3e174f6d)
+* [一些解决 CSS 命名的方案](https://juejin.im/post/5ec8d82f6fb9a047ce7c47b6)
