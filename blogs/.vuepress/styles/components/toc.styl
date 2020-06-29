@@ -1,7 +1,7 @@
 .page > .content__default {
     .table-of-contents {
         position: fixed;
-        transform: translateX(calc(-100% - 4rem)) translateY(3.3125rem);
+        transform: translateX(calc(-100% - 4rem)) translateY(1.7125rem);
         text-align: right;
         list-style: none;
 
@@ -33,16 +33,28 @@
                 font-weight: lighter;
                 letter-spacing: 2px;
                 border: solid 2px;
-                border-right: solid 8px;
+                border-right: solid 12px;
             }
 
             & > ol {
                 margin-top: 1em;
+                padding-right: 10px;
+                max-height: 50vh;
+                overflow: hidden scroll;
+            }
+
+            ::-webkit-scrollbar {
+                width: 3px;
             }
         }
 
         // 去掉一级导航菜单
         & > ol > li > a {
+            display: none;
+        }
+
+        // 去掉四级导航菜单
+        & > ol > li > ol > li > ol > li > ol > li {
             display: none;
         }
 
@@ -106,7 +118,7 @@
 
     @media screen and (min-width: 2000px) {
         .table-of-contents {
-            transform: translateX(calc(-100% - 8rem)) translateY(3.3125rem);
+            transform: translateX(calc(-100% - 8rem)) translateY(1.7125rem);
         }
     }
 

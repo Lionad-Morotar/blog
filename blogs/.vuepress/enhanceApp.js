@@ -4,6 +4,7 @@ import WHRatio from './components/segments/WHRatio'
 import Spark from './components/segments/Spark'
 import Compare from './components/segments/Compare'
 import Worker from './components/segments/Worker'
+import JJ from './components/segments/JJ'
 
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
@@ -17,6 +18,7 @@ export default ({
     Vue.component('CodeBlock', CodeBlock)
     Vue.component('Spark', Spark)
     Vue.component('Compare', Compare)
+    Vue.component('JJ', JJ)
 
     Vue.use(Worker)
 }
