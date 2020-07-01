@@ -113,6 +113,22 @@ module.exports = {
                 shouldConvert && console.log(page.relativePath)
                 return shouldConvert
             }
+        },
+        sitemap: {
+            hostname: 'http://lionad.art',
+            changefreq: 'weekly'
+        },
+        robots: {
+            host: 'http://lionad.art',
+            disallowAll: false,
+            sitemap: '/sitemap.xml',
+            policies: [
+                {
+                    userAgent: '*',
+                    disallow: ['/gists'],
+                    allow: ['/articles', '/flows', '/friends', 'rss.xml']
+                }
+            ]
         }
     },
 
