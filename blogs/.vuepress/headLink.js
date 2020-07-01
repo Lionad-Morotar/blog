@@ -7,7 +7,16 @@ const config = {
 const headLink = [
     ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
     ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
-    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }]
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
+    [
+        'script',
+        {
+            src: '//instant.page/5.1.0',
+            type: 'module',
+            integrity: 'sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw',
+            defer: 'defer'
+        }
+    ]
 ]
 
 // 百度统计
