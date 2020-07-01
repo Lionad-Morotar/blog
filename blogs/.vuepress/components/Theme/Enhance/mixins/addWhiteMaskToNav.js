@@ -4,7 +4,7 @@ const utils = require('../utils')
 
 module.exports = {
     mounted() {
-        if (!utils.isMobile()) {
+        if (!utils.isMobile) {
             this.addNavMask()
         }
     },

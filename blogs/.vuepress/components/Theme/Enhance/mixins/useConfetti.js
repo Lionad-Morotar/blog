@@ -5,7 +5,7 @@ const ConsoleManager = require('../utils/ConsoleManager')
 
 module.exports = {
     mounted() {
-        if (!utils.isMobile() && window.confetti) {
+        if (!utils.isMobile && window.confetti) {
             ConsoleManager.onOpen = () => {
                 function randomInRange(min, max) {
                     return Math.random() * (max - min) + min

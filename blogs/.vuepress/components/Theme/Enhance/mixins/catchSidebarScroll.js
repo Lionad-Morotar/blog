@@ -18,7 +18,7 @@ module.exports = {
         // 阻止侧边栏滚动时连带滚动正文
         catchSidebarScroll() {
             const $sidebar = this.$sidebar || (this.$sidebar = document.querySelector('.sidebar'))
-            if (utils.isMobile()) {
+            if (utils.isMobile) {
                 $sidebar.addEventListener('touchstart', this.recordTouchStartXY)
                 $sidebar.addEventListener('touchmove', this.checkStop)
                 $sidebar.removeEventListener('touchend', this.recordTouchStartXY)
@@ -32,7 +32,7 @@ module.exports = {
             if (!$sidebar) {
                 return null
             }
-            if (utils.isMobile()) {
+            if (utils.isMobile) {
                 $sidebar.removeEventListener('touchstart', this.recordTouchStartXY)
                 $sidebar.removeEventListener('touchmove', this.checkStop)
             } else {
@@ -49,7 +49,7 @@ module.exports = {
             const $sidebar = this.$sidebar
             const [minOffset, maxOffset] = [0, $sidebar.scrollHeight - $sidebar.offsetHeight]
 
-            const shouldStop = utils.isMobile()
+            const shouldStop = utils.isMobile
                 ? (() => {
                       const touch = e.touches ? e.touches[0] : e
                       const curTouch = {

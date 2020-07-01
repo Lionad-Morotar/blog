@@ -1,16 +1,5 @@
 /** Utils | Common Functions */
-
-module.exports = {
-    isMobile: (function() {
-        let isMobile = null
-        const mobileUAs = ['Android', 'iPhone', 'Windows Phone', 'iPad', 'iPod']
-        return () => {
-            return isMobile !== null
-                ? isMobile
-                : (isMobile = !!mobileUAs.find(mobileUA => navigator.userAgent.indexOf(mobileUA) !== -1))
-        }
-    })(),
-
+const utils = {
     onload: (function() {
         const store = []
         return {
@@ -20,3 +9,14 @@ module.exports = {
         }
     })()
 }
+
+let isMobile = null
+const mobileUAs = ['Android', 'iPhone', 'Windows Phone', 'iPad', 'iPod']
+Object.defineProperty(utils, 'isMobile', {
+    enumerable: true,
+    get() {
+        return isMobile || (isMobile = !!mobileUAs.find(mobileUA => navigator.userAgent.indexOf(mobileUA) !== -1))
+    }
+})
+
+module.exports = utils
