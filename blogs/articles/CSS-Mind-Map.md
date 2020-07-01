@@ -955,9 +955,9 @@ Rendering 选项卡还有很多好玩的东西，举个例子：
 
 刚学习如何使用 CSS 时，我曾对 CSS 编码时的繁琐感到抵触，认为这是一项不值得一学的语言。这种反感保持了很久，直到近来我对 CSS 进一步了解后，反感才逐渐消散。当知道一门语言是怎么被设计的，身处什么样的时代，要解决什么问题，才能理解它独有的特征。
 
-希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=
+希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~</p></JJ>
 
 * [《CSS权威指南》](https://book.douban.com/subject/2308234/)
 * [CSS-The-Definitive-Guide-4th-zh](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
