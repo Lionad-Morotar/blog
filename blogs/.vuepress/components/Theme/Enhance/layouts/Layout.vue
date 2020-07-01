@@ -13,6 +13,7 @@ import PageBottom from '@theme/components/PageBottom.vue'
 import addWhiteMaskToNav from '../mixins/addWhiteMaskToNav'
 import catchSidebarScroll from '../mixins/catchSidebarScroll'
 import useConfetti from '../mixins/useConfetti'
+import useCrisp from '../mixins/useCrisp'
 
 const utils = require('../utils')
 
@@ -22,7 +23,7 @@ export default {
         ParentLayout,
         PageBottom
     },
-    mixins: [addWhiteMaskToNav, catchSidebarScroll, useConfetti],
+    mixins: [addWhiteMaskToNav, catchSidebarScroll, useConfetti, useCrisp],
     mounted() {
         window.onload = utils.onload.fn
     },
