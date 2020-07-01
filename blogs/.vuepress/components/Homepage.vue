@@ -167,7 +167,7 @@ export default {
     mounted() {
         /* 如果是手机，就跳过首页（不然兼容到爆炸）*/
         /* TODO 跳过 IOS */
-        if (utils.isMobile()) {
+        if (utils.isMobile) {
             document.querySelector('#into-article').click()
         }
 

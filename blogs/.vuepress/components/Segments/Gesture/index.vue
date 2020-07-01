@@ -298,14 +298,14 @@ export default {
         // 计算需要监听的方法
         calcEventsName() {
             const listens = [
-                ...(utils.isMobile()
+                ...(utils.isMobile
                     ? ['touchstart', 'touchend', 'touchcancel']
                     : this.enableMouse
                     ? ['mousedown', 'mouseup', 'mouseenter', 'mouseleave']
                     : []),
                 ...(this.enableMouseWheel ? ['onwheel' in document ? 'wheel' : 'mousewheel'] : [])
             ]
-            const moves = [...(utils.isMobile() ? ['touchmove'] : []), ...(this.enableMouse ? ['mousemove'] : [])]
+            const moves = [...(utils.isMobile ? ['touchmove'] : []), ...(this.enableMouse ? ['mousemove'] : [])]
             this.events = {
                 // 直接监听类事件
                 listens,
