@@ -211,7 +211,7 @@ h1 {
 
 ## VFM
 
-VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览器如何处理文档树，将元素转化为盒子，及如何布局。如果对 VFM 不清楚，往往不能理解浏览器中很多看起来怪异（常常被说是“BUG”）的布局表现。其实这些怪异的表现不是“BUG”，只是尽管 VFM 是一种开放而强大的模型，它充满细节，和我们脑海中的布局常识可能不一致；同时，又留有一些规范未覆盖的余地，供浏览器自由发挥。
+VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览器如何处理文档树，将元素转化为用户看到的内容。如果对 VFM 不清楚，往往不能理解浏览器中很多看起来怪异（常常被说是“BUG”）的布局表现。其实这些怪异的表现不是“BUG”，只是尽管 VFM 是一种开放而强大的模型，它充满细节，和我们脑海中的布局常识可能不一致；同时，又留有一些规范未覆盖的余地，供浏览器自由发挥。
 
 页面上的布局受到这些因素的影响：
 
@@ -262,26 +262,41 @@ input, textarea, img, video, object {
 }
 ```
 
+### 盒子的生成
+
+开篇我们说到类似 div、p 这种元素是块级元素。每一个块级元素都会按照 VFM 生成至少一个主块级盒子（Principle Block-level Box）。说“至少”是因为一些块级元素能生成额外的盒子，如 li 会生成标记盒子（就是列表项前面的那个点点）。除非一个块级盒子是表盒（Table Box）或替换元素的主盒，块级盒子也是一个块容器盒子（Block Container Box）。当一个盒子既是块级盒子，也是块容器盒子时，它也是块盒子（Block Box）。
+
+一个块容器盒子要么只包括块级盒子，要么创建一个 IFC 并只包含内联盒子（行内级盒子）。但他和块级盒子不是包含或被包含的关系，两者不一定等同：
+
+* 一个是表盒（Table Box）或是替换元素的主盒的块级盒子不是一个块容器盒子
+* 非替换行内块（None-replaced Inline-level Block）和非替换表格单元格（None-replaced Table Cell）是块容器盒子但不是块级盒子
+
+![Block Box](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200702000624.png)
+
+一个内联元素（Inline-level Elements）不会为内容形成新的块，它的内容只能以“行”的形式布局。每一个内联元素都会生成一个内联盒子，一个内联盒子要么是行内盒子（Inline Box），要么是原子内联盒子（Atomic Inline-level Box）。行内盒子及其内容会直接参与 IFC，而原子内联盒子以“单一不透明盒子”的形式参与 IFC。
+
+![Inline-level Box](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200702004940.png)
+
+<details>
+    <summary>原子内联盒子示例</summary>
+    <p class="b1 m0 p10" style="resize: horizontal; overflow: auto;">通过 Resizer 改变父元素的宽度，能发现 Inline Block Elements 会像块级元素一样在放不下时整个换行，不像文本一样拆分作多行 <span class="b1 p010" style="display: inline-block">Inline Block Elements</span></p>
+</details>
+
 ### 盒子的类型
 
-盒子的类型对应元素的 Display 属性。
+VFM 将元素按照盒子的类型生成盒子，而盒子的类型取决于元素的 Display 属性（和 Float 属性）。
 
-#### 外在盒子与内在盒子
+Display 常见的取值有 Block、Inline Block、Inline、Table 等，如果如果元素又应用 float: left | right 声明，Display 属性将会失效。
 
-想象一下，我们在样式表中编写的 display: inline-block 声明，能使元素在行内显示，而内部布局依旧类似块级元素。它其实是一种省略式写法，可以理解为这条声明只规定了外在盒子显示为 Inline，而内在盒子则会回退为默认值 Block。将这条声明补全则成了 display: inline-block block。
-
-以下是我们常用的简写对应的默认值：
-
-| Short display |  Full display   |
-| :-----------: | :-------------: |
-|     Block     |   Block Flow    |
-|    Inline     |   Inline Flow   |
-| Inline Block  | Inline FlowRoot |
-|     Flex      |   Block Flex    |
+* display: block，生成一个主块盒子
+* display: inline-block，生成一个主内联盒容器（自身按照块盒子进行格式化布局，内容则按照原子内联盒子布局）
+* display: inline，生成一个或多个行内盒子
+* display: none，自身及内容都会在布局时被移除，不会生成任何盒子
+* ...
 
 #### 显示内容类型
 
-一个显示内容类型的元素（display: contents）会在格式化从布局树中将自身移除，但是它的内容却得以保留。请联想一下 Vue 内置的 Template 标签，或是 React.Fragment，大概类似那种玩意儿... 
+显示内容类型是 CSS3 新增的一种玩意儿，一个显示内容类型的元素（display: contents）会在格式化从布局树中将自身移除，但是不同于 display: none，显示内容类型的内容将会得以保留。请联想一下 Vue 内置的 Template 标签，或是 React.Fragment，大概类似那种玩意儿... 
 
 需要注意以下几点：
 
@@ -303,17 +318,34 @@ input, textarea, img, video, object {
     </ul>
 </details>
 
-### 盒子定位
+#### 外在盒子与内在盒子
 
-定位方案就三种，普通流定位，浮动定位或是绝对定位。
+想象一下，我们在样式表中编写的 display: inline-block 声明，能使元素在行内显示，而内部布局依旧类似块级元素。它其实是一种省略式写法，可以理解为这条声明只规定了外在盒子显示为 Inline，而内在盒子则会回退为默认值 Block。将这条声明补全则成了 display: inline-block block。
 
-* **普通流定位**，按普通流的规则从左至右、自上而下地排列盒子，Position 属性的值为 static
-* **浮动定位**，脱离文档流，Float 属性的值不为 none
+以下是我们常用的简写对应的默认值：
+
+| Short display |  Full display   |
+| :-----------: | :-------------: |
+|     Block     |   Block Flow    |
+|    Inline     |   Inline Flow   |
+| Inline Block  | Inline FlowRoot |
+|     Flex      |   Block Flex    |
+
+### 定位体系
+
+CSS2.2 的定位方案就三种，普通流定位，浮动定位或是绝对定位。
+
+* **普通流定位**，按普通流的规则排列盒子，Position 属性的值为 static
+* **浮动定位**，脱离文档流（Out of Flow），Float 属性的值不为 none
 * **绝对定位**，脱离文档流，Position 属性的值为 static | fixed
 
-#### 流的方向
+某些方案中，定位还和盒子的偏移属性（Top、Bottom、Left、Right）有关。
 
-可以使用相关属性改变流的方向，下图是阿拉伯使用的搜索引擎主页，见 HTML 元素上定义的 DIR 属性：
+<div class="b1 bg-gray p10">
+    Normal Text <span class="pr m10 b1" style="left: 2em; height: 50px; width: 50px;">Relative Left 2EM</span> Normal Text
+</div>
+
+在普通流中，盒子默认按从左至右、自上而下的规则排列；可以使用相关属性改变流的方向，下图是阿拉伯使用的搜索引擎主页，见 HTML 元素上定义的 DIR 属性：
 
 ![阿拉伯搜索引擎](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629195939.png)
 
@@ -343,6 +375,12 @@ BFC 在布局时，会应用以下规则，需要注意：
         <li>
             <div class="b1"><div class="b1 bg-gray" style="margin: auto; float:left; height: 100px; width: 100px;">Float</div>DIV</div>
             <div class="dib b1 bg-gray" style="height: 100px; width: 100px;">BFC</div>
+        </li>
+        <li>可以利用这个特性做一个多列布局</li>
+        <li>
+            <div class="b1 fl" style="width: 33%; height: 200px;"></div>
+            <div class="b1 fr" style="width: 33%; height: 200px;"></div>
+            <div class="b1 bg-gray" style="overflow: hidden; height: 200px;"></div>
         </li>
     </ul>
 </details>
@@ -924,8 +962,14 @@ Rendering 选项卡还有很多好玩的东西，举个例子：
 * [《CSS权威指南》](https://book.douban.com/subject/2308234/)
 * [CSS-The-Definitive-Guide-4th-zh](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
 * [《CSS世界》](https://www.cssworld.cn/)
-* [MDN 视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)
+* [W3C VFM](https://www.w3.org/TR/CSS22/visuren.html)
 * [为什么你们就是不能加个空格呢？](https://sspai.com/post/33549)
 * [Managing CSS Projects with ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)
 * [2019年，是否可以抛弃 CSS 预处理器？](https://juejin.im/post/5dcbb766f265da4d3e174f6d)
 * [一些解决 CSS 命名的方案](https://juejin.im/post/5ec8d82f6fb9a047ce7c47b6)
+
+## TODO
+
+Review
+
+* 盒子的生成
