@@ -3,6 +3,17 @@ import createEditor from './create-editor'
 import panPosition from './pan-position'
 import Get from './get-parent-attrs'
 
+import utils from '../../../utils'
+
+async function loadCodeMirror() {
+    await utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/codemirror@5/lib/codemirror.min.js')
+    await utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/codemirror@5.54.0/addon/selection/active-line.min.js')
+    // ! 出现了 indent 报错，暂时去掉语言 mode
+    // await utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/codemirror@5/mode/jsx/jsx.min.js')
+    // await utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/codemirror@5/mode/css/css.min.js')
+    // await utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/codemirror@5/mode/htmlmixed/htmlmixed.min.js')
+}
+
 export default ({ name, editor, components } = {}) => {
     return {
         name: `${name}-pan`,
@@ -27,7 +38,9 @@ export default ({ name, editor, components } = {}) => {
                 this.editor.refresh()
             }
         },
-        mounted() {
+        async mounted() {
+            await loadCodeMirror()
+
             this.editor = createEditor(this.$refs.editor, {
                 ...editor
             })

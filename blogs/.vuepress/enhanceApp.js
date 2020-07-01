@@ -6,6 +6,8 @@ import Compare from './components/segments/Compare'
 import Worker from './components/segments/Worker'
 import JJ from './components/segments/JJ'
 
+import utils from './components/utils'
+
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
     options, // 附加到根实例的一些选项
@@ -21,4 +23,6 @@ export default ({
     Vue.component('JJ', JJ)
 
     Vue.use(Worker)
+
+    Vue.prototype.$utils = utils
 }

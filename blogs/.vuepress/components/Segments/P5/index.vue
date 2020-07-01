@@ -3,8 +3,6 @@
 </template>
 
 <script>
-// import p5 from 'p5/lib/p5.min.js'
-
 function distinct(arr) {
     return Array.from(new Set(arr))
 }
@@ -48,21 +46,27 @@ export default {
         }
     },
     mounted() {
-        new p5(sketch => {
-            this.$emit('sketch', sketch)
+        this.initP5()
+    },
+    methods: {
+        async initP5() {
+            await this.$utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js')
+            new p5(sketch => {
+                this.$emit('sketch', sketch)
 
-            for (const p5EventName of this.p5Events) {
-                const vueEventName = p5EventName.toLowerCase()
-                const savedCallback = sketch[p5EventName]
+                for (const p5EventName of this.p5Events) {
+                    const vueEventName = p5EventName.toLowerCase()
+                    const savedCallback = sketch[p5EventName]
 
-                sketch[p5EventName] = (...args) => {
-                    if (savedCallback) {
-                        savedCallback(sketch, ...args)
+                    sketch[p5EventName] = (...args) => {
+                        if (savedCallback) {
+                            savedCallback(sketch, ...args)
+                        }
+                        this.$emit(vueEventName, sketch, ...args)
                     }
-                    this.$emit(vueEventName, sketch, ...args)
                 }
-            }
-        }, this.$el)
+            }, this.$el)
+        }
     }
 }
 </script>

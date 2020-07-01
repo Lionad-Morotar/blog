@@ -80,23 +80,17 @@ export default {
 }
 </script>
 
-<style src="./css/codemirror.min.css"></style>
+<style src="./css/codemirror.min.css" />
 
 <style lang="stylus">
 .editor {
   ::-webkit-scrollbar {
-    width: 0;
+    width: 5px;
     height: 0;
   }
 
-  .editor {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-  }
-
   pre {
+    margin: 0;
     padding: 16px;
     overflow: auto;
     font-size: 85%;
