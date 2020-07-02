@@ -12,8 +12,11 @@
 
 <br />
 
-<Article-A200403-CSSPatterns />
-<Article-A200403-CSSPatterns-2 />
+（打包出来的 CSS 体积太大了，影响首页性能，暂时把这玩意儿去掉，TODO Refactor
+<!-- 
+  <Article-A200403-CSSPatterns />
+  <Article-A200403-CSSPatterns-2 />
+ -->
 
 ## Lenses Boom
 
