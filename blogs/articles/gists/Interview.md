@@ -1,5 +1,46 @@
 # 面试复习
 
+## HTML
+
+<details open>
+    <summary>HTML5 带来了哪些改进？</summary>
+    <p>
+        首先是增强了语义化：新增了一些语义化标签，Main、Nav、Sidebar、Header、Footer 之类的，还删除了一些纯表现元素，如 Font、Center 等。
+        再是新增了一些 API：拖拽、音视频、Canvas、Local Storage、Session Storage、WebWorker、WebSocket。
+    </p>
+</details>
+
+<details open>
+    <summary>如何理解语义化标签？</summary>
+    <p>
+        单纯按照 HTML5 规范就应该这么做；
+        从增强页面的可访问性开始可以考虑两方面：一是方便搜索引擎或屏幕阅读器等机器对页面的解析；二是方面使开发人员理解页面的内容结构。
+    </p>
+</details>
+
+<details open>
+    <summary>为什么要增强页面的可访问性？</summary>
+    <p>
+        增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用处理性能底下、低网速的设备的人等。
+    </p>
+</details>
+
+<details open>
+    <summary>Cookie、Local Storage、Session Storage 的不同之处？</summary>
+    <p>
+        Cookie 主要用来标志用户的身份，并且始终会在同源的请求中携带，容量只有 4kb。
+        Session Storage 储存是页面级别的，不在多个页面上共享，当页面关闭时销毁。
+        Local Storage 和 Session Storage 容量都较大。单纯储存数据的话一般会选择 Local Storage。
+    </p>
+</details>
+
+<details open>
+    <summary>SRC 和 HREF 的区别？</summary>
+    <p>
+        SRC 即 Source，指使用外部对象替换当前元素；HREF 即 Hypertext Reference，指元素与外部的链接关系。
+    </p>
+</details>
+
 ## CSS
 
 <details open>
@@ -61,3 +102,4 @@
     </p>
 </details>
 
+## JavaScript
