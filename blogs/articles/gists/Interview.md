@@ -41,6 +41,14 @@
     </p>
 </details>
 
+<details open>
+    <summary>iframe 有哪些缺点？</summary>
+    <p>
+        iframe 有几个特性：会阻塞父页面的 onload 事件，它还和父页面共享请求数量上限。
+        一般可以等页面加载完毕后，动态地设置 SRC 属性，就可以规避以上问题。
+    </p>
+</details>
+
 ## CSS
 
 <details open>
