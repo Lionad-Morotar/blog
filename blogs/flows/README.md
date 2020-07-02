@@ -1,3 +1,7 @@
+<flow>Safari 14 将会支持 WebP、浏览器扩展、网页翻译、视频画中画、BigInt 等功能。
+<name><a href="[Safari 14 Beta 版发布](https://zhuanlan.zhihu.com/p/153470955)" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
+</flow>
+
 <flow>IaaS 时代，基础设施即服务，用户不再需要购买实体硬件设施，预示着云计算时代的开启；
 SaaS 时代，软件及服务，各种线上能力开始在云端喷薄而出；
 BaaS 时代，仅提供应用依赖的第三方服务，只以 API 的方式提供应用依赖的后端服务；
