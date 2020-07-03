@@ -140,6 +140,18 @@
                     text-transform: none;
                 }
             }
+
+            &.expand {
+                $offset = 0.8;
+
+                &::before {
+                    background: linear-gradient(180deg, transparent, alpha(white, $offset));
+                }
+
+                &::after {
+                    background: linear-gradient(180deg, alpha(white, $offset), alpha(white, 1));
+                }
+            }
         }
     }
 
