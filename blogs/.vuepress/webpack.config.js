@@ -1,6 +1,10 @@
+const path = require('path')
+
 module.exports = {
     resolve: {
-        alias: {}
+        alias: {
+            '@project': path.join(__dirname, '../../')
+        }
     },
     devServer: {
         port: 8080,
