@@ -190,6 +190,92 @@
 </details>
 
 <details open>
+    <summary>手写一些常见的数组操作吧</summary>
+    <ul>
+        <li>数组乱序</li>
+        <Highlight>
+            [1, 2, 3, 4, 5].sort((a, b) => Math.random() - .5)
+        </Highlight>
+        <li>数组降维：[1,[2,[3,[4]]]] --> [1,2,3,4]</li>
+        <Highlight>
+            function flat(arr = []) {
+                return arr.reduce((h, c) => {
+                    return h.concat(
+                        c instanceof Array ? flat(c) : c
+                    )
+                }, [])
+            }
+            // >>> flat([1,[2,[3,[4]]]]) 
+            // >>> [1,2,3,4]
+        </Highlight>
+    </ul>
+</details>
+
+<details open>
+    <summary></summary>
+    <p>
+    </p>
+</details>
+
+<ul>
+    <li></li>
+</ul>
+<Highlight></Highlight>
+
+### doing
+
+## 浏览器
+
+<details open>
+    <summary>跨标签页通讯有哪些方案？</summary>
+    <ul>
+        <li>Broadcast Channel：可以建立同源窗口下所有监听了该频道的对象，IE 和 Safari 没有实现。 </li>
+        <li>iframe：使用 postMessage 进行通讯，兼容性很好。</li>
+        <li>Web Worker：通过 Shared Worker 可以也可以实现。</li>
+        <li>Local Storage：轻量的数据可以使用 window.onstorage 监听 LocalStorage 的设置，缺点是设置相同的字符串值时监听不到。</li>
+        <li>Web Socket：让后台中转页面发送的请求。</li>
+    </ul>
+</details>
+
+<details open>
+    <summary>从输入 URL 按下回车开始，到用户看到完整的页面，经历了哪些流程？</summary>
+    <ul>
+        <li>DNS</li>
+        <li>TCP</li>
+        <li>缓存</li>
+        <li>渲染</li>
+    </ul>
+</details>
+
+## NodeJS
+
+## 工程化
+
+<details open>
+    <summary>Bable 之类的编译器有什么作用？</summary>
+    <p>
+        编译器主要的作用是转换与编译，能够将新标准中前沿的代码技术转换为相同（或类似）功能的代码，使其能够在旧的浏览器中运行。
+    </p>
+</details>
+
+<details open>
+    <summary>Bable 工作原理了解一些吗？</summary>
+    <p>
+        Bable 使用 Babylon 将代码解析为 AST，使用 Bable-traverse 维护 AST 的状态，做一些源码级别的转换，最后使用 Bable-generator 读取 AST 并生成代码。
+    </p>
+</details>
+
+<details open>
+    <summary>刚刚说到 AST，你对 AST 有什么其它的认识吗？</summary>
+    <p>
+        AST 即抽象语法树，是源代码的抽象树状语法结构。对于普通的字符串处理，使用正则完全足够。
+        但一旦涉及字符串上下文，或是要在高可维护性项目中处理源码这种场景，就需要用到 AST。
+        虽然前端离“计算机科学”这个名词好像隔着很远的距离，但是 AST 在前端实践中无处不在。
+        我们通过“代码生成 AST”、“遍历与更新”、“重生成代码”三个标准流程，能构建出一整套代码工程化方案，比如包括代码高亮补全压缩混淆、模块构建、语法糖、语言转换等功能都离不开 AST。
+    </p>
+</details>
+
+<details open>
     <summary>JS引擎的垃圾回收机制有了解吗？</summary>
     <p>
         V8 使用分代回收机制，将内存分为新生代和老生代空间，分别用不同的算法进行 GC。
@@ -212,24 +298,141 @@
 </details>
 
 <details open>
-    <summary></summary>
-    <p></p>
-</details>
-
-### doing
-
-## 浏览器
-
-## NodeJS
-
-## 工程化
-
-<details open>
-    <summary>bable 之类的编译器有什么作用？</summary>
+    <summary>怎么在编码时预防内存泄漏？</summary>
     <p>
-        编译器主要的作用是转换与编译，能够将新标准中前沿的代码技术转换为相同（或类似）功能的代码，使其能够在旧的浏览器中运行。
+        JS使用了标记清除法进行 GC，这意味着如果对象访问不到，则会自动被回收，我们要避免在编码时保存不必要的引用。<br />
+        <ul>
+            <li>闭包：闭包的错误的使用会导致对象一直被标记而不能被释放。这个要求我们写代码的时候要时刻注意对象引用关系的分配。也听说过有些团队禁止使用闭包，不过我觉得这在大部分情况下不合理。</li>
+            <li>全局对象：函数中的 this 指向常常会带来问题，解决方案是在构造器中通过 new.target 判断是否是通过 new 运算符调用的构造器；此外，未声明的变量在赋值时会自动挂载到全局对象，解决方案是使用严格模式，或通过项目工程化（比如加语法校验和提交钩子)解决。</li>
+            <li>还有一些常见的编程场景也容易导致内存泄漏，比如移除节点并不能清除某个变量对 DOM 的引用，销毁组件时没销毁监听器等。</li>
+            <Highlight>
+                /* 这里展示一下未经过考虑的闭包造成的内存泄漏场景。可以试试打开一个新窗口，然后在控制台运行此函数，应该不出十秒，页面就会崩溃 */
+                const holder = null
+                const unClearedRef = function () {
+                    // closure 保持了 holder 的引用
+                    const closure = holder
+                    // 某个函数
+                    const unused = function () {
+                        // 由于 unused 函数的存在，closure 引用的值一直不会被释放
+                        if (closure) console.log("")
+                    }
+                    /* 创建一个大对象 */
+                    const test = {}
+                    Array(1000000).fill('').map((x, i) => test[i] = new Array(200000000).join('*'))
+                    holder = { ...test }
+                }
+                setInterval(unClearedRef, 500)
+            </Highlight>
+        </ul>
     </p>
 </details>
+
+## 网络
+
+<details open>
+    <summary>介绍一下 HTTP 1.0 协议有哪些显著的缺陷？</summary>
+    <ul>
+        <li>无法复用</li>
+        <li>慢启动</li>
+        <li>线头阻塞</li>
+    </ul>
+</details>
+
+<details open>
+    <summary>那 HTTP 1.1 做出了哪些改进呢？</summary>
+    <ul>
+        <li>长连接(默认 keep-alive)，复用</li>
+        <li>断点续传</li>
+        <li>Cache 缓存</li>
+        <ul>
+            <li>Cache-Control</li>
+            <li>Expires</li>
+            <li>Last-Modified</li>
+            <li>Etag</li>
+        </ul>
+    </ul>
+</details>
+
+<details open>
+    <summary>HTTP 2.0 做出了哪些改进呢？</summary>
+    <ul>
+        <li>多路复用</li>
+        <li>二进制分帧层: 应用层和传输层之间</li>
+        <li>首部压缩</li>
+        <li>服务端推送</li>
+    </ul>
+</details>
+
+<details open>
+    <summary>常见的 HTTP 状态码有哪些？</summary>
+    <ul>
+        <li>200：成功并返回数据</li>
+        <li>301：永久转移，重定向</li>
+        <li>304：资源未修改，可使用缓存</li>
+        <li>400：请求语法错误</li>
+        <li>401：要求身份认证</li>
+        <li>403：请求拒绝</li>
+        <li>404：资源不存在</li>
+        <li>500：服务器错误</li>
+    </ul>
+</details>
+
+<details open>
+    <summary>TCP 的三次握手和四次挥手能说说么？</summary>
+    <ul>
+        <li>三次握手：</li>
+        <li>四次挥手：</li>
+    </ul>
+</details>
+
+<details open>
+    <summary>Get 和 Post 请求有哪些区别？</summary>
+    <p>
+        Get 请求会被浏览器缓存，会被浏览器保存在历史记录中，此外，Get 请求的参数是拼接在 URL 中的明文，且长度也有限制，适合做一些资源翻页之类的场景；
+        Post 请求不会被缓存，对数据类型没有限制，几乎所有场景都可以使用。<br />
+    </p>
+</details>
+
+<details open>
+    <summary>同源策略限制了哪些内容？</summary>
+    <p>
+        同源策略是一种浏览器遵守的规范，要求页面发送的请求的协议、HOST、端口号必须与脚本来源相同。这是一种最基础的安全策略。绕过同源策略的方法即跨域。
+    </p>
+</details>
+
+<details open>
+    <summary>你是怎么做跨域的？</summary>
+    <p>
+        有几种常见的解决办法，使用代理、CORS、iframe、WebSocket。
+        <ul>
+            <li>使用代理：可以通过架设一个用于中转请求的服务器实现跨域，因为服务器发送请求是不遵循同源策略的。Webpack 中的 ProxyTable 或者有些有网络隔离的项目通常会使用这种方案。</li>
+            <li>CORS：全称叫跨域资源共享，是一种新的标准，需要浏览器和服务器端的支持。</li>
+            <li>WebSocket：WebSocket 不适用于同源策略，和 CORS 一样，只要浏览器以及服务器端支持就可以。</li>
+            <li>iframe：在页面请求一个跨域的文档，然后通过 postMessage 的方式从父页面将数据传到 iframe 中，让其中脚本代替发送请求。不过 postMessage 的兼容性不是很好，可以通过监听哈希等方法优雅降级。</li>
+        </ul>
+    </p>
+</details>
+
+<details open>
+    <summary>详细说说你怎么做的 WebSocket？</summary>
+    <p>
+        WebSocket 是一种基于 HTTP 的应用层协议。浏览器实现的兼容性不错，可看作长轮询的升级版本。主要有两个特征，是持久化连接以及服务端可以给客户端发送通知。
+        基于这两个特征，在编写代码时可以使用心跳机制、重连机制和回调池两种模式对 WebSocket 进行优化。<br />
+        使用心跳机制定时向服务端发送心跳数据，告诉服务端此页面还在响应，如果超时则服务端可以主动断开连接节约资源。
+        重连机制是如果服务器端没有主动断开连接，客户端因异常状况断开连接时，需要主动重新与服务端建立连接，保证业务正常进行。
+        回调池则是客户端发送数据时，将回调事件注册在一个容器里，超时则删除回调，防止内存泄漏。
+    </p>
+</details>
+
+<details open>
+    <summary></summary>
+    <p>
+    </p>
+</details>
+
+<ul>
+    <li></li>
+</ul>
 
 ## HTML
 
@@ -346,8 +549,10 @@
 * [前端模块的历史沿革](https://www.cyj.me/programming/2018/05/22/about-module-i/)
 * [JavaScript 模块化入门Ⅰ：理解模块](https://zhuanlan.zhihu.com/p/22890374)
 * [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/5ba32171f265da0ab719a6d7)
-* [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89#comment)
+* [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
 * [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
 * [JS原型链与继承别再被问倒了](https://juejin.im/post/58f94c9bb123db411953691b)
 * [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
+* [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
+* [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 * [ECMAScript 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/#sec-execution-contexts)
