@@ -11,9 +11,6 @@ export default {
         return {
             shouldRender: process.env.NODE_ENV !== 'production'
         }
-    },
-    mounted() {
-        console.log('shouldRender: ', this.shouldRender)
     }
 }
 </script>
