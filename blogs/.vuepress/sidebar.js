@@ -16,16 +16,18 @@ const getSrc = src => {
     const filenames = []
     const fileTypes = /\.md$/
     const mainFiles = ['index.md', 'README.md']
-    try {
-        fs.readdirSync(src).forEach(file => {
-            if (fileTypes.test(file) > 0) {
-                if (!mainFiles.includes(file)) {
-                    filenames.push(file.replace('.md', ''))
+    if (fs && fs.readdirSync) {
+        try {
+            fs.readdirSync(src).forEach(file => {
+                if (fileTypes.test(file) > 0) {
+                    if (!mainFiles.includes(file)) {
+                        filenames.push(file.replace('.md', ''))
+                    }
                 }
-            }
-        })
-    } catch (err) {
-        console.error('Error in getSRC : ', err)
+            })
+        } catch (err) {
+            console.error('Error in getSRC : ', err)
+        }
     }
     filenames.sort()
     return filenames
