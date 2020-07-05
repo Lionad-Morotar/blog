@@ -556,3 +556,6 @@
 * [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
 * [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 * [ECMAScript 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/#sec-execution-contexts)
+
+* [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
+* [JavaScript开发者应懂的33个概念](https://github.com/stephentian/33-js-concepts)
