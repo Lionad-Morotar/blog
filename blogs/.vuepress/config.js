@@ -68,7 +68,20 @@ module.exports = {
             },
             layoutChunkName: layout => 'layout-' + layout.componentName
         },
-        'plugin-comment': {
+        'vuepress-plugin-medium-zoom': {
+            selector:
+                '.theme-default-content > img,' +
+                '.theme-default-content > p > img,' +
+                '.theme-default-content > ul > li > img,' +
+                '.theme-default-content > ol > li > img',
+            delay: 1000,
+            options: {
+                margin: 24,
+                background: 'var(--color-background)',
+                scrollOffset: 0
+            }
+        },
+        'vuepress-plugin-comment': {
             choosen: 'valine',
             options: {
                 el: '#valine-vuepress-comment',

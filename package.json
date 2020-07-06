@@ -41,6 +41,7 @@
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "vuepress": "^1.2.0",
+    "vuepress-plugin-medium-zoom": "^1.1.8",
     "vuepress-plugin-named-chunks": "^1.1.3",
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-rss-feed": "https://github.com/Lionad-Morotar/vuepress-plugin-rss",
