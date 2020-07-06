@@ -1,4 +1,5 @@
 const path = require('path')
+const pinyin = require('chinese-to-pinyin')
 
 const sidebar = require('./sidebar')
 const headLink = require('./headLink')
@@ -59,7 +60,15 @@ module.exports = {
     /** plugins */
 
     plugins: {
-        'vuepress-plugin-comment': {
+        'named-chunks': {
+            pageChunkName: page => {
+                const defaultName = page.key.slice(1)
+                const pinyinName = pinyin(page.title || defaultName, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
+                return pinyinName
+            },
+            layoutChunkName: layout => 'layout-' + layout.componentName
+        },
+        'plugin-comment': {
             choosen: 'valine',
             options: {
                 el: '#valine-vuepress-comment',
