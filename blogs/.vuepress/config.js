@@ -121,6 +121,12 @@ module.exports = {
                     allow: ['/articles', '/flows', '/friends', 'rss.xml']
                 }
             ]
+        },
+        'vuepress-plugin-mathjax': {
+            target: 'svg',
+            macros: {
+                '*': '\\times'
+            }
         }
     },
 

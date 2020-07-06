@@ -19,7 +19,7 @@
 
 ECMAScript 文档中有对 typeof 这样描述：
 
-$\it{UnaryExpression}\quad:\quad\bf{typeof}\quad \it{UnaryExpression}$
+$\it{UnaryExpression} \quad: \quad \bf{typeof} \quad \it{UnaryExpression}$
 
 1. Let val be the result of evaluating UnaryExpression.
 2. If *Type(val)* is Reference, then
@@ -49,9 +49,9 @@ $\it{UnaryExpression}\quad:\quad\bf{typeof}\quad \it{UnaryExpression}$
 
 ### 判断内置对象
 
-Function 作为内置对象，为什么 `typeof (function a(){})` 的值不为 "object" 呢？
+Function 作为内置对象，为什么 `typeof (function a(){})` 的值不为“object”呢？
 
-其实上面那张表有相应线索，倒数第二条，这是一个特殊判定，“如果对象实现了内部方法[[Call]]” 或 “是 `Callable` 对象”，那么返回值为 "function"。
+其实上面那张表有相应线索，倒数第二条，这是一个特殊判定，“如果对象实现了内部方法[[Call]]” 或 “是 `Callable` 对象”，那么返回值为“function”。
 
 用 typeof 判断对象太麻烦了，一点儿也不实在。一般情况下，我们会用等下介绍的 Object.prototype.toString 去判断内置对象。
 
@@ -69,10 +69,10 @@ null 是用来标记“期待指向”的，不是 Object 类型，所以typeof 
 
 此外，还有两种特殊值：
 
-* **undefined** (JSVAL_VOID): $-2^{32}$（负二的三十二次方整形）
+* **undefined** (JSVAL_VOID): $-2^{32}$
 * **null** (JSVAL_NULL): 用全为 0 的机器码表示的 NULL 指针（或，一个指向 0 的 Object 类型的值）
 
-也就是说，对程序而言，typeof null 判断类型是根据前三位 0 取得的 "object"。这是一个历史遗留问题，有人提出过修复方案，但是怕影响历史遗留代码，修复便被否决了。
+也就是说，对程序而言，typeof null 判断类型是根据前三位 0 取得的“object”。这是一个历史遗留问题，有人提出过修复方案，但是怕影响历史遗留代码，修复便被否决了。
 
 ## instanceof
 
