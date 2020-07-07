@@ -1,4 +1,3 @@
-import CodeBlock from './components/segments/CodeBlock/Editor.vue'
 import VueP5 from './components/segments/P5'
 import WHRatio from './components/segments/WHRatio'
 import Spark from './components/segments/Spark'
@@ -17,7 +16,6 @@ export default ({
     Vue.config.ignoredElements = ['css-doodle', 'flow', 'name', 'time']
     Vue.component('vue-p5', VueP5)
     Vue.component('WHRatio', WHRatio)
-    Vue.component('CodeBlock', CodeBlock)
     Vue.component('Spark', Spark)
     Vue.component('Compare', Compare)
     Vue.component('JJ', JJ)
