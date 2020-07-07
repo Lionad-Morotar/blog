@@ -25,7 +25,7 @@ export default {
         }
     },
     mounted() {
-        this.changeType('linear')
+        this.changeType('easeout')
     },
     methods: {
         rotate() {
