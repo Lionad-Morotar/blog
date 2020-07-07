@@ -1,5 +1,20 @@
 /** Utils | Common Functions */
 
+const tween = {
+    linear(t, b, c, d) {
+        return (c * t) / d + b
+    },
+    easein(t, b, c, d) {
+        return c * (t /= d) * t * t * t + b
+    },
+    easeout(t, b, c, d) {
+        return c * (t = t / d - 1) * t * t * t + b
+    },
+    strongeasein(t, b, c, d) {
+        return c * (t /= d) * t * t * t * t * t * t + b
+    }
+}
+
 let requestFrameStore = null
 let cancelFrameStore = null
 
@@ -37,6 +52,7 @@ const loadScriptFromURL = (() => {
 })()
 
 const utils = {
+    tween,
     loadScriptFromURL,
     isDev: process.env.NODE_ENV === 'development',
     requestAnimationFrame: cb => {
