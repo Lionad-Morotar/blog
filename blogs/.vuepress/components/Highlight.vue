@@ -4,6 +4,10 @@ const loadLanguages = require('prismjs/components/index')
 
 export default {
     props: {
+        content: {
+            type: String,
+            default: ''
+        },
         lang: {
             type: String,
             default: 'js'
@@ -18,9 +22,9 @@ export default {
         }
     },
     render(h) {
-        let data = this.$slots.default[0].text
+        let data = this.content || this.$slots.default[0].text
         if (this.trim) {
-            data = data.slice(data.search(/[^\n]/), data.search(/[^\n\s]\n\s*$/) + 1)
+            data = data.replace(/^[ ]+|[ ]+$/g, '')
         }
         if (this.cutTab) {
             const splits = data.split(/\n/)
