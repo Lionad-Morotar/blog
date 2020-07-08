@@ -22,7 +22,7 @@ const strategy = strategies[someType]
 <Article-G200708-Animation />
 
 ```js
-// 源码地址
+// 完整源码地址：
 // https://github.com/Lionad-Morotar/blogs/tree/master/blogs/.vuepress/components/Article/G200708/Animation.vue
 
 // 定义缓动动画步进策略
@@ -107,10 +107,50 @@ this.$event.$emit('A')
 this.$event.$on('A', () => console.log('do something'))
 ```
 
-用原生 JS 写其实也很简单，掘金有很多类似的文章，这里就不赘述了。
+用原生 JS 写其实也很简单，掘金有很多类似的文章，这里就不赘述了。不过还是需要提一下发布订阅模式的缺陷：发布订阅模式使得事件被执行时难以被追踪其来源，当事件的数量增多时这种缺点尤其明显；此外，需要写一些额外的代码，确保事件不被使用时注销，防止内存泄漏。
 
 相关阅读：[《🚀 150 行代码带你实现小程序中的数据侦听》](/articles/150%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%B8%A6%E4%BD%A0%E5%AE%9E%E7%8E%B0%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E4%BE%A6%E5%90%AC.html)
+
+## 装饰器模式/包装器模式
+
+我本来想说“装饰器模式在代码中被广泛使用”之类的话，但仔细一想，难道不是每一种设计模式都被“广泛使用”了么——没有被广泛使用的模式没有收编进设计模式中，因为这种模式不够优秀或者还未经验证。网上说常见的设计模式就二十来种，如果某门语言连这些常见的设计模式都无法实现（或仿制），那么面对它时我心里会<del>有点</del>很介意的。从这一角度来看，JS嘛真香...
+
+回到正题，想象一下，你可以在你的大脑里植入芯片，而且这些芯片可以增强你的能力水平，比如自动屏蔽屏幕上的血腥效果（嗯，我不是在催 2077）——**某个对象能力不足，但可以使用插件给它增强额外的能力，这就是装饰器模式**。
+
+比方说，业务代码中常常会要求客户端发生错误后要上报服务器进行统计。传统的错误捕获思路无非这几种：try/catch，window.onerror，window.addEventListener('error')，不过这几种方法无法都无法捕获 new Promise().catch 中的错误，需要使用一种额外的事件：window.addEventListener('unhandledrejection')。不过，我们可以使用一种带“上报错误”能力的函数来装饰 catch，以增强其功能。见下代码：
+
+```js
+/* Promise Error Handle */
+
+// 缓存原 catch 函数
+const _catch = Promise.prototype.catch 
+Promise.prototype.catch = function PromiseCatch(errorFn, ...args) {
+    // 增加错误上报能力
+    console.trace('Upload error occur in promise...')
+    // 执行原函数（装饰器并未改变原函数的能力，甚至连 this 指向都没有变）
+    _catch.bind(this)(errorFn, ...args)
+}
+
+// 错误仿制
+new Promise((resolve, reject) => {
+    reject('bad')
+}).catch(error => {
+    console.log('catch: ', error)
+})
+
+// >>> Upload error occur in promise...
+// >>> PromiseCatch @ VMXXX
+// >>> (匿名) @ VMXXX
+// >>> catch:  bad
+
+// 额外叨叨一句，这段代码只是展示一种“可能”，不建议在业务代码中修改原型。
+```
+
+装饰器和包装器往往混在一起谈论，因为在JS中，它们常混在一起使用。如果装饰器是用芯片增强你的大脑，那么包装器就好比钢铁侠那身外套——就像我们刚刚对 Promise.prototype.catch 进行了升级，升级方式是用一个新的函数把原函数“包裹起来”。
+
+那么装饰器模式和包装器模式有什么需要注意的特性呢？哈，我相信你已经知道了——钢铁侠不能套很多件铁甲，因为那样会变胖！**（＞v＜﹗）** （导致运行性能下降 & 需要更多的内存。）
 
 ## 阅读更多
 
 * [我的 if/else 代码纯净无暇，一个字也不能简化](https://www.sohu.com/a/285163368_129720)
+* [前端代码错误上报](https://juejin.im/post/5c98cd63f265da611b1edcf2)
