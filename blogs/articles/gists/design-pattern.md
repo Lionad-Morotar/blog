@@ -190,8 +190,49 @@ ajax('url', {
 })
 ```
 
+## 代理模式
+
+程序员熟知的“Great Fire Wall”相关概念中，就有“代理”这个概念。它是代理模式的一种，叫做“动态代理”——我们请求访问谷歌主页时，代理将把我们的请求自动转接到可靠的主机上，我们无需关心具体要连接哪台主机。如果访问某个对象的代理，代理把访问拒绝了，那么该代理称为“保护代理”（就像你的同桌拒绝了你向她提出帮忙向老师请假的要求）。另一种常用的代理是“虚拟代理”，它会对高性能消耗的操作进行延迟处理。比方说，给图片设置 SRC 时，常常弦用 Loading 占位，再异步请求图片，请求完成后再将 SRC 回填至标签——这就是虚拟代理。
+
+获取代理可实现的功能增强这种特征看起来很像我们刚刚提到的装饰器模式，它们其实还是有区别滴：代理拦截了对对象的某种访问，可能在拦截时进行了功能增强；装饰器则不含拦截的概念。总之，**代理模式为对象提供一层概念上的“包装”，使其实现控制外部对源对象的访问**。
+
+ES6 原生支持代理模式。对，就是 Vue3 中的 Proxy。掘金有很多 Vue3 Proxy 分析的文章，这里就不赘述了，以下展示一种通过 Proxy 拦截属性调用实现的属性查找功能：
+
+```js
+const rawObj = [
+    { name: 'John', age: 23, skills: ['mongodb'] },
+    { name: 'Lily', age: 21, skills: ['redis'] },
+    { name: 'Iris', age: 43, skills: ['python', 'javascript'] },
+]
+const methods = {
+    Has: (items, item) => items.includes(item)
+}
+const methodsNames = Object.keys(methods)
+const proxy = new Proxy(rawObj, {
+    get (target, prop) {
+        if (prop in target) return target[prop]
+
+        const prefix = 'find'
+        if (!prop.startsWith(prefix)) return
+        const usePublicMethod = methodsNames.find(x => prop.endsWith(x))
+        if (!usePublicMethod) return
+        const proxyProp = prop.replace(prefix, '').replace(usePublicMethod, '').toLowerCase()
+
+        return val => target.find(x => methods[usePublicMethod](x[proxyProp], val))
+    }
+})
+
+console.log(proxy.length)
+// >>> 3
+
+console.log(proxy.findSkillsHas('javascript'))
+// >>> { name: 'Iris', age: 43, skills: ['python', 'javascript'] }
+```
+
 ## 阅读更多
 
 * [我的 if/else 代码纯净无暇，一个字也不能简化](https://www.sohu.com/a/285163368_129720)
 * [前端代码错误上报](https://juejin.im/post/5c98cd63f265da611b1edcf2)
 * [使用 ES decorators 构建一致性 API](https://developer.aliyun.com/article/272196)
+* [Proxy 的巧用](https://juejin.im/post/5d2e657ae51d4510b71da69d)
+* [How to use JavaScript Proxies for Fun and Profit](https://medium.com/dailyjs/how-to-use-javascript-proxies-for-fun-and-profit-365579d4a9f8)
