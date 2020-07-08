@@ -166,6 +166,30 @@ new Promise((resolve, reject) => {
 
 那么装饰器模式和包装器模式有什么需要注意的特性呢？哈，我相信你已经知道了——钢铁侠不能套很多件铁甲，因为那样会变胖！**（＞v＜﹗）** （导致运行速度下降 & 需要更多的内存。）
 
+## 适配器模式
+
+适配器模式的概念十分简单，就是使两个接口不兼容的软件能兼容运行。你可以现象一下 USB 转接头，比如 Type-C 转音频接头，就是适配器。
+
+![Type-C 转 3.5mm | 小米官网](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200708102158.png)
+
+我在业务代码中也实践过适配器模式。比如，后端接口版本可能有更新迭代，其中字段可能不一样，如果我们在中国区上线了 V1 版本，在美国区上线了 V2 版本，那么同一套前端代码就会收到两份字段不一样的数据。我们可以通过适配器模式来对数据进行兼容，简单演示如下：
+
+```js
+// v1 data
+{ version: 1, name: '标题' }
+// v2 data
+{ version: 2, title: '标题' }
+
+ajax('url', {
+    success(data) {
+        const adaptor = {
+            name: data.name || data.title
+        }
+        const name = adaptor.name
+    }
+})
+```
+
 ## 阅读更多
 
 * [我的 if/else 代码纯净无暇，一个字也不能简化](https://www.sohu.com/a/285163368_129720)
