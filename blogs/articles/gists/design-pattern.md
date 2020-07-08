@@ -117,7 +117,23 @@ this.$event.$on('A', () => console.log('do something'))
 
 回到正题，想象一下，你可以在你的大脑里植入芯片，而且这些芯片可以增强你的能力水平，比如自动屏蔽屏幕上的血腥效果（嗯，我不是在催 2077）——**某个对象能力不足，但可以使用插件给它增强额外的能力，这就是装饰器模式**。
 
-比方说，业务代码中常常会要求客户端发生错误后要上报服务器进行统计。传统的错误捕获思路无非这几种：try/catch，window.onerror，window.addEventListener('error')，不过这几种方法无法都无法捕获 new Promise().catch 中的错误，需要使用一种额外的事件：window.addEventListener('unhandledrejection')。不过，我们可以使用一种带“上报错误”能力的函数来装饰 catch，以增强其功能。见下代码：
+假设你有一个正在迁移至新版的库文件，某些原来的 API 你不想给其他人用，那么可以在调用该 API 时，console.warn 提示一句“你好，我将在下个版本被移除”。把这段提示的逻辑挪出来，可以用装饰器模式轻松重构：
+
+```js
+class SomeClass {
+    @deprecate('WARN: oldAPI would be removed in next Main Version.')
+    oldAPI() {}
+
+    // This function will automatically debounced
+    @debounce
+    scroll() {}
+}
+
+// 相关项目
+// https://github.com/jayphelps/core-decorators
+```
+
+再举个例子：业务代码中常常会要求客户端发生错误后要上报服务器进行统计。传统的错误捕获思路无非这几种：try/catch，window.onerror，window.addEventListener('error')，不过这几种方法无法都无法捕获 new Promise().catch 中的错误，需要使用一种额外的事件：window.addEventListener('unhandledrejection')。不过，我们可以使用一种带“上报错误”能力的函数来装饰 catch，以增强其功能。见下代码：
 
 ```js
 /* Promise Error Handle */
@@ -148,9 +164,10 @@ new Promise((resolve, reject) => {
 
 装饰器和包装器往往混在一起谈论，因为在JS中，它们常混在一起使用。如果装饰器是用芯片增强你的大脑，那么包装器就好比钢铁侠那身外套——就像我们刚刚对 Promise.prototype.catch 进行了升级，升级方式是用一个新的函数把原函数“包裹起来”。
 
-那么装饰器模式和包装器模式有什么需要注意的特性呢？哈，我相信你已经知道了——钢铁侠不能套很多件铁甲，因为那样会变胖！**（＞v＜﹗）** （导致运行性能下降 & 需要更多的内存。）
+那么装饰器模式和包装器模式有什么需要注意的特性呢？哈，我相信你已经知道了——钢铁侠不能套很多件铁甲，因为那样会变胖！**（＞v＜﹗）** （导致运行速度下降 & 需要更多的内存。）
 
 ## 阅读更多
 
 * [我的 if/else 代码纯净无暇，一个字也不能简化](https://www.sohu.com/a/285163368_129720)
 * [前端代码错误上报](https://juejin.im/post/5c98cd63f265da611b1edcf2)
+* [使用 ES decorators 构建一致性 API](https://developer.aliyun.com/article/272196)
