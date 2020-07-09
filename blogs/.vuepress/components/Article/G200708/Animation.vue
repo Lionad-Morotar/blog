@@ -18,7 +18,7 @@ export default {
     name: 'rotate-image-cmpt',
     data() {
         return {
-            types: ['Linear', 'EaseIn', 'EaseOut', 'StrongEaseIn'],
+            types: ['Linear', 'EaseIn', 'EaseOut', 'EaseOutElastic'],
             type: '',
             rotateDeg: 0,
             animation: null
@@ -33,7 +33,7 @@ export default {
             const from = 0
             const to = 720
             const run = utils.tween[type]
-            const totalTime = 1000
+            const totalTime = 1200
             let curTime = 0
             let tick = +new Date()
             const safe = num => (num > to ? to : num)
@@ -41,12 +41,17 @@ export default {
                 const newTick = +new Date()
                 curTime += newTick - tick
                 tick = newTick
-                const nv = safe(run(curTime, from, to, totalTime))
+                const targetDeg = run(curTime, from, to, totalTime)
+                const continueStep = curTime < totalTime
+                const nv = continueStep ? targetDeg : safe(targetDeg)
                 this.rotateDeg = nv
-                if (curTime < totalTime) {
+
+                if (continueStep) {
                     this.animation = utils.requestAnimationFrame(step)
                 } else {
-                    this.rotate()
+                    setTimeout(() => {
+                        this.rotate()
+                    }, 700)
                 }
             }
             this.animation && utils.cancelAnimationFrame(this.animation)
