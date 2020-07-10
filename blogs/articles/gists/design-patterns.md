@@ -221,7 +221,7 @@ const MyModule = {
 // 附：很遗憾，目前 JS 不支持给字面量对象属性使用装饰器
 ```
 
-再举个例子：业务代码中常常会要求客户端发生错误后要上报服务器进行统计。传统的错误捕获思路无非这几种：try/catch，window.onerror，window.addEventListener('error')，不过这几种方法无法都无法捕获 new Promise().catch 中的错误，需要使用一种额外的事件：window.addEventListener('unhandledrejection')。不过，我们可以使用一种带“上报错误”能力的函数来装饰 catch，以增强其功能。见下代码：
+再举个例子：业务代码中常常会要求客户端发生错误后要上报服务器进行统计。传统的错误捕获思路无非这几种：try/catch，window.onerror，window.addEventListener('error')，不过这几种方法无法都无法捕获 Promise.prototype.catch 中的错误，需要使用一种额外的事件：window.addEventListener('unhandledrejection')。不过，我们可以使用一种带“上报错误”能力的函数来装饰 catch，以增强其功能。见下代码：
 
 ```js
 /* Promise Error Handle */
@@ -255,7 +255,7 @@ new Promise((resolve, reject) => {
 
 那么装饰器模式和包装器模式有什么需要注意的特性呢？啊哈~ 我相信你已经知道答案了——钢铁侠不能套很多件铁甲，因为那样会变胖！
 
-若不是装饰器提案的出现，我赌一块，社区里不会有太多讨论装饰器模式的文章。我们在编码中编写的高阶函数，常常就是装饰器/包装器模式的实现。若不留意，可能大家都不会察觉吧 hhh。**函数在 JS 中是一等公民**（最近政治正确的浪潮拍过来啦，说不准以后就得把“一等公民”换个词啦），可以通过相关语言特征及其方便地实现某些设计模式。比如，通过柯里化可以轻松写工厂模式：
+若不是装饰器提案的出现，我赌五毛，社区里不会有太多讨论装饰器模式的文章。我们在编码中编写的高阶函数，常常就是装饰器/包装器模式的实现。若不留意，可能大家都不会察觉吧 hhh。**函数在 JS 中是一等公民**，可以通过相关语言特征及其方便地实现某些设计模式。比如，通过柯里化可以轻松写工厂模式：
 
 ```js
 const Curry = (fn, ...args) => (...rest) => fn(...args, ...rest)
@@ -265,52 +265,118 @@ const Adder = (a, b) => a + b
 const add5 = Curry(Adder, 5)
 add5(5)  // >>> 10
 add5(-5) // >>> 0
-
-// 我知道你一定想说，工厂模式根本就不是这样写的...
 ```
 
-
+我知道你一定想说，工厂模式根本就不是这样写的... 这个问题会在下一小节讨论到。我们暂且先接着往下看一种概念简单又常用到的设计模式，适配器模式。
 
 ## 适配器模式
 
-适配器模式的概念十分简单，就是使两个接口不兼容的软件能兼容运行。你可以现象一下 USB 转接头，比如 Type-C 转音频接头，就是适配器。
+适配器，顾名思义，即使两个接口不兼容的软件能兼容接口并正常运作。USB 转接头、Type-C 转耳机接口之类的东西就是那种玩意儿。
 
 ![Type-C 转 3.5mm | 小米官网](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200708102158.png)
 
-我在业务代码中也实践过适配器模式。比如，后端接口版本可能有更新迭代，其中字段可能不一样，如果我们在中国区上线了 V1 版本，在美国区上线了 V2 版本，那么同一套前端代码就会收到两份字段不一样的数据。我们可以通过适配器模式来对数据进行兼容，简单演示如下：
+假设你在一家版本管理混乱的公司上班，后端接口版本随时可能更新迭代，但是不一定上线。如果我们在中国区上线了 V1 版本，在美国区上线了 V2 版本，那么同一套前端代码就会收到两份字段不一样的数据。我们可以通过适配器模式来对数据进行兼容，简单演示如下：
 
 ```js
-// v1 data
-{ version: 1, name: '标题' }
-// v2 data
-{ version: 2, title: '标题' }
+const getRandomData = () => {
+    const v1Data = { 
+        version: 1, 
+        name: 'name',
+        nickname: 'nickname'
+    }
+    const v2Data = { 
+        version: 2, 
+        title: 'name',
+        nickName: 'nickname'
+    }
+    const v3Data = { 
+        version: 3, 
+        header: 'name',
+        __NickName: 'nickname'
+    }
+    return [v1Data, v2Data, v3Data][Math.floor(Math.random() * 3)]
+}
 
-ajax('url', {
-    success(data) {
-        const adaptor = {
-            name: data.name || data.title
+/* 业务代码中 */
+ajax('xxxurl', {
+    onSuccess (data = getRandomData()) {
+        const washedData = {
+            ...data,
+            name: data.name || data.title || data.header,
+            nickname: data.nickname || data.nickName || data.__NickName
         }
-        const name = adaptor.name
+
+        // >>> { version: '1|2|3', name: 'name', nickname: 'nickname', /* ... */ }
     }
 })
 ```
 
+等等，不好意思，刚刚放错代码了...
+
+```js
+/* 业务代码中 */
+ajax('xxxurl', {
+    onSuccess(data = getRandomData()) {
+        let nameAdaptor = 
+            genAttrAdaptor('name', 'title', 'header')('name')
+        let nicknameAdaptor = 
+            genAttrAdaptor('nickname', 'nickName', '__NickName')('nickname')
+        
+        // 给 data 应用两种属性适配器
+        let washedData = wash(data, [nameAdaptor, nicknameAdaptor])
+
+        // >>> { version: '1|2|3', name: 'name', nickname: 'nickname' }
+    }
+})
+
+/* 工具函数中 */
+
+// 属性适配器工厂
+const genAttrAdaptor = (...keys) => targetKey => obj => {
+    const res = keys.map(key => obj[key]).find(x => x)
+    keys.map(key => delete obj[key])
+
+    return { ...obj, [targetKey]: res }
+}
+// 清洗函数
+const wash = (obj, handlers) => 
+    handlers.reduce((data, handler) => handler(data), data)
+```
+
+这个适配器看起来阔以，Nice~ 结束。
+
+不过，我们又看到这种类似上一小节提到的“工厂模式”的写法：genAttrAdaptor = function ... ，我猜你会觉得这个例子中的“工厂 genAttrAdaptor”要比上一小节的“Adder”更好理解一些——对，它只是一个“生成器”，“产出”了一些东西，更好理解是因为你了解“工厂”概念，而不必拘泥于传统面向对象思想。
+
+<details>
+    <summary>我用到了类吗？</summary>
+    <p>没有。</p>
+</details>
+
+<details>
+    <summary>用到了原型吗？</summary>
+    <p>没有。</p>
+</details>
+
+<details>
+    <summary>那我在写什么？</summary>
+    <p>函数。</p>
+</details>
+
+函数，函数而已！使用函数是因为在 JS 中，**“函数是一等公民”**，请记住这句话。因为诸如“闭包”、“回调”等概念都和函数有关，若谈论设计模式脱离不开语言特征的话，那扯上函数也没什么问题。JS 是面向对象的语言，没错，但 JS 也是拥有<del>许多</del>一些优秀的语言特征的编程语言，当清楚“设计模式是一种思想”后，设计模式自然而然就内化为了语言自身的概念。
+
+碎碎念：最近政治正确的浪潮拍过来啦，说不定以后就听不到“一等公民”这种叫法啦。
+
 ## 代理模式
 
-程序员熟知的“Great Fire Wall”相关概念中，就有“代理”这个概念。它是代理模式的一种，叫做“动态代理”——我们请求访问谷歌主页时，代理将把我们的请求自动转接到可靠的主机上，我们无需关心具体要连接哪台主机。如果访问某个对象的代理，代理把访问拒绝了，那么该代理称为“保护代理”（就像你的同桌拒绝了你向她提出帮忙向老师请假的要求）。另一种常用的代理是“虚拟代理”，它会对高性能消耗的操作进行延迟处理。比方说，给图片设置 SRC 时，常常弦用 Loading 占位，再异步请求图片，请求完成后再将 SRC 回填至标签——这就是虚拟代理。
+我们看本文将介绍的最后一种设计模式，代理模式。
 
-获取代理可实现的功能增强这种特征看起来很像我们刚刚提到的装饰器模式，它们其实还是有区别滴：代理拦截了对对象的某种访问，可能在拦截时进行了功能增强；装饰器则不含拦截的概念。总之，**代理模式为对象提供一层概念上的“包装”，使其实现控制外部对源对象的访问**。
+你肯定知道“代理”这个概念（我没说“GFW”没说没说），它是代理模式的一种，叫做“动态代理”——我们请求访问谷歌主页时，代理将把我们的请求自动转接到某台可靠的主机上。如果访问某个对象的代理，代理把访问拒绝了，那么该代理称为“保护代理”（就像你的同桌拒绝了你向她提出帮忙向老师请假的要求）。另一种常用的代理是“虚拟代理”，它会对高性能消耗的操作进行延迟处理。比方说，给图片设置 SRC 时，常常先使用 Loading 占位，同时异步请求图片，请求完成后再将 SRC 回填至标签，这样就不会有加载图片时的闪烁现象。还有无数种代理的概念，这里不一一列举了，总之，代理模式为对象提供一层概念上的“包装”，控制外部对源对象的访问。
 
-ES6 原生支持代理模式。对，就是 Vue3 中用到的那个“Proxy”，译为“代理器”。掘金有很多 Vue3 Proxy 分析的文章，这里不对 Vue3 中的 Proxy 再赘述了。以下展示两个使用 Proxy 拦截对象操作的小例子。
+ES6 原生支持代理模式。对，就是 Vue3 里的那个“Proxy”，直译为“代理器”。掘金有很多讲 Vue3 原理分析的文章，肯定绕不开 Proxy，这里不再赘述了。以下展示两个使用 Proxy 拦截对象操作的小例子。
 
 其一，禁止访问对象的下划线开头的属性：
 
 ```js
-function invariant (key, action) {
-  if (key[0] === '_') {
-    throw new Error(`Invalid attempt to ${action} private "${key}" property`)
-  }
-}
 const obj = {}
 const proxy = new Proxy(obj, {
   get (target, key) {
@@ -323,6 +389,12 @@ const proxy = new Proxy(obj, {
     return true
   }
 })
+
+function invariant (key, action) {
+  if (key[0] === '_') {
+    throw new Error(`Invalid attempt to ${action} private "${key}" property`)
+  }
+}
 
 proxy._prop
 // Error: Invalid attempt to get private "_prop" property
