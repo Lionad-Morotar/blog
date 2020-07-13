@@ -35,7 +35,6 @@
         "inline-css": "^2.6.3",
         "markdown-it-footnote": "^3.0.2",
         "markdown-it-katex": "^2.0.3",
-        "mdfigcaption": "^0.1.1",
         "node-cmd": "^3.0.0",
         "node-sass": "^4.13.1",
         "prismjs": "^1.20.0",
