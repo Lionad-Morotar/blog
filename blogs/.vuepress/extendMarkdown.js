@@ -9,9 +9,10 @@ function imageLazyLoadPlugin(md) {
 }
 
 function extendMarkdown(md) {
+    md.use(require('mdfigcaption'))
     md.use(require('markdown-it-katex'))
     md.use(require('markdown-it-toc-done-right'))
-    md.use(imageLazyLoadPlugin)
+    md.use(require('markdown-it-footnote'))
 }
 
 function chainMarkdown(config) {

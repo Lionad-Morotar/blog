@@ -18,6 +18,20 @@
     align-items: center;
 }
 
+.flex-sa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.db {
+    display: block;
+}
+
 .dib {
     display: inline-block;
 }
@@ -41,6 +55,13 @@
 }
 
 /* Margin & Padding */
+.mauto {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .m0 {
     margin: 0 !important;
 }
@@ -51,6 +72,10 @@
 
 .mt1em {
     margin-top: 1em;
+}
+
+.mt2em {
+    margin-top: 2em;
 }
 
 .p010 {
@@ -172,5 +197,19 @@
         filter: blur(var(--blur));
         opacity: var(--dencity);
         z-index: -1;
+    }
+}
+
+img {
+    &[src$='w=30'] {
+        width: 30%;
+    }
+
+    &[src$='w=70'] {
+        width: 70%;
+    }
+
+    &[src$='w=80'] {
+        width: 80%;
     }
 }

@@ -61,6 +61,7 @@ const sidebarConfigs = {
             collapsable: false,
             open: true,
             children: [
+                '设计模式与JS魔法锅',
                 'CSS-Mind-Map',
                 '斑马难题',
                 'CSSAA',

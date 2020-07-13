@@ -1,5 +1,36 @@
 /** Utils | Common Functions */
 
+// @see http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
+const tween = {
+    linear(t, b, c, d) {
+        return (c * t) / d + b
+    },
+    easein(t, b, c, d) {
+        return c * (t /= d) * t * t * t + b
+    },
+    easeout(t, b, c, d) {
+        return c * (t = t / d - 1) * t * t * t + b
+    },
+    strongeasein(t, b, c, d) {
+        return c * (t /= d) * t * t * t * t * t * t + b
+    },
+    easeoutelastic(t, b, c, d) {
+        var s = 1.70158
+        var p = 0
+        var a = c
+        if (t == 0) return b
+        if ((t /= d) == 1) return b + c
+        if (!p) p = d * 0.3
+        if (a < Math.abs(c)) {
+            a = c
+            s = p / 4
+        } else {
+            s = (p / (2 * Math.PI)) * Math.asin(c / a)
+        }
+        return a * Math.pow(2, -10 * t) * Math.sin(((t * d - s) * (2 * Math.PI)) / p) + c + b
+    }
+}
+
 let requestFrameStore = null
 let cancelFrameStore = null
 
@@ -37,6 +68,7 @@ const loadScriptFromURL = (() => {
 })()
 
 const utils = {
+    tween,
     loadScriptFromURL,
     isDev: process.env.NODE_ENV === 'development',
     requestAnimationFrame: cb => {
