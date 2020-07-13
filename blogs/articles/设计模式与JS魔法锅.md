@@ -106,7 +106,7 @@ let result = exec()
 
 关于策略模式，这里有一个更具体的示例。该例子根据选择不同的动画缓动速度策略来控制圆球的转动速度：
 
-<Article-G200708-Animation />
+<Article-A200708-Animation />
 
 ```js
 // 源码见：
