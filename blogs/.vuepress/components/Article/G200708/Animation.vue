@@ -49,12 +49,12 @@ export default {
                 if (continueStep) {
                     this.animation = utils.requestAnimationFrame(step)
                 } else {
-                    setTimeout(() => {
+                    this.animation = setTimeout(() => {
                         this.rotate()
                     }, 700)
                 }
             }
-            this.animation && utils.cancelAnimationFrame(this.animation)
+            this.animation && (utils.cancelAnimationFrame(this.animation), clearTimeout(this.animation))
             this.animation = utils.requestAnimationFrame(step)
         },
         changeType(typeName) {
