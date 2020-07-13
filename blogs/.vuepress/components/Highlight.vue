@@ -22,7 +22,7 @@ export default {
         }
     },
     render(h) {
-        let data = this.content || this.$slots.default[0].text
+        let data = this.content || (this.$slots.default && this.$slots.default[0].text) || ''
         if (this.trim) {
             data = data.replace(/^[ ]+|[ ]+$/g, '')
         }
