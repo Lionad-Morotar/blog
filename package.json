@@ -32,6 +32,7 @@
     "del": "^5.1.0",
     "fibers": "^4.0.2",
     "http-server": "^0.12.1",
+    "markdown-it-footnote": "^3.0.2",
     "markdown-it-katex": "^2.0.3",
     "node-cmd": "^3.0.0",
     "node-sass": "^4.13.1",
