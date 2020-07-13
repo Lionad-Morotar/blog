@@ -52,6 +52,11 @@ module.exports = {
         }
     },
     extendMarkdown(md) {
+        md.use(require('mdfigcaption'))
+        md.use(require('markdown-it-katex'))
+        md.use(require('markdown-it-toc-done-right'))
+        md.use(require('markdown-it-footnote'))
+
         function imageLazyLoadPlugin(md) {
             const defaultImageRenderer = md.renderer.rules.image
             md.renderer.rules.image = function(tokens, idx, options, env, self) {
@@ -82,9 +87,6 @@ module.exports = {
         }
 
         md.use(imageLazyLoadPlugin)
-        md.use(require('markdown-it-katex'))
-        md.use(require('markdown-it-toc-done-right'))
-        md.use(require('markdown-it-footnote'))
     },
 
     /** plugins */

@@ -74,12 +74,19 @@
         background: #7A5160;
     }
 
-    & > img, & > p > img {
+    & > img, & > p > img, & > figure> img {
         box-sizing: border-box;
         display: block;
         margin: 1.6em auto;
+        margin-bottom: 0;
         vertical-align: middle;
         border: solid 1px;
+
+        & + figcaption {
+            margin-top: 0.3em;
+            text-align: center;
+            font-size: 12px;
+        }
     }
 
     & > img {
@@ -411,7 +418,7 @@
             border: none;
         }
 
-        & > p > img {
+        & > p > img, & > figure> img {
             margin: 0 auto;
         }
     }
