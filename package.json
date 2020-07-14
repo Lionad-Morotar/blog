@@ -9,6 +9,7 @@
         "build": "vuepress build blogs",
         "test": "npm run build && http-server -c0 ./dist",
         "upload": "node ./upload",
+        "upload-rss": "node ./upload --rss",
         "post": "npm run build && npm run upload"
     },
     "repository": {
