@@ -1,6 +1,21 @@
 # 面试复习
 
+[TOC]
+
 ## JavaScript
+
+### 数值
+
+<details open>
+    <summary>在 JS 种，'1'+1 以及 1+'1' 的结果分别是什么？</summary>
+    <p>
+        加法运算符任意操作数为 String 类型，那么会将另一侧用 ToString 转换后，再相加。所以答案是，都为 '11'。
+        这主要涉及到 JS 中的隐式类型转换问题。JS 是弱类型语言，一般而言，不同类型数据之间可以互相转换。
+        进一步了解可以看看这篇：<a href="./interview-prepare/corceion.html">隐式转换</a>
+    </p>
+</details>
+
+### ===
 
 <details open>
     <summary>JavaScript 模块化发展历程有了解过吗？</summary>
