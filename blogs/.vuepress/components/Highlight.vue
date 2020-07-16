@@ -24,7 +24,9 @@ export default {
     render(h) {
         let data = this.content || (this.$slots.default && this.$slots.default[0].text) || ''
         if (this.trim) {
-            data = data.replace(/^[ ]+|[ ]+$/g, '')
+            data = this.content
+                ? data.replace(/^[ ]+|[ ]+$/g, '')
+                : data.slice(data.search(/[^\n]/), data.search(/[^\n\s]\n\s*$/) + 1)
         }
         if (this.cutTab) {
             const splits = data.split(/\n/)
