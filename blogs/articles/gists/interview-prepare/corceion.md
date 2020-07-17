@@ -1,5 +1,13 @@
 # 隐式转换
 
+能回答出以下问题并指出具体原理，就不用继续看了。
+
+1. 1 + 1 + '2'
+2. ('b' + 'a' + + 'a' + 'a').toLowerCase()
+3. 1 === [[[1]]]
+4. ([] == []) === ([] == ![])
+5. 1 <= NaN || 1 >= NaN
+
 ## 快速查阅
 
 * 不同类型转数字：
@@ -144,3 +152,4 @@ PreferredType 用来表明想转换到哪种原始值类型，比数组索引中
 ## 阅读更多
 
 * [规范中的 ToPrimitive 抽象操作](https://segmentfault.com/a/1190000016325587)
+* [Static Semantics meaning?](https://stackoverflow.com/questions/40430578/static-semantics-meaning)
