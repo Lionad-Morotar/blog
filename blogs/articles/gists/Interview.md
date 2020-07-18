@@ -4,7 +4,7 @@
 
 ## JavaScript
 
-### 数值
+### 数值与对象
 
 <details open>
     <summary>在 JS 种，'1'+1 以及 1+'1' 的结果分别是什么？</summary>
@@ -12,6 +12,13 @@
         加法运算符任意操作数为 String 类型，那么会将另一侧用 ToString 转换后，再相加。所以答案是，都为 '11'。
         这主要涉及到 JS 中的隐式类型转换问题。JS 是弱类型语言，一般而言，不同类型数据之间可以互相转换。
         进一步了解可以看看这篇：<a href="./interview-prepare/corceion.html">隐式转换</a>
+    </p>
+</details>
+
+<details open>
+    <summary>在 `const obj = { /* ____ */ b: '2', a: '3' }` 空缺部分填什么才能使 obj 在控制台的输出为 `{ a: '3', b: '2' }`？</summary>
+    <p>
+        填写带任意值的 a 属性都可以，如 `a: 1,`，因为如果后定义的属性与先定义的属性冲突，则会替换掉先定义属性的值，但是值顺序不变。
     </p>
 </details>
 
@@ -240,6 +247,15 @@
 ### doing
 
 ## 浏览器
+
+<details open>
+    <summary>先简单介绍一下浏览器的事件捕获机制？</summary>
+    <p>
+        浏览器的事件传播分为三个阶段：Capture、Target、Bubble，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。
+        事件捕获发生在 Bubble 阶段，但是可以在事件监听时使用 useCapture 参数指定某回调函数在 Capture 阶段触发。
+        <img class="db mauto" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200717182112.png" />
+    </p>
+</details>
 
 <details open>
     <summary>跨标签页通讯有哪些方案？</summary>
