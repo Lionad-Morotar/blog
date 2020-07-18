@@ -46,6 +46,11 @@ module.exports = {
         nextLinks: false,
         prevLinks: false
     },
+    locales: {
+        '/': {
+            lang: 'zh'
+        }
+    },
 
     /** markdown config */
     markdown: {
