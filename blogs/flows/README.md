@@ -1,3 +1,8 @@
+
+<flow>这个网站不包含任何 JS 代码：<p class="m0"><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">https://www.swiftbysundell.com/articles/</a></p>
+<name><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">swiftbysundell</a></name><time>2020年7月18日 19点25分</time>
+</flow>
+
 <flow>几种创造倾斜文本的方法：
 <ul>
     <div>1. em tag；</div>
@@ -6,11 +11,11 @@
     <div>4：Unicode；</div>
     <div>5：Variable fonts；</div>
 </ul>
-<name><a href="[Safari 14 Beta 版发布](https://zhuanlan.zhihu.com/p/153470955)" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
+<name><a href="https://css-tricks.com/how-to-italicize-text/" rel="noopener noreferrer" target="_blank">Chris Coyier</a></name><time>2020年7月18日 19点25分</time>
 </flow>
 
 <flow>Safari 14 将会支持 WebP、浏览器扩展、网页翻译、视频画中画、BigInt 等功能。
-<name><a href="[Safari 14 Beta 版发布](https://zhuanlan.zhihu.com/p/153470955)" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
+<name><a href="https://zhuanlan.zhihu.com/p/153470955" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
 </flow>
 
 <flow>IaaS 时代，基础设施即服务，用户不再需要购买实体硬件设施，预示着云计算时代的开启；
@@ -60,6 +65,9 @@ name {
     margin-right: 1em;
     font-family: var(--font-text--bold);
     font-weight: bold;
+}
+name::first-letter {
+    text-transform: uppercase;
 }
 </style>
 
