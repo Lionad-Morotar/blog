@@ -1,3 +1,14 @@
+<flow>几种创造倾斜文本的方法：
+<ul>
+    <div>1. em tag；</div>
+    <div>2. i tag；</div>
+    <div>3.font-style；</div>
+    <div>4：Unicode；</div>
+    <div>5：Variable fonts；</div>
+</ul>
+<name><a href="[Safari 14 Beta 版发布](https://zhuanlan.zhihu.com/p/153470955)" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
+</flow>
+
 <flow>Safari 14 将会支持 WebP、浏览器扩展、网页翻译、视频画中画、BigInt 等功能。
 <name><a href="[Safari 14 Beta 版发布](https://zhuanlan.zhihu.com/p/153470955)" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
 </flow>
