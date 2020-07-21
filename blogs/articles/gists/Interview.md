@@ -25,6 +25,13 @@
 ### 常用函数
 
 <details open>
+    <summary>Object.seal 和 Object.freeze 有什么不同？</summary>
+    <p>
+        Seal 阻止对一个对象添加或删除属性；Freeze 在 Seal 的基础上，还使属性的值不可修改。
+    </p>
+</details>
+
+<details open>
     <summary>Number.isNaN 和 isNaN 的不同之处？</summary>
     <p>
         isNaN 会对传入的值进行 toNumber 转换，而 Number.isNaN 不会。详细分析见这里：<a href="./interview-prepare/not-a-number.html">Number.isNaN VS isNaN</a>。
@@ -495,7 +502,7 @@
 <details open>
     <summary>为什么要增强页面的可访问性？</summary>
     <p>
-        增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用处理性能底下、低网速的设备的人等。
+        增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用处理性能底下或带宽低的设备的人等。
     </p>
 </details>
 
