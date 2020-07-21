@@ -22,7 +22,16 @@
     </p>
 </details>
 
-### ===
+### 常用函数
+
+<details open>
+    <summary>Number.isNaN 和 isNaN 的不同之处？</summary>
+    <p>
+        isNaN 会对传入的值进行 toNumber 转换，而 Number.isNaN 不会。详细分析见这里：<a href="./interview-prepare/not-a-number.html">Number.isNaN VS isNaN</a>。
+    </p>
+</details>
+
+### 待整理
 
 <details open>
     <summary>JavaScript 模块化发展历程有了解过吗？</summary>
