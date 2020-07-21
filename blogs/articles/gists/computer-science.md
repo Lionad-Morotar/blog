@@ -282,6 +282,7 @@
 
 ## 阅读更多
 
+* [十进制小数转化为二进制小数](https://www.runoob.com/w3cnote/decimal-decimals-are-converted-to-binary-fractions.html)
 * [补码@Wiki](https://www.wikiwand.com/zh-cn/%E4%BA%8C%E8%A3%9C%E6%95%B8)
 * [己有原码, 为何还有反码和补码？](https://blog.csdn.net/weixin_30954607/article/details/98083529?utm_medium=distribute.pc_relevant.none-task-blog-baidujs-4)
 * [原码, 反码, 补码详解](https://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html)

@@ -22,6 +22,14 @@
     </p>
 </details>
 
+<details open>
+    <summary>能不能说说为什么 0.1 + 0.2 !== 0.3 ？</summary>
+    <p>
+        JS 使用 IEEE-754 标准的双精度浮点数表示数字，0.1 和 0.2 转换为双精度浮点数之后，小数部分不能被精确表示，导致精度丢失。
+        进一步了解可以看看这篇：<a href="./interview-prepare/number-in-js.html">JS中的数值</a>
+    </p>
+</details>
+
 ### 常用函数
 
 <details open>
