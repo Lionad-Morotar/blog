@@ -35,7 +35,6 @@
         "http-server": "^0.12.1",
         "inline-css": "^2.6.3",
         "markdown-it-footnote": "^3.0.2",
-        "markdown-it-katex": "^2.0.3",
         "node-cmd": "^3.0.0",
         "node-sass": "^4.13.1",
         "prismjs": "^1.20.0",

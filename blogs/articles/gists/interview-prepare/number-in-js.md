@@ -18,15 +18,15 @@
 
 ![IEEE-754 Double](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200721223451.png)
 
-从图中可以发现，64 位被划分为了 Sign、Exponent 和 Mantissa 三个域，意义分别如下：
+从图中可以发现，64 位被划分为了 sign、exponent 和 mantissa 三个域，意义分别如下：
 
-* Sign：阶符，0 表示数值位正，1 表示数值为负。
-* Exponent：阶码，使用补码表示。
-* Mantissa：尾数，用来表示精确度。
+* sign：阶符位，0 表示数值位正，1 表示数值为负。
+* exponent：阶码位，使用补码表示。
+* mantissa：尾数位，用来表示精确度。
 
-按照 IEEE-754 标准，数字的真实值，可以使用三个域相关的表达式来表示：
+按照 IEEE-754 标准，数字的真实值，可以这个公式来表示：
 
-$Number Value = (-1)^{Sign} * 1.Mantissa * 2^{Exponent}$
+$$\boxed{Value = (-1)^{S} * 1.M * 2^E}$$
 
 可以发现，$1.Mantissa * 2^{Exponent}$ 是数值位的二进制科学计数表示法。因为二进制科学计数法的数值部分的第一位一定是 1，所以 Mantissa 部分省略了这个 1。如 1.2 存储时只储存 2，计算机若读取该值，默认会加上前面的 1。这样做可以使 Mantissa 部分多出一位有效数字，所以可以提高浮点数的精度。
 

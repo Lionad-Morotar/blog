@@ -128,7 +128,7 @@ module.exports = {
             ]
         },
         'vuepress-plugin-mathjax': {
-            target: 'svg',
+            target: 'chtml',
             macros: {
                 '*': '\\times'
             }
