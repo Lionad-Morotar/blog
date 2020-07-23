@@ -65,6 +65,13 @@ module.exports = {
     /** plugins */
 
     plugins: {
+        '@vuepress/last-updated': {
+            transformer: (timestamp, lang) => {
+                const moment = require('moment')
+                moment.locale(lang)
+                return moment(timestamp).format('MMMM DD YYYY HH:mm')
+            }
+        },
         'named-chunks': {
             pageChunkName: page => {
                 const defaultName = page.key.slice(1)
