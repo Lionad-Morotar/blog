@@ -9,11 +9,11 @@ My personal websites，build with VuePress, you can visit at here: [http://www.l
 
 ## Homepage
 
-![Homepage](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/gists/2020-05-28-02-38-22_1920.gif)
+<img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/home.png" alt="Homepage" style="border: 1px solid" />
 
 ## Readpage
 
-![Homepage](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/browser_AglRWSCUjO.png)
+<img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/browser_AglRWSCUjO.png" alt="main page" style="border: 1px solid" />
 
 ## Components
 
@@ -57,9 +57,9 @@ Catch mouse events, mousewheel events and mobile events.
 
 ### Sparkles
 
-Create anything with bling-bling-stars.
+Create bling-bling-stars.
 
-![Homepage](./blogs/.vuepress/public/mgear/assets/bling.gif)
+![Homepage](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/bling.gif)
 
 * Usage
 
