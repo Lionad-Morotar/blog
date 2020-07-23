@@ -78,3 +78,16 @@ Create bling-bling-stars.
     maxDelay, // 最大生成延迟
 }
 ```
+
+### Mathjax
+
+![Homepage](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/2020-07-23-17-07-37.png)
+
+* usage
+
+```md
+<details>
+  <summary>一句话解释为什么 <Math>$0.1 + 0.2 != 0.3$</Math></summary>
+  <p><Math>$a(\approx 0.1) + b(\approx 0.2) \approx 0.3$</Math></p>
+</details>
+```
