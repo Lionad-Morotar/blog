@@ -48,6 +48,63 @@ const defaultName = 'Lionad'
 callMe()
 ```
 
+<details>
+    <summary>Declaration | 以下代码会输出什么？</summary>
+    <p>1 和 Error。注意，y 会被声明为全局变量，如果你想避免这种情况发生，那就使用严格模式吧。</p>
+</details>
+
+
+```js
+(function(){
+  var x = y = 1
+})()
+
+console.log(y)
+console.log(x)
+```
+
+## Number
+
+<details>
+    <summary>Operator | 以下代码会输出什么？</summary>
+    <p>答案是 2；注意符号之间有空格，所以别误认为出现了自增符号。</p>
+</details>
+
+```js
+console.log(1 + - + + + - + 1)
+```
+
+<details>
+    <summary>Number | 以下代码会输出什么？</summary>
+    <p>Number.MIN_VALUE 意味着在 JS 中最接近 0 的数，它大于 0。</p>
+</details>
+
+```js
+console.log(Number.MIN_VALUE > 0)
+```
+
+<details>
+    <summary>Number.parseInt | 以下代码会输出什么？</summary>
+    <p>parseInt 意味着将某个数字转换为 10 进制数显示，第二个参数需传入该数字的原本进制。第一条语句输出 NaN，因为 3 非二进制；第二条语句输出 3，因为传入错误的进制数会导致回退回十进制；第三条语句输出“1 NaN 3”，因为 replace 会给其回调函数传入不止一个参数。实际上可看作 parseInt 调用了 [[1, 0], [2, 2], [3, 4]]</p>
+</details>
+
+```js
+console.log(parseInt(3, 2))
+console.log(parseInt(3, 0))
+console.log("1 2 3".replace(/\d/g, parseInt))
+```
+
+## Array
+
+<details>
+    <summary>Array | 以下表达式的值是多少？</summary>
+    <p>“[,,]”。尽管 map 函数会跳过数组空项，但是 join 不会。同时，因为 JS 允许数组末尾空格，所以 [,,,] 只包含 3 个空项。</p>
+</details>
+
+```js
+[,,,].join(", ")
+```
+
 ## Object
 
 <details>
@@ -124,3 +181,4 @@ export const sum = (a, b) => a + b;
 ## 阅读更多
 
 * [JavaScript Questions](https://github.com/lydiahallie/javascript-questions)
+* [JavaScript Puzzlers!](http://javascript-puzzlers.herokuapp.com/)
