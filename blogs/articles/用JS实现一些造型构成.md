@@ -12,8 +12,11 @@
 
 <br />
 
-<Article-A200403-CSSPatterns />
-<Article-A200403-CSSPatterns-2 />
+（打包出来的 CSS 体积太大了，影响首页性能，暂时把这玩意儿去掉，TODO Refactor
+<!-- 
+  <Article-A200403-CSSPatterns />
+  <Article-A200403-CSSPatterns-2 />
+ -->
 
 ## Lenses Boom
 
@@ -21,10 +24,10 @@
 
 <img
   srcset="
-    http://image.lionad.art/mgear/image/2020-04-03-10-48-22_480.png 480w,
-    http://image.lionad.art/mgear/image/2020-04-03-10-48-22_960.png 960w,
-    http://image.lionad.art/mgear/image/2020-04-03-10-48-22_1440.png 1440w"
-  src="http://image.lionad.art/mgear/image/2020-04-03-10-48-22_1440.png"
+    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/2020-04-03-10-48-22_480.png 480w,
+    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/2020-04-03-10-48-22_960.png 960w,
+    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/2020-04-03-10-48-22_1440.png 1440w"
+  src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/2020-04-03-10-48-22_1440.png"
   alt="效果图"
 />
 

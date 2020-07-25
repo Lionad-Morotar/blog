@@ -1,11 +1,11 @@
 const fs = require('fs')
-const path = require('path')
 
 console.log('Node Env Test : ', process.env.NODE_ENV)
-const baseDir = __dirname
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
 const gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
+const awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
+const secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -16,16 +16,18 @@ const getSrc = src => {
     const filenames = []
     const fileTypes = /\.md$/
     const mainFiles = ['index.md', 'README.md']
-    try {
-        fs.readdirSync(src).forEach(file => {
-            if (fileTypes.test(file) > 0) {
-                if (!mainFiles.includes(file)) {
-                    filenames.push(file.replace('.md', ''))
+    if (fs && fs.readdirSync) {
+        try {
+            fs.readdirSync(src).forEach(file => {
+                if (fileTypes.test(file) > 0) {
+                    if (!mainFiles.includes(file)) {
+                        filenames.push(file.replace('.md', ''))
+                    }
                 }
-            }
-        })
-    } catch (err) {
-        console.error('Error in getSRC : ', err)
+            })
+        } catch (err) {
+            console.error('Error in getSRC : ', err)
+        }
     }
     filenames.sort()
     return filenames
@@ -40,6 +42,7 @@ const sidebarConfigs = {
             collapsable: false,
             childrenGen: list => list.map(x => 'flow/' + x),
             childrenRaw: [
+                '关于标点的那些事儿',
                 '权力斗争中的误导与假设',
                 '2019',
                 '万物联结与幸福感',
@@ -48,7 +51,6 @@ const sidebarConfigs = {
                 '追寻自由与满怀希望',
                 '表达和孤独',
                 '文字与情绪',
-                '使用英文点号',
                 '一封沉默',
                 '我的腼腆'
             ]
@@ -59,8 +61,12 @@ const sidebarConfigs = {
             collapsable: false,
             open: true,
             children: [
+                '设计模式与JS魔法锅',
+                'CSS-Mind-Map',
+                '斑马难题',
+                'CSSAA',
                 '你可以用纯CSS判断鼠标进入的方向吗',
-                '9张看面试题也写不出来的CSS图案',
+                '9种CSS图案解析',
                 '用JS实现一些造型构成',
                 '从一张CSS风景画中学到的东西',
                 '有关CSS的一些极有趣的东西',
@@ -77,7 +83,15 @@ const sidebarConfigs = {
             title: 'Memo / Gists',
             collapsable: true,
             childrenGen: list => list.map(x => 'gists/' + x),
-            childrenRaw: getSrc(gistsDir)
+            childrenRaw: getSrc(gistsDir),
+            flag: 'G'
+        },
+        {
+            title: 'Awesome',
+            collapsable: true,
+            childrenGen: list => list.map(x => 'awesome/' + x),
+            childrenRaw: getSrc(awesomeDir),
+            flag: 'C'
         },
         {
             title: '吉他 / Plays',
@@ -91,6 +105,13 @@ const sidebarConfigs = {
                 '163/WuWei',
                 '163/无题'
             ]
+        },
+        {
+            title: 'Secrets',
+            collapsable: true,
+            childrenGen: list => list.map(x => 'secrets/' + x),
+            childrenRaw: getSrc(secretsDir),
+            flag: 'S'
         }
     ]
 }

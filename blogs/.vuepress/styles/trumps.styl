@@ -1,0 +1,29 @@
+/* 这段规则会使下一段规则（something-padding）失效
+ * TODO 检查问题所在
+ */
+.navbar {
+    .nav-item {
+        animation: background-move linear infinite;
+        animation-play-state: paused;
+        animation-duration: 1s;
+    }
+}
+
+/* ********************************************** Selection */
+::something-padding {
+    something-padding: 'do not delete';
+}
+
+.navbar {
+    .nav-item:hover {
+        animation-play-state: running;
+    }
+}
+
+/* ********************************************** */
+.page > .content__default .CodeMirror {
+    pre {
+        margin-top: unset;
+        padding: unset;
+    }
+}

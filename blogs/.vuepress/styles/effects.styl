@@ -1,0 +1,22 @@
+body {
+    &::after {
+        content: 'Yeah~';
+        display: block;
+        position: fixed;
+        left: var(--pagex, 0);
+        top: var(--pagey, 0);
+        font-size: 12px;
+        font-weight: thin;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity var(--timing-slow);
+        transition-timing-function: cubic-bezier(0, 1, 0, 1);
+        pointer-events: none;
+    }
+
+    &:active::after {
+        opacity: 1;
+        transition: 0;
+        transition-timing-function: cubic-bezier(1, 0, 1, -1.3);
+    }
+}

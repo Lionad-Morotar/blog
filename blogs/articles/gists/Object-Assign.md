@@ -13,40 +13,32 @@
 
 ## 用例
 
-<CodeBlock
-    :border="true"
-    height="600px"
-    :visiblePans="['js','console']"
-    :js="require('!!raw-loader!./codes/Object-Assign/usage.js').default"
+<Highlight
+    lang="js"
+    :content="require('!!raw-loader!./codes/Object-Assign/usage.js').default"
 />
 
 ## 细节
 
 最有意思的是第四条规则，查阅 MDN 后发现，不仅源对象为 Null 或者 Undefined，为其它的原始类型，也会被包装成对象。
 
-<CodeBlock
-    :border="true"
-    height="400px"
-    :visiblePans="['js','console']"
-    :js="require('!!raw-loader!./codes/Object-Assign/1.js').default"
+<Highlight
+    lang="js"
+    :content="require('!!raw-loader!./codes/Object-Assign/1.js').default"
 />
 
 其实 Object.assign 不仅仅能拷贝属性，它也能拷贝访问器，如下：
 
-<CodeBlock
-    :border="true"
-    height="400px"
-    :visiblePans="['js','console']"
-    :js="require('!!raw-loader!./codes/Object-Assign/2.js').default"
+<Highlight
+    lang="js"
+    :content="require('!!raw-loader!./codes/Object-Assign/2.js').default"
 />
 
 ## 实现
 
-<CodeBlock
-    :border="true"
-    height="600px"
-    :visiblePans="['js','console']"
-    :js="require('!!raw-loader!./codes/Object-Assign/polyfill.js').default"
+<Highlight
+    lang="js"
+    :content="require('!!raw-loader!./codes/Object-Assign/polyfill.js').default"
 />
 
 ## Lodash

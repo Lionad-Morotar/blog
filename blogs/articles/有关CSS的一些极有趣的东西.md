@@ -18,7 +18,7 @@ h2 {
 
 一张图展示其迷人之处：
 
-![Variable fonts](http://image.lionad.art/mgear/image/2019-11-21-02-03-38.gif)
+![Variable fonts](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/2019-11-21-02-03-38.gif)
 
 这里有一个展示其强大排版能力的示例页面：
 
@@ -152,3 +152,9 @@ $con.style.setProperty('--theme-color', 'gray')
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 不知道你酸了没有，反正我是酸了。
+
+## 阅读更多
+
+希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
+
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~</p></JJ>

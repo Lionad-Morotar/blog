@@ -1,0 +1,182 @@
+/* ********************************************** 整体样式 */
+#valine-vuepress-comment {
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    max-width: 60rem;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 2000px) {
+    #valine-vuepress-comment {
+        padding-left: 12rem;
+        max-width: 70rem;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    #valine-vuepress-comment {
+        padding-left: 8rem;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    #valine-vuepress-comment {
+        padding-left: 2.5rem;
+    }
+}
+
+@media (max-width: 750px) {
+    #valine-vuepress-comment {
+        padding: 1.5rem;
+    }
+}
+
+/* ********************************************** 局部调整 */
+#valine-vuepress-comment {
+    .vwrap {
+        border: solid 2px;
+        border-radius: 1px;
+
+        .cancel-reply {
+            margin: 0;
+        }
+
+        .vheader .vinput {
+            border-bottom: dashed 2px;
+            font-family: var(--font-text--bold);
+            font-weight: bold;
+            font-family: consolas;
+        }
+
+        .vheader, .vedit, #veditor {
+            font-family: var(--font-text--general);
+            letter-spacing: 0.5px;
+            transition: none;
+        }
+
+        .vrow {
+            position: relative;
+            // top: -30px;
+            padding: 0;
+
+            .vcol-30, .status-bar, .markdown {
+                display: none;
+            }
+
+            .vcol-70 {
+                width: 100%;
+
+                .vsubmit {
+                    background: var(--theme-black);
+                    color: var(--color-background);
+                    font-family: var(--font-text--bold);
+                    font-weight: bold;
+                    border: none;
+                    border-radius: 1px;
+                }
+            }
+
+            .vctrl {
+                position: relative;
+                top: 30px;
+                padding-left: 0.5em;
+                float: left;
+                text-align: left;
+                z-index: 1;
+            }
+        }
+
+        .vedit .vrow {
+            padding: 0;
+        }
+
+        .vemojis, .vpreview {
+            margin-top: 8px;
+            background: #f8f8f8;
+        }
+    }
+
+    .vcard {
+        .vhead {
+            .vnick {
+                text-transform: capitalize;
+            }
+
+            .vnick:hover {
+                color: inherit;
+                cursor: inherit;
+            }
+
+            a.vnick:hover {
+                color: #d7191a;
+                cursor: pointer;
+            }
+        }
+
+        .vmeta {
+            user-select: none;
+        }
+
+        .vsys {
+            display: none;
+        }
+
+        .vimg {
+            border-radius: unset;
+            user-select: none;
+        }
+
+        .vcontent {
+            font-size: 1em;
+
+            & > p {
+                text-transform: capitalize;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                & a {
+                    text-transform: none;
+                }
+            }
+
+            &.expand {
+                $offset = 0.8;
+
+                &::before {
+                    background: linear-gradient(180deg, transparent, alpha(white, $offset));
+                }
+
+                &::after {
+                    background: linear-gradient(180deg, alpha(white, $offset), alpha(white, 1));
+                }
+            }
+        }
+    }
+
+    .vpower {
+        display: none;
+
+        &::before {
+            content: 'Comments / ';
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    #valine-vuepress-comment {
+        .vwrap {
+            border: solid 1px;
+        }
+
+        .vcard {
+            .vimg {
+                position: absolute;
+                right: 0;
+                top: 0.3rem;
+                margin: 0;
+            }
+        }
+    }
+}

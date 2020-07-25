@@ -1,8 +1,10 @@
 const path = require('path')
+const pinyin = require('chinese-to-pinyin')
 
 const sidebar = require('./sidebar')
 const headLink = require('./headLink')
 const configureWebpack = require('./webpack.config.js')
+const { chainMarkdown, extendMarkdown } = require('./extendMarkdown')
 
 const valineID = require('./secrets/valine-id').default
 const valineKey = require('./secrets/valine-key').default
@@ -17,17 +19,18 @@ module.exports = {
 
     title: 'Lionad Blogs',
     description:
-        'Lionad Guirotar Blogs 是老虎贪玩儿的个人专栏。其中有给技术人员查阅的技术文章，给文艺青年阅读的杂文散文，还有老虎的一些个人动态。做一个极客范的程序员，我在前端、设计、写作、音乐等方面都有兴趣学习。除了个人资料，用户也可以在今后的首页找到与技术及阅读相关的最新资料与合集。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，我相信你能在这找到一些乐趣。',
-    keywords: 'Lionad,Guirotar,老虎贪玩儿,博客,写作,前端,设计,指弹,吉他',
+        'Lionad Blogs 是仿生狮子的个人专栏。其中有技术文章、杂文散文，或是狮子的个人动态。他是前端工程师，也是未来的独立游戏开发，此外他对设计、音乐和写作都颇感兴趣。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，相信你能在这找到一些乐趣。',
+    keywords: 'Lionad,Guirotar,仿生狮子,博客,写作,前端,设计,写作,游戏,指弹,吉他',
     robots: 'index,archive',
-    author: 'Lionad|老虎贪玩儿',
-    copyright: 'lionad版权所有',
+    author: 'Lionad|仿生狮子',
+    copyright: 'Lionad版权所有',
     head: headLink,
 
     /** theme config */
 
     theme: path.join(__dirname, './components/Theme/Enhance'),
     themeConfig: {
+        lastUpdated: '本文最后更新于',
         smoothScroll: true,
         search: false,
         nav: [
@@ -43,53 +46,45 @@ module.exports = {
         nextLinks: false,
         prevLinks: false
     },
+    locales: {
+        '/': {
+            lang: 'zh'
+        }
+    },
 
     /** markdown config */
     markdown: {
         anchor: {
             permalink: false
-        }
+        },
+        toc: false,
+        extendMarkdown
     },
-    extendMarkdown(md) {
-        function imageLazyLoadPlugin(md) {
-            const defaultImageRenderer = md.renderer.rules.image
-            md.renderer.rules.image = function(tokens, idx, options, env, self) {
-                const token = tokens[idx]
-
-                /* 处理 SRC */
-                // const src = token.attrGet('src')
-                // token.attrSet('data-src', src)
-                // const srcIdx = token.attrIndex('src')
-                // if (srcIdx !== -1) {
-                //     token.attrs.splice(srcIdx, 1)
-                // }
-
-                /* 处理 ClassName */
-                // const classnames = token.attrGet('class')
-                // // const modClassnames = (classnames || '')
-                // //     .split(' ')
-                // //     .push('lozad')
-                // //     .join(' ')
-                // const modClassnames = 'lozad'
-                // token.attrSet('class', modClassnames)
-
-                /* 原生懒加载 */
-                token.attrSet('loading', 'lazy')
-
-                return defaultImageRenderer(tokens, idx, options, env, self)
-            }
-        }
-
-        md.use(imageLazyLoadPlugin)
-        md.use(require('markdown-it-katex'))
-        md.use(require('markdown-it-toc-done-right'))
-    },
+    chainMarkdown,
 
     /** plugins */
 
     plugins: {
-        '@vuepress/google-analytics': {
-            ga: 'UA-142194237-1'
+        'named-chunks': {
+            pageChunkName: page => {
+                const defaultName = page.key.slice(1)
+                const pinyinName = pinyin(page.title || defaultName, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
+                return pinyinName
+            },
+            layoutChunkName: layout => 'layout-' + layout.componentName
+        },
+        'vuepress-plugin-medium-zoom': {
+            selector:
+                '.theme-default-content > img,' +
+                '.theme-default-content > p > img,' +
+                '.theme-default-content > ul > li > img,' +
+                '.theme-default-content > ol > li > img',
+            delay: 1000,
+            options: {
+                margin: 24,
+                background: 'var(--color-background)',
+                scrollOffset: 0
+            }
         },
         'vuepress-plugin-comment': {
             choosen: 'valine',
@@ -101,7 +96,41 @@ module.exports = {
                 avatar: 'robohash',
                 pageSize: '50',
                 highlight: false,
-                recordIP: true
+                recordIP: true,
+                visitor: true
+            }
+        },
+        'rss-feed': {
+            username: 'Lionad',
+            hostname: 'http://lionad.art',
+            selector: '.content__default',
+            count: 10,
+            filter: page => {
+                const shouldConvert = /^articles\/((flow\/)|([^\/]*\.md$))/.test(page.relativePath)
+                shouldConvert && console.log(page.relativePath)
+                return shouldConvert
+            }
+        },
+        sitemap: {
+            hostname: 'http://lionad.art',
+            changefreq: 'weekly'
+        },
+        robots: {
+            host: 'http://lionad.art',
+            disallowAll: false,
+            sitemap: '/sitemap.xml',
+            policies: [
+                {
+                    userAgent: '*',
+                    disallow: ['/gists'],
+                    allow: ['/articles', '/flows', '/friends', 'rss.xml']
+                }
+            ]
+        },
+        'vuepress-plugin-mathjax': {
+            target: 'chtml',
+            macros: {
+                '*': '\\times'
             }
         }
     },

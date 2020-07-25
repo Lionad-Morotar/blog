@@ -51,8 +51,8 @@ function serializeQuery(obj = {}) {
  * @param {url} url 默认为当前页面地址
  */
 function getQuery(name, url = window.location.href) {
-    const match = url.match(new RegExp(`${name}=([^&]*)`))
-    return match ? match[1] : null
+    const match = url.match(new RegExp(`[?|&]${name}=([^&$]+)`))
+    return match ? decodeURI(match[1]) : null
 }
 
 /** add

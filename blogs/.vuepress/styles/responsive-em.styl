@@ -1,0 +1,67 @@
+/* * response page padding */
++page-content() {
+    box-sizing: border-box;
+    max-width: 60rem;
+}
+
+@media screen and (min-width: 2000px) {
+    +page-content() {
+        padding-left: 12rem;
+        max-width: 70rem;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    +page-content() {
+        padding-left: 8rem;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    +page-content() {
+        padding-left: 2.5rem;
+    }
+}
+
+@media (max-width: 750px) {
+    +page-content() {
+        padding: 1.5rem;
+    }
+}
+
+/* * response em */
+@media (-moz-min-device-pixel-ratio: 1.09) and (-moz-max-device-pixel-ratio: 1.18), (-webkit-min-device-pixel-ratio: 1.09) and (-webkit-max-device-pixel-ratio: 1.18), (min-resolution: 1.09dppx) and (max-resolution: 1.18dppx) {
+    html, body, :root {
+        font-size: 14px;
+    }
+}
+
+@media (-moz-min-device-pixel-ratio: 1.19) and (-moz-max-device-pixel-ratio: 1.28), (-webkit-min-device-pixel-ratio: 1.19) and (-webkit-max-device-pixel-ratio: 1.28), (min-resolution: 1.19dppx) and (max-resolution: 1.28dppx) {
+    html, body, :root {
+        font-size: 13px;
+    }
+}
+
+@media (-moz-min-device-pixel-ratio: 1.29) and (-moz-max-device-pixel-ratio: 1.4), (-webkit-min-device-pixel-ratio: 1.29) and (-webkit-max-device-pixel-ratio: 1.4), (min-resolution: 1.29dppx) and (max-resolution: 1.4dppx) {
+    html, body, :root {
+        font-size: 12px;
+    }
+}
+
+@media (-moz-min-device-pixel-ratio: 1.41) and (-moz-max-device-pixel-ratio: 1.6), (-webkit-min-device-pixel-ratio: 1.41) and (-webkit-max-device-pixel-ratio: 1.6), (min-resolution: 1.41dppx) and (max-resolution: 1.6dppx) {
+    html, body, :root {
+        font-size: 10px;
+    }
+}
+
+@media (-moz-min-device-pixel-ratio: 1.61) and (-moz-max-device-pixel-ratio: 1.8), (-webkit-min-device-pixel-ratio: 1.61) and (-webkit-max-device-pixel-ratio: 1.8), (min-resolution: 1.61dppx) and (max-resolution: 1.8dppx) {
+    html, body, :root {
+        font-size: 9px;
+    }
+}
+
+@media (-moz-min-device-pixel-ratio: 1.81) and (-moz-max-device-pixel-ratio: 2.1), (-webkit-min-device-pixel-ratio: 1.81) and (-webkit-max-device-pixel-ratio: 2.1), (min-resolution: 1.81dppx) and (max-resolution: 2.1dppx) {
+    html, body, :root {
+        font-size: 8px;
+    }
+}

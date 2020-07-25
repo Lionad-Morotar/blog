@@ -10,7 +10,7 @@
 
 在给定初始 HTML 结构下，编写代码，完成下图功能：
 
-![ CSS 判断鼠标进入方向](http://image.lionad.art/mgear/image/200429/56-49.gif)
+![ CSS 判断鼠标进入方向](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/56-49.gif)
 
 勇者 A：“害，这还不简单...”
 
@@ -28,7 +28,7 @@
 
 ### 图片效果
 
-![升级版 CSS 判断鼠标进入方向](http://image.lionad.art/mgear/image/200429/YReNvaaHms.gif)
+![升级版 CSS 判断鼠标进入方向](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/YReNvaaHms.gif)
 
 ### 实现
 
@@ -75,11 +75,11 @@ HTML 如下：
 
 在守夜人陈大鱼头那里，勇者们使用了四个 .block_hoverer 类标签与鼠标交互。
 
-![CSS 判断鼠标进入方向鼠标交互](http://image.lionad.art/mgear/image/200429/06-47.png)
+![CSS 判断鼠标进入方向鼠标交互](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/06-47.png)
 
 魔王这里则需要多一些，如下图红色区域，每一个矩形都是一个与鼠标交互的盒子：
 
-![升级版 CSS 判断鼠标进入方向鼠标交互](http://image.lionad.art/mgear/image/200429/browser_wVOKIx348I.png)
+![升级版 CSS 判断鼠标进入方向鼠标交互](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/browser_wVOKIx348I.png)
 
 这里我是用绝对定位将盒子“黏贴”到脸上，主要有三个要考虑的地方：
 
@@ -89,7 +89,7 @@ HTML 如下：
 
 如果盒子本身不旋转的话，会出现这种诡异的情况：
 
-![盒子本身不旋转](http://image.lionad.art/mgear/image/200429/browser_IuDFxmUd1j.png)
+![盒子本身不旋转](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/browser_IuDFxmUd1j.png)
 
 这里使用一个简单的运算去旋转盒子：
 
@@ -206,7 +206,7 @@ $part-degree: 360 / $part;
             left: calc(50% - #{$tx}px);
             top: calc(50% - #{$ty}px);
             .eye {
-                &:after {
+                &::after {
                     background-position: 100% 50%;
                     transform: rotate(
                         (0 + $i * $part-degree) + unquote('deg')
@@ -228,11 +228,11 @@ $part-degree: 360 / $part;
 
 当没有 hover 任何盒子时，我们给 .eye 类盒子的中心画一个圆（此时圆在盒子的中心）：
 
-![画一个圆当眼睛](http://image.lionad.art/mgear/image/200429/browser_nts2mMjO5x.png)
+![画一个圆当眼睛](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/browser_nts2mMjO5x.png)
 
 当 hover 了某个盒子之后，我们把 .eye 类盒子旋转一下，并且改变圆的位置（此时圆在盒子的右侧的中心）：
 
-![改变眼睛的位置](http://image.lionad.art/mgear/image/200429/browser_emdbc2WaD3.png)
+![改变眼睛的位置](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/browser_emdbc2WaD3.png)
 
 这样的话就完成了。
 
@@ -370,7 +370,7 @@ $container-height: 500;
                 left: calc(50% - #{$tx}px);
                 top: calc(50% - #{$ty}px);
                 .eye {
-                    &:after {
+                    &::after {
                         background-position: 100% 50%;
                         transform: rotate(
                             (0 + $i * $part-degree) + unquote('deg')
@@ -415,7 +415,7 @@ $container-height: 500;
         border: 5px solid #20184e;
         border-radius: 150px 150px 10px 10px;
         overflow: hidden;
-        &:after {
+        &::after {
             background-color: #f15962;
             width: 100px;
             height: 60px;
@@ -435,7 +435,7 @@ $container-height: 500;
             background-color: #20184e;
             border-radius: 50%;
             border: 5px solid #20184e;
-            &:after {
+            &::after {
                 width: 100%;
                 height: 100%;
                 top: 0;
@@ -465,7 +465,7 @@ $container-height: 500;
 
 ### 效果图
 
-![](http://image.lionad.art/mgear/image/200429/gETdht0ELi.gif)
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200429/gETdht0ELi.gif)
 
 ### 解析
 
@@ -492,7 +492,7 @@ $container-height: 500;
 
 哦对了，本文中这两个例子的 CSS 代码性能都很差，当与鼠标交互的元素增加到 200 个左右开始，我的电脑就开始出现肉眼可见的卡顿了，这玩意儿生产环境是不可能用到的，也就只能应付应付魔王了。
 
-**嗯，其实还是很好玩儿的对吧。(●ˇ∀ˇ●) 好玩儿就对了！**
+**其实还是很好玩儿的对吧。(●ˇ∀ˇ●) 好玩儿就对了！**
 
 ### 实现
 

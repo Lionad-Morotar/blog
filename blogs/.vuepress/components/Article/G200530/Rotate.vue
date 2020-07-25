@@ -1,9 +1,10 @@
 <template>
     <div class="rotate-image-cmpt in-article-block-cmpt">
         <div class="circle-con">
-            <div class="circle" :style="{ transform: `rotate(${rotateDeg}deg)` }">
-                {{ status || 'Rotate' }}
-            </div>
+            <div
+                class="circle"
+                :style="{ transform: `rotate(${rotateDeg}deg)` }"
+            >{{ status || 'Rotate' }}</div>
         </div>
         <div class="btns-con">
             <button @click="sort">Sort</button>
