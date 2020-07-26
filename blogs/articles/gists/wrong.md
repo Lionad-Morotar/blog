@@ -94,6 +94,17 @@ console.log(parseInt(3, 0))
 console.log("1 2 3".replace(/\d/g, parseInt))
 ```
 
+## String
+
+<details>
+    <summary>Unicode | 以下代码会输出什么？</summary>
+    <p>见：https://cjting.me/2018/07/22/js-and-unicode/</p>
+</details>
+
+```js
+[..."mañana"].reverse().join("")
+```
+
 ## Array
 
 <details>
