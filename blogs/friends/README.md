@@ -2,11 +2,9 @@
 
 ## <spark>💌 与我联络</spark>
 
-Hi~，欢迎与 Lionad 交换通讯。
+我伸向世界的触手要比想象中展开的慢一些，不喜欢嘈杂的社交网络，所以不必尝试通过常用的社交软件找到我。与我通讯的最佳方式是个人邮箱：tangnad@qq.com，欢迎来信~
 
-与我通讯的最佳方式是个人邮箱：tangnad@qq.com
-
-作为一个坚定的个人主义者，我并不喜欢人多嘈杂的社交网络，我希望交流与讨论能够慢下来，更加精致一些，所以不必通过社交网络找到我。
+最初，我认为博客友链原则上是用于连接孤岛，互联网的孤岛和人的孤岛。但现在，我的心境发生了一些变化。此刻，我更期待能和与我性情至少有某种程度上相似的人交换友链。
 
 如果你对以下站点有兴趣的话，我们可以在以下网站进行相关话题的讨论交流：
 
@@ -33,14 +31,6 @@ Hi~，欢迎与 Lionad 交换通讯。
 </Background-Douban>
 
 <FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/bilibili.gif"
-  src="https://space.bilibili.com/6626299"
-  name="哔哩哔哩"
-  achieve="B站即将成为我在网络中潜水的主要活动区域 ☀"
-  :nofollow="true"
-/>
-
-<FriendLink
   img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/github.svg"
   src="https://github.com/Lionad-Morotar"
   name="Github"
@@ -48,61 +38,49 @@ Hi~，欢迎与 Lionad 交换通讯。
   :nofollow="true"
 />
 
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/juejin.svg"
-  src="https://juejin.im/user/5b209f666fb9a01e66165c5a"
-  name="掘金"
-  achieve="我在掘金上传一些关于我的代码生活、代码观的文章或是动态 💻"
-  :nofollow="true"
-/>
-
 ## <spark>🏂 友情链接</spark>
 
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
-  src="https://vensing.com/"
-  name="Cheese"
-  achieve="有梦想，也有忧伤和理想 🌻"
-/>
-
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Raptazure.png"
-  src="https://raptazure.github.io"
-  name="Raptazure"
-  achieve="在个人网站里记日记的少女 (大雾 🎉"
-/>
-
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Roki.jpg"
-  src="https://blog.weekii.cn/"
-  name="Roki's Blog"
-  achieve="Roki 玩塔科夫玩到半夜三点 🕒"
-/>
-
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Deeruby.jpg"
-  src="https://deeruby.com"
-  name="Deeruby"
-  achieve="易骏的博客 🍺"
-/>
-
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Wrath.png"
-  src="https://wrath.cc"
-  name="Wrath"
-  achieve="有一部漂亮的索尼手机 📱"
-/>
-
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Renwangyu.jpg"
-  src="https://blog.renwangyu.com/"
-  name="Renwangyu"
-  achieve="保持童心的80后程序猿大叔 😀"
-/>
-
-<FriendLink
-  img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Kicoe.jpg"
-  src="https://www.kicoe.com/"
-  name="Kicoe"
-  achieve="和 Roki 一样在学习 go 语言的老弟 🌐"
-/>
+<FriendLinks>
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
+    src="https://vensing.com/"
+    name="Cheese"
+    achieve="有梦想，也有忧伤和理想 🌻"
+  />
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Raptazure_2.jpg"
+    src="https://raptazure.github.io"
+    name="Raptazure"
+    achieve="在个人网站里记日记的少女 (大雾 🎉"
+  />
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Renwangyu.jpg"
+    src="https://blog.renwangyu.com/"
+    name="Renwangyu"
+    achieve="保持童心的80后程序猿大叔 😀"
+  />
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Kicoe.jpg"
+    src="https://www.kicoe.com/"
+    name="Kicoe"
+    achieve="和 Roki 一样在学习 go 语言的老弟 🌐"
+  />
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Roki.jpg"
+    src="https://blog.weekii.cn/"
+    name="Roki"
+    achieve="Roki 玩塔科夫玩到半夜三点 🕒"
+  />
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Deeruby.jpg"
+    src="https://deeruby.com"
+    name="Deeruby"
+    achieve="易骏的博客 🍺"
+  />
+  <FriendLink
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Wrath.png"
+    src="https://wrath.cc"
+    name="Wrath"
+    achieve="有一部漂亮的索尼手机 📱"
+  />
+</FriendLinks>

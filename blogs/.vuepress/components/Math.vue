@@ -10,7 +10,7 @@ const { LiteDocument } = require('mathjax3/mathjax3/adaptors/lite/Document')
 const escapedCharacters = '^$()[]{}*.?+\\|'
 
 function toEscapedString(source) {
-    const chars = source.split('').map(char => {
+    const chars = source.split('').map((char) => {
         return escapedCharacters.includes(char) ? '\\' + char : char
     })
     const lastChar = chars[chars.length - 1]
@@ -43,32 +43,27 @@ export default {
             width = 80 * 16,
             target = 'chtml',
             macros = {
-                '*': '\\times'
-            }
+                '*': '\\times',
+            },
         } = {
             /* TODO Props & Import from ConfigJS */
         }
 
         /** @see vuepress-plugin-mathjax */
 
-        const macroRegex = new RegExp(
-            Object.keys(macros)
-                .map(toEscapedString)
-                .join('|'),
-            'g'
-        )
+        const macroRegex = new RegExp(Object.keys(macros).map(toEscapedString).join('|'), 'g')
 
         const InputJax = new TeX()
         const OutputJax = new SVG()
         const adaptor = liteAdaptor()
         const html = new HTMLDocument(new LiteDocument(), adaptor, {
             InputJax,
-            OutputJax
+            OutputJax,
         })
 
         let style = adaptor.textContent(OutputJax.styleSheet(html)).replace(/\bwhite space\b/g, 'white-space')
 
-        const source = data.replace(macroRegex, matched => macros[matched] + ' ')
+        const source = data.replace(macroRegex, (matched) => macros[matched] + ' ')
 
         const math = new html.options.MathItem(source, InputJax, wrapLine)
 
@@ -78,12 +73,15 @@ export default {
         const output = adaptor.outerHTML(math.typesetRoot)
 
         return h('mjx-container', {
+            props: {
+                'v-pre': 'v-pre',
+            },
             domProps: {
                 className: 'MathJax',
                 jax: 'CHTML',
-                innerHTML: String(output).replace(/^\<mjx-container[^>]*\>(.*)\<\/mjx-container\>$/, '$1')
-            }
+                innerHTML: String(output).replace(/^\<mjx-container[^>]*\>(.*)\<\/mjx-container\>$/, '$1'),
+            },
         })
-    }
+    },
 }
 </script>
