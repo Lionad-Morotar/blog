@@ -1,12 +1,12 @@
-# 前端模块化
+# JavaScript 模块化
 
 [TOC]
 
-为什么我们需要模块化？
+## 模块化的历史进程
 
-## 模块模式
+### 模块模式
 
-最早，我们写代码比较随意：
+起初，我们写代码比较随意：
 
 ```js
 function foo() {
@@ -60,9 +60,9 @@ var MODULE = (function (my) {
 }(MODULE || {}))
 ```
 
-## 模块加载
+### 模块加载
 
-最早，我们这样组织代码：
+起初，我们这样组织代码：
 
 ```js
 <script type="text/javascript" src="module1.js"></script>
@@ -99,13 +99,13 @@ YUI().use('a', 'b', function (Y) {
 * 如何唯一标识一个模块？
 * 如何方便的使用所依赖的模块？
 
-## 模块化规范演变
+### 模块化规范演变
 
 目前有三种主流的模块加载方式，
 
 * CommonJS
 * AMD（Asynchronous Module Definition）/ CMD / UMD
-* ES6 Module
+* ES Module
 
 CommonJS 原名为 ServerJS，推出 Modules/1.0 规范后，在 Node.js 环境下取得了很不错的实践。
 
@@ -147,7 +147,7 @@ define(function (require, exports, module) {
 })
 ```
 
-UMD 则是统一了两种规范的规范，所以 UMD 定义的模块可以同时在客户端和服务端使用：
+UMD 统一 CommonJS 和 AMD，所以 UMD 定义的模块可以同时在客户端和服务端使用：
 
 ```js
 (function (global, factory) {
@@ -162,7 +162,7 @@ UMD 则是统一了两种规范的规范，所以 UMD 定义的模块可以同�
 })))
 ```
 
-## 现代模块规范 ES6 Module
+### 现代模块规范 ES Module
 
 2015 年 6 月， ECMAScript6 标准正式发布，其中 ES 模块化规范的提出目标是整合 CommonJS、AMD 等已有模块方案，**在语言标准层面实现模块化**，成为浏览器和服务器通用的模块解决方案。
 
@@ -178,21 +178,34 @@ ES Module 是官方标准，也是JavaScript语言明确的发展方向，而Com
 
 在浏览器中，需要使用特定属性的脚本标签，以支持 ES Module 规范（ `<script type="module"> ` ）。
 
-### 兼容性
+#### 兼容性
 
-截止 2020年5月18日，各大浏览器兼容 ES6 Module 情况如下：
+截止 2020年5月18日，各大浏览器兼容 ES Module 情况如下：
 
-![ES6 Module 兼容性](./assets/2020-05-18-03-06-08.png)
+![ES Module 兼容性](./assets/2020-05-18-03-06-08.png)
 
 在 NodeJS 中（Version >= 8.5），需要打开一个开关（`--experimental-modules`），以支持 ES Module 规范，但是需要模块的文件名为 `.mjs`。
 
-### 动态 Import
+#### 动态 Import
 
 动态 Import 如近已经被大部分浏览器所支持：
 
 ![动态 Import 兼容性](./assets/2020-05-18-03-22-46.png)
 
+## CommonJS VS ES Module
+
+尽管 ES Module 规范发布已久，但并没有得到广泛的兼容。由于 ES Module 继承了现在来说仍属主流的 CommonJS 规范的诸多优点，所以两者之间有许多共性。我们来看看它们之间的区别。
+
+最大的不同之处在于，**CommonJS 是一种约定，而 ES Module 是语言规范**。CommonJS 定义了一套使用“module.epoxrts 和 require”等代码进行模块导入导出的约定，通过扩充 JS 编译器外层代码，只要开发人员遵守约定，就可以使用此规范。而 ES Module 的实现依赖于编译器。这也导致：
+
+1. Require 导入值的拷贝，模块内部变化不能直接反应到外部；ES Module 导入值的映射，就算是模块内部的字符串有修改，同样会反映到模块外部。
+2. Require 本质是一个函数，所以容易实现动态导入的功能；ES Module 依赖于编译器的静态分析，所以动态导入功能难以被完善实现。
+
+要看看 Require 到底是个啥玩意儿，请看这篇：<a href="./source-code/nodejs/require.html">Require</a>。
+
 ## 打包工具之争
+
+TODO
 
 为什么需要打包工具
 
