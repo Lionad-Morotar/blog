@@ -43,8 +43,9 @@ function Module(id = '') {
 模块引入本质上是调用 Require 函数去加载一段代码，并引入 exports 的结果。模块并不能直接引入，在初始化的时候，会通过 Wrapper 进行包装，也就是：
 
 ```js
+// 传入了 exports、require、module、__filename、__dirname 这几个参数
 (function(exports, require, module, __filename, __dirname) {
-    /* 我们的代码，如 xxx.js */
+    /* 模块源码 */
 })
 ```
 
@@ -316,7 +317,7 @@ const realpathCache = new Map()
 1. 如果已经载入模块，直接返回模块的导出内容
 2. 读取文件，创造一个新的 module 实例保存到缓存，然后载入文件内容并返回导出结果。
 
-模块载入需要调用 require 方法：
+模块载入需要调用原始模块的 require 方法，而实力上的 module.require 方法也提供了一种载入的方法，和 require 类似。
 
 ```js
 // 用来维护依赖层级
@@ -336,7 +337,7 @@ Module.prototype.require = function(id) {
 }
 ```
 
-从前面几个小节可以看到，代码的各个细节都充满了缓存对象。模块载入方法也不例外，不仅缓存了模块和文件名的对应关系，还缓存了模块与载入模块间相对路径的对应关系。
+从前面几个小节可以看到，代码的各个细节都充满了缓存对象。module.require 也不例外，不仅缓存了模块和文件名的对应关系，还缓存了模块与载入模块间相对路径的对应关系。
 
 ```js
 // 模块的相对路径关系的缓存
@@ -439,3 +440,100 @@ Module._load = function(request, parent, isMain) {
     return module.exports
 }
 ```
+
+不同后缀文件，对应不同的载入逻辑。
+
+```js
+Module._extensions['.js'] = function(module, filename) {
+    if (filename.endsWith('.js')) {
+        const pkg = readPackageScope(filename)
+        // 如果是 ES Module，则报错
+        if (pkg && pkg.data && pkg.data.type === 'module') {
+            const parent = moduleParentCache.get(module)
+            const parentPath = parent && parent.filename
+            const packageJsonPath = path.resolve(pkg.path, 'package.json')
+            throw new ERR_REQUIRE_ESM(filename, parentPath, packageJsonPath)
+        }
+    }
+
+    // 读取文件内容
+    const content = fs.readFileSync(filename, 'utf8')
+    // 模块编译
+    module._compile(content, filename)
+}
+
+Module._extensions['.json'] = function(module, filename) {
+    const content = fs.readFileSync(filename, 'utf8')
+    try {
+        // BOM 即 字节序，在 UTF-8 的文件中并不需要这么一个玩意儿，所以解析字符串前先把他去掉
+        // JSON 文件直接通过 JSONParse 函数解析
+        module.exports = JSONParse(stripBOM(content))
+    } catch (err) {
+        err.message = filename + ': ' + err.message
+        throw err
+    }
+}
+```
+
+## 模块编译
+
+模块编译，即向模块注入 exports、__filename 等变量，并在指定上下文中运行模块的代码。可以发现，之前小节提到的模块包装是其中一个步骤。
+
+```js
+Module.prototype._compile = function(content, filename) {
+    let moduleURL
+    let redirects
+
+    // 包装当前模块内容
+    const compiledWrapper = wrapSafe(filename, content, this)
+
+    let inspectorWrapper = null
+    if (getOptionValue('--inspect-brk') && process._eval == null) {
+        if (!resolvedArgv) {
+            // We enter the repl if we're not given a filename argument.
+            if (process.argv[1]) {
+                try {
+                    resolvedArgv = Module._resolveFilename(process.argv[1], null, false)
+                } catch {
+                    // We only expect this codepath to be reached in the case of a
+                    // preloaded module (it will fail earlier with the main entry)
+                    assert(ArrayIsArray(getOptionValue('--require')))
+                }
+            } else {
+                resolvedArgv = 'repl'
+            }
+        }
+
+        // Set breakpoint on module start
+        if (resolvedArgv && !hasPausedEntry && filename === resolvedArgv) {
+            hasPausedEntry = true
+            inspectorWrapper = internalBinding('inspector').callAndPauseOnStart
+        }
+    }
+
+    // 模块所在文件夹
+    const dirname = path.dirname(filename)
+    const require = makeRequireFunction(this, redirects)
+    let result
+    const exports = this.exports
+    const thisValue = exports
+    const module = this
+
+    // 缓存，用来保存模块内部的模块引用关系
+    if (requireDepth === 0) statCache = new Map()
+
+    if (inspectorWrapper) {
+        result = inspectorWrapper(compiledWrapper, thisValue, exports, require, module, filename, dirname)
+    } else {
+        result = compiledWrapper.call(thisValue, exports, require, module, filename, dirname)
+    }
+
+    // 一个全局标记，用来标记是否加载过用户 CommonJS 模块
+    hasLoadedAnyUserCJSModule = true
+
+    if (requireDepth === 0) statCache = null
+    return result
+}
+```
+
+TODO ... 先看其它玩意儿去了
