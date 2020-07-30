@@ -30,7 +30,10 @@
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@vuepress/plugin-google-analytics": "^1.0.0-rc.1",
+    "chinese-to-pinyin": "^1.3.1",
+    "compression-webpack-plugin": "^4.0.0",
     "del": "^5.1.0",
+    "esdk-obs-nodejs": "https://github.com/huaweicloud/huaweicloud-sdk-nodejs-obs",
     "fibers": "^4.0.2",
     "http-server": "^0.12.1",
     "inline-css": "^2.6.3",

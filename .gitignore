@@ -3,3 +3,4 @@ node_modules_old
 dist/
 .tmp/
 tmp/
+secrets/
