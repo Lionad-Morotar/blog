@@ -9,6 +9,10 @@ const { chainMarkdown, extendMarkdown } = require('./extendMarkdown')
 const valineID = require('./secrets/valine-id').default
 const valineKey = require('./secrets/valine-key').default
 
+const shouldPrefetchPages = ['为什么我要写博客'].map(item =>
+    pinyin(item, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
+)
+
 module.exports = {
     /** develop config */
 
@@ -25,6 +29,8 @@ module.exports = {
     author: 'Lionad|仿生狮子',
     copyright: 'Lionad版权所有',
     head: headLink,
+
+    shouldPrefetch: page => shouldPrefetchPages.find(x => page.includes(x)),
 
     /** theme config */
 
@@ -53,6 +59,7 @@ module.exports = {
     },
 
     /** markdown config */
+
     markdown: {
         anchor: {
             permalink: false

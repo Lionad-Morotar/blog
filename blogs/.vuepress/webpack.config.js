@@ -1,6 +1,6 @@
 const path = require('path')
 
-const CompressionPlugin = require('compression-webpack-plugin')
+// const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
     resolve: {
@@ -17,4 +17,10 @@ module.exports = {
         //     test: /(css|js)$/i
         // })
     ]
+    // optimization: {
+    //     splitChunks: {
+    //         minSize: 30 * 1000,
+    //         maxSize: 256 * 1000
+    //     }
+    // }
 }

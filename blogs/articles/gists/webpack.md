@@ -314,7 +314,7 @@ Plugin 对于 Webpack 而言，则是增强了任务流处理功能。Webpack �
   maxSize: 0,
   minChunks: 1, // 只有该模块被 n 个入口同时引用才会被提取
   maxAsyncRequests: 5,
-  maxInitialRequest: 3
+  maxInitialRequest: 3,
   name: true, // vendors~a~b~c.js
   defaultNameDelimeter: '~',
   cacheGroup: {
