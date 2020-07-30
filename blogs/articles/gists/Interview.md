@@ -4,7 +4,7 @@
 
 ## JavaScript
 
-### 数值与对象
+### 代码实践
 
 <details open>
     <summary>在 JS 种，'1'+1 以及 1+'1' 的结果分别是什么？</summary>
@@ -30,8 +30,6 @@
     </p>
 </details>
 
-### 常用函数
-
 <details open>
     <summary>Object.seal 和 Object.freeze 有什么不同？</summary>
     <p>
@@ -46,7 +44,79 @@
     </p>
 </details>
 
-### 待整理
+<details open>
+    <summary>试试手写一个 new 函数吧？</summary>
+    <Highlight>
+        function _new(constructor, ...params) {
+            const context = Object.create(constructor.prototype)
+            const result = constructor.call(context, params)
+            return (result && typeof result === 'object')
+                ? result
+                : context
+        }
+    </Highlight>
+</details>
+
+<details open>
+    <summary>手写一些常见的数组操作，比如乱序、降维？</summary>
+    <ul>
+        <li>数组乱序</li>
+        <Highlight>
+            [1, 2, 3, 4, 5].sort((a, b) => Math.random() - .5)
+        </Highlight>
+        <li>数组降维：[1,[2,[3,[4]]]] --> [1,2,3,4]</li>
+        <Highlight>
+            function flat(arr = []) {
+                return arr.reduce((h, c) => {
+                    return h.concat(
+                        c instanceof Array ? flat(c) : c
+                    )
+                }, [])
+            }
+            // >>> flat([1,[2,[3,[4]]]]) 
+            // >>> [1,2,3,4]
+        </Highlight>
+    </ul>
+</details>
+
+<details open>
+    <summary>该如何设计一个可以取消请求的请求函数？</summary>
+    <p>
+        浏览器发送请求时经过一定时间后，将自动断开连接。如果想主动取消请求的话，可以调用 XMLHttpRequest.abort() 方法。<br />
+        在项目中，一般我们会使用 Promise 封装请求函数。Promise 是一个内部状态只能向 fulfilled、rejected 流动的状态机，没有办法取消。如果想要主动取消，可以在 Promise.resolve 前通过闭包依赖一个外部的变量。我们修改这个外部变量，就能达到一种“控制请求”的结果。
+        <Highlight>
+            function Post(url) {
+                const self = this
+                this.handleResult = true
+                let resolveTick
+                const tick = new Promise(resolve => { resolveTick = resolve })
+                // 这个函数依赖的是 this.handleResult
+                this.request = fetch(url).then(response => {
+                    return this.handleResult && resolveTick(response)
+                })
+                return new Proxy(this, {
+                    get (target, prop) {
+                        console.log('prop: ', prop)
+                        return prop === 'abort'
+                            ? () => self.handleResult = false
+                            : Reflect.get(tick, prop).bind(tick)
+                    }
+                })
+            }
+            // 调用 post.abort() 后，以下 console.log 不会输出请求结果
+            var post = new Post('url')
+            post.then(res => console.log(res))
+            post.abort()
+        </Highlight>
+    </p>
+</details>
+
+<details open>
+    <summary>试着手写一下 Webpack 的原理？</summary>
+    <p></p>
+</details>
+
+### 代码原理
 
 <details open>
     <summary>JavaScript 模块化发展历程有了解过吗？</summary>
@@ -70,25 +140,6 @@
             <li>Require 是动态导入，Import 的动态导入暂且还是提案状态</li>
             <li>Require 是值拷贝，Import 指向内存地址</li>
         </ul>
-    </p>
-</details>
-
-<details open>
-    <summary>简要说说事件循环机制？</summary>
-    <p>
-        JS 是单线程语言，但是代码执行分为同步任务和异步任务。
-        主线程将持续处理同步任务直到完成。异步任务会在完成时将回调推入任务队列。主线程空闲时，将向任务队列请求任务并执行。这个过程反复循环。
-    </p>
-</details>
-
-<details open>
-    <summary>异步任务还能再细分吗？</summary>
-    <p>
-        刚刚没有提到，异步任务还可以细分为宏任务（Macro Task）和微任务（Micro Task）。
-        addEventListener、setTimeout、setInterval 的回调将会推入宏任务队列。
-        MutationObserver、Promise、process.nextTick 的回调将会推入微任务队列。
-        每执行一个宏任务及主体代码执行完毕后，将会立即执行所有微任务。
-        <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200704024238.png" />
     </p>
 </details>
 
@@ -164,19 +215,6 @@
 </details>
 
 <details open>
-    <summary>试试手写一个 new 函数吧？</summary>
-    <Highlight>
-        function _new(constructor, ...params) {
-            const context = Object.create(constructor.prototype)
-            const result = constructor.call(context, params)
-            return (result && typeof result === 'object')
-                ? result
-                : context
-        }
-    </Highlight>
-</details>
-
-<details open>
     <summary>我们提到了原型和构造器，能不能详细聊聊通过原型链和构造器实现的继承及其缺陷所在，以及应该怎么改进？</summary>
     <p>
         使用原型链，创建子类型时，不能给超类型传递参数进行个性化定制，在某些场景会有些局限，比方说“所有人都拥有朋友这个属性”这个场景，修改某人的朋友属性，其他人的朋友属性也会跟着变。<br />
@@ -235,42 +273,35 @@
     </p>
 </details>
 
-<details open>
-    <summary>手写一些常见的数组操作吧</summary>
-    <ul>
-        <li>数组乱序</li>
-        <Highlight>
-            [1, 2, 3, 4, 5].sort((a, b) => Math.random() - .5)
-        </Highlight>
-        <li>数组降维：[1,[2,[3,[4]]]] --> [1,2,3,4]</li>
-        <Highlight>
-            function flat(arr = []) {
-                return arr.reduce((h, c) => {
-                    return h.concat(
-                        c instanceof Array ? flat(c) : c
-                    )
-                }, [])
-            }
-            // >>> flat([1,[2,[3,[4]]]]) 
-            // >>> [1,2,3,4]
-        </Highlight>
-    </ul>
-</details>
+## 浏览器
 
 <details open>
-    <summary></summary>
+    <summary>简要说说浏览器的重绘与回流及如何避免？</summary>
     <p>
+        浏览器解析 HTML 文档，生成 DOM Tree；解析 CSS 文档，生成 CSSOM Tree。将两者合二为一得到 Render Tree。根据 Render Tree 进行布局浏览器可以得到节点的几何信息（位置、大小），还可以在内存中绘制，得到节点以像素形式展示的具体样式。最后，将相关信息发送至 GPU 展示在页面上。<br />
+        如果在这个过程之外，更改了节点的几何样式属性，如宽度、高度，就会导致页面需要重新布局，即回流。如果仅改变了背景颜色等属性，则只需要重绘获取单个节点的像素信息。<br />
+        现代浏览器会用一个队列缓存频繁的重绘和回流相关操作。但是使用 getComputed()、getBoundingRect() 等接口时，会立即清空队列。
     </p>
 </details>
 
-<ul>
-    <li></li>
-</ul>
-<Highlight></Highlight>
+<details open>
+    <summary>简要说说事件循环机制？</summary>
+    <p>
+        JS 是单线程语言，但是代码执行分为同步任务和异步任务。
+        主线程将持续处理同步任务直到完成。异步任务会在完成时将回调推入任务队列。主线程空闲时，将向任务队列请求任务并执行。这个过程反复循环。
+    </p>
+</details>
 
-### doing
-
-## 浏览器
+<details open>
+    <summary>异步任务还能再细分吗？</summary>
+    <p>
+        刚刚没有提到，异步任务还可以细分为宏任务（Macro Task）和微任务（Micro Task）。
+        addEventListener、setTimeout、setInterval 的回调将会推入宏任务队列。
+        MutationObserver、Promise、process.nextTick 的回调将会推入微任务队列。
+        每执行一个宏任务及主体代码执行完毕后，将会立即执行所有微任务。
+        <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200704024238.png" />
+    </p>
+</details>
 
 <details open>
     <summary>先简单介绍一下浏览器的事件捕获机制？</summary>
@@ -303,6 +334,13 @@
 </details>
 
 ## NodeJS
+
+<details open>
+    <summary>NodeJS 的事件循环机制和浏览器中有什么不同？</summary>
+    <p>
+        类似但稍有区别。具体不清楚。
+    </p>
+</details>
 
 ## 工程化
 
@@ -449,6 +487,30 @@
 </details>
 
 <details open>
+    <summary>说说 HTTP 的缓存机制吧？</summary>
+    <p>
+        缓存主要分两种，强缓存和协商缓存。强缓存即浏览器直接使用本地资源。协商缓存指允许使用本地资源，但是需要发送一个请求向服务端进行验证。
+        <ul>
+            <li>Expired：强缓存。Expires 返回资源过期的绝对时间。不过因为这个绝对时间是以服务器为准的，所以可能和客户端不一致。</li>
+            <li>Cache-Control：强缓存。内容是一段字符串，有不同的作用。
+                <ul>
+                    <li>public：指资源可以被沿途的代理服务器（如 CDN），和客户端缓存。</li>
+                    <li>private：指资源可以被客户端缓存，但不能被代理服务器缓存。（这只是约定，所以代理服务器可能不一定理你。）</li>
+                    <li>max-age：指缓存将在多少秒之后失效。</li>
+                    <li>no-cache：禁止强缓存。(注意，仍走协商缓存，并不是不缓存。)</li>
+                    <li>no-store：禁止缓存。</li>
+                </ul>
+            </li>
+            <li>Last-Modified / IF-Modified-Since：服务端在返回资源时，携带上 Last-Modified 字段，表明资源的最后修改时间。浏览器请求资源时，带上 IF-Modified-Since，询问资源是否有修改，有则返回新资源，否则服务器返回 304 Not Modified。</li>
+            <li>Etag / IF-Match：服务器返回资源时携带一个根据资源内容计算出的值的字段，表明内容的独一无二。浏览器请求资源是，IF-Match 携带上 Etag 字段，就方便服务器比对资源是否有修改了。</li>
+        </ul>
+        实际应用时，并不是每种资源都需要缓存。根据资源内容变动的情况，结合项目使用的打包工具，可以更灵活的配置项目资源缓存场景。
+        比如说，Webpack 打包之后，JS 文件通常会更具内容生成一个 8 位哈希文件指纹作为文件名，只要文件内容不变动，文件指纹就不会变动，所以这类资源可以使用强缓存。
+        而项目入口 HTML 文件，每次打包都会变动，所以应使用协商缓存。
+    </p>
+</details>
+
+<details open>
     <summary>同源策略限制了哪些内容？</summary>
     <p>
         同源策略是一种浏览器遵守的规范，要求页面发送的请求的协议、HOST、端口号必须与脚本来源相同。这是一种最基础的安全策略。绕过同源策略的方法即跨域。
@@ -469,6 +531,18 @@
 </details>
 
 <details open>
+    <summary>详细说说 CORS？</summary>
+    <p>
+        CORS 即跨域资源共享机制。通过给 HTTP Header 增加一些额外的字段，让源服务器（通常指浏览器）可以请求不同服务器上的资源。
+        <ul>
+            <li>浏览器会在请求头添加 Origin 字段，表明请求来源。</li>
+            <li>服务器需设置 Access-Control-Allow-Methods、Access-Control-Allow-Headers、Access-Control-Allow-Origin，分别指定允许的跨域请求方法、Header 字段即请求来源。</li>
+            <li>一般情况下，浏览器会先发送一个 Option 方法的请求用来预检。</li>
+        </ul>
+    </p>
+</details>
+
+<details open>
     <summary>详细说说你怎么做的 WebSocket？</summary>
     <p>
         WebSocket 是一种基于 HTTP 的应用层协议。浏览器实现的兼容性不错，可看作长轮询的升级版本。主要有两个特征，是持久化连接以及服务端可以给客户端发送通知。
@@ -478,16 +552,6 @@
         回调池则是客户端发送数据时，将回调事件注册在一个容器里，超时则删除回调，防止内存泄漏。
     </p>
 </details>
-
-<details open>
-    <summary></summary>
-    <p>
-    </p>
-</details>
-
-<ul>
-    <li></li>
-</ul>
 
 ## HTML
 
@@ -591,11 +655,17 @@
     </p>
 </details>
 
+## 项目
+
 <details open>
-    <summary>玩过哪些好玩的东西？</summary>
+    <summary>首屏优化方案你了解过么？</summary>
     <p>
-        纯粹玩儿的话，以前喜欢画 Background Pattern，接触过 CSS Doodle，不过因为 CSS 是弱逻辑的，后来就改用 P5 了。
-        还了解过一些 CSS 方法论，但是实践的机会比较有限。
+        以前在项目中接触过一点。首屏优化主要从两个方面考虑，第一是提高加载体验使加载状态用户无感，第二是提高页面性能，减少加载速度。<br />
+        提高加载体验的话可以让 UI 设计一些加载动画或者加载时的交互，防止用户等待的时候注意力分散。也可以使用骨架屏，不过骨架屏整个结构蛮重的，除非项目原本的 UI 框架就支持骨架屏，否则自己假设一套的话，对项目有较强的侵入性，成本很高。比方说，项目首页因为内容结构经常会发生变化，所以骨架的图片（或 CSS）不太好维护，一般会在打包时利用无头浏览器渲染出相应 DOM 节点计算出宽高然后自定义骨架内容。<br />
+        如果没有特殊要求的话，首屏优化优先选择第二种方案，也就是提高页面性能，减少加载速度。这个角度考虑的话，优化点非常多，但整体可以概括为：预加载、预渲染。<br />
+        预加载可以使用 Prefetch、Preload 等技术，在我的博客中还使用了 Instant.page 技术。还有一种预加载技术，比方说小程序的离线包——它先下载好一整块内容，后期直接从里面取就好了。
+        然后是预渲染。如果首页的部分数据不常变动，可以先将此页面的数据内嵌到 HTML 中，减少请求数。若将预渲染再展开一些，比方说将项目所有页面预渲染为 HTML，这样就是静态页面的思路。
+        项目中这几种优化方案可以交叉实施，比方说 VasSonic 框架，可以流式拦截请求，边加载边渲染，还能做到增量更新。这种方案要比静态页面好上不少。还有一种性能较高的方案是，通过一个用户无感的 Webview 页面，预先请求数据并渲染 HTML，点击时直接切换 Webview 就好了，这种方案可以达到秒出效果。
     </p>
 </details>
 
