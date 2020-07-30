@@ -113,7 +113,25 @@
 
 <details open>
     <summary>试着手写一下 Webpack 的原理？</summary>
-    <p></p>
+    <p>Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack" target="_blank" rel="nofollow">Webpack 打包原理</a></p>
+</details>
+
+<details open>
+    <summary>从 JS 的角度考虑，你能想到哪些提高代码性能的办法？</summary>
+    <p>
+        <ul>
+            <li>设计数据尽量扁平，减少人和机器解析数据的时间。</li>
+            <li>代码性能问题会在循环中加倍放大，设计循环的地方需要好好设计，看看能不能找高性能通用算法解决问题。</li>
+            <li>熟记常见的设计模式，可以在编写复杂代码时极大减少与其他人的沟通成本，降低出错率。（嘛... 这也算一种吧。）</li>
+            <li>缓存！一般情况下，对前端而言，内存要比 CPU 廉价许多许多许多倍。所以可以选择常用的空间换时间的操作。</li>
+            <li>使用多线程技术，如在 WebWorker 上运行一些计算量大的代码。WebWorker 线程的阻塞不会影响浏览器的渲染。</li>
+            <li>任务切片，即将大的任务切成小块。在小块任务之间给其它代码和浏览器渲染预留一些时间。</li>
+            <li>使用任务队列，将任务分为轻重缓急执行。比如 requestIdelCallBack 方法，当引擎空闲时执行低优先级回调，但若超过指定时间仍未调用回调，回调则会被强制执行。</li>
+            <li>由任务队列还可以引申出 Vue.nextTick 和 React Fiber。</li>
+            <li>预执行。比如数据预取、对象预实例化等。</li>
+            <li>WebAssembly... 没有实践过...</li>
+        </ul>
+    </p>
 </details>
 
 ### 代码原理
@@ -354,7 +372,7 @@
 <details open>
     <summary>Bable 工作原理了解一些吗？</summary>
     <p>
-        Bable 使用 Babylon 将代码解析为 AST，使用 Bable-traverse 维护 AST 的状态，做一些源码级别的转换，最后使用 Bable-generator 读取 AST 并生成代码。
+        Bable 使用 Babylon（Babel-parser） 将代码解析为 AST，使用 Bable-traverse 维护 AST 的状态，做一些源码级别的转换，最后使用 Bable-generator 读取 AST 并生成代码。
     </p>
 </details>
 
@@ -531,7 +549,14 @@
 </details>
 
 <details open>
-    <summary>详细说说 CORS？</summary>
+    <summary>这里打断一下，正向代理和反向代理的区别是？</summary>
+    <p>
+        正向代理为用户服务，内容服务器无法区分用户或是代理，常见于“能访问谷歌的那种代理”；反向代理为服务器服务，用户无法区分访问的是代理还是服务器，常用于过滤请求及负载均衡。
+    </p>
+</details>
+
+<details open>
+    <summary>再详细说说 CORS？</summary>
     <p>
         CORS 即跨域资源共享机制。通过给 HTTP Header 增加一些额外的字段，让源服务器（通常指浏览器）可以请求不同服务器上的资源。
         <ul>
@@ -681,6 +706,6 @@
 * [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
 * [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 * [ECMAScript 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/#sec-execution-contexts)
-
 * [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
+* [中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂(下)](https://juejin.im/post/5cc26dfef265da037b611738)
 * [JavaScript开发者应懂的33个概念](https://github.com/stephentian/33-js-concepts)

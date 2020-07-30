@@ -170,6 +170,8 @@ module.exports = {
                     })
             }
         }
+        if (!isServer) {
+        }
     },
 
     extraWatchFiles: ['./styles/*']
