@@ -271,25 +271,29 @@
 
 大学毕业论文我写的是关于前端页面加载性能优化这方面的内容。也正是在那段时期，正式学习了 Webpack、Gulp 等自动化工具。第一次接触 Webpack 时，在官网看到这张标题图片，我还挺懵的。直到之后看到了经过 Webpack 打包出来的 dist 文件夹中的内容，恍然大悟。“打包”不就是“整合资源”嘛...
 
-## 模块及解析模块
+> 本质上，webpack 是一个现代 JavaScript 应用程序的静态模块打包器(module bundler)。当 webpack 处理应用程序时，它会递归地构建一个依赖关系图(dependency graph)，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 bundle。
 
-在 Webpack@5 之前，最重要的几个概念不外乎就是入口、出口、模块和代码包（Bundle）[^重要概念]。Webpack 的主要目标就是通过分析 JS 之间，以及 JS 引入的不同资源之间的依赖关系（Resource），把这些模块打包成一块整体代码。
+## 功能综述
+
+简单来说，在 Webpack 最重要功能就是**打包**。Webpack@5 之前的几个最重要的概念不外乎就是入口、出口、模块和代码包（Bundle）[^重要概念]。从入口开始，通过分析 JS 之间，以及 JS 引入的不同资源之间的依赖关系（Resource），把这些模块打包成一块整体，Bundle。见下图，指示了 Webpack 从 Entry 到 Output 的一个过程。
 
 <img class="nb w80" alt="Webpack Entry to Output" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200729011803.png" />
 
-从入口文件（如 index.js）开始，模块之间可以有多种依赖关系。Webpack 不仅要处理 JS 模块规范下的 Require、Import，还要处理如 CSS 文件之间的  @import 等引用关系。从入口文件到其触达的最远的模块为止，这整个图结构，就被称为 Chunk。紧接着 Chunk 里的模块被解析、加载，然后被打包成 Bundle。大部分情况下，Chunk 和 Bundle 是一对一的关系，不过通常因我们使用了各种优化手段，打包出来的 Bundle 和 Chunk 可能是多对多的关系。最后，把这些资源全部塞到一个构建目录（比如 dist），至此，Webpack 的所有就完成了。
+从入口文件（Entry）开始，Webpack 对模块进行分析及编译。模块之间可以有多种依赖关系。Webpack 不仅要处理 JS 模块规范下的 Require、Import，还要处理如 CSS 文件之间的  @import 等引用关系。通过分析这些模块依赖关系，Webpack 将代码打包成一份或多份代码包（Bundle）。最后，把这些资源全部塞到一个构建目录（比如 dist），至此，Webpack 的目标所有就完成了。
 
-上述步骤简要概括了文件如何从入口走到出口。现在，假使你的 index.js 引用了 index.css 文件（我们在这不会说 index.css 是一个模块），我们来看看图片等具体的资源文件是如何被打包的。像图片、样式、字体这些资源，通过 Webpack 内建的 Require 函数引入之后，再打包到构建目录为止这个过程，需要很多处理函数的参与。我们把处理函数称为“Loader”，而整个处理过程因为像是链式操作，所以被称为“Chain Loader”。由下图可见，index.js 引用的 index.css，首先会经过文件名及后缀的判定，判定成功后，再由 Webpack 加载对应的 Loaders，即 CSS Loader、Style Loader 进行处理。
+除此之外，Webpack 提供了 Loader 接口，丰富了**模块处理**的能力。像图片、样式、字体这些资源，通过 Require 函数引入再打包到构建目录为止这个过程，需要很多处理函数的参与。我们把处理函数称为“Loader”，而整个处理过程因为像是链式操作，所以被称为“Chain Loader”。由下图可见，index.js 引用的 index.css，首先会经过文件名及后缀的判定，判定成功后，再由 Webpack 加载对应的 Loaders，即 CSS Loader、Style Loader 进行处理。
 
 <img class="nb w80" alt="Webpack Loaders" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200729021114.png" />
 
-Loaders 相当灵活，可以任意组合、嵌套，达到你想要的模块解析结果。比如说，针对样式文件。你可以配置 PostCSS Loader，并引入 StyleLint、CSS Module 等功能。PostCSS 处理过你的样式文件之后，结果可以继续交给 CSS Loader 解析 CSS 语法生成 AST，最后交由 Style Loader 将 CSS 整合输入到某个文件中。
+Loaders 相当灵活，可以任意组合、嵌套，达到你想要的模块解析结果。比如说，针对样式文件。你可以配置 PostCSS Loader，并引入 StyleLint、CSS Module 等功能。PostCSS 处理过你的样式文件之后，结果可以继续交给 CSS Loader 解析 CSS 语法生成 AST，最后交由 Style Loader 将 CSS 整合输入到某个文件中。可以想象，Loader 其实是基于字符串的流水线式处理。
 
 <img class="nb" alt="Webpack Style Loaders" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200729022653.png" />
 
-可以发现目前为止我们都是在和文件级别的“模块”打交道。在我们跳脱模块的概念以作一些优化处理之前，还可以追溯回“为什么我们需要把代码拆分为模块”这样一个问题。这可以从模块化的历史进程开始说起，不过由于本文重心在“Webpack”，模块化相关故事这里暂且不提了。对模块化感兴趣的朋友可以自行搜索资料了解：<a href="/articles/gists/js-module-history.html">模块化</a>。
+Plugin 对于 Webpack 而言，则是增强了任务流处理功能。Webpack 在编译的过程中，会触发很多事件钩子。我们可以通过配置介入这些钩子，触达Webpack 的加载、编译模块等任意事件，以拓展自定义功能。
 
-## 模块之上
+## 代码模块化
+
+可以发现目前为止我们都是在和文件级别的“模块”打交道。在我们跳脱模块的概念以作一些优化处理之前，还可以追溯回“为什么我们需要把代码拆分为模块”这样一个问题。这可以从模块化的历史进程开始说起，不过由于本文重心在“Webpack”，模块化相关故事这里暂且不提了。对模块化感兴趣的朋友可以自行搜索资料了解：<a href="/articles/gists/js-module-history.html">模块化</a>。
 
 ### SplitChunks
 
@@ -373,5 +377,9 @@ import(/* webpackChunkName: "add" */ 'a.js').then(({ add }) => {})
 * 9：bundle.js
 
 ## 阅读更多
+
+* [Webpack实战：入门、进阶与调优](https://book.douban.com/subject/34430881/)
+* [Webpack 中文网](https://www.webpackjs.com/concepts/)
+* [从webpack4打包文件说起](https://cloud.tencent.com/developer/article/1172453)
 
 [^重要概念]: 见[《前端工程化 - 聊聊 Webpack v3 到 Webpack v5 的核心架构变迁》](https://juejin.im/post/5f1ac4725188252e4839cfe6)
