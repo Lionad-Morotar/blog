@@ -12,7 +12,7 @@ const obs = new OBS({
     server: 'obs.cn-east-3.myhuaweicloud.com'
 })
 
-const enableRSS = false
+const enableRSS = !!process.env.RSS
 const distDir = './dist'
 const gzipedDir = ['./dist/assets/js', './dist/assets/css']
 const delRSSDir = `del "${path.join(__dirname, './dist/rss.xml')}"`
