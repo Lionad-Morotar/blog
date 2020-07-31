@@ -121,8 +121,9 @@ module.exports = {
             count: 10,
             filter: page => {
                 const shouldConvert = /^articles\/((flow\/)|([^\/]*\.md$))/.test(page.relativePath)
-                shouldConvert && console.log(page.relativePath)
-                return shouldConvert
+                const manual = ['低版本浏览器兼容HTML5标签原理']
+
+                return manual.length ? manual.find(x => (page.relativePath || '').includes(x)) : shouldConvert
             }
         },
         sitemap: {

@@ -61,6 +61,7 @@ const sidebarConfigs = {
             collapsable: false,
             open: true,
             children: [
+                '低版本浏览器兼容HTML5标签原理',
                 '设计模式与JS魔法锅',
                 'CSS-Mind-Map',
                 '斑马难题',
