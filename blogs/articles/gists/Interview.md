@@ -294,6 +294,64 @@
 ## 浏览器
 
 <details open>
+    <summary>从输入 URL 按下回车开始，到用户看到完整的页面，经历了哪些流程？</summary>
+    <ol>
+        <li>通过 Expired、Cache-Control 查看缓存是否已经过期，未过期则直接使用内存或硬盘中的资源，跳转到解码步骤；如已过期则携带 If-Modified-Since、If-Match 字段尝试向服务器请求新资源。</li>
+        <li>获取 URL 中主机的 IP 位置。分别追溯浏览器缓存、操作系统缓存、HOSTS、路由器缓存、ISP DNS缓存、递归查询。</li>
+        <ul>
+            <li>
+                <details>
+                    <summary>什么是递归查询？</summary>
+                    <p>当一个 DNS 服务器不知道被查询的地址对应的 IP 时，会以 DNS 客户的身份，代替客户端向其它服务器继续查询。</p>
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>一个超大型的网站通常拥有许多物理机来处理服务，那么请求它们顶级域名的 DNS 会被怎样处理？</summary>
+                    <p>一般会使用 DNS 负载均衡技术，通过轮拨、任拨、连接数均衡、地理位置映射、主机哈希映射等方法，向客户端返回对应的 DNS 地址。所以 DNS 地址有可能发生变动。</p>
+                </details>
+            </li>
+        </ul>
+        <li>浏览器与目标地址对应端口建立 TCP 连接，成功后发送请求报文。</li>
+        <ul>
+            <li>
+                <details>
+                    <summary>说一说 TCP 三次握手？</summary>
+                    <img class="mt1em" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731162450.png" alt="TCP Three-way Handshake" />
+                </details>
+            </li>
+            <li>
+                <details>
+                    <summary>TCP 头部了解么？</summary>
+                    <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731153510.png" alt="TCP header" />
+                </details>
+            </li>
+        </ul>
+        <li>服务器收到请求后，检查 If-Modified-Since、If-Match 字段。如果缓存新鲜，则返回 304 状态码。否则通过 TCP 返回相应资源的 HTTP 报文。</li>
+        <li>浏览器接受到响应之后，可选则关闭 TCP 连接或将其保留重用。</li>
+        <ul>
+            <li>
+                <details>
+                    <summary>说一说 TCP 四次挥手？</summary>
+                    <img class="mt1em" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731165331.png" alt="TCP Four-way Wavehand" />
+                </details>
+            </li>
+        </ul>
+        <li>根据响应码，浏览器继续执行指定动作。如果响应码为 200，HTTP 头部携带 Etag、Cache-Control 等字段，则对资源进行缓存。</li>
+        <li>浏览器解析 HTML 文档，并请求文档内的其它资源。</li>
+        <ul>
+            <li>浏览器会便解析边显示页面。这些步骤没有具体的先后顺序。</li>
+            <li>构建 DOM Tree：将字符流解析为标记（Tokenizing），将标记转换为带有属性的对象（Lexing）。最后根据节点关系将对象组成 DOM Tree（DOM Construct）。</li>
+            <li>构建 CSSOM Tree：过程和构建 DOM Tree 类似。</li>
+            <li>构建 Render Tree：从根节点开始遍历每一个可见节点，从 CSSOM Tree 中找到相应规则并应用。</li>
+            <li>解析 JS：同步脚本的下载和解析将阻塞 DOM Tree 和 CSSOM Tree 的构建。异步脚本带有 async 或 defer 标签。</li>
+            <li>所有同步脚本执行完之后，触发 Document.DOMContentLoaded 事件。</li>
+            <li>浏览器继续等图片下载以及异步脚本的下载和执行。这一切结束之后，触发 Window.onload 事件。</li>
+        </ul>
+    </ol>
+</details>
+
+<details open>
     <summary>简要说说浏览器的重绘与回流及如何避免？</summary>
     <p>
         浏览器解析 HTML 文档，生成 DOM Tree；解析 CSS 文档，生成 CSSOM Tree。将两者合二为一得到 Render Tree。根据 Render Tree 进行布局浏览器可以得到节点的几何信息（位置、大小），还可以在内存中绘制，得到节点以像素形式展示的具体样式。最后，将相关信息发送至 GPU 展示在页面上。<br />
@@ -338,16 +396,6 @@
         <li>Web Worker：通过 Shared Worker 可以也可以实现。</li>
         <li>Local Storage：轻量的数据可以使用 window.onstorage 监听 LocalStorage 的设置，缺点是设置相同的字符串值时监听不到。</li>
         <li>Web Socket：让后台中转页面发送的请求。</li>
-    </ul>
-</details>
-
-<details open>
-    <summary>从输入 URL 按下回车开始，到用户看到完整的页面，经历了哪些流程？</summary>
-    <ul>
-        <li>DNS</li>
-        <li>TCP</li>
-        <li>缓存</li>
-        <li>渲染</li>
     </ul>
 </details>
 
@@ -562,7 +610,7 @@
         <ul>
             <li>浏览器会在请求头添加 Origin 字段，表明请求来源。</li>
             <li>服务器需设置 Access-Control-Allow-Methods、Access-Control-Allow-Headers、Access-Control-Allow-Origin，分别指定允许的跨域请求方法、Header 字段即请求来源。</li>
-            <li>一般情况下，浏览器会先发送一个 Option 方法的请求用来预检。</li>
+            <li>一般情况下，浏览器会先发送一个 Option 方法的请求用来预检，服务器则返回 Allow 字段表示允许的请求方法。</li>
         </ul>
     </p>
 </details>
@@ -604,10 +652,17 @@
 </details>
 
 <details open>
+    <summary>可访问性和 SEO 的区别是？</summary>
+    <p>
+        SEO 提高搜索引擎的体验，可访问性是提高人的体验。SEO 有几个比较重要的点，TDK、语义化 HTML、页面速度。
+    </p>
+</details>
+
+<details open>
     <summary>Cookie、Local Storage、Session Storage 的不同之处？</summary>
     <p>
         Cookie 主要用来标志用户的身份，并且始终会在同源的请求中携带，容量只有 4kb。
-        Session Storage 储存是页面级别的，不在多个页面上共享，当页面关闭时销毁。
+        Session Storage 储存是页面级别的，不在多个页面上共享，当页面关闭时销毁（页面并非指浏览器窗口，而是指 Tab 页面）。
         Local Storage 和 Session Storage 容量都较大。单纯储存数据的话一般会选择 Local Storage。
     </p>
 </details>
@@ -683,6 +738,19 @@
 ## 项目
 
 <details open>
+    <summary>移动端适配有了解么？</summary>
+    <p>
+        因为不同设备的像素大小及 DPR 不同，所以 CSS 像素和浏览器渲染视口的像素不一致，导致我们看到的页面和设计稿不一致。以往的做法是使用 REM 来写 CSS，把设计稿的尺寸代入计算，得到代码中的值，如 75px 的图片在 750px 的设计稿中，对应到 CSS 代码便是 7.5rem。当然，还得通过 JS 将根元素的字体大小设置为 10px，REM 方案才能正常运作。<br />
+        现在来说，REM 方案已经被舍弃了。通常会使用 CSS VW 单位或 Meta.Viewport 这两种方案作为替代。CSS VW 单位需结合 Webpack CSS 后处理插件使用，才能提升开发体验。而 Meta.Viewport 可以指定浏览器视口大小等于设备宽度并禁用缩放，总的来说体验更高。<br />
+        <Highlight lang="html">
+             &lt;meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"&gt;
+             &lt;!-- width=device-width，指定视口大小等于设备宽度 --&gt;
+             &lt;!-- user-scalable=no，禁止用户手动缩放视口 --&gt;
+        </Highlight>
+    </p>
+</details>
+
+<details open>
     <summary>首屏优化方案你了解过么？</summary>
     <p>
         以前在项目中接触过一点。首屏优化主要从两个方面考虑，第一是提高加载体验使加载状态用户无感，第二是提高页面性能，减少加载速度。<br />
@@ -705,6 +773,9 @@
 * [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
 * [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
 * [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
+* [What really happens when you navigate to a URL](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
+* [TCP 序列號 (Sequence Number, SEQ)](https://notfalse.net/26/tcp-seq)
+* [Viewport移动端适配](https://juejin.im/post/6844903721697017864)
 * [ECMAScript 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/#sec-execution-contexts)
 * [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
 * [中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂(下)](https://juejin.im/post/5cc26dfef265da037b611738)

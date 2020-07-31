@@ -139,16 +139,6 @@
                 outline-offset: 5px;
             }
         }
-
-        summary::-webkit-details-marker {
-            // display: none;
-        }
-
-        summary:before {
-            // content: '\2714';
-            // color: #696f7c;
-            // margin-right: 5px;
-        }
     }
 
     p + p {
@@ -196,6 +186,23 @@
 
         & > * {
             text-align: unset;
+        }
+
+        & > details:only-child summary {
+            &::-webkit-details-marker {
+                display: none;
+                // margin-left: -1em;
+            }
+
+            &:hover {
+                outline: 1px solid var(--light-gray);
+                outline-offset: 6px;
+            }
+
+            &:active {
+                outline: 1px solid;
+                outline-offset: 5px;
+            }
         }
     }
 
