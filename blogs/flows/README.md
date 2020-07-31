@@ -1,4 +1,12 @@
 
+<flow>猴子补丁。
+<Highlight>
+// 在运行时对功能做出修改
+undefined = true
+</Highlight>
+<name><a href="https://www.wikiwand.com/en/Monkey_patch" rel="noopener noreferrer" target="_blank">Monkey patch</a></name><time>2020年7月31日 17点37分</time>
+</flow>
+
 <flow>这个网站不包含任何 JS 代码：<p class="m0"><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">https://www.swiftbysundell.com/articles/</a></p>
 <name><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">swiftbysundell</a></name><time>2020年7月18日 19点25分</time>
 </flow>
