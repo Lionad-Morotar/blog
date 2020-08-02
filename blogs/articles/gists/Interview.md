@@ -112,11 +112,6 @@
 </details>
 
 <details open>
-    <summary>试着手写一下 Webpack 的原理？</summary>
-    <p>Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack" target="_blank" rel="nofollow">Webpack 打包原理</a></p>
-</details>
-
-<details open>
     <summary>从 JS 的角度考虑，你能想到哪些提高代码性能的办法？</summary>
     <p>
         <ul>
@@ -132,6 +127,21 @@
             <li>WebAssembly... 没有实践过...</li>
         </ul>
     </p>
+</details>
+
+<details open>
+    <summary>试着手写一下 Webpack 的原理？</summary>
+    <p>Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack" target="_blank" rel="nofollow">Webpack 打包原理</a></p>
+</details>
+
+<details open>
+    <summary>试着手动 polyfill Promise 函数？</summary>
+    <p>Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/promise.js" target="_blank" rel="nofollow">手写 Promise</a></p>
+</details>
+
+<details open>
+    <summary>试着手动 polyfill Generator 函数？</summary>
+    <p>Generator 使用了新的关键字和新的语法，所以运行代码前必须将 Generator 代码转译。不过... 倒也有办法实现假的 polyfill，见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/generator.js" target="_blank" rel="nofollow">手写 Generator</a></p>
 </details>
 
 ### 代码原理
@@ -382,7 +392,7 @@
 <details open>
     <summary>先简单介绍一下浏览器的事件捕获机制？</summary>
     <p>
-        浏览器的事件传播分为三个阶段：Capture、Target、Bubble，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。
+        浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。
         事件捕获发生在 Bubble 阶段，但是可以在事件监听时使用 useCapture 参数指定某回调函数在 Capture 阶段触发。
         <img class="db mauto" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200717182112.png" />
     </p>
@@ -577,6 +587,13 @@
 </details>
 
 <details open>
+    <summary>CDN 对前端来说有哪些好处？</summary>
+    <p>
+        CDN 是一种必要的冗余。普遍而说，CDN 能通过快速响应速度、突破浏览器的同域名请求并发数、节约 Cookie 带宽等手段加快页面加载速度。
+    </p>
+</details>
+
+<details open>
     <summary>同源策略限制了哪些内容？</summary>
     <p>
         同源策略是一种浏览器遵守的规范，要求页面发送的请求的协议、HOST、端口号必须与脚本来源相同。这是一种最基础的安全策略。绕过同源策略的方法即跨域。
@@ -668,7 +685,7 @@
 </details>
 
 <details open>
-    <summary>属性 SRC 和 HREF 的区别？</summary>
+    <summary>HTML 属性 SRC 和 HREF 的区别？</summary>
     <p>
         SRC 即 Source，指使用外部对象替换当前元素；HREF 即 Hypertext Reference，指元素与外部的链接关系。
     </p>
