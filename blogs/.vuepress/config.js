@@ -110,9 +110,7 @@ module.exports = {
                 avatar: 'robohash',
                 pageSize: '50',
                 highlight: false,
-                visitor: true,
-                path: () => window.location.path,
-                recordIP: () => !navigator.doNotTrack
+                visitor: true
             }
         },
         'rss-feed': {
