@@ -225,6 +225,17 @@ isArray([]) // true
 }())
 ```
 
+### 如何扩展
+
+可以通过 Symbol.toStringTag 对已有对象的内置标签进行修改。这样就可以不需要通过构造函数的方法来分辨程序中不同种类的新对象。如下代码：
+
+```js
+var a = {}
+a[Symbol.toStringTag] = '1234'
+Object.prototype.toString.call(a)
+// >>> "[object 1234]"
+```
+
 ### 缺陷所在
 
 JS 中的对象，按照执行环境来划分可以分为内置对象（Build-In Object）和宿主对象（Host Object），如 Window、History 就是执行环境（浏览器）提供的对象。

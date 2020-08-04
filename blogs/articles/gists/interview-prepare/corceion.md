@@ -1,4 +1,4 @@
-# 隐式转换
+# 隐式类型转换
 
 能回答出以下表达式的结果并指出具体原理，就不用继续看了。
 
@@ -115,7 +115,9 @@ JS 是弱类型语言，一般而言，不同类型数据之间可以互相转�
 
 ### ToPrimitive
 
-ToPrimitive 负责将值转换为原始值，除了 Object 类型的其它基础类型都会返回自身，否则按以下步骤：
+ToPrimitive 负责将值转换为原始值。简单来说，除了 Object 类型调用 ToPrimitive 时，会隐式调用 ValueOf 和 ToString 之外，其它基础类型的 ToPrimitive 操作都会返回自身。
+
+伪算法参考以下步骤：
 
 1. 如果定义了 Symbol.ToPrimitive 则调用取得返回值并返回（结果类型为 Object 则抛类型错误）
 2. 根据 PreferredType 的值取 hint（'default' | 'string' | 'number'）
@@ -144,7 +146,7 @@ PreferredType 用来表明想转换到哪种原始值类型，比数组索引中
 #### 抽象关系运算
 
 1. 以 ToPrimitive 携参数 hint Number 计算两个操作数的原始值
-2. 两个值都为 String，则逐个比较字符
+2. 两个值都为 String，则逐个字符对应的 Unicode 索引的大小
 3. 使用 ToNumber 转换两个值，继续比较
 4. 任一值为 NaN，返回 False
 5. 任一值为正零，另一值为负零，返回 False

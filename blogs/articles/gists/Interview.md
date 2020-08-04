@@ -80,38 +80,6 @@
 </details>
 
 <details open>
-    <summary>该如何设计一个可以取消请求的请求函数？</summary>
-    <p>
-        浏览器发送请求时经过一定时间后，将自动断开连接。如果想主动取消请求的话，可以调用 XMLHttpRequest.abort() 方法。<br />
-        在项目中，一般我们会使用 Promise 封装请求函数。Promise 是一个内部状态只能向 fulfilled、rejected 流动的状态机，没有办法取消。如果想要主动取消，可以在 Promise.resolve 前通过闭包依赖一个外部的变量。我们修改这个外部变量，就能达到一种“控制请求”的结果。
-        <Highlight>
-            function Post(url) {
-                const self = this
-                this.handleResult = true
-                let resolveTick
-                const tick = new Promise(resolve => { resolveTick = resolve })
-                // 这个函数依赖的是 this.handleResult
-                this.request = fetch(url).then(response => {
-                    return this.handleResult && resolveTick(response)
-                })
-                return new Proxy(this, {
-                    get (target, prop) {
-                        console.log('prop: ', prop)
-                        return prop === 'abort'
-                            ? () => self.handleResult = false
-                            : Reflect.get(tick, prop).bind(tick)
-                    }
-                })
-            }
-            // 调用 post.abort() 后，以下 console.log 不会输出请求结果
-            var post = new Post('url')
-            post.then(res => console.log(res))
-            post.abort()
-        </Highlight>
-    </p>
-</details>
-
-<details open>
     <summary>从 JS 的角度考虑，你能想到哪些提高代码性能的办法？</summary>
     <p>
         <ul>
@@ -127,21 +95,6 @@
             <li>WebAssembly... 没有实践过...</li>
         </ul>
     </p>
-</details>
-
-<details open>
-    <summary>试着手写一下 Webpack 的原理？</summary>
-    <p>Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack" target="_blank" rel="nofollow">Webpack 打包原理</a></p>
-</details>
-
-<details open>
-    <summary>试着手动 polyfill Promise 函数？</summary>
-    <p>Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/promise.js" target="_blank" rel="nofollow">手写 Promise</a></p>
-</details>
-
-<details open>
-    <summary>试着手动 polyfill Generator 函数？</summary>
-    <p>Generator 使用了新的关键字和新的语法，所以运行代码前必须将 Generator 代码转译。不过... 倒也有办法实现假的 polyfill，见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/generator.js" target="_blank" rel="nofollow">手写 Generator</a></p>
 </details>
 
 ### 代码原理
@@ -301,6 +254,64 @@
     </p>
 </details>
 
+### 手写代码
+
+<details open>
+    <summary>先来点简单的内容吧，试着实现一个 instanceof ？</summary>
+    <p>instanceof 操作符本质上是检测右值的原型对象在不在左值对象的原型链上。代码见：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/instanceof.js" target="_blank" rel="nofollow">InstanceOf Polyfill</a></p>
+</details>
+
+<details open>
+    <summary>试着手动 polyfill Promise 函数？</summary>
+    <p>Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/promise.js" target="_blank" rel="nofollow">手写 Promise</a></p>
+</details>
+
+<details open>
+    <summary>该如何设计一个可以取消请求的请求函数？</summary>
+    <p>
+        浏览器发送请求时经过一定时间后，将自动断开连接。如果想主动取消请求的话，可以调用 XMLHttpRequest.abort() 方法。<br />
+        在项目中，一般我们会使用 Promise 封装请求函数。Promise 是一个内部状态只能向 fulfilled、rejected 流动的状态机，没有办法取消。如果想要主动取消，可以在 Promise.resolve 前通过闭包依赖一个外部的变量。我们修改这个外部变量，就能达到一种“控制请求”的结果。
+        <Highlight>
+            function Post(url) {
+                const self = this
+                this.handleResult = true
+                let resolveTick
+                const tick = new Promise(resolve => { resolveTick = resolve })
+                // 这个函数依赖的是 this.handleResult
+                this.request = fetch(url).then(response => {
+                    return this.handleResult && resolveTick(response)
+                })
+                return new Proxy(this, {
+                    get (target, prop) {
+                        console.log('prop: ', prop)
+                        return prop === 'abort'
+                            ? () => self.handleResult = false
+                            : Reflect.get(tick, prop).bind(tick)
+                    }
+                })
+            }
+            // 调用 post.abort() 后，以下 console.log 不会输出请求结果
+            var post = new Post('url')
+            post.then(res => console.log(res))
+            post.abort()
+        </Highlight>
+    </p>
+</details>
+
+<details open>
+    <summary>试着手动 polyfill Generator 函数？</summary>
+    <p>Generator 使用了新的关键字和新的语法，所以运行代码前必须将 Generator 代码转译。不过... 倒也有办法实现假的 polyfill，见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/generator.js" target="_blank" rel="nofollow">手写 Generator</a></p>
+</details>
+
+<details open>
+    <summary>试着手写一下 Webpack 的原理？</summary>
+    <p>Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack" target="_blank" rel="nofollow">Webpack 打包原理</a></p>
+</details>
+
+### 框架相关
+
+* [VueJS 相关问题](/articles/gists/interview-prepare/vuejs.html)
+
 ## 浏览器
 
 <details open>
@@ -383,7 +394,7 @@
     <p>
         刚刚没有提到，异步任务还可以细分为宏任务（Macro Task）和微任务（Micro Task）。
         addEventListener、setTimeout、setInterval 的回调将会推入宏任务队列。
-        MutationObserver、Promise、process.nextTick 的回调将会推入微任务队列。
+        QueueMicrotask、MutationObserver、Promise、process.nextTick 的回调将会推入微任务队列。
         每执行一个宏任务及主体代码执行完毕后，将会立即执行所有微任务。
         <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200704024238.png" />
     </p>
@@ -394,7 +405,7 @@
     <p>
         浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。
         事件捕获发生在 Bubble 阶段，但是可以在事件监听时使用 useCapture 参数指定某回调函数在 Capture 阶段触发。
-        <img class="db mauto" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200717182112.png" />
+        <img class="db mauto mt1em w68" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/event-capture.svg" style="filter: grayscale(.7)" />
     </p>
 </details>
 
@@ -409,6 +420,17 @@
     </ul>
 </details>
 
+<details open>
+    <summary>浏览器中有哪些常见的安全问题？</summary>
+    <ul>
+        <li>XSS：Cross-site Scripting Attack，即通过把未经转义的脚本字符植入页面，使得解析 HTML 时自动执行相应脚本。解决方法，简单来说，写个 ecape 工具函数就好了。</li>
+        <li>CSRF：Cross-site Request Forgery，跨站请求伪造，即利用用户已登录的状态发送一些恶意请求。</li>
+        <li>明文泄漏：密码之类的数据不能存在前端；部分敏感数据存放时需要进行脱敏操作；HTTPS 防止中间人攻击。</li>
+        <li>代码安全：代码压缩；关键代码进行加密于混淆；机密代码需要做成接口的形式让后端提供服务。</li>
+        <li>爬虫安全：可以通过联合前后端一起做反爬虫操作。有很多高级操作，像高级验证码、蜜罐、机器人侦测、提供假数据甚至综合检测等...</li>
+    </ul>
+</details>
+
 ## NodeJS
 
 <details open>
@@ -418,34 +440,8 @@
     </p>
 </details>
 
-## 工程化
-
 <details open>
-    <summary>Bable 之类的编译器有什么作用？</summary>
-    <p>
-        编译器主要的作用是转换与编译，能够将新标准中前沿的代码技术转换为相同（或类似）功能的代码，使其能够在旧的浏览器中运行。
-    </p>
-</details>
-
-<details open>
-    <summary>Bable 工作原理了解一些吗？</summary>
-    <p>
-        Bable 使用 Babylon（Babel-parser） 将代码解析为 AST，使用 Bable-traverse 维护 AST 的状态，做一些源码级别的转换，最后使用 Bable-generator 读取 AST 并生成代码。
-    </p>
-</details>
-
-<details open>
-    <summary>刚刚说到 AST，你对 AST 有什么其它的认识吗？</summary>
-    <p>
-        AST 即抽象语法树，是源代码的抽象树状语法结构。对于普通的字符串处理，使用正则完全足够。
-        但一旦涉及字符串上下文，或是要在高可维护性项目中处理源码这种场景，就需要用到 AST。
-        虽然前端离“计算机科学”这个名词好像隔着很远的距离，但是 AST 在前端实践中无处不在。
-        我们通过“代码生成 AST”、“遍历与更新”、“重生成代码”三个标准流程，能构建出一整套代码工程化方案，比如包括代码高亮补全压缩混淆、模块构建、语法糖、语言转换等功能都离不开 AST。
-    </p>
-</details>
-
-<details open>
-    <summary>JS引擎的垃圾回收机制有了解吗？</summary>
+    <summary>引擎的垃圾回收机制有了解吗？</summary>
     <p>
         V8 使用分代回收机制，将内存分为新生代和老生代空间，分别用不同的算法进行 GC。
         新生代空间通常较小，只有 1-8 MB。程序保持了一个指向内存区的指针，不断根据新对象的大小进行递增。当指针到达新生区末尾时，触发一次 ScavengeGC（小周期）。
@@ -462,36 +458,6 @@
                 题外话，这里的图画错了，标记算法是深度搜索，图我画成了广搜...
                 <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200704134710.png" />
             </li>
-        </ul>
-    </p>
-</details>
-
-<details open>
-    <summary>怎么在编码时预防内存泄漏？</summary>
-    <p>
-        JS使用了标记清除法进行 GC，这意味着如果对象访问不到，则会自动被回收，我们要避免在编码时保存不必要的引用。<br />
-        <ul>
-            <li>闭包：闭包的错误的使用会导致对象一直被标记而不能被释放。这个要求我们写代码的时候要时刻注意对象引用关系的分配。也听说过有些团队禁止使用闭包，不过我觉得这在大部分情况下不合理。</li>
-            <li>全局对象：函数中的 this 指向常常会带来问题，解决方案是在构造器中通过 new.target 判断是否是通过 new 运算符调用的构造器；此外，未声明的变量在赋值时会自动挂载到全局对象，解决方案是使用严格模式，或通过项目工程化（比如加语法校验和提交钩子)解决。</li>
-            <li>还有一些常见的编程场景也容易导致内存泄漏，比如移除节点并不能清除某个变量对 DOM 的引用，销毁组件时没销毁监听器等。</li>
-            <Highlight>
-                /* 这里展示一下未经过考虑的闭包造成的内存泄漏场景。可以试试打开一个新窗口，然后在控制台运行此函数，应该不出十秒，页面就会崩溃 */
-                const holder = null
-                const unClearedRef = function () {
-                    // closure 保持了 holder 的引用
-                    const closure = holder
-                    // 某个函数
-                    const unused = function () {
-                        // 由于 unused 函数的存在，closure 引用的值一直不会被释放
-                        if (closure) console.log("")
-                    }
-                    /* 创建一个大对象 */
-                    const test = {}
-                    Array(1000000).fill('').map((x, i) => test[i] = new Array(200000000).join('*'))
-                    holder = { ...test }
-                }
-                setInterval(unClearedRef, 500)
-            </Highlight>
         </ul>
     </p>
 </details>
@@ -752,7 +718,61 @@
     </p>
 </details>
 
-## 项目
+## 项目&工程化
+
+<details open>
+    <summary>Bable 之类的编译器有什么作用？</summary>
+    <p>
+        编译器主要的作用是转换与编译，能够将新标准中前沿的代码技术转换为相同（或类似）功能的代码，使其能够在旧的浏览器中运行。
+    </p>
+</details>
+
+<details open>
+    <summary>Bable 工作原理了解一些吗？</summary>
+    <p>
+        Bable 使用 Babylon（Babel-parser） 将代码解析为 AST，使用 Bable-traverse 维护 AST 的状态，做一些源码级别的转换，最后使用 Bable-generator 读取 AST 并生成代码。
+    </p>
+</details>
+
+<details open>
+    <summary>刚刚说到 AST，你对 AST 有什么其它的认识吗？</summary>
+    <p>
+        AST 即抽象语法树，是源代码的抽象树状语法结构。对于普通的字符串处理，使用正则完全足够。
+        但一旦涉及字符串上下文，或是要在高可维护性项目中处理源码这种场景，就需要用到 AST。
+        虽然前端离“计算机科学”这个名词好像隔着很远的距离，但是 AST 在前端实践中无处不在。
+        我们通过“代码生成 AST”、“遍历与更新”、“重生成代码”三个标准流程，能构建出一整套代码工程化方案，比如包括代码高亮补全压缩混淆、模块构建、语法糖、语言转换等功能都离不开 AST。
+    </p>
+</details>
+
+<details open>
+    <summary>怎么在编码时预防内存泄漏？</summary>
+    <p>
+        JS使用了标记清除法进行 GC，这意味着如果对象访问不到，则会自动被回收，我们要避免在编码时保存不必要的引用。<br />
+        <ul>
+            <li>闭包：闭包的错误的使用会导致对象一直被标记而不能被释放。这个要求我们写代码的时候要时刻注意对象引用关系的分配。也听说过有些团队禁止使用闭包，不过我觉得这在大部分情况下不合理。</li>
+            <li>全局对象：函数中的 this 指向常常会带来问题，解决方案是在构造器中通过 new.target 判断是否是通过 new 运算符调用的构造器；此外，未声明的变量在赋值时会自动挂载到全局对象，解决方案是使用严格模式，或通过项目工程化（比如加语法校验和提交钩子)解决。</li>
+            <li>还有一些常见的编程场景也容易导致内存泄漏，比如移除节点并不能清除某个变量对 DOM 的引用，销毁组件时没销毁监听器等。</li>
+            <Highlight>
+                /* 这里展示一下未经过考虑的闭包造成的内存泄漏场景。可以试试打开一个新窗口，然后在控制台运行此函数，应该不出十秒，页面就会崩溃 */
+                const holder = null
+                const unClearedRef = function () {
+                    // closure 保持了 holder 的引用
+                    const closure = holder
+                    // 某个函数
+                    const unused = function () {
+                        // 由于 unused 函数的存在，closure 引用的值一直不会被释放
+                        if (closure) console.log("")
+                    }
+                    /* 创建一个大对象 */
+                    const test = {}
+                    Array(1000000).fill('').map((x, i) => test[i] = new Array(200000000).join('*'))
+                    holder = { ...test }
+                }
+                setInterval(unClearedRef, 500)
+            </Highlight>
+        </ul>
+    </p>
+</details>
 
 <details open>
     <summary>移动端适配有了解么？</summary>
