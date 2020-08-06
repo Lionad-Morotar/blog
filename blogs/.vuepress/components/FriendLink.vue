@@ -151,7 +151,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 888px) {
     .name {
       display: none;
     }

@@ -38,12 +38,9 @@
             content: ' (' attr(href) ')';
         }
 
-        // 得找个办法去掉 hr
-        // hr {
-        //     &+h2, &+h3, &+h4 {
-        //         page-break-before: always;
-        //     }
-        // }
+        a[href^='/']:after {
+            content: '（https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com' attr(href) '）';
+        }
     }
 }
 

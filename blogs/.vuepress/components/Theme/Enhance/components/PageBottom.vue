@@ -46,7 +46,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 888px) {
   #page-bottom {
     padding: 0 1.5rem;
     text-align: left;

@@ -262,6 +262,39 @@
 </details>
 
 <details open>
+    <summary>必考题，节流及防抖的区别及应用？</summary>
+    <p>节流指一定时间内只触发一次函数执行，可以用于削减一些高频函数调用的消耗，如浏览器滚动，窗口缩放和鼠标移动等 API 就会调用非常多次回调函数，这时候可以用节流函数限制一下。</p>
+    <Highlight>
+        // 获取当前浏览器的刷新频率
+        const frameDelta = getFrameTime()
+        // frameDelta * 2 是指以刷新频率一半的速率执行回调
+        function throttle(fn, time = frameDelta * 2) {
+            let running = false
+            return function (...args) {
+                !running && setTimeout(() => {
+                    running = true
+                    fn.bind(this)(...args)
+                    running = false
+                }, time)
+            }
+        }
+    </Highlight>
+    <p>防抖是指将触发回调前将等待一定时间，并且这段时间会被再次触发回调所推迟。比方说搜索框中的键盘键入后自动弹出的搜索建议，通常会用防抖做。</p>
+    <Highlight>
+        function debounce(fn, time = 100) {
+            let tick = null
+            return function (...args) {
+                tick && window.clearTimeout(tick)
+                tick = setTimeout(() => {
+                    fn.bind(this)(...args)
+                    tick = null
+                })
+            }
+        }
+    </Highlight>
+</details>
+
+<details open>
     <summary>试着手动 polyfill Promise 函数？</summary>
     <p>Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/promise.js" target="_blank" rel="nofollow">手写 Promise</a></p>
 </details>
@@ -798,6 +831,15 @@
         项目中这几种优化方案可以交叉实施，比方说 VasSonic 框架，可以流式拦截请求，边加载边渲染，还能做到增量更新。这种方案要比静态页面好上不少。还有一种性能较高的方案是，通过一个用户无感的 Webview 页面，预先请求数据并渲染 HTML，点击时直接切换 Webview 就好了，这种方案可以达到秒出效果。
     </p>
 </details>
+
+## 数据结构、算法及应用
+
+大学的时候看过一些简单的算法书，但现在应该是全忘了。现在的话只能依稀能记起一些常用算法（的名字 TOT）。说实话，由于准备面试的时间较短，这方面还真没办法系统性的复习。所以只重看了一些以前项目中实践过的内容，都是比较简单的数据结构和算法... 害，期待面试的时候不要碰到靠算法刷人的公司吧...
+
+* [QuickSort](https://github.com/Lionad-Morotar/read-source-code/blob/master/algorithm/quicksort.js)
+* [DFS](https://github.com/Lionad-Morotar/read-source-code/tree/master/algorithm/dfs.js)
+* [BFS](https://github.com/Lionad-Morotar/read-source-code/tree/master/algorithm/bfs.js)
+* [LRU 链表实现](https://github.com/Lionad-Morotar/read-source-code/blob/master/data-structure/lru.js)
 
 ## 阅读更多
 

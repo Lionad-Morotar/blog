@@ -64,11 +64,12 @@ h4 {
     background: #7A5160;
 }
 
-& > img, & > p > img, & > figure> img {
+& > img, & > p > img, & > figure> img, & > video, & > p > video, & > figure> video {
     box-sizing: border-box;
     display: block;
     margin: 1.6em auto;
     margin-bottom: 0;
+    max-width: 100%;
     vertical-align: middle;
     border: solid 1px;
 
@@ -79,8 +80,9 @@ h4 {
     }
 }
 
-& > img {
+& > img, & > video {
     margin: 1.95rem auto 1.75em auto;
+    max-width: 100%;
 }
 
 p, details {
@@ -353,7 +355,7 @@ table {
     color: var(--text-gray);
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 888px) {
     h1 {
         font-size: 1.875rem;
     }
@@ -415,7 +417,7 @@ table {
         border: none;
     }
 
-    & > p > img, & > figure> img {
+    & > p > img, & > figure> img, & > p > video, & > figure> video {
         margin: 0 auto;
     }
 }

@@ -5,7 +5,7 @@
 }
 
 @mixin sp-layout {
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 888px) {
         @content;
     }
 }

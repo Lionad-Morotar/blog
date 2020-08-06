@@ -1,28 +1,31 @@
 <template>
     <div class="commend">
-        <div class="left-con">
-            <div class="commend-image-con">
-                <img class="commend-image" :title="caption" :alt="caption" :src="src" style="" />
-                <div class="commend-image-name">{{ caption }}</div>
+        <p v-if="type === 'title'">{{ caption || callouts[0] }}</p>
+        <template v-else>
+            <div class="left-con">
+                <div class="commend-image-con">
+                    <img class="commend-image" :title="caption" :alt="caption" :src="src" style="" />
+                    <div class="commend-image-name">{{ caption }}</div>
+                </div>
+                <details v-if="tags" class="tag-con" open>
+                    <summary>标签</summary>
+                    <template v-for="tag in tags">
+                        <div class="tag">{{ tag }}</div>
+                    </template>
+                </details>
             </div>
-            <details class="tag-con" open>
-                <summary>标签</summary>
-                <template v-for="tag in tags">
-                    <div class="tag">{{ tag }}</div>
-                </template>
-            </details>
-        </div>
-        <div class="gap" />
-        <div class="right-con">
-            <div v-for="callout in callouts" :key="callout" class="callout-con">
-                <div class="callout-icon">💡</div>
-                <div class="callout-line">
-                    <div v-for="line in callout.split('\n')" class="callout">
-                        {{ line }}
+            <div class="gap" />
+            <div class="right-con">
+                <div v-for="callout in callouts" :key="callout" class="callout-con">
+                    <div v-if="type !== 'min'" class="callout-icon">💡</div>
+                    <div class="callout-line">
+                        <div v-for="line in callout.split('\n')" class="callout">
+                            {{ line }}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </template>
     </div>
 </template>
 

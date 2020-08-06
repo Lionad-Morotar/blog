@@ -10,6 +10,7 @@
 import ParentLayout from '@parent-theme/layouts/Layout.vue'
 import PageBottom from '@theme/components/PageBottom.vue'
 
+import addH1toBody from '../mixins/addH1toBody'
 import addWhiteMaskToNav from '../mixins/addWhiteMaskToNav'
 import catchSidebarScroll from '../mixins/catchSidebarScroll'
 import useConfetti from '../mixins/useConfetti'
@@ -24,7 +25,7 @@ export default {
         ParentLayout,
         PageBottom
     },
-    mixins: [addWhiteMaskToNav, catchSidebarScroll, useConfetti, useCrisp, useCSSBridge],
+    mixins: [addH1toBody, addWhiteMaskToNav, catchSidebarScroll, useConfetti, useCrisp, useCSSBridge],
     mounted() {
         window.onload = utils.onload.fn
     },
