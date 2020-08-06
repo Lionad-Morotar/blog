@@ -13,7 +13,6 @@ module.exports = {
                     const $body = document.body
 
                     const content = $h1.innerText.replace(/[^a-zA-Z\u4e00-\u9fa5]/g, '')
-                    console.log(content)
 
                     $body.classList.forEach(x => x.startsWith(prefix) && $body.classList.remove(x))
                     $body.classList.add(prefix + content)

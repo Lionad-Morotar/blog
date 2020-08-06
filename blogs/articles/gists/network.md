@@ -1,5 +1,10 @@
 # 网络
 
-## 协议
+## HTTP
 
-<a href="/articles/gists/http.html">HTTP</a>
+* [HTTP](/articles/gists/http.html)
+
+## 零散的
+
+DNS 大部分时候使用 UDP 传输。
+
