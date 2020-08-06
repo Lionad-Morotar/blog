@@ -3,12 +3,7 @@
         <!-- FireWatch Mountain -->
         <div ref="parallax" class="parallax">
             <div class="parallax__layer parallax__layer__0">
-                <img
-                    :src="assets.parallax_0.value"
-                    alt="云朵背景图片"
-                    class="cloud animation"
-                    draggable="false"
-                />
+                <img :src="assets.parallax_0.value" alt="云朵背景图片" class="cloud animation" draggable="false" />
             </div>
             <div class="parallax__layer parallax__layer__1">
                 <img :src="assets.parallax_1.value" alt="山岳背景图片" draggable="false" />
@@ -71,7 +66,7 @@
         <Gesture :swipeDown="() => changeSlide('down')" freezeTime="300" :eventInvoke="stopMove">
             <div class="wrapper wrapper-brief">
                 <div class="page-title-con">
-                    <div class="page-title">Lionad's Blogs</div>
+                    <div class="page-title">Lionad's Blog</div>
                     <div class="page-side-title">Newest Posts</div>
                     <div class="page-side-content">
                         <template v-for="section in articles" v-if="section.label">

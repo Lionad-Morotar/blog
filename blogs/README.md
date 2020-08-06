@@ -7,4 +7,4 @@ url: '/articles'
 footer: Lionad-Guirotar / Made with 💗
 ---
 
-前端工程师，有技术激情和生活态度的那种 | 午夜吉他恶魔 | 兴趣泛滥的游戏玩家
+前端偏甜工程师 | 午夜吉他恶魔 | 兴趣泛滥的游戏玩家 | Read & Read More ...
