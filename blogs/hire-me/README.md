@@ -17,7 +17,7 @@
 * Github：[Lionad-Morotar](https://github.com/Lionad-Morotar)
 * 技术博客：[www.lionad.art](http://www.lionad.art) / [备用网址](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)
 * 期望城市：上海
-* 技术概览：[常用技术栈（HR 请看这里）](/articles/gists/resume.html#🔨-技术概览)
+* 技术概览：[常用技术栈（HR 请看这里）](#🔨-技术概览)
 
 ## 🛫 工作经历
 
