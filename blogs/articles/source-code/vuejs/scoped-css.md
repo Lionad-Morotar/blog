@@ -1,4 +1,4 @@
-# [探索] VueJS Scoped CSS 实现原理
+# Scoped CSS
 
 [TOC]
 

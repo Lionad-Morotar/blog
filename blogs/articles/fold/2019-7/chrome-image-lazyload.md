@@ -42,14 +42,11 @@
 
 文中代码图片是使用[`Carbon`](https://carbon.now.sh)合成的, 掘金的代码高亮实在是... 么得办法~~
 
-### References
+### 阅读更多
 
-> [Native image lazy-loading for the web!](https://addyosmani.com/blog/lazy-loading/)
-
-> [Lazyload images and iframes](https://github.com/whatwg/html/pull/3752)
-
-> [图片和视频的懒加载](https://github.com/dwqs/blog/issues/74)
-
-> [极致性能 – 图片渐进显示和懒加载](http://medium.yintage.com/?p=44)
+* [Native image lazy-loading for the web!](https://addyosmani.com/blog/lazy-loading/)
+* [Lazyload images and iframes](https://github.com/whatwg/html/pull/3752)
+* [图片和视频的懒加载](https://github.com/dwqs/blog/issues/74)
+* [极致性能 – 图片渐进显示和懒加载](http://medium.yintage.com/?p=44)
 
 

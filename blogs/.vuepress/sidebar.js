@@ -47,55 +47,47 @@ const sidebarConfigs = {
                 '2019',
                 '万物联结与幸福感',
                 '偷取时间',
-                '隐秘',
-                '追寻自由与满怀希望',
                 '表达和孤独',
-                '文字与情绪',
                 '一封沉默',
-                '我的腼腆'
+                '我的腼腆',
+                '聊聊此次离职毕业及其它杂乱的事情',
+                'fold'
             ]
         },
         {
-            title: '技术 / Coder',
+            title: '技术博客 / Coder',
             label: '技术',
             collapsable: false,
             open: true,
             children: [
-                '低版本浏览器兼容HTML5标签原理',
                 '设计模式与JS魔法锅',
-                'CSS-Mind-Map',
-                '斑马难题',
                 'CSSAA',
+                'CSS-Mind-Map',
                 '你可以用纯CSS判断鼠标进入的方向吗',
-                '9种CSS图案解析',
-                '用JS实现一些造型构成',
-                '从一张CSS风景画中学到的东西',
                 '有关CSS的一些极有趣的东西',
-                '近来的新工作，及喝饮料时的一些思考',
-                '聊聊此次离职毕业及其它杂乱的事情',
+                '喝饮料时的一些思考',
                 '你本可以少写些if-else',
                 '150行代码带你实现小程序中的数据侦听',
-                '从一个越写越慢的编辑器中聊聊优化思路',
-                '探索Scoped-CSS实现原理',
-                '听说你还在手写懒加载'
+                'source-code',
+                'fold'
             ]
         },
         {
-            title: 'Memo / Gists',
+            title: '零散思绪 / Gists',
             collapsable: true,
             childrenGen: list => list.map(x => 'gists/' + x),
             childrenRaw: getSrc(gistsDir),
             flag: 'G'
         },
         {
-            title: 'Awesome',
+            title: 'Paint in CSS',
             collapsable: true,
             childrenGen: list => list.map(x => 'awesome/' + x),
             childrenRaw: getSrc(awesomeDir),
             flag: 'C'
         },
         {
-            title: '吉他 / Plays',
+            title: 'Play Guitar',
             collapsable: true,
             children: [
                 '163/等待的风',
