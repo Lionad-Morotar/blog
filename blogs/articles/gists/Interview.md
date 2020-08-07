@@ -374,12 +374,6 @@
                     <img class="mt1em" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731162450.png" alt="TCP Three-way Handshake" />
                 </details>
             </li>
-            <li>
-                <details>
-                    <summary>TCP 头部了解么？</summary>
-                    <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731153510.png" alt="TCP header" />
-                </details>
-            </li>
         </ul>
         <li>服务器收到请求后，检查 If-Modified-Since、If-Match 字段。如果缓存新鲜，则返回 304 状态码。否则通过 TCP 返回相应资源的 HTTP 报文。</li>
         <li>浏览器接受到响应之后，可选则关闭 TCP 连接或将其保留重用。</li>
@@ -497,17 +491,10 @@
 
 ## 网络
 
-<details open>
-    <summary>介绍一下 HTTP 1.0 协议有哪些显著的缺陷？</summary>
-    <ul>
-        <li>无法复用</li>
-        <li>慢启动</li>
-        <li>线头阻塞</li>
-    </ul>
-</details>
+更详细的资料看：<a href="/articles/gists/network.html">计算机网络</a>
 
 <details open>
-    <summary>那 HTTP 1.1 做出了哪些改进呢？</summary>
+    <summary>HTTP 1.1 对 HTTP 1.0 做出了哪些改进？</summary>
     <ul>
         <li>长连接(默认 keep-alive)，复用</li>
         <li>断点续传</li>
@@ -528,28 +515,6 @@
         <li>二进制分帧层: 应用层和传输层之间</li>
         <li>首部压缩</li>
         <li>服务端推送</li>
-    </ul>
-</details>
-
-<details open>
-    <summary>常见的 HTTP 状态码有哪些？</summary>
-    <ul>
-        <li>200：成功并返回数据</li>
-        <li>301：永久转移，重定向</li>
-        <li>304：资源未修改，可使用缓存</li>
-        <li>400：请求语法错误</li>
-        <li>401：要求身份认证</li>
-        <li>403：请求拒绝</li>
-        <li>404：资源不存在</li>
-        <li>500：服务器错误</li>
-    </ul>
-</details>
-
-<details open>
-    <summary>TCP 的三次握手和四次挥手能说说么？</summary>
-    <ul>
-        <li>三次握手：</li>
-        <li>四次挥手：</li>
     </ul>
 </details>
 
