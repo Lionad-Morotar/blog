@@ -21,11 +21,11 @@
 ## 🔨 技术概览
 
 * 通晓 JavaScript 核心特征及 ES6/ES6+ 规范；理解现代化前端。
-* 扎实的 HTML、CSS 基础；有PC及移动端原生 H5 开发经验；能创造各式精巧的页面布局。
-* 掌握并理解 VueJS 生态；有一定的 React 开发经验。
-* 熟悉前端工程化实践；熟悉 Webpack、Rollup、Gulp 等构建工具。
+* 扎实的 HTML、CSS 基础；有PC及移动端原生 H5 开发经验；能创造精巧的页面布局。
+* 掌握 VueJS 生态；读过 VueJS 源码；有一定的 React 开发经验。
+* 熟悉前端工程化实践；熟悉 Webpack、Rollup 等构建工具。
 * 熟悉小程序及框架 Taro。
-* 熟悉常见代码性能优化手段；
+* 良好的软件技术：正则、性能优化、设计模式；
 * 了解 NodeJS。
 
 ## 🛫 工作经历
@@ -75,12 +75,11 @@
 
 **技术狂热症；擅长解决问题；思路开阔；**
 
-* 活跃于 [Github](https://github.com/Lionad-Morotar)，写了一些小型轮子，近期有 [MarkdownParser](https://github.com/Lionad-Morotar/read-source-code/tree/master/module/markdown-parser)；
+* 活跃于 [Github](https://github.com/Lionad-Morotar)；活跃于[掘金社区](https://juejin.im/user/289926800227694)，掘力值 1700+
+* 喜欢读源码；近期有读 HTML Parser 时顺手写的 [Markdown Parser](https://github.com/Lionad-Morotar/read-source-code/tree/master/module/markdown-parser)；
 * 热爱读技术博客及社区的每周精选；关注业界风向；
 * 读过许多技术书籍，修炼内功ing；
-* 活跃于[掘金社区](https://juejin.im/user/289926800227694)，掘力值 1700+
 * 创造了一种新的 CSS 抗锯齿思路 [POAA](https://juejin.im/post/6844904180776173581)，被[前端早读课](https://mp.weixin.qq.com/profile?src=3&timestamp=1596562383&ver=1&signature=07VDeMiUAG0av39cka13COjcq44y7n*Dm-SQWhg5*7EXWFNrljOrwLHppSHEyIt79pg3qdfkzbf7IcjfnYQi1A==)推荐转载于第 1980 期；
-* 喜欢读源码；擅长解决代码及工程问题；
 
 **强创造及表达欲；**
 
