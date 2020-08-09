@@ -16,7 +16,7 @@ export default {
             type: Boolean,
             default: true
         },
-        cutTab: {
+        deindent: {
             type: Boolean,
             default: true
         }
@@ -28,12 +28,11 @@ export default {
                 ? data.replace(/^[ ]+|[ ]+$/g, '')
                 : data.slice(data.search(/[^\n]/), data.search(/[^\n\s]\n\s*$/) + 1)
         }
-        if (this.cutTab) {
-            const splits = data.split(/\n/)
+        if (this.deindent) {
+            const splits = data.split(/\r?\n/)
             const tabs = splits.map(x => x.search(/[^\s]/))
             const minSpace = Math.min(...tabs)
-            const reMinSpace = new RegExp(`\\s{${minSpace}}`)
-            data = splits.map(x => x.replace(reMinSpace, '')).join('\n')
+            data = splits.map(x => x.slice(minSpace)).join('\n')
         }
         const code = prism.highlight(data, prism.languages[this.lang], this.lang)
         const codeWrap = `<pre v-pre class="language-${this.lang}"><code>${code}</code></pre>`

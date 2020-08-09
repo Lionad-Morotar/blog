@@ -6,6 +6,8 @@
 
 * [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
 
+* [de-indent](/articles/source-code/vuejs/de-indent.html)
+
 #### jQuery
 
 * [工具函数无冲突处理](/articles/source-code/jquery/no-conflict.html)
