@@ -17,3 +17,7 @@
 * [低版本浏览器兼容HTML5标签原理 | html5shiv](/articles/source-code/module/html5shiv.html)
   
 * [NodeJS | CommonJS Loader](/articles/source-code/nodejs/require.html)
+
+#### Segment
+
+* [John Resig | Micro-Templating](/articles/source-code/segment/micro-templating.html)
