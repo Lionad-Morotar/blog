@@ -1,4 +1,4 @@
-# ⚙ Lodash 源码学习
+# Lodash 源码学习
 
 [TOC]
 
@@ -255,3 +255,9 @@ function escape(string) {
 ```
 
 ## Array
+
+## 疑难部分
+
+### template
+
+* [Lodash.template](/articles/source-code/lodash/lodash.template.html)
