@@ -162,6 +162,20 @@
 </details>
 
 <details open>
+    <summary>this 是作用域吗？</summary>
+    <p>
+        this 不是作用域。在知乎我看到有人直接把 this 和作用域等同对待，这是错误的。作用域是指我们通常说的“词法作用域”，是储存变量声明、函数声明的地方，是运行时不可变的。而 this 仅指代“当前函数运行所在的环境”，是可变的。
+        <Highlight>
+            const a = 1
+            a // 1
+            window === this // true
+            this.a // undefined
+            window.a // undefined
+        </Highlight>
+    </p>
+</details>
+
+<details open>
     <summary>暂时性死区是怎么形成的？</summary>
     <p>
         暂时性死区和词法环境机制有关。
@@ -292,6 +306,11 @@
             }
         }
     </Highlight>
+</details>
+
+<details open>
+    <summary>还是必考题... 手写 bind、apply、call？</summary>
+    <p>见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/bind.js" target="_blank" rel="nofollow">手写 bind</a>、<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/call.js" target="_blank" rel="nofollow">手写 call</a>、<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/apply.js" target="_blank" rel="nofollow">手写 apply</a></p>
 </details>
 
 <details open>
@@ -815,6 +834,7 @@
 * [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
 * [JS原型链与继承别再被问倒了](https://juejin.im/post/58f94c9bb123db411953691b)
 * [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
+* [Concurrent marking in V8](https://v8.dev/blog/concurrent-marking)
 * [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
 * [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
 * [What really happens when you navigate to a URL](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
