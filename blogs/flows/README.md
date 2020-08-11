@@ -1,3 +1,7 @@
+<flow>浏览器的用户界面有很多彼此相同的元素，如地址栏、前进后退刷新主页按钮、书签... 奇怪的是，浏览器的用户界面并没有任何正式的规范，HTML5 也没有定义浏览器必须具有的用户界面元素。这是多年来的最佳实践自然发展以及彼此之间相互模仿的结果。
+<name><a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/" rel="noopener noreferrer" target="_blank">浏览器的工作原理：新式网络浏览器幕后揭秘</a></name>
+</flow>
+
 <flow><em>项目依赖多种版本的 NodeJS？</em>
 昨天在重构去年写的一个 Markdown 解析器，项目使用 Rollup 打包，同时还使用 Gulp 处理项目引用到的 Stylus 文件。期间出现了一个奇奇怪怪的问题：Gulp 将会在高版本 Node 环境中打包失败报错，而 Rollup 正好相反，它在低版本 Node 环境中打包会报错...
 查了各自文档的，文档没有说明具体支持到哪个版本的 Node 环境。最后只好用 NVM 装了两个版本的 Node，然后全局使用高版本 Node，再找到 Gulp 在 NPM 文件夹中对应的入口文件（gulp.cmd、gulp.ps1），把脚本中的 Node 路径写死为低版本 Node，才解决了问题。
@@ -18,9 +22,9 @@ undefined = true
 
 <flow>几种创造倾斜文本的方法：
 <ul>
-    <div>1. em tag；</div>
-    <div>2. i tag；</div>
-    <div>3.font-style；</div>
+    <div>1：em tag；</div>
+    <div>2：i tag；</div>
+    <div>3：font-style；</div>
     <div>4：Unicode；</div>
     <div>5：Variable fonts；</div>
 </ul>
