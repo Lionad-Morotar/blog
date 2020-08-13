@@ -6,6 +6,8 @@
 
 * [VueJS | 整体架构](/articles/source-code/vuejs/vuejs.html)
 
+* [VueJS | Global API](/articles/source-code/vuejs/api.html)
+
 * [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
 
 * [de-indent](/articles/source-code/vuejs/de-indent.html)
