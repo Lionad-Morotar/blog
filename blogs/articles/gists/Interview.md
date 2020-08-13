@@ -769,7 +769,7 @@
 <details open>
     <summary>怎么在编码时预防内存泄漏？</summary>
     <p>
-        JS使用了标记清除法进行 GC，这意味着如果对象访问不到，则会自动被回收，我们要避免在编码时保存不必要的引用。<br />
+        JS 使用了标记清除法进行 GC，这意味着如果对象访问不到，则会自动被回收，我们要避免在编码时保存不必要的引用。<br />
         <ul>
             <li>闭包：闭包的错误的使用会导致对象一直被标记而不能被释放。这个要求我们写代码的时候要时刻注意对象引用关系的分配。也听说过有些团队禁止使用闭包，不过我觉得这在大部分情况下不合理。</li>
             <li>全局对象：函数中的 this 指向常常会带来问题，解决方案是在构造器中通过 new.target 判断是否是通过 new 运算符调用的构造器；此外，未声明的变量在赋值时会自动挂载到全局对象，解决方案是使用严格模式，或通过项目工程化（比如加语法校验和提交钩子)解决。</li>
@@ -825,10 +825,7 @@
 
 大学的时候看过一些简单的算法书，但现在应该是全忘了。现在的话只能依稀能记起一些常用算法（的名字 TOT）。说实话，由于准备面试的时间较短，这方面还真没办法系统性的复习。所以只重看了一些以前项目中实践过的内容，都是比较简单的数据结构和算法... 害，期待面试的时候不要碰到靠算法刷人的公司吧...
 
-* [QuickSort](https://github.com/Lionad-Morotar/read-source-code/blob/master/algorithm/quicksort.js)
-* [DFS](https://github.com/Lionad-Morotar/read-source-code/tree/master/algorithm/dfs.js)
-* [BFS](https://github.com/Lionad-Morotar/read-source-code/tree/master/algorithm/bfs.js)
-* [LRU 链表实现](https://github.com/Lionad-Morotar/read-source-code/blob/master/data-structure/lru.js)
+* [数据结构](https://github.com/Lionad-Morotar/read-source-code/blob/master/data-structure/)
 
 ## 阅读更多
 
