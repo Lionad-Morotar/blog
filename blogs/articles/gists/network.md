@@ -1,17 +1,17 @@
 # 计算机网络
 
+[TOC]
+
 ## TCP/IP
+
+![TCP Header](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731153510.png)
 
 TCP/IP 协议是一个协议集。TCP/IP 包括了应用层、传输层、网络层、数据链路层，是一个四层体系结构。
 
-* 应用层：HTTP，超文本传输协议；TFTP，简单文件传输协议；Telnet，远程登录；DNS，域名系统等。
-* 传输层：TLS，即标准化的 SSL，传输层安全协议。
-* 网络层：IP；ICMP，网络控制信息协议；ARP，地址解析协议；RARP，反向地址解析协议；
-* 数据链路层：IP 地址与物理地址的映射，以及将 IP 封装成帧。
-
-TCP 头部：
-
-![TCP Header](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731153510.png)
+- 应用层：HTTP，超文本传输协议；TFTP，简单文件传输协议；Telnet，远程登录；DNS，域名系统等。
+- 传输层：TLS，即标准化的 SSL，传输层安全协议。
+- 网络层：IP；ICMP，网络控制信息协议；ARP，地址解析协议；RARP，反向地址解析协议；
+- 数据链路层：IP 地址与物理地址的映射，以及将 IP 封装成帧。
 
 ### 建立与断开连接
 
@@ -35,28 +35,28 @@ TIME_WAIT 状态发生在客户端（主动断开连接的一方）发送最后�
 
 ### 计时器
 
-* 超时重传计时器：对方没有返回 ACK 时，发送方需要重新发送数据。一般计时器的时间选择 2RTT。
-* 零窗口计时器：收到零窗口报文的一方启动零窗口计时器。计时器到期时，发送零窗口探测报文。
-* 2MSL定时器：用来给 TIME_WAIT 状态计时。MSL 指 Maximum Segment Lifetime，最大报文时长。
-* 保活计时器：每当服务端收到消息，将计时器重设为 7200s。计时器到期时，发送探测报文段，如果连续 10 个探测报文（每 75s 发送一次）都没有被响应则断开连接。
+- 超时重传计时器：对方没有返回 ACK 时，发送方需要重新发送数据。一般计时器的时间选择 2RTT。
+- 零窗口计时器：收到零窗口报文的一方启动零窗口计时器。计时器到期时，发送零窗口探测报文。
+- 2MSL 定时器：用来给 TIME_WAIT 状态计时。MSL 指 Maximum Segment Lifetime，最大报文时长。
+- 保活计时器：每当服务端收到消息，将计时器重设为 7200s。计时器到期时，发送探测报文段，如果连续 10 个探测报文（每 75s 发送一次）都没有被响应则断开连接。
 
 ## UDP
 
 UDP，即 User Datagram Protocol 用户数据报协议。数据报不保证信息的传达是否到位，所以 UDP 也被普遍称作 Unreliable Datagram Protocol。
 
-* 不保证消息交付
-* 不保证交付顺序
-* 不跟踪连接状态
-* 不需要拥塞控制
+- 不保证消息交付
+- 不保证交付顺序
+- 不跟踪连接状态
+- 不需要拥塞控制
 
 ## TLS
 
 TLS 是一种混合式加密系统，同时使用对称加密和非对称加密。它使用非对称加密以加密对称加密所需的密钥。它有多个版本。TLS 1.3 是一种比起 TLS1.2 而言更清晰、更快速、更安全的现代化安全协议。TLS 1.2 有两点问题：1. 包括 POODLE 在内的众多可行漏洞；2. 性能低。为了改善这些问题，IETF 在 2013 年，着手 TLS 1.3 的讨论，主要改进：
 
-* 减少握手时间
-* 加密更多的握手
-* 改善跨协议攻击的弹性
-* 删除遗留特征
+- 减少握手时间
+- 加密更多的握手
+- 改善跨协议攻击的弹性
+- 删除遗留特征
 
 经过 4 年的争论。最终，形成了 RFC 8446 规范。
 
@@ -96,14 +96,14 @@ TLS 1.3 中，通讯双方可以得到一个“恢复主密钥”的密钥，用
 
 ### 常用状态码
 
-* 200：成功并返回数据
-* 301：永久转移，重定向
-* 304：资源未修改，可使用缓存
-* 400：请求语法错误
-* 401：要求身份认证
-* 403：请求拒绝
-* 404：资源不存在
-* 500：服务器错误
+- 200：成功并返回数据
+- 301：永久转移，重定向
+- 304：资源未修改，可使用缓存
+- 400：请求语法错误
+- 401：要求身份认证
+- 403：请求拒绝
+- 404：资源不存在
+- 500：服务器错误
 
 ### 报文
 
@@ -142,6 +142,45 @@ Content-Type: text/html; charset=utf-8
 {statusCode: 200, message: "hello"}
 ```
 
+### CSP
+
+通过设置 HTTP 头的内容安全策略 Content-Security-Policy（CSP），可以指定浏览器应用安全措施，检测并削弱某些特定类型的攻击。
+
+一个典型的 CSP 头如下：
+
+```
+Content-Security-Policy: default-src 'none';
+    script-src 'nonce-XQY ZwBUm/WV9iQ3PwARLw==';
+    style-src 'nonce-XQY ZwBUm/WV9iQ3PwARLw==';
+    img-src 'self';
+    font-src 'nonce-XQY ZwBUm/WV9iQ3PwARLw==' fonts.gstatic.com;
+    object-src 'none';
+    block-all-mixed-content;
+    frame-ancestors 'none';
+```
+
+当然，也可以通过 HTML 指定 CSP 头部：
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />
+```
+
+主要作用有：
+
+- 指定内容有效域：如 script-src 限制了脚本的加载域，用以减少跨站脚本攻击。
+- 指定协议：如指定内容通过 HTTPS 加载，如 [HTTP Strict-Transport-Security](https://developer.mozilla.org/zh-CN/docs/Security/HTTP_Strict_Transport_Security)，每当浏览器接收到该 Header，就会重新触发其中 max-age 指令计时器。计时器到期前，都不会降级回 HTTP 协议。
+- 设置安全 Cookie：Set-Cookie 可以指定带 Secure 标志的 Cookie，该 Cookie 只能通过 HTTPS 发送至服务器；带 HttpOnly 的 Cookie 将不能被 document.cookie、XMLHttpRequest、Request 等 API 访问；SameSite=Lax 可以指定某 Cookie 不随跨域请求一起发送。
+- 启用违规报告：设置 CSP 的 report-uri 可以将携带 document-uri、referrer、blocked-uri、violated-directive、original-policy 的 JSON 对象发送到指定地址。此外，如果仅报告而不指定拦截策略，可以使用 Content-Security-Policy-Report-Only 而不是 CSP。
+
+![CSP 兼容性](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200815220758.png)
+
+还有一些 HTTP 头也和浏览器安全相关。
+
+- [X-Content-Type-Options](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Content-Type-Options)：督促浏览器使用 Content-Type 而非 MIME Sniff 的方式检测、解析并执行文件。比如说，当图片中嵌套了脚本后，MIME Sniff 检测到这些脚本，便会自动执行它。
+- [X-DNS-Prefetch-Control](https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching)：可设置为 on、off，用于控制 DNS 的预解析。据 MDN 介绍，打开后，在图片数量较多的页面，能带来至少 5% 的加载速度提升。
+- [X-Frame-Options](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options)：这是 CSP frame-ancestors 的非官方标准，但是已经得到广泛支持。有 deny、allow-from、sameorigin 三种值，sameorigin 是大部分浏览器选择的默认值，它指定了 frame、iframe、object、embed 等元素的有效父级作用域。
+- [X-XSS-Protection](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-XSS-Protection)：可用来保护不支持 CSP 的旧式浏览器免受基础 XSS 攻击（目前仅 IE、Safari 支持）。当检测到攻击时，可选过滤攻击、过滤且停止加载页面、过滤且上报（Chromium）。
+
 ### HTTP2
 
 一图胜千言，先来看看用 HTTP2 加载小文件到底有多快...
@@ -150,10 +189,10 @@ Content-Type: text/html; charset=utf-8
 
 HTTP2.0 主要包含以下几个方面的变化：
 
-* 二进制分帧层
-* 头部压缩
-* 多路复用
-* 服务端推送
+- 二进制分帧层
+- 头部压缩
+- 多路复用
+- 服务端推送
 
 二进制分帧层是在应用层（HTTP）和传输层（TCP、UDP）之间新增的一个层级关系。二进制分帧层将传输的 HTTP 消息分割为更小的帧，并采用二进制格式编码传输。帧分为头部帧和消息帧。其中，HTTP 头部被转为帧之前，会通过维护一个表结构，通过序号记录已发送的键值对。这是一种索引算法，叫 HPACK。
 
@@ -161,9 +200,16 @@ HTTP2.0 主要包含以下几个方面的变化：
 
 建立连接后，双方通过交换 SETTING 帧，以确认双向的流量窗口控制大小。然后开始发送帧。帧可以在一个连接中根据优先级发送，或是被乱序发送，响应方也能乱序接收。由于流是双向的，只要服务端 SETTING 帧设置的流量窗口大小不为 0，服务端可按照同源策略推送资源给客户端。
 
+### HTTPS
+
+#### 降级攻击
+
+客服端与服务端协商加密协议的过程当中，如果攻击者拦截了客户端（或操控客户端）并代替它向服务端协商使用仅支持有漏洞的协议。如果服务端同意了，那么建立连接后，攻击者就能使用该协议的已知漏洞的破解手段，去破解通讯内容了。
+
 ## 阅读更多
 
-* [前端内参：了解TCP、UDP、TLS](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.2)
-* [TCP 四种计时器](https://www.cnblogs.com/13224ACMer/p/6616960.html)
-* [详细介绍 RFC 8446（即 TLS 1.3）](https://www.oschina.net/translate/rfc-8446-aka-tls-1-3)
-* [HTTP2.0 和 HTTP1.X 相比的新特性](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.3)
+- [前端内参：了解 TCP、UDP、TLS](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.2)
+- [TCP 四种计时器](https://www.cnblogs.com/13224ACMer/p/6616960.html)
+- [详细介绍 RFC 8446（即 TLS 1.3）](https://www.oschina.net/translate/rfc-8446-aka-tls-1-3)
+- [HTTP2.0 和 HTTP1.X 相比的新特性](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.3)
+- [为你的网站带上帽子 | 使用 helmet 保护 Express 应用](https://juejin.im/post/6844903518826921998)

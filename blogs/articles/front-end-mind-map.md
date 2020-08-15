@@ -480,6 +480,11 @@
 </details>
 
 <details open>
+    <summary>了解浏览器的内容安全策略（CSP）吗？</summary>
+    <p>见：<a href="/articles/gists/network.html#CSP">计算机网络</a></p>
+</details>
+
+<details open>
     <summary>浏览器原理概述？</summary>
     <p>见博客：<a href="/articles/gists/browser.html">浏览器原理概述</a></p>
 </details>
