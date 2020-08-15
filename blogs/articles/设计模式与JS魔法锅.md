@@ -2,21 +2,16 @@
 
 [[TOC]]
 
-/* 本文是杂谈，没有任何一种设计模式的“完全讲解” */
-
-/* 当然，为了提高利用率，我建议你先收藏，然后等想睡觉时再打开。*/
-
 ## 设计模式还能是什么
 
 我发现，好像程序员都有某种程度的“信仰”：从《人月神话》到《大教堂与集市》[^著作]——许多闻名于业界的作品都“低代码、高文化[^文化]”；各种代码文化运动也可以作为“造神”的周日剧场。业界似乎很希望通过“文化”手段，不论是哲学思想或是艺术内涵，来统一代码与人的关系。不过，这种跨界的思想太抽象了，若想将传播落到实处，最终只能被简要概括为各种“标准”。“设计模式”就可以看作标准的一种。
 
 [^著作]: IT 图书的生命周期一般很短，如果被累积了数十年甚至几十年的灰尘仍闪闪发光的作品（能通过 Google Trend 追溯到大量数据），那么我认为就是“著作”。
-
 [^文化]: 这里的“文化”并不指“学术”或“个人素质”。
 
 即使追溯到设计模式诞生之初，它也无关一种“技术”。“设计模式”源于建筑学作品《建筑模式语言》中关乎“人文关怀”的“模式”的概念。两种“模式”所在领域不同，但内在联系是，它们都想解决“物”与“人”的关系的问题。设计模式把使用面向对象思想解决问题的方式概括为一种“可谈论的”名词，使经验各不相同的人也能快速理解代码意图。
 
-**设计模式是一种“思想”，它是掌握面向对象的程序员们解决问题的通用方式。** 
+**设计模式是一种“思想”，它是掌握面向对象的程序员们解决问题的通用方式。**
 
 等等... 既然 JS 是面向对象语言，那为什么大学的 C++ / JAVA 课程有提及设计模式，而 Web 开发课程就没有呢？
 
@@ -24,12 +19,11 @@
 
 就让我们从被“区别对待”的 JS 开始说起吧。
 
-## 从JS说起
+## 从 JS 说起
 
-编程语言并不是万能的。**特定语言天然适合解决特定问题**[^CSS]。尽管 JS 拥有许多特征，但当我们提及其优点时，也许可以只谈论“对象”、“函数”和“原型”。狭隘地说，使用 JS 快速解决问题的方式往往就基于这几点“JS 精粹”；更进一步可以说，想要解决其它问题，必须使用一些基本的语言特征去仿制其它语言特征[^module]。
+编程语言并不是万能的。**特定语言天然适合解决特定问题**[^css]。尽管 JS 拥有许多特征，但当我们提及其优点时，也许可以只谈论“对象”、“函数”和“原型”。狭隘地说，使用 JS 快速解决问题的方式往往就基于这几点“JS 精粹”；更进一步可以说，想要解决其它问题，必须使用一些基本的语言特征去仿制其它语言特征[^module]。
 
-[^CSS]: 试试使用 CSS 去写游戏？虽说理论可行，但过程会另人沮丧。
-
+[^css]: 试试使用 CSS 去写游戏？虽说理论可行，但过程会另人沮丧。
 [^module]: 使用立即执行函数创造块级作用域以“仿制”模块模式便是一例。
 
 ![https://www.reddit.com/r/ProgrammerHumor/comments/gfh862/javascript_the_good_parts/](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200709104930.png)
@@ -64,7 +58,7 @@
 const MyModule = (global => {
     let instance
     const init = _ => ['New instance']
-    const install = ext => 
+    const install = ext =>
         (instance || init()).prototype[ext.name] = ext
 
     return {
@@ -108,59 +102,58 @@ let result = exec()
 
 // 定义缓动动画步进策略
 const tween = {
-    linear(t, b, c, d) {
-        return (c * t) / d + b  
-    },
-    easeoutElastic(t, b, c, d) {
-        var s = 1.70158
-        var p = 0
-        var a = c
-        if (t == 0) return b
-        if ((t /= d) == 1) return b + c
-        if (!p) p = d * 0.3
-        if (a < Math.abs(c)) {
-            a = c
-            s = p / 4
-        } else {
-            s = (p / (2 * Math.PI)) * Math.asin(c / a)
-        }
-        return a * Math.pow(2, -10 * t) * Math.sin(((t * d - s) 
-            * (2 * Math.PI)) / p) + c + b
+  linear(t, b, c, d) {
+    return (c * t) / d + b
+  },
+  easeoutElastic(t, b, c, d) {
+    var s = 1.70158
+    var p = 0
+    var a = c
+    if (t == 0) return b
+    if ((t /= d) == 1) return b + c
+    if (!p) p = d * 0.3
+    if (a < Math.abs(c)) {
+      a = c
+      s = p / 4
+    } else {
+      s = (p / (2 * Math.PI)) * Math.asin(c / a)
     }
-    // ...
+    return a * Math.pow(2, -10 * t) * Math.sin(((t * d - s) * (2 * Math.PI)) / p) + c + b
+  }
+  // ...
 }
 // 旋转函数
 function rotate() {
-    const type = this.type // 'linear', 'easein', 'easeout' ...
-    const from = 0
-    const to = 720
-    const run = tween[type] // 选择步进策略
-    const totalTime = 1000  // 动画总时间
-    let curTime = 0         // 时间记录
-    let tick = +new Date()  // 帧时间记录
-    const safe = num => (num > to ? to : num)
-    const step = () => {
-        const newTick = +new Date()
-        curTime += newTick - tick
-        tick = newTick
-        // 根据步进策略计算当前时间预计的旋转角度
-        const targetDeg = run(curTime, from, to, totalTime)
-        const continueStep = curTime < totalTime 
-        // 如果是末位步骤则确保停在最大值 720deg
-        const nv = continueStep ? targetDeg : safe(targetDeg)
-        // 设置圆的旋转角度（Vue语法）
-        this.rotateDeg = nv 
+  const type = this.type // 'linear', 'easein', 'easeout' ...
+  const from = 0
+  const to = 720
+  const run = tween[type] // 选择步进策略
+  const totalTime = 1000 // 动画总时间
+  let curTime = 0 // 时间记录
+  let tick = +new Date() // 帧时间记录
+  const safe = num => (num > to ? to : num)
+  const step = () => {
+    const newTick = +new Date()
+    curTime += newTick - tick
+    tick = newTick
+    // 根据步进策略计算当前时间预计的旋转角度
+    const targetDeg = run(curTime, from, to, totalTime)
+    const continueStep = curTime < totalTime
+    // 如果是末位步骤则确保停在最大值 720deg
+    const nv = continueStep ? targetDeg : safe(targetDeg)
+    // 设置圆的旋转角度（Vue语法）
+    this.rotateDeg = nv
 
-        if (continueStep) {
-            this.animation = utils.requestAnimationFrame(step)
-        } else {
-            setTimeout(() => {
-                this.rotate()
-            }, 700)
-        }
+    if (continueStep) {
+      this.animation = utils.requestAnimationFrame(step)
+    } else {
+      setTimeout(() => {
+        this.rotate()
+      }, 700)
     }
-    this.animation && utils.cancelAnimationFrame(this.animation)
-    this.animation = utils.requestAnimationFrame(step)
+  }
+  this.animation && utils.cancelAnimationFrame(this.animation)
+  this.animation = utils.requestAnimationFrame(step)
 }
 ```
 
@@ -175,15 +168,15 @@ let result = match someType:
     | 'B': () => 'Get B'
 ```
 
-碎碎念x2：可以试试这个库，[zkat/pattycake](https://github.com/zkat/pattycake)。
+碎碎念 x2：可以试试这个库，[zkat/pattycake](https://github.com/zkat/pattycake)。
 
 ### 观察者模式-发布订阅模式
 
-想象一下，假设你有一只猫猫🐅。你不可能每五分钟就去看看猫有没有吃完猫粮（轮询），那样大可不必！因为当主子没粮可吃的时候，它自然会用爪子扒你的脸（观察者）！如果你的猫猫会打铃的话，那你听到铃响后自会给猫加粮，这整套流程就可以描述为发布订阅模式。
+想象一下，假设你有一只猫猫 🐅。你不可能每五分钟就去看看猫有没有吃完猫粮（轮询），那样大可不必！因为当主子没粮可吃的时候，它自然会用爪子扒你的脸（观察者）！如果你的猫猫会打铃的话，那你听到铃响后自会给猫加粮，这整套流程就可以描述为发布订阅模式。
 
 ![叮~叮~叮~ | 腾讯视频](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200714115546.png)
 
-发布订阅模式和观察者模式可以看成是一个模式，一些书会把两者等同对待。不过稍有区别，**观察者模式中的观察者和被观察者之间没有中间人**。就好比猫猫会扒**你的脸**而不是扒你邻居的脸，你也只会给你的猫猫而不是你邻居的电子羊🐏加粮。发布订阅则是描述猫猫和天猫的关系，它饿了就会通知你，因为它不会操作手机，而你会。为了方便起见，下文将两种模式都称作“发布订阅模式”。
+发布订阅模式和观察者模式可以看成是一个模式，一些书会把两者等同对待。不过稍有区别，**观察者模式中的观察者和被观察者之间没有中间人**。就好比猫猫会扒**你的脸**而不是扒你邻居的脸，你也只会给你的猫猫而不是你邻居的电子羊 🐏 加粮。发布订阅则是描述猫猫和天猫的关系，它饿了就会通知你，因为它不会操作手机，而你会。为了方便起见，下文将两种模式都称作“发布订阅模式”。
 
 基于回调函数使用事件驱动的 JS 天然支持发布订阅模式，可以想象，在实际代码中，发布订阅模式随处可见。确实如此，假使你在写页面上的图片懒加载，你会先保存页面上所有图片的位置到一个数组中，然后监听页面滚动，当页面滑动到一定的 Y 值，就通知相应图片进行加载，这便是一种发布订阅。
 
@@ -198,17 +191,17 @@ button.click()
 
 ```js
 const button = {
-    event: {},
-    click() {
-        button.handleEvent('click')
-    },
-    addEventListener (type, fn) {
-        const container = button.event[type] || (button.event[type] = [])
-        container.push(fn)
-    },
-    handleEvent(type) {
-        (button.event[type] || []).map(fn => fn())
-    }
+  event: {},
+  click() {
+    button.handleEvent('click')
+  },
+  addEventListener(type, fn) {
+    const container = button.event[type] || (button.event[type] = [])
+    container.push(fn)
+  },
+  handleEvent(type) {
+    ;(button.event[type] || []).map(fn => fn())
+  }
 }
 ```
 
@@ -257,19 +250,19 @@ const MyModule = {
 /* Promise Error Handle */
 
 // 缓存原 catch 函数
-const _catch = Promise.prototype.catch 
+const _catch = Promise.prototype.catch
 Promise.prototype.catch = function PromiseCatch(errorFn, ...args) {
-    // 增加错误上报能力
-    console.trace('Upload error occur in promise...')
-    // 执行原函数
-    _catch.bind(this)(errorFn, ...args)
+  // 增加错误上报能力
+  console.trace('Upload error occur in promise...')
+  // 执行原函数
+  _catch.bind(this)(errorFn, ...args)
 }
 
 // 仿制一个错误
 new Promise((resolve, reject) => {
-    reject('bad')
+  reject('bad')
 }).catch(error => {
-    console.log('catch: ', error)
+  console.log('catch: ', error)
 })
 
 // >>> Upload error occur in promise...
@@ -291,7 +284,7 @@ const Partial = (fn, ...args) => (...rest) => fn(...args, ...rest)
 const Adder = (a, b) => a + b
 
 const add5 = Partial(Adder, 5)
-add5(5)  // >>> 10
+add5(5) // >>> 10
 add5(-5) // >>> 0Adder
 ```
 
@@ -308,35 +301,35 @@ add5(-5) // >>> 0Adder
 ```js
 // 获取一份随机版本的数据
 const getRandomData = () => {
-    const v1Data = { 
-        version: 1, 
-        name: 'name',
-        nickname: 'nickname'
-    }
-    const v2Data = { 
-        version: 2, 
-        title: 'name',
-        nickName: 'nickname'
-    }
-    const v3Data = { 
-        version: 3, 
-        header: 'name',
-        __NickName: 'nickname'
-    }
-    return [v1Data, v2Data, v3Data][Math.floor(Math.random() * 3)]
+  const v1Data = {
+    version: 1,
+    name: 'name',
+    nickname: 'nickname'
+  }
+  const v2Data = {
+    version: 2,
+    title: 'name',
+    nickName: 'nickname'
+  }
+  const v3Data = {
+    version: 3,
+    header: 'name',
+    __NickName: 'nickname'
+  }
+  return [v1Data, v2Data, v3Data][Math.floor(Math.random() * 3)]
 }
 
 /* 业务代码中 */
 ajax('xxxurl', {
-    onSuccess (data = getRandomData()) {
-        const washedData = {
-            ...data,
-            name: data.name || data.title || data.header,
-            nickname: data.nickname || data.nickName || data.__NickName
-        }
-
-        // >>> { version: '1|2|3', name: 'name', nickname: 'nickname', /* ... */ }
+  onSuccess(data = getRandomData()) {
+    const washedData = {
+      ...data,
+      name: data.name || data.title || data.header,
+      nickname: data.nickname || data.nickName || data.__NickName
     }
+
+    // >>> { version: '1|2|3', name: 'name', nickname: 'nickname', /* ... */ }
+  }
 })
 ```
 
@@ -345,33 +338,31 @@ ajax('xxxurl', {
 ```js
 /* 业务代码中 */
 ajax('xxxurl', {
-    onSuccess(data = getRandomData()) {
-        let nameAdaptor = 
-            genAttrAdaptor('name', 'name', 'title', 'header')
-        let nicknameAdaptor = 
-            genAttrAdaptor('nickname', 'nickname', 'nickName', '__NickName')
-        
-        // 给 data 应用两种属性适配器
-        let washedData = wash(data, [nameAdaptor, nicknameAdaptor])
+  onSuccess(data = getRandomData()) {
+    let nameAdaptor = genAttrAdaptor('name', 'name', 'title', 'header')
+    let nicknameAdaptor = genAttrAdaptor('nickname', 'nickname', 'nickName', '__NickName')
 
-        // >>> { version: '1|2|3', name: 'name', nickname: 'nickname' }
-    }
+    // 给 data 应用两种属性适配器
+    let washedData = wash(data, [nameAdaptor, nicknameAdaptor])
+
+    // >>> { version: '1|2|3', name: 'name', nickname: 'nickname' }
+  }
 })
 
 /* 工具函数中 */
 
 // 属性适配器工厂
-function genAttrAdaptor (targetKey, ...keys) {
-    return obj => {
-        const res = keys.map(key => obj[key]).find(x => x)
-        keys.map(key => delete obj[key])
+function genAttrAdaptor(targetKey, ...keys) {
+  return obj => {
+    const res = keys.map(key => obj[key]).find(x => x)
+    keys.map(key => delete obj[key])
 
-        return { ...obj, [targetKey]: res }
-    }
+    return { ...obj, [targetKey]: res }
+  }
 }
 // 清洗函数
-function wash (obj, handlers) {
-    return handlers.reduce((data, handler) => handler(data), data)
+function wash(obj, handlers) {
+  return handlers.reduce((data, handler) => handler(data), data)
 }
 ```
 
@@ -394,21 +385,19 @@ function wash (obj, handlers) {
     <p>函数。</p>
 </details>
 
-函数，函数而已！使用函数是因为在 JS 中，**“函数是一等公民[^FirstClass]”**，记住这句话。因为诸如“闭包”、“回调”等概念都和函数有关[^Function]，你迟早会用上的。若谈论设计模式脱离不开语言特征的话，那扯上函数绝对不会有任何问题。亲函数、远离 Class 的写法可以帮助我们消化许多种类的“设计模式”。
+函数，函数而已！使用函数是因为在 JS 中，**“函数是一等公民[^firstclass]”**，记住这句话。因为诸如“闭包”、“回调”等概念都和函数有关[^function]，你迟早会用上的。若谈论设计模式脱离不开语言特征的话，那扯上函数绝对不会有任何问题。亲函数、远离 Class 的写法可以帮助我们消化许多种类的“设计模式”。
 
-[^FirstClass]: 最近政治正确的浪潮拍过来啦，说不定以后就听不到“一等公民”这种叫法啦。
-
-[^Function]: 我原本想把这个举例举得老长了... 但仔细考虑后发现，并不能。
+[^firstclass]: 最近政治正确的浪潮拍过来啦，说不定以后就听不到“一等公民”这种叫法啦。
+[^function]: 我原本想把这个举例举得老长了... 但仔细考虑后发现，并不能。
 
 ### 代理模式
 
 再叨叨最后一种，代理模式。
 
-我们常说的“代理”[^GFW]，便是代理模式的一种，叫做“动态代理”——我们请求访问谷歌主页时，代理将把我们的请求自动转接到某台可靠的主机上。如果访问某个对象的代理，代理把访问拒绝了[^DefendProxy]，那么该代理称为“保护代理”。另一种常用的代理是“虚拟代理”，它会对高性能消耗的操作进行延迟处理。比方说，给图片设置 SRC 时，常常先使用 Loading 占位，同时异步请求图片，请求完成后再将 SRC 回填至标签，这样就不会有加载图片时导致的页面闪烁现象。不管哪一种代理，它们都为对象提供一层概念上的“包装”，控制外部对源对象的访问。
+我们常说的“代理”[^gfw]，便是代理模式的一种，叫做“动态代理”——我们请求访问谷歌主页时，代理将把我们的请求自动转接到某台可靠的主机上。如果访问某个对象的代理，代理把访问拒绝了[^defendproxy]，那么该代理称为“保护代理”。另一种常用的代理是“虚拟代理”，它会对高性能消耗的操作进行延迟处理。比方说，给图片设置 SRC 时，常常先使用 Loading 占位，同时异步请求图片，请求完成后再将 SRC 回填至标签，这样就不会有加载图片时导致的页面闪烁现象。不管哪一种代理，它们都为对象提供一层概念上的“包装”，控制外部对源对象的访问。
 
-[^GFW]: 参见 [WIKI](https://www.wikiwand.com/zh/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8)。附：我热爱党和国家，是个守法的好公民。
-
-[^DefendProxy]: 就像你的同桌拒绝了你向她提出帮忙向老师请假的要求。👻
+[^gfw]: 参见 [WIKI](https://www.wikiwand.com/zh/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8)。附：我热爱党和国家，是个守法的好公民。
+[^defendproxy]: 就像你的同桌拒绝了你向她提出帮忙向老师请假的要求。👻
 
 ES6 原生支持代理模式。对，就是 Vue3 里的那个“Proxy”，直译为“代理器”。社区有很多讲 Vue3 原理分析的文章，肯定绕不开 Proxy，这里不再赘述了。以下展示两个使用 Proxy 拦截对象操作的小例子。
 
@@ -417,18 +406,18 @@ ES6 原生支持代理模式。对，就是 Vue3 里的那个“Proxy”，直�
 ```js
 const obj = {}
 const proxy = new Proxy(obj, {
-  get (target, key) {
+  get(target, key) {
     invariant(key, 'get')
     return target[key]
   },
-  set (target, key, value) {
+  set(target, key, value) {
     invariant(key, 'set')
     target[key] = value
     return true
   }
 })
 
-function invariant (key, action) {
+function invariant(key, action) {
   if (key[0] === '_') {
     throw new Error(`Invalid attempt to ${action} private "${key}" property`)
   }
@@ -444,26 +433,29 @@ proxy._prop = 'c'
 
 ```js
 const rawObj = [
-    { name: 'John', age: 23, skills: ['mongodb'] },
-    { name: 'Lily', age: 21, skills: ['redis'] },
-    { name: 'Iris', age: 43, skills: ['python', 'javascript'] },
+  { name: 'John', age: 23, skills: ['mongodb'] },
+  { name: 'Lily', age: 21, skills: ['redis'] },
+  { name: 'Iris', age: 43, skills: ['python', 'javascript'] }
 ]
 const methods = {
-    Has: (items, item) => items.includes(item)
+  Has: (items, item) => items.includes(item)
 }
 const methodsNames = Object.keys(methods)
 const proxy = new Proxy(rawObj, {
-    get (target, prop) {
-        if (prop in target) return target[prop]
+  get(target, prop) {
+    if (prop in target) return target[prop]
 
-        const prefix = 'find'
-        if (!prop.startsWith(prefix)) return
-        const usePublicMethod = methodsNames.find(x => prop.endsWith(x))
-        if (!usePublicMethod) return
-        const proxyProp = prop.replace(prefix, '').replace(usePublicMethod, '').toLowerCase()
+    const prefix = 'find'
+    if (!prop.startsWith(prefix)) return
+    const usePublicMethod = methodsNames.find(x => prop.endsWith(x))
+    if (!usePublicMethod) return
+    const proxyProp = prop
+      .replace(prefix, '')
+      .replace(usePublicMethod, '')
+      .toLowerCase()
 
-        return val => target.find(x => methods[usePublicMethod](x[proxyProp], val))
-    }
+    return val => target.find(x => methods[usePublicMethod](x[proxyProp], val))
+  }
 })
 
 console.log(proxy.length)
@@ -487,8 +479,8 @@ console.log(proxy.findSkillsHas('javascript'))
 
 若要讨论 JS 中的设计模式，离不开日益见新的语言特征。文中总结的设计模式与语言特征的重叠之处，可以概括为以下两点：
 
-* 若语言功能本身孱弱时，我们常通过组合不同的语言特征，来实现某种设计模式；
-* 若某种语言特征允许代码与某种设计模式有相同的功用，那么相应设计模式的概念便会被弱化；
+- 若语言功能本身孱弱时，我们常通过组合不同的语言特征，来实现某种设计模式；
+- 若某种语言特征允许代码与某种设计模式有相同的功用，那么相应设计模式的概念便会被弱化；
 
 额，貌似颇有些“设计模式是对语言能力不足的补充”的味道？
 
@@ -535,13 +527,13 @@ ESNeeext 已经往魔法锅中加了许多新材料，但我期待它直接把�
 
 就在此时，意外发生了。翻腾着热气的大锅，意外地溅出了几点液体在巴赫的手指上，而巴赫这个年轻人居然不假思索地将手指吮吸地干干净净。和魔书的预言一样——巴赫立马就获得了智慧——他瞬间通晓了火焰的舞蹈和水的诉说，山的尊严和风的呢喃... 他知晓了无数秘密，以及... **凯丽杜恩肯定会杀了他！**
 
-慌乱中，巴赫变成一只野兔夺路而逃，而凯丽杜恩惊醒后赶忙变成猎犬追踪过去... 巴赫变成天空中的鸽子，她就变成一只鹰；他变成一头奔跑的鹿，她就变成一只草原上的狼；他化身为谷仓中的一粒麦粒，她就变成一只啄个不停老母鸡... 
+慌乱中，巴赫变成一只野兔夺路而逃，而凯丽杜恩惊醒后赶忙变成猎犬追踪过去... 巴赫变成天空中的鸽子，她就变成一只鹰；他变成一头奔跑的鹿，她就变成一只草原上的狼；他化身为谷仓中的一粒麦粒，她就变成一只啄个不停老母鸡...
 
 这两人也许一直较量着，直到今天。
 
 ### 阅读更多
 
-* [15年后 GoF 设计模式作者再谈模式](https://www.jdon.com/37356)
+- [15 年后 GoF 设计模式作者再谈模式](https://www.jdon.com/37356)
 
 希望本文能对你有所帮助，如果文中出现了语序或理解错误的地方也请各位批评及指出。
 
@@ -550,5 +542,3 @@ ESNeeext 已经往魔法锅中加了许多新材料，但我期待它直接把�
 想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案~ 欢迎 Star & Follow~ 也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~
 
 @ 本文可随意转载，但需标明作者“仿生狮子”及来源[“仿生狮子的博客”](http://www.lionad.art/)。
-
-![仿生狮子 | Lionad](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/avatar.gif?w=30)
