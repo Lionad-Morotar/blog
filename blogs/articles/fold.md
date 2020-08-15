@@ -6,7 +6,7 @@
 
 我不觉得一个人能把复杂问题讲得小白也能听懂，就算好博客了。因为有些博客简单到像是 API 文档——只是在阐述答案而已，这当然简单易懂。这种工作好做，不但质量不高，因为不可替代性太低了，所以把这种博客称为“个人备忘录”也不为过！
 
-新人就像<del>韭菜</del>海浪，一茬接一茬地来，“备忘录模式”必能受到欢迎。而“10分钟学会前端”这种标题，摆明了“备忘录模式”的文章总是越写越简单。这是以“分享知识”为借口的“代替思考”；全身心沉浸在这种模式中确实能收获虚荣。
+新人就像<del>韭菜</del>海浪，一茬接一茬地来，“备忘录模式”必能受到欢迎。而“10 分钟学会前端”这种标题，摆明了“备忘录模式”的文章总是越写越简单。这是以“分享知识”为借口的“代替思考”；全身心沉浸在这种模式中确实能收获虚荣。
 
 和“备忘录”相反，很多时候，若能把一个简单的问题复杂化，才是高水平的文章。“复杂化”主要体现在：通过链接知识点，使读者接触宏大的知识网络或走向更深处。
 
@@ -26,20 +26,25 @@
 
 #### 2020-6
 
-* [斑马难题](/articles/fold/2020-6/zebra-puzzle.html)
+- [斑马难题](/articles/fold/2020-6/zebra-puzzle.html)
+
+#### 2020-5
+
+- [JS 模块化简史](/articles/fold/2020-5/js-module-history.html)
+- [常用类型判断方法的优势及缺陷](/articles/fold/2020-5/type-check.html)
 
 #### 2020-4
 
-* [9种CSS图案解析](/articles/fold/2020-4/9-css-chart.html)
+- [9 种 CSS 图案解析](/articles/fold/2020-4/9-css-chart.html)
 
 #### 2020-3
 
-* [从一张CSS风景画中学到的东西](/articles/learn-from-an-evening-in-southwold.html)
+- [从一张 CSS 风景画中学到的东西](/articles/learn-from-an-evening-in-southwold.html)
 
 #### 2019-7
 
-* [听说你还在手写懒加载?](/articles/fold/2019-7/chrome-image-lazyload.html)
+- [听说你还在手写懒加载?](/articles/fold/2019-7/chrome-image-lazyload.html)
 
 #### 2019-6
 
-* [从一个越写越慢的编辑器中聊聊优化思路](/articles/fold/2019-6/a-markdown-parser.html)
+- [从一个越写越慢的编辑器中聊聊优化思路](/articles/fold/2019-6/a-markdown-parser.html)

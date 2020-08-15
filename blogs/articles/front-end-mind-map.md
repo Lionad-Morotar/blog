@@ -1,4 +1,4 @@
-# 面试复习
+# 🎉 Front End Mind Map
 
 [TOC]
 
@@ -109,6 +109,7 @@
         UMD 规范则是 CommonJS 和 AMD 规范的统一，以实现代码可在浏览器和 NodeJS 中运行。
         我最常用的是 ES6 Module，因为它是“语言标准层面上的模块化”。
     </p>
+    <p>更详细的内容可以看这篇：<a href="/articles/fold/2020-5/js-module-history.html">JS 模块化简史</a>。</p>
 </details>
 
 <details open>
@@ -265,6 +266,7 @@
                 }
             })()
         </Highlight>
+        更详细的内容可以看这篇：<a href="/articles/fold/2020-5/type-check.html">常用类型判断方法的优势及缺陷</a>。
     </p>
 </details>
 
@@ -362,7 +364,7 @@
 
 ### 框架相关
 
-* [VueJS 相关问题](/articles/gists/interview-prepare/vuejs.html)
+- [VueJS 相关问题](/articles/gists/interview-prepare/vuejs.html)
 
 ## 浏览器
 
@@ -825,24 +827,24 @@
 
 大学的时候看过一些简单的算法书，但现在应该是全忘了。现在的话只能依稀能记起一些常用算法（的名字 TOT）。说实话，由于准备面试的时间较短，这方面还真没办法系统性的复习。所以只重看了一些以前项目中实践过的内容，都是比较简单的数据结构和算法... 害，期待面试的时候不要碰到靠算法刷人的公司吧...
 
-* [数据结构](https://github.com/Lionad-Morotar/read-source-code/blob/master/data-structure/)
+- [数据结构](https://github.com/Lionad-Morotar/read-source-code/blob/master/data-structure/)
 
 ## 阅读更多
 
-* [前端模块的历史沿革](https://www.cyj.me/programming/2018/05/22/about-module-i/)
-* [JavaScript 模块化入门Ⅰ：理解模块](https://zhuanlan.zhihu.com/p/22890374)
-* [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/5ba32171f265da0ab719a6d7)
-* [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
-* [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
-* [JS原型链与继承别再被问倒了](https://juejin.im/post/58f94c9bb123db411953691b)
-* [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
-* [Concurrent marking in V8](https://v8.dev/blog/concurrent-marking)
-* [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
-* [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
-* [What really happens when you navigate to a URL](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
-* [TCP 序列號 (Sequence Number, SEQ)](https://notfalse.net/26/tcp-seq)
-* [Viewport移动端适配](https://juejin.im/post/6844903721697017864)
-* [ECMAScript 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/#sec-execution-contexts)
-* [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
-* [中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂(下)](https://juejin.im/post/5cc26dfef265da037b611738)
-* [JavaScript开发者应懂的33个概念](https://github.com/stephentian/33-js-concepts)
+- [前端模块的历史沿革](https://www.cyj.me/programming/2018/05/22/about-module-i/)
+- [JavaScript 模块化入门 Ⅰ：理解模块](https://zhuanlan.zhihu.com/p/22890374)
+- [理解 JavaScript 中的执行上下文和执行栈](https://juejin.im/post/5ba32171f265da0ab719a6d7)
+- [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
+- [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
+- [JS 原型链与继承别再被问倒了](https://juejin.im/post/58f94c9bb123db411953691b)
+- [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
+- [Concurrent marking in V8](https://v8.dev/blog/concurrent-marking)
+- [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
+- [浏览器同源政策及其规避方法](http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)
+- [What really happens when you navigate to a URL](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
+- [TCP 序列號 (Sequence Number, SEQ)](https://notfalse.net/26/tcp-seq)
+- [Viewport 移动端适配](https://juejin.im/post/6844903721697017864)
+- [ECMAScript 2016 Language Specification](http://www.ecma-international.org/ecma-262/7.0/#sec-execution-contexts)
+- [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
+- [中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂(下)](https://juejin.im/post/5cc26dfef265da037b611738)
+- [JavaScript 开发者应懂的 33 个概念](https://github.com/stephentian/33-js-concepts)
