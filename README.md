@@ -3,7 +3,7 @@
 
 # Lionad's Blog
 
-My personal websites，build with VuePress, you can visit at here: [http://www.lionad.art](http://www.lionad.art) & [Backup Address](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)
+My personal websites，build with VuePress, you can visit at here: [http://www.lionad.art](http://www.lionad.art) or... [Backup Address](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)
 
 * [RSS Address](http://lionad.art/rss.xml)
 * [RSS Backup Address](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/rss.xml)
