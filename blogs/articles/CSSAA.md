@@ -6,17 +6,17 @@
 
 传统网页的呈现是基于像素单位的，所以图片不能和 SVG 一样进行任意尺寸缩放后还保持边缘平整。也就是说，放大像素逻辑的图片，必然导致可视质量下降（信息失真）。所以我们往往会使用技术手段去规避失真，如：
 
-* 使用 SVG 替换位图
-* 使用矢量字体（如 TrueType 字体）替换位图字体
+- 使用 SVG 替换位图
+- 使用矢量字体（如 TrueType 字体）替换位图字体
 
 如果不得已，被迫进行像素操作，我们也有多种手段用来矫正失真：
 
-* 使用 CSS Image-Rendering 属性调整图像缩放时的采样算法
-* 使用 CSS Font-Smoothing 属性平滑字体渲染
-* 绘图时使用 Canvas 的抗锯齿 API
-* 将元素尺寸放大，然后再使用 Transform 将布局尺寸还原
-* 某些特殊情况下，可以使用浏览器硬件加速来平滑锯齿
-* <del>将图片模糊处理迫使用户开启钛合金脑放</del>
+- 使用 CSS Image-Rendering 属性调整图像缩放时的采样算法
+- 使用 CSS Font-Smoothing 属性平滑字体渲染
+- 绘图时使用 Canvas 的抗锯齿 API
+- 将元素尺寸放大，然后再使用 Transform 将布局尺寸还原
+- 某些特殊情况下，可以使用浏览器硬件加速来平滑锯齿
+- <del>将图片模糊处理迫使用户开启钛合金脑放</del>
 
 这篇文章将会简单的提及以上几点，并介绍一种通过 CSS BackgroundImage 抗锯齿的全新思路（我称之为 Pixel-Offset Anti-Aliasing）。要提前说明的是，当下手机的屏幕分辨率已经相当高，同时处理器性能却十分薄弱，这直接导致我们没有在手机端浏览器讨论抗锯齿的必要。本文所述几乎都局限于桌面端的大显示器（我祈祷你不是在用 8K 分辨率的显示器看这篇博客）。
 
@@ -48,21 +48,21 @@
 
 ### 常见抗锯齿技术
 
-在音频领域，我们可以通过高质量的播放器和无损音频减少传入耳朵的信息失真。但在游戏领域，普通玩家不可能在家里准备了8K显示器。伴随显示器分辨率从 720p 到 1080p 发展的，是几种同样跟随游戏业界发展而成长起来的抗锯齿技术。
+在音频领域，我们可以通过高质量的播放器和无损音频减少传入耳朵的信息失真。但在游戏领域，普通玩家不可能在家里准备了 8K 显示器。伴随显示器分辨率从 720p 到 1080p 发展的，是几种同样跟随游戏业界发展而成长起来的抗锯齿技术。
 
-* SSAA（Super Sampling Anti-Aliasing）
+- SSAA（Super Sampling Anti-Aliasing）
 
-超级采样抗锯齿，它会把当前画面渲染的分辨率成倍提高，比如 1024×768 的图形开启2倍 SSAA 后，显卡实际运算就变成了 2048×1536，这之后，再降采样，将多个像素融合，映射回显示器的单个像素。像素融合能使颜色过渡更自然，看起来没有明显的毛刺。不过，因为硬件的运算增加（指数级），可以想象它会消耗极高的性能。
+超级采样抗锯齿，它会把当前画面渲染的分辨率成倍提高，比如 1024×768 的图形开启 2 倍 SSAA 后，显卡实际运算就变成了 2048×1536，这之后，再降采样，将多个像素融合，映射回显示器的单个像素。像素融合能使颜色过渡更自然，看起来没有明显的毛刺。不过，因为硬件的运算增加（指数级），可以想象它会消耗极高的性能。
 
-* MSAA（Multi Sampling Anti-Aliasing）
-  
+- MSAA（Multi Sampling Anti-Aliasing）
+
 多重采样抗锯齿，它针对特定缓存区域的数据进行多重采样——可以简单理解为对多边形的边缘进行多重采样。性能消耗较高，但效果也不错。
 
-* FXAA（Fast Approximate Anti-Aliasing）
+- FXAA（Fast Approximate Anti-Aliasing）
 
 快速近似抗锯齿，它找到画面中所有图形的边缘并进行平滑处理。尽管很多图形边缘并不对应游戏实际建模的边缘（如材质和纹理），但 FXAA 性能消耗小，性价比高，不失为一种抗锯齿的常用选择。
 
-* DLSS（Deep Learning Super Sampling）
+- DLSS（Deep Learning Super Sampling）
 
 深度学习超级采样，它通过硬件加速的深度学习算法，根据几何、着色、时域多个方面的数据（说人话就是根据过往帧、形状、像素动量等数据）对实时渲染的低分辨率图像重建多倍超级采样结果。相对于传统渲染，不仅能极大提高画质，还能极大提高帧率。
 
@@ -86,17 +86,17 @@
 
 “后浪”的“后”字，中间那一横，实际的宽度要小于一个像素，所以也用透明暗色渲染。除了单字，在 [@MAXVOLTAR](http://maxvoltar.com/archive/-Webkit-font-smoothing) 这篇博客，有英文排版的示例图片，以下直接引用了：
 
-* none
-  
-    ![font-smooth-none](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-none.png)
+- none
 
-* subpixel-antialiased
-  
-    ![font-smooth-subpixel](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-subpixel.png)
+  ![font-smooth-none](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-none.png)
 
-* antiliasing
-  
-    ![font-smooth-antiliasing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-antiliasing.png)
+- subpixel-antialiased
+
+  ![font-smooth-subpixel](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-subpixel.png)
+
+- antiliasing
+
+  ![font-smooth-antiliasing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200604/font-smooth-antiliasing.png)
 
 **那三种值应该如何选择呢？**
 
@@ -185,8 +185,8 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
     position: relative;
     height: 300px;
     background-image: repeating-radial-gradient(
-        circle at 0% 50%, 
-        $c1 0, 
+        circle at 0% 50%,
+        $c1 0,
         $c2 50px
     );
 }
@@ -194,10 +194,10 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 我们可以轻易找到找到边缘——对，就是那些渐变的颜色改变的地方——0px(50px)。现在我们有了边缘信息，接着就要重建边缘。重建边缘也许可以再拆分，分为以下几个步骤：
 
-* 需要通过某种方法得到透明度的点
-* 这些点需要能够组成线段
-* 线段完全吻合我们的 BackgroundImage
-* 使线段覆盖在 BackgroundImage 的上一层以应用我们的修改
+- 需要通过某种方法得到透明度的点
+- 这些点需要能够组成线段
+- 线段完全吻合我们的 BackgroundImage
+- 使线段覆盖在 BackgroundImage 的上一层以应用我们的修改
 
 这就是大体思路，我们并没有参与浏览器的渲染，而是通过像 FXAA 一样的后处理的方法。在已渲染的图像上做文章。不过将上述步骤仔细考虑后，会发现问题的难点在于如何生成抗锯齿条纹。
 
@@ -207,8 +207,8 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 
 在 BackgroundImage 中，像素是基本单位不能再分，点的透明度显然不能通过点的大小来模拟。这里有两种解决方法：
 
-* Opacity，使用 CSS Opacity ，或者 CSS RGBA 函数、SCSS 函数。
-* 两种颜色相融合模拟像素透明度，如果不想扯上 JS，SCSS 也能解决。
+- Opacity，使用 CSS Opacity ，或者 CSS RGBA 函数、SCSS 函数。
+- 两种颜色相融合模拟像素透明度，如果不想扯上 JS，SCSS 也能解决。
 
 至于线段，也可以用 BackgroundImage 模拟，比如针对上面那段 CSS 代码，可以通过改写成以下方式：
 
@@ -244,13 +244,13 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 ```SCSS
 .old {
     background: linear-gradient(
-        var(--deg), 
-        transparent, 
-        transparent 
-        calc(50% - var(--line-width)), 
-        yellow 50%, 
-        red 50%, 
-        transparent calc(50% + var(--line-width)), 
+        var(--deg),
+        transparent,
+        transparent
+        calc(50% - var(--line-width)),
+        yellow 50%,
+        red 50%,
+        transparent calc(50% + var(--line-width)),
         transparent
     );
 }
@@ -263,13 +263,13 @@ CSS 相关的抗锯齿技术就到此为止，下一节开始是新的思路。
 ```SCSS
 .new {
     background: linear-gradient(
-        var(--deg), 
-        transparent, 
-        transparent 
-        calc(50% - var(--line-width)), 
-        red 50%, 
-        yellow 50%, 
-        transparent calc(50% + var(--line-width)), 
+        var(--deg),
+        transparent,
+        transparent
+        calc(50% - var(--line-width)),
+        red 50%,
+        yellow 50%,
+        transparent calc(50% + var(--line-width)),
         transparent
     );
 }
@@ -289,9 +289,9 @@ Well done!
 
 成品在吻合线条的基础上还增加了一些内容及调整了相关参数：
 
-* 暗色和亮色混合的透明度的值不同
-* X轴和Y轴的偏移不同
-* 调整了拟合线段的粗细
+- 暗色和亮色混合的透明度的值不同
+- X 轴和 Y 轴的偏移不同
+- 调整了拟合线段的粗细
 
 成品的代码如下：
 
@@ -363,7 +363,7 @@ Well done!
 
 最后，推荐大家来我的博客逛逛，在[我的博客](http://www.lionad.art/articles/CSSAA.html)里你可以通过操纵杆和控制台亲自体验 POAA 的神奇之处。
 
-啊，写这篇文章我起码喝了 3 瓶肥宅快乐水。我肯定又变肥宅了哭。都看到这里了，不点赞三连安慰我一下再走么？**/(ㄒoㄒ)/~~**
+啊，写这篇文章我起码喝了 3 瓶肥宅快乐水。我肯定又变肥宅了哭。都看到这里了，不点赞三连安慰我一下再走么？**/(ㄒ o ㄒ)/~~**
 
 ## 彩蛋：<del>脑放</del>
 
@@ -371,8 +371,8 @@ Well done!
 
 先模糊，再锐化，两个步骤不能反过来，同时参数的调节也很重要（很玄学）。我在自己的博客中进行实验时，以下是我的尝试的方法：
 
-* CSS Filter 串联 SVG 自定义滤镜
-* CSS Filter 串联 Blur 和 Constract 滤镜
+- CSS Filter 串联 SVG 自定义滤镜
+- CSS Filter 串联 Blur 和 Constract 滤镜
 
 不过很遗憾，水平有限，始终没能调出想要的效果，所以直接结案了，下一题。
 
@@ -382,9 +382,9 @@ Well done!
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~</p></JJ>
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)，排版绝佳 Nice 哦~</p></JJ>
 
-* [DLSS 2.0-基于深度学习的实时渲染图像重建](https://zhuanlan.zhihu.com/p/123642175)
-* [Please Stop “Fixing” Font Smoothing](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/)
-* [用CSS开启硬件加速来提高网站性能](https://www.cnblogs.com/ranyonsue/p/8296983.html)
-* [Implementing FXAA](http://blog.simonrodriguez.fr/articles/30-07-2016_implementing_fxaa.html)
+- [DLSS 2.0-基于深度学习的实时渲染图像重建](https://zhuanlan.zhihu.com/p/123642175)
+- [Please Stop “Fixing” Font Smoothing](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/)
+- [用 CSS 开启硬件加速来提高网站性能](https://www.cnblogs.com/ranyonsue/p/8296983.html)
+- [Implementing FXAA](http://blog.simonrodriguez.fr/articles/30-07-2016_implementing_fxaa.html)

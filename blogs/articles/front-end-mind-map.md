@@ -473,9 +473,11 @@
     <ul>
         <li>XSS：Cross-site Scripting Attack，即通过把未经转义的脚本字符植入页面，使得解析 HTML 时自动执行相应脚本。解决方法，简单来说，写个 ecape 工具函数就好了。</li>
         <li>CSRF：Cross-site Request Forgery，跨站请求伪造，即利用用户已登录的状态发送一些恶意请求。</li>
-        <li>明文泄漏：密码之类的数据不能存在前端；部分敏感数据存放时需要进行脱敏操作；HTTPS 防止中间人攻击。</li>
         <li>代码安全：代码压缩；关键代码进行加密于混淆；机密代码需要做成接口的形式让后端提供服务。</li>
         <li>爬虫安全：可以通过联合前后端一起做反爬虫操作。有很多高级操作，像高级验证码、蜜罐、机器人侦测、提供假数据甚至综合检测等...</li>
+        <li>明文泄漏：密码之类的数据不能存在前端；部分敏感数据存放时需要进行脱敏操作；HTTPS 防止中间人攻击</li>
+        <li>隐私泄漏：如用户空闲检测、地理位置、内存信息、电池信息等 API，可能被滥用。详情见：<a href="https://www.zdnet.com/article/apple-declined-to-implement-16-web-apis-in-safari-due-to-privacy-concerns/" target="_blank" rel="nofollow">Apple declined to implement 16 Web APIs in Safari due to privacy concerns</a>。</li>
+        <li>最后，这里有一篇关于 Helmet 的详细资料：<a href="/articles/source-code/module/helmet.html">Helmet</a>。</li>
     </ul>
 </details>
 
@@ -833,6 +835,13 @@
 大学的时候看过一些简单的算法书，但现在应该是全忘了。现在的话只能依稀能记起一些常用算法（的名字 TOT）。说实话，由于准备面试的时间较短，这方面还真没办法系统性的复习。所以只重看了一些以前项目中实践过的内容，都是比较简单的数据结构和算法... 害，期待面试的时候不要碰到靠算法刷人的公司吧...
 
 - [数据结构](https://github.com/Lionad-Morotar/read-source-code/blob/master/data-structure/)
+
+## 面试题/编程题
+
+<details open>
+    <summary>如何获取页面中所有用到的标签？</summary>
+    <p>简单处理的话，可以在控制台直接用 document.querySelector('*') 选中所有元素并取 tagName，最后做一下去重就好了。更加工程化的手段则是使用 HTML Parser 解析 HTML，并用一个数组（Set）来保存用到标签。后面这种方案可以通过一个变量 offset 记录解析位置，方便任务中断。</p>
+</details>
 
 ## 阅读更多
 

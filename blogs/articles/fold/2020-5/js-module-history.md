@@ -190,7 +190,7 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 
 截止 2020 年 5 月 18 日，各大浏览器兼容 ES Module 情况如下：
 
-![ES Module 兼容性](./assets/2020-05-18-03-06-08.png)
+<!-- ![ES Module 兼容性](./assets/2020-05-18-03-06-08.png) -->
 
 在 NodeJS 中（Version >= 8.5），需要打开一个开关（`--experimental-modules`），以支持 ES Module 规范，但是需要模块的文件名为 `.mjs`。
 
@@ -198,7 +198,7 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 
 动态 Import 如近已经被大部分浏览器所支持：
 
-![动态 Import 兼容性](./assets/2020-05-18-03-22-46.png)
+<!-- ![动态 Import 兼容性](./assets/2020-05-18-03-22-46.png) -->
 
 ## CommonJS VS ES Module
 

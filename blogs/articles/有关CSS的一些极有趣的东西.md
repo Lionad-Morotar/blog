@@ -64,9 +64,7 @@ input[value^=z]{
 const link = document.createElement('a')
 link.href = 'www.baidu.com'
 document.body.appendChild(link)
-const color = document.defaultView
-  .getComputedStyle(link, null)
-  .getPropertyValue('color')
+const color = document.defaultView.getComputedStyle(link, null).getPropertyValue('color')
 
 const isView = color === 'rgb(0, 0, 255)'
 ```
@@ -157,4 +155,4 @@ $con.style.setProperty('--theme-color', 'gray')
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~</p></JJ>
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)，排版绝佳 Nice 哦~</p></JJ>

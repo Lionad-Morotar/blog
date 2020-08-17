@@ -60,6 +60,7 @@ const sidebarConfigs = {
       collapsable: false,
       open: true,
       children: [
+        'Helmet & Security',
         '设计模式与JS魔法锅',
         'CSSAA',
         '你可以用纯CSS判断鼠标进入的方向吗',

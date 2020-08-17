@@ -23,39 +23,39 @@
 
 我曾因在掘金某篇文章评论区看到有位老哥因为看不懂文章中讲述的概念而觉得“（文章）写的乱七八糟，不清不楚”，觉得很是心酸。对知识的深入了解不能抛开概念不谈，这和对概念的理解或是编码实操的能力是不同的。它们相互补充的，对学习也有所帮助。不要因为看了代码就不敲代码了，也不要因为能敲代码就不去了解概念了。这里提一些比较重要的 CSS 技术名词（或概念），做个开头吧。
 
-* 规则&规则集
+- 规则&规则集
 
 <abbr title="rule">**规则**</abbr>，由<abbr title="property">**属性**</abbr>和<abbr title="value">**值**</abbr>组成的<abbr title="declaration">**声明**</abbr>、声明与括号形成的<abbr title="declaration block">**声明块**</abbr>再加上<abbr title="selector">**选择器**</abbr>组成，而一条或多条规则组合成了<abbr title="rule sets">**规则集**</abbr>。
 
 ![规则&规则集](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200625022018.png)
 
-* 元素（Elements）
-  
+- 元素（Elements）
+
 元素是用来组织文档结构的基础，比如 p、span 等。每个元素都会对文档的表现起一定作用，每个元素都会在浏览器中以矩形盒子的形式出现。
 
 尽管不能直接查看页面上的盒子的外边界，但你可以打开控制台，输入这行代码，给页面上所有的元素设置边框样式，一览其排列：
 
 ```js
-$$('*').map(x => x.style.border = '1px solid')
+$$('*').map(x => (x.style.border = '1px solid'))
 ```
 
 ![页面上的盒子](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_22_022.jpg)
 
-* **块级元素**（Block-level elements）与**内联元素**（Inline-level elements）
+- **块级元素**（Block-level elements）与**内联元素**（Inline-level elements）
 
 类似 div、ul、p、h1 这些都是块级元素。一般来说，块级元素会生成一个默认填满父容器的内容区域。其后的兄弟元素将会被“换行显示”；内联元素会在一个文本行中生成元素框，它不会打断这行文本。内联元素常也译为“行内级元素”，在一些文章中，也被称为“行内元素”。
 
-* **替换元素**（Replaced elements）与**非替换元素**（Nonreplaced elements）
+- **替换元素**（Replaced elements）与**非替换元素**（Nonreplaced elements）
 
 除了如 img、input、iframe 等元素，大多数元素都是非替换元素。替换元素的内容区域会被替换为其指向的外部对象。比如，如果 img 元素不带 src 属性的话，它不指向任何内容，在文档中没有意义，也就不是替换元素；如果 img 的 src 链接了外部图片，那么它的内容区域将被图片替换，此时就是替换元素。
 
-* 元素的**内在盒子**（Inner Display Type）与**外在盒子**（Outer Display Type）
+- 元素的**内在盒子**（Inner Display Type）与**外在盒子**（Outer Display Type）
 
-元素会依据其 Display 类型参与布局。主要取决于两种特征：内在盒子 和 外在盒子。内在盒子通常也称作“容器盒子”，和外在盒子相比，**前者描述了元素跟其后代之间的行为，而后者描述了元素与其父元素和兄弟元素之间的行为。** 
+元素会依据其 Display 类型参与布局。主要取决于两种特征：内在盒子 和 外在盒子。内在盒子通常也称作“容器盒子”，和外在盒子相比，**前者描述了元素跟其后代之间的行为，而后者描述了元素与其父元素和兄弟元素之间的行为。**
 
-* Display: block 的盒子由外在块级盒子和内在块级容器盒子组成
-* Display: inline-block 的盒子由外在内联盒子和内在块级容器盒子组成
-* Display: inline 的盒子由外在内联盒子和内在内联盒子组成
+- Display: block 的盒子由外在块级盒子和内在块级容器盒子组成
+- Display: inline-block 的盒子由外在内联盒子和内在块级容器盒子组成
+- Display: inline 的盒子由外在内联盒子和内在内联盒子组成
 
 ## 选择器
 
@@ -97,28 +97,28 @@ $$('*').map(x => x.style.border = '1px solid')
 
 伪类和伪元素在选择器中用一个冒号还是两个冒号连接？它们有什么区别呢？... 这里提到了伪类和伪元素，分享一下我的理解思路，我觉得还是蛮好使的：
 
-* **伪类表示元素的一种状态**，如激活状态（:active）。同一个元素，多个状态之间可以并存，如激活悬浮状态（:active:hover）。为什么 :hover、:focus 等和用户操作相关的状态也是伪类呢？因为用户操作导致元素状态改变。
+- **伪类表示元素的一种状态**，如激活状态（:active）。同一个元素，多个状态之间可以并存，如激活悬浮状态（:active:hover）。为什么 :hover、:focus 等和用户操作相关的状态也是伪类呢？因为用户操作导致元素状态改变。
 
-* **伪元素表示通过选取 DOM Tree 中不存在的元素**，进行样式修改。如首字母（::first-letter）。
+- **伪元素表示通过选取 DOM Tree 中不存在的元素**，进行样式修改。如首字母（::first-letter）。
 
 前阵子看一篇文章，有一位老哥觉得在 HTML 中给空列表加一个“空”的占位不好，导致“布局混乱信息难懂”，所以可以使用 :empty 伪类把占位逻辑往 CSS 转移的：
 
 ```html
 <dl>
-    <dt>姓名：</dt>
-    <dd>张三</dd>
-    <dt>性别：</dt>
-    <dd></dd>
-    <dt>手机：</dt>
-    <dd></dd>
-    <dt>邮箱：</dt>
-    <dd></dd>
+  <dt>姓名：</dt>
+  <dd>张三</dd>
+  <dt>性别：</dt>
+  <dd></dd>
+  <dt>手机：</dt>
+  <dd></dd>
+  <dt>邮箱：</dt>
+  <dd></dd>
 </dl>
 <style>
-dd:empty::before {
+  dd:empty::before {
     content: '暂无';
     color: gray;
-}
+  }
 </style>
 ```
 
@@ -130,35 +130,35 @@ dd:empty::before {
 
 特殊性（Specificity），又称作：优先级、特异性，即浏览器对应用到同一个元素的同种声明的重视程度。选择器的特殊性由选择器的组成确定。特殊性值表述为 4 个数字组成的统一的部分，如： [0，0，0，0]。比较特殊性值表时，同索引左侧位数较大者特殊性高，如 [1，0，0，0] 大于 [0，99，0，0]
 
-* 重要性声明的特殊性总是胜过非重要性声明（!important 力压群雄）
-* 对于行内样式，特殊性值表加：[1，0，0，0]
-* 对于 ID 选择器，加：[0，1，0，0]
-* 对于类选择器，属性选择器，或是伪类，加：[0，0，1，0]
-* 对于标签选择器和伪元素选择器，加：[0，0，0，1]
-* 通配选择器、子代选择器、相邻选择器、同胞选择器会给特殊性值表加：[0，0，0，0]（不等同于不增加，这点在后面有辨析）
+- 重要性声明的特殊性总是胜过非重要性声明（!important 力压群雄）
+- 对于行内样式，特殊性值表加：[1，0，0，0]
+- 对于 ID 选择器，加：[0，1，0，0]
+- 对于类选择器，属性选择器，或是伪类，加：[0，0，1，0]
+- 对于标签选择器和伪元素选择器，加：[0，0，0，1]
+- 通配选择器、子代选择器、相邻选择器、同胞选择器会给特殊性值表加：[0，0，0，0]（不等同于不增加，这点在后面有辨析）
 
 试着比较一下 `#container .card .card-body a.graph:hover:active`、`#container #card-graph-con a.graph:hover` 这两个个选择器的特殊性吧？
 
 ### 继承
 
-我们不必事无巨细地给每一个元素都加上声明，对于某些值，子元素会继承父元素的值。**CSS世界的诞生就是为图文信息展示服务的**，所以 CSS 中的继承理念很符合我们的直觉。大部分属性如边框、边距、填充等盒子的样式不能继承，而文字相关的如字体、颜色等属性就可以继承。
+我们不必事无巨细地给每一个元素都加上声明，对于某些值，子元素会继承父元素的值。**CSS 世界的诞生就是为图文信息展示服务的**，所以 CSS 中的继承理念很符合我们的直觉。大部分属性如边框、边距、填充等盒子的样式不能继承，而文字相关的如字体、颜色等属性就可以继承。
 
 可继承的属性以下列出：
 
-* 交互样式相关属性：visibility、cursor
-* 文字排版相关属性：letter-spacing、word-spacing、white-space、line-height、color、font、 font-\*（font-family、font-size、font-style）、text-\*（text-indent、text-align、text-shadow、text-transform）
-* 表格排版相关属性：border-collapse
-* 列表排版相关属性：list-style、list-style-type、list-style-position、list-style-image
+- 交互样式相关属性：visibility、cursor
+- 文字排版相关属性：letter-spacing、word-spacing、white-space、line-height、color、font、 font-\*（font-family、font-size、font-style）、text-\*（text-indent、text-align、text-shadow、text-transform）
+- 表格排版相关属性：border-collapse
+- 列表排版相关属性：list-style、list-style-type、list-style-position、list-style-image
 
-有一点需要注意的是，text-decoration-* 属性看起来会被继承，但实则不然：
+有一点需要注意的是，text-decoration-\* 属性看起来会被继承，但实则不然：
 
 ```html
 <p style="text-decoration: underline;">
-    父元素 | 
-    <span style="text-decoration: line-through;">
-        子元素 text-decoration: line-through
-    </span> 
-    | 父元素
+  父元素 |
+  <span style="text-decoration: line-through;">
+    子元素 text-decoration: line-through
+  </span>
+  | 父元素
 </p>
 ```
 
@@ -171,12 +171,12 @@ dd:empty::before {
 ```html
 <h1>This is my heading.<span>asdf</span></h1>
 <style>
-* {
-  color: #bbb;
-}
-h1 { 
-  color: #333; 
-}
+  * {
+    color: #bbb;
+  }
+  h1 {
+    color: #333;
+  }
 </style>
 ```
 
@@ -184,18 +184,18 @@ h1 {
 
 ![继承得来的值得特殊性不比 0，0，0，0 要高](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200625025101.png)
 
-此外，《CSS权威指南》中提到：应用到 body 元素得背景样式可以（向上）传递到 html 元素，相应地可以定义其画布，这点属于继承中的特例。但我没能复现。
+此外，《CSS 权威指南》中提到：应用到 body 元素得背景样式可以（向上）传递到 html 元素，相应地可以定义其画布，这点属于继承中的特例。但我没能复现。
 
 ### 级联
 
 浏览器会如何应用两个特殊性相等的规则呢？级联（又作：层叠）会给出答案。这里给出一个有关于级联与样式来源的权重的参考，按权重递减排列：
 
-* 用户样式的重要性声明
-* 网站样式的重要性声明
-* 网站样式的正常声明
-* 用户样式的正常声明
-* 浏览器的默认样式
-* 声明出现在文档中的顺序越后，权重越大
+- 用户样式的重要性声明
+- 网站样式的重要性声明
+- 网站样式的正常声明
+- 用户样式的正常声明
+- 浏览器的默认样式
+- 声明出现在文档中的顺序越后，权重越大
 
 ![CSS 级联](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629191257.png)
 
@@ -207,7 +207,7 @@ h1 {
 
 一般来说，我们不会使用“a:active:hover、a:hover:link”等选择器。由于我们总是这四个状态的重要性依次递增，所以推荐“LVHT”顺序，也可以记为“Love&Hate”。
 
-从“LVHT”这个例子可以看出我为什么觉得“级联”是CSS最吸引人的地方。级联概念能体现出一种简单但深刻的理念——**设计人员总是希望用户在浏览器中与网页交互得到正确的反馈**，就好比悬浮按钮时有样式反馈，点击按钮时有激活提示——**级联迫使设计人员（开发者）思考“我们能提供什么信息”、“我们鼓励用户做什么**”。
+从“LVHT”这个例子可以看出我为什么觉得“级联”是 CSS 最吸引人的地方。级联概念能体现出一种简单但深刻的理念——**设计人员总是希望用户在浏览器中与网页交互得到正确的反馈**，就好比悬浮按钮时有样式反馈，点击按钮时有激活提示——**级联迫使设计人员（开发者）思考“我们能提供什么信息”、“我们鼓励用户做什么**”。
 
 ## VFM
 
@@ -215,12 +215,12 @@ VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览
 
 页面上的布局受到这些因素的影响：
 
-* **盒子尺寸**
-* **盒子类型**
-* **定位方案**
-* **子元素及兄弟元素**
-* **Viewport尺寸及位置**
-* **内在尺寸**（如果是替换元素的话，需要考虑元素的内在尺寸，如图片宽度）
+- **盒子尺寸**
+- **盒子类型**
+- **定位方案**
+- **子元素及兄弟元素**
+- **Viewport 尺寸及位置**
+- **内在尺寸**（如果是替换元素的话，需要考虑元素的内在尺寸，如图片宽度）
 
 ### 盒模型
 
@@ -234,31 +234,25 @@ VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览
 
 ![盒模型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629193138.png)
 
-第一张图是 W3C 标准盒模型，第二张是 IE 盒模型。至于为啥有两种标准，这得追溯回... 
+第一张图是 W3C 标准盒模型，第二张是 IE 盒模型。至于为啥有两种标准，这得追溯回...
 
-> ...很久以前...<br />
-> <br />
-> **IE**：我觉得盒模型应该是这样的，blahblah。<br />
-> **W3C**：明显应该是这样的才对，blahblah。<br />
-> 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br />
-> **围观群众**：听说 IE 的盒模型不标准。<br /><br />
-> ...多年过去...<br /><br />
-> **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br />
-> **[顾轶灵@知乎](https://www.zhihu.com/question/25509268/answer/30949718)**: `box-sizing` 这货就是用来擦屁股的...<br />
+> ...很久以前...<br /> > <br /> > **IE**：我觉得盒模型应该是这样的，blahblah。<br /> > **W3C**：明显应该是这样的才对，blahblah。<br />
+> 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br /> > **围观群众**：听说 IE 的盒模型不标准。<br /><br />
+> ...多年过去...<br /><br /> > **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br /> > **[顾轶灵@知乎](https://www.zhihu.com/question/25509268/answer/30949718)**: `box-sizing` 这货就是用来擦屁股的...<br />
 
 ![box-sizing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_21_018.png)
 
 以前写项目的时候，我喜欢使用通配符重置所有元素的 Box Sizing 为 Border Box，这样会使样式编写容易一些，因为 Border Box 包含了 Border 的宽度，这个宽度各符合直觉。不过，有几点可能需要考虑：
 
-* 统配符**可能会**带来样式污染（比如污染页面引入的其它库）
-* 统配符**可能会**带来不必要的性能消耗（我没找到关于通配符带来性能消耗的资料，这条观点有些站不住脚）
-* 通配符声明的特殊性要比继承的值的特殊性要高，容易引起混淆（这点之前提到过，可以返回去看看之前的“CSS 继承”小节）
+- 统配符**可能会**带来样式污染（比如污染页面引入的其它库）
+- 统配符**可能会**带来不必要的性能消耗（我没找到关于通配符带来性能消耗的资料，这条观点有些站不住脚）
+- 通配符声明的特殊性要比继承的值的特殊性要高，容易引起混淆（这点之前提到过，可以返回去看看之前的“CSS 继承”小节）
 
-《CSS世界》提到：属性 Box Sizing 发明的初衷可能是用于解决替换元素的宽度自适应的问题。比如输入框的宽度默认情况下的 100% 往往会超过父容器。所以建议这样写样式重置：
+《CSS 世界》提到：属性 Box Sizing 发明的初衷可能是用于解决替换元素的宽度自适应的问题。比如输入框的宽度默认情况下的 100% 往往会超过父容器。所以建议这样写样式重置：
 
 ```SCSS
-input, textarea, img, video, object { 
-    box-sizing: border-box; 
+input, textarea, img, video, object {
+    box-sizing: border-box;
 }
 ```
 
@@ -268,8 +262,8 @@ input, textarea, img, video, object {
 
 一个块容器盒子要么只包括块级盒子，要么创建一个 IFC 并只包含内联盒子（行内级盒子）。但他和块级盒子不是包含或被包含的关系，两者不一定等同：
 
-* 一个是表盒（Table Box）或是替换元素的主盒的块级盒子不是一个块容器盒子
-* 非替换行内块（None-replaced Inline-level Block）和非替换表格单元格（None-replaced Table Cell）是块容器盒子但不是块级盒子
+- 一个是表盒（Table Box）或是替换元素的主盒的块级盒子不是一个块容器盒子
+- 非替换行内块（None-replaced Inline-level Block）和非替换表格单元格（None-replaced Table Cell）是块容器盒子但不是块级盒子
 
 ![Block Box](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200702000624.png)
 
@@ -288,22 +282,22 @@ VFM 将元素按照盒子的类型生成盒子，而盒子的类型取决于元�
 
 Display 常见的取值有 Block、Inline Block、Inline、Table 等，如果如果元素又应用 float: left | right 声明，Display 属性将会失效。
 
-* display: block，生成一个主块盒子
-* display: inline-block，生成一个主内联盒容器（自身按照块盒子进行格式化布局，内容则按照原子内联盒子布局）
-* display: inline，生成一个或多个行内盒子
-* display: none，自身及内容都会在布局时被移除，不会生成任何盒子
-* ...
+- display: block，生成一个主块盒子
+- display: inline-block，生成一个主内联盒容器（自身按照块盒子进行格式化布局，内容则按照原子内联盒子布局）
+- display: inline，生成一个或多个行内盒子
+- display: none，自身及内容都会在布局时被移除，不会生成任何盒子
+- ...
 
 #### 显示内容类型
 
-显示内容类型是 CSS3 新增的一种玩意儿，一个显示内容类型的元素（display: contents）会在格式化从布局树中将自身移除，但是不同于 display: none，显示内容类型的内容将会得以保留。请联想一下 Vue 内置的 Template 标签，或是 React.Fragment，大概类似那种玩意儿... 
+显示内容类型是 CSS3 新增的一种玩意儿，一个显示内容类型的元素（display: contents）会在格式化从布局树中将自身移除，但是不同于 display: none，显示内容类型的内容将会得以保留。请联想一下 Vue 内置的 Template 标签，或是 React.Fragment，大概类似那种玩意儿...
 
 需要注意以下几点：
 
-* 盒子不会渲染边界框，这意味着 Margin、Padding、Border 相关属性都将失效。
-* 子元素依旧能继承某些属性，这和正常盒子的行为是一致的。
-* 盒子依旧存在于文档树中，只是不渲染边界框。而 Vue 中 Template 标签是不渲染的。
-* 盒子的 ::before 和 ::after 两个伪元素都将得到保留。
+- 盒子不会渲染边界框，这意味着 Margin、Padding、Border 相关属性都将失效。
+- 子元素依旧能继承某些属性，这和正常盒子的行为是一致的。
+- 盒子依旧存在于文档树中，只是不渲染边界框。而 Vue 中 Template 标签是不渲染的。
+- 盒子的 ::before 和 ::after 两个伪元素都将得到保留。
 
 <details>
     <summary>显示内容类型的元素 ::before 和 ::after 两个伪元素都将得到保留。</summary>
@@ -335,9 +329,9 @@ Display 常见的取值有 Block、Inline Block、Inline、Table 等，如果如
 
 CSS2.2 的定位方案就三种，普通流定位，浮动定位或是绝对定位。
 
-* **普通流定位**，按普通流的规则排列盒子，Position 属性的值为 static
-* **浮动定位**，脱离文档流（Out of Flow），Float 属性的值不为 none
-* **绝对定位**，脱离文档流，Position 属性的值为 static | fixed
+- **普通流定位**，按普通流的规则排列盒子，Position 属性的值为 static
+- **浮动定位**，脱离文档流（Out of Flow），Float 属性的值不为 none
+- **绝对定位**，脱离文档流，Position 属性的值为 static | fixed
 
 某些方案中，定位还和盒子的偏移属性（Top、Bottom、Left、Right）有关。
 
@@ -355,19 +349,19 @@ CSS2.2 的定位方案就三种，普通流定位，浮动定位或是绝对定�
 
 最直观的感受肯定是 HTML 元素，即根元素，它是浏览器中最重要的一个独立的不影响外界的容器。根元素会创建 BFC，在一些情况下，其它元素也会。这里有 MDN 的一份创建 BFC 方法的[清单](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)：
 
-* 根元素
-* 浮动元素
-* 绝对定位元素
-* Overflow 不为 Visible 的块级元素
-* 行内块元素，弹性元素，网格元素
-* 表格单元格，表格标题
-* CSS3 中新增了一种 Display: FlowRoot 可以用来创建无副作用的 BFC。
+- 根元素
+- 浮动元素
+- 绝对定位元素
+- Overflow 不为 Visible 的块级元素
+- 行内块元素，弹性元素，网格元素
+- 表格单元格，表格标题
+- CSS3 中新增了一种 Display: FlowRoot 可以用来创建无副作用的 BFC。
 
 BFC 在布局时，会应用以下规则，需要注意：
 
-* BFC 不会和外部浮动元素重叠。
-* BFC 内部的相邻的块级盒子的垂直外边距会折叠。
-* 计算 BFC 的高度时，内部浮动的盒子也会参与计算。
+- BFC 不会和外部浮动元素重叠。
+- BFC 内部的相邻的块级盒子的垂直外边距会折叠。
+- 计算 BFC 的高度时，内部浮动的盒子也会参与计算。
 
 <details>
     <summary>BFC 不会和外部浮动元素重叠</summary>
@@ -412,16 +406,16 @@ BFC 在布局时，会应用以下规则，需要注意：
 
 在 IFC 中，需要注意以下问题：
 
-* 内部的盒子一个接着一个地排列，起点是包含块的顶点。
-* 如果一行放不下内容，那么会被“拆”开放到下一行。
-* 只有水平方向上的 Margin 会在盒子中保留。
-* Padding 和 Border 不会撑开行高。
+- 内部的盒子一个接着一个地排列，起点是包含块的顶点。
+- 如果一行放不下内容，那么会被“拆”开放到下一行。
+- 只有水平方向上的 Margin 会在盒子中保留。
+- Padding 和 Border 不会撑开行高。
 
 ### 浮动
 
 Float 虽然平常用的不多，但是这里单独拎出来康康。原理至少还是要了解的，因为浮动涉及到一些“看起来像 BUG”的问题。
 
-* 父容器塌陷问题
+- 父容器塌陷问题
 
 浮动元素，尤其是浮动的图片，很适合用来进行图文混合排版。但是由于脱离了正常文档流，非 BFC 容器不会计算内部浮动元素的高度，所以会引起父容器塌陷的问题。下一小节将会介绍清除浮动的一些办法。
 
@@ -431,7 +425,7 @@ Float 虽然平常用的不多，但是这里单独拎出来康康。原理至�
 
 <div style="clear: both" />
 
-* 浮动错位问题
+- 浮动错位问题
 
 HTML 中两个向右浮动的元素，分别为 ONE 和 TWO，在浏览器渲染出来确实 ONE 在右侧，TWO 在左侧。
 
@@ -448,15 +442,15 @@ HTML 中两个向右浮动的元素，分别为 ONE 和 TWO，在浏览器渲染
 
 有几种常见的解决塌陷问题的方法，记录如下：
 
-* 使用 Clear 属性：
-  * 给父容器的伪元素应用 Clear: Both；（推荐）
-  * 添加一个额外的标签，应用 Clear: Both；
-* 触发父容器的 BFC:
-  * 父元素设置 Display: FlowRoot | Flex | Grid；
-  * 父元素设置 Overflow: Hidden | Visible；
-  * 父元素也浮动；
-* 给父元素定高；
-* ...（欢迎补充）
+- 使用 Clear 属性：
+  - 给父容器的伪元素应用 Clear: Both；（推荐）
+  - 添加一个额外的标签，应用 Clear: Both；
+- 触发父容器的 BFC:
+  - 父元素设置 Display: FlowRoot | Flex | Grid；
+  - 父元素设置 Overflow: Hidden | Visible；
+  - 父元素也浮动；
+- 给父元素定高；
+- ...（欢迎补充）
 
 ### FFC
 
@@ -490,7 +484,7 @@ FFC 是一种非常灵活的一维布局方式（GFC 则是强大的二维布局
     </ul>
 </details>
 
-flex-grow 光看概念有些难懂，这里用数值说明一下：假设父容器宽度 100px，子元素只有1个，宽度为 50px，flex-grow: .5，那么，子元素就会占据 100px-50px 剩余空间的“自身 flex-grow 数值 / 所有子项 flex-grow 之和”的值的百分比（.5 / .5 = 100%）。
+flex-grow 光看概念有些难懂，这里用数值说明一下：假设父容器宽度 100px，子元素只有 1 个，宽度为 50px，flex-grow: .5，那么，子元素就会占据 100px-50px 剩余空间的“自身 flex-grow 数值 / 所有子项 flex-grow 之和”的值的百分比（.5 / .5 = 100%）。
 
 所以，当父容器只含有一个子元素时，给子元素设置 flex-grow: 1 能使它填充满整个父容器：
 
@@ -514,7 +508,7 @@ FFC 中稍微要注意的地方就是，子元素的 vertical-align、float、cl
 
 ## 文本
 
-Line Height & Vertical Align，先挖坑，以后再跳。想要详细了解的话，可以先康康《CSS世界》，[链接直达](https://www.cssworld.cn/)。
+Line Height & Vertical Align，先挖坑，以后再跳。想要详细了解的话，可以先康康《CSS 世界》，[链接直达](https://www.cssworld.cn/)。
 
 ## 字体
 
@@ -529,7 +523,7 @@ Line Height & Vertical Align，先挖坑，以后再跳。想要详细了解的�
    3. 根据 font-variant 匹配。如果此项失败，不会影响继续匹配。
    4. 根据 font-weight 匹配。必定成功。
    5. 根据 font-size 匹配。必定成功。
-3. 如果字体匹配成功，但是某字形匹配失败——比如在英文字体中找不到中文字符的定义——那么将此字形继续应用 font-family 中值的当前候选字体向后的匹配（返回步骤2）。
+3. 如果字体匹配成功，但是某字形匹配失败——比如在英文字体中找不到中文字符的定义——那么将此字形继续应用 font-family 中值的当前候选字体向后的匹配（返回步骤 2）。
 4. 如果没有从 font-family 的值中找到候选字体，则使用浏览器默认字体。
 
 比如我把博客字体中所有弯引号的映射都改成了直角引号，见下图：
@@ -590,16 +584,16 @@ article {
 
 ## 实践
 
-### CSS管理
+### CSS 管理
 
-关于“如何在项目中管理CSS”的话题够写一本书了。这里简要介绍一下在我博客项目中采用的一种组织 CSS 的方法——ITCSS。
+关于“如何在项目中管理 CSS”的话题够写一本书了。这里简要介绍一下在我博客项目中采用的一种组织 CSS 的方法——ITCSS。
 
 平常我们写 CSS 可能会碰到以下问题：
 
-* CSS 的组织结构很松散，有时按页面组织，有时按组件组织，有时候还会按文件夹组织（手动狗头）
-* 不良的组织习惯导致页面样式的继承很凌乱（调试时沉浸在一堆糨糊中）
-* 凌乱的继承引来更多的选择器特殊性问题（Buff：糨糊的粘稠度提高了68%）
-* ...
+- CSS 的组织结构很松散，有时按页面组织，有时按组件组织，有时候还会按文件夹组织（手动狗头）
+- 不良的组织习惯导致页面样式的继承很凌乱（调试时沉浸在一堆糨糊中）
+- 凌乱的继承引来更多的选择器特殊性问题（Buff：糨糊的粘稠度提高了 68%）
+- ...
 
 其实这一切都是 CSS 本身的特征导致的问题，CSS 本身是弱逻辑的，“装饰性”的，这注定了一般情况下我们不会重视它——没有文档、没有质量保证机制——所以写 CSS 时常常陷入“用新的样式去覆盖旧的样式”的怪圈（对，往 index.css 文件尾部添加一个带有 !important 声明的选择器）。而遵守 ITCSS 理论能够约束我们的行为，它是由 csswizardry 提倡的一种用来组织与管理项目中的样式文件的体系结构，一种元框架，或是一种 CSS 设计方法论。
 
@@ -607,13 +601,13 @@ ITCSS（Inverted Triangle CSS） 的名字很形象，这和它的核心概念�
 
 ![ITCSS（Inverted Triangle CSS）](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628214218.png)
 
-* Settings：Global variables、Config switches
-* Tools：Mixins、Functions
-* Generic：Ground-zero styles（Normalize.css，resets.css）
-* Base：Unclassed HTML elements（Type selectors）
-* Objects：Cosmetic-free design patterns
-* Components：Designed components
-* Trumps：Helpers、Overrides
+- Settings：Global variables、Config switches
+- Tools：Mixins、Functions
+- Generic：Ground-zero styles（Normalize.css，resets.css）
+- Base：Unclassed HTML elements（Type selectors）
+- Objects：Cosmetic-free design patterns
+- Components：Designed components
+- Trumps：Helpers、Overrides
 
 实践理论将带来的好处显而易见：层级自上而下，选择器影响的 DOM 数量也越来越少，同时选择器特殊性递增。修改某个样式时我们可以轻易从相关组织文件中做出修改，而不影响其它样式，或是导致 CSS 样式继承的崩塌。
 
@@ -625,11 +619,11 @@ ITCSS（Inverted Triangle CSS） 的名字很形象，这和它的核心概念�
 
 **CSS 命名方案解决的主要是命名冲突和复用两个问题**。这里简单总结几种较常用的，了解一下，方便以后直接选坑往里面跳。
 
-* CSS Module
-* Tailwind
-* BEM
-* OOCSS
-* Atomic css
+- CSS Module
+- Tailwind
+- BEM
+- OOCSS
+- Atomic css
 
 ## 问题
 
@@ -849,8 +843,6 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
     </ul>
 </details>
 
-
-
 ### 易混淆的点
 
 <details>
@@ -902,7 +894,7 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
 
 不过如果页面复杂的话，就需要等待相当长的时间了... 可以从这几点开始进行优化：
 
-* 通过媒体查询去除无关样式，如侧边栏、导航栏
+- 通过媒体查询去除无关样式，如侧边栏、导航栏
 
 ```SCSS
 @media print, speech {
@@ -920,7 +912,7 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
 }
 ```
 
-* 直接在 Rendering 选项卡中将浏览器的媒体类型改为 Print。这样就可以在页面上可以直接预览打印的页面了。
+- 直接在 Rendering 选项卡中将浏览器的媒体类型改为 Print。这样就可以在页面上可以直接预览打印的页面了。
 
 ![浏览器媒体类型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/LUFiDK36Jo1.gif)
 
@@ -930,8 +922,8 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
 
 Rendering 选项卡还有很多好玩的东西，举个例子：
 
-* FPS Meter，即时查看页面帧率
-* Paint Flashing，即时查看页面重绘的区域
+- FPS Meter，即时查看页面帧率
+- Paint Flashing，即时查看页面重绘的区域
 
 ![FPS Meter & Paint Flashing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629220655.png)
 
@@ -957,19 +949,19 @@ Rendering 选项卡还有很多好玩的东西，举个例子：
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](http://www.lionad.art)，排版绝佳 Nice 哦~</p></JJ>
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)，排版绝佳 Nice 哦~</p></JJ>
 
-* [《CSS权威指南》](https://book.douban.com/subject/2308234/)
-* [CSS-The-Definitive-Guide-4th-zh](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
-* [《CSS世界》](https://www.cssworld.cn/)
-* [W3C VFM](https://www.w3.org/TR/CSS22/visuren.html)
-* [为什么你们就是不能加个空格呢？](https://sspai.com/post/33549)
-* [Managing CSS Projects with ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)
-* [2019年，是否可以抛弃 CSS 预处理器？](https://juejin.im/post/5dcbb766f265da4d3e174f6d)
-* [一些解决 CSS 命名的方案](https://juejin.im/post/5ec8d82f6fb9a047ce7c47b6)
+- [《CSS 权威指南》](https://book.douban.com/subject/2308234/)
+- [CSS-The-Definitive-Guide-4th-zh](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)
+- [《CSS 世界》](https://www.cssworld.cn/)
+- [W3C VFM](https://www.w3.org/TR/CSS22/visuren.html)
+- [为什么你们就是不能加个空格呢？](https://sspai.com/post/33549)
+- [Managing CSS Projects with ITCSS](https://speakerdeck.com/dafed/managing-css-projects-with-itcss)
+- [2019 年，是否可以抛弃 CSS 预处理器？](https://juejin.im/post/5dcbb766f265da4d3e174f6d)
+- [一些解决 CSS 命名的方案](https://juejin.im/post/5ec8d82f6fb9a047ce7c47b6)
 
 ## TODO
 
 Review
 
-* 盒子的生成
+- 盒子的生成
