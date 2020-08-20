@@ -10,7 +10,7 @@
 
 ## 目录结构
 
-可以大致根据目录将源码差分为几个部分：
+可以大致根据目录将源码拆分为几个部分：
 
 ```
 ├─compiler // 模板编译相关
@@ -48,7 +48,7 @@ Vue 通过 Observer 把对象的所有属性转化为带有能收集依赖并触
 简而言之，Observer 使对象“可观测”，即“变化侦测”中的“侦测”。通过 observe 函数，我们能命令式地侦测一个对象。
 
 ```js
-function observe (value     , asRootData          )                  {
+function observe(value, asRootData) {
   ob = new Observer(value)
   return ob
 }
@@ -235,7 +235,7 @@ class Dep {
 }
 ```
 
-依赖容器和依赖之间是存在耦合的，所以我们看到收集依赖的这个地方，仅仅调用了依赖的 addDep 方法，没有调用 addSub 把添加依赖。其实，addSub 是在依赖的 addDep 方法中调用的。这个和观察者模式离不开关系，在观察者模式中，观察者直接观测目标，并相应目标做出的通知。Watcher 直接观测响应式数据，当数据发生变更时，就能收到通知。但由于数据和观察者是多对多的关系，所以需要 Dep 依赖容器这么一个东西用来保存 Watcher 与 数据的关系。
+依赖容器和依赖之间是存在耦合的，所以我们看到收集依赖的这个地方，仅仅调用了依赖的 addDep 方法，没有调用 addSub 把添加依赖。其实，addSub 是在依赖的 addDep 方法中调用的。这个和观察者模式离不开关系，在观察者模式中，观察者直接观测目标，并相应目标做出的通知。Watcher 直接观测响应式数据，当数据发生变更时，就能收到通知。但由于数据和观察者是多对多的关系，所以需要 Dep 依赖容器这么一个东西用来保存 Watcher 与数据的关系。
 
 ![变化侦测](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200810100326.png?w=70)
 
@@ -295,6 +295,7 @@ class Watcher {
   }
 }
 ```
+
 Vue 实例中，data 方法会返回一个新的对象，这个对象能将值的变化响应式更新到模板中。其实就是，新的对象返回来后，使用了 observe 方法观测其变化，而其每一个属性的依赖容器中，都会保存这个 Vue 实例的 watcher。这样一来，只要属性发生了变化，依赖容器就会通知 Vue 实例的 watcher 进行更新。至于要更新什么，那当然是“执行回调函数”啦。想象一下 Vue 实例中的 watch 的写法：
 
 ```js
@@ -344,7 +345,7 @@ class Watcher {
     this.depIds = new Set()
     this.newDepIds = new Set()
 
-    /* expOrFn 可以是函数或形如 'data.a.b.c' 的字符串 
+    /* expOrFn 可以是函数或形如 'data.a.b.c' 的字符串
      * 若是字符串，对应的 getter 即读取 data.a.b.c 的值
      */
     this.expression = process.env.NODE_ENV !== 'production' ? expOrFn.toString() : ''
@@ -360,6 +361,7 @@ class Watcher {
   }
 }
 ```
+
 ---
 
 TODO

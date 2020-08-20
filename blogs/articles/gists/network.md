@@ -94,16 +94,61 @@ TLS 1.3 中，通讯双方可以得到一个“恢复主密钥”的密钥，用
 
 ## HTTP
 
-### 常用状态码
+### 状态码
 
 - 200：成功并返回数据
 - 301：永久转移，重定向
+- 302：临时重定向
+- 303：临时重定向（客户端必须使用 Get 方法重新请求资源）
 - 304：资源未修改，可使用缓存
+- 307：临时重定向（重新请求时不允许客户端将 Post 方法改为 Get 方法）
+- 308：永久重定向（重新请求时不允许客户端将 Post 方法改为 Get 方法）
 - 400：请求语法错误
 - 401：要求身份认证
 - 403：请求拒绝
 - 404：资源不存在
 - 500：服务器错误
+
+### MIME
+
+<table class="standard-table">
+ <thead>
+  <tr>
+   <th scope="col">类型</th>
+   <th scope="col">描述</th>
+   <th scope="col">典型示例</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td>text</td>
+   <td>表明文件是普通文本，理论上是人类可读</td>
+   <td>text/plain、text/html、text/css, text/javascript</td>
+  </tr>
+  <tr>
+   <td>image</td>
+   <td>表明是某种图像。不包括视频，但是动态图（比如动态gif）也使用image类型</td>
+   <td>image/gif、image/png、image/jpeg、image/bmp、image/webp、image/x-icon、image/vnd.microsoft.icon</td>
+  </tr>
+  <tr>
+   <td>audio</td>
+   <td>表明是某种音频文件</td>
+   <td>audio/midi、audio/mpeg、audio/webm、audio/ogg、audio/wav</td>
+  </tr>
+  <tr>
+   <td>video</td>
+   <td>表明是某种视频文件</td>
+   <td>video/webm、video/ogg</td>
+  </tr>
+  <tr>
+   <td>application</td>
+   <td>表明是某种二进制数据</td>
+   <td>
+    application/octet-stream、application/pkcs12、application/vnd.mspowerpoint、application/xhtml+xml、application/xml、application/pdf
+   </td>
+  </tr>
+ </tbody>
+</table>
 
 ### 报文
 

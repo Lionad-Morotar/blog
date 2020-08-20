@@ -519,6 +519,7 @@
                 <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200704134710.png" />
             </li>
         </ul>
+        由于 JS 是单线程的，一旦执行垃圾回收算法，正在执行的脚本需要暂停下来，这叫作“全停顿”。为了优化这种间歇性停顿，JS 将老生代空间的标记过程拆分为了小个的子步骤，这样就可以将标记算法穿插在其它任务过程中执行了。
     </p>
 </details>
 
@@ -773,6 +774,11 @@
         虽然前端离“计算机科学”这个名词好像隔着很远的距离，但是 AST 在前端实践中无处不在。
         我们通过“代码生成 AST”、“遍历与更新”、“重生成代码”三个标准流程，能构建出一整套代码工程化方案，比如包括代码高亮补全压缩混淆、模块构建、语法糖、语言转换等功能都离不开 AST。
     </p>
+</details>
+
+<details open>
+    <summary>Prettier 和 ESLint 的区别是？</summary>
+    <p>Prettier 是代码格式化工具，而 ESLint 则是 JS/TS 等代码的校验工具，只不过也有格式化这个功能。通过安装 ESLint 插件，可以使项目中的 ESLint 兼容 Prettier 的规则。再配置好 husky，就可以很方便的给暂存区代码进行格式化校验了。</p>
 </details>
 
 <details open>
