@@ -243,7 +243,7 @@
             Child.prototype = new Parent()
             Child.prototype.world = function world() {}
         </Highlight>
-        还有一种相当有名的继承模式叫做“圣杯模式”。
+        还有一种相当有名的继承模式叫做“圣杯模式”，即寄生组合继承。
         <Highlight>
             const inherit = function(c,p){
                 const F = function(){}
