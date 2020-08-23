@@ -1,3 +1,7 @@
+<flow>闭包是一个捕获了外部绑定的函数，即使这个绑定存在的作用域被销毁，它仍然能被闭包所使用。
+<name><a href="https://book.douban.com/subject/26579320/" rel="noopener noreferrer" target="_blank">《JS 函数式编程》</a></name>
+</flow>
+
 <flow>浏览器的用户界面有很多彼此相同的元素，如地址栏、前进后退刷新主页按钮、书签... 奇怪的是，浏览器的用户界面并没有任何正式的规范，HTML5 也没有定义浏览器必须具有的用户界面元素。这是多年来的最佳实践自然发展以及彼此之间相互模仿的结果。
 <name><a href="https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/" rel="noopener noreferrer" target="_blank">浏览器的工作原理：新式网络浏览器幕后揭秘</a></name>
 </flow>

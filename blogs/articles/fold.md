@@ -47,4 +47,4 @@
 
 #### 2019-6
 
-- [从一个越写越慢的编辑器中聊聊优化思路](/articles/fold/2019-6/a-markdown-parser.html)
+- [从一个越写越慢的编辑器中聊聊优化思路](/articles/fold/2019-6/teditor.html)

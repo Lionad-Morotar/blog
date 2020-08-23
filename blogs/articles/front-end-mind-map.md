@@ -163,20 +163,6 @@
 </details>
 
 <details open>
-    <summary>this 是作用域吗？</summary>
-    <p>
-        this 不是作用域。在知乎我看到有人直接把 this 和作用域等同对待，这是错误的。作用域是指我们通常说的“词法作用域”，是储存变量声明、函数声明的地方，是运行时不可变的。而 this 仅指代“当前函数运行所在的环境”，是可变的。
-        <Highlight>
-            const a = 1
-            a // 1
-            window === this // true
-            this.a // undefined
-            window.a // undefined
-        </Highlight>
-    </p>
-</details>
-
-<details open>
     <summary>暂时性死区是怎么形成的？</summary>
     <p>
         暂时性死区和词法环境机制有关。
