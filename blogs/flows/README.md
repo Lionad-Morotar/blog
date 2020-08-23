@@ -1,3 +1,12 @@
+<flow>一些浏览器高级调试技巧：
+<ul>
+    <div>1：使用 $_ 获取上一 REPL 结果；使用 $0 获取选中的节点；</div>
+    <div>2：浏览器提供了 copy 函数，用于拷贝对象；</div>
+    <div>3：选中节点后，按 H 可以快速隐藏节点；</div>
+</ul>
+<name><a href="https://mp.weixin.qq.com/s?src=11&timestamp=1598191239&ver=2540&signature=gl33j5e*eRMLINfGpRKzAXpdP3QVOOe3ZkFNXmf*i6KvjufyoOxY6y4-x54Qtp1Q39hVZzFGoGH5XFwkCBFBsVsLhouVVyA5-B4oRh*4AOtUOMUt-uIDHZNgy4Ktbos8&new=1" rel="noopener noreferrer" target="_blank">Chrome开发者工具的11个高级使用技巧@前端之巅</a></name>
+</flow>
+
 <flow>闭包是一个捕获了外部绑定的函数，即使这个绑定存在的作用域被销毁，它仍然能被闭包所使用。
 <name><a href="https://book.douban.com/subject/26579320/" rel="noopener noreferrer" target="_blank">《JS 函数式编程》</a></name>
 </flow>
