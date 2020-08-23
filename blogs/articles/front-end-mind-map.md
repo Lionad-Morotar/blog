@@ -58,6 +58,29 @@
 </details>
 
 <details open>
+    <summary>如何解决 JSON.stringify 的循环引用问题？</summary>
+    <Highlight>
+        // create a circular object
+        var circ = {}
+        circ.circ = circ
+        // use cache to store values in the circular object
+        var cache = []
+        JSON.stringify(circ, (key, value) => {
+            if (typeof value === 'object' && value !== null) {
+                // Duplicate reference found, discard key
+                if (cache.includes(value)) return;
+
+                // Store value in our collection
+                cache.push(value);
+            }
+            return value;
+        })
+        // enable gc
+        cache = null
+    </Highlight>
+</details>
+
+<details open>
     <summary>手写一些常见的数组操作，比如乱序、降维？</summary>
     <ul>
         <li>数组乱序</li>
