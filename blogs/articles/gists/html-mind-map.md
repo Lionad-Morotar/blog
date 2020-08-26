@@ -1,8 +1,10 @@
-# HTML5 标签明细
+# HTML5 Mind Map
 
 [TOC]
 
-## strong、em、b、i
+## Tag 明细
+
+#### strong、em、b、i
 
 在观察 VuePress 编译出的 HTML 时，我发现它把 Markdown 文件中两个星号 （**）之间的内容，用 strong 标签给包裹住了。
 我想起了以前看 SEO 相关内容时，提到的 HTML 标签，strong、em、b、i 之间的辨析，特意又去 MDN 上看了一眼，加深了一下印象。
