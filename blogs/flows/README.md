@@ -1,3 +1,8 @@
+<flow>To iterate is human, to recurse, divine.
+人理解迭代，神理解递归。
+<name>L. Peter Deutsch</name>
+</flow>
+
 <flow>一些浏览器高级调试技巧：
 <ul>
     <div>1：使用 $_ 获取上一 REPL 结果；使用 $0 获取选中的节点；</div>

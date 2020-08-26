@@ -8,8 +8,6 @@
 
 函数式编程是实用性的典范。如 $Applicative$ 编程，要求给 $A$ 函数提供一个 $B$ 函数作为参数，这是一种函数式编程的思想，并触发了 $map、reduce、filter$ 等围绕集合（数组、对象）为中心的数据处理思想。通过应用 $Applicative$ 并组合新函数，我们能处理更复杂的数据。JS 对象是一种简单的关联性数据储存，即使脱离对“原型”的讨论，我们依然能用它构建复杂的抽象，而函数式编程可以帮助我们应对这种抽象。
 
-## 函数
-
 这一切都是建立在几个简单的 JS 核性特征之上。最重要的是“一等函数”概念：
 
 - 函数可以储存在变量中、数组中，甚至是对象的字段中；
@@ -18,7 +16,7 @@
 
 围绕“一等函数”，函数式编程发展出了许多类似模式概念（类似“设计模式”）。
 
-### 局部应用
+## 局部应用
 
 ```js
 const partial = (fn, ...args) => (...rest) => fn(...args, ...rest)
@@ -28,7 +26,7 @@ const adder = (a, b) => a + b
 const add5 = partial(adder, 5)
 ```
 
-### Currying
+## Currying
 
 $Currying$ 即柯里化。由于目前我的精简的思源宋字体集少了“柯”这个字，所以下文的“柯里化”暂替换为“$Currying$”。
 
@@ -103,7 +101,76 @@ add(0)(1)(2, 3, 4)(0)(0)(10)()
 // >>> 10
 ```
 
-### 延迟
+## 递归
+
+递归的最常见的例子便是深拷贝了：
+
+```js
+function cloneDeep(obj) {
+    const isObject = obj => typeof obj === 'object'
+    if (!isObject(obj)) return obj
+    const ret = Object.create(obj.__proto__ || null)
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            ret[key] = cloneDeep(obj[key])
+        }
+    }
+    return ret
+}
+```
+
+JS 使用栈跟踪函数调用，所以一旦数据量大到超出栈的可负载程度，程序就会发生栈溢出错误。
+
+```js
+function recur(n) {
+    if (n === 0) console.log(n)
+    else recur(n - 1)
+}
+recur(500000)
+// >>> RangeError: Maximum call stack size exceeded
+```
+
+在某些引擎中，尾调用函数可以避免栈溢出。我们知道函数在结束时，会出栈，所以只需最后 $return$ 一个新的函数调用，就可以不减少栈容量（如 $return loop(n)$，但注意，$return loop(n) + v$ 不是尾调用）。递归函数若运行在有尾递归优化的引擎中，会被优化为循环，如上面的 recur 等同于：
+
+```js
+function recur(n) {
+    while (n !== 0) {
+        n = n - 1
+    }
+    console.log(n)
+}
+recur(5000000)
+// >>> 0
+```
+
+或者，可以选用“时间换空间”的方式来解决递归问题。我们不在函数中直接返回数据，而是返回闭包，这样一来，返回的数据就会储存在堆中啦。
+
+```js
+function recur(n) {
+    if (n === 0) console.log(n)
+    else return () => recur(n - 1)
+}
+recur(3)()()()
+// >>> 0
+```
+
+可以发现，由于调用次数不可枚举。所以我们需要一个“蹦床函数”（$Trampoline$），使用循环来解放人力。
+
+```js
+function trampoline(fn) {
+    let res = () => fn()
+    while (res instanceof Function) {
+        res = res()
+    }
+    return res
+}
+trampoline(recur(50000000))
+// >>> 0
+```
+
+需要注意的是，尽管堆内存很大（比栈大多了），但是仍可能发生溢出现象。蹦床函数不能保证不发生内存溢出。如果你实在需要写一个巨大的数据处理程序，你也许可以从经典算法下手，将递归转化为循环。
+
+## 延迟
 
 在调用执行函数之前不会计算任何东西
 
@@ -153,6 +220,7 @@ console.timeEnd() // >>> default: 428.875ms
 
 ## 阅读更多
 
+- [理解递归、尾调用优化和蹦床函数优化](https://juejin.im/post/6844904029424713735#comment)
 - [JavaScript 中的函数式编程](https://github.ahthw.com/natpagle/book/chapter-fourth.html)
 - [函数式编程入门教程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)
 - [《JS 函数式编程》](https://book.douban.com/subject/26579320/)

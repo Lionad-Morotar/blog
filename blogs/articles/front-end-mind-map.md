@@ -65,16 +65,16 @@
         circ.circ = circ
         // use cache to store values in the circular object
         var cache = []
-        JSON.stringify(circ, (key, value) => {
+        function check(key, value) {
             if (typeof value === 'object' && value !== null) {
                 // Duplicate reference found, discard key
                 if (cache.includes(value)) return;
-
                 // Store value in our collection
                 cache.push(value);
             }
-            return value;
-        })
+            return value
+        }
+        JSON.stringify(circ, check)
         // enable gc
         cache = null
     </Highlight>
