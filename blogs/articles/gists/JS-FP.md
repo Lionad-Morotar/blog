@@ -1,5 +1,7 @@
 # JS & 函数式编程
 
+[TOC]
+
 ## 函数式编程
 
 函数式编程通过使用函数来将值转换成抽象单元，接着用来构建软件系统。
@@ -8,13 +10,52 @@
 
 函数式编程是实用性的典范。如 $Applicative$ 编程，要求给 $A$ 函数提供一个 $B$ 函数作为参数，这是一种函数式编程的思想，并触发了 $map、reduce、filter$ 等围绕集合（数组、对象）为中心的数据处理思想。通过应用 $Applicative$ 并组合新函数，我们能处理更复杂的数据。JS 对象是一种简单的关联性数据储存，即使脱离对“原型”的讨论，我们依然能用它构建复杂的抽象，而函数式编程可以帮助我们应对这种抽象。
 
+我们来看一段函数式的排序代码：
+
+```js
+/* 基础函数 */
+const sort = map => compareFn => (a, b) => compareFn(map(a), map(b))
+const flipComparison = fn => (a, b) => -fn(a, b)
+
+const byValue = (a, b) => a - b
+const byPrice = sort(e => e.price)(byValue)
+const byRating = sort(e => e.rating)(flipComparison(byValue))
+
+// 这是最有意思的一个函数
+const sortFlattend = sortFns => (a, b) => 
+    sortFns.reduce((sortResult, fn) => sortResult || fn(a,b), 0)
+
+// 依次根据价格和评分排序
+const byPriceThenRating = sortFlattend([byPrice, byRating])
+
+const food = [
+    { name: "Suger", price: 1, rating: 3 },
+    { name: "Chocolate", price: 3, rating: 4 },
+    { name: "Burger", price: 3, rating: 2 },
+    { name: "Cola", price: 1, rating: 5 },
+    { name: "Pizza", price: 5, rating: 3 },
+]
+
+food.sort(byPriceThenRating)
+
+// [{"name": "Cola","price": 1,"rating": 5},
+//  {"name": "Suger","price": 1,"rating": 3},
+//  {"name": "Chocolate","price": 3,"rating": 4},
+//  {"name": "Burger","price": 3,"rating": 2},
+//  {"name": "Pizza","price": 5,"rating": 3}]
+
+// 来源是周刊中某大佬的博客，代码稍有修改
+// 之前我只是把代码记录到了掘金沸点里，现在我找不到源地址了 TOT
+// 可能是这个 http://design-lance.com/tag/sort/
+```
+
 这一切都是建立在几个简单的 JS 核性特征之上。最重要的是“一等函数”概念：
 
 - 函数可以储存在变量中、数组中，甚至是对象的字段中；
 - 函数可以作为参数传递，也可以作为返回值返回；
 - 函数可以按需创建并调用，可具名也可匿名；
 
-围绕“一等函数”，函数式编程发展出了许多类似模式概念（类似“设计模式”）。
+围绕“一等函数”，函数式编程发展出了许多经典的代码模式。所谓代码模式，简单来说你可以把它们想象成“设计模式”。
 
 ## 局部应用
 
@@ -26,11 +67,11 @@ const adder = (a, b) => a + b
 const add5 = partial(adder, 5)
 ```
 
-## Currying
+## 颗粒化
 
-$Currying$ 即柯里化。由于目前我的精简的思源宋字体集少了“柯”这个字，所以下文的“柯里化”暂替换为“$Currying$”。
+颗粒化，常作“柯里化”。我觉得写作“颗粒化”也没问题的原因是其间包涵了**逐步消耗函数参数**的步骤。颗粒化接受一个函数，并返回一个逐步消耗函数参数，参数消耗完时将所有消耗的参数代入原函数执行，最后返回结果的新函数。
 
-$Currying$ 接受一个函数，并返回一个逐步消耗函数参数，参数消耗完时将所有消耗的参数代入原函数执行并返回结果的新函数。由此可见，他和闭包紧密结合。
+方便起见，以下写作“$Currying$”。
 
 最常见的 $Currying$ 用作限制函数接受参数的个数，如许多人知道的，$map$ 函数配合 $parseInt$ 使用时会出现奇奇怪怪的问题：
 
@@ -154,7 +195,7 @@ recur(3)()()()
 // >>> 0
 ```
 
-可以发现，由于调用次数不可枚举。所以我们需要一个“蹦床函数”（$Trampoline$），使用循环来解放人力。
+可以发现，由于调用次数不可枚举。所以我们需要一个“蹦床函数”（$Trampoline$）来解放人力。蹦床函数会持续调用函数及其返回结果，直到返回结果不再是函数。
 
 ```js
 function trampoline(fn) {
@@ -172,7 +213,9 @@ trampoline(recur(50000000))
 
 ## 延迟
 
-在调用执行函数之前不会计算任何东西
+有时我们不希望在显示调用函数执行函数前计算任何东西。也就是说，我们提供给源数据一系列转换函数，通过闭包暂时把函数隐藏起来。只有当我们确认转换时，才会传入源素据，依次调用转换函数（$reduce$），并返回结果。
+
+需要强调一下，“延迟”和“异步”是完全两种东西。比如说，$Promise$ 没有推迟执行阶段，它会立即执行内部代码。
 
 ```js
 function Lazy(arr) {
