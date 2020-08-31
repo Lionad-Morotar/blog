@@ -303,7 +303,9 @@ response.setHeader('X-Download-Options', 'noopen')
 
 #### 开启 DNS 预取
 
-通过设置 X-DNS-Prefetch-Control 可以打开（或关闭）浏览器的 DNS 预请求功能。据 MDN 介绍，打开后，在图片数量较多的页面，能带来至少 5% 的加载速度提升。额，这个 Header 对安全性好像没什么帮助，我不知道为啥要加到库里面[^#111]...
+通过设置 X-DNS-Prefetch-Control 可以打开（或关闭）浏览器的 DNS 预请求功能。据 MDN 介绍，打开后，在图片数量较多的页面，能带来至少 5% 的加载速度提升。
+
+至于 DNS Prefetch 具体是如何增强浏览器安全的... 我暂时没懂。我在 Issue 中问了 Helmet 的作者，他提供了关于 DNS Prefetch 安全性问题的额外的资料。请看这个 [Issue](https://github.com/helmetjs/helmet/issues/111)。
 
 ```js
 response.setHeader('X-DNS-Prefetch-Control', 'on')
@@ -335,7 +337,6 @@ response.setHeader('X-DNS-Prefetch-Control', 'on')
 [^dns-rebinding-2]: [Github Issue](https://github.com/helmetjs/helmet/issues/182)
 [^xss-auditor]: [XSS Auditor (removed)](https://www.chromestatus.com/feature/5021976655560704)
 [^delete-xss-auditor]: [Google 将删除 Chrome 内置的 XSS 保护](https://zhuanlan.zhihu.com/p/74288648)
-[^#111]: [Github Issue](https://github.com/helmetjs/helmet/issues/111)
 [^referer]: Referer 是 Referrer 的错误拼写，但为了后向兼容，便一直保留下来了。
 [^pdf-reader]: [Cross Domain Configuration](https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/xdomain.html)
 [^timeend]: [Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security)
