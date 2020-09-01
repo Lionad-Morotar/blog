@@ -1,3 +1,8 @@
+<flow>Chrome 85 使用了 PGO 技术，使新标签页打开速度提升了 10%
+PGO 即 Profile Guided Optimization，大意是通过记录并分析代码运行时的性能，动态的运用函数内联、条件分支优化等优化策略。
+<name><a href="https://weixin.sogou.com/weixin?type=2&query=%E5%89%8D%E7%AB%AF%E4%B9%8B%E5%B7%85+%E5%89%8D%E7%AB%AF%E5%91%A8%E6%8A%A5%EF%BC%9A%E6%B2%83%E5%B0%94%E7%8E%9B%E5%AE%A3%E5%B8%83%E4%B8%8E%E5%BE%AE%E8%BD%AF%E5%90%88%E4%BD%9C%E7%AB%9E%E8%B4%ADTikTok%EF%BC%9B" rel="noopener noreferrer" target="_blank">前端之巅</a></name>
+</flow>
+
 <flow>To iterate is human, to recurse, divine.
 人理解迭代，神理解递归。
 <name>L. Peter Deutsch</name>
