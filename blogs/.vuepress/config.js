@@ -45,8 +45,8 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Articles', link: '/articles/' },
-      { text: 'Flows', link: '/flows/' },
-      { text: 'Hire Me', link: '/hire-me/' }
+      { text: 'Flows', link: '/flows/' }
+      // { text: 'Hire Me', link: '/hire-me/' }
     ],
     sidebar: {
       '/articles/': sidebar.getSidebar('articles'),
@@ -110,7 +110,7 @@ module.exports = {
         el: '#valine-vuepress-comment',
         appId: valineID,
         appKey: valineKey,
-        placeholder: '在 Lionad Blogs 留下你的印记...',
+        placeholder: '保持学习、保持怀疑、保持批判',
         avatar: 'robohash',
         pageSize: '50',
         highlight: false,
