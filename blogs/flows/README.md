@@ -1,3 +1,8 @@
+<flow><strong>紧跟别人的设计最终会得到什么样的回馈？唯一的回馈就是空虚感。</strong>
+对于设计师而言，趋势有点像垃圾食品。不加分辨地追随趋势能够给你带来一些「看起来显而易见但是非常廉价」的解决方案，这些解决方案在短期内会带来回馈，但是从长远来看，却毫无价值。追随趋势的设计师很快就会从中尝到苦果了。
+<name><a href="https://www.uisdc.com/10-common-ui-mistakes" rel="noopener noreferrer" target="_blank">Micah Bowers</a></name>
+</flow>
+
 <flow>Chrome 85 使用了 PGO 技术，使新标签页打开速度提升了 10%
 PGO 即 Profile Guided Optimization，大意是通过记录并分析代码运行时的性能，动态的运用函数内联、条件分支优化等优化策略。
 <name><a href="https://weixin.sogou.com/weixin?type=2&query=%E5%89%8D%E7%AB%AF%E4%B9%8B%E5%B7%85+%E5%89%8D%E7%AB%AF%E5%91%A8%E6%8A%A5%EF%BC%9A%E6%B2%83%E5%B0%94%E7%8E%9B%E5%AE%A3%E5%B8%83%E4%B8%8E%E5%BE%AE%E8%BD%AF%E5%90%88%E4%BD%9C%E7%AB%9E%E8%B4%ADTikTok%EF%BC%9B" rel="noopener noreferrer" target="_blank">前端之巅</a></name>
