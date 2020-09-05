@@ -62,7 +62,7 @@ const byRating = sort(e => e.rating)(flipComparison(byValue))
 const sortFlattend = sortFns => (a, b) => 
     sortFns.reduce((sortResult, fn) => sortResult || fn(a,b), 0)
 
-// 依据价格排序，价格相等时，依据评分排序
+// 先依据价格排序，若价格相等，则依据评分排序
 const byPriceThenRating = sortFlattend([byPrice, byRating])
 
 const food = [
@@ -102,7 +102,7 @@ const add5 = partial(adder, 5)
 
 ## 颗粒化
 
-颗粒化，常作“柯里化”。我觉得写作“颗粒化”也没问题的原因是其间包涵了**逐步消耗函数参数**的步骤。颗粒化接受一个函数，并返回一个逐步消耗函数参数，参数消耗完时将所有消耗的参数代入原函数执行，最后返回结果的新函数。
+颗粒化，一般写作“柯里化”。我喜欢写“颗粒化”的原因是它具有**逐步消耗函数参数**这个特性。颗粒化接受一个函数，并返回一个逐步消耗函数参数，参数消耗完时将所有消耗的参数代入原函数执行，最后返回结果的新函数。
 
 方便起见，以下写作“$Currying$”。
 
