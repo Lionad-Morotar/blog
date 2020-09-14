@@ -4,3 +4,4 @@ dist/
 .tmp/
 tmp/
 secrets/
+.DS_Store
