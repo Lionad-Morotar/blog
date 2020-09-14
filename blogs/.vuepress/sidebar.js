@@ -3,9 +3,13 @@ const fs = require('fs')
 console.log('Node Env Test : ', process.env.NODE_ENV)
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
-const gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
-const awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
-const secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
+// const gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
+// const awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
+// const secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
+
+const gistsDir = '/Users/baixing/@Github/blogs/blogs/articles/gists'
+const awesomeDir = '/Users/baixing/@Github/blogs/blogs/articles/awesome'
+const secretsDir = '/Users/baixing/@Github/blogs/blogs/articles/secrets'
 
 /**
  * 获取目录下所有 Markdown 文件
