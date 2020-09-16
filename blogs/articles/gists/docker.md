@@ -37,3 +37,10 @@ Containerd：对镜像、容器的管理提供了一个更进一步的抽象，�
 Container 包含 Containerd-shim，用于正确处理由操作系统发送过来的信号。
 
 RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
+
+## 常见指令
+
+- Build：打包镜像，如 docker build -t test . -f Dockerfile；
+- Exec：执行容器指令，如 docker exec -it xxx bash；
+- Run：运行镜像，如 docker run -it test；
+- Ps：列表，如 docker ps；

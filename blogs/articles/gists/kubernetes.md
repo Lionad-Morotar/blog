@@ -18,3 +18,11 @@ Node 节点由许多的 Pod 组成，每一个 Pod 都是集群中的一个进�
 - Kube-proxy：用于 Pod 的代理（？）
 - Fluentd：用于日志收集、储存和查询
 - Service：一组相同功能的 Pod 可以通过 Service 提供对外的接口
+
+## 常用子指令
+
+- Apply：从配置文件更新对象，如 kubectl apply -f x.yaml；
+- Delete：删除对象，如 kubectl delete deploy x；
+- Describe：获取对象信息，如 kubectl describe pod x；
+- Exec：执行容器的指令，如 kubectl exec -it pod x bash；
+- Get：获取对象状态，如 kubectl get pods（获取所有 pods 状态）、kubectl get svc（获取所有服务及其状态，如端口和所在集群 IP）；
