@@ -232,7 +232,7 @@ export default {
     left: 50%;
     right: 0;
     bottom: 0;
-    margin-left: -1500px;
+    margin-left: -1475px;
     filter: saturate(0.45);
     scroll-behavior: smooth;
 }
@@ -420,7 +420,7 @@ $parallax__layers: 6;
 
         .head {
             font-weight: bolder;
-            font-family: 'Goudy Old Style', garamond;
+            font-family: 'Goudy Old Style', garamond, serif;
             font-size: 3.4375rem;
             line-height: 1.5em;
         }

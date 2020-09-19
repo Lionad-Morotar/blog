@@ -4,7 +4,7 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
-const env = 'windows' // 'mac'
+const env = 'mac' // 'mac'
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
   gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
