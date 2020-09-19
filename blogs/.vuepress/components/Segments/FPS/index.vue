@@ -61,6 +61,7 @@ export default {
       if (!this.skip(currentFPS)) {
         this.fps = currentFPS
       }
+      this.$emit('onFPS', currentFPS)
       tick = requestAnimationFrame(step)
     }
     requestAnimationFrame(step)

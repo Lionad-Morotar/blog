@@ -18,18 +18,17 @@ export default {
   name: 'rotate-image-cmpt',
   data() {
     return {
-      tick: null,
       rotateDeg: 0,
       status: null,
     }
   },
   mounted() {
     // TODO window.requestAnimFrame
-    this.tick = window.setInterval(() => {
+    const tick = window.setInterval(() => {
       this.rotateDeg += 2
     }, 1000 / 30)
     this.$once('hook:beforeDestroy', () => {
-      window.clearInterval(this.tick)
+      window.clearInterval(tick)
     })
   },
   methods: {

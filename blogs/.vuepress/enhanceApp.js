@@ -3,6 +3,7 @@ import WHRatio from './components/segments/WHRatio'
 import Spark from './components/segments/Spark'
 import Compare from './components/segments/Compare'
 import Worker from './components/segments/Worker'
+import FPS from './components/segments/FPS'
 import JJ from './components/segments/JJ'
 
 import utils from './components/utils'
@@ -20,6 +21,7 @@ export default ({
     Vue.component('WHRatio', WHRatio)
     Vue.component('Spark', Spark)
     Vue.component('Compare', Compare)
+    Vue.component('FPS', FPS)
     Vue.component('JJ', JJ)
 
     Vue.use(Worker)
