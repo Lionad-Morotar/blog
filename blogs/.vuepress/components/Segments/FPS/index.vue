@@ -36,6 +36,17 @@ const cancelAnimationFrame = (id) => {
 /*********************************************************** vue logic */
 export default {
   name: 'fps-meter-cmpt',
+  props: {
+    skip: {
+      type: Function,
+      default: (() => {
+        let count = 0
+        return (fps) => {
+          return count++ % 4
+        }
+      })(),
+    },
+  },
   data() {
     return {
       fps: '',
@@ -47,11 +58,12 @@ export default {
     this.$once('hook:beforeDestroy', () => cancelAnimationFrame(step))
     const step = () => {
       const currentFPS = Math.floor(1000 / Math.abs(date - (date = +new Date())))
-      this.fps = currentFPS
+      if (!this.skip(currentFPS)) {
+        this.fps = currentFPS
+      }
       tick = requestAnimationFrame(step)
     }
-
-    step()
+    requestAnimationFrame(step)
   },
 }
 </script>
