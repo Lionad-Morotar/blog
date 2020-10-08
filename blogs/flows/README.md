@@ -1,3 +1,7 @@
+<flow>我相信下一个平面设计的方法,来自其它非设计领域。
+<name>大卫·卡森</name>
+</flow>
+
 <flow><span>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</span><small>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</small><pixel>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</pixel><br />
 <name><a href="https://indienova.com/indie-game-news/dinkie-bitmap-font-by-3type/" rel="noopener noreferrer" target="_blank">丁卯点阵体：探索像素汉字的小尺寸极限</a></name>
 </flow>
