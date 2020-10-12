@@ -356,6 +356,59 @@ import(/* webpackChunkName: "add" */ 'a.js').then(({ add }) => {})
 * 预打包：先通过 webpack.DllPlugin 将 vendor 打包好，然后在正常打包时就可以直接调用了；
 * 死代码检测：ESModule + webpack-terser-plugin
 
+### TreeShake
+
+以下两种给项目引入 Element-UI 的写法会对打包体积产生影响吗？
+
+```js
+import { Tag } from 'element-ui'
+
+Vue.use(Tag)
+
+new Vue({
+    template: '<el-tag>引入单个组件</el-tag>'
+})
+```
+
+```js
+import element from 'element-ui'
+
+Vue.use(element)
+
+new Vue({
+    template: '<el-tag>引入单个组件</el-tag>'
+})
+```
+
+实验结果如下：
+
+* 引入单个组件风格项目打包体积
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201012104756.png)
+
+* 直接引入 element-ui 后项目打包体积
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201012105204.png)
+
+可以发现，没甚么变化。
+
+为了使得引入 Element-UI 时支持按需引入，需要将写法改为：
+
+```js
+var tag = require('element-ui/lib/tag').default
+// 或：import tag from 'element-ui/lib/tag'
+
+Vue.use(tag)
+
+new Vue({
+    template: '<el-tag>引入单个组件</el-tag>'
+})
+```
+
+这样的话，效果立竿见影。
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201012112121.png)
+
 ## 周边工具
 
 * webpack-bundle-anylyzer
