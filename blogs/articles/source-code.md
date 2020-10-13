@@ -12,6 +12,8 @@
 
 - [de-indent](/articles/source-code/vuejs/de-indent.html)
 
+- [vue-error-boundary](/articles/source-code/vuejs/error-boundary.html)
+
 #### jQuery
 
 - [工具函数无冲突处理](/articles/source-code/jquery/no-conflict.html)
@@ -23,8 +25,11 @@
 #### Modules
 
 - [网络安全 | HELMET](/articles/Helmet & Security.html)
+
 - [判断 NodeJS 是否在线 | internet-available](/articles/source-code/module/is-online.html)
+
 - [低版本浏览器兼容 HTML5 标签原理 | html5shiv](/articles/source-code/module/html5shiv.html)
+
 - [NodeJS | CommonJS Loader](/articles/source-code/nodejs/require.html)
 
 #### Segment
