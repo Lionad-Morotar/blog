@@ -187,6 +187,12 @@ Content-Type: text/html; charset=utf-8
 {statusCode: 200, message: "hello"}
 ```
 
+### Headers
+
+一些稀奇古怪的 Headers，记录一下：
+
+* Pragma：Pragma: no-cache 作为 HTTP/1.1 Cache-Control: no-cache 在 HTTP 1.0 中的回退项
+
 ### HTTP2
 
 一图胜千言，先来看看用 HTTP2 加载小文件到底有多快...
