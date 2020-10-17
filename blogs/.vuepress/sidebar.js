@@ -4,7 +4,7 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
-const env = 'mac' // 'mac'
+const env = 'windows' // 'mac'
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
   gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
@@ -79,6 +79,7 @@ const sidebarConfigs = {
         '150行代码带你实现小程序中的数据侦听',
         'front-end-mind-map',
         'CSS-Mind-Map',
+        'fourty-two',
         'source-code',
         'fold'
       ]
