@@ -1,3 +1,11 @@
+<flow>我相信下一个平面设计的方法,来自其它非设计领域。
+<name>大卫·卡森</name>
+</flow>
+
+<flow><span>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</span><small>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</small><pixel>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</pixel><br />
+<name><a href="https://indienova.com/indie-game-news/dinkie-bitmap-font-by-3type/" rel="noopener noreferrer" target="_blank">丁卯点阵体：探索像素汉字的小尺寸极限</a></name>
+</flow>
+
 <flow><strong>紧跟别人的设计最终会得到什么样的回馈？唯一的回馈就是空虚感。</strong>
 对于设计师而言，趋势有点像垃圾食品。不加分辨地追随趋势能够给你带来一些「看起来显而易见但是非常廉价」的解决方案，这些解决方案在短期内会带来回馈，但是从长远来看，却毫无价值。追随趋势的设计师很快就会从中尝到苦果了。
 <name><a href="https://www.uisdc.com/10-common-ui-mistakes" rel="noopener noreferrer" target="_blank">Micah Bowers</a></name>
@@ -113,6 +121,13 @@ name {
 }
 name::first-letter {
     text-transform: uppercase;
+}
+</style>
+
+<style>
+pixel {
+    font-family: 'Pixel';
+    font-size: 7px;
 }
 </style>
 

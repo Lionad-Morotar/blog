@@ -79,6 +79,7 @@ const sidebarConfigs = {
         '150行代码带你实现小程序中的数据侦听',
         'front-end-mind-map',
         'CSS-Mind-Map',
+        'fourty-two',
         'source-code',
         'fold'
       ]
