@@ -32,6 +32,8 @@
 
 - [NodeJS | CommonJS Loader](/articles/source-code/nodejs/require.html)
 
+- [判断两个变量深层相等 | fast-deep-equal](/articles/source-code/module/fast-deep-equal.html)
+
 #### Segment
 
 - [John Resig | Micro-Templating](/articles/source-code/segment/micro-templating.html)
