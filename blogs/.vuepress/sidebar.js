@@ -101,7 +101,15 @@ const sidebarConfigs = {
     {
       title: 'Play Guitar',
       collapsable: true,
-      children: ['163/wait-for-wind', '163/promise-ocean', '163/wings-you-are-the-hero', '163/eva', '163/miracle-mountain', '163/wu-wei', '163/noname']
+      children: [
+        '163/wait-for-wind',
+        '163/promise-ocean',
+        '163/wings-you-are-the-hero',
+        '163/eva',
+        '163/miracle-mountain',
+        '163/wu-wei',
+        '163/noname'
+      ]
     },
     {
       title: 'Secrets',
