@@ -78,6 +78,7 @@ module.exports = {
   plugins: {
     '@vuepress/last-updated': {
       transformer: (timestamp, lang) => {
+        // TODO dayjs
         const moment = require('moment')
         moment.locale(lang)
         return moment(timestamp).format('MMMM DD YYYY HH:mm')
