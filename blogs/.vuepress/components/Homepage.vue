@@ -197,9 +197,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import './styles/animation.scss';
-
+<style lang="stylus">
 * {
     margin: 0;
     padding: 0;
@@ -285,14 +283,12 @@ export default {
     bottom: 0;
 }
 
-$parallax__layers: 6;
+parallax_layers = 6
 
-@for $i from 0 through $parallax__layers {
-    $x: ($parallax__layers - $i) / 2;
-    .parallax__layer__#{$i} {
-        transform: translateZ(-100 * $x * 1px) scale($x + 1);
-    }
-}
+for item,i in (1..parallax_layers)
+    x = (parallax_layers - i) / 2
+    .parallax__layer__{i}
+        transform: translateZ(-100 * x * 1px) scale(x + 1);
 
 /** SECTION  page-title */
 
@@ -359,12 +355,12 @@ $parallax__layers: 6;
         }
     }
 }
-@include pc-layout {
+@media screen and (min-width: 888px) {
     .page-title {
         font-size: 5.8em;
     }
 }
-@include sp-layout {
+@media screen and (max-width: 888px) {
     .page-title {
         font-size: 3em;
         text-align: center;
@@ -522,7 +518,7 @@ $parallax__layers: 6;
         }
     }
 }
-@include pc-layout {
+@media screen and (min-width: 888px) {
     .home {
         .wrapper-detail {
             padding-top: 13vh;
@@ -534,7 +530,7 @@ $parallax__layers: 6;
     }
 }
 
-@include sp-layout {
+@media screen and (max-width: 888px) {
     .parallax {
         margin-left: -1490px;
         perspective: 175px;

@@ -19,9 +19,9 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
-$w: 50;
-$count: 5;
+<style lang="stylus" scoped>
+w = 50;
+count = 5;
 
 .container {
     display: flex;
@@ -38,7 +38,7 @@ $count: 5;
         left: 50%;
         bottom: 1em;
         margin: 0;
-        width: $count * $w + unquote('px');
+        width: count * w px;
         font-size: 14px;
         transform: translateX(-50%);
         text-align: center;
@@ -56,8 +56,8 @@ $count: 5;
 
     .box {
         position: relative;
-        height: 2 * $w + unquote('px');
-        width: $w + unquote('px');
+        height: 2 * w px;
+        width: w px;
         background: rgba(248, 185, 14, 1);
 
         &:hover {
@@ -81,19 +81,19 @@ $count: 5;
             position: absolute;
             left: 50%;
             bottom: 0;
-            width: $count * $w + unquote('px');
-            height: $w + unquote('px');
+            width: count * w px;
+            height: w px;
             background: rgba(251, 214, 113, 1);
             transform: translateX(-50%);
 
             .left,
             .right {
                 display: none;
-                width: ($count - 3) * $w + unquote('px');
-                height: 2 * $w + unquote('px');
+                width: (count - 3) * w px;
+                height: 2 * w px;
                 position: absolute;
                 left: 0;
-                top: -$w + unquote('px');
+                top: -w px;
 
                 &:hover {
                     outline: solid white 1px;
@@ -106,11 +106,11 @@ $count: 5;
         }
     }
 
-    @for $i from 1 through $count {
-        .box:nth-child(#{$i}):hover .des::before {
-            content: '' +#{$i};
+    for i in (1..count) {
+        .box:nth-child({i}):hover .des::before {
+            content: i;
         }
-        .box:nth-child(#{$i}) {
+        .box:nth-child({i}) {
             .box-inner:hover .des::after {
                 content: '，90deg';
             }
@@ -122,27 +122,5 @@ $count: 5;
             }
         }
     }
-
-    // .boxes {
-    //     .box-sec {
-    //         position: absolute;
-    //         bottom: 0;
-    //         height: $w + unquote('px');
-    //         width: $w + unquote('px');
-    //         background: rgba(248, 185, 14, 1);
-    //         z-index: 1;
-
-    //         &:hover {
-    //             outline: solid red 1px;
-    //             z-index: 2;
-    //         }
-    //     }
-    //     @for $i from 0 through ($count - 1) {
-    //         $id: $i + $count + 1;
-    //         & .box-sec:nth-child(#{$id}) {
-    //             left: $i * $w + unquote('px');
-    //         }
-    //     }
-    // }
 }
 </style>

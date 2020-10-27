@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .con {
     --deg: 85deg;
     --light: rgba(228, 192, 96, 1);
@@ -107,8 +107,8 @@ export default {
         &::after {
             --offsetX: 0.4px;
             --offsetY: -0.1px;
-            --dark-alpha: 0.3;
-            --light-alpha: 0.6;
+            --dark-opacity: 0.3;
+            --light-opacity: 0.6;
             --line-width: 0.6px;
             content: '';
             position: absolute;
@@ -119,10 +119,10 @@ export default {
             background: linear-gradient(
                 var(--deg),
                 transparent,
-                transparent calc(50% - var(--line-width)),
-                rgba(190, 81, 40, var(--dark-alpha)) 50%,
-                rgba(228, 192, 96, var(--light-alpha)) 50%,
-                transparent calc(50% + var(--line-width)),
+                'transparent calc(50% - %s)' % var(--line-width),
+                'rgba(190, 81, 40, %s) 50%' % var(--dark-opacity),
+                'rgba(228, 192, 96, %s) 50%' % var(--light-opacity),
+                'transparent calc(50% + %s)' % var(--line-width),
                 transparent
             );
         }
@@ -151,8 +151,8 @@ export default {
             &::after {
                 --offsetX: 0.4px;
                 --offsetY: -0.1px;
-                --dark-alpha: 0.3;
-                --light-alpha: 0.6;
+                --dark-opacity: 0.3;
+                --light-opacity: 0.6;
                 --line-width: 0.6px;
                 content: '';
                 position: absolute;
@@ -185,19 +185,19 @@ export default {
     }
 
     .circle-con {
-        $c1: #cd3f4f;
-        $c2: #e6a964;
+        c1 = #cd3f4f;
+        c2 = #e6a964;
         position: relative;
         height: 300px;
-        background-image: repeating-radial-gradient(circle at 0% 50%, $c1 0, $c2 50px);
+        background-image: repeating-radial-gradient(circle at 0% 50%, c1 0, c2 50px);
 
         &.antialiasing {
             // filter: blur(0.5px);
             &::after {
                 --offsetX: 0.4px;
                 --offsetY: -0.1px;
-                $dark-alpha: 0.3;
-                $light-alpha: 0.6;
+                dark-opacity = 0.3;
+                light-opacity = 0.6;
                 --line-width: 0.6px;
                 content: '';
                 position: absolute;
@@ -207,10 +207,10 @@ export default {
                 height: 100%;
                 background-image: repeating-radial-gradient(
                     circle at 0% 50%,
-                    rgba($c2, $light-alpha) 0,
-                    transparent calc(var(--line-width)),
-                    transparent calc(50px - var(--line-width)),
-                    rgba($c1, $dark-alpha) 50px
+                    rgba(c2, light-opacity) 0,
+                    'transparent calc(%s)' % var(--line-width),
+                    'transparent calc(50px - %s)' % var(--line-width),
+                    rgba(c1, dark-opacity) 50px
                 );
             }
         }

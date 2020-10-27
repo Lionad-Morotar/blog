@@ -8,7 +8,7 @@ import JJ from './components/segments/JJ'
 
 import utils from './components/utils'
 
-import './styles/devices.scss'
+import './styles/devices.styl'
 
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数

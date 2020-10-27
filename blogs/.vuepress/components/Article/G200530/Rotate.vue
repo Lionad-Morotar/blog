@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .rotate-image-cmpt {
   .circle-con,
   .btns-con {

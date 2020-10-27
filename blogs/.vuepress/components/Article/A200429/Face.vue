@@ -18,73 +18,55 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 /** 三角函数 @see http://jimyuan.github.io/blog/2015/02/12/trigonometry-in-sass.html */
 
-@function fact($number) {
-    $value: 1;
-    @if $number>0 {
-        @for $i from 1 through $number {
-            $value: $value * $i;
-        }
-    }
-    @return $value;
-}
+fact(number)
+    value = 1
+    if number > 0
+        for i in (1..number)
+            value = value * i
+    value
 
-@function pow($number, $exp) {
-    $value: 1;
-    @if $exp>0 {
-        @for $i from 1 through $exp {
-            $value: $value * $number;
-        }
-    } @else if $exp < 0 {
-        @for $i from 1 through -$exp {
-            $value: $value / $number;
-        }
-    }
-    @return $value;
-}
+pow(number, exp)
+    value = 1
+    if exp > 0
+        for i in (1..exp)
+            value = value * number
+    else if exp < 0
+        for $i in (1..(-1 * exp))
+            value = value / number
+    value
 
-@function rad($angle) {
-    $unit: unit($angle);
-    $unitless: $angle / ($angle * 0 + 1);
-    @if $unit==deg {
-        $unitless: $unitless / 180 * pi();
-    }
-    @return $unitless;
-}
+rad(angle)
+    unitless = angle / (angle * 0 + 1)
+    unitless = unitless / 180 * pi()
+    unitless
 
-@function pi() {
-    @return 3.14159265359;
-}
+pi()
+    3.14159265359
 
-@function sin($angle) {
-    $sin: 0;
-    $angle: rad($angle);
-    // Iterate a bunch of times.
-    @for $i from 0 through 10 {
-        $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
-    }
-    @return $sin;
-}
+sin(angle)
+    sin = 0
+    angle = rad(angle)
+    for i in (0..10)
+        sin = sin + pow(-1, i) * pow(angle, (2 * i + 1)) / fact(2 * i + 1)
+    sin
 
-@function cos($angle) {
-    $cos: 0;
-    $angle: rad($angle);
-    // Iterate a bunch of times.
-    @for $i from 0 through 10 {
-        $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
-    }
-    @return $cos;
-}
+cos(angle)
+    cos = 0;
+    angle = rad(angle);
+    for i in (0..10)
+        cos = cos + pow(-1, i) * pow(angle, 2 * i) / fact(2 * i)
+    cos
 
 /*********************** 笑脸 */
 
-$container-height: 500;
+container-height = 500
 
 .container {
     position: relative;
-    height: $container-height + unquote('px');
+    height: container-height px;
     overflow: hidden;
     background: #feee9d;
 }
@@ -98,39 +80,39 @@ $container-height: 500;
         position: absolute;
     }
 
-    $face-width: 300;
-    $circle-width: $container-height;
+    face-width = 300;
+    circle-width = container-height;
 
     /** 监听器代码 */
 
     .circle {
         position: absolute;
         width: 30px;
-        height: $circle-width + unquote('px');
+        height: circle-width px;
         // &:hover {
         //     background: red;
         // }
     }
-    $part: 72;
-    $part-degree: 360 / $part;
-    @for $i from 1 through $part {
-        $angle: ($i / $part) * 2 * 3.1416;
-        $x: cos($angle) * $face-width / 2 - 5 + 500;
-        $y: sin($angle) * $face-width / 2;
-        .circle:nth-child(#{$i}) {
-            left: $x + unquote('px');
-            top: $y + unquote('px');
-            transform: rotate((90 + $i * $part-degree) + unquote('deg'));
+    part = 72;
+    part-degree = 360 / part;
+    for i in (1..part) {
+        angle = (i / part) * 2 * 3.1415926;
+        x = cos(angle) * face-width / 2 - 5 + 500;
+        y = sin(angle) * face-width / 2;
+        .circle:nth-child({i}) {
+            left: x px;
+            top: y px;
+            transform: rotate((90 + i * part-degree) deg);
             &:hover ~ .head {
                 // 除 50 的话会出现诡异的小数点问题，暂时没想到解决方法，先以 49 避免问题。
-                $ty: sin($angle) * $face-width / 49;
-                $tx: cos($angle) * $face-width / 49;
-                left: calc(50% - #{$tx}px);
-                top: calc(50% - #{$ty}px);
+                ty = sin(angle) * face-width / 49;
+                tx = cos(angle) * face-width / 49;
+                left: 'calc(50% - %spx)' % tx;
+                top: 'calc(50% - %spx)' % ty;
                 .eye {
                     &::after {
                         background-position: 100% 50%;
-                        transform: rotate((0 + $i * $part-degree) + unquote('deg'));
+                        transform: rotate((0 + i * part-degree) deg);
                     }
                 }
             }
@@ -142,8 +124,8 @@ $container-height: 500;
     .shadows,
     .head {
         border-radius: 50%;
-        width: $face-width + unquote('px');
-        height: $face-width + unquote('px');
+        idth: face-width px;
+        eight: face-width px;
         transform: translate(-50%, -50%);
         top: calc(50%);
         left: calc(50%);
