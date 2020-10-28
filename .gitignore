@@ -1,6 +1,7 @@
 node_modules
 node_modules_old
 dist/
+dist_tmp/
 .tmp/
 tmp/
 secrets/

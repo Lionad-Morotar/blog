@@ -15,6 +15,7 @@ const obs = new OBS({
 const enableRSS = !!process.env.RSS
 const distDir = './dist'
 const gzipedDir = ['./dist/assets/js', './dist/assets/css']
+const gzipedDirType = ['js', 'css']
 const delRSSDir = `del "${path.join(__dirname, './dist/rss.xml')}"`
 const websiteOBSTarget = `obs://mgear-blogs`
 const Bucket = 'mgear-blogs'
@@ -44,7 +45,7 @@ const task = {
         if (isGZ) {
           const rawFileName = path.join(dir, item.replace(/\.gz$/, ''))
           fs.existsSync(rawFileName) && fs.unlinkSync(rawFileName)
-          fs.renameSync(path.join(dir, item), rawFileName)
+          fs.renameSync(path.join(dir, item), rawFileName.replace('.', '-gziped.'))
         }
       })
     })
@@ -55,7 +56,9 @@ const task = {
       console.log('| upload website start : ', uploadWebsite)
       function upload() {
         cmd.get(uploadWebsite, async error => {
-          error ? console.error('| upload website error : ', error) : console.log('| upload website success')
+          error
+            ? console.error('| upload website error : ', error)
+            : console.log('| upload website success')
           if (error) {
             console.log('| ERROR & RETRY...')
             upload()
@@ -73,40 +76,59 @@ const task = {
       await task.deleteRSS()
     }
 
-    // await sleep()
-    // await task.renameGzipFile()
+    await sleep()
+    await task.renameGzipFile()
 
     await sleep()
     await task.uploadMgear()
 
-    // await sleep()
-    // task.changeGzipFileHeader()
+    await sleep()
+    task.changeGzipFileHeader()
   },
   changeGzipFileHeader: () => {
-    // console.log('| change gzip-file header start ...')
-    // gzipedDir.map(dir => {
-    //     fs.readdirSync(dir).map(item => {
-    //         console.log(path.join(dir.replace('dist/', ''), item))
-    //     })
-    // })
-    // console.log('| change gzip-file header success ...')
-    // obs.copyObject({
-    //     Bucket,
-    //     Key: 'assets/css/0.styles.0b1f98ca.css-back',
-    //     CopySource: 'mgear-blogs/assets/css/0.styles.0b1f98ca.css',
-    //     MetadataDirective: 'REPLACE',
-    //     Headers: {
-    //         'Content-Type': 'text/html',
-    //         'Content-Encoding': 'gzip'
-    //     },
-    //     Metadata: {
-    //         'Content-Type': 'text/html',
-    //         'Content-Encoding': 'gzip'
-    //     }
-    // }).then(response => {
-    //     console.log(response)
-    // })
+    console.log('| change gzip-file header start ...')
+    gzipedDir.map(async (dir, idx) => {
+      const type = gzipedDirType[idx]
+      const typeConfig = {
+        js: {
+          ContentType: 'application/javascript'
+        },
+        css: {
+          ContentType: 'text/css'
+        }
+      }[type]
+      const files = fs.readdirSync(dir)
+      for await (item of files) {
+        if (item.includes('-gziped')) {
+          const Key = path.join(dir.replace('dist/', ''), item).replace(/\\/g, '/')
+          const CopySource = path.join(`mgear-blogs/`, Key).replace(/\\/g, '/')
+          console.log('Current: ', Key)
+          await changeFileMetaHeader(Key, {
+            Bucket,
+            Key,
+            CopySource,
+            MetadataDirective: 'REPLACE',
+            ContentType: typeConfig.ContentType,
+            ContentEncoding: 'gzip'
+          })
+        }
+      }
+    })
+    console.log('| change gzip-file header success ...')
   }
+}
+
+function changeFileMetaHeader(file, config) {
+  return new Promise((resolve, reject) => {
+    obs.copyObject({ ...config })
+      .then(_ => {
+        resolve('File Done: ', file)
+      })
+      .catch(error => {
+        console.error('File Error: ', file, error)
+        reject()
+      })
+  })
 }
 
 task.run()

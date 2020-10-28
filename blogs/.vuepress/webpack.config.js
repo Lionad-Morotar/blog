@@ -1,6 +1,6 @@
 const path = require('path')
 
-// const CompressionPlugin = require('compression-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
     resolve: {
@@ -13,9 +13,9 @@ module.exports = {
         host: '0.0.0.0'
     },
     plugins: [
-        // new CompressionPlugin({
-        //     test: /(css|js)$/i
-        // })
+        new CompressionPlugin({
+            test: /(css|js)$/i
+        })
     ]
     // optimization: {
     //     splitChunks: {
