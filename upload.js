@@ -14,8 +14,8 @@ const obs = new OBS({
 
 const enableRSS = !!process.env.RSS
 const distDir = './dist'
-const gzipedDir = ['./dist/assets/js', './dist/assets/css']
-const gzipedDirType = ['js', 'css']
+const gzipDir = ['./dist/assets/js', './dist/assets/css']
+const gzipDirType = ['js', 'css']
 const delRSSDir = `del "${path.join(__dirname, './dist/rss.xml')}"`
 const websiteOBSTarget = `obs://mgear-blogs`
 const Bucket = 'mgear-blogs'
@@ -39,7 +39,7 @@ const task = {
   },
   renameGzipFile: () => {
     console.log('| rename gzip-file start ...')
-    gzipedDir.map(dir => {
+    gzipDir.map(dir => {
       fs.readdirSync(dir).map(item => {
         const isGZ = item.endsWith('.gz')
         if (isGZ) {
@@ -87,8 +87,8 @@ const task = {
   },
   changeGzipFileHeader: () => {
     console.log('| change gzip-file header start ...')
-    gzipedDir.map(async (dir, idx) => {
-      const type = gzipedDirType[idx]
+    gzipDir.map(async (dir, idx) => {
+      const type = gzipDirType[idx]
       const typeConfig = {
         js: {
           ContentType: 'application/javascript'
