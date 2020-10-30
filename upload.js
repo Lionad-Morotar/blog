@@ -16,6 +16,7 @@ const enableRSS = !!process.env.RSS
 const distDir = './dist'
 const gzipDir = ['./dist/assets/js', './dist/assets/css']
 const gzipDirType = ['js', 'css']
+const gzipedKey = '-gziped'
 const delRSSDir = `del "${path.join(__dirname, './dist/rss.xml')}"`
 const websiteOBSTarget = `obs://mgear-blogs`
 const Bucket = 'mgear-blogs'
@@ -27,6 +28,7 @@ function sleep(time = 1000) {
   return new Promise(resolve => setTimeout(resolve, time))
 }
 
+const isGzipedStore = {}
 const task = {
   deleteRSS: () => {
     return new Promise(resolve => {
@@ -43,9 +45,14 @@ const task = {
       fs.readdirSync(dir).map(item => {
         const isGZ = item.endsWith('.gz')
         if (isGZ) {
-          const rawFileName = path.join(dir, item.replace(/\.gz$/, ''))
-          fs.existsSync(rawFileName) && fs.unlinkSync(rawFileName)
-          fs.renameSync(path.join(dir, item), rawFileName.replace('.', '-gziped.'))
+          const rawFilePath = path.join(dir, item.replace(/\.gz$/, ''))
+          fs.existsSync(rawFilePath) && fs.unlinkSync(rawFilePath)
+          fs.renameSync(path.join(dir, item), rawFilePath)
+
+          const fileNameMatch = rawFilePath.match(/\\([^\\]*)$/)
+          if (fileNameMatch && fileNameMatch[1]) {
+            isGzipedStore[fileNameMatch[1]] = true
+          }
         }
       })
     })
@@ -99,7 +106,10 @@ const task = {
       }[type]
       const files = fs.readdirSync(dir)
       for await (item of files) {
-        if (item.includes('-gziped')) {
+        const isGziped = isGzipedStore[item]
+        // console.log('isGziped : ', item, isGziped)
+
+        if (isGziped) {
           const Key = path.join(dir.replace('dist/', ''), item).replace(/\\/g, '/')
           const CopySource = path.join(`mgear-blogs/`, Key).replace(/\\/g, '/')
           console.log('Current: ', Key)
