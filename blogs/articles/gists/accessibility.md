@@ -2,7 +2,7 @@
 
 增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用处理性能底下或带宽低的设备的人等。
 
-## 一些重要的点
+## 页面观感
 
 ### 文字对比度
 
@@ -47,6 +47,25 @@
 或者，至少加个 title 也行鸭（arial-label 也不能少）！
 
 ![带 title 属性的图片](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718190935.png)
+
+## ARIA
+
+为了增强页面相对于屏幕阅读器的可访问性，ARIA 项目优雅地给 HTML 元素按照其所在页面的角色（roles，控件的作用）、状态（states，包含的数据）、及角色属性（properties，控件属性）设定元素的语义。比如，你想把一个 div 作为按钮时，就需要给标签加上 `role="button"`。当然，如果你已经用的是 button 了，那就没有再加 `role="button"` 的必要咯。
+
+### roles
+
+按照控件的作用，可以将 roles 划分为以下几类[^category]：
+
+[^category]: [https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques)
+
+* **功能控件**：button（按钮）、checkbox（勾选框）、link（链接）、progressbar（进度条）、radio（单选框）、radiogroup（选项组）、switch（开关）、tab（标签页）、slider（轮播）、textbox（文本编辑区）
+* **结构控件**：img（图片）、list（列表）、listitem（列表项）
+* **坐标控件**：banner（横幅）、search（搜索区）、complementary（补充）、contentinfo（内容信息）、navigation（导航）
+* **动态控件**：alert（警告）、计时器（timer）、log（记录）、status（状态栏）
+* **窗口控件**：alertdialog（警告框）、dialog（对话框）
+
+
+### States & Properties
 
 ## 反面教材
 
