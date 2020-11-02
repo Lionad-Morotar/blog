@@ -1,3 +1,8 @@
+<flow>比 Chrome Dev 更高级的弱网环境模拟：Clumsy 能系统级拦截指定类型的连接，模拟丢包、延迟、断连、乱序等状况。
+<p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201102112929.png" style="max-width: 450px" /></p>
+<name>Lionad</name><time>2020年11月2日 11点33分</time>
+</flow>
+
 <flow>我相信下一个平面设计的方法,来自其它非设计领域。
 <name>大卫·卡森</name>
 </flow>

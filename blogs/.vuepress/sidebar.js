@@ -5,6 +5,8 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
 const env = require('./build-env')
+console.log('USE BUILD ENV: ', env)
+
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
   gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
@@ -39,6 +41,8 @@ const getSrc = src => {
     }
   }
   filenames.sort()
+
+  console.log('filenames: ', filenames)
   return filenames
 }
 // console.log('GetSRC Test : ', getSrc(gistsDir))
