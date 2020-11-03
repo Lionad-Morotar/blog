@@ -48,9 +48,18 @@
 
 ![带 title 属性的图片](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718190935.png)
 
+## WAI
+
+W3C 无障碍推进小组（WAI）为提高残障人士的网页体验，指定了一组被国际公认的无障碍标准指南，其中包括：
+
+* [WCAG（网页内容无障碍指南）](https://www.w3.org/TR/WCAG20/)
+* [UAAG（用户代理无障碍指南）](https://www.w3.org/TR/2015/NOTE-UAAG20-20151215/)
+* [ATAG（创作工具无障碍指南）](https://www.w3.org/TR/2015/REC-ATAG20-20150924/)
+* WAI-ARIA（无障碍富网络应用）
+
 ## ARIA
 
-为了增强页面相对于屏幕阅读器的可访问性，ARIA 项目优雅地给 HTML 元素按照其所在页面的角色（roles，控件的作用）、状态（states，包含的数据）、及角色属性（properties，控件属性）设定元素的语义。比如，你想把一个 div 作为按钮时，就需要给标签加上 `role="button"`。当然，如果你已经用的是 button 了，那就没有再加 `role="button"` 的必要咯。
+为了增强页面相对于屏幕阅读器的可访问性，无障碍富网络应用项目（WAI-ARIA）优雅地给 HTML 元素按照其所在页面的角色（roles，控件的作用）、状态（states，包含的数据）、及角色属性（properties，控件属性）设定元素的语义。比如，你想把一个 div 作为按钮时，就需要给标签加上 `role="button"`。当然，如果你已经用的是 button 了，那就没有再加 `role="button"` 的必要咯。
 
 ### roles
 
