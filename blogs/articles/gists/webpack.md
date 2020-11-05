@@ -405,7 +405,7 @@ new Vue({
 })
 ```
 
-这样的话，效果立竿见影。
+这样的话，效果立竿见影（或者使用 ElementUI 推荐的写法，[引入 babel-plugin-components](https://element.eleme.cn/#/zh-CN/component/custom-theme)）。
 
 ![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201012112121.png)
 

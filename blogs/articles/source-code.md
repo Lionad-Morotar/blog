@@ -1,8 +1,12 @@
 # 🚄 源码阅读
 
-这里保存一些关于源码阅读的笔记。
+这里保存一些关于源码阅读的笔记，慢慢攒着，也许以后能转换成技术博客。
+
+## 框架
 
 #### VueJS
+
+VueJS 源码相关：
 
 - [VueJS | 整体架构](/articles/source-code/vuejs/vuejs.html)
 
@@ -10,9 +14,14 @@
 
 - [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
 
+VueJS 周边：
+
+- [element-ui](/articles/source-code/vuejs/element-ui.html)
+
 - [de-indent](/articles/source-code/vuejs/de-indent.html)
 
 - [vue-error-boundary](/articles/source-code/vuejs/error-boundary.html)
+
 
 #### jQuery
 
@@ -22,7 +31,7 @@
 
 - [Lodash](/articles/source-code/lodash/lodash.html)
 
-#### Modules
+## 小型类库
 
 - [网络安全 | HELMET](/articles/Helmet & Security.html)
 
@@ -34,6 +43,6 @@
 
 - [判断两个变量深层相等 | fast-deep-equal](/articles/source-code/module/fast-deep-equal.html)
 
-#### Segment
+## 代码片段
 
 - [John Resig | Micro-Templating](/articles/source-code/segment/micro-templating.html)
