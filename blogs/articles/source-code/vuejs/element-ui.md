@@ -4,8 +4,6 @@
 
 #### 目录结构
 
-首先是目录结构，相比一般的项目而言差异较大。
-
 ```
 D:/@github/element
 ├── /.github        // Github 流程相关，包括贡献者列表、缺陷模板、PR 模板文件
@@ -15,37 +13,51 @@ D:/@github/element
 ├── /src            // Element-UI 主要代码
 ├── /test           // 测试用例，主要分单元测试和 SSR 测试
 ├── /types          // 类型声明文件
-└── components.json // 所有组件的名称对应路径的信息
+├── components.json // 所有组件的名称对应路径的信息
+└── Makefile        // 所有组件的名称对应路径的信息
 ```
 
-#### 组件信息
-
-所有的组件的路径信息都保存在 components.json 中，形如：
-
-#### 处理样式
-
-再看单个组件的文件结构。我们刚才提到 packages 文件夹中装有所有的 Elements 组件的源码，其内部每一个文件夹正好对应一个组件，如 packages/alert：
+所有的 Elements 组件都存放再 packages 中，其内部每一个文件夹对应一个组件。以 alert 组件为例：
 
 ```
 D:\@github\element\packages\alert
-├── index.js
+├── index.js # index.js 对应组件的入口，它导出 install 函数用于组件注册。
 └── src
    └── main.vue
 ```
 
-alert/index.js 对应组件的入口，它导出 install 函数用于组件注册：
+所有的组件的路径信息都保存在 components.json 中，形如：
 
 ```js
-import Alert from './src/main'
-
-Alert.install = function(Vue) {
-  Vue.component(Alert.name, Alert)
+{
+  "pagination": "./packages/pagination/index.js",
+  "dialog": "./packages/dialog/index.js",
+  // ...省略80行
+  "popconfirm": "./packages/popconfirm/index.js"
 }
-
-export default Alert
 ```
 
-样式对应 ElementUI 库其实是组件主题的概念。打包样式和打包 JS 是分开进行的，可以在 package.json 的脚本中找到用于打包样式文件的命令：
+#### 创建新组件
+
+`components.json` 是通过脚本维护的，见项目目录下的 `Makefile`。使用 `make new [component]` 创建新的组件时，会调用 `build/bin/new.js` 给项目现有配置文件修修补补（也就是在这时将组件信息添加到 `components.json` 中）：
+
+* 添加组件到 `components.json`
+* 添加组件到主题入口 `index.scss`
+* 添加组件到 `elements-ui` 类型声明
+* 添加组件到官网导航栏
+
+也会创建一些新的入口文件：
+
+* 创建组件入口（`packages/[component]/index.js`）
+* 组件 Vue 单文件（`packages/[component]/src/main.vue`）
+* 组件的不同语言的文档文件（`examples/doc/[language]/[component].md`）
+* 基础测试用例（`test/unit/specs/[component].spec.js`）
+* 默认主题对应的样式文件（`packages/theme-chalk/src/[component].scss`）
+* 组件类型声明文件（`types/[component].d.ts`）
+
+#### 处理样式
+
+样式对应 ElementUI 库其实是组件主题的概念。打包样式和打包 JS 是分开进行的，可以在 `package.json` 的脚本中找到用于打包样式文件的命令：
 
 ```js
 {
@@ -59,7 +71,7 @@ export default Alert
 }
 ```
 
-gen-cssfile 给所有的主题都生成一个带组件样式的入口文件（index.scss）。
+gen-cssfile 给所有的主题都生成一个带组件样式的入口文件（`index.scss`）。
 
 ```js
 var fs = require('fs')
