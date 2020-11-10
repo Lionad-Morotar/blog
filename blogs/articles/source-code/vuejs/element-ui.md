@@ -17,16 +17,7 @@ D:/@github/element
 └── Makefile        // 所有组件的名称对应路径的信息
 ```
 
-所有的 Elements 组件都存放再 packages 中，其内部每一个文件夹对应一个组件。以 alert 组件为例：
-
-```
-D:\@github\element\packages\alert
-├── index.js # index.js 对应组件的入口，它导出 install 函数用于组件注册。
-└── src
-   └── main.vue
-```
-
-所有的组件的路径信息都保存在 components.json 中，形如：
+所有的 Elements 组件都存放在 packages 中，其内部每一个文件夹对应一个组件。组件的路径信息则保存在 components.json 中，形如：
 
 ```js
 {
@@ -39,25 +30,50 @@ D:\@github\element\packages\alert
 
 #### 创建新组件
 
-`components.json` 是通过脚本维护的，见项目目录下的 `Makefile`。使用 `make new [component]` 创建新的组件时，会调用 `build/bin/new.js` 给项目现有配置文件修修补补（也就是在这时将组件信息添加到 `components.json` 中）：
+`components.json` 是通过 Make 脚本维护的，见项目目录下的 `Makefile`[^make]。使用 `make new [component]` 创建新的组件时，会调用 `build/bin/new.js`，对项目配置文件进行修补：
+
+[^make]: Make 可以理解为一种类似 Gulp 的项目工程化工具，用于编写一些供命令行调用执行的任务。
 
 * 添加组件到 `components.json`
 * 添加组件到主题入口 `index.scss`
 * 添加组件到 `elements-ui` 类型声明
-* 添加组件到官网导航栏
+* 添加组件到示例网站的导航栏
 
-也会创建一些新的入口文件：
+除了更改配置，脚本也会自动创建一些新的入口文件：
 
-* 创建组件入口（`packages/[component]/index.js`）
-* 组件 Vue 单文件（`packages/[component]/src/main.vue`）
-* 组件的不同语言的文档文件（`examples/doc/[language]/[component].md`）
-* 基础测试用例（`test/unit/specs/[component].spec.js`）
-* 默认主题对应的样式文件（`packages/theme-chalk/src/[component].scss`）
-* 组件类型声明文件（`types/[component].d.ts`）
+* 组件入口（`/packages/[component]/index.js`）
+* 组件文件（`/packages/[component]/src/main.vue`）
+* 组件文档（`/examples/doc/[language]/[component].md`）
+* 基础测试用例（`/test/unit/specs/[component].spec.js`）
+* 默认样式（`/packages/theme-chalk/src/[component].scss`）
+* 类型声明（`/types/[component].d.ts`）
+
+默认入口文件的结构与内容比较简单，以 Alert 组件为例，`alert/index.js` 引入组件后，简单添加一个 install 方法用于 VueJS 注册：
+
+```js
+import Alert from './src/main'
+
+Alert.install = function(Vue) { 
+  Vue.component(Alert.name, Alert) 
+}
+
+export default Alert
+```
+
+文件结构如下：
+
+```
+D:\@github\element\packages\alert
+├── index.js
+└── /src
+   └── main.vue
+```
 
 #### 处理样式
 
-样式对应 ElementUI 库其实是组件主题的概念。打包样式和打包 JS 是分开进行的，可以在 `package.json` 的脚本中找到用于打包样式文件的命令：
+从文件夹结构可以发现，组件的样式并不是在文件夹内部维护的。因为，在 Element 中，样式的“概念”对应“组件主题”，所以打包样式和打包 JS 是分开进行的。
+
+可以在 `package.json` 的脚本中找到用于打包样式文件的命令：
 
 ```js
 {
@@ -71,7 +87,13 @@ D:\@github\element\packages\alert
 }
 ```
 
-gen-cssfile 给所有的主题都生成一个带组件样式的入口文件（`index.scss`）。
+拆分为后，做了大致如下工作：
+
+* `node build/bin/gen-cssfile`：生成主题的入口文件
+* `gulp build --gulpfile packages/theme-chalk/gulpfile.js`：样式清洗及文件移动任务
+* `cp-cli packages/theme-chalk/lib lib/theme-chalk`：最后拷贝到库目录
+
+每种主题都依赖有变量、动画、字体等基础的样式设置，生成主题的入口文件意味着将基础样式与组件样式整合到一起：
 
 ```js
 var fs = require('fs')
@@ -104,19 +126,20 @@ themes.forEach((theme) => {
 })
 ```
 
-给主题生成的样式入口文件形如以下代码：
+生成的入口文件如下：
 
 ```scss
 @import './base.scss';
+
 @import './alert.scss';
 /* ...所有组件样式... */
 @import './upload.scss';
 ```
 
-生成的样式文件经过 Gulp 处理后，先暂存到样式文件的 lib 目录下：
+清洗样式和我们在其它项目中常对 CSS 做的 PostCSS 处理差不多，即格式化 CSS，搞定兼容性问题。这之后，将格式化后的 CSS 和所依赖的资源，拷贝到待转移目录：
 
 ```js
-// 处理兼容性、转换、压缩后复制到 ./lib
+// 处理兼容性，转换、压缩后复制到 ./lib
 function compile() {
   return src('./src/*.scss')
     .pipe(sass.sync())
@@ -138,11 +161,17 @@ function copyfont() {
 exports.build = series(compile, copyfont);
 ```
 
-最后使用 cp-cli（也就是 NodeJS 版拷贝命令）命令将主题目录 lib 下的文件整合到打包后的库文件代码中。
+最后使用 cp-cli[^cp-cli] 指令将待转移目录中的所有资源拷贝到库文件夹下，这样就完成了样式文件从自动生成，预处理，到导出整个流程。
 
-既然已经生成了带引入所有主题样式的入口文件，为啥还要 Gulp 要单独处理所有组件样式（`./src/*.scss`）呢？这是为了方便外部项目打包时的摇树优化，配合 babel-plugin-component 可以在引入组件时按需引入样式，减小项目打包体积。
+[^cp-cli]: 拷贝操作依赖了 cp-cli@npm，可以简单理解为拷贝指令的NodeJS 版。
 
-babel-plugin-component 可以把 import 语法进行自动转换：
+#### 摇树优化
+
+有一点值得注意的是，在使用 Gulp 处理样式文件时，compile 函数通过 `src('./src/*.scss')` 选择了 packages 目录下所有的样式（不仅包括样式入口文件，还包括所有的组件样式文件，如 alert.scss）。既然已经在第一步生成了带引入所有主题样式的入口文件，为啥还要 Gulp 要单独处理所有组件样式呢？这是为了方便外部项目引入 ElementUI 后单独引入某个组件时可选的摇树优化。配合 babel-plugin-component，可以减小项目打包体积。
+
+babel-plugin-component 会把 import 语法进行转换[^babel-plugin-component]：
+
+[^babel-plugin-component]: [https://www.npmjs.com/package/babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component)
 
 ```js
 // 源代码
@@ -154,3 +183,9 @@ import { Button } from 'components'
 const button = require('components/lib/button')
 require('components/lib/button/style.css')
 ```
+
+可以看到，转换后的代码，单独依赖了组件样式。
+
+## 阅读更多
+
+* [Make 基础语法以及在 ElementUI 中的运用](https://juejin.im/post/6844903775912591368)
