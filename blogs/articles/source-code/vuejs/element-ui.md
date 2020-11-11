@@ -1,8 +1,12 @@
 # ElementUI
 
+[TOC]
+
 ## 项目架构
 
-#### 目录结构
+### 组件及样式打包
+
+#### 项目结构
 
 ```
 D:/@github/element
@@ -185,6 +189,66 @@ require('components/lib/button/style.css')
 ```
 
 可以看到，转换后的代码，单独依赖了组件样式。
+
+#### 图标样式
+
+从以上流程还可以发现，图标样式并没有在 build:theme 时被处理。通过分析 package.json，可以发现，图表样式的处理放在了 build:file，也就是打包代码示例的任务中。可以把这个任务理解为打包 ElementUI 官网展示的[文档](https://element.eleme.cn/#/zh-CN/component/installation)。
+
+```js
+{
+  "scripts": {
+    "build:file": `
+      ${ /* 生成图标信息 icon.json */ }
+      node build/bin/iconInit.js & 
+      ${ /* 生成代码示例项目的入口文件（还记得么在这一步会生成 components.json 么？） */ }
+      node build/bin/build-entry.js & 
+      ${ /* 维护项目多语言 */ }
+      node build/bin/i18n.js &
+      ${ /* 维护库版本 */ }
+      node build/bin/version.js
+    `
+```
+
+由于项目入口依赖了 icon.json，挂载到了 Vue 原型属性 $icon 上，供[图标列表页面](https://element.eleme.cn/#/zh-CN/component/icon)调用，所以生成图表信息这一步必须放在入口文件之前。
+
+由于主题中的图标 CSS 格式比较固定，所以 iconInit.js 直接可以通过正则匹配出用到的图标名称：
+
+```css
+/* ... */
+.el-icon-ice-cream-round:before {
+  content: "\e6a0";
+}
+/* ... */
+```
+
+```js
+// 读取图标 CSS 文件
+var fontFile = fs.readFileSync(path.resolve(__dirname, '../../packages/theme-chalk/src/icon.scss'), 'utf8')
+// 将 CSS 解析为可迭代的 CSSOM 节点列表
+var nodes = postcss.parse(fontFile).nodes
+// 用于保存匹配的结果
+var classList = []
+
+nodes.forEach((node) => {
+  var selector = node.selector || ''
+  // 比如类名 ".el-icon-ice-cream-round"，
+  // 需要匹配其中的 "ice-cream-round"
+  var reg = new RegExp(/\.el-icon-([^:]+):before/)
+  var arr = selector.match(reg)
+
+  if (arr && arr[1]) {
+    classList.push(arr[1])
+  }
+})
+
+// 这里把匹配出来的结果倒排了一下，
+// 也就是新加到图标 CSS 尾部的图标，
+// 反而会会展现到帮助文档的开头
+classList.reverse()
+
+// 最后写入文件
+fs.writeFile(path.resolve(__dirname, '../../examples/icon.json'), JSON.stringify(classList), () => {})
+```
 
 ## 阅读更多
 
