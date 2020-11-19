@@ -4,9 +4,7 @@
 
 ## 项目架构
 
-### 组件及样式打包
-
-#### 项目结构
+ElementUI 的项目结构是按照功能划分的，如源文件、主题样式、文档文件夹都直接存放在项目一级目录下，而管理内部的文件，如“把 JS 文件压缩后移动到 Dist 目录”，则是通过项目内部依赖的多种任务管理工具，如 Make、Gulp 和 NPM Script（package.json）。
 
 ```
 D:/@github/element
@@ -18,10 +16,13 @@ D:/@github/element
 ├── /test           // 测试用例，主要分单元测试和 SSR 测试
 ├── /types          // 类型声明文件
 ├── components.json // 所有组件的名称对应路径的信息
-└── Makefile        // 所有组件的名称对应路径的信息
+├── package.json    // 携带有 NPM Scripts 任务信息
+└── Makefile        // Make 的任务信息
 ```
 
-所有的 Elements 组件都存放在 packages 中，其内部每一个文件夹对应一个组件。组件的路径信息则保存在 components.json 中，形如：
+#### 组件管理
+
+所有的 Elements 组件都存放在 packages 文件夹中，其内部每一个文件夹对应一个组件。组件的路径信息则保存在 components.json 中，形如：
 
 ```js
 {
@@ -31,8 +32,6 @@ D:/@github/element
   "popconfirm": "./packages/popconfirm/index.js"
 }
 ```
-
-#### 创建新组件
 
 `components.json` 是通过 Make 脚本维护的，见项目目录下的 `Makefile`[^make]。使用 `make new [component]` 创建新的组件时，会调用 `build/bin/new.js`，对项目配置文件进行修补：
 
@@ -73,7 +72,7 @@ D:\@github\element\packages\alert
    └── main.vue
 ```
 
-#### 处理样式
+#### 样式打包
 
 从文件夹结构可以发现，组件的样式并不是在文件夹内部维护的。因为，在 Element 中，样式的“概念”对应“组件主题”，所以打包样式和打包 JS 是分开进行的。
 
@@ -190,7 +189,7 @@ require('components/lib/button/style.css')
 
 可以看到，转换后的代码，单独依赖了组件样式。
 
-#### 图标样式
+#### 图标样式处理
 
 从以上流程还可以发现，图标样式并没有在 build:theme 时被处理。通过分析 package.json，可以发现，图表样式的处理放在了 build:file，也就是打包代码示例的任务中。可以把这个任务理解为打包 ElementUI 官网展示的[文档](https://element.eleme.cn/#/zh-CN/component/installation)。
 
@@ -209,7 +208,7 @@ require('components/lib/button/style.css')
     `
 ```
 
-由于项目入口依赖了 icon.json，挂载到了 Vue 原型属性 $icon 上，供[图标列表页面](https://element.eleme.cn/#/zh-CN/component/icon)调用，所以生成图表信息这一步必须放在入口文件之前。
+由于项目入口依赖了 `icon.json`，挂载到了 Vue 原型属性 $icon 上，供[图标列表页面](https://element.eleme.cn/#/zh-CN/component/icon)调用，所以生成图表信息这一步必须放在入口文件之前。
 
 由于主题中的图标 CSS 格式比较固定，所以 iconInit.js 直接可以通过正则匹配出用到的图标名称：
 
@@ -249,6 +248,12 @@ classList.reverse()
 // 最后写入文件
 fs.writeFile(path.resolve(__dirname, '../../examples/icon.json'), JSON.stringify(classList), () => {})
 ```
+
+## 帮助函数
+
+## 组件逻辑
+
+### Clickble
 
 ## 阅读更多
 
