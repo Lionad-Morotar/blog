@@ -486,7 +486,7 @@
         <li>爬虫安全：可以通过联合前后端一起做反爬虫操作。有很多高级操作，像高级验证码、蜜罐、机器人侦测、提供假数据甚至综合检测等...</li>
         <li>明文泄漏：密码之类的数据不能存在前端；部分敏感数据存放时需要进行脱敏操作；HTTPS 防止中间人攻击</li>
         <li>隐私泄漏：如用户空闲检测、地理位置、内存信息、电池信息等 API，可能被滥用。详情见：<a href="https://www.zdnet.com/article/apple-declined-to-implement-16-web-apis-in-safari-due-to-privacy-concerns/" target="_blank" rel="nofollow">Apple declined to implement 16 Web APIs in Safari due to privacy concerns</a>。</li>
-        <li>最后，这里有一篇关于 Helmet 的详细资料：<a href="/articles/source-code/module/helmet.html">Helmet</a>。</li>
+        <li>服务器安全：NodeJS 有许多安全相关的 API，如 VM.runInNewContext；若和 HTTP 相关的话可以参考 Helmet ：<a href="/articles/source-code/module/helmet.html">Helmet</a>。</li>
     </ul>
 </details>
 

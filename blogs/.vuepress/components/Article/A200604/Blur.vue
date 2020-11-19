@@ -42,7 +42,7 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .con {
     --deg: 175deg;
     --light: rgba(228, 192, 96, 1);
@@ -56,11 +56,11 @@ export default {}
         margin-left: 1em;
     }
     .repeat-con {
-        $c1: #cd3f4f;
-        $c2: #e6a964;
+        c1 = #cd3f4f;
+        c2 = #e6a964;
         position: relative;
         height: 300px;
-        background-image: repeating-radial-gradient(circle at 0% 50%, $c1 0, $c2 50px);
+        background-image: repeating-radial-gradient(circle at 0% 50%, c1 0, c2 50px);
 
         &.antialiasing {
             filter: url(#Sharpen) url(#Edge);
@@ -68,11 +68,11 @@ export default {}
     }
 
     .circle-con {
-        $c1: #cd3f4f;
-        $c2: #e6a964;
+        c1 = #cd3f4f;
+        c2 = #e6a964;
         position: relative;
         height: 300px;
-        background-image: repeating-radial-gradient(circle at 0% 50%, $c1 0, $c2 50px);
+        background-image: repeating-radial-gradient(circle at 0% 50%, c1 0, c2 50px);
 
         &.antialiasing {
             filter: blur(0.7px) contrast(1.1);

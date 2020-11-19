@@ -126,19 +126,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.spark-cmpt {
-    position: relative;
-}
+<style lang="stylus" scoped>
 .children-wrapper {
     position: relative;
     z-index: 1;
     font-weight: bold;
 }
-</style>
-
-<style lang="stylus" scoped>
 .spark-cmpt {
+    position: relative;
     &.callout {
         display: block;
         margin-top: 1em;

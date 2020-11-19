@@ -136,7 +136,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .task-slice-cmpt {
   will-change: auto;
 

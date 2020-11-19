@@ -4,7 +4,9 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
-const env = 'windows' // 'mac'
+const env = require('./build-env')
+console.log('USE BUILD ENV: ', env)
+
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
   gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
@@ -39,6 +41,8 @@ const getSrc = src => {
     }
   }
   filenames.sort()
+
+  console.log('filenames: ', filenames)
   return filenames
 }
 // console.log('GetSRC Test : ', getSrc(gistsDir))
@@ -51,15 +55,15 @@ const sidebarConfigs = {
       collapsable: false,
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
-        '关于标点的那些事儿',
-        '权力斗争中的误导与假设',
+        'punctuations',
+        'misleading-and-assumptions',
         '2019',
-        '万物联结与幸福感',
-        '偷取时间',
-        '表达和孤独',
-        '一封沉默',
-        '我的腼腆',
-        '聊聊此次离职毕业及其它杂乱的事情',
+        'everything',
+        'stolen-time-from-god',
+        'expression-and-loneliness',
+        'a-letter-of-silience',
+        'my-shy',
+        'messy-in-two-years',
         'fold'
       ]
     },
@@ -69,16 +73,16 @@ const sidebarConfigs = {
       collapsable: false,
       open: true,
       children: [
-        'Helmet & Security',
-        '设计模式与JS魔法锅',
-        'CSSAA',
-        '你可以用纯CSS判断鼠标进入的方向吗',
-        '有关CSS的一些极有趣的东西',
-        '喝饮料时的一些思考',
-        '你本可以少写些if-else',
-        '150行代码带你实现小程序中的数据侦听',
+        'helmet-and-security',
+        'design-patterns-and-js-magic-pot',
+        'css-poaa',
+        'css-judge-direction',
+        'css-interesting',
+        'thinking-while-drinking',
+        'no-more-if-else',
+        'reactive-in-150loc',
         'front-end-mind-map',
-        'CSS-Mind-Map',
+        'css-mind-map',
         'fourty-two',
         'source-code',
         'fold'
@@ -101,7 +105,15 @@ const sidebarConfigs = {
     {
       title: 'Play Guitar',
       collapsable: true,
-      children: ['163/等待的风', '163/约定的海洋', '163/Wings', '163/EVA', '163/奇迹之山', '163/WuWei', '163/无题']
+      children: [
+        '163/wait-for-wind',
+        '163/promise-ocean',
+        '163/wings-you-are-the-hero',
+        '163/eva',
+        '163/miracle-mountain',
+        '163/wu-wei',
+        '163/noname'
+      ]
     },
     {
       title: 'Secrets',

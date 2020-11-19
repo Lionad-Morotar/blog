@@ -78,6 +78,7 @@ module.exports = {
   plugins: {
     '@vuepress/last-updated': {
       transformer: (timestamp, lang) => {
+        // TODO dayjs
         const moment = require('moment')
         moment.locale(lang)
         return moment(timestamp).format('MMMM DD YYYY HH:mm')
@@ -157,24 +158,6 @@ module.exports = {
 
   configureWebpack,
   chainWebpack(config, isServer) {
-    // 单独配置 SASS 文件是因为一个 VuePress 的 Bug，见：https://github.com/vuejs/vuepress/issues/2148
-    for (const lang of ['sass', 'scss']) {
-      for (const name of ['modules', 'normal']) {
-        const rule = config.module.rule(lang).oneOf(name)
-        rule.uses.delete('sass-loader')
-
-        rule
-          .use('sass-loader')
-          .loader('sass-loader')
-          .options({
-            implementation: require('sass'),
-            sassOptions: {
-              fiber: require('fibers'),
-              indentedSyntax: lang === 'sass'
-            }
-          })
-      }
-    }
     if (!isServer) {
     }
   },

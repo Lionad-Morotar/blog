@@ -161,7 +161,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .full-background-cmpt {
     position: fixed;
     top: 0;
@@ -277,42 +277,7 @@ export default {
                 background-size: 2px 2px;
                 image-rendering: pixelated;
             }
-
-            // .name {
-            //     position: absolute;
-            //     top: 0;
-            //     left: 0;
-            //     box-sizing: border-box;
-            //     padding: 0 1em 3px 1em;
-            //     width: 100%;
-            //     font-size: 0.8rem;
-            //     font-weight: bold;
-            //     letter-spacing: 0.5px;
-            //     color: #fff;
-            //     background: #300c22;
-            //     transition: 0.3s;
-            // }
         }
-
-        // &:nth-child(2),
-        // &:nth-child(3) {
-        //     .name {
-        //         top: unset;
-        //         bottom: 0;
-        //     }
-        //     &:hover {
-        //         .name {
-        //             top: unset;
-        //             bottom: 0;
-        //         }
-        //     }
-        // }
-        // &:nth-child(1),
-        // &:nth-child(7) {
-        //     .name {
-        //         text-align: right;
-        //     }
-        // }
 
         &:nth-child(1) {
             --velocity: 8;
