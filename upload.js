@@ -98,10 +98,10 @@ const task = {
       const type = gzipDirType[idx]
       const typeConfig = {
         js: {
-          ContentType: 'application/javascript'
+          ContentType: 'application/javascript;charset=utf-8'
         },
         css: {
-          ContentType: 'text/css'
+          ContentType: 'text/css;charset=utf-8'
         }
       }[type]
       const files = fs.readdirSync(dir)

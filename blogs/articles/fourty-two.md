@@ -7,3 +7,5 @@
 ## 四十二篇归档
 
 - 第一篇：[有关新项目的方法论](/articles/42/dark-room.html)
+
+- 第二篇：[尝试推动 Code Review 制度](/articles/42/code-review.html)
