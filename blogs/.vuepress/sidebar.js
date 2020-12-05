@@ -73,6 +73,7 @@ const sidebarConfigs = {
       collapsable: false,
       open: true,
       children: [
+        'js-100',
         'helmet-and-security',
         'design-patterns-and-js-magic-pot',
         'css-poaa',
@@ -81,8 +82,8 @@ const sidebarConfigs = {
         'thinking-while-drinking',
         'no-more-if-else',
         'reactive-in-150loc',
-        'front-end-mind-map',
-        'css-mind-map',
+        // 'front-end-mind-map',
+        // 'css-mind-map',
         'fourty-two',
         'source-code',
         'fold'

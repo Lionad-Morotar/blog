@@ -11,7 +11,7 @@
     <p>
         加法运算符任意操作数为 String 类型，那么会将另一侧用 ToString 转换后，再相加。所以答案是，都为 '11'。
         这主要涉及到 JS 中的隐式类型转换问题。JS 是弱类型语言，一般而言，不同类型数据之间可以互相转换。
-        进一步了解可以看看这篇：<a href="./interview-prepare/corceion.html">隐式转换</a>
+        进一步了解可以看看这篇：<a href="./gists/interview-prepare/corceion.html">隐式转换</a>
     </p>
 </details>
 
@@ -26,7 +26,7 @@
     <summary>能不能说说为什么 0.1 + 0.2 !== 0.3 ？</summary>
     <p>
         JS 使用 IEEE-754 标准的双精度浮点数表示数字，0.1 和 0.2 转换为双精度浮点数之后，小数部分不能被精确表示，导致精度丢失。
-        进一步了解可以看看这篇：<a href="./interview-prepare/number-in-js.html">JS中的数值</a>
+        进一步了解可以看看这篇：<a href="./gists/interview-prepare/number-in-js.html">JS中的数值</a>
     </p>
 </details>
 
@@ -34,13 +34,6 @@
     <summary>Object.seal 和 Object.freeze 有什么不同？</summary>
     <p>
         Seal 阻止对一个对象添加或删除属性；Freeze 在 Seal 的基础上，还使属性的值不可修改。
-    </p>
-</details>
-
-<details open>
-    <summary>Number.isNaN 和 isNaN 的不同之处？</summary>
-    <p>
-        isNaN 会对传入的值进行 toNumber 转换，而 Number.isNaN 不会。详细分析见这里：<a href="./interview-prepare/not-a-number.html">Number.isNaN VS isNaN</a>。
     </p>
 </details>
 

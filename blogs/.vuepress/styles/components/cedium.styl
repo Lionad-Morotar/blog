@@ -93,7 +93,7 @@ h4 {
     }
 }
 
-p, details {
+p, details, form {
     margin-top: 1.3rem;
     margin-bottom: 0;
     font-size: 1.3125rem;
@@ -104,6 +104,16 @@ p, details {
     font-style: normal;
     word-break: break-all;
     outline: none;
+
+    input[type='text'] {
+        padding: 3px 5px;
+        height: 1.3125rem;
+        font-size: 1.3125rem;
+    }
+}
+
+input {
+    cursor: pointer;
 }
 
 button {
@@ -326,7 +336,7 @@ li code {
     font-size: 1.125rem;
 }
 
-em, strong {
+em, strong, b, bold {
     font-family: var(--font-text--bold);
     font-weight: 500;
     font-style: normal; // 浏览器中的中文斜体十分难看
