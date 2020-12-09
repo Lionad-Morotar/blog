@@ -1,5 +1,3 @@
-# Git
-
 ## Commit
 
 业界有许多成熟的 Git Commit Message 规范（以下简称为 CM），比如：
@@ -92,3 +90,10 @@ git update-index --skip-worktree -- filename.js
 ```
 
 3. git filter
+
+---
+
+### 相关网址
+
+* [Reveal.js](https://revealjs.com/code/)
+* [Highlight.js](https://highlightjs.org/)
