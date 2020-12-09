@@ -5,6 +5,7 @@
   "author": "Lionad <tangnad@qq.com>",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dev",
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
