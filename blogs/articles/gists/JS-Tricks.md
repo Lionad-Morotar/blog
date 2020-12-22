@@ -1,14 +1,26 @@
 # JavaScript 诡计
 
+## 运行时语法错误
+
+以下案例能证明 JS 存在“动态作用域”以及“运行时语法错误（Syntax Error）”：
+
+```js
+;(function() {
+  let x = 1
+  eval('var x = 2')
+  return x
+})()
+```
+
 ## 对象字面量 Setter/Getter
 
 想定义属性的 Setter/Getter，不用成天写 Object.defineProperties 这么麻烦的东西，只需要代码简单如下就行：
 
 ```js
 const name = 'b'
-const a = { 
+const a = {
   get [name]() {
-    return 'b' 
+    return 'b'
   }
 }
 
@@ -21,14 +33,14 @@ a.b // >>> 'b'
 
 ```js
 function highlight(strings, ...values) {
-    let result = ''
-    strings.map((str, i) => {
-        result += str
-        if (values[i]) {
-            result += `yes~${values[i]}`
-        }
-    })
-    return result
+  let result = ''
+  strings.map((str, i) => {
+    result += str
+    if (values[i]) {
+      result += `yes~${values[i]}`
+    }
+  })
+  return result
 }
 const firstName = 'Lionad'
 const lastName = 'RedOne'
@@ -53,8 +65,10 @@ void 0 // 其实 void 后接任何表达式，都会返回 undefined
 `-0` 并不是一个特殊的值，但是在代码中出现时往往会伴随着各种问号操作，如：
 
 ```js
--1 * -0 === -0 // -> true
--0 === 0 // -> true
+;(-1 * -0 ===
+  -0 - // -> true
+    0) ===
+  0 // -> true
 '' + -0 // -> '0'
 ```
 
