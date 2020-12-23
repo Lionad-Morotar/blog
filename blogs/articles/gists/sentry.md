@@ -9,6 +9,10 @@ title: "Git 生态建设"
 logo: "https://gravatar.loli.net/avatar/1023688aa5bd010e35fdf503280955c9"
 ---
 
+<!-- <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/> -->
 <style>
   :root {
     /******************************* 主题颜色 */
@@ -35,9 +39,12 @@ logo: "https://gravatar.loli.net/avatar/1023688aa5bd010e35fdf503280955c9"
   del {
     opacity: .31;
   }
+  emoji {
+    font-size: 1.8em;
+  }
 </style>
 
-# Sentry
+# Sentry Fix
 
 Lionad-Guirtoar @baixing
 
@@ -64,9 +71,7 @@ Lionad-Guirtoar @baixing
 
 --
 
-以一张截图举例
-
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_faMD4wFyo0.png)
+<p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_faMD4wFyo0.png" style="margin-top: .5em; max-height: 38vh;" /></p>
 
 1. 遗留问题**过杂** {.fragment .current-only}
 
@@ -91,6 +96,12 @@ Lionad-Guirtoar @baixing
 <del class="label-idx">杂</del><span class="fragment">代码规范 + 提交规范</span>
 
 <del class="label-idx">多</del><span class="fragment">流程约束 + 版本管理</span>
+
+--
+
+### 为什么要从规范入手？
+
+解决问题的上层思考是**避免问题**
 
 ---
 
@@ -122,7 +133,7 @@ ESLint | JavaScript 静态分析工具
 
 业界有许多成熟的提交规范
 
-<ul class="fragment current-only" style="margin-left: 20%">
+<ul class="fragment">
   <li><a href="http://arah.in/6cbH" target="_blank" rel="nofollow">Angular Commit Guide</a>
   <li><a href="https://udacity.github.io/git-styleguide/" target="_blank" rel="nofollow">Udacity Git Commit Message Style</a>
   <li><a href="https://open.leancloud.cn/git-commit-message/" target="_blank" rel="nofollow">LeanCloud Commit Guide</a>
@@ -160,7 +171,7 @@ ESLint | JavaScript 静态分析工具
 
 [Semantic Version](https://semver.org/lang/zh-CN/)
 
-“主版本号.次版本号.修订号”{.fragment}
+“主版本号.次版本号.修订号”
 
 “1.0.0”{.fragment}
 
@@ -178,4 +189,72 @@ ESLint | JavaScript 静态分析工具
 
 [Husky](https://www.npmjs.com/package/husky)
 
+--
 
+<div class="mermaid">
+graph LR
+  subgraph Local
+    Git
+  end
+  subgraph Gitlab
+    Receiver((Receiver)) --> check{Check}
+    check -- Reject --> Reject
+    check -- Pass --> Database
+    style Reject stroke:#f66xx
+  end
+  Git --> Receiver
+</div> 
+
+--
+
+<div class="mermaid">
+graph LR
+  subgraph Gitlab
+    Gitlab
+  end
+  subgraph Local PC
+    WD --> |"格式化、校验、提交信息检测"| check{提交检测}
+    check --> |失败| reject1[提交失败]
+    style reject1 stroke:#f66
+    check --> |通过| git[Git]
+  end
+  git --> check2{推送检测}
+  check2 --> |失败| reject2[推送失败]
+  style reject2 stroke:#f66
+  check2 --> |通过| Gitlab
+</div> 
+
+<!-- TODO：前置校验的优势 -->
+
+---
+
+### 结果
+
+--
+
+1. 及时追踪及修复上线问题
+
+
+
+
+---
+
+### 相关资料
+
+- [《Error Tracker 的工作原理》](https://baixing.yuque.com/qian-tech/main/fzln6a)
+
+---
+
+### TODO
+
+- IP 捕获错误
+- UI Click 上报事件错误
+- 未安装页面性能跟踪部件
+
+--
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_8WmGy6Vm6R.png)
+
+--
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201210161148.png)
