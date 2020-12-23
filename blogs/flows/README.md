@@ -1,3 +1,13 @@
+<flow>为什么浏览器使用 HTTP/2 协议通讯时需要 HTTPS 为基础：
+<ul>
+    <div>0：以下答案在今天也许并不适用；</div>
+    <div>1：开发者想通过 HTTP/2 普及加密协议（在互联网中的运用）；</div>
+    <div>2：减少一些老旧的（不支持新协议）的中间件对请求的影响；</div>
+    <div>3：一些老旧的服务器在协商 HTTP/2 时会直接返回错误，而协商 HTTPS 时直接返回错误的可能性要更小；</div>
+</ul>
+<name><a href="https://stackoverflow.com/questions/34076231/why-do-browser-implementations-of-http-2-require-tls">Why do browser implementations of HTTP/2 require TLS ?</a></name>
+</flow>
+
 <flow>比 Chrome Dev 更高级的弱网环境模拟：Clumsy 能系统级拦截指定类型的连接，模拟丢包、延迟、断连、乱序等状况。
 <p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201102112929.png" style="max-width: 450px" /></p>
 <name>Lionad</name><time>2020年11月2日 11点33分</time>
