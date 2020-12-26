@@ -63,9 +63,7 @@ const task = {
       console.log('| upload website start : ', uploadWebsite)
       function upload() {
         cmd.get(uploadWebsite, async error => {
-          error
-            ? console.error('| upload website error : ', error)
-            : console.log('| upload website success')
+          error ? console.error('| upload website error : ', error) : console.log('| upload website success')
           if (error) {
             console.log('| ERROR & RETRY...')
             upload()
@@ -83,14 +81,14 @@ const task = {
       await task.deleteRSS()
     }
 
-    await sleep()
-    await task.renameGzipFile()
+    // await sleep()
+    // await task.renameGzipFile()
 
     await sleep()
     await task.uploadMgear()
 
-    await sleep()
-    task.changeGzipFileHeader()
+    // await sleep()
+    // task.changeGzipFileHeader()
   },
   changeGzipFileHeader: () => {
     console.log('| change gzip-file header start ...')
@@ -130,7 +128,8 @@ const task = {
 
 function changeFileMetaHeader(file, config) {
   return new Promise((resolve, reject) => {
-    obs.copyObject({ ...config })
+    obs
+      .copyObject({ ...config })
       .then(_ => {
         resolve('File Done: ', file)
       })

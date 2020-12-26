@@ -1,59 +1,59 @@
 module.exports = [
   {
     title: '植物美学',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s33690515.jpg'
+    imageURL: 's33690515.jpg'
   },
   {
     title: '神话与魔法',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s33439046.jpg'
+    imageURL: 's33439046.jpg'
   },
   {
     title: '银河系搭车客指南',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s6384969.jpg'
+    imageURL: 's6384969.jpg'
   },
   {
     title: '信息设计之美',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s33534469.jpg'
+    imageURL: 's33534469.jpg'
   },
   {
     title: '凯尔特神话传说',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s26681274.jpg'
+    imageURL: 's26681274.jpg'
   },
   {
     title: '龙族Ⅰ',
-    imageURL: 'https://img2.doubanio.com/view/subject/l/public/s27724093.jpg'
+    imageURL: 's27724093.jpg'
   },
   {
     title: '维庸之妻',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s26921337.jpg'
+    imageURL: 's26921337.jpg'
   },
   {
     title: '写作之书',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s32294017.jpg'
+    imageURL: 's32294017.jpg'
   },
   {
     title: 'JavaScript 函数式编程',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s28263518.jpg'
+    imageURL: 's28263518.jpg'
   },
   {
     title: '一个人就一个人',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s33686330.jpg'
+    imageURL: 's33686330.jpg'
   },
   {
     title: 'Webpack 实战',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s33297137.jpg'
+    imageURL: 's33297137.jpg'
   },
   {
     title: 'JavaScript 之美',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29670124.jpg'
+    imageURL: 's29670124.jpg'
   },
   {
     title: '奔跑吧，梅勒斯',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s26921351.jpg'
+    imageURL: 's26921351.jpg'
   },
   {
     title: '少数派报告',
-    imageURL: 'https://img2.doubanio.com/view/subject/l/public/s29563532.jpg'
+    imageURL: 's29563532.jpg'
   },
   {
     src: 'https://book.douban.com/subject/34995610/',
@@ -65,7 +65,7 @@ module.exports = [
     tag: [],
     description:
       '像是在看80年代的科幻，有仿生人的感觉。两者最大的不同是，仿生人的宗教能救人灵魂，而八百万总死法中的宗教却是残害生灵的老手。书的封面太有意思了，盛赞。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s33601900.jpg'
+    imageURL: 's33601900.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26876429/',
@@ -76,7 +76,7 @@ module.exports = [
     rate: '4',
     tag: ['散文', '文学', '文集', '杂文', '鲁迅'],
     description: '回首重读鲁迅，看到的不颇多为社会残暴与人间疾苦，而是通过文字复原的一个生动有血有肉的鲁迅。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29928691.jpg'
+    imageURL: 's29928691.jpg'
   },
   {
     src: 'https://book.douban.com/subject/25881855/',
@@ -87,7 +87,7 @@ module.exports = [
     rate: '5',
     tag: ['互联网', '开源', '经典', '计算机', '黑客'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s28026215.jpg'
+    imageURL: 's28026215.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30382590/',
@@ -98,7 +98,7 @@ module.exports = [
     rate: '4',
     tag: ['图灵社区', '科普', '编程', '计算机'],
     description: '好书。简明扼要地把硬件软件的一些简单原理捋了一遍，更难得的是语言通俗易懂。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29927002.jpg'
+    imageURL: 's29927002.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26676942/',
@@ -109,7 +109,7 @@ module.exports = [
     rate: '4',
     tag: ['SEO', '互联网'],
     description: '对入门书籍来说确实可以了。内容浅显易懂，每一步骤都有截图，但是部分内容与时代脱节严重了。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s28353167.jpg'
+    imageURL: 's28353167.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26864938/',
@@ -121,7 +121,7 @@ module.exports = [
     tag: ['文学', '短篇', '短篇小说', '美国'],
     description:
       '马克吐温的短篇小说情节的比重比人物塑造要多了不少笔墨。这本书翻译可以，有几篇我没看懂的地方我特意对照了网上其它译本，都长这模样。书中把目录换成了各短篇的一句话情节概括，也没有标注页码没懂。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29015956.jpg'
+    imageURL: 's29015956.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30243870/',
@@ -132,7 +132,7 @@ module.exports = [
     rate: '4',
     tag: ['小说', '美国', '青春'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29834776.jpg'
+    imageURL: 's29834776.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30173100/',
@@ -143,7 +143,7 @@ module.exports = [
     rate: '3',
     tag: ['久石让', '手记', '日本', '音乐'],
     description: '杂志上的连载整理成篇，然后佐以一篇访谈和数页作品目录。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29828881.jpg'
+    imageURL: 's29828881.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27115714/',
@@ -154,7 +154,7 @@ module.exports = [
     rate: '5',
     tag: ['外国文学', '小说', '治愈', '诗意'],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29779230.jpg'
+    imageURL: 's29779230.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30336896/',
@@ -166,7 +166,7 @@ module.exports = [
     tag: ['作品集', '字体', '手绘字体', '设计'],
     description:
       '不错，有几张图片很模糊，总体很棒。\n手绘字体一般用在和“手工”、“精致”、“冲击力”等词相关联的地方，所以感觉大的来说收录不了各式各样的丰富的用例。不过话又说回来，不同字体体现的性格应该会导致手绘字体应用场景不同，这点来看本书确实还有值得补充的地方。一些手写字体容易用计算机制作，而非绘制，这部分“手写字体”本书就没有收录。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29880110.jpg'
+    imageURL: 's29880110.jpg'
   },
   {
     src: 'https://book.douban.com/subject/1037606/',
@@ -177,7 +177,7 @@ module.exports = [
     rate: '4',
     tag: ['平面设计', '田中一光', '设计'],
     description: 'Wabi，Sabi，Suki，the essence of japanese beauty.',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s1027290.jpg'
+    imageURL: 's1027290.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30465562/',
@@ -188,7 +188,7 @@ module.exports = [
     rate: '4',
     tag: ['Kindle'],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s30010291.jpg'
+    imageURL: 's30010291.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27624039/',
@@ -200,7 +200,7 @@ module.exports = [
     tag: ['日本', '田中一光', '设计'],
     description:
       '一开始翻了几页，觉得是很普通的一本传记，很普通的笔法。然后一想到书架上有本买来没看的《设计的觉醒》就脑瓜疼。\n再看就不得了，居然熬着夜一口气看完了。太精彩了，从前两章平铺直叙的铺垫，到中间章节夹叙夹议不乏思考的恢宏的精气神，再回到尾声那几篇回忆录似的平静。没想到宗一的的写作水平如此了得，能从平实的语言中透视出横贯70年的时代感。合书那刻，我心里想，这不就正是宗一毕生设计理念在文字与笔法中的体现。\n全场最佳是结尾的宗一好友的寄语，作为补充资料，点亮了一些自传中不那么轻易显现的几处。\n书装帧不错，翻译也nice，能察觉出几处校对疏漏。低分应该是一开始的节奏就被带偏了。我实在找不出低分的理由。满分给这位继往开来的人物，非常推荐。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s29678738.jpg'
+    imageURL: 's29678738.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26791407/',
@@ -211,7 +211,7 @@ module.exports = [
     rate: '3',
     tag: ['短篇集', '科幻'],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28855051.jpg'
+    imageURL: 's28855051.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30305636/',
@@ -222,7 +222,7 @@ module.exports = [
     rate: '4',
     tag: ['平面设计', '色彩', '艺术', '设计', '设计基础', '设计理论'],
     description: '',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s29851067.jpg'
+    imageURL: 's29851067.jpg'
   },
   {
     src: 'https://book.douban.com/subject/24872498/',
@@ -234,7 +234,7 @@ module.exports = [
     tag: [],
     description:
       '读《印第安人营地》那篇我就对比了几个译本，总得感觉翻译和片段的删减都挺不错的。《大双心河》两篇，尤其是钓鱼那篇，确实没懂，害，真难。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s27090638.jpg'
+    imageURL: 's27090638.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26319730/',
@@ -246,7 +246,7 @@ module.exports = [
     tag: [],
     description:
       '经典，书名给作品带来了谜之收益。理论的角度很好，立场却不可靠，害，说到底还是议论文的讲理具体要站在哪儿开始是个复杂的问题，完全没有写寓言那么好发挥，以至于波兹曼说自己完全比不上赫胥黎时我心里哈哈笑了两声。波兹曼抨击电视只是因为那个时代出现了很多关于电视的不堪入目的言论，这并不影响我们把他的理论再拓宽深掘一番，并代入现世。哦对了，好像我在去年就看过一本《互联网是如何使人浅薄》之类的书，虽然理论的角度有类似之处，但两者一比，高下立判，还是波兹曼的经典。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s28048575.jpg'
+    imageURL: 's28048575.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30295122/',
@@ -258,7 +258,7 @@ module.exports = [
     tag: ['平面设计', '排版', '日本', '朝仓直巳', '艺术', '设计', '设计理论'],
     description:
       '害，可惜老爷子走得早，这理论再跨学科间打磨打磨我觉得会更加完美。\n书中有一些翻译错误，或感觉还可以再斟酌一番的地方，但是总的来说瑕不掩瑜。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29851071.jpg'
+    imageURL: 's29851071.jpg'
   },
   {
     src: 'https://book.douban.com/subject/1913423/',
@@ -269,7 +269,7 @@ module.exports = [
     rate: '3',
     tag: ['教材', '文字编排设计'],
     description: '主要普及了排版的一些基础知识，可以做入门用。希望能出二版，更新一些书中比较陈旧的知识。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s8824419.jpg'
+    imageURL: 's8824419.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26905096/',
@@ -280,7 +280,7 @@ module.exports = [
     rate: '5',
     tag: ['字体设计', '左佐', '设计'],
     description: '唯一的槽点是：我真的看不懂文言文（大雾）。哭了，下次能不能把书写得再白话一些。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29353185.jpg'
+    imageURL: 's29353185.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27109961/',
@@ -292,7 +292,7 @@ module.exports = [
     tag: ['散文', '文学', '梭罗', '经典'],
     description:
       '梭罗的自由是真正的自由；\n梭罗的经济学是有生命的生产力；\n梭罗的孤独——人没必要在游行和典礼中结对前行，而应随着自然的脉搏而呼吸——这是与宇宙的狂欢。\n这是一本伟大的书。\n装帧不错，翻译嘛我不懂。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29827205.jpg'
+    imageURL: 's29827205.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26971276/',
@@ -303,7 +303,7 @@ module.exports = [
     rate: '3',
     tag: ['艺术', '设计'],
     description: '我们不需要更多观点。\n装帧漂亮，但是内容平淡。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s29337919.jpg'
+    imageURL: 's29337919.jpg'
   },
   {
     src: 'https://book.douban.com/subject/5323008/',
@@ -314,7 +314,7 @@ module.exports = [
     rate: '4',
     tag: ['平面设计', '版式设计', '设计'],
     description: '不错，和《写给大家看的...》的那个系列的书结合起来看十分有帮助。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s6933046.jpg'
+    imageURL: 's6933046.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26985299/',
@@ -325,7 +325,7 @@ module.exports = [
     rate: '3',
     tag: [],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29585484.jpg'
+    imageURL: 's29585484.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27102949/',
@@ -337,7 +337,7 @@ module.exports = [
     tag: ['太宰治', '小说', '文学', '日本', '短篇', '童话'],
     description:
       '稍微对比了一下汤先生的译本，我觉得徐的译本要流畅一些，这本《御伽草纸》装帧及排版也是非常漂亮，十分推荐。没有五星的理由是，太宰治把每个童话新编的道理都阐述的过于清楚了，这显然是不信任读者的表现。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29517146.jpg'
+    imageURL: 's29517146.jpg'
   },
   {
     src: 'https://book.douban.com/subject/10749924/',
@@ -348,7 +348,7 @@ module.exports = [
     rate: '5',
     tag: ['写作', '奥尔罕·帕慕克', '文学理论', '文学评论', '演讲'],
     description: '薄；亲切；并不好读（也许是因为我还没尝试写过一本小说）。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s11159986.jpg'
+    imageURL: 's11159986.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26921825/',
@@ -359,7 +359,7 @@ module.exports = [
     rate: '4',
     tag: ['科幻'],
     description: '',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s29172718.jpg'
+    imageURL: 's29172718.jpg'
   },
   {
     src: 'https://book.douban.com/subject/3883991/',
@@ -370,7 +370,7 @@ module.exports = [
     rate: '4',
     tag: ['乔治·奥威尔', '反乌托邦', '小说', '经典', '讽刺'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s3921115.jpg'
+    imageURL: 's3921115.jpg'
   },
   {
     src: 'https://book.douban.com/subject/33454653/',
@@ -381,7 +381,7 @@ module.exports = [
     rate: '4',
     tag: ['艺术', '阿兰·德波顿'],
     description: '一星给作者，一星给议论，一星给设计，一星给装帧。若是把“议论”换成“散文”，兴许我才会满分推荐。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s33500556.jpg'
+    imageURL: 's33500556.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27114628/',
@@ -393,7 +393,7 @@ module.exports = [
     tag: ['巴黎评论', '短篇小说'],
     description:
       '故事和语言本身一样伟大。我想起以前看过的一个把写作中文笔之于写作比喻为汽车座椅材质之于汽车的例子，现在想想才算真正的找到了反击的理由。语言一词包含了太多东西，它是故事的一部分。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s30004902.jpg'
+    imageURL: 's30004902.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27002046/',
@@ -404,7 +404,7 @@ module.exports = [
     rate: '5',
     tag: ['反乌托邦', '小说', '社会', '经典', '赫胥黎'],
     description: '一看到《重返美丽新世界》有关人口过剩的那章就头疼。有些反感。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29477615.jpg'
+    imageURL: 's29477615.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30404521/',
@@ -415,7 +415,7 @@ module.exports = [
     rate: '3',
     tag: ['物理', '科普'],
     description: '阔以',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s32324687.jpg'
+    imageURL: 's32324687.jpg'
   },
   {
     src: 'https://book.douban.com/subject/25742211/',
@@ -426,7 +426,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '不错',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29997015.jpg'
+    imageURL: 's29997015.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27156306/',
@@ -437,7 +437,7 @@ module.exports = [
     rate: '5',
     tag: ['科学通识', '科普'],
     description: '不想把对«时间的秩序»那本书的短评再copy 过来了',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29561691.jpg'
+    imageURL: 's29561691.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26879324/',
@@ -448,7 +448,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '无法评价',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s33620119.jpg'
+    imageURL: 's33620119.jpg'
   },
   {
     src: 'https://book.douban.com/subject/34862375/',
@@ -459,7 +459,7 @@ module.exports = [
     rate: '4',
     tag: ['传记', '斯诺登', '美国'],
     description: '意义重于内容。第二部分写得有些不明白，跳跃地很快，质量与其它两部分有些差距。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s33514115.jpg'
+    imageURL: 's33514115.jpg'
   },
   {
     src: 'https://book.douban.com/subject/34672176/',
@@ -471,7 +471,7 @@ module.exports = [
     tag: ['特德·姜', '短篇集', '科幻'],
     description:
       '喜欢其中的一些短篇。作者喜欢通过描写人物的“内省”去发掘故事的深刻性，不过看多了就稍显腻味。书中前面有些短篇让人映象深刻，但是同样的手法换到篇幅更长一点的文章或是篇幅极短的文章中就会让作者故事叙述技巧显得捉襟见肘。如果有半星的话，我觉得3.5星更适合表达我的推荐程度。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s33519539.jpg'
+    imageURL: 's33519539.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26896859/',
@@ -483,7 +483,7 @@ module.exports = [
     tag: ['传记', '医生', '文学', '死亡'],
     description:
       '除了生死，还能看到作者对人物联结的奇妙，人生意义的沉思，宗教与科学的哲思，家庭与工作的关系及行业背后等各种事物不乏深度的展示或讨论。除了故事本身的精彩，还能一瞥有关“预言”的神秘力量。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29423902.jpg'
+    imageURL: 's29423902.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30284759/',
@@ -494,7 +494,7 @@ module.exports = [
     rate: '4',
     tag: ['死亡', '殡葬师', '纪实'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s33305516.jpg'
+    imageURL: 's33305516.jpg'
   },
   {
     src: 'https://book.douban.com/subject/33049318/',
@@ -505,7 +505,7 @@ module.exports = [
     rate: '3',
     tag: ['海子', '诗歌'],
     description: '也许是思维运转的速度没有达到理想状态，我读不懂海子的诗中的意向。2.5 - 3',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s31939398.jpg'
+    imageURL: 's31939398.jpg'
   },
   {
     src: 'https://book.douban.com/subject/33424487/',
@@ -517,7 +517,7 @@ module.exports = [
     tag: ['哲学', '时间', '物理', '社会学', '科普'],
     description:
       '有东西在我脑海里被摧毁，又好像是重造。无关科普，仅仅从优美的文字其中蕴藏的哲思角度而言，这就是一本太过美妙的书。\n为啥不去写小说呢？立个小目标，捞个诺贝尔也不错啊 /笑',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s32332471.jpg'
+    imageURL: 's32332471.jpg'
   },
   {
     src: 'https://book.douban.com/subject/3551720/',
@@ -528,7 +528,7 @@ module.exports = [
     rate: '3',
     tag: ['小说', '意识流', '杜拉斯', '法国'],
     description: '我第一次被小说虐了，不是因为冗长乏味的外国人名，而是因为晦涩难懂的跳跃式写作手法。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29817984.jpg'
+    imageURL: 's29817984.jpg'
   },
   {
     src: 'https://book.douban.com/subject/24715686/',
@@ -539,7 +539,7 @@ module.exports = [
     rate: '5',
     tag: ['科幻', '菲利普·迪克', '赛博朋克'],
     description: '情节跌宕，层次丰富，笔力浑厚。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s26858994.jpg'
+    imageURL: 's26858994.jpg'
   },
   {
     src: 'https://book.douban.com/subject/19985027/',
@@ -550,7 +550,7 @@ module.exports = [
     rate: '4',
     tag: ['太宰治', '日本'],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s24428823.jpg'
+    imageURL: 's24428823.jpg'
   },
   {
     src: 'https://book.douban.com/subject/24257486/',
@@ -562,7 +562,7 @@ module.exports = [
     tag: ['上海译文出版社', '加缪', '存在主义', '文学'],
     description:
       '感觉像是三幕式结构的中篇小说。内容很棒。译者评也很精彩。\n只是我实在不喜欢第一部的描写，虽然说这一部分对刻画主人公局外人的生活占据重要的篇幅，但我宁愿这是一篇短篇。真正讨喜的东西在第二部分中，相比之下，第一部分实在有些索然无味。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s27003183.jpg'
+    imageURL: 's27003183.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27114418/',
@@ -574,7 +574,7 @@ module.exports = [
     tag: ['回忆录', '心理', '抑郁症'],
     description:
       '我就在等这样一本书，没有普遍社科书籍中令人生厌的乏味实验，而仅以文字力量记录真实的这样一本书。书中结构像是随笔的编排，读起来不算累但是稍微有一些脱节，不过到最后居然有一丝恰到好处的意味。\n我太喜欢快结尾时那几十小节颇有哲思的抒情写法了，不过我心里清楚，这是太多生活态度与思想与作者不谋而合所带来 的“偏见”。（从 4 星升至 5 星的主要原因）',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29636724.jpg'
+    imageURL: 's29636724.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27003014/',
@@ -585,7 +585,7 @@ module.exports = [
     rate: '3',
     tag: ['轻读物'],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29492853.jpg'
+    imageURL: 's29492853.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30471297/',
@@ -597,7 +597,7 @@ module.exports = [
     tag: ['太空', '太空漫游系列', '科幻', '阿瑟·克拉克'],
     description:
       '我原以为所有的好故事，都笼罩在预言的阴霾之下。太空漫游系列似乎是个例外，这次语言带来的不是阴霾，而是引爆木星的热浪。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s32330892.jpg'
+    imageURL: 's32330892.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30325334/',
@@ -609,7 +609,7 @@ module.exports = [
     tag: ['日本文学', '诗歌', '诗集', '谷川俊太郎'],
     description:
       '所有隐秘的情感，都\n藏在星空里，\n藏在夜星闪烁，天幕旋转的地方。\n我在永夜的极光下，\n踏上萧索冰川，\n和它冻住的海。\n寻找那些美好的情感，\n种子般发芽的是幻象。\n睁开双眼，\n是三万年前的宇宙\n在翻腾；\n闭上双眼，星星黯淡，\n宇宙沉默如死寂，\n只有你。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s29895037.jpg'
+    imageURL: 's29895037.jpg'
   },
   {
     src: 'https://book.douban.com/subject/33378880/',
@@ -620,7 +620,7 @@ module.exports = [
     rate: '5',
     tag: ['心理学', '思维方式', '批判性思维', '认知', '逻辑'],
     description: '看此书之前我一定是个小杠精，要不然我怎么会来追逐抬扛的大山？',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s32294029.jpg'
+    imageURL: 's32294029.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30226285/',
@@ -631,7 +631,7 @@ module.exports = [
     rate: '4',
     tag: ['写作', '剧本', '日本', '游戏', '策划创意', '编剧', '设计'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29843475.jpg'
+    imageURL: 's29843475.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30386234/',
@@ -642,7 +642,7 @@ module.exports = [
     rate: '5',
     tag: ['哲学', '奇怪的东西', '思想种种', '思维', '科普'],
     description: '非常好读的入门科普。看完之后第一反应是对超人更加敬佩了哈哈哈哈。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s29942549.jpg'
+    imageURL: 's29942549.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26417523/',
@@ -653,7 +653,7 @@ module.exports = [
     rate: '2',
     tag: ['心理学', '科普', '趣味科普', '通俗易懂'],
     description: '',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s28102047.jpg'
+    imageURL: 's28102047.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30135706/',
@@ -664,7 +664,7 @@ module.exports = [
     rate: '5',
     tag: ['当代', '文学', '曹頔', '温暖', '随笔'],
     description: '掩卷后若有所思，便是好书',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29681993.jpg'
+    imageURL: 's29681993.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27190290/',
@@ -675,7 +675,7 @@ module.exports = [
     rate: '3',
     tag: ['游戏'],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29647332.jpg'
+    imageURL: 's29647332.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30355379/',
@@ -687,7 +687,7 @@ module.exports = [
     tag: ['哲学', '心理', '心理学', '社会学', '科普'],
     description:
       '有人说爱情是热恋鲜奶和玫瑰，有人说爱情是冬雷震震夏雨雪天地合，有人说爱情是知心相交... 很遗憾这些都不是，至少不完全是。',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29899316.jpg'
+    imageURL: 's29899316.jpg'
   },
   {
     src: 'https://book.douban.com/subject/25923695/',
@@ -698,7 +698,7 @@ module.exports = [
     rate: '4',
     tag: ['伦理学', '心理', '社科', '道德哲学'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s28271114.jpg'
+    imageURL: 's28271114.jpg'
   },
   {
     src: 'https://book.douban.com/subject/33442956/',
@@ -709,7 +709,7 @@ module.exports = [
     rate: '4',
     tag: ['哲学', '方法论', '艾德勒'],
     description: '希望国内能再多些艾德勒的译本',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s33310609.jpg'
+    imageURL: 's33310609.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30293663/',
@@ -721,7 +721,7 @@ module.exports = [
     tag: ['书名奇怪', '幽默', '批评', '日志', '纪实', '英国', '英式幽默'],
     description:
       '3/5 篇幅的日记，2/5 篇幅的批评，满分的幽默水平背后是一群人对整个国家制度的抗争以及自己内心的挣扎。\n五分吧，还是强烈推荐别人读的。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s31469977.jpg'
+    imageURL: 's31469977.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26627837/',
@@ -733,7 +733,7 @@ module.exports = [
     tag: ['日本', '短篇集', '芥川龙之介', '赵玉皎'],
     description:
       '和以往看过的短篇相比，这本读着着实令我着迷又心累。芥川龙之介的短篇中描绘的细小微妙的情感，往往还需多仔细琢磨，更甚有时啥也揣摩不出来，这是若是不阅读注解或书评，根本无法继续阅读。题外话，我对《一个傻子的一生》那篇心生敬畏险些放弃阅读，好在注解来的及时。不得不说这个译版十分有心，从导读到译后记、选材、注解等多个角度而言都颇显心意，巧妙的呈现了一个颇为完整的芥川龙之介的形象。高分理所应当。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28302171.jpg'
+    imageURL: 's28302171.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27091105/',
@@ -744,7 +744,7 @@ module.exports = [
     rate: '4',
     tag: ['短篇', '科幻'],
     description: '选题、翻译都阔以，有几篇不是看的特别懂，书中也没有给出相应的注释，但总体来说质量不错。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29496962.jpg'
+    imageURL: 's29496962.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26759579/',
@@ -756,7 +756,7 @@ module.exports = [
     tag: ['周作人', '日本', '诗歌'],
     description:
       '没有就着人间疾苦一边呷一口酒，我很难体会到石川啄木的苦难和哀痛。但是这些以血写成的诗歌，其间蕴藏着无穷情感，并不出乎意料地温柔地和我相通。有时候是触景伤情——冰川下冻住的河流，树林里响起索索风声，闪光的海面倒映着冬天的月。有时仅仅是为的琐事烦恼——有没有那一种药？淡绿色的，喝了会使身体像水似的透明的药？感慨之余，忽然想到当初是想看双语版来着，顺便学习些日语也好。不得不说的是，这版的翻译很精彩，恰到好处。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28685720.jpg'
+    imageURL: 's28685720.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27605366/',
@@ -767,7 +767,7 @@ module.exports = [
     rate: '3',
     tag: ['前端', '前端工程化'],
     description: '好几口气才看完，前面的概念的部分有点过于枯燥，不过后面涉及到技术的部分讲的挺清楚的。总的来说还行 ～',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29640354.jpg'
+    imageURL: 's29640354.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30206558/',
@@ -780,7 +780,7 @@ module.exports = [
     tag: ['日本', '短篇', '科幻', '美国'],
     description:
       '最近都在看日本相关的作品，就连这本科幻短篇也是。\n《日本未来时》不仅有孤寂的宇宙行星和涂满绚烂花纹流浪的机甲，它给我更大的感受是可遇不可求，刹那间自我联结万物，宛若神性一般的物哀美学。\n 太漂亮了，内容，封面，书签，一本满足！',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29897936.jpg'
+    imageURL: 's29897936.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27013708/',
@@ -792,7 +792,7 @@ module.exports = [
     tag: ['杂文', '王小波', '黑色幽默'],
     description:
       '90/100 可能是先读鲁迅的杂文使我患上了心力不足的症状，小波书中展现的那种独特的黑色幽默气质，倒成了管用的一味良药。我能在小波身上找到一些与自身相仿的气质和价值观，令我欣喜又畅快。尽管还没到要成为做小波“门下走狗”那种地步，倒是也是满是欢喜——首先是读杂文要比读小说有劲道多了，写的明白，讲得清楚，再好不过。若是能旁征博引，据理力争，对我而言那简直完美，五星好评不为过。再是本书除了杂文，还有大篇幅的序跋，两种文体中高频出现的一些词可以结合起来还原作者接触的作品及他的“有趣”的世界观。十分有继续探索的价值 hhhh',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29419061.jpg'
+    imageURL: 's29419061.jpg'
   },
   {
     src: 'https://book.douban.com/subject/33385476/',
@@ -804,7 +804,7 @@ module.exports = [
     tag: [],
     description:
       '第一章后弃坑，并不是书的问题。而是书中大量地理位置名词，人物名词然后我感到迷茫，束手无策。我记得上一次碰到这种情况，还是巴拉巴西的<爆发>，也是看得脑瓜疼。至于第一章能看完，存粹是因为玩过大航海的游戏，对大航海这段历史有着迷之喜爱之情。天晓得我为什么会点进来看这本，天晓得我什么时候会再捡起来看。因为没有看完，留个三星中评。',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s32299368.jpg'
+    imageURL: 's32299368.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26352658/',
@@ -815,7 +815,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '对这本书期望挺高的（主要是封面和作者不错啊 ～ 可以 是熟悉的红宝书味道 86/100 ～',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28291461.jpg'
+    imageURL: 's28291461.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26638316/',
@@ -827,7 +827,7 @@ module.exports = [
     tag: ['JavaScript', '前端', '编程'],
     description:
       '第一版距现在（2019）有些时候了，不过大佬写的书就是不一样：除了浏览器兼容性那部分有些与现代JS脱节之外，JS 本身的那部分高级特征讲得很清楚，代码与解析都很nice。无比期待第二版的阅读体验 ～',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28313380.jpg'
+    imageURL: 's28313380.jpg'
   },
   {
     src: 'https://book.douban.com/subject/25837367/',
@@ -839,7 +839,7 @@ module.exports = [
     tag: ['JavaScript', '前端'],
     description:
       '总的来说还行 55/100 的样子。比较不错的地方是作者能用一些简单的代码，把一些JS原理描述出来，并且狼吞这本书后发现有好些内容确实挺有帮助的。缺点也很明显，作者写书简直就想记博客，再加上书中知识点深浅不一，有点难受。书名叫「启示录」过分了哈哈哈',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s27398466.jpg'
+    imageURL: 's27398466.jpg'
   },
   {
     src: 'https://book.douban.com/subject/21792530/',
@@ -851,7 +851,7 @@ module.exports = [
     tag: ['JavaScript', "O'Reilly", '代码风格', '前端', '编程规范'],
     description:
       '总的还说赶jio不错，整书主要分三个段落，1⃣️首先是基础代码风格部分，作者比较了几种常见的代码风格并描述了其某些优缺点供读者参考。2⃣️第二部分应该划分为JS一些高级特征下的代码风格，讲得不错。3⃣️最后一部分大致为如何使用一个叫Ant的构建工具对代码进行管理，我有点想吐槽作者的编程工具的倾向性，构建工具（或者任务流工具）不选用 Webpack 或是 Gulp，与当下前端环境脱节有些严重了hhh。🌟豆瓣的评分颗粒度太大了些 TOT，如果是10分制我觉得7分比较合适些。如果图书再版替换某些脱节内容的话，那么毫无疑问是满分好评啦～',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s25808235.jpg'
+    imageURL: 's25808235.jpg'
   },
   {
     src: 'https://book.douban.com/subject/3590768/',
@@ -863,7 +863,7 @@ module.exports = [
     tag: ['JavaScript', 'javacript'],
     description:
       '薄薄一本，又充满学识的书，其中也有些很值得体会把玩的编程经验。五星推荐。倒是若说到编程实践，我一定会选择JS忍者秘籍 hhhh',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s3651235.jpg'
+    imageURL: 's3651235.jpg'
   },
   {
     src: 'https://book.douban.com/subject/6438136/',
@@ -874,7 +874,7 @@ module.exports = [
     rate: '3',
     tag: [],
     description: '感觉动画更有意思些～',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s6439936.jpg'
+    imageURL: 's6439936.jpg'
   },
   {
     src: 'https://book.douban.com/subject/1013208/',
@@ -886,7 +886,7 @@ module.exports = [
     tag: [],
     description:
       '该怎么评价呢hhhh... 看电子书和看纸书的感觉完全不一样，所以方法论这种东西也是会过时的，得随实际情况应变。至于书中描述的方法是否能实际运用，感觉与读者自身水平关系很大。就像看记忆魔法书看学习之道那些书籍，我经常会有“顿悟”的感受，在那一刻会有种通过书中文字找回自我的感觉，然而令我遗憾的是我在此书中鲜找到自我，也许再看十年书培养培养感觉？～',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s1670978.jpg'
+    imageURL: 's1670978.jpg'
   },
   {
     src: 'https://book.douban.com/subject/1012611/',
@@ -897,7 +897,7 @@ module.exports = [
     rate: '4',
     tag: ['勒庞', '大众心理', '心理学', '社会', '群体心理学'],
     description: '有些观点还是挺有意思的',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s1988393.jpg'
+    imageURL: 's1988393.jpg'
   },
   {
     src: 'https://book.douban.com/subject/6798611/',
@@ -908,7 +908,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '哦～ 好书～ 读传记给人带来的那种穿越时空的错觉真是让人留念。我还记得我坐在乔布斯旁边吸过致幻剂 hhh',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s6974202.jpg'
+    imageURL: 's6974202.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26983338/',
@@ -919,7 +919,7 @@ module.exports = [
     rate: '3',
     tag: [],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29827174.jpg'
+    imageURL: 's29827174.jpg'
   },
   {
     src: 'https://book.douban.com/subject/1102259/',
@@ -930,7 +930,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '应该多看几眼的～ 忘了很多惹',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s1086045.jpg'
+    imageURL: 's1086045.jpg'
   },
   {
     src: 'https://book.douban.com/subject/2567698/',
@@ -941,7 +941,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s2768378.jpg'
+    imageURL: 's2768378.jpg'
   },
   {
     src: 'https://book.douban.com/subject/25825717/',
@@ -952,7 +952,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '我的挚爱',
-    imageURL: 'https://img1.doubanio.com/view/subject/l/public/s27222807.jpg'
+    imageURL: 's27222807.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26351021/',
@@ -963,7 +963,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '力荐 得找机会再补补～',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28033372.jpg'
+    imageURL: 's28033372.jpg'
   },
   {
     src: 'https://book.douban.com/subject/3132277/',
@@ -974,7 +974,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '好书啊～ 拯救了我的毕业论文 hhhh',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s5914296.jpg'
+    imageURL: 's5914296.jpg'
   },
   {
     src: 'https://book.douban.com/subject/10769712/',
@@ -985,7 +985,7 @@ module.exports = [
     rate: '3',
     tag: [],
     description: '我记得好像是看到一半弃坑了，对我来说最困难的地方在于记住歪果仁那些长长的名字～',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s10579445.jpg'
+    imageURL: 's10579445.jpg'
   },
   {
     src: 'https://book.douban.com/subject/3323633/',
@@ -996,7 +996,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s23486434.jpg'
+    imageURL: 's23486434.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27186106/',
@@ -1007,7 +1007,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '精彩～ 读到精彩篇章时那种感同身受的感觉至今难忘',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29595585.jpg'
+    imageURL: 's29595585.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30210250/',
@@ -1018,7 +1018,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '没看懂～ 讲道理我应该再看一遍',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29860723.jpg'
+    imageURL: 's29860723.jpg'
   },
   {
     src: 'https://book.douban.com/subject/30384064/',
@@ -1029,7 +1029,7 @@ module.exports = [
     rate: '4',
     tag: [],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s29928585.jpg'
+    imageURL: 's29928585.jpg'
   },
   {
     src: 'https://book.douban.com/subject/26773323/',
@@ -1040,7 +1040,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28637162.jpg'
+    imageURL: 's28637162.jpg'
   },
   {
     src: 'https://book.douban.com/subject/6021440/',
@@ -1051,7 +1051,7 @@ module.exports = [
     rate: '5',
     tag: [],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s4669554.jpg'
+    imageURL: 's4669554.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27047949/',
@@ -1062,7 +1062,7 @@ module.exports = [
     rate: '5',
     tag: ['好书，值得一读'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s33650964.jpg'
+    imageURL: 's33650964.jpg'
   },
   {
     src: 'https://book.douban.com/subject/27197035/',
@@ -1074,7 +1074,7 @@ module.exports = [
     tag: ['心理学', '成长', '科普', '荣格'],
     description:
       '虽然说引证丰富，有些章节段落描绘的并不清晰，同时栗子也颇经验主义化了，同时，我在书中常看翻译不妥当的地方，尤其是前半部分。总的来说，是一本不错的荣格原型心理学启蒙书，并且对了解自身的内驱力做了很棒的科普。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s29638493.jpg'
+    imageURL: 's29638493.jpg'
   },
   {
     src: 'https://book.douban.com/subject/24744505/',
@@ -1086,7 +1086,7 @@ module.exports = [
     tag: ['人间失格', '太宰治', '文学', '日本', '日本文学', '短篇小说'],
     description:
       '太宰治能用平白的描述，穿透时间与空间，让读者产生莫大的共鸣。日本文学入坑的第一个作者，我被他深深震撼了。',
-    imageURL: 'https://img3.doubanio.com/view/subject/l/public/s28470753.jpg'
+    imageURL: 's28470753.jpg'
   },
   {
     src: 'https://book.douban.com/subject/25894685/',
@@ -1097,6 +1097,6 @@ module.exports = [
     rate: '4',
     tag: ['Algorithm', '数据结构与算法', '科普', '算法', '编程'],
     description: '',
-    imageURL: 'https://img9.doubanio.com/view/subject/l/public/s27345094.jpg'
+    imageURL: 's27345094.jpg'
   }
 ]

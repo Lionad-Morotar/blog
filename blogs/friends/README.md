@@ -48,7 +48,7 @@
     achieve="有梦想，也有忧伤和理想 🌻"
   />
   <FriendLink
-    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Raptazure_2.jpg"
+    img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Raptazure.png"
     src="https://raptazure.github.io"
     name="Raptazure"
     achieve="在个人网站里记日记的少女 (大雾 🎉"
