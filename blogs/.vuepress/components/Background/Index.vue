@@ -1,18 +1,20 @@
 <template>
-    <Gesture :hover="() => this.startBackground()" hoverTime="1500">
+    <Gesture :hover="() => this.startBackground()" hoverTime="1500" :eventInvoke="requestOnHover">
         <div class="slot-con">
             <slot />
         </div>
         <div class="full-background-cmpt" :class="animClass">
             <div :ref="componentID + '-grid' " class="grid">
-                <div v-for="(image, idx) in displayImages" class="grid__item">
-                    <div
-                        class="grid__item-img"
-                        :style="{ 'background-image': `url(\'${encodeURI(image.src)}\')` }"
-                    >
-                        <div class="name">{{ image.name }}</div>
-                    </div>
-                </div>
+                <template v-if="this.request">
+                  <div v-for="(image, idx) in displayImages" class="grid__item">
+                      <div
+                          class="grid__item-img"
+                          :style="{ 'background-image': `url(\'${encodeURI(image.src)}\')` }"
+                      >
+                          <div class="name">{{ image.name }}</div>
+                      </div>
+                  </div>
+                </template>
                 <div class="info">Favourite 100th</div>
                 <div class="info-shadow">Favourite 100th</div>
             </div>
@@ -43,6 +45,7 @@ export default {
             componentID,
             scrollTop: null,
             firstTime: true,
+            request: false,
             visible: false,
             $eles: [],
             displayImages: [],
@@ -82,7 +85,7 @@ export default {
             name: x.replace && x.replace('.jpg', '') || x.title || x.name,
             src: this.handleURL(x.imageURL || x)
         }))
-      console.log(this.displayImages)
+        // console.log(this.displayImages)
 
         this.$nextTick(() => {
             this.$eles = [...this.$refs[componentID + '-grid'].querySelectorAll('.grid__item')]
@@ -156,6 +159,11 @@ export default {
                 this.$refs[componentID + '-grid'].style.setProperty('--offset-x', x + 'px')
                 this.$refs[componentID + '-grid'].style.setProperty('--offset-y', y + 'px')
             })
+        },
+        requestOnHover(e) {
+          if (e && e.type === "mouseenter") {
+            this.request = true
+          }
         }
     }
 }
