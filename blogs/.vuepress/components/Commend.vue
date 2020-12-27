@@ -61,8 +61,8 @@ export default {
     margin-bottom: 1em
 
     .commend-image {
+      border: solid 1px #4a1227;
       display:block;
-
     }
     .commend-image-name {
       margin: .5em 0;
