@@ -77,7 +77,12 @@ Lionad-Guirtoar @baixing
 
 --
 
+![](https://baixing-assets.obs.cn-east-3.myhuaweicloud.com/%E5%BF%AB%E7%85%A7%E9%A1%B5%E9%9D%A2.png)
+
+--
+
 <video src="https://baixing-assets.obs.cn-east-3.myhuaweicloud.com/%E6%98%93%E6%85%A7%E6%8E%A8-%E6%9F%A5%E8%AF%8D%E9%A1%B5%E9%9D%A2.mp4" autoplay loop />
+
 
 --
 
