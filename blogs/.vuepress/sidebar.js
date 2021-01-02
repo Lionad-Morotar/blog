@@ -106,6 +106,7 @@ const sidebarConfigs = {
     {
       title: 'Play Guitar',
       collapsable: true,
+      open: true,
       children: [
         '163/wait-for-wind',
         '163/promise-ocean',

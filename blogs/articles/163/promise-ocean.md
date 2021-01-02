@@ -1,11 +1,17 @@
 # 💕 约定的海洋
 
+## 视频
+
+<div style="text-align: center;">
+    <iframe src="//player.bilibili.com/player.html?aid=98311395&bvid=BV1nE411F7WE&cid=167821840&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
 ## 单曲
 
 <div style="text-align: center;">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=100 src="//music.163.com/outchain/player?type=1&id=85600656&auto=0"></iframe>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=100 src="//music.163.com/outchain/player?type=2&id=1432931718&auto=0"></iframe>
     <p style="text-align: center;">
-        <a rel="nofollow" href="https://music.163.com/#/outchain/1/85600656/">网易云直达</a>
+        <a rel="nofollow" href="https://music.163.com/#/song?id=1432931718">网易云直达</a>
     </p>
 </div>
 
