@@ -45,6 +45,10 @@ logo: 'https://gravatar.loli.net/avatar/1023688aa5bd010e35fdf503280955c9'
   emoji {
     font-size: 1.8em;
   }
+  .description {
+    margin: .8em 0;
+    font-size: 16px;
+  }
 </style>
 
 # OKR Review
@@ -55,9 +59,9 @@ Lionad-Guirtoar @baixing
 
 ### 内容总览
 
-1. 业务输出及质量保证（7/10）
+1. 业务输出及质量保证（8/10）
 2. 团队协作与技术迭代（1/10）
-3. 个人能力成长（2/10）
+3. 个人技术能力成长（1/10）
 
 ---
 
@@ -67,30 +71,66 @@ Lionad-Guirtoar @baixing
 
 <span class="label-idx">1</span>易慧推迭代
 
-// TODO
+1. 完成一期攻坚，查词记录、报表页等
+2. 完成二期迭代，三词一省、图表优化
+3. 支持三期迭代，前端逻辑微调
 
-快照页面：样式隔离、兼容压缩快照
+--
+
+<video src="https://baixing-assets.obs.cn-east-3.myhuaweicloud.com/%E6%98%93%E6%85%A7%E6%8E%A8-%E6%9F%A5%E8%AF%8D%E9%A1%B5%E9%9D%A2.mp4" autoplay loop />
+
+--
+
+目标、挑战性 & 结果
+
+1. 熟悉工作流程及代码，快速融入团队
+2. 按时保质完成迭代，无技术原因延期
+
+<!-- 未来：看业务安排 -->
 
 --
 
 <span class="label-idx">2</span>中台配置系统
 
-// TODO
-
-重复造轮子、项目管理
+0. <del>【入职两周】系统搭建，业务页面编写</del>
+1. 【9月底~攻坚前】联调自测、部署到线下
+2. 【11月27日】和曹勇交接商品服务代码
 
 --
 
-<span class="label-idx">3</span>代码质量
+![](https://baixing-assets.obs.cn-east-3.myhuaweicloud.com/%E5%88%9B%E5%BB%BA%E5%95%86%E5%93%81%E9%A1%B5%E9%9D%A2.png)
 
-// TODO
+<!-- 不展示视频 -->
+
+--
+
+目标 & 结果
+
+1. 延期两周、暂停开发
+2. 了解项目部署基本操作
+3. 后续接OA登录、测试...{.fragment}
+
+<!-- 看安排 -->
+
+--
+
+<span class="label-idx">3</span>标王凤鸣
+
+支持为主、小的需求
+
+--
+
+<span class="label-idx">4</span>代码质量
+
+1. 线上没有影响业务流程的问题
+2. 提测时稍轻浮、问题较多（攻坚）
 
 --
 
 <span class="label-idx">总</span><span class="label-idx">结</span>
 
 1. 多思考业务，提高代码质量
-2. 学习项目管理，加强落地能力
+2. <del>学习项目管理，加强落地能力</del>
 
 note: 多思考业务，前因后果，数据的来由与去向，才能对代码的各种边界条件更游刃有余。
 
@@ -108,35 +148,13 @@ note: 学习项目管理是指，从调研需求、明确项目目标、里程�
 
 - 遇到了什么问题？
 - 怎么去解决这些问题？
-- 当前结果以及新的目标
-
----
-
-### 遇到了什么问题？
+- 当前结果 & 新的目标
 
 --
 
-note: 先看一张图，
-
-<p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_faMD4wFyo0.png" style="margin-top: .5em; max-height: 38vh;" /></p>
-
-1. 遗留问题**过杂** {.fragment .current-only}
-
-2. 遗留问题**过多** {.fragment .current-only}
+### [遇到了什么问题？](http://sentry.baixing.cn/BX/bax-fe-90/searches/655/)
 
 --
-
-<span class="label-idx">杂</span><span class="fragment">噪音过多，无法有效跟踪错误</span>
-
-note: 各种网络错误、权限报错、框架代码错误扰乱视线，没有办法通过“最新问题”过滤出上线后的新代码到底有没有发生什么代码质量问题。
-
-<span class="label-idx">多</span><span class="fragment">反应了令人不愉快的代码异味</span>
-
-note: 举个例子，从某个错误跟踪到某个函数没处理空值，然后查代码后发现这段函数居然有多份拷贝。
-
-note: 这两点中的任何一点都非常另人沮丧。
-
----
 
 ### 怎么去解决这些问题？
 
@@ -153,17 +171,13 @@ note: 这两点中的任何一点都非常另人沮丧。
 
 --
 
-<span class="label-idx">版</span><span class="label-idx">本</span><span class="label-idx">控</span><span class="label-idx">制</span>
+<a href="http://sentry.baixing.cn/BX/bax-fe-90/releases/" target="_blank" rel="nofollow"><span class="label-idx">版</span><span class="label-idx">本</span><span class="label-idx">控</span><span class="label-idx">制</span></a>
 
 ![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224035754.png)
 
 --
 
 ![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224034920.png)
-
---
-
-版本迭代把数值巨大的目标，分解为步骤
 
 --
 
@@ -213,39 +227,7 @@ graph LR
 
 --
 
-<span class="label-idx">静</span><span class="label-idx">默</span> <span class="label-idx">版</span><span class="label-idx">本</span><span class="label-idx">控</span><span class="label-idx">制</span> <span class="label-idx">规</span><span class="label-idx">范</span> <span class="label-idx">流</span><span class="label-idx">程</span><span class="label-idx">约</span><span class="label-idx">束</span>
-
-那么我的上层思考是什么？{.fragment}
-
---
-
-<span class="label-idx">信</span><span class="label-idx">条</span>
-
-- 努力不是推倒一切，而是**和平共处**
-- 解决问题的上层思考，是**规避问题**
-
----
-
-### 结果
-
---
-
-note: 最主要的几点
-
-1. 轻松跟踪新问题
-2. 是项目基础建设
-
-// TODO
-
----
-
-### 新目标
-
---
-
-<span class="label-idx">\*.</span>善用 Sentry
-
-团队协作、用户信息、邮件报警、页面性能追踪...
+### 当前结果 & 新的目标
 
 --
 
@@ -253,47 +235,13 @@ note: 最主要的几点
 
 代码生成器，把整套设施可选择性的迁移到新项目
 
---
-
-<span class="label-idx">\*.</span>ESLint 接 Sonar
-
---
-
-// TODO
-
 ---
 
 ### 个人成长
 
---
-
-Java
-
-// TODO
-
---
-
-JS 核心原理
-
-// TODO
-
---
-
-分享
-
-// TODO
-
----
-
-<span class="label-idx">个</span><span class="label-idx">人</span><span class="label-idx">总</span><span class="label-idx">结</span>
-
-加强业务思考
-
-提高分享能力
-
-努力把项目落地
-
-// TODO
+1. Java
+2. JS 核心原理
+3. 团队分享
 
 ---
 
