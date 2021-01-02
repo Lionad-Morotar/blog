@@ -125,7 +125,7 @@ module.exports = {
       count: 10,
       filter: page => {
         const shouldConvert = /^articles\/((flow\/)|([^\/]*\.md$))/.test(page.relativePath)
-        const manual = ['js-100']
+        const manual = ['thinking-while-drinking']
 
         return manual.length ? manual.find(x => (page.relativePath || '').includes(x)) : shouldConvert
       }
