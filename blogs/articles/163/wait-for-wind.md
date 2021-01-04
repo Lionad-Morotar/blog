@@ -1,11 +1,18 @@
 # 🌫 等待的风
 
+## 视频
+
+<div style="text-align: center;">
+    <iframe src="//player.bilibili.com/player.html?aid=87893912&bvid=BV1t741147kV&cid=150164575&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+
+
 ## 单曲
 
 <div style="text-align: center;">
-    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=100 src="//music.163.com/outchain/player?type=1&id=85600656&auto=1"></iframe>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=100 src="//music.163.com/outchain/player?type=1&id=85600656&auto=0"></iframe>
     <p style="text-align: center;">
-        <a rel="nofollow" href="https://music.163.com/#/outchain/1/85600656/">网易云直达</a>
+        <a rel="nofollow" href="https://music.163.com/#/song?id=1422100657">网易云直达</a>
     </p>
 </div>
 

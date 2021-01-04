@@ -33,6 +33,7 @@ My personal websites，build with VuePress, you can visit at here: [http://www.l
 * chore：项目配置等杂项变动
 * gist（gists）: 零散的思绪
 * blog（blogs）：技术博客
+* text：细小的修复，如文本、图片链接
 * feat：项目功能变动（或是博客内容相关功能）
 * format：代码格式化
 * style：页面样式变动
