@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .frame {
   width: 100%;
   height: 50vh;
