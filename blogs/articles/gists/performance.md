@@ -15,7 +15,9 @@
 
 可以发现，性能指标所代表的意义最终会回归到“用户体验”。随着技术的进步，用户的体验阀值被不断推高，开发需要与时俱进，甚至要领先技术一步，才能满足用户体验。
 
-## 性能指标
+## 性能指标与性能模型
+
+### 性能指标
 
 页面加载时会有一些基础的性能数据。“数据”意味着这是可精准测量的数字，即是定量的指标。下图表明了根据 Navigation Timing 规范，浏览器从发起请求到页面加载完毕期间记录的各关键操作时间节点。
 
@@ -66,7 +68,7 @@ console.log(performance.timing)
 
 如果想要知道浏览器请求某个网页时花费了多少 DNS 查询时间多久，那么只要用 domainLookupEnd - domainLookupStart 就得到结果了。
 
-## 性能模型
+### 性能模型
 
 页面性能模型和数据指标概念上有所不同。性能模型是按照固定算法将指标聚合形成的用来描述页面性能的方法。比方说，页面白屏时间可以被描述为：请求、下载资源时间 + 解析文档与样式时间 + 构建渲染树时间。
 
@@ -97,9 +99,27 @@ Web Vitals 主要评估以下维度的数据：
 
 这就需要结合业务去制定具体的评估性能的模型了。
 
-## 评估工具
+## 解决方案
 
+以下展示一种可能的解决方案：
 
+[webpack-lighthouse-plugin](https://github.com/Lionad-Morotar/webpack-lighthouse-plugin)
+
+原理如下：
+
+1. 使用 chrome-launcher 启动 Chrome。此时可以拿到 Chrome 启动的调试端口号。
+2. Lighhouse 根据调试端口号连接 Chrome，打开指定页面，并开始评估页面性能，最后输出报告。
+
+Lighthouse 运行时只依赖 Node 环境和 Chrome 的调试端口号，所以 chrome-launcher 可以用 WebDriver 替代。
+
+如果想评估工具放到 CI/CD 中，那么以下步骤可能是一个合适的解决方案。
+
+1. 使用 Node.js 接受请求。请求数据可能包含：待评估的 URL、Chrome 启动参数和 Lighthouse 配置，回调函数 ID。
+2. 将请求数据丢入队列。
+3. Lighthouse 评估页面，获取报告。
+4. 报告完成后，上传报告到 OSS，并回传回调函数 ID 及报告地址。
+
+<img class="nb" alt="Webpack Style Loaders" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/webpack-lighthouse-plugin.svg?w=70" />
 
 ## 阅读更多
 
