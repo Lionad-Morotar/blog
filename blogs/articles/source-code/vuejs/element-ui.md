@@ -253,6 +253,18 @@ fs.writeFile(path.resolve(__dirname, '../../examples/icon.json'), JSON.stringify
 
 ## 组件逻辑
 
+### Dialog
+
+你在按钮组件里面套过模态框么？
+
+反正我新手的时候就干过这事儿。模态框往往有一层黑色遮罩，会 100% 贴合其父元素，但如果在按钮组件里面套模态框，那遮罩就不能覆盖整个页面了。
+
+Element 使用给 dialog 增加 append-to-body 属性，将 dialog 的 DOM 节点直接添加到 body 内，就可解决。
+
+```js
+document.body.appenChild(this.$el)
+```
+
 ### Clickble
 
 ## 阅读更多
