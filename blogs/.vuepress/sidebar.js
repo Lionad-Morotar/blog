@@ -73,6 +73,7 @@ const sidebarConfigs = {
       collapsable: false,
       open: true,
       children: [
+        'anysort',
         'js-100',
         'helmet-and-security',
         'design-patterns-and-js-magic-pot',

@@ -24,28 +24,28 @@ logo: 'https://gravatar.loli.net/avatar/1023688aa5bd010e35fdf503280955c9'
     max-width: 100%;
     border: none;
   }
-  .slides h3 + p {
+  .reveal .slides h3 + p {
     margin-top: 1.1em;
   }
-  .label-idx {
+  .reveal .label-idx {
     display: inline-block;
     margin-right: .35em;
-    width: 1.35em;
+    min-width: 1.35em;
     border-radius: 0px;
     background-color: #383d3d;
     color: #f0f1eb;
     font-weight: bold;
   }
-  .label-idx + .label-idx {
+  .reveal .label-idx + .label-idx {
     margin-left: -.35em;
   }
-  del {
+  .reveal del {
     opacity: .31;
   }
-  emoji {
+  .reveal emoji {
     font-size: 1.8em;
   }
-  .description {
+  .reveal .description {
     margin: .8em 0;
     font-size: 16px;
   }
