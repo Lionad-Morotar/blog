@@ -101,7 +101,9 @@ Web Vitals 主要评估以下维度的数据：
 
 ## 解决方案
 
-以下展示一种可能的解决方案：
+### 结合打包工具
+
+在 Webpack 打包结束后自动运行 Lighthouse 以评估网站的性能和用户体验。
 
 [webpack-lighthouse-plugin](https://github.com/Lionad-Morotar/webpack-lighthouse-plugin)
 
@@ -119,7 +121,15 @@ Lighthouse 运行时只依赖 Node 环境和 Chrome 的调试端口号，所以 
 3. Lighthouse 评估页面，获取报告。
 4. 报告完成后，上传报告到 OSS，并回传回调函数 ID 及报告地址。
 
-<img class="nb" alt="Webpack Style Loaders" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/webpack-lighthouse-plugin.svg?w=70" />
+### 使用爬虫工具
+
+爬虫工具能递归抓取网站的每一个页面，所以倾向于输出完整的报告，以及图表，以供各个页面间对比分析。
+
+[lighthouse-parade](https://github.com/cloudfour/lighthouse-parade)
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/lcp_histogram.svg)
+
+![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/dfwf_report.svg)
 
 ## 阅读更多
 
