@@ -55,6 +55,7 @@ const sidebarConfigs = {
       collapsable: false,
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
+        'art',
         'books',
         'punctuations',
         'misleading-and-assumptions',
