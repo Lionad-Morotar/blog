@@ -56,7 +56,8 @@
                 </div>
 
                 <div class="footer" v-if="data.footer">
-                    <span>{{ data.footer }} /</span>
+                    <span>{{ data.footer }}<span class="seg"> / </span></span>
+                    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow">沪ICP备2021001426号<span class="seg"> / </span></a>
                     <a href="/friends">与我联络 & 友情链接(Links)</a>
                 </div>
             </div>
