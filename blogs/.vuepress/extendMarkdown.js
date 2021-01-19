@@ -11,6 +11,10 @@ function imageLazyLoadPlugin(md) {
 function extendMarkdown(md) {
     md.use(require('markdown-it-toc-done-right'))
     md.use(require('markdown-it-footnote'))
+    md.use(require('markdown-it-implicit-figures'), {
+        figcaption: true,
+        dataType: true
+    })
 }
 
 function chainMarkdown(config) {
