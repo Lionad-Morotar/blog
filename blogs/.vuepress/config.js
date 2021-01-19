@@ -14,8 +14,8 @@ const valineKey = require('./secrets/valine-key').default
 // )
 const shouldPrefetchPages = ['art']
 
-// const HOST = 'http://lionad.art'
-const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
+const HOST = 'https://www.lionad.art'
+// const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
 
 module.exports = {
   /** develop config */
