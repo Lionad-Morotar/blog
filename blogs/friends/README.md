@@ -71,12 +71,12 @@
     name="Roki"
     achieve="Roki 玩塔科夫玩到半夜三点 🕒"
   />
-  <FriendLink
+  <!-- <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Deeruby.jpg"
     src="https://deeruby.com"
     name="Deeruby"
     achieve="易骏的博客 🍺"
-  />
+  /> -->
   <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Wrath.png"
     src="https://wrath.cc"
