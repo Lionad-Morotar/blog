@@ -1,3 +1,7 @@
+<flow>人应该能够更换尿布，策划战争，杀一头猪，开船掌舵，设计建筑，写十四行诗，会计结算，粉刷砌墙，治疗脱臼，安慰临终的人，执行命令，发布命令，携手合作，独立行动，解数学方程，分析问题，施肥铲粪，电脑编程，做可口的饭菜，高效地战斗，勇敢地死去。只有昆虫才专业化。
+<name><a href="https://baike.baidu.com/item/%E7%BD%97%E4%BC%AF%E7%89%B9%C2%B7%E5%AE%89%E6%A3%AE%C2%B7%E6%B5%B7%E5%9B%A0%E8%8E%B1%E5%9B%A0" rel="noopener noreferrer" target="_blank">罗伯特·安森·海因莱因</a></name>
+</flow>
+
 <flow>为什么浏览器使用 HTTP/2 协议通讯时需要 HTTPS 为基础：
 <ul>
     <div>0：以下答案在今天也许并不适用；</div>
@@ -5,7 +9,7 @@
     <div>2：减少一些老旧的（不支持新协议）的中间件对请求的影响；</div>
     <div>3：一些老旧的服务器在协商 HTTP/2 时会直接返回错误，而协商 HTTPS 时直接返回错误的可能性要更小；</div>
 </ul>
-<name><a href="https://stackoverflow.com/questions/34076231/why-do-browser-implementations-of-http-2-require-tls">Why do browser implementations of HTTP/2 require TLS ?</a></name>
+<name><a href="https://stackoverflow.com/questions/34076231/why-do-browser-implementations-of-http-2-require-tls" rel="noopener noreferrer" target="_blank">Why do browser implementations of HTTP/2 require TLS ?</a></name>
 </flow>
 
 <flow>比 Chrome Dev 更高级的弱网环境模拟：Clumsy 能系统级拦截指定类型的连接，模拟丢包、延迟、断连、乱序等状况。
