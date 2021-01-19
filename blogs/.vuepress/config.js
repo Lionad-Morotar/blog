@@ -9,9 +9,10 @@ const { chainMarkdown, extendMarkdown } = require('./extendMarkdown')
 const valineID = require('./secrets/valine-id').default
 const valineKey = require('./secrets/valine-key').default
 
-const shouldPrefetchPages = ['为什么我要写博客'].map(item =>
-  pinyin(item, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
-)
+// const shouldPrefetchPages = ['为什么我要写博客'].map(item =>
+//   pinyin(item, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
+// )
+const shouldPrefetchPages = ['art']
 
 // const HOST = 'http://lionad.art'
 const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
@@ -44,8 +45,9 @@ module.exports = {
     search: false,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Articles', link: '/articles/' },
-      { text: 'Flows', link: '/flows/' }
+      { text: 'Posts', link: '/articles/' },
+      { text: 'Flows', link: '/flows/' },
+      { text: 'Links', link: '/friends/' }
       // { text: 'Hire Me', link: '/hire-me/' }
     ],
     sidebar: {
@@ -97,7 +99,11 @@ module.exports = {
         '.theme-default-content > img,' +
         '.theme-default-content > p > img,' +
         '.theme-default-content > ul > li > img,' +
-        '.theme-default-content > ol > li > img',
+        '.theme-default-content > ol > li > img,' +
+        '.theme-default-content > figure > img,' +
+        '.theme-default-content > p > figure > img,' +
+        '.theme-default-content > ul > li > figure > img,' +
+        '.theme-default-content > ol > li > figure > img',
       delay: 1000,
       options: {
         margin: 24,
@@ -125,7 +131,7 @@ module.exports = {
       count: 10,
       filter: page => {
         const shouldConvert = /^articles\/((flow\/)|([^\/]*\.md$))/.test(page.relativePath)
-        const manual = ['anysort']
+        const manual = ['art']
 
         return manual.length ? manual.find(x => (page.relativePath || '').includes(x)) : shouldConvert
       }
