@@ -13,8 +13,8 @@ const shouldPrefetchPages = ['为什么我要写博客'].map(item =>
   pinyin(item, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
 )
 
-// const HOST = 'http://lionad.art'
-const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
+const HOST = 'https://www.lionad.art'
+// const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
 
 module.exports = {
   /** develop config */
