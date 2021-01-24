@@ -1,6 +1,8 @@
 # 【绘画系列】书封展示
 
-## 实例
+[TOC]
+
+## 演示
 
 <div class="book-ppt-con">
   <label>Open fullscreen: </label>
@@ -94,6 +96,9 @@
     height: 100vh;
     z-index: 99998;
   }
+  .book-ppt-fs-select:checked + .wh-container .book {
+    min-width: 300px;
+  }
   .book-ppt {
     position: relative;
     display: flex;
@@ -134,7 +139,9 @@
   .book-ppt .book {
     position: relative;
     margin-top: -1vh;
+    margin-right: -1vh;
     width: 32%;
+    max-width: 600px;
     font-size: 0;
     box-shadow: 
       -55px 40px 30px 0 rgb(0 0 0 / 10%), 
@@ -172,3 +179,27 @@
     background-position: 0% top, 9% top;
   }
 </style>
+
+## 解析
+
+* 背景的磨砂质感使用 SVG 绘制。
+* 在磨砂背景上叠加了一层来自右上角的 radial-gradient 渐变仿制点光源。
+* 书的褶皱使用 linear-gradient 渐变绘制。
+* 书的边缘进行了模糊处理。
+* 阴影使用了多重阴影。
+
+## 代码
+
+磨砂滤镜代码示例：
+
+```html
+<svg width="0" height="0">
+  <filter id="book-ppt-paper-1">
+    <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
+    <feDiffuseLighting in='noise' lighting-color='#004F85' surfaceScale='.8' result="grind">
+      <feDistantLight azimuth='500' elevation='50' />
+    </feDiffuseLighting>
+    <feGaussianBlur in="grind" stdDeviation=".5"/>
+  </filter>
+</svg>
+```
