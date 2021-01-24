@@ -2,28 +2,74 @@
 
 ## 实例
 
-<label>Open fullscreen: </label>
-<input class="book-ppt-fs-select" type="checkbox" />
-<WHRatio h="68%">
-  <div class="book-ppt">
-    <div class="paper" />
-    <div class="book">
-      <div class="cover">
-        <img src="https://mgear-blog-image.obs.cn-east-3.myhuaweicloud.com/douban/s29779230.jpg" />
+<div class="book-ppt-con">
+  <label>Open fullscreen: </label>
+  <input class="book-ppt-fs-select" type="checkbox" />
+  <WHRatio h="68%">
+    <div class="book-ppt">
+      <div class="paper" />
+      <div class="book">
+        <div class="cover">
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg" />
+        </div>
+        <img class="corner" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg" />
       </div>
-      <img class="corner" src="https://mgear-blog-image.obs.cn-east-3.myhuaweicloud.com/douban/s29779230.jpg" />
     </div>
-  </div>
-  <svg width="0" height="0">
-    <filter id="paper">
-      <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
-      <feDiffuseLighting in='noise' lighting-color='white' surfaceScale='1' result="grind">
-        <feDistantLight azimuth='500' elevation='50' />
-      </feDiffuseLighting>
-      <feGaussianBlur in="grind" stdDeviation=".7"/>
-    </filter>
-  </svg>
-</WHRatio>
+    <svg width="0" height="0">
+      <filter id="book-ppt-paper-1">
+        <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
+        <feDiffuseLighting in='noise' lighting-color='#004F85' surfaceScale='.8' result="grind">
+          <feDistantLight azimuth='500' elevation='50' />
+        </feDiffuseLighting>
+        <feGaussianBlur in="grind" stdDeviation=".5"/>
+      </filter>
+    </svg>
+  </WHRatio>
+  <label>Open fullscreen: </label>
+  <input class="book-ppt-fs-select" type="checkbox" />
+  <WHRatio h="68%">
+    <div class="book-ppt">
+      <div class="paper" />
+      <div class="book">
+        <div class="cover">
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2830217111.jpg" />
+        </div>
+        <img class="corner" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2830217111.jpg" />
+      </div>
+    </div>
+    <svg width="0" height="0">
+      <filter id="book-ppt-paper-2">
+        <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
+        <feDiffuseLighting in='noise' lighting-color='#ddd' surfaceScale='.8' result="grind">
+          <feDistantLight azimuth='500' elevation='50' />
+        </feDiffuseLighting>
+        <feGaussianBlur in="grind" stdDeviation=".5"/>
+      </filter>
+    </svg>
+  </WHRatio>
+  <label>Open fullscreen: </label>
+  <input class="book-ppt-fs-select" type="checkbox" />
+  <WHRatio h="68%">
+    <div class="book-ppt">
+      <div class="paper" />
+      <div class="book">
+        <div class="cover">
+          <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg" />
+        </div>
+        <img class="corner" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg" />
+      </div>
+    </div>
+    <svg width="0" height="0">
+      <filter id="book-ppt-paper-3">
+        <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
+        <feDiffuseLighting in='noise' lighting-color='#7F191D' surfaceScale='.8' result="grind">
+          <feDistantLight azimuth='500' elevation='50' />
+        </feDiffuseLighting>
+        <feGaussianBlur in="grind" stdDeviation=".5"/>
+      </filter>
+    </svg>
+  </WHRatio>
+</div>
 
 <style>
   .book-ppt-fs-select:checked {
@@ -63,8 +109,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(ellipse at 100% 0%, #7f96cd, #5d7db5);
   }
+  .book-ppt .paper::before,
   .book-ppt .paper::after {
     content: '';
     position: absolute;
@@ -72,25 +118,43 @@
     left: 0;
     width: 100%;
     height: 100%;
-    filter: url(#paper);
-    background-blend-mode: lighten;
+  }
+  .book-ppt-con .wh-container:nth-child(3) .paper::before {
+    filter: url(#book-ppt-paper-1);
+  }
+  .book-ppt-con .wh-container:nth-child(6) .paper::before {
+    filter: url(#book-ppt-paper-2);
+  }
+  .book-ppt-con .wh-container:nth-child(9) .paper::before {
+    filter: url(#book-ppt-paper-3);
+  }
+  .book-ppt .paper::after {
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.23), rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0));
   }
   .book-ppt .book {
     position: relative;
     margin-top: -1vh;
     width: 32%;
     font-size: 0;
-    box-shadow: -55px 40px 30px 0 rgba(0,0,0,0.1), -27px 25px 35px -5px rgba(0,0,0,0.68);
+    box-shadow: 
+      -55px 40px 30px 0 rgb(0 0 0 / 10%), 
+      -10px 10px 15px 5px rgb(0 0 0 / 10%), 
+      -27px 25px 35px -5px rgb(0 0 0 / 20%);
+    filter: drop-shadow(-20px 20px 15px rgba(0 0 0 / 65%));
   }
   .book-ppt .cover {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 1;
+  }
+  .book-ppt .cover img { 
+    border-radius: 2px;
+    image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast;
   }
   .book-ppt .corner {
     filter: blur(1px);
-    z-index: 1;
   }
   .book-ppt .book::after {
     content: '';
@@ -101,8 +165,10 @@
     height: 100%;
     z-index: 2;
     background-repeat: no-repeat;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.15) 0.4%, rgba(255,255,255,0.15) 1.2%, transparent 1.2%);
-    background-size: 50% 100%;
-    background-position: 9% top;
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.2) 0, rgba(255,255,255,0.18) 1%, transparent 1%),
+      linear-gradient(to right, rgba(0,0,0,0.1) 0.2%, rgba(255,255,255,0.35) 1%, transparent 1.3%);
+    background-size: 50% 100%, 50% 100%;
+    background-position: 0% top, 9% top;
   }
 </style>

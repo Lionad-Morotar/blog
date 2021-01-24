@@ -1,5 +1,6 @@
 /* 1PX 解决方案 */
-min-device-pixel-ratio(scale2, scale3) {
+/* FIXME 页面所有 after 和 before 都被缩放 */
+/* min-device-pixel-ratio(scale2, scale3) {
     @media screen and (min-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2) {
         transform: scale2;
     }
@@ -20,7 +21,7 @@ border-bottom-1px() {
         transform-origin: 0 0;
         min-device-pixel-ratio(scaleY(0.5), scaleY(0.33));
     }
-}
+} */
 
 /* 页面正文内容 */
 page-content-selector = '.theme-default-content:not(.custom), footer.page-edit, #page-bottom';
