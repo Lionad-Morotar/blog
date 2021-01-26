@@ -5,7 +5,7 @@
     /* ************************************************************ */
     /* *************************************************** 版面调整 */
     html, body, :root {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .page > .content__default {
@@ -14,10 +14,12 @@
         left: 0;
         width: 100vw;
         height: auto;
+        max-width: unset;
+        size: A4;
         background: var(--color-background);
     }
 
-    .navbar, .sidebar-mask, .sidebar, .table-of-contents, #valine-vuepress-comment {
+    #page-bottom, .navbar, .sidebar-mask, .sidebar, .table-of-contents, #valine-vuepress-comment {
         display: none;
     }
 
