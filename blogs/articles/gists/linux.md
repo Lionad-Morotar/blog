@@ -64,6 +64,7 @@ sudo rm /usr/local/bin/npx
 
 # 下载指定版本的 NodeJS 包
 # https://nodejs.org/dist/
+# Ubuntu 安装 NodeJS 见：https://github.com/nodesource/distributions
 wget https://nodejs.org/dist/v10.15.3/node-v10.15.3-linux-x64.tar.gz
 
 # 解压下载的包
