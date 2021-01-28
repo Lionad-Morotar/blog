@@ -1,3 +1,7 @@
 # 二维码
 
-<Article-Private-QRCode />
+<!-- Only in dev -->
+
+<!-- <Article-Private-QRCode /> -->
+
+<Article-Private-QRCodeShow />

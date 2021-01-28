@@ -38,7 +38,7 @@ Hello，欢迎来到“新华书店”游乐园！
 
 ## 可能用到的资料
 
-- [网红词](/articles/private/wuji.html)
+- [网红词](/articles/private/meme.html)
 
 - [三字成语](/articles/private/three-chars-idiom.html)
 

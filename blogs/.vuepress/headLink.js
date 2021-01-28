@@ -16,7 +16,15 @@ const headLink = [
             integrity: 'sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw',
             defer: 'defer'
         }
-    ]
+    ],
+    // [
+    //     'script',
+    //     {
+    //         src: '//cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js',
+    //         type: 'module',
+    //         defer: 'defer'
+    //     }
+    // ]
 ]
 
 // 百度统计
