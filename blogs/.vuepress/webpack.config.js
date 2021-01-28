@@ -12,11 +12,11 @@ module.exports = {
         port: 8080,
         host: '0.0.0.0'
     },
-    plugins: [
-        new CompressionPlugin({
-            test: /(css|js)$/i
-        })
-    ]
+    // plugins: [
+    //     new CompressionPlugin({
+    //         test: /(css|js)$/i
+    //     })
+    // ]
     // optimization: {
     //     splitChunks: {
     //         minSize: 30 * 1000,
