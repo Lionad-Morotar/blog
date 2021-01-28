@@ -82,7 +82,7 @@ pseudo
 
 CSS 最初参与渲染的过程在生成渲染树的时刻。可以说，渲染树的构建和 CSS 规范之间有密切联系。除了一些不可见节点，每一个节点都会初始化为渲染树节点（或 FireFox 的：框 Frame）。渲染树节点会顺序地按照元素 Display 创建对应渲染器。
 
-```cplus
+```typescript
 RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
 {
     Document* doc = node->document();
