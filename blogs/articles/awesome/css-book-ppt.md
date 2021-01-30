@@ -116,7 +116,8 @@
     height: 100%;
   }
   .book-ppt .paper::before,
-  .book-ppt .paper::after {
+  .book-ppt .paper::after,
+  .book-ppt .cover::after {
     content: '';
     position: absolute;
     top: 0;
@@ -133,9 +134,15 @@
   .book-ppt-con .wh-container:nth-child(9) .paper::before {
     filter: url(#book-ppt-paper-3);
   }
+  /* 纸的高光 */
   .book-ppt .paper::after {
-    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.23), rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0));
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.25), rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.15) 70%, rgba(0,0,0,.1));
   }
+  /* 书封面高光 */
+  .book-ppt .cover::after {
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0.13) 30%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,.1));
+  }
+  /* 书籍的阴影 */
   .book-ppt .book {
     position: relative;
     margin-top: -1vh;
@@ -145,8 +152,12 @@
     font-size: 0;
     box-shadow: 
       -55px 40px 30px 0 rgb(0 0 0 / 10%), 
+      -27px 25px 35px -5px rgb(0 0 0 / 20%),
       -10px 10px 15px 5px rgb(0 0 0 / 10%), 
-      -27px 25px 35px -5px rgb(0 0 0 / 20%);
+      -12px 12px 10px 0 rgb(0 0 0 / 20%),
+      -7px 7px 8px 0 rgb(0 0 0 / 10%),
+      -5px 5px 5px 0 rgb(0 0 0 / 20%),
+      -2px 2px 3px 0 rgb(0 0 0 / 30%);
     filter: drop-shadow(-20px 20px 15px rgba(0 0 0 / 65%));
   }
   .book-ppt .cover {
@@ -163,6 +174,7 @@
   .book-ppt .corner {
     filter: blur(1px);
   }
+  /* 书的褶皱 */
   .book-ppt .book::after {
     content: '';
     position: absolute;
