@@ -1,3 +1,8 @@
+import qualified Data.List  as List
+import qualified Data.Char as Char
+import qualified Data.Map as Map
+import qualified Data.Set as Set
+
 -- List Comprehension
 
 length' xs = sum [1 | _ <- xs]
@@ -12,17 +17,13 @@ head' (x:_) = x
 
 tell :: (Show a) => [a] -> String
 tell [] = "Empty"
-tell (x:[]) = "One element: " ++ show x
-tell (x:y:[]) = "Two elements: " ++ show x ++ " and " ++ show y
+tell [x] = "One element: " ++ show x
+tell [x,y] = "Two elements: " ++ show x ++ " and " ++ show y
 tell (x:y:_) = "More elements"
 
 length'' :: (Num b) => [a] -> b
 length'' [] = 0
 length'' (_:xs) = 1+length'' xs
-
-sum' :: (Num a) => [a] -> a
-sum' [] = 0
-sum' (res:xs) = res + sum' xs
 
 compare' :: (Ord a) => a -> a -> Ordering
 compare' a b
@@ -94,11 +95,17 @@ filter' f (x:xs)
   | f x = x : filter' f xs
   | otherwise = filter' f xs
 
-slowsort' :: (Ord a) => [a] -> [a]
-slowsort' [] = []
-slowsort' (mid:xs) =
-  let lts = slowsort' (filter' (<=mid) xs)
-      gts = slowsort' (filter' (>mid) xs)
-  in  lts ++ [mid] ++ gts
+slowsort'' :: (Ord a) => [a] -> [a]
+slowsort'' [] = []
+slowsort'' (x:xs) = slowsort'' (filter (<=x) xs) ++ [x] ++ slowsort'' (filter (>x) xs)
 
--- continue on https://learnyouahaskell.mno2.org/zh-cn/ch06/high-order-function#lambda
+elem' :: (Eq a) => a -> [a] -> Bool
+elem' a = foldl (\acc cur -> if acc then acc else a == cur) False
+
+map'' :: (a -> b) -> [a] -> [b]
+map'' fn = foldl (\h c -> h ++ [fn c]) []
+
+access :: Eq a => a -> [(a, b)] -> b
+access key = snd . head . filter (\(k,v) -> k == key)
+
+-- https://learnyouahaskell.mno2.org/zh-cn/ch08/build-our-own-type-and-typeclass
