@@ -5,6 +5,7 @@
     --sidebar-width: 25rem;
     --navbar-height: 3.6rem;
     /* Font */
+    --font-garamond: 'Garamond';
     --font-code: 'Quote', 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
     --font-text: 'Quote', 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --font-text--noquote: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -54,6 +55,12 @@ useFontBaseURL(path) {
     font-family: 'Edo';
     font-display: swap;
     src: useFontBaseURL('Edo.woff2'), useFontBaseURL('Edo.woff'), useFontBaseURL('Edo.ttf');
+}
+
+@font-face {
+    font-family: 'Garamond';
+    font-display: swap;
+    src: useFontBaseURL('Garamond.ttf');
 }
 
 /* CJK Font */

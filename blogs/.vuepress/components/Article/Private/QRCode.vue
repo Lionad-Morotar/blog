@@ -12,7 +12,7 @@ import QRCode from 'qrcodejs2'
 export default {
   data() {
     return {
-      count: 2
+      count: 26
     }
   },
   mounted () {
@@ -22,7 +22,7 @@ export default {
     generateQRCode() {
       [...window.document.querySelectorAll('.qrcodes')].map((e,i) => {
         new QRCode(e, {
-          text: `www.lionad.art/articles/private/qrcodes.html?code=${i}`,
+          text: `www.lionad.art/articles/private/qrcodes.html?code=${i+1}`,
           width: 512,
           height: 512,
           colorDark : "#000000",
