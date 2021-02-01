@@ -1,6 +1,10 @@
+-- List Comprehension
+
 length' xs = sum [1 | _ <- xs]
 
 filterA2Z st = [c | c <- st, c `elem` ['A'..'Z']]
+
+-- Functions
 
 head' :: [a] -> a
 head' [] = error "dummy~"
@@ -36,6 +40,8 @@ cylinderArea r h =
       topArea = pi * r ^ 2
   in sideArea + 2 * topArea
 
+-- Recursion
+
 maximum' :: (Ord a) => [a] -> a
 maximum' [] = error "empty list"
 maximum' [x] = x
@@ -64,3 +70,35 @@ slowsort (mid:xs) =
   let lts = slowsort [x | x <- xs, x <= mid]
       gts = slowsort [x | x <- xs, x > mid] 
   in lts ++ [mid] ++ gts
+
+-- High Order Functions
+
+applyTwice :: (a -> a) -> a -> a
+applyTwice f x = f (f x)
+
+zipWith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipWith' _ _ [] = []
+zipWith' _ [] _ = []
+zipWith' f (x:xs) (y:ys) = f x y : zipWith' f xs ys
+
+flip' :: (a -> b -> c) -> (b -> a -> c)
+flip' f x y = f y x
+
+map' :: (a -> b) -> [a] -> [b]
+map' _ [] = []
+map' f (x:xs) = f x : map' f xs
+
+filter' :: (a -> Bool) -> [a] -> [a]
+filter' _ [] = []
+filter' f (x:xs)
+  | f x = x : filter' f xs
+  | otherwise = filter' f xs
+
+slowsort' :: (Ord a) => [a] -> [a]
+slowsort' [] = []
+slowsort' (mid:xs) =
+  let lts = slowsort' (filter' (<=mid) xs)
+      gts = slowsort' (filter' (>mid) xs)
+  in  lts ++ [mid] ++ gts
+
+-- continue on https://learnyouahaskell.mno2.org/zh-cn/ch06/high-order-function#lambda
