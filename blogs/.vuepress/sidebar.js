@@ -68,7 +68,7 @@ const sidebarConfigs = {
         'a-letter-of-silience',
         'my-shy',
         'messy-in-two-years',
-        'fold'
+        'zfold'
       ]
     },
     {
@@ -91,7 +91,7 @@ const sidebarConfigs = {
         // 'css-mind-map',
         'fourty-two',
         'source-code',
-        'fold'
+        'zfold'
       ]
     },
     {
