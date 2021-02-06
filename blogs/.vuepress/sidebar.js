@@ -47,11 +47,14 @@ const getSrc = src => {
 }
 // console.log('GetSRC Test : ', getSrc(gistsDir))
 
+/**
+ * @param flag 对应文章的 Vue 组件所在 Article 中的文件夹 prefix
+ */
 const sidebarConfigs = {
   articles: [
     {
-      title: '心流 / Heart Flows',
-      label: '心流',
+      title: '心流思绪 / Heart Flows',
+      label: '心流思绪',
       collapsable: false,
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
@@ -92,21 +95,21 @@ const sidebarConfigs = {
       ]
     },
     {
-      title: '零散思绪 / Gists',
+      title: '绘画系列 / Paint',
+      collapsable: false,
+      childrenGen: list => list.map(x => 'awesome/' + x),
+      childrenRaw: getSrc(awesomeDir),
+      flag: 'C'
+    },
+    {
+      title: '零散笔记',
       collapsable: true,
       childrenGen: list => list.map(x => 'gists/' + x),
       childrenRaw: getSrc(gistsDir),
       flag: 'G'
     },
     {
-      title: 'Paint in CSS',
-      collapsable: true,
-      childrenGen: list => list.map(x => 'awesome/' + x),
-      childrenRaw: getSrc(awesomeDir),
-      flag: 'C'
-    },
-    {
-      title: 'Play Guitar',
+      title: '请弹琴',
       collapsable: true,
       open: true,
       children: [
