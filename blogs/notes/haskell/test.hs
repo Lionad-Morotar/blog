@@ -108,4 +108,19 @@ map'' fn = foldl (\h c -> h ++ [fn c]) []
 access :: Eq a => a -> [(a, b)] -> b
 access key = snd . head . filter (\(k,v) -> k == key)
 
--- https://learnyouahaskell.mno2.org/zh-cn/ch08/build-our-own-type-and-typeclass
+-- Type Classes
+
+data Point = Point Float Float deriving (Show)
+data Vector a = Vector a a a deriving (Show)
+data Shape = Circle Point Float | Rectangle Point Point deriving (Show)
+
+vplus :: (Num t) => Vector t -> Vector t -> Vector t
+vplus (Vector i j k) (Vector l m n) = Vector (i+l) (j+m) (k+n)
+
+surface :: Shape -> Float
+surface (Circle _ r) = pi * r * 2
+surface (Rectangle (Point x1 y1) (Point x2 y2)) = abs (x2 - x1) * abs (y2 - y1)
+
+nudge :: Shape -> Float -> Float -> Shape
+nudge (Circle (Point x y) r) mx my = Circle (Point (x + mx) (y + my)) r
+nudge (Rectangle (Point x1 y1) (Point x2 y2)) mx my = Rectangle (Point (x1 + mx) (x2 + mx)) (Point (y1 + my) (y2 + my))
