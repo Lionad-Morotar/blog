@@ -164,7 +164,18 @@ module.exports = {
 
   configureWebpack,
   chainWebpack(config, isServer) {
+    console.log('Webpack config env isServer:', isServer)
     if (!isServer) {
+      // FIXME no use !?
+      // config.devServer.proxy({
+      //   '/images': {
+      //     changeOrigin: true,
+      //     target: 'http://image.lionad.art',
+      //     pathRewrite: {
+      //       '^/images': ''
+      //     }
+      //   }
+      // })
     }
   },
 
