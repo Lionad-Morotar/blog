@@ -1,3 +1,14 @@
+<flow>JS 中那些令人讨厌的东西：
+<Highlight>
+function f({ a, b = 0 } = { a: "" }) {}
+// f()
+// f({ a: 1 })
+// f({ b: 2 })
+// f({ a: 1, b: 2 })
+</Highlight>
+<name>Lionad</name><time>2021年2月7日 10点53分</time>
+</flow>
+
 <flow>人应该能够更换尿布，策划战争，杀一头猪，开船掌舵，设计建筑，写十四行诗，会计结算，粉刷砌墙，治疗脱臼，安慰临终的人，执行命令，发布命令，携手合作，独立行动，解数学方程，分析问题，施肥铲粪，电脑编程，做可口的饭菜，高效地战斗，勇敢地死去。只有昆虫才专业化。
 <name><a href="https://baike.baidu.com/item/%E7%BD%97%E4%BC%AF%E7%89%B9%C2%B7%E5%AE%89%E6%A3%AE%C2%B7%E6%B5%B7%E5%9B%A0%E8%8E%B1%E5%9B%A0" rel="noopener noreferrer" target="_blank">罗伯特·安森·海因莱因</a></name>
 </flow>
