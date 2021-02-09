@@ -1,5 +1,9 @@
 /** Utils | Common Functions */
 
+Array.prototype.remove = function (x) {
+    this.splice(this.findIndex(item => item === x), 1)
+}
+
 // @see http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
 const tween = {
     linear(t, b, c, d) {

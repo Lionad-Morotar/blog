@@ -39,7 +39,21 @@ const extFns = {
   },
   /* Semantics Helper */
   stopIf (cond) {
-    cond && this.noLoop()
+    const stop = typeof cond === 'function' ? cond() : cond
+    stop && this.noLoop()
+    return stop
+  },
+  drawUntil (condFn, step) {
+    this._predraw = this._predraw || []
+    const condFnWrapper = () => {
+      const isStop = extFns.stopIf.bind(this)(condFn)
+      if (isStop) {
+        this._predraw.remove(condFnWrapper)
+      } else {
+        step && step()
+      }
+    }
+    this._predraw.push(condFnWrapper)
   }
 }
 
@@ -83,13 +97,18 @@ export default {
         this.p5Events.map(event => {
           const emitName = event.toLowerCase()
           const rawHandler = ctx[event]
-          ctx[event] = (...args) => {
+          ctx[event] = async (...args) => {
             const rest = [ctx, ...args]
+            // TODO refactor
             const prename = 'pre' + emitName
             const postname = 'post' + emitName
+            const _prename = '_pre' + emitName
+            const _postname = '_post' + emitName
             this[prename] && this[prename](...rest)
+            ctx[_prename] && ctx[_prename].map(fn => fn(...rest))
             const res = rawHandler && rawHandler(...rest)
             this[postname] && this[postname](...rest)
+            ctx[_postname] && ctx[_postname].map(fn => fn(...rest))
             this.$emit(emitName, ...rest)
             return res
           }
@@ -109,6 +128,8 @@ export default {
       ctx.createCanvas(this.width, this.height)
       ctx.WIDTH = this.width
       ctx.HEIGHT = this.height
+      ctx.HALF_WIDTH = ~~(ctx.WIDTH / 2)
+      ctx.HALF_HEIGHT = ~~(ctx.HEIGHT / 2)
     }
   }
 }
