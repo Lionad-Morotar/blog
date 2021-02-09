@@ -46,7 +46,11 @@ const extFns = {
 /** @see https://github.com/Kinrany/vue-p5 */
 export default {
   name: 'VueP5',
-  props: ['additionalEvents'],
+  props: [
+    'additionalEvents',
+    'w',
+    'h'
+  ],
   data: () => ({
     width: 740,
     height: 450
@@ -64,8 +68,8 @@ export default {
     this.initP5()
     /* init canvas size */
     const $h1 = document.querySelector('h1')
-    this.width = $h1 ? $h1.offsetWidth : (window.innerWidth || this.width)
-    this.height = ~~(this.width * 0.618)
+    this.width = this.w || ($h1 ? $h1.offsetWidth : (window.innerWidth || this.width))
+    this.height = this.h || (~~(this.width * 0.618))
   },
   methods: {
     async initP5() {
