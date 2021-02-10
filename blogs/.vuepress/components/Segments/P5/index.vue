@@ -48,7 +48,7 @@ const extFns = {
     const condFnWrapper = () => {
       const isStop = extFns.stopIf.bind(this)(condFn)
       if (isStop) {
-        this._predraw.remove(condFnWrapper)
+        this._predraw._remove(condFnWrapper)
       } else {
         step && step()
       }

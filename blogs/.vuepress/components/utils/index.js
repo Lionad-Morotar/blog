@@ -1,6 +1,6 @@
 /** Utils | Common Functions */
 
-Array.prototype.remove = function (x) {
+Array.prototype._remove = function (x) {
     this.splice(this.findIndex(item => item === x), 1)
 }
 
