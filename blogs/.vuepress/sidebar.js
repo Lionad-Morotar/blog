@@ -14,13 +14,13 @@ console.log('USE BUILD ENV: ', env)
 
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
-  gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
-  awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
-  secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
+  gistsDir = 'D:/@Github/blog/blogs/articles/gists'
+  awesomeDir = 'D:/@Github/blog/blogs/articles/awesome'
+  secretsDir = 'D:/@Github/blog/blogs/articles/secrets'
 } else {
-  gistsDir = '/Users/baixing/@Github/blogs/blogs/articles/gists'
-  awesomeDir = '/Users/baixing/@Github/blogs/blogs/articles/awesome'
-  secretsDir = '/Users/baixing/@Github/blogs/blogs/articles/secrets'
+  gistsDir = '/Users/baixing/@Github/blog/blogs/articles/gists'
+  awesomeDir = '/Users/baixing/@Github/blog/blogs/articles/awesome'
+  secretsDir = '/Users/baixing/@Github/blog/blogs/articles/secrets'
 }
 
 /**
