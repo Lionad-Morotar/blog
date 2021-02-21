@@ -45,7 +45,7 @@
 <FriendLinks>
   <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
-    src="https://vensing.com/"
+    src="https://chee5e.space/"
     name="Cheese"
     achieve="有梦想，也有忧伤和理想 🌻"
   />
