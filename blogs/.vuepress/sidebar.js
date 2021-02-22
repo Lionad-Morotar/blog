@@ -4,18 +4,23 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
-const env = require('./build-env')
+let env
+try {
+  env = require('./build-env')
+} catch (_) {
+  env = 'windows'
+}
 console.log('USE BUILD ENV: ', env)
 
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
-  gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
-  awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
-  secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
+  gistsDir = 'D:/@Github/blog/blogs/articles/gists'
+  awesomeDir = 'D:/@Github/blog/blogs/articles/awesome'
+  secretsDir = 'D:/@Github/blog/blogs/articles/secrets'
 } else {
-  gistsDir = '/Users/baixing/@Github/blogs/blogs/articles/gists'
-  awesomeDir = '/Users/baixing/@Github/blogs/blogs/articles/awesome'
-  secretsDir = '/Users/baixing/@Github/blogs/blogs/articles/secrets'
+  gistsDir = '/Users/baixing/@Github/blog/blogs/articles/gists'
+  awesomeDir = '/Users/baixing/@Github/blog/blogs/articles/awesome'
+  secretsDir = '/Users/baixing/@Github/blog/blogs/articles/secrets'
 }
 
 /**
@@ -47,11 +52,14 @@ const getSrc = src => {
 }
 // console.log('GetSRC Test : ', getSrc(gistsDir))
 
+/**
+ * @param flag 对应文章的 Vue 组件所在 Article 中的文件夹 prefix
+ */
 const sidebarConfigs = {
   articles: [
     {
-      title: '心流 / Heart Flows',
-      label: '心流',
+      title: '心流思绪 / Heart Flows',
+      label: '心流思绪',
       collapsable: false,
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
@@ -65,7 +73,7 @@ const sidebarConfigs = {
         'a-letter-of-silience',
         'my-shy',
         'messy-in-two-years',
-        'fold'
+        'zfold'
       ]
     },
     {
@@ -88,25 +96,25 @@ const sidebarConfigs = {
         // 'css-mind-map',
         'fourty-two',
         'source-code',
-        'fold'
+        'zfold'
       ]
     },
     {
-      title: '零散思绪 / Gists',
+      title: '绘画系列 / Paint',
+      collapsable: false,
+      childrenGen: list => list.map(x => 'awesome/' + x),
+      childrenRaw: getSrc(awesomeDir),
+      flag: 'C'
+    },
+    {
+      title: '零散笔记',
       collapsable: true,
       childrenGen: list => list.map(x => 'gists/' + x),
       childrenRaw: getSrc(gistsDir),
       flag: 'G'
     },
     {
-      title: 'Paint in CSS',
-      collapsable: true,
-      childrenGen: list => list.map(x => 'awesome/' + x),
-      childrenRaw: getSrc(awesomeDir),
-      flag: 'C'
-    },
-    {
-      title: 'Play Guitar',
+      title: '请弹琴',
       collapsable: true,
       open: true,
       children: [

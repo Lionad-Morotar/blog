@@ -2,11 +2,7 @@
 
 ## <spark>💌 与我联络</spark>
 
-我伸向世界的触手要比想象中展开的慢一些，不喜欢嘈杂的社交网络，所以不必尝试通过常用的社交软件找到我。与我通讯的最佳方式是个人邮箱：1806234223/@/qq.com，欢迎来信~
-
-最初，我认为博客友链原则上是用于连接孤岛，互联网的孤岛和人的孤岛。但现在，我的心境发生了一些变化。此刻，我更期待能和与我性情至少有某种程度上相似的人交换友链。
-
-如果你对以下站点有兴趣的话，我们可以在以下网站进行相关话题的讨论交流：
+我不喜欢嘈杂的社交网络。与我通讯的最佳方式是个人邮箱：1806234223“at”qq.com，欢迎来信~ 如果你对以下站点有兴趣的话，我们可以在以下网站进行相关话题的讨论交流。
 
 <Background-Netease>
   <FriendLink
@@ -40,10 +36,16 @@
 
 ## <spark>🏂 友情链接</spark>
 
+关于互换友链：
+
+* 我的友链模块并不是为了 SEO
+* 也不是为了交友
+* 我喜欢有个人气息的博客
+
 <FriendLinks>
   <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
-    src="https://vensing.com/"
+    src="https://chee5e.space/"
     name="Cheese"
     achieve="有梦想，也有忧伤和理想 🌻"
   />
@@ -69,7 +71,7 @@
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Roki.jpg"
     src="https://blog.weekii.cn/"
     name="Roki"
-    achieve="Roki 玩塔科夫玩到半夜三点 🕒"
+    achieve="和 Roki 一起玩塔科夫玩到半夜三点 🕒"
   />
   <!-- <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Deeruby.jpg"

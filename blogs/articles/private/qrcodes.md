@@ -4,4 +4,4 @@
 
 <Article-Private-QRCode />
 
-<Article-Private-QRCodeShow />
+<!-- <Article-Private-QRCodeShow /> -->

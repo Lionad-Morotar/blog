@@ -130,19 +130,3 @@ export default {
     }
 }
 </script>
-<style lang="stylus">
-.wh-container {
-  border-radius: 3px;
-  overflow: hidden;
-
-  & > div {
-    display: flex;
-    width: 100%;
-  }
-
-  & > div > canvas {
-    width: 100% !important;
-    height: unset !important;
-  }
-}
-</style>

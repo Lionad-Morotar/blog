@@ -46,7 +46,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Posts', link: '/articles/' },
-      { text: 'Flows', link: '/flows/' },
+      { text: 'Ideas', link: '/flows/' },
       { text: 'Links', link: '/friends/' }
       // { text: 'Hire Me', link: '/hire-me/' }
     ],
@@ -164,7 +164,18 @@ module.exports = {
 
   configureWebpack,
   chainWebpack(config, isServer) {
+    console.log('Webpack config env isServer:', isServer)
     if (!isServer) {
+      // FIXME no use !?
+      // config.devServer.proxy({
+      //   '/images': {
+      //     changeOrigin: true,
+      //     target: 'http://image.lionad.art',
+      //     pathRewrite: {
+      //       '^/images': ''
+      //     }
+      //   }
+      // })
     }
   },
 
