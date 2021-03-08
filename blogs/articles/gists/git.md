@@ -93,6 +93,20 @@ git update-index --skip-worktree -- filename.js
 
 ---
 
+#### 强制合并分支
+
+我想强制合并两个分支，但发现并没有 `force` 参数供 `merge` 时调用：
+
+```bash
+git merge --force origin master
+```
+
+正确的逻辑是“合并两个不相关分支”：
+
+```bash
+git pull origin master --allow-unrelated-histories
+```
+
 ### 相关网址
 
 * [Reveal.js](https://revealjs.com/code/)
