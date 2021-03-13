@@ -15,6 +15,7 @@ import addWhiteMaskToNav from '../mixins/addWhiteMaskToNav'
 import catchSidebarScroll from '../mixins/catchSidebarScroll'
 import useConfetti from '../mixins/useConfetti'
 import useCSSBridge from '../mixins/useCSSBridge'
+// import useScript from '../mixins/useScript'
 
 const utils = require('../utils')
 
@@ -24,7 +25,14 @@ export default {
         ParentLayout,
         PageBottom
     },
-    mixins: [addH1toBody, addWhiteMaskToNav, catchSidebarScroll, useConfetti, useCSSBridge],
+    mixins: [
+        addH1toBody,
+        addWhiteMaskToNav,
+        catchSidebarScroll,
+        useConfetti,
+        useCSSBridge,
+        // useScript('http://192.168.1.7:8081/console-ban.js')
+    ],
     mounted() {
         window.onload = utils.onload.fn
     },
