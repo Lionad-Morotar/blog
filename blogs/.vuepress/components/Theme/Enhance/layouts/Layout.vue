@@ -14,7 +14,6 @@ import addH1toBody from '../mixins/addH1toBody'
 import addWhiteMaskToNav from '../mixins/addWhiteMaskToNav'
 import catchSidebarScroll from '../mixins/catchSidebarScroll'
 import useConfetti from '../mixins/useConfetti'
-import useCrisp from '../mixins/useCrisp'
 import useCSSBridge from '../mixins/useCSSBridge'
 
 const utils = require('../utils')
@@ -25,7 +24,7 @@ export default {
         ParentLayout,
         PageBottom
     },
-    mixins: [addH1toBody, addWhiteMaskToNav, catchSidebarScroll, useConfetti, useCrisp, useCSSBridge],
+    mixins: [addH1toBody, addWhiteMaskToNav, catchSidebarScroll, useConfetti, useCSSBridge],
     mounted() {
         window.onload = utils.onload.fn
     },
