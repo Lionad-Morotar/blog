@@ -1,43 +1,30 @@
-/** @see https://blog.csdn.net/qq_21460229/article/details/103182426 */
-
-let x
+/**
+ * “Find out whether Chrome console is open”
+ * @see https://stackoverflow.com/questions/7798748/find-out-whether-chrome-console-is-open/30638226
+ */
 
 const ConsoleManager = {
-    tickTime: 0,
+    isOpened: false,
+    evalCounts: 0,
     onOpen() {
         console.log('Console is opened')
     },
-    onClose() {
-        console.log('Console is closed')
+    isOpening() {
+        return this.evalCounts === (this.isOpened ? 1 : 2)
     },
     init() {
-        let self = this
-        x = x || document.createElement('div')
-        let isOpening = false,
-            isOpened = false
-
-        Object.defineProperty(x, 'id', {
-            get() {
-                if (!isOpening) {
-                    self.onOpen()
-                    isOpening = true
-                }
-                isOpened = true
-            }
-        })
-        function check() {
-            isOpened = false
-            console.info(x)
-            if (ConsoleManager.tickTime++ % 10 === 0) {
-                console.clear()
-            }
-            if (!isOpened && isOpening) {
-                self.onClose()
-                isOpening = false
+        const watchElement = new Function()
+        watchElement.toString = () => {
+            this.evalCounts ++
+            if (this.isOpening()) {
+                this.isOpened = true
+                this.onOpen()
+                this.evalCounts = 0
             }
         }
-        setInterval(!isOpening && check, 500)
-        check()
+        if (window.chrome) {
+            console.log && console.log('%c', watchElement)
+        }
     }
 }
 
