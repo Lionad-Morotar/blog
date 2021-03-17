@@ -32,13 +32,22 @@ export default {
   },
   watch: {
     cardVal(nv) {
-      console.log(nv)
+      // console.log(nv)
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+
+@supports (background: paint(houdini)) {
+  @property --timer {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+}
+
 #card-swiper-game {
   display: flex;
   flex-wrap: wrap;
@@ -202,15 +211,6 @@ export default {
     }
   }
 
-  // #card:active {
-  //   & + .checker-con {
-  //     z-index: 1;
-  //     .checker {
-  //       background: rgba(122,122,122,1);
-  //     }
-  //   }
-  // }
-
   .checker-con {
     position: absolute;
     top: 0px;
@@ -244,25 +244,8 @@ export default {
     color: #c5d6d0;
     text-transform: uppercase;
     animation: jitter 3s infinite steps(2);
-
     &::after {
       content: "Please swipe card";
-    }
-
-    [data-status="invalid"] &::after {
-      content: "Bad read. Try again.";
-    }
-
-    [data-status="slow"] &::after {
-      content: "Too slow. Try again.";
-    }
-
-    [data-status="fast"] &::after {
-      content: "Too fast. Try again.";
-    }
-
-    [data-status="valid"] &::after {
-      content: "Accepted. Thank you.";
     }
   }
 
@@ -315,17 +298,15 @@ export default {
     }
   }
 
-  #card {
-    animation: resetLeft 1s infinite;
-  }
-  #card:focus {
-    animation: none;
+  #message:after {
+    padding-left: calc(var(--timer) * .5%);
+    counter-reset: timerString var(--timer);
+    content:  counter(timerString) 's';
+    transition: --timer 1s;
   }
 
-  @keyframes resetLeft {
-    to {
-      value: 0;
-    }
+  #card:active ~ .top #message:after {
+    --timer: 100;
   }
 }
 </style>
