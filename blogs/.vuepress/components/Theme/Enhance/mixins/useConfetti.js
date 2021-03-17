@@ -5,6 +5,7 @@ const ConsoleManager = require('../utils/ConsoleManager')
 module.exports = {
     mounted() {
         !this.$utils.isDev && this.initConfetii()
+        // this.initConfetii()
     },
     methods: {
         async initConfetii() {

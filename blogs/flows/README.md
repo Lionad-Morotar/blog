@@ -1,3 +1,8 @@
+<flow>起一个好名字应该很难，因为，一个好名字需要把要义浓缩在一到两个词。
+Creating good names is hard, but it should be hard, because a great name captures essential meaning in just one or two words
+<name><a href="https://stackoverflow.com/cv/spolsky" rel="noopener noreferrer" target="_blank">Joel Spolsky @Stack OverFlow</a></name>
+</flow>
+
 <flow>人应该能够更换尿布，策划战争，杀一头猪，开船掌舵，设计建筑，写十四行诗，会计结算，粉刷砌墙，治疗脱臼，安慰临终的人，执行命令，发布命令，携手合作，独立行动，解数学方程，分析问题，施肥铲粪，电脑编程，做可口的饭菜，高效地战斗，勇敢地死去。只有昆虫才专业化。
 <name><a href="https://baike.baidu.com/item/%E7%BD%97%E4%BC%AF%E7%89%B9%C2%B7%E5%AE%89%E6%A3%AE%C2%B7%E6%B5%B7%E5%9B%A0%E8%8E%B1%E5%9B%A0" rel="noopener noreferrer" target="_blank">罗伯特·安森·海因莱因</a></name>
 </flow>

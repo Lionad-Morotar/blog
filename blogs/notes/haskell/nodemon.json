@@ -1,0 +1,9 @@
+{
+  "restartable": "rs",
+  "verbose": true,
+  "execMap": {
+    "": "how to run this: ghci && :load runner.hs"
+  },
+  "ext": "hs",
+  "legacy-watch": false
+}

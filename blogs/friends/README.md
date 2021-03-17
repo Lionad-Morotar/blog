@@ -45,7 +45,7 @@
 <FriendLinks>
   <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
-    src="https://vensing.com/"
+    src="https://chee5e.space/"
     name="Cheese"
     achieve="有梦想，也有忧伤和理想 🌻"
   />
@@ -71,7 +71,7 @@
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Roki.jpg"
     src="https://blog.weekii.cn/"
     name="Roki"
-    achieve="Roki 玩塔科夫玩到半夜三点 🕒"
+    achieve="和 Roki 一起玩塔科夫玩到半夜三点 🕒"
   />
   <!-- <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Deeruby.jpg"

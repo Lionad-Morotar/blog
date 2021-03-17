@@ -4,18 +4,23 @@ console.log('Node Env Test : ', process.env.NODE_ENV)
 
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
-const env = require('./build-env')
+let env
+try {
+  env = require('./build-env')
+} catch (_) {
+  env = 'windows'
+}
 console.log('USE BUILD ENV: ', env)
 
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
-  gistsDir = 'D:/@Github/blogs/blogs/articles/gists'
-  awesomeDir = 'D:/@Github/blogs/blogs/articles/awesome'
-  secretsDir = 'D:/@Github/blogs/blogs/articles/secrets'
+  gistsDir = 'D:/@Github/blog/blogs/articles/gists'
+  awesomeDir = 'D:/@Github/blog/blogs/articles/awesome'
+  secretsDir = 'D:/@Github/blog/blogs/articles/secrets'
 } else {
-  gistsDir = '/Users/baixing/@Github/blogs/blogs/articles/gists'
-  awesomeDir = '/Users/baixing/@Github/blogs/blogs/articles/awesome'
-  secretsDir = '/Users/baixing/@Github/blogs/blogs/articles/secrets'
+  gistsDir = '/Users/baixing/@Github/blog/blogs/articles/gists'
+  awesomeDir = '/Users/baixing/@Github/blog/blogs/articles/awesome'
+  secretsDir = '/Users/baixing/@Github/blog/blogs/articles/secrets'
 }
 
 /**
