@@ -156,7 +156,7 @@ module.exports = {
     return {
       '心流思绪': {
         url: '/articles/flow/rss.html',
-        label: '一些好玩的推流推荐'
+        label: '自用推流推荐'
       },
       '技术博客': {
         url: '/articles/anysort.html',
