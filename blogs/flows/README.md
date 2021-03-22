@@ -1,3 +1,15 @@
+<flow>相关 CSS 父选择器的一些内容。
+<a href="https://www.zhangxinxu.com/wordpress/2016/08/css-parent-selector/" rel="noopener noreferrer">《如何在 CSS 中实现父选择器效果？》</a>
+<ul>
+<div>* 可以使用兄弟选择器模拟父选择器</div>
+<div>* :has 选择器推迟到 CSS 5 了，所以还是别等了<small>（找了下规范，发现 <a href="https://www.w3.org/TR/selectors-4/#relational" rel="noopener noreferrer">CSS Selectors Level 4</a> 已经描述过这玩意儿了）</small></div>
+</ul>
+<a href="https://snook.ca/archives/html_and_css/css-parent-selectors" rel="noopener noreferrer">《Why we don't have a parent selector》</a>
+<ul>
+<div>* 浏览器加载多少内容就渲染多少内容，父选择器使得当前渲染的内容可能在之后发生改变。这里有巨额的性能风险。</div>
+</ul>
+</flow>
+
 <flow>起一个好名字应该很难，因为，一个好名字需要把要义浓缩在一到两个词。
 Creating good names is hard, but it should be hard, because a great name captures essential meaning in just one or two words
 <name><a href="https://stackoverflow.com/cv/spolsky" rel="noopener noreferrer" target="_blank">Joel Spolsky @Stack OverFlow</a></name>
