@@ -1,3 +1,9 @@
+<flow>Github Actions 会屏蔽等同于 Secrets 的字符串的输出（以星号代之）。
+为了方便调试，你可以修改该字符串，比如插入空格，这样能正常输出。
+不过别忘了，Github Actions 会保留日志，所以调试时需要使用假的 Secrets。
+<name><a href="https://zellwk.com/blog/debug-github-actions-secret/" rel="noopener noreferrer" target="_blank">How to debug a Github Actions’ secret</a></name>
+</flow>
+
 <flow>相关 CSS 父选择器的一些内容。
 <a href="https://www.zhangxinxu.com/wordpress/2016/08/css-parent-selector/" rel="noopener noreferrer">《如何在 CSS 中实现父选择器效果？》</a>
 <ul>
