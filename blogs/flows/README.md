@@ -1,3 +1,13 @@
+<flow>异步加载 CSS 文件的方法。
+<Highlight lang="html">
+&lt;link rel="stylesheet"
+&nbsp;&nbsp;href="non-critical.css" 
+&nbsp;&nbsp;media="print" 
+&nbsp;&nbsp;onload="this.media='all'"&gt;
+</Highlight>
+<name><a href="https://calibreapp.com/blog/css-performance" rel="noopener noreferrer" target="_blank">How to Improve CSS Performance</a></name>
+</flow>
+
 <flow>Github Actions 会屏蔽等同于 Secrets 的字符串的输出（以星号代之）。
 为了方便调试，你可以修改该字符串，比如插入空格，这样能正常输出。
 不过别忘了，Github Actions 会保留日志，所以调试时需要使用假的 Secrets。
