@@ -12,10 +12,12 @@ module.exports = {
                     const $h1 = document.querySelector('h1')
                     const $body = document.body
 
-                    const content = $h1.innerText.replace(/[^a-zA-Z\u4e00-\u9fa5]/g, '')
-
-                    $body.classList.forEach(x => x.startsWith(prefix) && $body.classList.remove(x))
-                    $body.classList.add(prefix + content)
+                    if ($h1) {
+                        const content = $h1.innerText.replace(/[^a-zA-Z\u4e00-\u9fa5]/g, '')
+    
+                        $body.classList.forEach(x => x.startsWith(prefix) && $body.classList.remove(x))
+                        $body.classList.add(prefix + content)
+                    }
                 })
             } catch (e) {}
         })

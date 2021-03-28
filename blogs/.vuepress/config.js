@@ -167,6 +167,7 @@ module.exports = {
     console.log('Webpack config env isServer:', isServer)
     if (!isServer) {
       // FIXME no use !?
+      // @see https://github.com/vuejs/vuepress/issues/2388
       // config.devServer.proxy({
       //   '/images': {
       //     changeOrigin: true,

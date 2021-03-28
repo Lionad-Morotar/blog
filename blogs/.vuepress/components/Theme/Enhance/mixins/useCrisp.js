@@ -1,7 +1,5 @@
 /** @file Crisp / 没有废除 Crisp 的原因是可以看到用户的实时浏览轨迹 */
 
-const utils = require('../utils')
-
 module.exports = {
     mounted() {
         // 没有浏览 5s 则不计入 Crisp 的统计（去除爬虫之类的影响）

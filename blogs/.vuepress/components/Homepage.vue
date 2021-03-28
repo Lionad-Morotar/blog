@@ -70,14 +70,11 @@
                     <div class="page-title">Lionad's Blog</div>
                     <div class="page-side-title">Newest Posts</div>
                     <div class="page-side-content">
-                        <template v-for="section in articles" v-if="section.label">
-                            <p class="article-list">
-                                <span class="article-list-label" v-text="section.label + '：'"></span>
+                        <template v-for="article in recommends">
+                            <p class="article-list" :key="article[0]">
+                                <span class="article-list-label" v-text="article[0] + '：'"></span>
                                 <span class="article-list-content">
-                                    <a
-                                        :href="`/articles/${section.children[0]}.html`"
-                                        v-text="section.childrenRaw[0]"
-                                    ></a>
+                                    <a :href="article[1].url" v-text="article[1].label" />
                                 </span>
                             </p>
                         </template>
@@ -104,7 +101,7 @@ export default {
     data() {
         return {
             sidebar,
-            articles: sidebar.getSidebar('articles'),
+            recommends: Object.entries(sidebar.getRecommends()),
             slide: SLIDES[0],
             scrollHeight: null,
             assets: {

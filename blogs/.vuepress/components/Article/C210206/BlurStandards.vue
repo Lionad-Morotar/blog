@@ -1,46 +1,82 @@
 <template>
-  <WHRatio h="62%">
-    <vue-p5 @preload="preload" @setup="setup" @draw="draw" />
+  <WHRatio h="503px">
+    <vue-p5 h="503" @preload="preload" @setup="setup" @draw="draw" />
   </WHRatio>
 </template>
 
 <script>
-let v = 1.0 / 9.0
-let kernel = [[ v, v, v ], [ v, v, v ], [ v, v, v ]]
-
 export default {
   data: () => ({
-    img: null
+    blurImage: null,
+    rawImage: null,
+    referImage: null,
+    drawX: 0,
+    repeat: 100,
   }),
   methods: {
     preload(ctx) {
-      this.img = ctx.loadImage('/images/art/3398528868805936641.jpg')
+      this.rawImage = ctx.loadImage('https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210209213519.png')
+      this.referImage = this.rawImage
     },
     setup(ctx) {
-      ctx.noLoop()
+      ctx.image(this.rawImage, 0, 0)
+      ctx.image(this.rawImage, ctx.HALF_WIDTH, 0)
+      this.blurImage = ctx.createImage(this.rawImage.width, this.rawImage.height)
+      this.blurImage.loadPixels()
+      ctx.drawUntil(() => this.repeat <= 0)
+      ctx.drawUntil(() => {
+        const isStop = this.drawX++ > ctx.HALF_WIDTH
+        if (isStop === true) {
+          this.repeat--
+          this.drawX = 0
+          this.referImage = this.blurImage
+          return false
+        }
+        return isStop
+      })
     },
-    draw(ctx) {
-      ctx.image(img, 0, 0)
-      
-      const edgeImg = ctx.createImage(img.width, img.height)
-            edgeImg.loadPixels()
-      
-      for (let x = 1; x < this.img.width; x++) {
-        for (let y = 1; y < this.img.height; y++) {
-          let sum = 0
-          for (kx = -1; kx <= 1; kx++) {
-            for (ky = -1; ky <= 1; ky++) {
+    kernel ({ kx, ky, x, y }) {
+      if (kx === 0 && ky === 0) {
+        return 0
+      } else {
+        return 1 / 8
+      }
+    },
+    async draw(ctx) {
+      // console.log('draw')
+      let x = this.drawX
+      for (let y = 0; y < this.rawImage.height; y+=1) {
+        let kx, ky, c = { r:0, g:0, b: 0 }
+        if (x <= 0 || 
+          y <= 0 || 
+          x >= (ctx.HALF_WIDTH - 1) || 
+          y >= this.rawImage.height - 1
+        ) {
+          const point = this.referImage.get(x, y)
+          c.r += ctx.red(point)
+          c.b += ctx.blue(point)
+          c.g += ctx.green(point)
+        } else {
+          for (kx = -1; kx <= 1; kx+=1) {
+            for (ky = -1; ky <= 1; ky+=1) {
               let xpos = x + kx
               let ypos = y + ky
-              let val = green(this.img.get(xpos, ypos))
-              sum += kernel[kx+1][ky+1] * val
+              const point = this.referImage.get(xpos, ypos)
+              const args = { kx, ky, x, y }
+              c.r += this.kernel(args) * ctx.red(point)
+              c.b += this.kernel(args) * ctx.blue(point)
+              c.g += this.kernel(args) * ctx.green(point)
             }
           }
-          edgeImg.set(x, y, color(sum))
         }
+        this.blurImage.set(x, y, ctx.color(c.r, c.g, c.b))
       }
-      edgeImg.updatePixels()
-      ctx.image(edgeImg, this.img.width, 0)
+      this.blurImage.updatePixels()
+      ctx.image(this.blurImage, ctx.HALF_WIDTH, 0)
+      for (let lx = 0; lx < Math.min(15, x); lx++) {
+        ctx.stroke(`rgba(35, 22, 34, ${1 * (0.62 ** lx)})`)
+        ctx.line(ctx.HALF_WIDTH + x - lx, 0, ctx.HALF_WIDTH + x - lx, ctx.HEIGHT)
+      }
     },
   }
 }

@@ -28,7 +28,7 @@ if (env === 'windows') {
  * @param {String} src 路径字符串
  * @todo 按照时间排序
  */
-const getSrc = src => {
+const getSRCs = src => {
   const filenames = []
   const fileTypes = /\.md$/
   const mainFiles = ['index.md', 'README.md']
@@ -42,15 +42,14 @@ const getSrc = src => {
         }
       })
     } catch (err) {
-      console.error('Error in getSRC : ', err)
+      console.error('Error in getSRCs : ', err)
     }
   }
   filenames.sort()
-
-  console.log('filenames: ', filenames)
+  // console.log('filenames: ', filenames)
   return filenames
 }
-// console.log('GetSRC Test : ', getSrc(gistsDir))
+// console.log('getSRCs Test : ', getSRCs(gistsDir))
 
 /**
  * @param flag 对应文章的 Vue 组件所在 Article 中的文件夹 prefix
@@ -63,6 +62,7 @@ const sidebarConfigs = {
       collapsable: false,
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
+        'rss',
         'art',
         'books',
         'punctuations',
@@ -103,14 +103,14 @@ const sidebarConfigs = {
       title: '绘画系列 / Paint',
       collapsable: false,
       childrenGen: list => list.map(x => 'awesome/' + x),
-      childrenRaw: getSrc(awesomeDir),
+      childrenRaw: getSRCs(awesomeDir),
       flag: 'C'
     },
     {
       title: '零散笔记',
       collapsable: true,
       childrenGen: list => list.map(x => 'gists/' + x),
-      childrenRaw: getSrc(gistsDir),
+      childrenRaw: getSRCs(gistsDir),
       flag: 'G'
     },
     {
@@ -131,7 +131,7 @@ const sidebarConfigs = {
       title: 'Secrets',
       collapsable: true,
       childrenGen: list => list.map(x => 'secrets/' + x),
-      childrenRaw: getSrc(secretsDir),
+      childrenRaw: getSRCs(secretsDir),
       flag: 'S'
     }
   ]
@@ -151,5 +151,17 @@ Object.values(sidebarConfigs).map(sections => {
 module.exports = {
   getSidebar(name) {
     return sidebarConfigs[name] || []
+  },
+  getRecommends() {
+    return {
+      '心流思绪': {
+        url: '/articles/flow/rss.html',
+        label: '自用推流推荐'
+      },
+      '技术博客': {
+        url: '/articles/anysort.html',
+        label: 'Anysort：灵活、优雅、无依赖的排序库'
+      }
+    }
   }
 }

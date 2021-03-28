@@ -1,12 +1,24 @@
-<flow>JS 中那些令人讨厌的东西：
-<Highlight>
-function f({ a, b = 0 } = { a: "" }) {}
-// f()
-// f({ a: 1 })
-// f({ b: 2 })
-// f({ a: 1, b: 2 })
-</Highlight>
-<name>Lionad</name><time>2021年2月7日 10点53分</time>
+<flow>Github Actions 会屏蔽等同于 Secrets 的字符串的输出（以星号代之）。
+为了方便调试，你可以修改该字符串，比如插入空格，这样能正常输出。
+不过别忘了，Github Actions 会保留日志，所以调试时需要使用假的 Secrets。
+<name><a href="https://zellwk.com/blog/debug-github-actions-secret/" rel="noopener noreferrer" target="_blank">How to debug a Github Actions’ secret</a></name>
+</flow>
+
+<flow>相关 CSS 父选择器的一些内容。
+<a href="https://www.zhangxinxu.com/wordpress/2016/08/css-parent-selector/" rel="noopener noreferrer">《如何在 CSS 中实现父选择器效果？》</a>
+<ul>
+<div>* 可以使用兄弟选择器模拟父选择器</div>
+<div>* :has 选择器推迟到 CSS 5 了，所以还是别等了<small>（找了下规范，发现 <a href="https://www.w3.org/TR/selectors-4/#relational" rel="noopener noreferrer">CSS Selectors Level 4</a> 已经描述过这玩意儿了）</small></div>
+</ul>
+<a href="https://snook.ca/archives/html_and_css/css-parent-selectors" rel="noopener noreferrer">《Why we don't have a parent selector》</a>
+<ul>
+<div>* 浏览器加载多少内容就渲染多少内容，父选择器使得当前渲染的内容可能在之后发生改变。这里有巨额的性能风险。</div>
+</ul>
+</flow>
+
+<flow>起一个好名字应该很难，因为，一个好名字需要把要义浓缩在一到两个词。
+Creating good names is hard, but it should be hard, because a great name captures essential meaning in just one or two words
+<name><a href="https://stackoverflow.com/cv/spolsky" rel="noopener noreferrer" target="_blank">Joel Spolsky @Stack OverFlow</a></name>
 </flow>
 
 <flow>人应该能够更换尿布，策划战争，杀一头猪，开船掌舵，设计建筑，写十四行诗，会计结算，粉刷砌墙，治疗脱臼，安慰临终的人，执行命令，发布命令，携手合作，独立行动，解数学方程，分析问题，施肥铲粪，电脑编程，做可口的饭菜，高效地战斗，勇敢地死去。只有昆虫才专业化。
@@ -27,6 +39,16 @@ function f({ a, b = 0 } = { a: "" }) {}
 <p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201102112929.png" style="max-width: 450px" /></p>
 <name>Lionad</name><time>2020年11月2日 11点33分</time>
 </flow>
+
+<flow>JS 中那些令人讨厌的东西：
+<Highlight>
+function f({ a, b = 0 } = { a: "" }) {}
+// f()
+// f({ a: 1 })
+// f({ b: 2 })
+// f({ a: 1, b: 2 })
+</Highlight>
+<name>Lionad</name><time>2021年2月7日 10点53分</time>
 
 <flow>我相信下一个平面设计的方法,来自其它非设计领域。
 <name>大卫·卡森</name>
