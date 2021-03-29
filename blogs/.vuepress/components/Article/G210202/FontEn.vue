@@ -8,7 +8,7 @@
       <div class="line bottom" />
       <span class="text" contenteditable="true">Type Here</span>
     </div>
-  <WHRatio>
+  </WHRatio>
 </template>
 
 <script>
