@@ -47,7 +47,7 @@ export default {
   .num {
     display: block;
     margin-top: -5vh;
-    font-family: garamond, 'Noto Serif CJK BOLD';
+    font-family: var(--font-garamond), 'Noto Serif CJK BOLD';
     font-size: 25vw;
     font-weight: bolder;
     color: rgba(0,0,0,.8);

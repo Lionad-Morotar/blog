@@ -2,6 +2,6 @@
 
 <!-- Only in dev -->
 
-<!-- <Article-Private-QRCode /> -->
+<Article-Private-QRCode />
 
 <!-- <Article-Private-QRCodeShow /> -->

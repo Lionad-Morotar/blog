@@ -60,6 +60,16 @@ Creating good names is hard, but it should be hard, because a great name capture
 <name>Lionad</name><time>2020年11月2日 11点33分</time>
 </flow>
 
+<flow>JS 中那些令人讨厌的东西：
+<Highlight>
+function f({ a, b = 0 } = { a: "" }) {}
+// f()
+// f({ a: 1 })
+// f({ b: 2 })
+// f({ a: 1, b: 2 })
+</Highlight>
+<name>Lionad</name><time>2021年2月7日 10点53分</time>
+
 <flow>我相信下一个平面设计的方法,来自其它非设计领域。
 <name>大卫·卡森</name>
 </flow>
