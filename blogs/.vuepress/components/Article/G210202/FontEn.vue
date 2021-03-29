@@ -14,7 +14,7 @@
 <script>
 // https://www.monotype.com/fonts/avenir-next-world
 export default {
-  functional: true
+  // functional: true
 }
 </script>
 
