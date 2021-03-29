@@ -1,3 +1,13 @@
+<flow>
+<ul>
+<div>* 设置 content-visibility 让浏览器自动管理元素的可见状态，提高首屏渲染速度。为了正确滚动，可以使用 contain-intrinsic-size 改变元素固有尺寸或使用 JS 动态设置其值。</div>
+<div>* 应该把 will-change 当成最后的优化手段（不宜滥用），有两个不常见但好用的值 scroll-position、content 分别指将改变元素的滚动位置、元素内容将改变</div>
+<div>* 使用 contain 属性让元素及其内容独立于文档渲染，其值 layout、paint、size 分别指元素内容不影响上级、子元素不在元素范围外渲染、元素盒子大小不依赖其子元素</div>
+<div>* 使用 font-display 的 optional 值让浏览器根据网速自动判断应用 fallback 还是 auto（一般来说 auto 的效果类似 block）</div>
+</ul>
+<name><a href="https://mp.weixin.qq.com/s/uga8enKl1Yx7yE6d8Bn0bQ" rel="noopener noreferrer" target="_blank">仅使用 CSS 提高页面渲染速度</a></name>
+</flow>
+
 <flow>异步加载 CSS 文件的方法。
 <Highlight lang="html">
 &lt;link rel="stylesheet"
