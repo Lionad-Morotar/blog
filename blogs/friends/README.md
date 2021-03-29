@@ -36,12 +36,6 @@
 
 ## <spark>🏂 友情链接</spark>
 
-关于互换友链：
-
-* 我的友链模块并不是为了 SEO
-* 也不是为了交友
-* 我喜欢有个人气息的博客
-
 <FriendLinks>
   <FriendLink
     img="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/friends/Cheese.jpg"
