@@ -8,6 +8,7 @@ import JJ from './components/segments/JJ'
 
 import utils from './components/utils'
 
+import 'charts.css'
 import './styles/devices.styl'
 
 export default ({
