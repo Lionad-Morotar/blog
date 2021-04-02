@@ -4,75 +4,30 @@
 
       <table id="chart-week-count" class="charts-css column show-labels show-data-axes">
         <tbody>
-          <tr>
-            <th scope="row"> 03 / 22 <div class="sun" />
+          <tr v-for="(rec, recIDX) in byDay" :key="String(rec.month)+rec.day">
+            <th scope="row">
+              <template v-if="recIDX % 7 < 5">
+                {{ rec.month }} / {{ rec.day }}
+              </template>
+              <template v-else>
+                * / *
+              </template>
+              <div v-if="rec.weather === 'sun'" class="sun" />
+              <div v-else-if="rec.weather === 'cloud'" class="cloud" />
+              <div v-else class="rain"><div class="dot" /></div>
             </th>
-            <td style="--size:calc(75 / 120);"><span class="data"> 方方 <br/> 一光 </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 23 <div class="cloud" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 24 <div class="rain"><div class="dot" /></div>
-            </th>
-            <td style="--size:calc(45 / 120);"><span class="data"> 一光 </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 25 <div class="sun" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 26 <div class="cloud" />
-            </th>
-            <td style="--size:calc(45 / 120);"><span class="data"> 一光 </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> * / * <div class="sun" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> * / * <div class="sun" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 29 <div class="rain"><div class="dot" /></div>
-            </th>
-            <td style="--size:calc(45 / 120);"><span class="data"> 一光 </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 30 <div class="rain"><div class="dot" /></div>
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 03 / 31 <div class="rain"><div class="dot" /></div>
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 04 / 01 <div class="rain"><div class="dot" /></div>
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> 04 / 02 <div class="cloud" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> * / * <div class="sun" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
-          </tr>
-          <tr>
-            <th scope="row"> * / * <div class="sun" />
-            </th>
-            <td style="--size:calc(15 / 120);"><span class="data"> - </span></td>
+            <td :style="`--size: calc(${15 + (rec.record||[]).length * 15} / 120)`">
+              <span class="data">
+                <template v-if="rec.record">
+                  <template v-for="r in rec.record">
+                    {{ r.name }} <br :key="r.name" />
+                  </template>
+                </template>
+                <template v-else>
+                  -
+                </template>
+              </span>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -107,19 +62,19 @@
             <td style="--start: 0.7; --size: 0.7"> <span class="data"> ￥70 </span> </td>
           </tr>
           <tr>
-            <td style="--start: 0.7; --size: 0.7"> <span class="data"> - </span> </td>
+            <td style="--start: 0.7; --size: 0.7"> <span class="data"> ￥70 </span> </td>
           </tr>
           <tr>
-            <td style="--start: 0.7; --size: 0.7"> <span class="data"> - </span> </td>
+            <td style="--start: 0.7; --size: 0.7"> <span class="data"> ￥70 </span> </td>
           </tr>
           <tr>
-            <td style="--start: 0.7; --size: 0.7"> <span class="data"> - </span> </td>
+            <td style="--start: 0.7; --size: 0.7"> <span class="data"> ￥70 </span> </td>
           </tr>
           <tr>
-            <td style="--start: 0.7; --size: 0.7"> <span class="data"> - </span> </td>
+            <td style="--start: 0.7; --size: 0.7"> <span class="data"> ￥70 </span> </td>
           </tr>
           <tr>
-            <td style="--start: 0.7; --size: 0.7"> <span class="data"> - </span> </td>
+            <td style="--start: 0.7; --size: 0.7"> <span class="data"> ￥70 </span> </td>
           </tr>
         </tbody>
       </table>
@@ -131,9 +86,102 @@
 <script>
 export default {
   data () {
-    // TODO automate
     return {
-
+      byDay: [
+        {
+          month: 3,
+          day: 22,
+          weather: 'sun',
+          record: [
+            {
+              name: '方方'
+            },
+            {
+              name: '一光'
+            }
+          ]
+        },
+        {
+          month: 3,
+          day: 23,
+          weather: 'cloud',
+        },
+        {
+          month: 3,
+          day: 24,
+          weather: 'rain',
+          record: [
+            {
+              name: '一光'
+            }
+          ]
+        },
+        {
+          month: 3,
+          day: 25,
+          weather: 'sun',
+        },
+        {
+          month: 3,
+          day: 26,
+          weather: 'cloud',
+          record: [
+            {
+              name: '一光'
+            }
+          ]
+        },
+        {
+          month: 3,
+          day: 27,
+          weather: 'sun',
+        },
+        {
+          month: 3,
+          day: 28,
+          weather: 'sun',
+        },
+        {
+          month: 3,
+          day: 29,
+          weather: 'rain',
+          record: [
+            {
+              name: '一光'
+            }
+          ]
+        },
+        {
+          month: 3,
+          day: 30,
+          weather: 'rain',
+        },
+        {
+          month: 3,
+          day: 31,
+          weather: 'rain',
+        },
+        {
+          month: 4,
+          day: 1,
+          weather: 'rain',
+        },
+        {
+          month: 4,
+          day: 2,
+          weather: 'cloud',
+        },
+        {
+          month: 4,
+          day: 3,
+          weather: 'sun',
+        },
+        {
+          month: 4,
+          day: 4,
+          weather: 'sun',
+        },
+      ]
     }
   }
 }
