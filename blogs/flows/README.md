@@ -1,10 +1,8 @@
 <flow>
-<ul>
 <div>1、设置 content-visibility 让浏览器自动管理元素的可见状态，提高首屏渲染速度。为了正确滚动，可以使用 contain-intrinsic-size 改变元素固有尺寸或使用 JS 动态设置其值。</div>
 <div>2、应该把 will-change 当成最后的优化手段（不宜滥用），有两个不常见但好用的值 scroll-position、content 分别指将改变元素的滚动位置、元素内容将改变</div>
 <div>3、使用 contain 属性让元素及其内容独立于文档渲染，其值 layout、paint、size 分别指元素内容不影响上级、子元素不在元素范围外渲染、元素盒子大小不依赖其子元素</div>
 <div>4、使用 font-display 的 optional 值让浏览器根据网速自动判断应用 fallback 还是 auto（一般来说 auto 的效果类似 block）</div>
-</ul>
 <name><a href="https://mp.weixin.qq.com/s/uga8enKl1Yx7yE6d8Bn0bQ" rel="noopener noreferrer" target="_blank">大漠《仅使用 CSS 提高页面渲染速度》</a></name>
 </flow>
 
@@ -57,7 +55,7 @@ Creating good names is hard, but it should be hard, because a great name capture
 
 <flow>比 Chrome Dev 更高级的弱网环境模拟：Clumsy 能系统级拦截指定类型的连接，模拟丢包、延迟、断连、乱序等状况。
 <p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201102112929.png" style="max-width: 450px" /></p>
-<name>Lionad</name><time>2020年11月2日 11点33分</time>
+<name>Lionad</name>
 </flow>
 
 <flow>JS 中那些令人讨厌的东西：
@@ -68,14 +66,14 @@ function f({ a, b = 0 } = { a: "" }) {}
 // f({ b: 2 })
 // f({ a: 1, b: 2 })
 </Highlight>
-<name>Lionad</name><time>2021年2月7日 10点53分</time>
+<name>Lionad</name>
 </flow>
 
 <flow>我相信下一个平面设计的方法,来自其它非设计领域。
 <name>大卫·卡森</name>
 </flow>
 
-<flow><span>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</span><small>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</small><pixel>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</pixel><br />
+<flow><span>这款像素字太强了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</span><small>这款像素字太强了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</small><pixel>这款像素字太强悍了，能在 7x7 的尺寸内展现出汉字的小尺寸极限。</pixel><br />
 <name><a href="https://indienova.com/indie-game-news/dinkie-bitmap-font-by-3type/" rel="noopener noreferrer" target="_blank">丁卯点阵体：探索像素汉字的小尺寸极限</a></name>
 </flow>
 
@@ -114,7 +112,7 @@ PGO 即 Profile Guided Optimization，大意是通过记录并分析代码运行
 <flow><em>项目依赖多种版本的 NodeJS？</em>
 昨天在重构去年写的一个 Markdown 解析器，项目使用 Rollup 打包，同时还使用 Gulp 处理项目引用到的 Stylus 文件。期间出现了一个奇奇怪怪的问题：Gulp 将会在高版本 Node 环境中打包失败报错，而 Rollup 正好相反，它在低版本 Node 环境中打包会报错...
 查了各自文档的，文档没有说明具体支持到哪个版本的 Node 环境。最后只好用 NVM 装了两个版本的 Node，然后全局使用高版本 Node，再找到 Gulp 在 NPM 文件夹中对应的入口文件（gulp.cmd、gulp.ps1），把脚本中的 Node 路径写死为低版本 Node，才解决了问题。
-<name><a>Lionad</a></name><time>2020年8月4日 17点28分</time>
+<name><a>Lionad</a></name>
 </flow>
 
 <flow>猴子补丁。
@@ -122,11 +120,11 @@ PGO 即 Profile Guided Optimization，大意是通过记录并分析代码运行
 // 在运行时对功能做出修改
 undefined = true
 </Highlight>
-<name><a href="https://www.wikiwand.com/en/Monkey_patch" rel="noopener noreferrer" target="_blank">Monkey patch</a></name><time>2020年7月31日 17点37分</time>
+<name><a href="https://www.wikiwand.com/en/Monkey_patch" rel="noopener noreferrer" target="_blank">Monkey patch</a></name>
 </flow>
 
 <flow>这个网站不包含任何 JS 代码：<p class="m0"><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">https://www.swiftbysundell.com/articles/</a></p>
-<name><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">swiftbysundell</a></name><time>2020年7月18日 19点25分</time>
+<name><a href="https://www.swiftbysundell.com/articles/" rel="noopener noreferrer" target="_blank">swiftbysundell</a></name>
 </flow>
 
 <flow>几种创造倾斜文本的方法：
@@ -137,24 +135,24 @@ undefined = true
     <div>4：Unicode；</div>
     <div>5：Variable fonts；</div>
 </ul>
-<name><a href="https://css-tricks.com/how-to-italicize-text/" rel="noopener noreferrer" target="_blank">Chris Coyier</a></name><time>2020年7月18日 19点25分</time>
+<name><a href="https://css-tricks.com/how-to-italicize-text/" rel="noopener noreferrer" target="_blank">Chris Coyier</a></name>
 </flow>
 
 <flow>Safari 14 将会支持 WebP、浏览器扩展、网页翻译、视频画中画、BigInt 等功能。
-<name><a href="https://zhuanlan.zhihu.com/p/153470955" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name><time>2020年7月3日 00点00分</time>
+<name><a href="https://zhuanlan.zhihu.com/p/153470955" rel="noopener noreferrer" target="_blank">Safari 14 Beta 版发布</a></name>
 </flow>
 
 <flow>IaaS 时代，基础设施即服务，用户不再需要购买实体硬件设施，预示着云计算时代的开启；
 SaaS 时代，软件及服务，各种线上能力开始在云端喷薄而出；
 BaaS 时代，仅提供应用依赖的第三方服务，只以 API 的方式提供应用依赖的后端服务；
 而在 FaaS 时代，用户直接提交代码包即可实现运行和部署，开发者不再关注底层，Serverless 必然将在这个阶段开始繁荣。
-<name><a href="https://mp.weixin.qq.com/s?src=11&timestamp=1591815301&ver=2392&signature=SWGuuBpwNZmRtyR1DmL8SJhzQf1Wt62W4skaUF1DoAi3YtYqvoCcVolly6PRfw4s8EHZTLdmnC5vHSdsH1Fr2313eLV0ZOK*YNi4MXiwY*mM5-J77QVip0Z4PErhaenF&new=1" rel="noopener noreferrer" target="_blank">佘磊@前端之巅</a></name><time>2020年6月11日 00点23分</time>
+<name><a href="https://mp.weixin.qq.com/s?src=11&timestamp=1591815301&ver=2392&signature=SWGuuBpwNZmRtyR1DmL8SJhzQf1Wt62W4skaUF1DoAi3YtYqvoCcVolly6PRfw4s8EHZTLdmnC5vHSdsH1Fr2313eLV0ZOK*YNi4MXiwY*mM5-J77QVip0Z4PErhaenF&new=1" rel="noopener noreferrer" target="_blank">佘磊@前端之巅</a></name>
 </flow>
 
 <flow>心流是触达的通畅，是思考的愉悦，以及融合与创造时的成就。
 心流即想法。想法用以解决问题，心流即设计。
 我希望我会尽可能地选择去站在永恒的那一面。
-<name>Lionad</name><time>2020年4月27日 18点26分</time>
+<name>Lionad</name>
 </flow>
 
 <style>
@@ -166,7 +164,7 @@ flow {
     border: solid 1px #999;
     line-height: 2.3;
     font-size: 18px;
-    white-space: pre-wrap;
+    white-space: normal;
     word-break: break-word;
 }
 flow:after {
@@ -178,19 +176,32 @@ flow:after {
     height: 38%;
     background: #221522;
 }
+flow div {
+    margin-top: 1em;
+}
+flow div:first-child {
+    margin-top: 0;
+}
+flow ul {
+    padding-inline-start: 2em !important;
+    padding-inline-end: 2em !important;
+}
 
 name,
 time {
-    display: inline-block;
+    display: inline;
     margin-top: 1em;
     font-size: 12px;
     color: #999;
-    /* float: right; */
 }
 name {
     margin-right: 1em;
     font-family: var(--font-text--bold);
     font-weight: bold;
+}
+name:only-child::before {
+    content: "\A";
+    white-space: pre;
 }
 name::first-letter {
     text-transform: uppercase;
