@@ -71,17 +71,19 @@ const loadScriptFromURL = (() => {
     }
 })()
 
-// polyfill for "for await ... of"
-async function forAwait(datas, cb, step = 1) {
+/**
+ * polyfill for "for await ... of"
+ */
+async function forAwait(datas, cb) {
     let i = -1
     const isArr = Array.isArray(datas)
+    const len = isArr ? datas.length : datas
     const ret = []
     async function handleNext() {
-        i += step
-        const res = isArr ? datas[i] : i
-        ret.push(await cb(res))
+        if (len > 0 && ++i < len) {
+            const res = isArr ? datas[i] : i
+            ret.push(await cb(res))
 
-        if (i < (isArr ? datas.length : datas)) {
             await handleNext()
         }
     }
