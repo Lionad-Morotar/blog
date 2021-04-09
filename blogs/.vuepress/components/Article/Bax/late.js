@@ -1,4 +1,7 @@
 export default [
+
+  /* New Week */
+
   {
     month: 3,
     day: 22,
@@ -48,6 +51,9 @@ export default [
     month: 3,
     day: 28,
   },
+
+  /* New Week */
+
   {
     month: 3,
     day: 29,
@@ -86,6 +92,9 @@ export default [
     month: 4,
     day: 4,
   },
+
+  /* New Week */
+
   {
     month: 4,
     day: 5,
@@ -119,5 +128,42 @@ export default [
     month: 4,
     day: 11,
     weather: "rain"
-  }
+  },
+
+  /* New Week */
+
+  {
+    month: 4,
+    day: 12,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 13,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 14,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 15,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 16,
+  },
+  {
+    month: 4,
+    day: 17,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 18,
+    weather: "cloud"
+  },
 ]
