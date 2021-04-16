@@ -5,6 +5,7 @@ export default [
   {
     month: 3,
     day: 22,
+    weekday: 1,
     record: [
       {
         "name": "方方"
@@ -135,7 +136,12 @@ export default [
   {
     month: 4,
     day: 12,
-    weather: "cloud"
+    weather: "cloud",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
   },
   {
     month: 4,

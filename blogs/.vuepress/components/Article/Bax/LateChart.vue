@@ -29,7 +29,7 @@
         </tbody>
       </table>
 
-      <table id="chart-money-count-day" class="charts-css line show-data-axes" style="--color: #ffe583;">
+      <!-- <table id="chart-money-count-day" class="charts-css line show-data-axes" style="--color: #ffe583;">
         <tbody>
           <tr v-for="(rec, recIDX) in byDay" :key="String(rec.month)+rec.day">
             <td :style='`
@@ -38,10 +38,10 @@
             `'> <span class="data"> ￥{{rec.capital}} </span> </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
 
       <table id="chart-money-count-all" class="charts-css line show-data-axes show-heading" style="--color: #f46565;">
-        <caption style="height: 3em;"> <b>迟到概览</b>（基金总计 / 基金日计 / 日统计详情） </caption>
+        <caption style="height: 3em;"> <b>迟到概览</b>（基金总计 / 日统计详情） </caption>
         <tbody>
           <tr v-for="(rec, recIDX) in byDay" :key="String(rec.month)+rec.day">
             <td :style='`
@@ -66,12 +66,22 @@ export default {
   computed: {
     // 进行基本的数据清洗
     data () {
-      const basicWash = x => {
+      const ensureX = x => {
         x.record = x.record || []
         x.weather = x.weather || 'sun'
         return x
       }
-      return this.raw.map(basicWash)
+      return this.raw.reduce((h, c) => {
+        const last = h[h.length - 1]
+        if (last) {
+          c.weekday = last.weekday + 1
+          if (c.weekday === 8) {
+            c.weekday = 1
+          }
+        }
+        h.push(ensureX(c))
+        return h
+      }, [])
     },
     // 按月维度划分数组
     splitByMonth () {
@@ -117,12 +127,15 @@ export default {
           }, 0)
 
           // 如果一周都没迟到记录则二军出￥50
-          // TODO fixme
-          if ((newMonth.length + 1) % 7 === 0) {
-            const last7Days = newMonth.slice(-6)
-            last7Days.push(day)
-            if (!last7Days.find(x => x.record.length > 0)) {
-              dayCapital = 50
+          // FIXME
+          if (day.weekday === 5) {
+            const lastWeekdays = newMonth.slice(-4)
+            lastWeekdays.push(day)
+            if (lastWeekdays.length >= 5) {
+              console.log(lastWeekdays)
+              if (!lastWeekdays.find(x => x.record.length > 0)) {
+                dayCapital = 50
+              }
             }
           }
 
@@ -200,7 +213,7 @@ export default {
     },
     calcCapitalAllPercent (day) {
       const max = Math.floor(
-        this.byDay[this.byDay.lenght - 1]?.capitalACC * 
+        this.byDay[this.byDay.length - 1]?.capitalACC * 
         1.5
       )
       const base = day?.capitalACC || 0
@@ -226,7 +239,7 @@ export default {
   top: 100px;
   height: 250px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1700px;
   margin: 0 auto;
 }
 .charts-con > table {
@@ -256,7 +269,7 @@ export default {
   height: 100px;
 }
 #chart-money-count-all {
-  top: -270px;
+  top: -193px;
   height: 170px;
 }
 
