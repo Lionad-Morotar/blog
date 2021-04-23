@@ -43,9 +43,9 @@
       <table id="chart-money-count-all" class="charts-css line show-data-axes show-heading" style="--color: #f46565;">
         <caption style="height: 3em;"> <b>迟到概览</b>（基金总计 / 日统计详情） </caption>
         <tbody>
-          <tr v-for="(rec, recIDX) in byDay" :key="String(rec.month)+rec.day">
+          <tr v-for="(rec, recIDX) in byDayOffset" :key="String(rec.month)+rec.day">
             <td :style='`
-              --start: ${calcCapitalAllPercent(byDay[recIDX - 1], "start")};
+              --start: ${calcCapitalAllPercent(byDayOffset[recIDX - 1], "start")};
               --size: ${calcCapitalAllPercent(rec, "end")}
             `'> <span class="data"> ￥{{rec.capitalACC}} </span> </td>
           </tr>
@@ -117,8 +117,8 @@ export default {
               : 1
             switch (curLateTime) {
               case 1:
-              case 2:
                 return h
+              case 2:
               case 3:
                 return h + 50
               default:
@@ -167,6 +167,11 @@ export default {
     },
     byDay () {
       return this.withCapitalACC
+    },
+    byDayOffset () {
+      const res = this.byDay.slice(1)
+      res.push(this.byDay[this.byDay.length - 1])
+      return res
     },
     curMonth () {
       return this.byDay.reduceRight((h, c) => {
