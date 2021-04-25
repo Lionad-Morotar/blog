@@ -1,0 +1,23 @@
+commit 0948d999f2fddf9f90991956493f976273c5da1f
+Author: Evan You <yyx990803@gmail.com>
+Date:   Thu Oct 12 23:07:14 2017 -0400
+
+    build: release 2.5.0
+
+commit bc2918f0e596d0e133a25606cbb66075402ce6c3
+Author: Evan You <yyx990803@gmail.com>
+Date:   Thu Oct 12 23:04:35 2017 -0400
+
+    build: build 2.5.0
+
+commit df8f179cfc3b98d6e0f48502cc5071b993d9cdb5
+Author: Evan You <yyx990803@gmail.com>
+Date:   Thu Oct 12 20:41:36 2017 -0400
+
+    test: make hydration spec more stable for Edge
+
+commit a85f95c422e0bde6ce4068f5e44e761d4e00ca08
+Author: Evan You <yyx990803@gmail.com>
+Date:   Thu Oct 12 20:41:07 2017 -0400
+
+    test: use phantom for dev

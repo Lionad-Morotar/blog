@@ -22,6 +22,9 @@ VueJS 周边：
 
 - [vue-error-boundary](/articles/source-code/vuejs/error-boundary.html)
 
+VueJS 源码阅读相关：
+
+- [Git Branches](/articles/source-code/vuejs/git-log.html)
 
 #### jQuery
 
