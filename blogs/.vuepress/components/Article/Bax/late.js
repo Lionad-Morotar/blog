@@ -172,4 +172,58 @@ export default [
     day: 18,
     weather: "cloud"
   },
+
+  /* New Week */
+
+  {
+    month: 4,
+    day: 19,
+    weather: "sun",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 4,
+    day: 20,
+    weather: "sun",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 4,
+    day: 21,
+    weather: "cloud",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 4,
+    day: 22,
+    weather: "rain"
+  },
+  {
+    month: 4,
+    day: 23,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 24,
+    weather: "cloud"
+  },
+  {
+    month: 4,
+    day: 25,
+    weather: "sun"
+  }
+  
 ]
