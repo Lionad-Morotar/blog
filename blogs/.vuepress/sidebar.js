@@ -82,6 +82,7 @@ const sidebarConfigs = {
       collapsable: false,
       open: true,
       children: [
+        'windows',
         'anysort',
         'js-100',
         'helmet-and-security',
