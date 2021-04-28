@@ -62,8 +62,8 @@ const sidebarConfigs = {
       collapsable: false,
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
-        'rss',
         'art',
+        'rss',
         'books',
         'punctuations',
         'misleading-and-assumptions',
@@ -82,6 +82,7 @@ const sidebarConfigs = {
       collapsable: false,
       open: true,
       children: [
+        // 'windows',
         'anysort',
         'js-100',
         'helmet-and-security',
