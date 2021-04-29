@@ -1,3 +1,8 @@
+<flow>一首诗不能被完成，只能被遗弃。
+A poem is never finished, only abandoned.
+<name><a href="https://baike.baidu.com/item/%E4%BF%9D%E5%B0%94%C2%B7%E7%93%A6%E9%9B%B7%E9%87%8C/10358597?fromtitle=%E7%93%A6%E8%8E%B1%E9%87%8C&fromid=2790669" rel="noopener noreferrer" target="_blank">保尔·瓦雷里</a></name>
+</flow>
+
 <flow>如果您不能明智地为一个问题的正反双方都进行辩护，那么您对这个问题的理解就不够好，也就不能为任何一方辩护。
 <name><a href="https://www.jdon.com/56012" rel="noopener noreferrer" target="_blank">解道 JDON</a></name>
 </flow>
