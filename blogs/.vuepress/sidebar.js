@@ -63,7 +63,7 @@ const sidebarConfigs = {
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
         'art',
-        'rss',
+        // 'rss',
         'books',
         'punctuations',
         'misleading-and-assumptions',

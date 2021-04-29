@@ -22,13 +22,35 @@ h2, h3, h4 {
     padding: 3px 0.5em;
     line-height: 1.5em;
     background: var(--dark-black);
-    color: #fefefe;
+    color: transparent;
     text-transform: uppercase;
     border-radius: 1px;
     font-weight: bolder;
 
     &:target {
         outline: dashed 2px var(--theme-black);
+        outline-offset: .2em;
+    }
+
+    &::before {
+        content: attr(id);
+        position: absolute;
+        height: 100%;
+        max-width: 100%;
+        top: 0;
+        left: 0;
+        color: transparent;
+        letter-spacing: 2em;
+        z-index: 0;
+    }
+    &::after {
+        content: attr(id);
+        position: absolute;
+        height: 100%;
+        width: auto;
+        top: 0;
+        left: 0.5em;
+        color: #fefefe;
     }
 
     .header-anchor {
@@ -48,6 +70,14 @@ h2 {
     font-size: 1.875rem;
     font-weight: 700;
     letter-spacing: 1px;
+    background: linear-gradient(45deg, rgba(0,0,0,0.62) 18%, transparent 68%);
+
+    &::before {
+        background: linear-gradient(45deg, black 0%, rgba(0,0,0,0) 68%);
+    }
+    &::after {
+        line-height: 1.6em;
+    }
 }
 
 h3 {
@@ -55,7 +85,14 @@ h3 {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 1px;
-    background: #4a1227;
+    background: linear-gradient(45deg, #4a1227, rgba(76,18,39,.62) 18%, transparent 64%);
+
+    &::before {
+        background: linear-gradient(45deg, rgba(76,18,39,.62) 0%, transparent 65%);
+    }
+    &::after {
+        line-height: 1.65em;
+    }
 }
 
 h4 {
@@ -65,6 +102,10 @@ h4 {
     font-weight: 700;
     letter-spacing: 1px;
     background: #7A5160;
+
+    &::after {
+        line-height: 1.65em;
+    }
 }
 
 & > img, & > p > img, & > figure> img, & > video, & > p > video, & > figure> video {
@@ -81,6 +122,7 @@ h4 {
         margin-bottom: 0.5em;
         text-align: center;
         font-size: 12px;
+        overflow: hidden;
     }
 }
 
@@ -316,7 +358,7 @@ del {
 }
 
 h2 > del {
-    color: hsla(0, 0%, 100%, 0.52);
+    color: transparent;
 }
 
 mark, .highlighted {
@@ -431,6 +473,10 @@ table {
         width: 100vw;
         left: -1.5rem;
         border-radius: 0;
+
+        &::after {
+            left: 1.5rem !important;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
