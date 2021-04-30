@@ -4,9 +4,9 @@
 
       <table id="chart-week-count" class="charts-css column show-labels show-data-axes">
         <tbody>
-          <tr v-for="(rec, recIDX) in byDay" :key="String(rec.month)+rec.day">
+          <tr v-for="rec in byDay" :key="String(rec.month)+rec.day">
             <th scope="row">
-              <template v-if="recIDX % 7 < 5">
+              <template v-if="isWorkday(rec)">
                 {{ rec.month }} / {{ rec.day }}
                 <div v-if="rec.weather === 'sun'" class="sun" />
                 <div v-else-if="rec.weather === 'cloud'" class="cloud" />
@@ -120,9 +120,9 @@ export default {
                 return h
               case 2:
               case 3:
-                return h + 50
+                return h + 20
               default:
-                return h + (curLateTime - 3) * 20
+                return h + 20
             }
           }, 0)
 
@@ -132,7 +132,6 @@ export default {
             const lastWeekdays = newMonth.slice(-4)
             lastWeekdays.push(day)
             if (lastWeekdays.length >= 5) {
-              console.log(lastWeekdays)
               if (!lastWeekdays.find(x => x.record.length > 0)) {
                 dayCapital = 50
               }
@@ -165,22 +164,21 @@ export default {
         return h
       }, [])
     },
-    byDay () {
+    displayDays () {
       return this.withCapitalACC
+    },
+    curMonth () {
+      return this.displayDays.filter(x => {
+        return x.month === 4
+      })
+    },
+    byDay () {
+      return this.curMonth
     },
     byDayOffset () {
       const res = this.byDay.slice(1)
       res.push(this.byDay[this.byDay.length - 1])
       return res
-    },
-    curMonth () {
-      return this.byDay.reduceRight((h, c) => {
-        const last = h[h.length - 1] || {}
-        if (last.day !== 1) {
-          h.push(c)
-        }
-        return h
-      }, []).reverse()
     }
   },
   methods: {
@@ -223,6 +221,9 @@ export default {
       )
       const base = day?.capitalACC || 0
       return this.calcCapitalPercent(day, 'all', { base, max })
+    },
+    isWorkday (day) {
+      return day.weekday <= 5
     }
   }
 }
