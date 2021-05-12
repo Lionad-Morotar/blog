@@ -83,10 +83,10 @@ const sidebarConfigs = {
       open: true,
       children: [
         // 'windows',
+        'design-patterns-and-js-magic-pot',
         'anysort',
         'js-100',
         'helmet-and-security',
-        'design-patterns-and-js-magic-pot',
         'css-poaa',
         'css-judge-direction',
         'css-interesting',
