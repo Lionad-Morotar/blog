@@ -14,14 +14,14 @@
 * 毕业院校：江西师范大学 / 软件工程 / 2014 - 2018
 * 工作年限：3 年 / 上海
 * 联系方式：18579157140（Mobile） / tangnad@qq.com（Mail）
-* 社交主页：[Lionad-Morotar@Github](https://github.com/Lionad-Morotar) / [个人博客](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/) / [掘金](https://juejin.im/user/289926800227694)
+* 社交主页：[Lionad-Morotar@Github](https://github.com/Lionad-Morotar) / [个人博客](www.lionad.art) / [掘金](https://juejin.im/user/289926800227694)
 
 ## 💖 核心能力
 
 **技术驱动；擅长解决问题；思路开阔；**
 
 * JS 基本功扎实，读过 VueJS 源码；
-* 喜欢写[个人博客](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)；活跃于[掘金社区](https://juejin.im/user/289926800227694)，掘力值 1700+
+* 喜欢写[个人博客](www.lionad.art)；活跃于[掘金社区](https://juejin.im/user/289926800227694)，掘力值 1700+
 * 活跃于 [Github](https://github.com/Lionad-Morotar)；近期有读 HTML Parser 时顺手写的 [Markdown Parser](https://github.com/Lionad-Morotar/read-source-code/tree/master/module/markdown-parser)；
 * 创造了一种新的 CSS 抗锯齿思路 [POAA](https://juejin.im/post/6844904180776173581)，被[前端早读课](https://mp.weixin.qq.com/profile?src=3&timestamp=1596562383&ver=1&signature=07VDeMiUAG0av39cka13COjcq44y7n*Dm-SQWhg5*7EXWFNrljOrwLHppSHEyIt79pg3qdfkzbf7IcjfnYQi1A==)推荐转载于第 1980 期；
 * 研读过许多前端[技术书籍](https://book.douban.com/people/lionad/collect)，修炼内功；
