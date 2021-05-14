@@ -63,7 +63,8 @@ export default [
       {
         "name": "一光"
       }
-    ]
+    ],
+    workday: false
   },
   {
     month: 3,
@@ -223,7 +224,8 @@ export default [
   {
     month: 4,
     day: 25,
-    weather: "sun"
+    weather: "sun",
+    workday: true
   },
 
   /* New Week */
@@ -266,12 +268,114 @@ export default [
   {
     month: 5,
     day: 1,
-    weather: "cloud"
+    weather: "sun",
+    workday: false
   },
   {
     month: 5,
     day: 2,
-    weather: "sun"
+    weather: "clound",
+    workday: false
+  },
+
+  /* New Week */
+
+  {
+    month: 5,
+    day: 3,
+    weather: "rain",
+    workday: false
+  },
+  {
+    month: 5,
+    day: 4,
+    weather: "cloud",
+    workday: false
+  },
+  {
+    month: 5,
+    day: 5,
+    weather: "cloud",
+    workday: false
+  },
+  {
+    month: 5,
+    day: 6,
+    weather: "rain"
+  },
+  {
+    month: 5,
+    day: 7,
+    weather: "cloud"
+  },
+  {
+    month: 5,
+    day: 8,
+    weather: "sun",
+    workday: true
+  },
+  {
+    month: 5,
+    day: 9,
+    weather: "cloud"
+  },
+
+  /* New Week */
+
+  {
+    month: 5,
+    day: 10,
+    weather: "cloud",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 5,
+    day: 11,
+    weather: "rain",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 5,
+    day: 12,
+    weather: "rain"
+  },
+  {
+    month: 5,
+    day: 13,
+    weather: "rain",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 5,
+    day: 14,
+    weather: "rain",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 5,
+    day: 15,
+    weather: "rain"
+  },
+  {
+    month: 5,
+    day: 16,
+    weather: "rain"
   }
   
 ]

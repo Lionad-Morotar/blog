@@ -131,8 +131,9 @@ export default {
           if (day.weekday === 5) {
             const lastWeekdays = newMonth.slice(-4)
             lastWeekdays.push(day)
-            if (lastWeekdays.length >= 5) {
-              if (!lastWeekdays.find(x => x.record.length > 0)) {
+            const workdays = lastWeekdays.filter(x => this.isWorkday(x))
+            if (workdays.length >= 5) {
+              if (!workdays.find(x => x.record.length > 0)) {
                 dayCapital = 50
               }
             }
@@ -169,7 +170,8 @@ export default {
     },
     curMonth () {
       return this.displayDays.filter(x => {
-        return x.month === 4
+        return x.month === 5 || (x.month === 4 && x.day > 18)
+        // return x.month === 5
       })
     },
     byDay () {
@@ -216,14 +218,15 @@ export default {
     },
     calcCapitalAllPercent (day) {
       const max = Math.floor(
-        this.byDay[this.byDay.length - 1]?.capitalACC * 
-        1.5
+        this.byDay[this.byDay.length - 1]?.capitalACC * 1.5
       )
       const base = day?.capitalACC || 0
       return this.calcCapitalPercent(day, 'all', { base, max })
     },
     isWorkday (day) {
-      return day.weekday <= 5
+      return day.workday != null
+        ? day.workday
+        : day.weekday <= 5
     }
   }
 }
