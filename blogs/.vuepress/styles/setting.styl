@@ -40,7 +40,7 @@
 
 /* 给字符串添加字体存储路径前缀 */
 useFontBaseURL(path) {
-    $font-url = 'https://mgear-font.oss-cn-shanghai.aliyuncs.com'
+    $font-url = 'https://mgear-font.oss-cn-shanghai.aliyuncs.com/'
     return url($font-url + path);
 }
 
@@ -48,19 +48,19 @@ useFontBaseURL(path) {
 @font-face {
     font-family: 'Dhenmark';
     font-display: swap;
-    src: useFontBaseURL('Dhenmark/Dhenmark.ttf');
+    src: local('Dhenmark'), useFontBaseURL('Dhenmark/Dhenmark.ttf');
 }
 
 @font-face {
     font-family: 'Edo';
     font-display: swap;
-    src: useFontBaseURL('Edo/Edo.woff2'), useFontBaseURL('Edo/Edo.woff'), useFontBaseURL('Edo/Edo.ttf');
+    src: local('Edo'), useFontBaseURL('Edo/Edo.woff2'), useFontBaseURL('Edo/Edo.woff'), useFontBaseURL('Edo/Edo.ttf');
 }
 
 @font-face {
     font-family: 'Garamond';
     font-display: swap;
-    src: useFontBaseURL('Garamond/Garamond.ttf');
+    src: local('Garamond'), useFontBaseURL('Garamond/Garamond.ttf');
 }
 
 /* CJK Font */
