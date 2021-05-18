@@ -160,8 +160,8 @@ module.exports = {
         label: '自用推流推荐'
       },
       '技术博客': {
-        url: '/articles/anysort.html',
-        label: 'Anysort：灵活、优雅、无依赖的排序库'
+        url: '/articles/design-patterns-and-js-magic-pot.html',
+        label: '设计模式与JS魔法锅'
       }
     }
   }
