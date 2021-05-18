@@ -9,7 +9,7 @@
 
 网易云音乐的歌单排序功能十分鸡肋，只能按照歌曲名、歌手名、专辑名排序。别说处理一些复杂的规则了，他连从 Z-A 这种简单的倒序逻辑都搞不定。这对像我这种红星单动不动就几千首曲子或是喜欢给曲子分类、制作歌单的朋友来说简直就是灾难。
 
-![鸡肋的网易云歌单排序功能](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210110192313.png?w=30)
+![鸡肋的网易云歌单排序功能](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210110192313.png?w=30)
 
 于是，我写了一个专门用来给歌单中的歌曲排序的爬虫脚本，能够实现各种有意思的排序功能。
 
@@ -19,7 +19,7 @@
 2. 再按专辑发布日期排序。
 2. 再按歌曲时长排序。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210110194331.png?w=70)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210110194331.png?w=70)
 
 再举个例子，[这个歌单](https://music.163.com/#/playlist?id=5447666595)的曲子按照以下规则排序：
 
@@ -27,7 +27,7 @@
 2. 再按专辑发布日期排序。
 3. 再按歌曲在对应专辑中的顺序排序。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210110194551.png?w=70)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210110194551.png?w=70)
 
 哇哈，这个排序功能比网易云默认的歌单排序强哈，这才真有点意思~ 接下来，我们一步一步来把它实现吧。名称和标语我都想好了，就叫做 **Anysort：灵活、优雅、无依赖的排序库**。
 
@@ -472,7 +472,7 @@ var constructor = {
 
 完善排序逻辑后，我们的比较函数终于能支持各种特殊值的比较啦。对于不能比较的值，也会报警提醒我们比较过程可能出了问题。
 
-![不能比较的值也会报警告](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210110234658.png)
+![不能比较的值也会报警告](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210110234658.png)
 
 ### 抽象排序过程
 

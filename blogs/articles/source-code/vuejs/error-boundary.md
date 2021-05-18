@@ -10,7 +10,7 @@
 
 VueJS 内置了两种选项用于捕获组件中出现的错误，errorHandler 和 errorCaptured（Vue@2.5+），分别用于设置全局的错误捕获与子孙组件的错误捕获。VueJS 自定义了错误的传播规则：只要 errorCaptured 没有返回 false，错误就会一直向上传播：
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201013110407.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201013110407.png)
 
 有两点需要注意：
 

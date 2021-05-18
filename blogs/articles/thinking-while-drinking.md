@@ -18,7 +18,7 @@
 
 回到咖啡，学问真多。从 [Visual Capitalist](https://www.visualcapitalist.com/wp-content/uploads/2020/08/Coffee-supply-visualized-full.html) 中扒过来的这张图能看到：咖啡品种、烘干方式、烘焙技术、研磨技术、萃取方式都是能展开来讲一年的东西，我这种啥都不懂的小白评价起咖啡好不好喝来那可能真就只有非错即对的二元论答案供回答了。
 
-![从咖啡豆到饮料](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210102195853.png)
+![从咖啡豆到饮料](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210102195853.png)
 
 ### 各种茶
 
@@ -26,7 +26,7 @@
 
 说到“不重样”，我就算了笔账。去年这会儿优美茶还在卖一款 30 Days 的盒装茶，里面的茶包每包都不重样，也就是每天可以尝一种新味道。不过那会儿我嫌贵没买。今年想着“喝几杯奶茶的钱就可以买买买，干脆试一试”的时候，已经搜不到 30 Days 了。害，我的好奇心没有被满足，这可是大问题。哼，大问题。
 
-![表情-不乐](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210102224748.png)
+![表情-不乐](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210102224748.png)
 
 回家来也有各种茶可以喝。楼下是商场，一楼是 24 小时罗森。他们家的柜子里倒是有不少以前我在云拿没有见过的茶饮料，像是立顿精选系列，伊藤园的无糖茶啦，KIRIN 生茶，还有麟珑茶室的各种... 总之就周末喝喝的话，还是能新鲜好一阵子的。
 

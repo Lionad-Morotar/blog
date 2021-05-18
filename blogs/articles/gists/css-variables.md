@@ -73,6 +73,6 @@ Una Kravets 展示了一个利用变量渐变制作动画效果的示例[^transi
 
 [^js-css-api]: [CSS变量对JS交互组件开发带来的提升与变革](https://www.zhangxinxu.com/wordpress/2020/07/css-var-improve-components/)
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/button-click-piple.gif)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/button-click-piple.gif)
 
 ## 阅读更多

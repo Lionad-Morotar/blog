@@ -63,7 +63,7 @@ Creating good names is hard, but it should be hard, because a great name capture
 </flow>
 
 <flow>比 Chrome Dev 更高级的弱网环境模拟：Clumsy 能系统级拦截指定类型的连接，模拟丢包、延迟、断连、乱序等状况。
-<p><img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201102112929.png" style="max-width: 450px" /></p>
+<p><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201102112929.png" style="max-width: 450px" /></p>
 <name>Lionad</name>
 </flow>
 

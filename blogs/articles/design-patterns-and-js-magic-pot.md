@@ -22,7 +22,7 @@
 
 面向对象把功能作为节点，组合为功能网格，节点间通过消息通讯以及做对应的响应。这样一来，开发在编程时不再需要直面输入输出这种数据流动的思考方式，只需要按照指令维护各个对象内部的状态即可，节点对应的代码片段也就能得到重用。
 
-![Message Passing In OO](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210511174933.png?w=40)
+![Message Passing In OO](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210511174933.png?w=40)
 
 相比子程序复用，函数复用已经是巨大的进步[^fn-call]。类复用相比函数复用要更加抽象，因为它保存了函数和状态的集合；而设计模式比类复用在抽象上更胜一筹：设计模式不单单直接复用某个类，而是复用整个“功能网格”，把特定问题的解决方案相关的所有节点和通讯机制全部拷贝，固化下来，命名并形成标准。**设计模式其实是使用面向对象编程语言时代码复用的高级形式，是面向对象发展壮大之路的必然的产物**。只要写代码，就会碰到复用性问题，四人帮偏好面向对象，所以“设计模式”只是他们用来传授的面向对象编程中的代码复用性经验的概括。换句话说，大部分情况下我们讨论的“设计模式”和“面向对象设计模式”完全等同。这也就解释了为什么非面向对象不可了。
 
@@ -50,7 +50,7 @@ console.log(DesignPatterns.filter(removeOO))
 
 设计模式则是单个或多个函数的组合（在 Java 中不是函数而是类），既可以在新项目里现写一个模式供使用，也可以引入社区现有的模块来复用。为了了解如何使用某个设计模式，需要提前了解该模式定义的实体以及实体是通讯机制。
 
-![函数、设计模式、框架间的升级关系](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210513145630.png?w=70)
+![函数、设计模式、框架间的升级关系](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210513145630.png?w=70)
 
 设计模式作为最简单的实体和函数的组合，可看作函数的升级版或是框架的缩水版；去掉设计模式中的面向对象相关内容，就只剩下了函数。
 
@@ -66,7 +66,7 @@ console.log(DesignPatterns.filter(removeOO))
 
 [^css]: 试试使用 CSS 去写游戏？即便可行，但过程也会让人无比沮丧。
 
-![《JavaScript 精粹》VS《JavaScript 权威指南》](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200709104930.png)
+![《JavaScript 精粹》VS《JavaScript 权威指南》](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200704/20200709104930.png)
 
 传统面向对象语言以类封装状态，并向外暴露改变状态的方法。以下代码中的书本类为例：Book Class 保持有 name 状态，可以使用 getPrintName 方法返回包装后的 name 或使用 rename 修改 name 。
 
@@ -214,7 +214,7 @@ JavaScript 的火热日益见长，前端社区[越加活跃](https://githut.inf
 
 以下就用魔法锅的故事作为文章结尾，这是一个颇有意思的传奇故事。
 
-![炼金术 | 维基百科](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200713074400.png)
+![炼金术 | 维基百科](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200704/20200713074400.png)
 
 在爱尔兰一个隐秘的角落，住着一个精通智慧与魔法的巫师，凯丽杜恩（Ceridwen）。她能力超凡，偏偏却生了一个丑陋的儿子。所以这位母亲竭尽所能想将智慧传授给他，以弥补其外表的丑陋。她辗转于各种巫术与秘仪，最后，总算在一本隐秘的魔书中找到了灵感。
 

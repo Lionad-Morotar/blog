@@ -54,7 +54,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805015516.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805015516.png"
     :callouts="[
         '《Webpack 实战：入门、进阶与调优》',
         '居玉皓 著 / 机械工业出版社 / 2019-6',
@@ -64,7 +64,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805182455.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805182455.png"
     :callouts="[
         '《JavaScript 之美》',
         'Anton Kovalyov / 杜春晓/司伟伟 / 中国电力出版社 / 2017-12-1',
@@ -74,7 +74,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805182755.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805182755.png"
     :callouts="[
         '《大教堂与集市》',
         'Eric S·Raymond / 卫剑钒 / 中国电力出版社 / 2014-5',
@@ -84,7 +84,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805182951.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805182951.png"
     :callouts="[
         '《计算机科学精粹》',
         '沃德斯顿·费雷拉·菲尔多 / 蒋楠 / 人民邮电出版社 / 2019-1',
@@ -94,7 +94,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805183056.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805183056.png"
     :callouts="[
         '《SEO 实战宝典》',
         '丁士锋 / 人民邮电出版社 / 2015-4-1',
@@ -139,7 +139,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805183510.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805183510.png"
     :callouts="[
         '《JavaScript 忍者秘籍》',
         'John Resig/Bear Bibeault / 徐涛 / 人民邮电出版社 / 2015-10',
@@ -149,7 +149,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805183627.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805183627.png"
     :callouts="[
         '《JavaScript 语言精粹》',
         'Douglas Crockford / 赵泽欣/鄢学鹍 / 电子工业出版社 / 2009-4',
@@ -159,7 +159,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805183735.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805183735.png"
     :callouts="[
         '《前端工程化：体系设计与实践》',
         '周俊鹏 / 电子工业出版社 / 2018-1',
@@ -169,7 +169,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805183829.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805183829.png"
     :callouts="[
         '《JavaScript 面向对象精要》',
         '尼古拉斯·泽卡斯 / 胡世杰 / 人民邮电出版社 / 2015-4',
@@ -179,7 +179,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805183921.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805183921.png"
     :callouts="[
         '《JavaScript 启示录》',
         'Cody Lindley / 徐涛 / 人民邮电出版社 / 2014-3-1',
@@ -189,7 +189,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805184009.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805184009.png"
     :callouts="[
         '《编写可维护的 JavaScript》',
         '扎卡斯 / 李晶/郭凯/张散集 / 人民邮电出版社 / 2013-4',
@@ -199,7 +199,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/20200805184114.png"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/20200805184114.png"
     :callouts="[
         '《你不知道的JavaScript（上卷）》',
         'Kyle Simpson / 赵望野/梁杰 / 人民邮电出版社 / 2015-4',
@@ -209,7 +209,7 @@
 
 <Commend
     type="title"
-    src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/books/黑客与画家.jpg"
+    src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/books/黑客与画家.jpg"
     :callouts="[
         '《黑客与画家》',
         '做一个异端是有回报的，不仅是在科学领域，在任何有竞争的地方，只要你能看到别人看不到或不敢看的东西，你就有很大的优势。',

@@ -154,7 +154,7 @@ export default {
       height: var(--size);
       border-radius: 50%;
       background-color: #eee;
-      background-image: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/resize-h.svg');
+      background-image: url('https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/resize-h.svg');
       background-size: 80%;
       background-position: center;
     }

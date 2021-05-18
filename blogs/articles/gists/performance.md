@@ -21,7 +21,7 @@
 
 页面加载时会有一些基础的性能数据。“数据”意味着这是可精准测量的数字，即是定量的指标。下图表明了根据 Navigation Timing 规范，浏览器从发起请求到页面加载完毕期间记录的各关键操作时间节点。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/page-load.svg)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/page-load.svg)
 
 我们可以使用 JS 获取页面的性能数据：
 
@@ -74,16 +74,16 @@ console.log(performance.timing)
 
 没有性能模型，许多综合性的指标无法恒定，以下图为例，图片展现了两个加载时间完全相同的页面因渐进式渲染带来的两种体验。
 
-![页面的渐进式渲染](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/progressive-rendering.png)
+![页面的渐进式渲染](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/progressive-rendering.png)
 
 **性能模型分为两种：通用性能模型和自定义性能模型。**
 
 通用性能指标是指像 [Web Vitals](https://web.dev/vitals/) 这种，不相关业务的、可直接拿来使用的最佳实践。
 
 <div style="display:flex; justify-content:space-evenly;">
-  <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/lcp_ux.svg" width="33%" alt="Largest Contentful Paint threshold recommendations">
-  <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/fid_ux.svg" width="33%" alt="First Input Delay threshold recommendations">
-  <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/cls_ux.svg" width="33%" alt="Cumulative Layout Shift threshold recommendations">
+  <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/lcp_ux.svg" width="33%" alt="Largest Contentful Paint threshold recommendations">
+  <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/fid_ux.svg" width="33%" alt="First Input Delay threshold recommendations">
+  <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cls_ux.svg" width="33%" alt="Cumulative Layout Shift threshold recommendations">
 </div>
 
 Web Vitals 主要评估以下维度的数据：
@@ -127,9 +127,9 @@ Lighthouse 运行时只依赖 Node 环境和 Chrome 的调试端口号，所以 
 
 [lighthouse-parade](https://github.com/cloudfour/lighthouse-parade)
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/lcp_histogram.svg)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/lcp_histogram.svg)
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/dfwf_report.svg)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/dfwf_report.svg)
 
 ## 阅读更多
 

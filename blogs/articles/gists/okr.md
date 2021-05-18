@@ -178,11 +178,11 @@ note: 学习项目管理是指，从调研需求、明确项目目标、里程�
 
 <a href="http://sentry.baixing.cn/BX/bax-fe-90/releases/" target="_blank" rel="nofollow"><span class="label-idx">版</span><span class="label-idx">本</span><span class="label-idx">控</span><span class="label-idx">制</span></a>
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224035754.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201224035754.png)
 
 --
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224034920.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201224034920.png)
 
 --
 
@@ -202,7 +202,7 @@ note: 学习项目管理是指，从调研需求、明确项目目标、里程�
 
 提交规范带来：美观、易于理解、方便回溯
 
-![我的博客的提交规范](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201208160054.png)
+![我的博客的提交规范](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201208160054.png)
 
 --
 

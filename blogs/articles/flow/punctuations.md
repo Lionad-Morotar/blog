@@ -10,17 +10,17 @@
 
 应该有读者已经发现，我博客中引用的思源宋中的映射少了中文引号。这也就意味着，页面上所有中文引号，都会回退成其它字体引号的形态。见下图最后一行文字。
 
-<img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200619/browser_06_20_003.png" alt="页面上所有中文引号，都会回退成其它字体的引号" />
+<img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200619/browser_06_20_003.png" alt="页面上所有中文引号，都会回退成其它字体的引号" />
 
 这个引号可能来自某种英文非衬线体字体，看起来圆溜溜的，实在和思源宋不搭。接着我将博客中缺失的字体引用补充完整，界面成了这个样子：
 
-![逗号加弯引号](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200619/browser_06_20_012.png)
+![逗号加弯引号](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200619/browser_06_20_012.png)
 
 引号依旧圆溜溜的。于是，我想着能不能换种特殊的字体，专门用来显示中文引号。
 
 一番探索之后，我找到了“直角引号”这货。我决定把博客中所有的中文引号都替换成直角引号，以增加美观度。尽管两个邻接的逗号和直角引号间有空白过多之嫌，但比起逗号加弯引号要好多了。
 
-![直排引号](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200619/browser_06_20_013.png)
+![直排引号](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200619/browser_06_20_013.png)
 
 “为什么在你的博客中要使用直排引号排版？”
 
@@ -38,7 +38,7 @@
 
 你可以在浏览器中按下 `Ctrl+Shift+C` 打开浏览器的控制台，再点击这段带有直接引号的 Hello World 查看页面原文：**“Hello World”**，如果不会操作的话，可以参考下图。
 
-![查看原文步骤](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200619/06_20_007.gif)
+![查看原文步骤](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200619/06_20_007.gif)
 
 我给博客页面新增了一种字体，叫做“Quote”。这种字体内部只有“300C”、“300D”、“201C”、“201D”四种 Unicode 编码的字体图形映射，分别对应前直角引号，后直角引号，前弯引号和后弯引号。我通过工具把字体内部的弯引号的映射修改为映射到直角引号上，然后在页面中引用字体，所以页面上所有弯引号都渲染成了直角引号。对应的 CSS 样式见下：
 
@@ -46,7 +46,7 @@
 /**************** 字体定义 */
 
 useFontBaseURL(path) {
-    $font-url = 'https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/fonts/';
+    $font-url = 'https://mgear-image.oss-cn-shanghai.aliyuncs.com/fonts/';
     return url($font-url + path);
 }
 

@@ -153,7 +153,7 @@
     <summary>原型，构造函数之间有什么联系？</summary>
     <p>
         通过构造函数使用 new 运算符可以新建一个实例。实例的 __proto__ 指向构造函数的原型，实例的构造器属性和构造函数原型的构造器属性都指向构造函数。
-        <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200703192140.png" />
+        <img class="db mauto mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200703192140.png" />
     </p>
 </details>
 
@@ -174,7 +174,7 @@
         在全局执行上下文中，this 的值指向全局对象；
         在函数执行上下文，this 取决于函数如何被调用。如果被引用对象调用，那么指向引用对象，要么指向全局对象或为 undefined（严格模式）；
         Eval 执行上下文中，取决于 Eval 如何被调用。如果被直接调用，那么指向当前词法环境的 this，如果被间接调用，那么指向全局对象。
-        <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200704000843.png" />
+        <img class="db mauto mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200704000843.png" />
     </p>
 </details>
 
@@ -194,7 +194,7 @@
         闭包是一种特殊的作用域。
         一般来说，当代码中的某个函数执行完毕后，会销毁掉他的执行上下文及其中的词法环境、变量环境，但在一些特殊情况下则不会。
         如以函数作为返回值时，此函数能获得当前运行环境的变量引用，使得外部代码能通过此函数操作这个运行环境的变量。这就是闭包。
-        <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200704033553.png" />
+        <img class="db mauto mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200704/20200704033553.png" />
     </p>
 </details>
 
@@ -394,7 +394,7 @@
             <li>
                 <details>
                     <summary>说一说 TCP 三次握手？</summary>
-                    <img class="mt1em" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731162450.png" alt="TCP Three-way Handshake" />
+                    <img class="mt1em" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731162450.png" alt="TCP Three-way Handshake" />
                 </details>
             </li>
         </ul>
@@ -404,7 +404,7 @@
             <li>
                 <details>
                     <summary>说一说 TCP 四次挥手？</summary>
-                    <img class="mt1em" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200731165331.png" alt="TCP Four-way Wavehand" />
+                    <img class="mt1em" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731165331.png" alt="TCP Four-way Wavehand" />
                 </details>
             </li>
         </ul>
@@ -446,7 +446,7 @@
         addEventListener、setTimeout、setInterval 的回调将会推入宏任务队列。
         QueueMicrotask、MutationObserver、Promise、process.nextTick 的回调将会推入微任务队列。
         每执行一个宏任务及主体代码执行完毕后，将会立即执行所有微任务。
-        <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200704024238.png" />
+        <img class="db mauto mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200704024238.png" />
     </p>
 </details>
 
@@ -455,7 +455,7 @@
     <p>
         浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。
         事件捕获发生在 Bubble 阶段，但是可以在事件监听时使用 useCapture 参数指定某回调函数在 Capture 阶段触发。
-        <img class="db mauto mt1em w68" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/event-capture.svg" style="filter: grayscale(.7)" />
+        <img class="db mauto mt1em w68" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/event-capture.svg" style="filter: grayscale(.7)" />
     </p>
 </details>
 
@@ -512,13 +512,13 @@
         <ul>
             <li>
                 新生代空间：被划分为两个等大的区域，出区和入区。操作在出区中进行，一旦出区耗尽则交换出区入区，并把入区的活跃对象复制回出区或者老生代内存中，并在此时对活跃对象进行紧缩。依次循环。
-                <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200704130952.png" />
+                <img class="db mauto mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200704/20200704130952.png" />
             </li>
             <li>
                 老生代空间：分标记和清除（或紧缩）两个阶段。标记算法在每次循环都会将一个对象从队列（初始为从根可达对象）中取出，将它及其邻接对象标记。
                 清除阶段时，所有未被标记的对象都将被清除。如果选择紧缩，那么紧缩算法会尝试将零散的对象移成连续的整体，以解决内存的碎片化。<br />
                 题外话，这里的图画错了，标记算法是深度搜索，图我画成了广搜...
-                <img class="db mauto mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200704/20200704134710.png" />
+                <img class="db mauto mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200704/20200704134710.png" />
             </li>
         </ul>
         由于 JS 是单线程的，一旦执行垃圾回收算法，正在执行的脚本需要暂停下来，这叫作“全停顿”。为了优化这种间歇性停顿，JS 将老生代空间的标记过程拆分为了小个的子步骤，这样就可以将标记算法穿插在其它任务过程中执行了。

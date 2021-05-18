@@ -4,13 +4,13 @@
 
 过去, 我们对含有大量图片的网站进行优化无外乎要依靠 JS 逻辑或是相关插件来完成, 比如`懒加载`技术. 而现在(至少在不久的将来), Chrome 75 版本将增加`原生懒加载`功能.
 
-![原生懒加载](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chrome-image-lazyload/2019-04-23-01-30-25.png)
+![原生懒加载](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-01-30-25.png)
 
 ### 直接开始使用
 
 当然, 你也可以现在就开始体验这一功能, 在浏览器的标签栏输入`browser://flags/#enable-lazy-image-loading`并进入页面, 找到`enable-lazy-image-loading`这一项打开它, 重启后即可使用.
 
-![如何开启](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chrome-image-lazyload/2019-04-23-00-45-26.png)
+![如何开启](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-00-45-26.png)
 
 ### 标准之下
 
@@ -26,11 +26,11 @@
 
 也许你想把这一特征立即运用到你的项目中, 但是你别忘了至少目前为止他还是实验性的功能, 所以需要做功能检测, 对不支持的浏览器进行兼容:
 
-![功能检测](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chrome-image-lazyload/2019-04-23-01-37-31.png)
+![功能检测](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-01-37-31.png)
 
 仅仅这样还不够, 为了不使你的 Image 标签被不支持`loading`属性的浏览器立即加载出来, 你还需要把`src`属性替换为其它属性, 同时还得考虑浏览器不支持 JS 的情况, 比如像这样做:
 
-![兼容](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chrome-image-lazyload/2019-04-23-01-31-00.png)
+![兼容](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-01-31-00.png)
 
 ### 抛弃非原生懒加载?
 

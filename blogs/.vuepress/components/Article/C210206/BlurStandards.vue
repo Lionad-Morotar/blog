@@ -15,7 +15,7 @@ export default {
   }),
   methods: {
     preload(ctx) {
-      this.rawImage = ctx.loadImage('https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210209213519.png')
+      this.rawImage = ctx.loadImage('https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210209213519.png')
       this.referImage = this.rawImage
     },
     setup(ctx) {

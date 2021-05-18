@@ -2,14 +2,14 @@
     <div class="cmpt">
         <span
             class="jaffee poster"
-            style="--bg: url('https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200612/foldin.jpg');"
+            style="--bg: url('https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200612/foldin.jpg');"
         >
             <span class="a"></span>
             <span class="bc">
                 <span class="b"></span>
                 <span class="c"></span>
             </span>
-            <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200612/foldin.jpg" />
+            <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200612/foldin.jpg" />
         </span>
         <br />
     </div>

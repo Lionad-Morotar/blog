@@ -30,10 +30,10 @@
 
 <img
   srcset="
-    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chaos/2019-09-13-18-30-45_480.png 480w,
-    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chaos/2019-09-13-18-30-45_960.png 960w,
-    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chaos/2019-09-13-18-30-45_1440.png 1440w"
-  src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/chaos/2019-09-13-18-30-45_1440.png"
+    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_480.png 480w,
+    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_960.png 960w,
+    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_1440.png 1440w"
+  src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_1440.png"
   title="月亮"
   alt="月亮"
 />

@@ -1,4 +1,4 @@
-# <img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200815230352.png" alt="HELMET" style="width: 1em; height: 1em; position: relative; bottom: -.1em;" /> Helmet & Security
+# <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200815230352.png" alt="HELMET" style="width: 1em; height: 1em; position: relative; bottom: -.1em;" /> Helmet & Security
 
 [TOC]
 
@@ -75,7 +75,7 @@ X-Frame-Options 指定了浏览器的 frame、iframe、object、embed 等元素�
 
 本来它的值有三种选择，Deny、SameOrigin、AllowFrom。但 AllowFrom 因为其兼容性原因，被 Helmet 弃用：
 
-![caniuse x-frame-options allow-from](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200816000544.png)
+![caniuse x-frame-options allow-from](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200816000544.png)
 
 此外，可以在 CSP 中设置 frame-ancestors 指令来替代 X-Frame-Options Header。CSP 是更先进的标准，待会儿会介绍到。
 
@@ -184,7 +184,7 @@ Expect-CT:
 
 X-Permitted-Cross-Domain-Policies 这个非标准标头倒不是那么常见。这得说回 Flash、PDF 等文件中的请求。我们以 Adobe PDF Reader 官网的一张图为例[^pdf-reader]：
 
-![X-Permitted-Cross-Domain-Policies](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200817134940.png)
+![X-Permitted-Cross-Domain-Policies](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200817134940.png)
 
 1. 用户在 A 网站打开了某个 PDF；
 2. PDF 中包含了和 B 网站的通讯。这时，客户端判断这是跨域行为，于是请求 B 网站的 crossdomain.xml 文件（策略文件）作为跨域策略应对方案。
@@ -291,7 +291,7 @@ const DEFAULT_DIRECTIVES = {
 
 最后，我们看兼容性... Caniuse 网站只提供了 CSP 1.0 的兼容性，我没有找到最新版本规范（CSP 3.0）的兼容性数据 😝。
 
-![CSP 兼容性](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200815220758.png)
+![CSP 兼容性](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200815220758.png)
 
 #### 移除下载文件后的“打开”按钮
 

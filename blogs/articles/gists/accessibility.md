@@ -12,11 +12,11 @@
 
 如何测试页面上的文字颜色与背景颜色的对比度呢？你可以使用 Chrome 自带的颜色对比度检测工具。看下图，右下角打了勾勾，就说明没啥问题：
 
-![Chrome Inspect](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718183201.png)
+![Chrome Inspect](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718183201.png)
 
 老样子，还是要推荐一下 VisBug 插件，比起 Chrome 自带的东西，虽然不那么好用，但是功能更全一些。下图展示 VisBug 的颜色对比度测试：
 
-![VisBug 的颜色对比度测试](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718180918.png)
+![VisBug 的颜色对比度测试](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718180918.png)
 
 ### 图片的替换文本
 
@@ -42,11 +42,11 @@
 
 除非是非常棒的、一眼就能让人理解的设计，否则，文字和图片请一起加上吧！就像这样：
 
-![文字+图标](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718185203.png)
+![文字+图标](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718185203.png)
 
 或者，至少加个 title 也行鸭（arial-label 也不能少）！
 
-![带 title 属性的图片](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718190935.png)
+![带 title 属性的图片](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718190935.png)
 
 ## WAI
 
@@ -80,7 +80,7 @@ W3C 无障碍推进小组（WAI）为提高残障人士的网页体验，指定�
 
 掘金上的一些文章喜欢直接套用 Markdown Nice 的排版：
 
-![掘金某文章](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200718182207.png?w=70)
+![掘金某文章](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718182207.png?w=70)
 
 从设计的角度而言，这种网格纸背景能给人带来一丝“学习”、“青春”之类的联想，也许能提高读者的阅读理解水平。但这种背景既不吸引注意，又无法忽视它，我不喜欢[^不喜欢格子背景]。
 

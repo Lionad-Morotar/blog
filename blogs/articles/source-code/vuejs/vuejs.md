@@ -237,7 +237,7 @@ class Dep {
 
 依赖容器和依赖之间是存在耦合的，所以我们看到收集依赖的这个地方，仅仅调用了依赖的 addDep 方法，没有调用 addSub 把添加依赖。其实，addSub 是在依赖的 addDep 方法中调用的。这个和观察者模式离不开关系，在观察者模式中，观察者直接观测目标，并相应目标做出的通知。Watcher 直接观测响应式数据，当数据发生变更时，就能收到通知。但由于数据和观察者是多对多的关系，所以需要 Dep 依赖容器这么一个东西用来保存 Watcher 与数据的关系。
 
-![变化侦测](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200810100326.png?w=70)
+![变化侦测](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200810100326.png?w=70)
 
 Dep.target 用来表示当前依赖，并且源码维护了一个依赖栈，通过提供的 pushTarget、popTarget 方法维护依赖栈及当前依赖（状态）。看以下代码：
 

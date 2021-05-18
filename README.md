@@ -9,11 +9,11 @@ My personal websites，build with VuePress. Online URL: [https://www.lionad.art]
 
 ## Homepage
 
-<img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/home.png" alt="Homepage" style="border: 1px solid" />
+<img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/home.png" alt="Homepage" style="border: 1px solid" />
 
 ## Readpage
 
-<img src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/assets/browser_AglRWSCUjO.png" alt="main page" style="border: 1px solid" />
+<img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/browser_AglRWSCUjO.png" alt="main page" style="border: 1px solid" />
 
 ## Projects
 

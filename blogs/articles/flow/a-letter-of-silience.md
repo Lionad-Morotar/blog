@@ -50,9 +50,9 @@
 
 <img
   srcset="
-    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/a-letter-of-silience/2019-09-01-13-20-06_480.jpg 480w,
-    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/a-letter-of-silience/2019-09-01-13-20-06_960.jpg 960w,
-    https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/a-letter-of-silience/2019-09-01-13-20-06_1440.jpg 1440w"
-  src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/a-letter-of-silience/2019-09-01-13-20-06_1440.jpg"
+    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/a-letter-of-silience/2019-09-01-13-20-06_480.jpg 480w,
+    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/a-letter-of-silience/2019-09-01-13-20-06_960.jpg 960w,
+    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/a-letter-of-silience/2019-09-01-13-20-06_1440.jpg 1440w"
+  src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/a-letter-of-silience/2019-09-01-13-20-06_1440.jpg"
   alt="冰川"
 />

@@ -281,7 +281,7 @@ export default {
                 width: 100%;
                 height: 100%;
                 opacity: 0.2;
-                background-image: url(https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/icons/dot.gif);
+                background-image: url(https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/icons/dot.gif);
                 background-size: 2px 2px;
                 image-rendering: pixelated;
             }
