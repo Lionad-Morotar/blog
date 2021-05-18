@@ -18,7 +18,7 @@ TEditor 维护了一个解析状态栈。逐个读入字符，结合当前解析
 
 我曾在项目中实现了一个 MD 编辑器，用来解析简单的 MD 文本，不过它的性能令我捉急。初期基本没有做任何性能优化相关的内容，导致每当我正在写的文章变长之后，编辑器会变得非常~非常~卡，所以说是越写越慢的编辑器( ╯□╰ ) 这期文章主要针对这个编辑器聊聊我实践以及思考总结的一些性能优化方法，肯定还有文中没有总结到的一些方法，欢迎各位看官不舍赐教，留言评论。
 
-![TEditor](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/2019-05-06-01-10-43.png)
+![TEditor](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/teditor/2019-05-06-01-10-43.png)
 
 ## 解析过程简述
 
