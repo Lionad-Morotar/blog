@@ -69,6 +69,7 @@ export default {
       const ensureX = x => {
         x.record = x.record || []
         x.weather = x.weather || 'sun'
+        x.costs = (x.cost || []).reduce((h, c) => h + c.value, 0)
         return x
       }
       return this.raw.reduce((h, c) => {
@@ -109,7 +110,6 @@ export default {
           const lastCapital = lastDay?.capital || 0
 
           let dayCapital = day.record.reduce((h, rec) => {
-            // TODO 选择分享还是请两杯奶茶
             const name = rec.name
             const lastLateTime = lateNameInMonthMap[name]
             const curLateTime = lateNameInMonthMap[name] = lastLateTime
@@ -141,7 +141,7 @@ export default {
 
           const dayWithCapital = {
             ...day,
-            dayCapital,
+            dayCapital: dayCapital - day.costs,
             capital: lastCapital + dayCapital
           }
           newMonth.push(dayWithCapital)
@@ -170,8 +170,8 @@ export default {
     },
     curMonth () {
       return this.displayDays.filter(x => {
-        return x.month === 5 || (x.month === 4 && x.day > 18)
-        // return x.month === 5
+        // return x.month === 5 || (x.month === 4 && x.day > 18)
+        return x.month === 5
       })
     },
     byDay () {
