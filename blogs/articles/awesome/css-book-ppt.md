@@ -4,21 +4,23 @@
 
 ## 演示
 
-<div class="book-ppt-con">
+<div class="book-cover-con">
+  <!-- Book 1th -->
   <label>Open fullscreen: </label>
-  <input class="book-ppt-fs-select" type="checkbox" />
+  <input class="book-cover-fs-select" type="checkbox" />
   <WHRatio h="68%">
-    <div class="book-ppt">
+    <div class="book-cover">
       <div class="paper" />
       <div class="book">
         <div class="cover">
           <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg" />
+          <div class="paper" />
         </div>
         <img class="corner" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg" />
       </div>
     </div>
     <svg width="0" height="0">
-      <filter id="book-ppt-paper-1">
+      <filter id="book-cover-paper-1">
         <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
         <feDiffuseLighting in='noise' lighting-color='#004F85' surfaceScale='.8' result="grind">
           <feDistantLight azimuth='500' elevation='50' />
@@ -27,20 +29,22 @@
       </filter>
     </svg>
   </WHRatio>
+  <!-- Book 2th -->
   <label>Open fullscreen: </label>
-  <input class="book-ppt-fs-select" type="checkbox" />
+  <input class="book-cover-fs-select" type="checkbox" />
   <WHRatio h="68%">
-    <div class="book-ppt">
+    <div class="book-cover">
       <div class="paper" />
       <div class="book">
         <div class="cover">
           <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2830217111.jpg" />
+          <div class="paper" />
         </div>
         <img class="corner" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2830217111.jpg" />
       </div>
     </div>
     <svg width="0" height="0">
-      <filter id="book-ppt-paper-2">
+      <filter id="book-cover-paper-2">
         <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
         <feDiffuseLighting in='noise' lighting-color='#ddd' surfaceScale='.8' result="grind">
           <feDistantLight azimuth='500' elevation='50' />
@@ -49,20 +53,22 @@
       </filter>
     </svg>
   </WHRatio>
+  <!-- Book 3th -->
   <label>Open fullscreen: </label>
-  <input class="book-ppt-fs-select" type="checkbox" />
+  <input class="book-cover-fs-select" type="checkbox" />
   <WHRatio h="68%">
-    <div class="book-ppt">
+    <div class="book-cover">
       <div class="paper" />
       <div class="book">
         <div class="cover">
           <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg" />
+          <div class="paper" />
         </div>
         <img class="corner" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg" />
       </div>
     </div>
     <svg width="0" height="0">
-      <filter id="book-ppt-paper-3">
+      <filter id="book-cover-paper-3">
         <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
         <feDiffuseLighting in='noise' lighting-color='#7F191D' surfaceScale='.8' result="grind">
           <feDistantLight azimuth='500' elevation='50' />
@@ -74,7 +80,7 @@
 </div>
 
 <style>
-  .book-ppt-fs-select:checked {
+  .book-cover-fs-select:checked {
     position: fixed;
     top: 1em;
     left: 0;
@@ -85,10 +91,10 @@
     text-align: center;
     z-index: 99999;
   }
-  .book-ppt-fs-select:checked:before {
+  .book-cover-fs-select:checked:before {
     content: 'Close fullscreen';
   }
-  .book-ppt-fs-select:checked + .wh-container {
+  .book-cover-fs-select:checked + .wh-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -96,10 +102,10 @@
     height: 100vh;
     z-index: 99998;
   }
-  .book-ppt-fs-select:checked + .wh-container .book {
+  .book-cover-fs-select:checked + .wh-container .book {
     min-width: 300px;
   }
-  .book-ppt {
+  .book-cover {
     position: relative;
     display: flex;
     justify-content: center;
@@ -108,16 +114,16 @@
     height: auto;
     overflow: hidden;
   }
-  .book-ppt .paper {
+  .book-cover .paper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
   }
-  .book-ppt .paper::before,
-  .book-ppt .paper::after,
-  .book-ppt .cover::after {
+  .book-cover .paper::before,
+  .book-cover .paper::after,
+  .book-cover .cover::after {
     content: '';
     position: absolute;
     top: 0;
@@ -125,25 +131,33 @@
     width: 100%;
     height: 100%;
   }
-  .book-ppt-con .wh-container:nth-child(3) .paper::before {
-    filter: url(#book-ppt-paper-1);
+  /* 纸的磨砂处理 */
+  .book-cover-con .wh-container:nth-child(3) .paper::before {
+    filter: url(#book-cover-paper-1);
   }
-  .book-ppt-con .wh-container:nth-child(6) .paper::before {
-    filter: url(#book-ppt-paper-2);
+  .book-cover-con .wh-container:nth-child(6) .paper::before {
+    filter: url(#book-cover-paper-2);
   }
-  .book-ppt-con .wh-container:nth-child(9) .paper::before {
-    filter: url(#book-ppt-paper-3);
+  .book-cover-con .wh-container:nth-child(9) .paper::before {
+    filter: url(#book-cover-paper-3);
   }
   /* 纸的高光 */
-  .book-ppt .paper::after {
+  .book-cover .paper::after {
     background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.25), rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.15) 70%, rgba(0,0,0,.1));
   }
+  /* 书封面磨砂 */
+  .book-cover .cover .paper {
+    mix-blend-mode: hard-light;
+    opacity: 0.2;
+    overflow: hidden;
+  }
   /* 书封面高光 */
-  .book-ppt .cover::after {
+  .book-cover .cover::after {
     background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0.13) 30%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,.1));
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.08), rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.02) 50%, rgba(0,0,0,.3));
   }
   /* 书籍的阴影 */
-  .book-ppt .book {
+  .book-cover .book {
     position: relative;
     margin-top: -1vh;
     margin-right: -1vh;
@@ -160,22 +174,22 @@
       -2px 2px 3px 0 rgb(0 0 0 / 30%);
     filter: drop-shadow(-20px 20px 15px rgba(0 0 0 / 65%));
   }
-  .book-ppt .cover {
+  .book-cover .cover {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
   }
-  .book-ppt .cover img { 
+  .book-cover .cover img { 
     border-radius: 2px;
-    image-rendering: pixelated;
-    image-rendering: -webkit-optimize-contrast;
+    /* image-rendering: pixelated;
+    image-rendering: -webkit-optimize-contrast; */
   }
-  .book-ppt .corner {
+  .book-cover .corner {
     filter: blur(1px);
   }
   /* 书的褶皱 */
-  .book-ppt .book::after {
+  .book-cover .book::after {
     content: '';
     position: absolute;
     top: 0;
@@ -185,8 +199,8 @@
     z-index: 2;
     background-repeat: no-repeat;
     background-image: 
-      linear-gradient(to right, rgba(0,0,0,0.2) 0, rgba(255,255,255,0.18) 1%, transparent 1%),
-      linear-gradient(to right, rgba(0,0,0,0.1) 0.2%, rgba(255,255,255,0.35) 1%, transparent 1.3%);
+      linear-gradient(to right, rgba(0,0,0,0.2) 0, rgba(255,255,255,0.08) 0%, transparent 0.5%),
+      linear-gradient(to right, rgba(0,0,0,0.1) 0.3%, rgba(255,255,255,0.09) 1.1%, transparent 1.3%);
     background-size: 50% 100%, 50% 100%;
     background-position: 0% top, 9% top;
   }
@@ -206,7 +220,7 @@
 
 ```html
 <svg width="0" height="0">
-  <filter id="book-ppt-paper-1">
+  <filter id="book-cover-paper-1">
     <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
     <feDiffuseLighting in='noise' lighting-color='#004F85' surfaceScale='.8' result="grind">
       <feDistantLight azimuth='500' elevation='50' />
