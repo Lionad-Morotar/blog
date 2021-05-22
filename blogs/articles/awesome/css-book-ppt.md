@@ -172,7 +172,7 @@
       -7px 7px 8px 0 rgb(0 0 0 / 10%),
       -5px 5px 5px 0 rgb(0 0 0 / 20%),
       -2px 2px 3px 0 rgb(0 0 0 / 30%);
-    filter: drop-shadow(-20px 20px 15px rgba(0 0 0 / 65%));
+    filter: drop-shadow(-20px 20px 15px rgba(0, 0, 0, .65));
   }
   .book-cover .cover {
     position: absolute;
