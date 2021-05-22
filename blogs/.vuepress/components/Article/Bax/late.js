@@ -365,6 +365,12 @@ export default [
       {
         "name": "一光"
       }
+    ],
+    cost: [
+      {
+        "value": 244,
+        "description": "喝奶茶，大哥说要丝袜奶茶"
+      }
     ]
   },
   {
@@ -375,6 +381,57 @@ export default [
   {
     month: 5,
     day: 16,
+    weather: "rain"
+  },
+
+  /* New Week */
+
+  {
+    month: 5,
+    day: 17,
+    weather: "cloud",
+    record: [
+      {
+        "name": "一光"
+      }
+    ]
+  },
+  {
+    month: 5,
+    day: 18,
+    weather: "cloud",
+  },
+  {
+    month: 5,
+    day: 19,
+    weather: "rain"
+  },
+  {
+    month: 5,
+    day: 20,
+    weather: "cloud",
+    record: [
+      {
+        "name": "一光"
+      },
+      {
+        "name": "玉萍"
+      }
+    ]
+  },
+  {
+    month: 5,
+    day: 21,
+    weather: "sun",
+  },
+  {
+    month: 5,
+    day: 22,
+    weather: "sun"
+  },
+  {
+    month: 5,
+    day: 23,
     weather: "rain"
   }
   
