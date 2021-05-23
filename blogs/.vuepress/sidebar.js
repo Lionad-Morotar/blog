@@ -157,8 +157,8 @@ module.exports = {
   getRecommends() {
     return {
       '黑魔法': {
-        url: '/articles/flow/css-light-travel.html',
-        label: 'CSS书封效果'
+        url: '/articles/css-light-travel.html',
+        label: '探秘 CSS 光影效果'
       },
       '心流思绪': {
         url: '/articles/design-patterns-and-js-magic-pot.html',
