@@ -2,52 +2,87 @@
 
 [TOC]
 
-## 常见效果
+## 前言
 
-总听人说光和影是孪生兄弟，有光就有影。其实不然，如果没有对比那也就不会存在阴影。因为我们总是依靠物体表面反射的光来感知世界，假设所有物体都能完全吸收光线，那么我们的世界将是黑漆漆的一片。所以只有理解光，才能驾驭阴影。所以常说好的设计师都是用光高手，能通过复杂的光影向读者传达物体的质感、空间感以及层次感[^texture]。
+总听人说光和影是孪生兄弟，有光就有影。其实不然，如果没有光线强弱的对比，也就不会有阴影的存在。我们总是依靠物体表面的反光来感知世界，假设所有物体都能完全吸收光线，那世界将变得黑漆漆一片。
 
+所谓只有理解光，才能驾驭阴影。**好的设计师往往都是用光高手，能通过复杂的光影向读者传达出物体的质感、空间感以及层次感**[^texture]。他们画出来的设计稿都是漂漂亮亮的，这可苦了广大前端同胞！在浏览器中，我们只能用寥寥几个 CSS 属性，束手束脚地同时还想方设法地还原设计稿。毕竟，相比我们用的 CSS 手枪，设计师们用的 AE、C4D 看起来就像大炮一样！
 
-所有的设计稿画出来都是漂漂亮亮的，而放到了浏览器中，只能用寥寥几个 CSS 属性糊弄一下。这可苦了广大的前端同胞。相比我们用的 CSS 小手枪，设计师们用的 AE、C4D 看起来就像大炮一样。
+## 常见光影效果
 
-好在我们可以暂且假以性能为由，继续正大光明地怎么简单怎么来，就像一提到光影效果，大家第一反应肯定是操起 box-shadow、text-shaodw、drop-shadow 三件套直接开画。大部分场景下这这些属性还挺好用的，可实现非常多种类的效果，比如单侧投影、空心投影和投影动画。若涉及到彩色阴影、长投影或是倒影，可以结合其它 CSS 属性打辅助。
+好在我们可以暂且假以性能为由，继续正大光明地怎么简单怎么来（汗）。就像一提到光影效果，大家第一反应肯定是操起 box-shadow、text-shaodw、drop-shadow 三件套直接开画。就大部分场景来说，这些属性还挺好用的，可用它实现多种效果，比如单侧投影、空心投影和投影动画。若涉及到彩色阴影、长投影或是倒影，就需要结合其它 CSS 属性打辅助了。
 
-### 阴影
-
-[彩色投影](https://juejin.cn/post/6844903704986910728)，可以给伪元素继承父元素的背景，并结合模糊滤镜来仿制。这个思路也可以用来制作毛玻璃效果[^frosted-glass]。
+[彩色投影](https://juejin.cn/post/6844903704986910728)，可以让伪元素继承父元素的背景，再加模糊滤镜即可。这个思路也可以用来制作毛玻璃效果[^frosted-glass]。
 
 ![彩色投影](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210522171201.png)
 
-制作倒影可以使用 box-reflect 属性[^box-reflect]。
+```css
+.avator {
+  position: relative;
+  background: 'xxx';
+}
+.avator::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 100%;
+  /* 伪元素继承父元素背景 */
+  background: inherit;
+  /* 再加一些稀奇古怪的滤镜，调一调参数 */
+  filter: blur(10px) brightness(80%) opacity(.8);
+  z-index: -1;
+}
+```
+
+制作倒影可以使用 -webkit-box-reflect 属性[^box-reflect]。兼容性还不错，除了火狐和 IE，其余浏览器都能用。另一种方法则是用伪元素将父元素复制一份，再 transform 倒转一下位置。
 
 ![https://codepen.io/TheDutchCoder/pen/IKqpA](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/FRUa9DGFu2.gif)
 
-### 高光
-
-阴影的另一面是高光。绘制高光的思路可以直接套用 box-shadow 和 text-shadow 的思路。只不过需要将投影的颜色改为半透明白色。
+阴影的另一面是高光。画高光的思路可以直接套画阴影的思路，只不过需要将投影的颜色改为半透明白色。
 
 ![https://codepen.io/Lionad/pen/rNWMVGb](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210522170201.png)
 
-另一种常见的绘制高光的方法是使用背景渐变模拟。配合 CSS 动画，可以轻松实现悬浮高亮、[扫光](https://codepen.io/Lionad/pen/wvJJYzR)等效果。
+另一种方法是用背景渐变或伪元素模拟高光。若再配合 CSS 动画，可以轻松实现[扫光](https://codepen.io/Lionad/pen/wvJJYzR)等效果。
 
 ![扫光动画](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bmQ4xjDqE0.gif)
 
-## 进阶效果
+```css
+body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 200vw;
+  height: 35px;
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: rotate(45deg);
+  animation: scan-light 2s ease-in infinite;
+}
+@keyframes scan-light {
+  from {
+    right: -100vw;
+  }
+  to {
+    right: 40vw;
+  }
+}
+```
+
+## 进阶光影效果
 
 ### 纹理
 
-在上一小节提及的绘制光影的方法中，投影主要用来传达物体的形状及位置，box-reflect 和渐变高光则是用来传达物体的质感的属性，用于展示镜面反射。大多数玻璃和金属都可以制造镜面反射，只不过区别在于玻璃能透光，会发生折射现象。
-
-当然，这是理想情况。现实中的物体不是完美的镜面，就算肉眼观察到的光滑表面，微观上而言也是坑坑洼洼不堪入目。
+以上提到的几种绘制光影的方法，主要用来传达物体的形状及位置。比方说，倒影和渐变高光可以用来传达物体的质感，展示物体光滑到足以发生镜面反射的表面。当然，这是理想情况。现实中的物体很少有平滑的表面，就算肉眼可见的光滑表面，微观上而言也是坑坑洼洼不堪入目。
 
 ![物体的微观表面](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523011634.png?w=70)
 
-一旦我们开始使用 CSS 去模拟高级光影，首先碰到的难题就是如何处理磨砂表面。就像上一小节提到的 CSS 相比专业软件只是小枪见大炮，所以本文仅介绍一种简单实现的思路，不要在复杂场景用那还是 OK 的。
+一旦我们开始使用 CSS 去模拟高级光影，首先碰到的难题就是如何处理磨砂表面。以下介绍一种简单实现磨砂表面的思路，在寻常场景用用还是阔以的。
 
-物体表面长成什么样，那就用贴图保存下来设为背景就好了，这种方法叫做材质贴图。比如在下面在这幅图，表面颜色左白右黑，用 PS 分别往两边随机填充一些高光和阴影像素，就算完成了[^linegradient-material]。
+**物体表面是什么样，我们就给它贴什么样的图片，这种方法叫做材质贴图**。我们用一个简单的材质贴图为例，先用 PS 弄一张纯色的背景，然后分别随机填充一些稍微亮一点高光和稍微暗一点的像素点[^linegradient-material]，就能获得类似下图结果。
 
 ![材质图片](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020054.png)
 
-再把它平铺到背景中，可以得到类似磨砂金属般的表面（由于图片压缩的原因，效果可能不好，可直接前往[Codepen](https://codepen.io/Lionad/pen/mdWWxdg)查看细节）。
+我们再把这张材质平铺为文档背景，就可以得到类似磨砂金属般的表面纹理（由于图片压缩的原因，效果可能不好，可直接前往[Codepen](https://codepen.io/Lionad/pen/mdWWxdg)查看细节）。
 
 ![https://codepen.io/Lionad/pen/mdWWxdg](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020615.png)
 
@@ -55,7 +90,7 @@
 
 ![https://codepen.io/joeyhoer/pen/CojIk](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523021338.png)
 
-使用图片的不便之处在于没有办法边调整细节边预览，不过好在还有 SVG 这条路子可以试试[^why-svg]，以下是一套“标准的”材质生成代码，可以用来生成非常多种类的材质。
+使用图片的不便之处在于没有办法边调整细节边预览，并且 PS 可能超出前端的技术栈范围了。好在我们还有 SVG 这个神器[^why-svg]。以下是一套“标准的”材质生成代码，可以用来生成非常多种类的材质。
 
 ```html
 <svg width="0" height="0">
@@ -77,47 +112,25 @@ body {
 </style>
 ```
 
-其中，[feDiffuseLighting](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feTurbulence) 是一种噪音滤镜，可以创建出随机的材质图片。[feDiffuseLighting](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feDiffuseLighting) 是光源滤镜。feDistantLight 指示使用平行光光源。
+其中，[feDiffuseLighting](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feTurbulence) 是一种噪音滤镜，可以创建出随机的材质图片。[feDiffuseLighting](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feDiffuseLighting) 是光源滤镜。feDistantLight 指示用平行光作为光源。
 
 光源？弄个材质还要这么复杂嘛？
 
-额，先别急，**光源其实也就只有几种：点状光、平行光、聚光灯。可以简单理解成电灯泡、太阳以及舞台灯**。由于我们还将在表面材质的话题中停留一段时间，暂且不需要使用光效布景，所以只需要用到平行光。
+先别急，**光源其实也就几种：点状光、平行光、聚光。可以简单理解成电灯泡、太阳以及戏剧灯**。由于我们还将在表面材质的话题中停留一会儿，暂且只需要用到平行光。
 
 ![https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feDiffuseLighting](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523030133.png)
 
-让我们开始调参数吧，通过调整噪音滤镜、光照滤镜的参数，可以获得不同种类的材质，<del>调参前需要学习一下搞机器学习时怎样算法调优</del>。
+大致了解了上面那段 SVG 是什么一丝，我们就开始愉快地调参数啦。
 
-首先我们降低灯光到表面的距离（减小 elevation）以增加高光面和阴影面的对比度，获得了以下这种纹理。看起来像是[某种土壤](https://codepen.io/Lionad/pen/poeeLKd)。
+先试试降低灯光到表面的距离（减小 elevation）以增加高光面和阴影面的对比度。获得了以下看起来像是[某种土壤的纹理](https://codepen.io/Lionad/pen/poeeLKd)。
 
 ![土壤纹理](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523154039.png)
 
-```html
-<svg width="0" height="0">
-  <filter id="surface">
-    <feTurbulence type="fractalNoise" baseFrequency='0.03 0.06' numOctaves="30" />
-    <feDiffuseLighting lighting-color='#ffe8d5' surfaceScale='2'>
-      <feDistantLight elevation='2' />
-    </feDiffuseLighting>
-  </filter>
-</svg>
-```
-
-接下来拉高灯光，调整光照颜色（lighting-color），再把纹理弄粗糙一些（减小 baseFrequency），获得了以下这种类似[大理石的纹理](https://codepen.io/Lionad/pen/zYZZjxb)（也有点像白色的牛皮纸）。
+接下来拉高灯光，调整光照颜色（lighting-color），再把纹理弄粗糙一些（减小 baseFrequency），获得了类似[大理石的纹理](https://codepen.io/Lionad/pen/zYZZjxb)（也许有点像白色的牛皮纸）。
 
 ![大理石纹理](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523153936.png)
 
-```html
-<svg width="0" height="0">
-  <filter id="surface">
-    <feTurbulence type="fractalNoise" baseFrequency='0.01' numOctaves="20" result='noise'/>
-    <feDiffuseLighting in='noise' lighting-color='#d2d2d2' surfaceScale='8' result='light-left'>
-      <feDistantLight azimuth='111' elevation='40' />
-    </feDiffuseLighting>
-  </filter>
-</svg>
-```
-
-增加 baseFrequency、调整表面基准高度 surfaceScale 获得平滑纹理，再调整灯光高度以获得类似漫反射那种使我们看不到物体阴影的光照，得到[白石灰墙壁纹理](https://codepen.io/Lionad/pen/rNyyQjp)。
+增加 baseFrequency、调整表面基准高度 surfaceScale 获得平滑纹理，再调整灯光高度降低高光和阴影的对比度，得到了[白石灰墙壁纹理](https://codepen.io/Lionad/pen/rNyyQjp)。
 
 ![白石灰墙壁](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523153351.png)
 
@@ -133,17 +146,19 @@ body {
 </svg>
 ```
 
-各位应该发现了白石灰墙壁的代码里增加了一个 feGaussianBlur 滤镜（高斯模糊）。**原则上滤镜无限叠加，可以做出非常多好玩的效果**。比方说，有大佬用 SVG 画云朵。对，你没听错。以下是 SVG 生成的[云朵纹理](https://codepen.io/beauhaus/pen/QJrpPY)[^cloud]。
+各位应该发现了白石灰墙壁的代码相比“标准模板”增加了一个高斯模糊滤镜（feGaussianBlur）。**原则上滤镜无限叠加，可以做出非常多好玩的效果**。比方说，有大佬用 SVG 画云朵。对，你没听错。以下是用 SVG 画的[云朵纹理](https://codepen.io/beauhaus/pen/QJrpPY)[^cloud]。
 
 ![云朵材质](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523034525.png)
 
 ### 菲涅尔效应
 
-如果你站在湖边低头看脚下的水，你会发现水是透明的，反射不是特别强烈，能看到水底；如果你看远处的湖面，你会看见山和天空的倒影。这就是菲涅尔效应。
+说完了粗糙的表面怎么画，我们再看看画光滑表面又有哪些原则。说起水和金属这种有相对光滑的表面的材质，不得不提到菲涅尔效应。
+
+一句话介绍菲涅尔效应：如果你站在湖边低头看脚下的水，你会发现水是透明的，反射不是特别强烈，能看到水底；如果你看远处的湖面，你会看见山和天空的倒影。
 
 ![菲涅尔效应](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523160708.png)
 
-每种材质都带有菲涅尔数值，这是根据其折射率所决定的，表明了会有多少光线从物体表面被反弹，以及又有多少光线被吸收[^fresnel]。以下用 [chaosgroup.com](https://www.chaosgroup.com/blog/understanding-glossy-fresnel) 的案例做说明。
+每种材质都有各自的菲涅尔值，这是根据其折射率决定的，表明了会有多少光线被物体吸收，又有多少光线从物体表面反弹[^fresnel]。以下用 [chaosgroup.com](https://www.chaosgroup.com/blog/understanding-glossy-fresnel) 的案例做说明。
 
 <JJ>
 <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523163413.png" />
@@ -151,13 +166,15 @@ body {
 
 <Article-A210523-Fresnel />
 
-图中有一个粗糙的球体，右侧图片中的球体边缘反射了天光而发亮，左侧图片中球体边缘则没有此现象。如果球体表面粗糙，那么左图是正确结果，因为粗糙表面下菲涅尔效应会变得非常微弱；如果球体类似金属或水面，表面光滑，那么正确结果应当类似右图。
+图中有一个粗糙的球体，右侧图片中的球体边缘反射了天光而显得边缘发光，左侧图片中球体边缘则没有此现象。球体表面粗糙，菲涅尔效应会变得非常微弱，所以左图是正确结果；如果球体类似金属或水面，表面光滑，那么正确结果应当类似右图。
 
-了解菲涅尔效应之后，我们可以根据日常经验去用 CSS 画一些高菲涅尔效应的物体，以达“神似”的效果。
-
-下图是 Oscar Salazar 用 CSS 画的[水滴](https://codepen.io/raczo/pen/KKVbQmV)。他用 box-shadow 给水滴的下缘增加了大量的透明白色阴影来模拟菲涅尔效应。
+了解菲涅尔效应之后，我们就可以根据经验凭空画一些高菲涅尔效应的物体。下图是 Oscar Salazar 用 CSS 画的[水滴](https://codepen.io/raczo/pen/KKVbQmV)。他用 box-shadow 给水滴的下缘增加了大量的透明白色阴影来模拟菲涅尔效应。
 
 ![水滴效果](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523164407.png)
+
+如果对比了现实中的水滴，你会发现 Oscar Salazar 画的并不“真”。但是因为水滴的放大作用，再加上光影效果，十分抓人眼球，给人“神似”的感觉，所以并不会觉得画得有问题。
+
+![现实中的水滴](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523215330.png)
 
 下图是 Envato Tuts+ 画的[毛玻璃效果](https://codepen.io/tutsplus/pen/WLaWjX)。左边是原版，右边是增加了菲涅尔效应后的修改版本。修改后的版本看起来像是边缘平滑的玻璃版，而不是塑料板儿一块[^draw-not-sure]。
 
@@ -171,7 +188,7 @@ body {
 
 ## 场景实战
 
-限于技术，还有很多种类的光影效果文中没有提到，以后有机会的话出个续集吧（咕咕咕脸）。这里我们用一个 CSS 绘制的书籍封面效果作为结尾，也顺便总结、串联一下上文提到的知识点。素材只有两张书封图片，[点此下载第一张](https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg)，[点此下载第二张](https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg)[^refferer]，目标是要实现以下效果[^compressed]。
+限于技术，还有很多种类的光影效果文中没有提到，以后有机会的话出个续集吧（咕咕咕预定中）。这里我们用一个 CSS 绘制的书籍封面效果作为结尾，也顺便串联一下上文提到的技术。素材只给两张书籍封面图片，[点此下载第一张](https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s2709063811.jpg)，[点此下第二张](https://mgear-image.oss-cn-shanghai.aliyuncs.com/css-draw/s3360190011.jpg)[^refferer]，目标是实现以下效果[^compressed]。
 
 ![《乞力马扎罗山的雪》](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/book-cover-1.png)
 
@@ -254,13 +271,15 @@ body {
 
 ![为添加图片的封面](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523181428.png)
 
-书的封面有一些小细节要注意。
+有一些小细节要注意。
 
 * 封面折痕的处理
 * 模仿闭塞阴影
 * 防止边缘过于锐利
 
-先来说说折痕的处理。如果你手头有一本实体书，那再好不过了[^fold-mark]。试着用闪光灯打光，看看折痕上的光影，应该能发现折痕不过就是一道亮面和一道阴影的合成。我们可以用渐变来模拟这条折痕。
+先来说说折痕的处理。如果你手头有一本实体书，那再好不过了[^fold-mark]。试着用闪光灯打光，看看折痕上的光影，应该能发现折痕不过就是一道亮面和一道暗面的组合。我们可以用渐变来模拟这条折痕。
+
+![封面折痕](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523182507.png)
 
 ```css
 .book-cover .book::after {
@@ -273,18 +292,16 @@ body {
   z-index: 2;
   background-repeat: no-repeat;
   background-image:
-    /* 1. 这条渐变是最明显的那道折痕 */
+    /* 1. 这条渐变是比较明显的那道折痕 */
     linear-gradient(to right, rgba(0,0,0,0.1) 0.3%, rgba(255,255,255,0.09) 1.1%, transparent 1.3%),
-    /* 2. 这条一像素的渐变是封面最左侧的折痕（要仔细看不然容易忽视） */
+    /* 2. 这条一像素的渐变是封面最左侧的折痕（没有暗面） */
     linear-gradient(to right, rgba(0,0,0,0.2) 0, rgba(255,255,255,0.08) 0%, transparent 0.5%);
   background-size: 50% 100%, 50% 100%;
   background-position: 0% top, 9% top;
 }
 ```
 
-![封面折痕](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523182507.png)
-
-然后再说说闭塞阴影。闭塞阴影的概念非常简单，指物体靠得越近，遮住了光线，也就越有黑色阴影的出现[^occlusion-shadow]。对应到 CSS，drop-shadow 产生的阴影很“实”，但不能叠加；box-shadow 产生的阴影可调节阴影范围，但会向四周扩散。我们可以通过叠加 drop-shadow 和 box-shadow 的方式来模拟出更真实的阴影。
+然后再说说闭塞阴影。闭塞阴影的概念非常简单，指两个物体靠得比较近，遮住了光线；靠得越近的地方，阴影就越黑[^occlusion-shadow]。对应到 CSS，drop-shadow 产生的阴影很“实”，但不能叠加；box-shadow 产生的阴影可调节阴影范围，但会向四周扩散。我们可以通过叠加 drop-shadow 和 box-shadow 的方式来模拟出更真实的阴影效果。
 
 ```css
 .book-cover .book {
@@ -321,15 +338,17 @@ body {
 
 ![《罗生门》](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/book-cover-3.png)
 
-啥，你想做一本能翻页的书？那可以去康康 [turn.js](http://www.turnjs.com/#getting-started) 的实现。效果如下图，也有用到菲涅尔效应哦[^turnjs]。
+啥，你想做一本能翻页的书？
+
+那得去康康 [turn.js](http://www.turnjs.com/#getting-started) 的实现[^turnjs]。效果如下图，其中也有用到菲涅尔效应哦。
 
 ![turn.js](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523191034.jpg?w=60)
 
 ## 阅读更多
 
-希望本文能对你有所帮助，也欢迎指出错误。我是仿生狮子，各位下期见咯~
+**希望本文能对你有所帮助，我是仿生狮子，各位下期见咯~**
 
-想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案~ 欢迎 Star & Follow~ 也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~
+想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案；欢迎 Star & Follow；也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~
 
 
 
@@ -342,7 +361,7 @@ body {
 [^box-reflect]: [《-webkit-box-reflect 属性简介及元素镜像倒影实现》](https://www.zhangxinxu.com/wordpress/2016/08/webkit-box-reflect-moz-element/)
 [^frosted-glass]: [_How to create a frosted glass effect using CSS?_](https://stackoverflow.com/questions/17089927/how-to-create-a-frosted-glass-effect-using-css)
 [^linegradient-material]: 其实用渐变+随机的方法也能生成类似磨砂金属的材质贴图，这样就可以不需要引入外部图片了，但过于麻烦，不好调参，还不如 base64 来得方便。
-[^why-svg]: 请原谅我，我总是潜意识里把 SVG 当作 CSS 的超集，只因为可以用它来画画。
+[^why-svg]: 请原谅我，我总是潜意识里把 SVG 当作 CSS 的超集，只因为可以用它来画画<del>而且在画画方面可以吊打 CSS</del>。
 [^cloud]: [云朵效果优化（<del>大佬优化大佬</del>）](https://www.zhangxinxu.com/wordpress/2020/10/svg-feturbulence/)
 [^fresnel]: [《理解光泽度的菲涅尔效应》](http://hanshilin.com/software/v-ray/understanding-glossy-fresnel/)
 [^draw-not-sure]: “看起来像”和“现实”并不等同。就像许多画家为了营造气氛或达到想要的效果，会打破光影的物理限制。这是经验性的总结，当然，也见仁见智了。
