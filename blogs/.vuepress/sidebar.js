@@ -83,6 +83,7 @@ const sidebarConfigs = {
       open: true,
       children: [
         // 'windows',
+        'css-light-travel',
         'design-patterns-and-js-magic-pot',
         'anysort',
         'js-100',
@@ -155,11 +156,11 @@ module.exports = {
   },
   getRecommends() {
     return {
-      '心流思绪': {
-        url: '/articles/flow/rss.html',
-        label: '自用推流推荐'
+      '黑魔法': {
+        url: '/articles/css-light-travel.html',
+        label: '探秘 CSS 光影效果'
       },
-      '技术博客': {
+      '心流思绪': {
         url: '/articles/design-patterns-and-js-magic-pot.html',
         label: '设计模式与JS魔法锅'
       }
