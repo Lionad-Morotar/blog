@@ -433,6 +433,22 @@ export default [
     month: 5,
     day: 23,
     weather: "rain"
-  }
+  },
+
+  /* New Week */
+
+  {
+    month: 5,
+    day: 24,
+    weather: "sun",
+    record: [
+      {
+        "name": "一光"
+      },
+      {
+        "name": "玉萍"
+      }
+    ]
+  },
   
 ]
