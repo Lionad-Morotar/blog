@@ -120,7 +120,7 @@ body {
 
 ![https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element/feDiffuseLighting](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523030133.png)
 
-大致了解了上面那段 SVG 是什么一丝，我们就开始愉快地调参数啦。
+大致了解了上面那段 SVG 是什么意思，我们就开始愉快地调参数啦。
 
 先试试降低灯光到表面的距离（减小 elevation）以增加高光面和阴影面的对比度。获得了以下看起来像是[某种土壤的纹理](https://codepen.io/Lionad/pen/poeeLKd)。
 
