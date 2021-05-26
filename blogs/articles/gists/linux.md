@@ -18,7 +18,7 @@ userxxx ALL=(ALL) ALL
 alias ..='cd ..'
 ```
 
-### 基本操作
+### 网站部署
 
 文件操作的增删改查。
 
@@ -76,7 +76,7 @@ ln -s /home/data/lionad/apps/node-v10.15.3-linux-x64/bin/npm /usr/local/bin/npm
 ln -s /home/data/lionad/apps/node-v10.15.3-linux-x64/bin/npx /usr/local/bin/npx
 ```
 
-### 部署网站
+### 配置 Nginx
 
 以下是使用 Nginx 部署网站的基本步骤：
 
@@ -150,4 +150,34 @@ http {
     }
   }
 }
+```
+
+## 常用软件
+
+### ImageMagick
+
+先要准备开发环境
+
+sudo yum groupinstall 'Development Tools'
+sudo yum -y install bzip2-devel freetype-devel libjpeg-devel libpng-devel libtiff-devel giflib-devel zlib-devel ghostscript-devel djvulibre-devel libwmf-devel jasper-devel libtool-ltdl-devel libX11-devel libXext-devel libXt-devel lcms-devel libxml2-devel librsvg2-devel OpenEXR-devel php-devel
+
+下载源码，解压安装
+
+wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+tar xvzf ImageMagick.tar.gz
+cd ImageMagick*
+./configure
+make
+make install
+
+验证
+
+magick -version
+
+## 常用命令
+
+#### rename
+
+```bash
+rename -v 'oldname' 'newname' file
 ```

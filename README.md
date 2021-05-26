@@ -7,13 +7,9 @@ My personal websites，build with VuePress. Online URL: [https://www.lionad.art]
 
 - [RSS Address](https://lionad.art/rss.xml)
 
-## Homepage
+## [Homepage](https://codepen.io/cmykpixels/pen/akYxmW)
 
 <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/home.png" alt="Homepage" style="border: 1px solid" />
-
-## Readpage
-
-<img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/browser_AglRWSCUjO.png" alt="main page" style="border: 1px solid" />
 
 ## Projects
 
