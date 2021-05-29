@@ -4,7 +4,7 @@
 
 BAX-FE 项目遗留了海量未处理问题，约 7W+。新版本代码上线后，很难从 Sentry 有效跟踪新代码带来的问题。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_faMD4wFyo0.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_faMD4wFyo0.png)
 
 为什么很难跟踪？
 
@@ -59,9 +59,9 @@ function good() {
 
 给代码启用版本控制后，每次上线后只需要专注与和上线代码相关的问题。解决相关问题后有余力的同时，解决少量遗留问题，持续提升代码质量。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224035754.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201224035754.png)
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224034920.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201224034920.png)
 
 ### 3.开发规范
 
@@ -73,7 +73,7 @@ function good() {
 
 “保证所有代码看起来都像一个人编写的”是一个神圣的目标。严格地规范带来整洁的代码，能规避低级错误且使项目新手更易于理解。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224120843.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201224120843.png)
 
 ### 4.流程约束
 
@@ -82,7 +82,7 @@ function good() {
 1. 提交前：静态扫描、校验提交信息
 2. 推送前：分支保护、校验推送信息
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201224121305.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201224121305.png)
 
 ## 结果
 

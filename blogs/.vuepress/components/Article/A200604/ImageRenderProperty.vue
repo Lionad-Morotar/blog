@@ -13,7 +13,7 @@
 export default {
     data() {
         return {
-            src: 'https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200319/2020-03-19-09-31-44.png',
+            src: 'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200319/2020-03-19-09-31-44.png',
             methods: []
         }
     },

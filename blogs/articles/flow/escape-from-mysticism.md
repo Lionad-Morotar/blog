@@ -58,7 +58,7 @@
 
 19 年 3 月份左右，我开始有意识的把自己写的代码和平时的思考整理为博客。
 
-![橙色心脏](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210104021646.png)
+![橙色心脏](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210104021646.png)
 
 19 年时不知道应该怎么找题材，只写了零散的几篇。20 年时，主题扩展开了，除了技术博客，还写过小诗、碎碎念、议论文之类的东西，基本上保证每个月都能保证输出：
 
@@ -139,7 +139,7 @@
 
 至于 RSS，经过一年多的积累，逐渐形成了极具个人风格的订阅内容。
 
-![我的订阅](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210104154225.png)
+![我的订阅](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210104154225.png)
 
 这里简单推荐介绍一下我的分类思路，也推荐一些质量不错的源：
 

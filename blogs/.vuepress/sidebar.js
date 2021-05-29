@@ -63,7 +63,7 @@ const sidebarConfigs = {
       childrenGen: list => list.map(x => 'flow/' + x),
       childrenRaw: [
         'art',
-        'rss',
+        // 'rss',
         'books',
         'punctuations',
         'misleading-and-assumptions',
@@ -83,10 +83,11 @@ const sidebarConfigs = {
       open: true,
       children: [
         // 'windows',
+        'css-light-travel',
+        'design-patterns-and-js-magic-pot',
         'anysort',
         'js-100',
         'helmet-and-security',
-        'design-patterns-and-js-magic-pot',
         'css-poaa',
         'css-judge-direction',
         'css-interesting',
@@ -155,13 +156,13 @@ module.exports = {
   },
   getRecommends() {
     return {
-      '心流思绪': {
-        url: '/articles/flow/rss.html',
-        label: '自用推流推荐'
+      '黑魔法': {
+        url: '/articles/css-light-travel.html',
+        label: '探秘 CSS 光影效果'
       },
-      '技术博客': {
-        url: '/articles/anysort.html',
-        label: 'Anysort：灵活、优雅、无依赖的排序库'
+      '心流思绪': {
+        url: '/articles/design-patterns-and-js-magic-pot.html',
+        label: '设计模式与JS魔法锅'
       }
     }
   }

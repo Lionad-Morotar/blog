@@ -40,7 +40,7 @@
 
 /* 给字符串添加字体存储路径前缀 */
 useFontBaseURL(path) {
-    $font-url = 'https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/fonts/';
+    $font-url = 'https://mgear-font.oss-cn-shanghai.aliyuncs.com/'
     return url($font-url + path);
 }
 
@@ -48,25 +48,25 @@ useFontBaseURL(path) {
 @font-face {
     font-family: 'Dhenmark';
     font-display: swap;
-    src: useFontBaseURL('Dhenmark.ttf');
+    src: local('Dhenmark'), useFontBaseURL('Dhenmark/Dhenmark.ttf');
 }
 
 @font-face {
     font-family: 'Edo';
     font-display: swap;
-    src: useFontBaseURL('Edo.woff2'), useFontBaseURL('Edo.woff'), useFontBaseURL('Edo.ttf');
+    src: local('Edo'), useFontBaseURL('Edo/Edo.woff2'), useFontBaseURL('Edo/Edo.woff'), useFontBaseURL('Edo/Edo.ttf');
 }
 
 @font-face {
     font-family: 'Garamond';
     font-display: swap;
-    src: useFontBaseURL('Garamond.ttf');
+    src: local('Garamond'), useFontBaseURL('Garamond/Garamond.ttf');
 }
 
 /* CJK Font */
 @font-face {
     font-family: 'Quote';
-    src: useFontBaseURL('Noto_CJK_Quote/NotoQuote.woff2') format('woff2'), useFontBaseURL('Noto_CJK_Quote/NotoQuote.woff') format('woff'), useFontBaseURL('Noto_CJK_Quote/NotoQuote.ttf');
+    src: useFontBaseURL('Noto_CJK_Quote/NotoQuote.woff2') format('woff2');
     unicode-range: U+201c, U+201d, U+300C, U+300D;
     font-display: block;
 }
@@ -76,21 +76,21 @@ useFontBaseURL(path) {
     font-style: normal;
     font-weight: bold;
     font-display: swap;
-    src: local('Noto Serif CJK SemiBold'), local('NotoSerifSC-SemiBold'), local('SourceHanSerifCN-SemiBold'), useFontBaseURL('Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff2') format('woff2'), useFontBaseURL('Noto_Serif_CJK_SemiBold/3500/Noto_Serif_SC.woff') format('woff');
+    src: local('Noto Serif CJK SemiBold'), local('NotoSerifSC-SemiBold'), local('SourceHanSerifCN-SemiBold'), useFontBaseURL('Noto_Serif_CJK_SemiBold/7000/Noto_Serif_SC.woff2');
 }
 
 @font-face {
     font-family: 'Noto Serif CJK';
     font-style: normal;
     font-display: swap;
-    src: local('Noto Serif CJK Light'), local('NotoSerifSC-Light'), local('SourceHanSerifCN-Light'), useFontBaseURL('Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff2') format('woff2'), useFontBaseURL('Noto_Serif_CJK_Light/3500/Noto_Serif_SC.woff') format('woff');
+    src: local('Noto Serif CJK Light'), local('NotoSerifSC-Light'), local('SourceHanSerifCN-Light'), useFontBaseURL('Noto_Serif_CJK_Light/7000/Noto_Serif_SC.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Pixel';
     font-style: normal;
     font-display: swap;
-    src: useFontBaseURL('DinkieBitmap-7pxDemo.ttf');
+    src: useFontBaseURL('DinkieBitmap/DinkieBitmap.ttf');
 }
 
 html, body {

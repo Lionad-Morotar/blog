@@ -6,7 +6,7 @@
 
 <div class="win10-disks">
   <div class="disk">
-    <img class="icon" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
+    <img class="icon" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
     <div class="right">
       <p class="title"><span>Windows (C:)</span></p>
       <meter value="98.26" min="0" high="90" max="99.9" title="可用空间：1.64 GB
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="disk">
-    <img class="icon" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
+    <img class="icon" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
     <div class="right">
       <p class="title"><span>Datas (D:)</span></p>
       <meter value="31" min="0" high="888" max="931" title="可用空间：900 GB
@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="disk">
-    <img class="icon" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
+    <img class="icon" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
     <div class="right">
       <p class="title"><span>Datas (E:)</span></p>
       <meter value="31" min="0" high="888" max="931" title="可用空间：900 GB
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="disk">
-    <img class="icon" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
+    <img class="icon" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
     <div class="right">
       <p class="title"><span>Datas (F:)</span></p>
       <meter value="31" min="0" high="888" max="931" title="可用空间：900 GB
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="disk">
-    <img class="icon" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
+    <img class="icon" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_l3KrUPxtmf_waifu2x_4x_2n_png.png" />
     <div class="right">
       <p class="title"><span>Datas (G:)</span></p>
       <meter value="31" min="0" high="888" max="931" title="可用空间：900 GB

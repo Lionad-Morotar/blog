@@ -16,7 +16,7 @@ CM 是项目工程化实践中基础内容之一，这里列出原因，但不�
 2. **有利于工程化实践**。使用约定有利于维护团队现有的及将来可能继续推进的其它工程化实践，如通过特定的 Commit 跳过线下环境无意义的项目打包与自动测试、通过机器人提醒团队成员重要功能的变更等。
 3. 就**美观性**而言，也没有理由拒绝使用约定。尤其是当你整理 OKR 内容，打开 Git Commit Log，想回忆起点什么线索来的时候。
 
-![Inline Git Commit Log ](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20201127180816.png)
+![Inline Git Commit Log ](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201127180816.png)
 	
 以下，我们在 LeanCloud CM Guide 的基础上，整理一份尽量简单，且能记录代码提交意义的约定。
 

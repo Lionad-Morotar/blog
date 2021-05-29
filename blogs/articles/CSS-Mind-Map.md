@@ -17,7 +17,7 @@
 
 世界宽广而宏大，我们的知识只是汪洋里的一叶扁舟。组织语言，用博客和书本输出内容，自然受到语言这种媒介的限制。尽管经过悉心整理，线性的文字不可能把每一个知识点都结网一般从头到尾串联起来。要是大家能灵活使用搜索引擎，遨游互联网，突破平面的限制，构建自己的知识骨架，那是再好不过。文中内容比较基础，大部分内容扫一下就阔，如果一点儿印象也没的，还是要看看文档详细了解，最好编码实践一下——写代码和玩乐器一样，都属于动态学习的范畴，也就是说，**边学边实践能更容易地将概念融会贯通**。
 
-![知识的理解](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628235858.png)
+![知识的理解](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628235858.png)
 
 ## 概念辨析
 
@@ -27,7 +27,7 @@
 
 <abbr title="rule">**规则**</abbr>，由<abbr title="property">**属性**</abbr>和<abbr title="value">**值**</abbr>组成的<abbr title="declaration">**声明**</abbr>、声明与括号形成的<abbr title="declaration block">**声明块**</abbr>再加上<abbr title="selector">**选择器**</abbr>组成，而一条或多条规则组合成了<abbr title="rule sets">**规则集**</abbr>。
 
-![规则&规则集](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200625022018.png)
+![规则&规则集](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200625022018.png)
 
 - 元素（Elements）
 
@@ -39,7 +39,7 @@
 $$('*').map(x => (x.style.border = '1px solid'))
 ```
 
-![页面上的盒子](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_22_022.jpg)
+![页面上的盒子](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/browser_06_22_022.jpg)
 
 - **块级元素**（Block-level elements）与**内联元素**（Inline-level elements）
 
@@ -122,7 +122,7 @@ $$('*').map(x => (x.style.border = '1px solid'))
 </style>
 ```
 
-![:empty 伪类占位逻辑](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629211938.png)
+![:empty 伪类占位逻辑](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629211938.png)
 
 这只能体现 CSS 的可能性，但在项目中运用则是一种错误的做法。比如，如果考虑项目后期要做国际化，那么写在 CSS 中这些内容的可维护性就非常差了。CSS 是负责样式的语言，**千万别混淆了 CSS 处理样式，JS 处理逻辑这两种不同的思维形式**。
 
@@ -182,7 +182,7 @@ $$('*').map(x => (x.style.border = '1px solid'))
 
 将会得到以下结果：
 
-![继承得来的值得特殊性不比 0，0，0，0 要高](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200625025101.png)
+![继承得来的值得特殊性不比 0，0，0，0 要高](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200625025101.png)
 
 此外，《CSS 权威指南》中提到：应用到 body 元素得背景样式可以（向上）传递到 html 元素，相应地可以定义其画布，这点属于继承中的特例。但我没能复现。
 
@@ -197,7 +197,7 @@ $$('*').map(x => (x.style.border = '1px solid'))
 - 浏览器的默认样式
 - 声明出现在文档中的顺序越后，权重越大
 
-![CSS 级联](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629191257.png)
+![CSS 级联](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629191257.png)
 
 附：在我的 Yandex 浏览器里已经找不到显式设置用户样式的入口了，我也相信普通用户不会知晓如何设置用户样式的方法，就算知晓也不会去使用——毕竟，[插件](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)要香一些。
 
@@ -230,9 +230,9 @@ VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览
 
 通常我们会觉得 Width 属性定义了一个元素（块级元素）的宽度，这种说法其实不太准确。Width 定义的是“内容区”的宽度。一般来说，内容区的宽度指下图的 width，
 
-![盒模型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629193059.png)
+![盒模型](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629193059.png)
 
-![盒模型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629193138.png)
+![盒模型](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629193138.png)
 
 第一张图是 W3C 标准盒模型，第二张是 IE 盒模型。至于为啥有两种标准，这得追溯回...
 
@@ -240,7 +240,7 @@ VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览
 > 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br /> > **围观群众**：听说 IE 的盒模型不标准。<br /><br />
 > ...多年过去...<br /><br /> > **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br /> > **[顾轶灵@知乎](https://www.zhihu.com/question/25509268/answer/30949718)**: `box-sizing` 这货就是用来擦屁股的...<br />
 
-![box-sizing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/browser_06_21_018.png)
+![box-sizing](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/browser_06_21_018.png)
 
 以前写项目的时候，我喜欢使用通配符重置所有元素的 Box Sizing 为 Border Box，这样会使样式编写容易一些，因为 Border Box 包含了 Border 的宽度，这个宽度各符合直觉。不过，有几点可能需要考虑：
 
@@ -265,11 +265,11 @@ input, textarea, img, video, object {
 - 一个是表盒（Table Box）或是替换元素的主盒的块级盒子不是一个块容器盒子
 - 非替换行内块（None-replaced Inline-level Block）和非替换表格单元格（None-replaced Table Cell）是块容器盒子但不是块级盒子
 
-![Block Box](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200702000624.png)
+![Block Box](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200702000624.png)
 
 一个内联元素（Inline-level Elements）不会为内容形成新的块，它的内容只能以“行”的形式布局。每一个内联元素都会生成一个内联盒子，一个内联盒子要么是行内盒子（Inline Box），要么是原子内联盒子（Atomic Inline-level Box）。行内盒子及其内容会直接参与 IFC，而原子内联盒子以“单一不透明盒子”的形式参与 IFC。
 
-![Inline-level Box](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200702004940.png)
+![Inline-level Box](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200702004940.png)
 
 <details>
     <summary>原子内联盒子示例</summary>
@@ -341,7 +341,7 @@ CSS2.2 的定位方案就三种，普通流定位，浮动定位或是绝对定�
 
 在普通流中，盒子默认按从左至右、自上而下的规则排列；可以使用相关属性改变流的方向，下图是阿拉伯使用的搜索引擎主页，见 HTML 元素上定义的 DIR 属性：
 
-![阿拉伯搜索引擎](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629195939.png)
+![阿拉伯搜索引擎](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629195939.png)
 
 ### BFC
 
@@ -464,7 +464,7 @@ FFC 是一种非常灵活的一维布局方式（GFC 则是强大的二维布局
     <summary>Flex 容器可以应用的属性</summary>
     <ul>
         <li>flex-direction，用于控制子元素在主轴的排列方向</li>
-        <li><img class="vm" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628061842.png" /></li>
+        <li><img class="vm" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628061842.png" /></li>
         <li>flex-wrap，规定子元素超出 Flex 容器边界时是否允许折行</li>
         <li>justify-content，主轴对齐方式。</li>
         <li>align-items，主轴对齐方式。</li>
@@ -502,7 +502,7 @@ flex-grow 光看概念有些难懂，这里用数值说明一下：假设父容�
     <div class="bb p010 bg-gray tac" style="margin: 1px; border: 1px dashed; height: 50px; line-height: 50px;">DASHED-ITEM</div>
 </div>
 
-![FFC 强制换行](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628071523.png)
+![FFC 强制换行](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628071523.png)
 
 FFC 中稍微要注意的地方就是，子元素的 vertical-align、float、clear 属性会失效。
 
@@ -528,7 +528,7 @@ Line Height & Vertical Align，先挖坑，以后再跳。想要详细了解的�
 
 比如我把博客字体中所有弯引号的映射都改成了直角引号，见下图：
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629204104.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629204104.png)
 
 其实原理比较简单，直接康康定义的 CSS：
 
@@ -599,7 +599,7 @@ article {
 
 ITCSS（Inverted Triangle CSS） 的名字很形象，这和它的核心概念有关，它通过规范样式文件的组织结构来适应项目中特殊性不断增加的选择器。见以下倒立的三角形，其中每一层都代表一种样式的概念结构：
 
-![ITCSS（Inverted Triangle CSS）](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628214218.png)
+![ITCSS（Inverted Triangle CSS）](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628214218.png)
 
 - Settings：Global variables、Config switches
 - Tools：Mixins、Functions
@@ -613,7 +613,7 @@ ITCSS（Inverted Triangle CSS） 的名字很形象，这和它的核心概念�
 
 一个使用 ITCSS 组织的项目，其 index.css 可能长这个样子：
 
-![ITCSS index.css](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200628215447.png)
+![ITCSS index.css](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628215447.png)
 
 ### 命名方案
 
@@ -820,7 +820,7 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
             <div class="bg-gray p010 elipsis-2" style="padding: 30px 10px">
                 Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline Anonymous Box & Multiline
             </div>
-            <img class="mt1em b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629210937.png">
+            <img class="mt1em b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629210937.png">
         </li>
         <li>如果需要解决 Padding 问题，可以将 Padding 换成透明 Border，或者使用父容器来控制 Padding 等方法（见下例）。</li>
         <li>
@@ -873,7 +873,7 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
     <ul>
         <li>前者指字母之间的间隔；后者指空格的额外大小。</li>
         <li>word-spacing 非常适合用来调整中英文混合时的排版间隙，无需修改元素的 Margin 值，见下例：</li>
-        <li><img class="vm b1" src="https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/CUFmqr7DAI.gif" /></li>
+        <li><img class="vm b1" src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/CUFmqr7DAI.gif" /></li>
     </ul>
 </details>
 
@@ -890,7 +890,7 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
 
 我想所有人都知道要怎么预览页面的打印结果，Ctrl + P，等待一段时间，搞定，见下图：
 
-![打印预览](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629213829.png)
+![打印预览](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629213829.png)
 
 不过如果页面复杂的话，就需要等待相当长的时间了... 可以从这几点开始进行优化：
 
@@ -914,9 +914,9 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
 
 - 直接在 Rendering 选项卡中将浏览器的媒体类型改为 Print。这样就可以在页面上可以直接预览打印的页面了。
 
-![浏览器媒体类型](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/LUFiDK36Jo1.gif)
+![浏览器媒体类型](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/LUFiDK36Jo1.gif)
 
-![预览打印](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629215312.png)
+![预览打印](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629215312.png)
 
 ### 渲染
 
@@ -925,7 +925,7 @@ Rendering 选项卡还有很多好玩的东西，举个例子：
 - FPS Meter，即时查看页面帧率
 - Paint Flashing，即时查看页面重绘的区域
 
-![FPS Meter & Paint Flashing](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629220655.png)
+![FPS Meter & Paint Flashing](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629220655.png)
 
 还有一些东西就不逐一介绍了，打开 控制台 -> More Tools -> Rendering 可以自己玩玩。
 
@@ -935,13 +935,13 @@ Rendering 选项卡还有很多好玩的东西，举个例子：
 
 通过控制台的 Styles 选项卡能看到元素具体的属性及属性继承关系，不过比较麻烦，不够直观。有时我喜欢用浏览器自带的标尺：
 
-![浏览器标尺](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/20200629221754.png)
+![浏览器标尺](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629221754.png)
 
 不过，还是插件香——来看看 [Visbug](https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc) 插件的功能，虽然 Visbug 自身也有 Bug，但总比浏览器自带的强多了：
 
-![Visbug Inspect](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/sp20200629_221459_063.png)
+![Visbug Inspect](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/sp20200629_221459_063.png)
 
-![Visbug 标尺](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/sp20200629_221046_051.png)
+![Visbug 标尺](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/sp20200629_221046_051.png)
 
 ## 阅读更多
 
@@ -949,7 +949,7 @@ Rendering 选项卡还有很多好玩的东西，举个例子：
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)，排版绝佳 Nice 哦~</p></JJ>
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~</p></JJ>
 
 - [《CSS 权威指南》](https://book.douban.com/subject/2308234/)
 - [CSS-The-Definitive-Guide-4th-zh](https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld)

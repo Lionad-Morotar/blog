@@ -4,9 +4,9 @@
 
       <table id="chart-week-count" class="charts-css column show-labels show-data-axes">
         <tbody>
-          <tr v-for="(rec, recIDX) in byDay" :key="String(rec.month)+rec.day">
+          <tr v-for="rec in byDay" :key="String(rec.month)+rec.day">
             <th scope="row">
-              <template v-if="recIDX % 7 < 5">
+              <template v-if="isWorkday(rec)">
                 {{ rec.month }} / {{ rec.day }}
                 <div v-if="rec.weather === 'sun'" class="sun" />
                 <div v-else-if="rec.weather === 'cloud'" class="cloud" />
@@ -69,6 +69,7 @@ export default {
       const ensureX = x => {
         x.record = x.record || []
         x.weather = x.weather || 'sun'
+        x.costs = (x.cost || []).reduce((h, c) => h + c.value, 0)
         return x
       }
       return this.raw.reduce((h, c) => {
@@ -109,7 +110,6 @@ export default {
           const lastCapital = lastDay?.capital || 0
 
           let dayCapital = day.record.reduce((h, rec) => {
-            // TODO 选择分享还是请两杯奶茶
             const name = rec.name
             const lastLateTime = lateNameInMonthMap[name]
             const curLateTime = lateNameInMonthMap[name] = lastLateTime
@@ -120,9 +120,9 @@ export default {
                 return h
               case 2:
               case 3:
-                return h + 50
+                return h + 20
               default:
-                return h + (curLateTime - 3) * 20
+                return h + 20
             }
           }, 0)
 
@@ -131,9 +131,9 @@ export default {
           if (day.weekday === 5) {
             const lastWeekdays = newMonth.slice(-4)
             lastWeekdays.push(day)
-            if (lastWeekdays.length >= 5) {
-              console.log(lastWeekdays)
-              if (!lastWeekdays.find(x => x.record.length > 0)) {
+            const workdays = lastWeekdays.filter(x => this.isWorkday(x))
+            if (workdays.length >= 5) {
+              if (!workdays.find(x => x.record.length > 0)) {
                 dayCapital = 50
               }
             }
@@ -141,7 +141,7 @@ export default {
 
           const dayWithCapital = {
             ...day,
-            dayCapital,
+            dayCapital: dayCapital - day.costs,
             capital: lastCapital + dayCapital
           }
           newMonth.push(dayWithCapital)
@@ -165,22 +165,22 @@ export default {
         return h
       }, [])
     },
-    byDay () {
+    displayDays () {
       return this.withCapitalACC
+    },
+    curMonth () {
+      return this.displayDays.filter(x => {
+        // return x.month === 5 || (x.month === 4 && x.day > 18)
+        return x.month === 5
+      })
+    },
+    byDay () {
+      return this.curMonth
     },
     byDayOffset () {
       const res = this.byDay.slice(1)
       res.push(this.byDay[this.byDay.length - 1])
       return res
-    },
-    curMonth () {
-      return this.byDay.reduceRight((h, c) => {
-        const last = h[h.length - 1] || {}
-        if (last.day !== 1) {
-          h.push(c)
-        }
-        return h
-      }, []).reverse()
     }
   },
   methods: {
@@ -218,11 +218,15 @@ export default {
     },
     calcCapitalAllPercent (day) {
       const max = Math.floor(
-        this.byDay[this.byDay.length - 1]?.capitalACC * 
-        1.5
+        this.byDay[this.byDay.length - 1]?.capitalACC * 1.5
       )
       const base = day?.capitalACC || 0
       return this.calcCapitalPercent(day, 'all', { base, max })
+    },
+    isWorkday (day) {
+      return day.workday != null
+        ? day.workday
+        : day.weekday <= 5
     }
   }
 }

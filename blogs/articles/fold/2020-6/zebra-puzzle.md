@@ -277,7 +277,7 @@
 |   ?    |  ?   |  ?   |  ?  |  ?  |
 |   ?    |  ?   |  ?   |  ?  |  ?  |
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/200621/%pn_06_23_024.gif)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/%pn_06_23_024.gif)
 
 我们将会得到两种“正确”的结果，以真值表的角度而言就意味着当前所有假设都是成立。
 
@@ -313,7 +313,7 @@
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com/)，排版绝佳 Nice 哦~</p></JJ>
+<JJ><p>所有的文章和源码都会汇总到我的[博客项目](https://github.com/Lionad-Morotar/blogs)，欢迎 Star & Follow，也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~</p></JJ>
 
 - [计算机科学精粹](https://book.douban.com/subject/30382590/)
 - [Solving the Zebra Puzzle with Boolean Algebra](https://code.energy/solving-zebra-puzzle/)

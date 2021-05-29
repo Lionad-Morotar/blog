@@ -12,7 +12,7 @@
 - 地址：http://feeds.feedburner.com/awwwards-sites-of-the-day
 - 描述：每天都会点评一个设计感非常强的网站，你可以从这些网站中找点灵感或是创意。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317165040.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317165040.png)
 
 #### Visual Capitalist
 
@@ -22,7 +22,7 @@
 - 地址：https://feeds.feedburner.com/visualcapitalist
 - 描述：视觉资本用可视化的方式展示全球范围内的经济、技术、政治相关话题。
 
-![What Does The Coffee Supply Chain Look Like?](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317170201.png)
+![What Does The Coffee Supply Chain Look Like?](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317170201.png)
 
 #### 知乎日报
 
@@ -32,7 +32,7 @@
 - 地址：https://news-at.zhihu.com/api/4/stories/latest
 - 描述：永远十八岁，永远做一个好奇（<del>整天瞎想</del>）的少年。其中“瞎扯・如何正确地吐槽”系列承包了我每日的笑点。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317164046.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317164046.png)
 
 #### 豆瓣书评
 
@@ -50,7 +50,7 @@
 - 地址：https://rsshub.app/gcores/category/radios
 - 描述：机核网讨论“游戏以及关于游戏的一切”，并且讨论的内容统一了严肃与娱乐，让人沉迷。（要不是听电台太要时间，我也会每期都跟的 TWT）
 
-![机核网](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317161226.png)
+![机核网](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317161226.png)
 
 #### 独立游戏
 
@@ -76,7 +76,7 @@
 - 地址：http://sspai.me/feed
 - 描述：少数派的文章的整体质量要比当前大部分主流社区高得多（明指某乎）。
 
-![](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317163159.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317163159.png)
 
 #### 小众软件
 
@@ -86,7 +86,7 @@
 - 地址：http://feed.appinn.com/
 - 描述：用折腾安卓的方式来折腾电脑的第一步就是用小众软件装上一堆小众软件。
 
-![小众软件](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317162540.png)
+![小众软件](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317162540.png)
 
 <!-- <hr />
 
@@ -140,7 +140,7 @@ Warning，分割线以下的内容多和专业相关。
 - 地址：见下图
 - 描述：可以订阅自己以及大佬的最新动态，康康谁星星了自己的项目或者大佬们最近又在关注些啥。相当于把你的 Github 个人首页的信息移到了推流中。
 
-![Github 个人动态订阅地址](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20210317151612.png)
+![Github 个人动态订阅地址](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317151612.png)
 
 #### Github 仓库动态
 

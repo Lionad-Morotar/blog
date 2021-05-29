@@ -33,7 +33,7 @@ for (let i = 0; i < data.length; i++) {
 
 考虑设计一个弹框组件。你可能想到，首先用变量 $String::type$ 保存弹框的使用场景，$type$ 允许从消息（$message$）、提示（$tip$）、警告（$warn$）、错误（$error$）任选一项。之后，再用变量 $Boolean::interact$ 保存弹框是否需要用户主动确认。
 
-![警告](https://cdn.jsdelivr.net/gh/Lionad-Morotar/blog-cdn/image/other/20200905004514.png)
+![警告](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200905004514.png)
 
 喂等等... 此时你发现，依据 $type$ 的不同，界面需要显示不同的交互类型。对于提示弹框，界面上只需要“确认按钮”；对于警告弹框，界面上还需要“忽略”按钮。
 
