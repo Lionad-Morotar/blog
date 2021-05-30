@@ -20,29 +20,48 @@ D:/@github/element
 └── Makefile        // Make 的任务信息
 ```
 
-#### 组件管理
+### 工程化
 
-所有的 Elements 组件都存放在 packages 文件夹中，其内部每一个文件夹对应一个组件。组件的路径信息则保存在 components.json 中，形如：
+#### 如何创建新组件？
 
-```js
-{
-  "pagination": "./packages/pagination/index.js",
-  "dialog": "./packages/dialog/index.js",
-  // ...省略80行
-  "popconfirm": "./packages/popconfirm/index.js"
-}
+**可以使用 `make new [component]` 创建新组件[^make]。创建组件会调用脚本自动创建模板文件并维护组件编译时相关配置。**
+
+[^make]: 可以把 Make 理解为一种类似 Gulp 的项目工程化工具，用于编写一些供命令行调用执行的任务。运行 Make 指令需要安装特定软件。
+
+make 脚本的具体逻辑需要看 Makefile 中的 new 任务的代码：
+
+```makefile
+new:
+	node build/bin/new.js $(filter-out $@,$(MAKECMDGOALS))
 ```
 
-`components.json` 是通过 Make 脚本维护的，见项目目录下的 `Makefile`[^make]。使用 `make new [component]` 创建新的组件时，会调用 `build/bin/new.js`，对项目配置文件进行修补：
+可以看到，创建组件时会调用 `build/bin/new.js`。其中 filter-out 也就是过滤函数，从 MAKECMDGOALS 变量中过滤掉 $@ 变量内容，并把剩下的内容传给 node 脚本。以以下 Make 脚本举例：
 
-[^make]: Make 可以理解为一种类似 Gulp 的项目工程化工具，用于编写一些供命令行调用执行的任务。
+```bash
+make new button-dark
+```
 
-* 添加组件到 `components.json`
-* 添加组件到主题入口 `index.scss`
-* 添加组件到 `elements-ui` 类型声明
-* 添加组件到示例网站的导航栏
+MAKECMDGOALS 变量指整个 make 脚本的参数字符串“new button-dark”，$@ 指调用的指令即“new”。从“new button-dark”中过滤掉“new”后，传给 node 脚本的参数也就只剩“button-dark”字符串了。
 
-除了更改配置，脚本也会自动创建一些新的入口文件：
+最终脚本执行，按照脚本逻辑，先用标准的模板内容创建对应文件。
+
+```js
+const Files = [
+  {
+    filename: 'index.js',
+    content: '...'
+  },
+  // ... 省略其它模板文件信息
+]
+// 将模板内容写入对应文件中
+Files.forEach(file => {
+  fileSave(path.join(PackagePath, file.filename))
+    .write(file.content, 'utf8')
+    .end('\n')
+})
+```
+
+创建的文件有以下类型：
 
 * 组件入口（`/packages/[component]/index.js`）
 * 组件文件（`/packages/[component]/src/main.vue`）
@@ -51,7 +70,7 @@ D:/@github/element
 * 默认样式（`/packages/theme-chalk/src/[component].scss`）
 * 类型声明（`/types/[component].d.ts`）
 
-默认入口文件的结构与内容比较简单，以 Alert 组件为例，`alert/index.js` 引入组件后，简单添加一个 install 方法用于 VueJS 注册：
+以 Alert 组件文件为例，默认模板的文件内容比较简单，只提供了一个 install 方法用于注册。
 
 ```js
 import Alert from './src/main'
@@ -63,13 +82,91 @@ Alert.install = function(Vue) {
 export default Alert
 ```
 
-文件结构如下：
+除了创建模板文件，脚本还会修改组件编译相关配置信息，主要是要将组件路径添加到 components.json 文件中，用于打包时使用。文件内容形如：
 
+```js
+{
+  "pagination": "./packages/pagination/index.js",
+  "dialog": "./packages/dialog/index.js",
+  // ... 省略80行组件路径信息
+  "popconfirm": "./packages/popconfirm/index.js"
+}
 ```
-D:\@github\element\packages\alert
-├── index.js
-└── /src
-   └── main.vue
+
+#### 打包组件时发生了什么？
+
+在 Element 中，所有的组件都存放在 packages 文件夹里，每个子文件夹各对应一个组件。**打包组件会把 package 目录下所有组件 package/[component].js 编译生成到 lib/[component].js**。由于 components.json 聚合了所有组件的路径信息，所以在打包时有重大作用（所以创建组件时需要自动维护 component.json 中的信息）。
+
+全局搜索一下就会发现，component.json 在 webpack.component.js、build-entry.js 等构建配置文件中有用到。
+
+##### webpack.component.js
+
+webpack.component.js 用于打包单个组件。为了解决打包时，组件依赖了其它组件产生的依赖问题，需要设置 externals。
+
+```js
+const Components = require('../components.json')
+const externals = {}
+// webpack externals
+Object.keys(Components).forEach(function(key) {
+  externals[`element-ui/packages/${key}`] = `element-ui/lib/${key}`;
+})
+// webpack config
+const webpackConfig = {
+  mode: 'production',
+  entry: Components,
+  output: {
+    path: path.resolve(process.cwd(), './lib'),
+    publicPath: '/dist/',
+    filename: '[name].js',
+    chunkFilename: '[id].js',
+    libraryTarget: 'commonjs2'
+  },
+  externals: config.externals,
+  // ... 省略其它配置
+}
+```
+
+为了测试 webpack.component.js，可以使用以下指令：
+
+```bash
+npx webpack --config build/webpack.component.js
+# 因为使用了 progress-bar-webpack-plugin 插件，
+# 打包时会在控制台看到以下进度条：
+# build [=========           ] 45%
+```
+
+##### build-entry.js
+
+build-entry.js 用于生成项目源代码的入口文件，即 src/index.js。
+
+如果你经常使用 Element，应该还记得有两种引入 Element 的方式：
+
+```js
+// 1. 直接引入单组件
+import { Dialog } from 'element-ui'
+// 2. 引入并注册所有组件
+import element from 'element-ui'
+Vue.use(element)
+```
+
+对应的逻辑，就全都在 src/index.js 中啦~
+
+```js
+// 导出 install 方法供 Vue.use 使用，
+// 对应第二种方法
+const install = function(Vue) {
+  components.forEach(component => {
+    Vue.component(component.name, component)
+  })
+}
+// 同时导出所有组件，
+// 对应第一种方法
+export default {
+  install,
+  Loading,
+  Dialog,
+  // ...
+}
 ```
 
 #### 样式打包
