@@ -2,7 +2,7 @@
     background-color: rgba(230, 230, 250, 0.5);
 }
 
-header-tags = 'h1, h2, h3, h4';
+header-tags = 'h1, h2, h3, h4, h5';
 
 {header-tags} {
     m {
@@ -16,7 +16,7 @@ header-tags = 'h1, h2, h3, h4';
     font-family: var(--font-text--bold);
 }
 
-h2, h3, h4 {
+h2, h3, h4, h5 {
     position: relative;
     margin: 2em 0 1em 0;
     padding: 3px 0.5em;
@@ -105,6 +105,23 @@ h4 {
 
     &::after {
         line-height: 1.65em;
+    }
+}
+
+h5 {
+    display: inline-block;
+    margin-top: 1.75em;
+    padding: 0;
+    color: inherit;
+    background: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: unset;
+
+    &::before,
+    &::after {
+        content: unset;
     }
 }
 
@@ -215,7 +232,7 @@ p + div {
     margin-top: 1.5rem;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
     & + p {
         margin-top: 0;
     }
