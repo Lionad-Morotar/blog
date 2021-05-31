@@ -1,8 +1,10 @@
-# 浏览器原理概述
+# 浏览器相关
 
 [TOC]
 
-## 高层结构
+## 组成原理概述
+
+### 高层结构
 
 ![浏览器的主要组件](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200811234200.png)
 
@@ -16,7 +18,7 @@
 
 Chrome 浏览器的每个标签页都分别对应一个呈现引擎实例。每个标签页都是一个独立的进程，所以一个页面 JS 的死循环不会影响到另一个页面。
 
-## 渲染引擎
+### 渲染引擎
 
 FireFox 使用 Gecko，Safari 和 Chrome 则使用起源于 Linux 的开源渲染引擎 Webkit。尽管浏览器的渲染引擎因浏览器而异，但目的都是一样的：解析文档与资源并将其渲染至屏幕。具体步骤则可以详细划分为：解析、构建、布局、渲染，但不一定严格按照此步骤执行。
 
@@ -33,7 +35,7 @@ FireFox 使用 Gecko，Safari 和 Chrome 则使用起源于 Linux 的开源渲�
 * 所有同步脚本执行完之后，触发 Document.DOMContentLoaded 事件。
 * 浏览器继续等图片下载以及异步脚本的下载和执行。这一切结束之后，触发 Window.onload 事件。
 
-### HTML 解析
+#### HTML 解析
 
 HTML 无法使用常规的自上而下或自下而上的解析器进行解析，主要是因为其语言规范宽松，并且内容本身在解析时可能发生改变。总体而言，HTML 需要经过标记再构建树。
 
@@ -50,7 +52,7 @@ HTML 无法使用常规的自上而下或自下而上的解析器进行解析，
 
 ![HTML Parser](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200812120758.png)
 
-### CSS 解析
+#### CSS 解析
 
 FireFox 使用自己写的解析器解析 CSS；Webkit 则用解析器生成器（Flex、Bison）生成解析器解析 CSS。因为 CSS 的语法上下文无关，所以可以使用传统的解析器进行解析。
 
@@ -78,7 +80,7 @@ pseudo
   ;
 ```
 
-### 渲染树
+#### 渲染树
 
 CSS 最初参与渲染的过程在生成渲染树的时刻。可以说，渲染树的构建和 CSS 规范之间有密切联系。除了一些不可见节点，每一个节点都会初始化为渲染树节点（或 FireFox 的：框 Frame）。渲染树节点会顺序地按照元素 Display 创建对应渲染器。
 
@@ -135,14 +137,35 @@ FireFox 还使用了**规则树**这一方案。
 * 属性值会被转化为绝对值（减少计算量）
 * 树节点的添加是懒执行
 
-## 重绘与回流
+### 重绘与回流
 
 浏览器的回流使用“Dirty 位”系统，尽可能只重新布局少的节点，此操作是异步的。但如果触发了全局字体变更、屏幕大小调整，则需要重新布局整颗渲染树，此操作是同步的。
 
 绘制过程与回流类似，绘制也分为全量和增强绘制。
 
-## 阅读更多
+### 阅读更多
 
 * [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
 * [HTML SPEC](https://html.spec.whatwg.org/multipage/parsing.html#parsing)
 * [CSS Selectors Level 3](https://www.w3.org/TR/selectors-3/#grammar)
+
+## 有意思的特性
+
+### 缓存
+
+#### bfcache
+
+[bfcache（Back/forward Cache）](https://www.youtube.com/watch?v=cuPsdRckkF0)是一种缓存策略。浏览器会把当前页面的快照（包括 JS Heap 快照）缓存到内存中，以便用户从当前页面导航到其它页面短暂浏览后又返回原先页面时，迅速地展现页面。
+
+为了是这个特性生效，有以下代码建议：
+
+* 不要使用 unload 事件（unload 暗示了从页面离开后再也不会回到该页面）；
+* 只在需要时使用 beforeunload 事件，在不需要时移除（因为在 Chrome 和 Safari，beforeunload 也不能使用）；
+* 不应该使用 window.open 和没有指明 rel=noopener 的超链接（因为处于安全原因，有来源的页面即 window.opener 非空的页面不能由 bfcache 缓存）；
+* 在离开页面前关闭连接（诸如 WS、WRTC、IndexDB Transaction、fetch 等未结束的链接或请求都会阻止页面进入 bfcache 缓存，因为这些请求不像 DOM API 那样可控）；
+
+### 渲染
+
+### 阅读更多
+
+* [《Back/forward cache》](https://web.dev/bfcache)
