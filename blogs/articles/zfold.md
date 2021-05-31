@@ -24,27 +24,27 @@
 
 ## 归档
 
-#### 2020-6
+##### 2020-6
 
 - [斑马难题](/articles/fold/2020-6/zebra-puzzle.html)
 
-#### 2020-5
+##### 2020-5
 
 - [JS 模块化简史](/articles/fold/2020-5/js-module-history.html)
 - [常用类型判断方法的优势及缺陷](/articles/fold/2020-5/type-check.html)
 
-#### 2020-4
+##### 2020-4
 
 - [9 种 CSS 图案解析](/articles/fold/2020-4/9-css-chart.html)
 
-#### 2020-3
+##### 2020-3
 
 - [从一张 CSS 风景画中学到的东西](/articles/learn-from-an-evening-in-southwold.html)
 
-#### 2019-7
+##### 2019-7
 
 - [听说你还在手写懒加载?](/articles/fold/2019-7/chrome-image-lazyload.html)
 
-#### 2019-6
+##### 2019-6
 
 - [从一个越写越慢的编辑器中聊聊优化思路](/articles/fold/2019-6/teditor.html)
