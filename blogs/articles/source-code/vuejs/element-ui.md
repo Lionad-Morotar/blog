@@ -2,12 +2,12 @@
 
 [TOC]
 
-## 项目架构
+## 项目结构
 
 ElementUI 的项目结构是按照功能划分的，如源文件、主题样式、文档文件夹都直接存放在项目一级目录下，而管理内部的文件，如“把 JS 文件压缩后移动到 Dist 目录”，则是通过项目内部依赖的多种任务管理工具，如 Make、Gulp 和 NPM Script（package.json）。
 
 ```
-D:/@github/element
+element
 ├── /.github        // Github 流程相关，包括贡献者列表、缺陷模板、PR 模板文件
 ├── /build          // 项目打包和部署相关脚本、Webpack 配置
 ├── /examples       // 代码示例（Element-UI 官网）
@@ -20,9 +20,9 @@ D:/@github/element
 └── Makefile        // Make 的任务信息
 ```
 
-### 工程化
+## 项目工程化
 
-#### 如何创建新组件？
+### 如何创建新组件
 
 **可以使用 `make new [component]` 创建新组件[^make]。创建组件会调用脚本自动创建模板文件并维护组件编译时相关配置。**
 
@@ -41,7 +41,7 @@ new:
 make new button-dark
 ```
 
-MAKECMDGOALS 变量指整个 make 脚本的参数字符串“new button-dark”，$@ 指调用的指令即“new”。从“new button-dark”中过滤掉“new”后，传给 node 脚本的参数也就只剩“button-dark”字符串了。
+MAKECMDGOALS 变量指整个 make 脚本的参数字符串“new button-dark”，$@ 指调用的指令即“new”。从“new button-dark”中过滤掉“new”后，传给 node 脚本的参数也就只剩字符串“button-dark”了。
 
 最终脚本执行，按照脚本逻辑，先用标准的模板内容创建对应文件。
 
@@ -93,13 +93,13 @@ export default Alert
 }
 ```
 
-#### 打包组件时发生了什么？
+### 打包组件有哪些步骤
 
-在 Element 中，所有的组件都存放在 packages 文件夹里，每个子文件夹各对应一个组件。**打包组件会把 package 目录下所有组件 package/[component].js 编译生成到 lib/[component].js**。由于 components.json 聚合了所有组件的路径信息，所以在打包时有重大作用（所以创建组件时需要自动维护 component.json 中的信息）。
+**组件打包涉及组件逻辑打包、组件样式打包、源码入口打包三个步骤**。
 
-全局搜索一下就会发现，component.json 在 webpack.component.js、build-entry.js 等构建配置文件中有用到。
+在 Element 中，所有的组件都存放在 packages 文件夹里，每个子文件夹各对应一个组件。打包组件会把 package 目录下所有组件 package/[component].js 编译生成到 lib/[component].js。由于 components.json 聚合了所有组件的路径信息，所以会在各打包任务中用到。
 
-##### webpack.component.js
+#### 组件逻辑打包
 
 webpack.component.js 用于打包单个组件。为了解决打包时，组件依赖了其它组件产生的依赖问题，需要设置 externals。
 
@@ -135,7 +135,7 @@ npx webpack --config build/webpack.component.js
 # build [=========           ] 45%
 ```
 
-##### build-entry.js
+#### 源代码入口打包
 
 build-entry.js 用于生成项目源代码的入口文件，即 src/index.js。
 
@@ -169,77 +169,66 @@ export default {
 }
 ```
 
-#### 样式打包
+#### 组件样式打包
 
-从文件夹结构可以发现，组件的样式并不是在文件夹内部维护的。因为，在 Element 中，样式的“概念”对应“组件主题”，所以打包样式和打包 JS 是分开进行的。
+Element 提供了默认样式主题 theme-chalk，存放到了 packages/theme-chalk 中。文件结构大致如下：
 
-可以在 `package.json` 的脚本中找到用于打包样式文件的命令：
+```
+element/packages/theme-chalk
+├─lib // 编译 CSS 的中间目录
+└─src // 样式源码，存放有 alert.scss、dialog.scss 等所有组件的样式
+  ├─common  // SCSS 变量、过渡动画等
+  ├─fonts   // 图表字体文件
+  └─mixins  // SCSS Mixin
+```
+
+关于组件样式的打包逻辑可以在 package.json 找到，分为三个步骤。
 
 ```js
 {
   "scripts": {
     "build:theme": `
+      ${ /* 生成样式入口文件 */ }
       node build/bin/gen-cssfile &&
+      ${ /* CSS 编译 */ }
       gulp build --gulpfile packages/theme-chalk/gulpfile.js &&
+      ${ /* 移动编译结果 */ }
       cp-cli packages/theme-chalk/lib lib/theme-chalk
     `,
   }
 }
 ```
 
-拆分为后，做了大致如下工作：
-
-* `node build/bin/gen-cssfile`：生成主题的入口文件
-* `gulp build --gulpfile packages/theme-chalk/gulpfile.js`：样式清洗及文件移动任务
-* `cp-cli packages/theme-chalk/lib lib/theme-chalk`：最后拷贝到库目录
-
-每种主题都依赖有变量、动画、字体等基础的样式设置，生成主题的入口文件意味着将基础样式与组件样式整合到一起：
+样式入口文件也就是我们平时使用 Element 时引入的那个样式文件，见下代码。
 
 ```js
-var fs = require('fs')
-var path = require('path')
-var Components = Object.keys(require('../../components.json'))
-var themes = [ 'theme-chalk' ]
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
-var basepath = path.resolve(__dirname, '../../packages/')
+Vue.use(ElementUI)
+```
 
-themes.forEach((theme) => {
-  var isSCSS = theme !== 'theme-default'
+和通过 component.json 动态生成的 lib/index.js 类似，样式入口文件也是由各个组件样式简单的拼接。
 
-  // 引入基础样式，如图标和动画
-  var indexContent = isSCSS ? '@import "./base.scss"\n' : '@import "./base.css"\n'
-
-  // 引入每个组件的样式文件
-  Components.forEach(function(key) {
-    if (['icon', 'option', 'option-group'].indexOf(key) > -1) return
-    var fileName = key + (isSCSS ? '.scss' : '.css')
-    indexContent += '@import "./' + fileName + '"\n'
-    var filePath = path.resolve(basepath, theme, 'src', fileName)
-    if (!fileExists(filePath)) {
-      fs.writeFileSync(filePath, '', 'utf8')
-      console.log(theme, ' 创建遗漏的 ', fileName, ' 文件')
-    }
-  })
-
-  // 写入入口文件的内容
-  fs.writeFileSync(path.resolve(basepath, theme, 'src', isSCSS ? 'index.scss' : 'index.css'), indexContent)
+```js
+// 1. 引入基础样式，如图标和动画
+var indexContent = '@import "./base.scss"\n'
+// 2. 引入各组件的样式文件
+Components.forEach(function(key) {
+  var fileName = key + '.scss'
+  indexContent += '@import "./' + fileName + '"\n'
 })
+// 3. 写入文件
+fs.writeFileSync(path.resolve(basepath, theme, 'src', 'index.scss', indexContent)
 ```
 
-生成的入口文件如下：
+为了减小引入样式的体积，组件样式也可以单独引入。在第二步 gulp build 时，会将 SCSS 样式统一编译为 CSS，并用第三步的 cp-cli[^cp-cli] 工具将编译结果复制到打包结果目录。
 
-```scss
-@import './base.scss';
-
-@import './alert.scss';
-/* ...所有组件样式... */
-@import './upload.scss';
-```
-
-清洗样式和我们在其它项目中常对 CSS 做的 PostCSS 处理差不多，即格式化 CSS，搞定兼容性问题。这之后，将格式化后的 CSS 和所依赖的资源，拷贝到待转移目录：
+[^cp-cli]: 拷贝操作依赖了 cp-cli@npm，可以简单理解为拷贝指令的NodeJS 版。
 
 ```js
-// 处理兼容性，转换、压缩后复制到 ./lib
+// 编译 SCSS，
+// 应用了插件 autoprefixer、cssmin
 function compile() {
   return src('./src/*.scss')
     .pipe(sass.sync())
@@ -250,43 +239,64 @@ function compile() {
     .pipe(cssmin())
     .pipe(dest('./lib'));
 }
-
-// 字体文件也需要拷贝过去
+// 将字体从 package/theme-chalk/src/fonts，
+// 拷贝到 package/theme-chalk/lib/fonts
 function copyfont() {
   return src('./src/fonts/**')
     .pipe(cssmin())
     .pipe(dest('./lib/fonts'));
 }
-
 exports.build = series(compile, copyfont);
 ```
 
-最后使用 cp-cli[^cp-cli] 指令将待转移目录中的所有资源拷贝到库文件夹下，这样就完成了样式文件从自动生成，预处理，到导出整个流程。
+最后使用 cp-cli 指令将中间目录（package/theme-chalk/lib）拷贝到编译结果目录（lib/theme-chalk/lib），所有关于样式的工程化处理就结束了。
 
-[^cp-cli]: 拷贝操作依赖了 cp-cli@npm，可以简单理解为拷贝指令的NodeJS 版。
+### 如何按需载入组件
 
-#### 摇树优化
+按照官网的介绍，**想要按需载入组件以减小项目打包体积，可以使用 [babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component)**[^babel-plugin-component]。使用方法很简单，仿照以下代码写就可以：
 
-有一点值得注意的是，在使用 Gulp 处理样式文件时，compile 函数通过 `src('./src/*.scss')` 选择了 packages 目录下所有的样式（不仅包括样式入口文件，还包括所有的组件样式文件，如 alert.scss）。既然已经在第一步生成了带引入所有主题样式的入口文件，为啥还要 Gulp 要单独处理所有组件样式呢？这是为了方便外部项目引入 ElementUI 后单独引入某个组件时可选的摇树优化。配合 babel-plugin-component，可以减小项目打包体积。
-
-babel-plugin-component 会把 import 语法进行转换[^babel-plugin-component]：
-
-[^babel-plugin-component]: [https://www.npmjs.com/package/babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component)
+[^babel-plugin-component]: 见 Element 官网，quickstart 部分：[https://element.eleme.cn/#/zh-CN/component/quickstart#an-xu-yin-ru](https://element.eleme.cn/#/zh-CN/component/quickstart#an-xu-yin-ru)
 
 ```js
-// 源代码
-import { Button } from 'components'
+import { Button, Select } from 'element-ui'
+
+Vue.use(Button)
+Vue.use(Select)
 ```
+
+babel-plugin-component 会自动把引入的内容作语法转换。
+
 
 ```js
-// 转化后
-const button = require('components/lib/button')
-require('components/lib/button/style.css')
+// 比如下面这行：
+import { Button } from '[libraryName]'
+// 会转化为以下两行：
+const button = require('[libraryName]/lib/button')
+require('[libraryName]/lib/[styleLibraryName]/button.css')
 ```
 
-可以看到，转换后的代码，单独依赖了组件样式。
+[libraryName] 和 [styleLibraryName] 的值可以通过 .babelrc 文件指定。
 
-#### 图标样式处理
+```json
+{
+  "presets": [["es2015", { "modules": false }]],
+  "plugins": [
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
+}
+```
+
+按照“打包组件有哪些步骤”那个小节的介绍，在组件逻辑打包和组件样式打包时，除了生成源代码入口、默认样式入口以外，还用 webpack.component.js 以及 gulp build theme-chalk/gulpfile.js 单独打包各组件及组件样式。这样一来，就能从 lib/[component] 及 lib/theme-chalk/[component].css 也就拿到组件独立的资源文件了。相比整个引入 Element，单独引入组件自然减小了资源体积。
+
+## 文档
+
+### 图标样式处理
 
 从以上流程还可以发现，图标样式并没有在 build:theme 时被处理。通过分析 package.json，可以发现，图表样式的处理放在了 build:file，也就是打包代码示例的任务中。可以把这个任务理解为打包 ElementUI 官网展示的[文档](https://element.eleme.cn/#/zh-CN/component/installation)。
 
