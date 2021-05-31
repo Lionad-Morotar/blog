@@ -294,6 +294,28 @@ require('[libraryName]/lib/[styleLibraryName]/button.css')
 
 按照“打包组件有哪些步骤”那个小节的介绍，在组件逻辑打包和组件样式打包时，除了生成源代码入口、默认样式入口以外，还用 webpack.component.js 以及 gulp build theme-chalk/gulpfile.js 单独打包各组件及组件样式。这样一来，就能从 lib/[component] 及 lib/theme-chalk/[component].css 也就拿到组件独立的资源文件了。相比整个引入 Element，单独引入组件自然减小了资源体积。
 
+## 组件实现
+
+### 组件逻辑
+
+#### [Alert](https://element.eleme.cn/#/zh-CN/component/alert)
+
+#### Dialog
+
+你在按钮组件里面套过模态框么？
+
+反正我新手的时候就干过这事儿。模态框往往有一层黑色遮罩，会 100% 贴合其父元素，但如果在按钮组件里面套模态框，那遮罩就不能覆盖整个页面了。
+
+Element 使用给 dialog 增加 append-to-body 属性，将 dialog 的 DOM 节点直接添加到 body 内，就可解决。
+
+```js
+document.body.appenChild(this.$el)
+```
+
+### 帮助函数
+
+#### Clickble
+
 ## 文档
 
 ### 图标样式处理
@@ -355,24 +377,6 @@ classList.reverse()
 // 最后写入文件
 fs.writeFile(path.resolve(__dirname, '../../examples/icon.json'), JSON.stringify(classList), () => {})
 ```
-
-## 帮助函数
-
-## 组件逻辑
-
-### Dialog
-
-你在按钮组件里面套过模态框么？
-
-反正我新手的时候就干过这事儿。模态框往往有一层黑色遮罩，会 100% 贴合其父元素，但如果在按钮组件里面套模态框，那遮罩就不能覆盖整个页面了。
-
-Element 使用给 dialog 增加 append-to-body 属性，将 dialog 的 DOM 节点直接添加到 body 内，就可解决。
-
-```js
-document.body.appenChild(this.$el)
-```
-
-### Clickble
 
 ## 阅读更多
 
