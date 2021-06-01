@@ -214,20 +214,4 @@
 * 书的边缘进行了模糊处理。
 * 阴影使用了多重阴影。
 
-
-
-## 代码
-
-磨砂滤镜代码示例：
-
-```html
-<svg width="0" height="0">
-  <filter id="book-cover-paper-1">
-    <feTurbulence type="fractalNoise" baseFrequency='.95 .95' numOctaves="80" result='noise' />
-    <feDiffuseLighting in='noise' lighting-color='#004F85' surfaceScale='.8' result="grind">
-      <feDistantLight azimuth='500' elevation='50' />
-    </feDiffuseLighting>
-    <feGaussianBlur in="grind" stdDeviation=".5"/>
-  </filter>
-</svg>
-```
+详情请参见博客：[《CSS 幻术 | 光影效果探秘》](/articles/css-light-travel.html)
