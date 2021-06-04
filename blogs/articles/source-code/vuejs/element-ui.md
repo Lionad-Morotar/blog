@@ -300,6 +300,36 @@ require('[libraryName]/lib/[styleLibraryName]/button.css')
 
 #### [Alert](https://element.eleme.cn/#/zh-CN/component/alert)
 
+#### [Avatar](https://element.eleme.cn/#/zh-CN/component/avatar)
+
+想判断图片是否加载失败，以前我一直会这么写：
+
+```js
+const $image = new Image()
+$image.onload = () => {}
+$image.onerror = () => { /* ... */ }
+$image.src = 'xxx'
+```
+
+在 Avatar 组件中发现了一种新的写法，配合 Vue 组件使用起来非常香：
+
+```js
+{
+  render () {
+    return <img
+      src={src}
+      onError={this.loadFailed}
+    />
+  },
+  methods: {
+    loadFailed () {
+      // ...
+    }
+  }
+}
+
+```
+
 #### Dialog
 
 你在按钮组件里面套过模态框么？
