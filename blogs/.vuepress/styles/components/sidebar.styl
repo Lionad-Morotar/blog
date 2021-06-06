@@ -16,7 +16,6 @@
     /* 整体调整 */
     & > ul.sidebar-links {
         padding-top: 1em;
-        /* padding-top: calc(var(--navbar-height) + 1em); */
 
         & > li:last-child {
             color: var(--color-background);
@@ -69,7 +68,8 @@
 @media screen and (max-width: 888px) {
     .sidebar {
         ul.sidebar-links {
-            padding-top: 1em;
+            /* padding-top: 1em; */
+            padding-top: calc(var(--navbar-height) + 1em);
         }
     }
 }
