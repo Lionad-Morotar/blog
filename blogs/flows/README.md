@@ -1,3 +1,9 @@
+<flow>认知谦逊是指一种科学观察的姿态，其根植于以下认识：
+<div>a. 世界的知识总是由观察者解释、组织和过滤，因此，</div>
+<div>b. 科学必须建立在认识到观察本身无法把握世界的基础上。</div>
+<name><a href="https://www.jdon.com/56554" rel="noopener noreferrer" target="_blank">JDON</a></name>
+</flow>
+
 <flow>一首诗不能被完成，只能被遗弃。
 A poem is never finished, only abandoned.
 <name><a href="https://baike.baidu.com/item/%E4%BF%9D%E5%B0%94%C2%B7%E7%93%A6%E9%9B%B7%E9%87%8C/10358597?fromtitle=%E7%93%A6%E8%8E%B1%E9%87%8C&fromid=2790669" rel="noopener noreferrer" target="_blank">保尔·瓦雷里</a></name>

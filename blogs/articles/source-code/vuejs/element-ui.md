@@ -294,11 +294,45 @@ require('[libraryName]/lib/[styleLibraryName]/button.css')
 
 按照“打包组件有哪些步骤”那个小节的介绍，在组件逻辑打包和组件样式打包时，除了生成源代码入口、默认样式入口以外，还用 webpack.component.js 以及 gulp build theme-chalk/gulpfile.js 单独打包各组件及组件样式。这样一来，就能从 lib/[component] 及 lib/theme-chalk/[component].css 也就拿到组件独立的资源文件了。相比整个引入 Element，单独引入组件自然减小了资源体积。
 
+相关阅读：
+
+* [《组件库按需加载原理分析》](https://mp.weixin.qq.com/s/ty4IUtLlTgxdc8-7_UGyiQ)
+
 ## 组件实现
 
 ### 组件逻辑
 
 #### [Alert](https://element.eleme.cn/#/zh-CN/component/alert)
+
+#### [Avatar](https://element.eleme.cn/#/zh-CN/component/avatar)
+
+想判断图片是否加载失败，以前我一直会这么写：
+
+```js
+const $image = new Image()
+$image.onload = () => {}
+$image.onerror = () => { /* ... */ }
+$image.src = 'xxx'
+```
+
+在 Avatar 组件中发现了一种新的写法，配合 Vue 组件使用起来非常香：
+
+```js
+{
+  render () {
+    return <img
+      src={src}
+      onError={this.loadFailed}
+    />
+  },
+  methods: {
+    loadFailed () {
+      // ...
+    }
+  }
+}
+
+```
 
 #### Dialog
 
@@ -314,7 +348,115 @@ document.body.appenChild(this.$el)
 
 ### 帮助函数
 
-#### Clickble
+#### Clickoutside
+
+Clickoutside，顾名思义，用作点击非元素本身时触发回调函数。比方说在多选框输入状态时底部弹出的悬浮框，可以通过点击周边区域消除，效果见下图：
+
+![点击外部关闭悬浮弹窗](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/p0xBBOijBB.gif)
+
+Element 选择用指令去实现这个效果。在指令初始化时会把元素信息以及绑定的回调函数保存下来，并在 document 接收到点击事件时根据点击事件判断是否是在点击非元素本身。
+
+先来看看指令部分：
+
+```js
+let id = 0
+const nodeList = []
+export default {
+  // 指令初始化时
+  bind(el, binding, vnode) {
+    // 把元素推入 nodeList
+    nodeList.push(el)
+    // 给元素挂上标识符和回调函数
+    el[ctx] = {
+      // 保证标识符全局唯一
+      id: id++,
+      // 用来处理 document 接收到的点击事件，判断点击事件中点击的元素是否是自身（即 el）
+      documentHandler: createDocumentHandler(el, binding, vnode),
+      // 回调函数的名称
+      methodName: binding.expression
+    }
+  },
+  // 指令收到节点更新事件，需要重新绑定，
+  // 以释放闭包中的旧的节点信息以防内存泄漏
+  update(el, binding, vnode) {
+    el[ctx].documentHandler = createDocumentHandler(el, binding, vnode)
+    el[ctx].methodName = binding.expression
+  },
+  // 销毁绑定时，通过 ID 找到并删除 nodeList 中对应元素
+  unbind(el) {
+    let len = nodeList.length
+    for (let i = 0 i < len i++) {
+      if (nodeList[i][ctx].id === el[ctx].id) {
+        nodeList.splice(i, 1)
+        break
+      }
+    }
+    delete el[ctx]
+  }
+}
+```
+
+接下来是监听 document 的点击事件。使用点击事件的参数 event.target 可以找到点击事件到底是点地哪一个元素；我们把点击事件记录下来，并对比指令挂载的元素（即 nodeList）和点击元素是否是同一个元素，如果不是同一个元素，就可以触发回调函数了。
+
+```js
+let startClick = null
+document.addEventListener('mousedown', e => (startClick = e))
+document.addEventListener('mouseup', e => {
+  nodeList.forEach(node => node[ctx].documentHandler(e, startClick))
+})
+```
+
+最后来看看怎么判断点击元素和指令挂载的元素是否是同一个元素：
+
+```js
+function createDocumentHandler(el, binding, vnode) {
+  return function(mouseup = {}, mousedown = {}) {
+    if (!vnode ||
+      !vnode.context ||
+      !mouseup.target ||
+      !mousedown.target ||
+      // 使用 contains API 判断元素是否包含点击元素，
+      // 也就是说如果点击事件中触发的元素既不是指令挂载元素的子元素或其本身，
+      // 那就算“点击外部元素”，需要触发回调了
+      el.contains(mouseup.target) ||
+      el.contains(mousedown.target) ||
+      el === mouseup.target) return;
+
+    // 触发回调函数
+    if (binding.expression &&
+      el[ctx].methodName &&
+      vnode.context[el[ctx].methodName]) {
+      vnode.context[el[ctx].methodName]()
+    }
+  }
+}
+```
+
+当然，不同指令也可以实现同样的效果。比方说，可以借助一个全屏的元素拦截点击事件，点击或滚动时自动隐藏模块。此方案的重点在 CSS，遮罩层需要使用固定定位，以占满全屏；同时给模块增加层级以覆盖掉页面上其它元素。
+
+```html
+<div class="fullscreen-mask" @mousedown="show=false" @scroll="show=false" />
+<div class="my-components" v-if="show" />
+<style>
+  /* 遮罩层使用固定定位，占满全屏 */
+  .fullscreen-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+  }
+  /* 使层级覆盖掉页面上其它元素 */
+  .fullscreen-mask + * {
+    z-index: 9999;
+  }
+</style>
+```
+
+实现效果类似如下图。
+
+![点击外部关闭选框](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/oZYZBMECXL.gif)
 
 ## 文档
 

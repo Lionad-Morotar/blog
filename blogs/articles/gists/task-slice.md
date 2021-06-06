@@ -162,3 +162,40 @@ JS 执行会抢占 UI 渲染的时间，若 JS 任务长时间运作，页面看
 滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试。
 滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试。
 滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试滚动测试。
+
+## 关键代码
+
+#### FPS
+
+FPS 统计使用了 requestAnimationFrame API。
+
+第一种方法来自 [AlloyTeam 的示例代码](https://mp.weixin.qq.com/s/fD-jtZ0ETUWwyL3YhmA3kw)，通过累计时间以计算每一秒的帧率。
+
+```js
+let lastTime = performance.now()
+let frames = 0
+const loop = () => {
+    const currentTime = performance.now()
+    frames += 1
+    if (currentTime > 1000 + lastTime) {
+        fps = Math.round((frames * 1000) / (currentTime - lastTime))
+        frames = 0
+        lastTime = currentTime
+        console.log(`fps:${fps}`)
+      }
+    window.requestAnimationFrame(loop)
+}
+loop()
+```
+
+也可以实施计算每一秒帧率。
+
+```js
+let date = +new Date()
+const step = () => {
+  const currentFPS = Math.floor(1000 / Math.abs(date - (date = +new Date())))
+  this.$emit('onFPS', currentFPS)
+  requestAnimationFrame(step)
+}
+requestAnimationFrame(step)
+```
