@@ -72,6 +72,7 @@ const sidebarConfigs = {
         'expression-and-loneliness',
         'a-letter-of-silience',
         'my-shy',
+        'escape-from-mysticism',
         'messy-in-two-years',
         'zfold'
       ]
