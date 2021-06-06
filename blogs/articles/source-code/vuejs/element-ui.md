@@ -294,6 +294,10 @@ require('[libraryName]/lib/[styleLibraryName]/button.css')
 
 按照“打包组件有哪些步骤”那个小节的介绍，在组件逻辑打包和组件样式打包时，除了生成源代码入口、默认样式入口以外，还用 webpack.component.js 以及 gulp build theme-chalk/gulpfile.js 单独打包各组件及组件样式。这样一来，就能从 lib/[component] 及 lib/theme-chalk/[component].css 也就拿到组件独立的资源文件了。相比整个引入 Element，单独引入组件自然减小了资源体积。
 
+相关阅读：
+
+* [《组件库按需加载原理分析》](https://mp.weixin.qq.com/s/ty4IUtLlTgxdc8-7_UGyiQ)
+
 ## 组件实现
 
 ### 组件逻辑
