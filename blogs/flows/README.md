@@ -1,4 +1,8 @@
-<flow>认知谦逊是指一种科学观察的姿态，其根植于以下认识：
+<flow>糖，茶，咖啡，酒精，烟草
+<name>Lionad</name>
+</flow>
+
+<flow>认知谦逊是指一种科学观察的姿态，它根植于以下认识：
 <div>a. 世界的知识总是由观察者解释、组织和过滤，因此，</div>
 <div>b. 科学必须建立在认识到观察本身无法把握世界的基础上。</div>
 <name><a href="https://www.jdon.com/56554" rel="noopener noreferrer" target="_blank">JDON</a></name>
@@ -10,7 +14,7 @@ A poem is never finished, only abandoned.
 </flow>
 
 <flow>如果您不能明智地为一个问题的正反双方都进行辩护，那么您对这个问题的理解就不够好，也就不能为任何一方辩护。
-<name><a href="https://www.jdon.com/56012" rel="noopener noreferrer" target="_blank">解道 JDON</a></name>
+<name><a href="https://www.jdon.com/56012" rel="noopener noreferrer" target="_blank">JDON</a></name>
 </flow>
 
 <flow>
