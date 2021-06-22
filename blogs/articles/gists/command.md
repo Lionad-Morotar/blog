@@ -1,10 +1,10 @@
-# PowerShell
+# Command
 
 正在学习如何使用 PowerShell 写脚本。
 
 如果碰到 Bash 和 PowerShell 中不兼容的语法部分，可以参考[《Bash 与 PowerShell 命令对照表》](https://www.pstips.net/bash-and-powershell-quick-reference.html)
 
-## 快速语法手册
+## 语法手册
 
 比较判定：
 
@@ -24,11 +24,9 @@
 * -xor
 * -not
 
-## 快速上手
+## CMD
 
-### 启动脚本
-
-#### CMD
+### 初始化
 
 CMD 在启动时会调用注册表中 AutoRun 项对应的脚本文件，你可以修改此项的值，该为自己编写的脚本所在的地址，就能在启动 CMD 时自动执行代码。
 
@@ -43,7 +41,9 @@ Windows Registry Editor Version 5.00
 
 需要注意的问题是，`.reg` 文件的语法比较严格，路径的分隔符不能是单反斜线。
 
-#### PowerShell
+## PowerShell
+
+### 初始化
 
 PowerShell 启动时，会加载当前用户的 Profile 文件，一般地址在 `Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`，如果没有可以自己创建一个，然后重新打开 PowerShell 窗口就会自动加载了。
 
@@ -68,4 +68,12 @@ function EditProfile {
     $path = $env:onedrive + '\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1' 
     notepad $path
 }
+```
+
+### 增删改查
+
+递归删除文件夹中非 index.html 文件
+
+```bash
+Remove-Item ./* -Recurse -Exclude index.html
 ```
