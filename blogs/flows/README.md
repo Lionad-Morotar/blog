@@ -1,3 +1,17 @@
+<flow><b>为什么采用新技术：</b>
+<div>1. 新技术可能承诺会解决老问题</div>
+<div>2. 用上了新技术而使公司获得社区或媒体的关注</div>
+<div>3. 求职者涌向新技术</div>
+<div>4. 新技术使开发变得更酷</div>
+<hr />
+<b>由于采用新技术需要承担风险，所以需要做到：</b>
+<div>1. 给足时间进行试验</div>
+<div>2. 应该拥有一套默认技术栈</div>
+<div>3. 保证核心稳定（DB > Logic > FE，Marketing > Open Source > Side Project）</div>
+<div>4. 不忘业务目标</div>
+<name><a href="https://weixin.sogou.com/weixin?type=2&query=%E5%89%8D%E7%AB%AF%E4%B9%8B%E5%B7%85+%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%87%87%E7%94%A8%E6%96%B0%E6%8A%80%E6%9C%AF%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%96%B9%E5%BC%8F" rel="noopener noreferrer" target="_blank">《软件工程师采用新技术的正确方式》</a></name>
+</flow>
+
 <flow>糖，茶，咖啡，酒精，烟草
 <name>Lionad</name>
 </flow>
