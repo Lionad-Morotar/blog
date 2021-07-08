@@ -394,3 +394,26 @@ git pull origin master --allow-unrelated-histories
 
 * [Reveal.js](https://revealjs.com/code/)
 * [Highlight.js](https://highlightjs.org/)
+
+## 常见问题
+
+#### 连接超时
+
+可以使用以下指令来测试是否是 ssh 连接超时：
+
+```js
+ssh -T git@github.com
+```
+
+如果提示 ssh: connect to host ... time out 那就是了。此时需要到 ~/.ssh/ 文件夹下创建一个 config 文件，内容如下：
+
+```text
+Host github.com
+User lionad-trident
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile C:\Users\18062\.ssh\id_rsa
+Port 443
+```
+
+再次输入测试指令，会提示是否记录指纹，选择“yes”就好。
