@@ -44,3 +44,7 @@ RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
 - Exec：执行容器指令，如 docker exec -it xxx bash；
 - Run：运行镜像，如 docker run -it test；
 - Ps：列表，如 docker ps；
+
+## 常见问题
+
+关闭 Hyper-V：`bcdedit /set hypervisorlaunchtype off`
