@@ -2,7 +2,7 @@
 
 ## 类型系统
 
-### 工具类型
+### 内置工具类型
 
 #### Partial
 
@@ -91,3 +91,7 @@ type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) 
 ```ts
 type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer P ? P : never
 ```
+
+### 扩展工具类型
+
+- [Utility Types](/articles/source-code/ts/utility-types.html)
