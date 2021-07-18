@@ -46,5 +46,7 @@ Thoughtworks 认为短生命周期的分支策略给实施 CI/CD 带来更小的
 * [Github flow](https://guides.github.com/introduction/flow/)
 * [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [Trunk Based Development](https://trunkbaseddevelopment.com/)
+* [常见的代码分支模型和比较](http://fresky.github.io/2020/03/10/common-branching-models/)
+* [Stop cherry-picking, start merging](https://devblogs.microsoft.com/oldnewthing/20180323-01/?p=98325)
 * [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html)
 * [Gitflow long-lived-branch on Tech Radar](https://www.thoughtworks.com/cn/radar/techniques/long-lived-branches-with-gitflow)
