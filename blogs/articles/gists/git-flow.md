@@ -1,4 +1,4 @@
-# Git Flow
+# Gitflow
 
 ## 从 PR 开始说起
 
@@ -34,6 +34,17 @@ Forking Workflow：开发使用单独的仓库来开发一个完整的功能，�
 
 总之，没有一种工作流程是能解决所有问题而没有显著副作用的，你应该根据团队规模、业务流程（如需求大小、需求频次）选用更适合团队的工作流。  
 
-## 阅读更多
+## 关于 Gitflow 的坏处
 
-* [《Gitflow Workflow》](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+> We firmly belive that long-lived version-control branches harm valuable engineering practieces such as CI, and this belief underlies our dislike for Gitflow.（Thoughtworks）
+
+Thoughtworks 认为短生命周期的分支策略给实施 CI/CD 带来更小的伤害，反之类似 Gitflow 中经常用到的长生命周期分治策略反而是在鼓励后期集成（late integration）。
+
+## 相关资源
+
+* [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+* [Github flow](https://guides.github.com/introduction/flow/)
+* [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+* [Trunk Based Development](https://trunkbaseddevelopment.com/)
+* [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html)
+* [Gitflow long-lived-branch on Tech Radar](https://www.thoughtworks.com/cn/radar/techniques/long-lived-branches-with-gitflow)
