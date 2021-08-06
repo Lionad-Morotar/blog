@@ -45,6 +45,12 @@ RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
 - Run：运行镜像，如 docker run -it test；
 - Ps：列表，如 docker ps；
 
+## 调试流程
+
+1. 拉远端镜像：docker pull registry.gitlab.baixing.cn/fenlei/midway-fe:75150
+2. 启动容器：docker run -p 8081:7001 -it 5d0c03824600 sleep 999m
+3. 进入并调试：docker exec -it name /bin/bash
+
 ## 常见问题
 
 关闭 Hyper-V：`bcdedit /set hypervisorlaunchtype off`
