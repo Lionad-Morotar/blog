@@ -13,33 +13,91 @@
 
 ## 用例
 
-<Highlight
-    lang="js"
-    :content="require('!!raw-loader!./codes/Object-Assign/usage.js').default"
-/>
+```js
+var a, b
+// example-1
+a = { a: 1 }
+b = { a: 2, b: 2 }
+console.log('1: ', Object.assign(a, b))
+// example-2
+a = { a: 1 }
+b = { b: 2 }
+Object.defineProperties(b, {
+    c: {
+        value: 'hello',
+        enumerable: false
+    }
+})
+console.log('2: ', Object.assign(a, b))
+// example-3
+a = { a: 1 }
+console.log('3: ', Object.assign(a, null))
+// example-4
+a = {}
+b = { a: 2 }
+Object.defineProperties(a, {
+    a: {
+        value: 'hello',
+        writable: false,
+        enumerable: true
+    }
+})
+console.log('4: ', Object.assign(a, b))
+```
 
 ## 细节
 
 最有意思的是第四条规则，查阅 MDN 后发现，不仅源对象为 Null 或者 Undefined，为其它的原始类型，也会被包装成对象。
 
-<Highlight
-    lang="js"
-    :content="require('!!raw-loader!./codes/Object-Assign/1.js').default"
-/>
+```js
+console.log(
+    Object.assign(
+        {}, 
+        null, 
+        undefined, 
+        'abc',
+        true, 
+        999, 
+        Symbol('foo')
+    )
+)
+
+```
 
 其实 Object.assign 不仅仅能拷贝属性，它也能拷贝访问器，如下：
 
-<Highlight
-    lang="js"
-    :content="require('!!raw-loader!./codes/Object-Assign/2.js').default"
-/>
+```js
+console.log(
+    Object.assign(
+        {},
+        {
+            get bar() {
+                return 2
+            }
+        }
+    )
+)
+
+```
 
 ## 实现
 
-<Highlight
-    lang="js"
-    :content="require('!!raw-loader!./codes/Object-Assign/polyfill.js').default"
-/>
+```js
+function ObjectAssignPolyfill(target, ...args) {
+    if (!target) {
+        throw TypeError('Target should be an object')
+    }
+    let i = 0
+    while (i++ < args.length) {
+        if (args[i]) {
+            for (let key in args[i]) {
+                target[key] = args[i][key]
+            }
+        }
+    }
+    return target
+}
+```
 
 ## Lodash
 

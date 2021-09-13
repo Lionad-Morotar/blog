@@ -2,6 +2,12 @@
 
 这里保存一些关于源码阅读的笔记，慢慢攒着，也许以后能转换成技术博客。
 
+## 语言
+
+TypeScript：
+
+- [常用类型推导](/articles/source-code/ts/utility-types.html)
+
 ## 框架
 
 #### VueJS
@@ -28,6 +34,8 @@ VueJS 源码阅读相关：
 
 #### jQuery
 
+- [ObjectAssign](/articles/source-code/jquery/object-assign.html)
+
 - [工具函数无冲突处理](/articles/source-code/jquery/no-conflict.html)
 
 #### Lodash
@@ -36,7 +44,7 @@ VueJS 源码阅读相关：
 
 ## 小型类库
 
-- [网络安全 | HELMET](/articles/Helmet & Security.html)
+- [网络安全 | HELMET](/articles/helmet-and-security.html)
 
 - [判断 NodeJS 是否在线 | internet-available](/articles/source-code/module/is-online.html)
 

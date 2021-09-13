@@ -6,3 +6,4 @@ dist_tmp/
 tmp/
 secrets/
 .DS_Store
+private/

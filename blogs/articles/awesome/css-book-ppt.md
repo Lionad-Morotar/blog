@@ -6,7 +6,7 @@
 
 <div class="book-cover-con">
   <!-- Book 1th -->
-  <label>Open fullscreen: </label>
+  <label>Fullscreen: </label>
   <input class="book-cover-fs-select" type="checkbox" />
   <WHRatio h="68%">
     <div class="book-cover">
@@ -30,7 +30,7 @@
     </svg>
   </WHRatio>
   <!-- Book 2th -->
-  <label>Open fullscreen: </label>
+  <label>Fullscreen: </label>
   <input class="book-cover-fs-select" type="checkbox" />
   <WHRatio h="68%">
     <div class="book-cover">
@@ -54,7 +54,7 @@
     </svg>
   </WHRatio>
   <!-- Book 3th -->
-  <label>Open fullscreen: </label>
+  <label>Fullscreen: </label>
   <input class="book-cover-fs-select" type="checkbox" />
   <WHRatio h="68%">
     <div class="book-cover">
@@ -92,7 +92,7 @@
     z-index: 99999;
   }
   .book-cover-fs-select:checked:before {
-    content: 'Close fullscreen';
+    content: 'Close';
   }
   .book-cover-fs-select:checked + .wh-container {
     position: fixed;

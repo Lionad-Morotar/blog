@@ -1,1 +1,0 @@
-https://github.com/Lionad-Morotar/blogs/blob/c52c1a25b8443dbfa309aaa8bbf04bdd1239b9d4/blogs/articles/gists/example/reveal.md

@@ -61,15 +61,79 @@ this.scroll(document.querySelector('.parallax'), 999)
 
 我写了一个预期应该实现的功能的 Demo。为了节约流量，我把运行代码的组件去掉了，你可以在 Codepen 里面试试这段代码。
 
-<Highlight
-    lang="js"
-    :content="require('!!raw-loader!./codes/ScrollTop-ScrollTo/js.js').default"
-/>
+```js
+window.requestAnimFrame = (function() {
+    return (
+        window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function(callback) {
+            return window.setTimeout(callback, 1000 / 60)
+        }
+    )
+})()
 
-<Highlight
-    lang="html"
-    :content="require('!!raw-loader!./codes/ScrollTop-ScrollTo/html.html').default"
-/>
+function scroll(ele, height, time = 800) {
+    const frameTime = 800 / (1000 / 60)
+    const currentTop = ele.scrollTop
+    const frameHeight = (height - currentTop) / frameTime
+    const toBottom = currentTop < height
+
+    const run = () => {
+        const store = ele.scrollTop
+        ele.scrollTop = store + frameHeight
+
+        const go = (toBottom && store + frameHeight < height) || (!toBottom && store + frameHeight > height)
+        go && window.requestAnimFrame(run)
+    }
+    run()
+}
+
+const $scrollArea = document.querySelector('.scroll-area')
+
+document.querySelector('.btn1').addEventListener('click', () => scroll($scrollArea, 500))
+document.querySelector('.btn2').addEventListener('click', () => scroll($scrollArea, 1000))
+```
+
+```html
+<div class="scroll-area" style="border:1px solid black;width:200px;height:200px;overflow:auto">
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+    This is some text. This is some text. This is some text. This is some text. This is some text. This is some text.
+</div>
+<br />
+<button class="btn1">滚动到 500px</button>
+<button class="btn2">滚动到 1000px</button>
+```
 
 ## 排查缺陷
 
