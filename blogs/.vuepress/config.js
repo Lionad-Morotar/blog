@@ -47,8 +47,8 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Posts', link: '/articles/' },
       { text: 'Ideas', link: '/flows/' },
+      { text: 'HireMe', link: '/hire-me/' },
       { text: 'Links', link: '/friends/' }
-      // { text: 'Hire Me', link: '/hire-me/' }
     ],
     sidebar: {
       '/articles/': sidebar.getSidebar('articles'),
