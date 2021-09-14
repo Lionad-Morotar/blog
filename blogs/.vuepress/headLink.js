@@ -33,7 +33,7 @@ config.useFundeBUG &&
         'script',
         {
             // @see https://www.fundebug.com/dashboard/60fbd322368abf12549b2481/errors/inbox
-            src: '//js.fundebug.cn/fundebug.2.5.0.min.js"',
+            src: '//js.fundebug.cn/fundebug.2.5.0.min.js',
             crossorigin: 'anonymous',
             apikey: '6cf8608d1691cea338ccf8b2057530f1991968b20555ea79ff3cb6261e6cba77',
             defer: 'defer'
