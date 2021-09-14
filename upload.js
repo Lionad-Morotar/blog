@@ -59,13 +59,14 @@ const task = {
     console.log('| rename gzip-file success ...')
   },
   uploadMgear: () => {
-    return new Promise(resolve => {
+    return new Promise(async resolve => {
       console.log('| upload website start : ', uploadWebsite)
       function upload() {
         cmd.get(uploadWebsite, async error => {
           error ? console.error('| upload website error : ', error) : console.log('| upload website success')
           if (error) {
-            console.log('| ERROR & RETRY...')
+            console.log('| ERROR & RETRY...', error.message)
+            await new Promise(resolve => setTimeout(resolve, 3000))
             upload()
           } else {
             resolve()
