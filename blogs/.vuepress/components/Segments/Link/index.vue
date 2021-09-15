@@ -1,5 +1,5 @@
 <template>
-    <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent="showpage"><slot/></a>
+    <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
 </template>
 
 <script>
@@ -53,13 +53,17 @@ export default {
         }
     },
     methods: {
-        async showpage (e) {
+        async showpage () {
             this.loading = true
             try {
                 const threshold = 100 * 1000
                 const filesize = await getOSSFilesize(this.to)
                 if (filesize < threshold) {
                     await this.display()
+                } else if (this.source) {
+                    window.open(this.source)
+                } else {
+                    alert('资源体积过大，暂时不予展示，敬请谅解')
                 }
             } finally {
                 this.loading = false
