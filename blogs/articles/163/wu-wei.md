@@ -1,6 +1,4 @@
-# 🛫 Wu Wei
-
-## 视频
+# 🍷 Wu Wei
 
 <div style="text-align: center;">
   <iframe src="//player.bilibili.com/player.html?aid=842828558&bvid=BV1154y1z7ky&cid=256303420&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

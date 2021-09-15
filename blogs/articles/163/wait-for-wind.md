@@ -1,6 +1,4 @@
-# 🌫 等待的风
-
-## 视频
+# 🌬️ 等待的风
 
 <div style="text-align: center;">
     <iframe src="//player.bilibili.com/player.html?aid=87893912&bvid=BV1t741147kV&cid=150164575&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

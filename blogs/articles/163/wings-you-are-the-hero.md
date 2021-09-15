@@ -1,4 +1,4 @@
-# 🛳 Wings~You are the Hero！
+# 🎼 Wings~You are the Hero！
 
 ## 单曲
 

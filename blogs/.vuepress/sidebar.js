@@ -115,7 +115,7 @@ const sidebarConfigs = {
       flag: 'G'
     },
     {
-      title: '请弹琴',
+      title: '吉他剧场',
       collapsable: true,
       open: true,
       children: [
