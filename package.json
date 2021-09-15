@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "debounce": "^1.2.0",
-    "qrcodejs2": "0.0.2"
+    "qrcodejs2": "0.0.2",
+    "vue-fragment": "^1.5.2"
   }
 }
