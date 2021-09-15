@@ -7,3 +7,5 @@ tmp/
 secrets/
 .DS_Store
 private/
+.sync/
+.osssync.json

@@ -10,6 +10,8 @@
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
     "upload": "sftp morotar@47.100.27.221 && put -r ./ /home/morotar/blog",
+    "presync": "node ./chore/gen-sync-conf.js",
+    "sync": "osssync",
     "post": "npm run build && npm run upload"
   },
   "repository": {
@@ -43,6 +45,7 @@
     "mathjax3": "^3.0.0-beta.4",
     "moment": "^2.27.0",
     "node-cmd": "^3.0.0",
+    "osssync": "git+https://github.com/Lionad-Morotar/oss-sync",
     "prismjs": "^1.20.0",
     "raw-loader": "^4.0.1",
     "vuepress": "^1.6.0",
