@@ -36,7 +36,8 @@ Forking Workflow：开发使用单独的仓库来开发一个完整的功能，�
 
 ## 关于 Gitflow 的坏处
 
-> We firmly belive that long-lived version-control branches harm valuable engineering practieces such as CI, and this belief underlies our dislike for Gitflow.（Thoughtworks）
+> We firmly belive that long-lived version-control branches harm valuable engineering practieces such as CI, and this belief underlies our dislike for Gitflow.
+> <name>Thoughtworks</name>
 
 Thoughtworks 认为短生命周期的分支策略给实施 CI/CD 带来更小的伤害，反之类似 Gitflow 中经常用到的长生命周期分治策略反而是在鼓励后期集成（late integration）。
 

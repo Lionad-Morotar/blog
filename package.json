@@ -9,7 +9,7 @@
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
-    "upload": "sftp morotar@47.100.27.221 && put -r ./ /home/morotar/blog",
+    "upload": "sftp morotar@47.100.27.221 && lcd dist && put -r ./ /home/morotar/blog",
     "presync": "node ./chore/gen-sync-conf.js",
     "sync": "osssync",
     "post": "npm run build && npm run upload"

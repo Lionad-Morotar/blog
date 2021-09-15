@@ -17,7 +17,7 @@ export default ({
     router, // 当前应用的路由实例
     siteData // 站点元数据
 }) => {
-    Vue.config.ignoredElements = ['css-doodle', 'flow', 'name', 'time', 'pixel']
+    Vue.config.ignoredElements = ['css-doodle', 'flow', 'name', 'time', 'pixel', 'hide']
     Vue.component('vue-p5', VueP5)
     Vue.component('WHRatio', WHRatio)
     Vue.component('Spark', Spark)
