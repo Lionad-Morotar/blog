@@ -102,7 +102,7 @@ const sidebarConfigs = {
     },
     {
       title: '绘画系列 / Paint',
-      collapsable: false,
+      collapsable: true,
       childrenGen: list => list.map(x => 'awesome/' + x),
       childrenRaw: getSRCs(awesomeDir),
       flag: 'C'
