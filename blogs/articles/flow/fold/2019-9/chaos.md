@@ -20,22 +20,8 @@
 
 不过很显然从上面那串裹脚布里并不能提取出什么有价值的消息。因此，本文结论在此：
 
-> 我怕月亮，也怪罪月亮，
->
-> 不是因为我的混乱，而是
->
-> 坐在黑暗的角落里想你的时候，
->
+> 我怕月亮，<br/>
+> 也怪罪月亮，<br/>
+> 不是因为我的混乱，而是<br/>
+> 坐在黑暗的角落里想你的时候，<br/>
 > 天上有月亮经过
-
-<img
-  srcset="
-    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_480.png 480w,
-    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_960.png 960w,
-    https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_1440.png 1440w"
-  src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chaos/2019-09-13-18-30-45_1440.png"
-  title="月亮"
-  alt="月亮"
-/>
-
-

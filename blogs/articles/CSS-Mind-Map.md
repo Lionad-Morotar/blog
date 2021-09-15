@@ -236,9 +236,14 @@ VFM，即“Visual Formatting Model”，视觉格式化模型。决定了浏览
 
 第一张图是 W3C 标准盒模型，第二张是 IE 盒模型。至于为啥有两种标准，这得追溯回...
 
-> ...很久以前...<br /> > <br /> > **IE**：我觉得盒模型应该是这样的，blahblah。<br /> > **W3C**：明显应该是这样的才对，blahblah。<br />
-> 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br /> > **围观群众**：听说 IE 的盒模型不标准。<br /><br />
-> ...多年过去...<br /><br /> > **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br /> > **[顾轶灵@知乎](https://www.zhihu.com/question/25509268/answer/30949718)**: `box-sizing` 这货就是用来擦屁股的...<br />
+> <br/>...很久以前...<br/><br/>
+> **IE**：我觉得盒模型应该是这样的，blahblah。<br/>
+> **W3C**：明显应该是这样的才对，blahblah。<br/>
+> 结果是 IE 在怪异模式下用了「不标准」的盒模型，而标准模式下用了「标准」的盒模型。<br/>
+> **围观群众**：听说 IE 的盒模型不标准。<br/><br/>
+> ...多年过去...<br/><br/>
+> **W3C**：感觉还是 IE 的那个模型比较好。但我们已经回不去了... 算了加个属性支持一下 IE 那种模式吧。<br/>
+> <name>顾轶灵</name>
 
 ![box-sizing](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/browser_06_21_018.png)
 
@@ -419,7 +424,7 @@ Float 虽然平常用的不多，但是这里单独拎出来康康。原理至�
 
 浮动元素，尤其是浮动的图片，很适合用来进行图文混合排版。但是由于脱离了正常文档流，非 BFC 容器不会计算内部浮动元素的高度，所以会引起父容器塌陷的问题。下一小节将会介绍清除浮动的一些办法。
 
-<br />
+<br/>
 
 <div class="b1"><div class="b1 bg-gray" style="margin: auto; float:left; height: 100px; width: 100px;">FLOAT</div>IM PARENT DIV</div>
 
@@ -429,7 +434,7 @@ Float 虽然平常用的不多，但是这里单独拎出来康康。原理至�
 
 HTML 中两个向右浮动的元素，分别为 ONE 和 TWO，在浏览器渲染出来确实 ONE 在右侧，TWO 在左侧。
 
-<br />
+<br/>
 
 <div class="b1" style="overflow: auto">
     <div class="b1 bg-gray" style="margin: auto; float:right; height: 100px; width: 100px;">FLOAT ONE</div>
