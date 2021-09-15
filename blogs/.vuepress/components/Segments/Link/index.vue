@@ -1,5 +1,21 @@
 <template>
-    <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+    <fragment>
+        <template v-if="!type">
+            <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+        </template>
+        <template v-if="type==='blockquote'">
+            <blockquote>
+                <p>
+                    <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+                </p>
+            </blockquote>
+        </template>
+        <template v-if="type==='h5'">
+            <h5>
+                <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+            </h5>
+        </template>
+    </fragment>
 </template>
 
 <script>
@@ -36,6 +52,10 @@ const frameClassnameWithDot = '.linkpage'
 export default {
     name: 'Link',
     props: {
+        type: {
+            type: String,
+            default: ''
+        },
         to: {
             type: String,
             required: true
