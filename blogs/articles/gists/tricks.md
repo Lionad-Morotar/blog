@@ -77,3 +77,7 @@ void 0 // 其实 void 后接任何表达式，都会返回 undefined
 ```js
 1 / -0 === -Infinity // -> true
 ```
+
+```js
+Object.is(+0, -0) // -> false
+```
