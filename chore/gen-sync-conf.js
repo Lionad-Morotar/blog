@@ -24,7 +24,8 @@ const confContent = `{
   "syncDir": "C:/Users/18062/OneDrive/WebSaver",
   "syncFilter": [
     ".",
-    "!secrets"
+    "!secrets",
+    "!crdownload"
   ]
 }`
 
