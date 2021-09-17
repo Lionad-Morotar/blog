@@ -4,7 +4,6 @@ dist/
 dist_tmp/
 .tmp/
 tmp/
-secrets/
 .DS_Store
 private/
 .sync/

@@ -2,7 +2,7 @@
 
 预备知识：
 
-* [JS 模块化历史进程](/articles/gists/js-module-history.html)
+* [JS 模块化历史进程](/gists/js-module-history.html)
 
 相关源码对应：
 

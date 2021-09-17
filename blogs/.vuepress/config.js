@@ -7,8 +7,8 @@ const headLink = require('./headLink')
 const configureWebpack = require('./webpack.config.js')
 const { chainMarkdown, extendMarkdown } = require('./extendMarkdown')
 
-const valineID = require('./secrets/valine-id').default
-const valineKey = require('./secrets/valine-key').default
+const valineID = require('./private/valine-id').default
+const valineKey = require('./private/valine-key').default
 
 // const shouldPrefetchPages = ['为什么我要写博客'].map(item =>
 //   pinyin(item, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
@@ -34,7 +34,7 @@ module.exports = {
   keywords: 'Lionad,Guirotar,仿生狮子,博客,写作,前端,设计,写作,游戏,指弹,吉他',
   robots: 'index,archive',
   author: 'Lionad|仿生狮子',
-  copyright: 'Lionad版权所有',
+  copyright: '转载请标明来源 www.lionad.art',
   head: headLink,
 
   shouldPrefetch: page => shouldPrefetchPages.find(x => page.includes(x)),
@@ -49,14 +49,20 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Posts', link: '/articles/' },
-      { text: 'Ideas', link: '/flows/' },
+      { text: 'Ideas', link: '/ideas/' },
       { text: 'HireMe', link: '/hire-me/' },
       { text: 'Links', link: '/friends/' }
     ],
     sidebar: {
-      '/articles/': sidebar.getSidebar('articles'),
-      '/flows/': [],
-      '/friends/': []
+      '/': sidebar.getSidebar(),
+      // '/flows/': sidebar.getSidebar(),
+      // '/articles/': sidebar.getSidebar(),
+      // '/awesome/': sidebar.getSidebar(),
+      // '/gists/': sidebar.getSidebar(),
+      // '/music/': sidebar.getSidebar(),
+      // '/secrets/': sidebar.getSidebar(),
+      '/ideas/': [],
+      '/friends/': [],
     },
     nextLinks: false,
     prevLinks: false
@@ -133,7 +139,7 @@ module.exports = {
       selector: '.content__default',
       count: 10,
       filter: page => {
-        const shouldConvert = /^articles\/((flow\/)|([^\/]*\.md$))/.test(page.relativePath)
+        const shouldConvert = /^articles\/((ideas\/)|([^\/]*\.md$))/.test(page.relativePath)
         const manual = ['art']
 
         return manual.length ? manual.find(x => (page.relativePath || '').includes(x)) : shouldConvert
@@ -151,7 +157,7 @@ module.exports = {
         {
           userAgent: '*',
           disallow: ['/gists'],
-          allow: ['/articles', '/flows', '/friends', 'rss.xml']
+          allow: ['/articles', '/ideas', '/friends', 'rss.xml']
         }
       ]
     },
