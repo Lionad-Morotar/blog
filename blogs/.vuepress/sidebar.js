@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-console.log('Node Env Test : ', process.env.NODE_ENV)
+console.log('USE NODE_ENV:', process.env.NODE_ENV)
 
 // ! const gistsDir = path.join(baseDir, '../articles/gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error

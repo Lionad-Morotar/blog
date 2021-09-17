@@ -1,5 +1,6 @@
 const path = require('path')
 const pinyin = require('chinese-to-pinyin')
+const figlet = require('figlet')
 
 const sidebar = require('./sidebar')
 const headLink = require('./headLink')
@@ -16,6 +17,8 @@ const shouldPrefetchPages = ['art']
 
 const HOST = 'https://www.lionad.art'
 // const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
+
+console.log(figlet.textSync(`Welcome!`))
 
 module.exports = {
   /** develop config */

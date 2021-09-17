@@ -38,6 +38,7 @@
     "cross-env": "^7.0.2",
     "del": "^5.1.0",
     "esdk-obs-nodejs": "git+https://github.com/huaweicloud/huaweicloud-sdk-nodejs-obs.git",
+    "figlet": "^1.5.2",
     "http-server": "^0.12.1",
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-implicit-figures": "^0.10.0",
