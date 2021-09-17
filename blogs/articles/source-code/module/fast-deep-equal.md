@@ -370,3 +370,8 @@ fast-deep-equal 中的剪枝策略好用且好记，可以背下来作为参考�
 * 使用严格比较运算符。比起比较运算符，它严谨，且快。
 * 比较两数组变量的内容是否相等时，可以先比较其长度，提高效率。
 * 作为基础类库，fast-deep-equal 的兼容性并不是完美的，你可以在它基础上按照自己项目的使用场景进行修改。
+
+## TODO
+
+* [fast-equals](https://github.com/planttheidea/fast-equals)
+
