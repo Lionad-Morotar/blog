@@ -81,6 +81,7 @@ const sidebars = [
     path: '/articles/',
     children: [
       // 'articles/windows',
+      'articles/crack-the-slider',
       'articles/css-light-travel',
       'articles/design-patterns-and-js-magic-pot',
       'articles/anysort',
