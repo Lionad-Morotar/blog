@@ -15,7 +15,6 @@ export default {}
 </script>
 
 <style lang="stylus" scoped>
-
 @supports (background: paint(houdini)) {
   // 只有自定义属性才支持渐变
   @property --stop {

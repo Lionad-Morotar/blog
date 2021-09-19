@@ -41,3 +41,9 @@ Una Kravets 展示了一个利用变量渐变制作动画效果的示例。
 因为 CSS 变量根据优先级进行匹配，所有非常适合把它放到 :root 根元素选择器中，作为一个默认的值（或全局值）使用。结合 JS，可以作为一个天然的 JS/CSS 接口，用于设置全局样式。
 
 ![涟漪点击效果 | https://www.zhangxinxu.com/wordpress/2020/07/css-var-improve-components/](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/button-click-piple.gif)
+
+##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/Animating%20Number%20Counters%20_%20CSS-Tricks.html' source='https://css-tricks.com/animating-number-counters' >《Animating Number Counters》</Link>
+
+CSS 数字变量是可以有过渡效果的，同时，配合 counter 的格式化参数，甚至可以把数字过渡效果转换成字符的过渡效果！
+
+<Article-A210920-Transition />
