@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { accessKeyId, secretAccessKey } = require('../secrets/aliyun-mgear')
+const { accessKeyId, secretAccessKey } = require('../private/aliyun-mgear')
 
 const confContent = `{
   "AccessKeyId": "${accessKeyId}",
@@ -24,6 +24,7 @@ const confContent = `{
   "syncDir": "C:/Users/18062/OneDrive/WebSaver",
   "syncFilter": [
     ".",
+    "!private",
     "!secrets",
     "!crdownload"
   ]
