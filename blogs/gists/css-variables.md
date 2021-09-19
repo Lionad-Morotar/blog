@@ -1,35 +1,10 @@
 # CSS 变量
 
-## 基础
-
-### 值的注册
-
-CSS 变量允许以下值：
-
-* $length$
-* $number$
-* $percentage$
-* $length-percentage$
-* $color$
-* $image$
-* $url$
-* $integer$
-* $angle$
-* $time$
-* $resolution$
-* $transform-list$
-* $transform-function$
-* $custom-ident$ (a custom identifier string)
-
-## 探索
-
-### 变量渐变
-
-Una Kravets 展示了一个利用变量渐变制作动画效果的示例[^transition-variable]。
+##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/%40property_%20giving%20superpowers%20to%20CSS%20variables.html' source='https://web.dev/at-property/' >《@property: giving superpowers to CSS variables》</Link>
 
 <Article-A200903-Transition />
 
-但目前只有注册的自定义属性才支持渐变，也就是说，你必须这样声明变量：
+Una Kravets 展示了一个利用变量渐变制作动画效果的示例。
 
 ```css
 @supports (background: paint(houdini)) {
@@ -46,11 +21,9 @@ Una Kravets 展示了一个利用变量渐变制作动画效果的示例[^transi
 }
 ```
 
-[^transition-variable]: [@property: giving superpowers to CSS variables](https://web.dev/at-property/)
+##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/%E7%8E%A9%E8%BD%AC%20CSS%20%E5%8F%98%E9%87%8F%20-%20wsafight%E7%9A%84%E4%B8%AA%E4%BA%BA%E7%A9%BA%E9%97%B4%20-%20OSCHINA.html' source='https://my.oschina.net/wsafight/blog/4519102' >《玩转 CSS 变量》</Link>
 
-### 逻辑运算
-
-尽管 CSS 变量的值支持空字符串，但是它并不支持 $initial$。我们可以利用这一特征作逻辑运算[^logic-compute]。
+我们可以利用 CSS 变量的空值来制作逻辑运算[^logic-compute]。
 
 ```less
 .box {
@@ -63,16 +36,8 @@ Una Kravets 展示了一个利用变量渐变制作动画效果的示例[^transi
 }
 ```
 
-[^logic-compute]: [玩转 CSS 变量](https://my.oschina.net/wsafight/blog/4519102)
+##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/CSS%E5%8F%98%E9%87%8F%E5%AF%B9JS%E4%BA%A4%E4%BA%92%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%8F%90%E5%8D%87%E4%B8%8E%E5%8F%98%E9%9D%A9%20%C2%AB%20%E5%BC%A0%E9%91%AB%E6%97%AD-%E9%91%AB%E7%A9%BA%E9%97%B4-%E9%91%AB%E7%94%9F%E6%B4%BB.html' source='https://www.zhangxinxu.com/wordpress/2020/07/css-var-improve-components/' >《CSS变量对JS交互组件开发带来的提升与变革》</Link>
 
-### JS/CSS 接口
+因为 CSS 变量根据优先级进行匹配，所有非常适合把它放到 :root 根元素选择器中，作为一个默认的值（或全局值）使用。结合 JS，可以作为一个天然的 JS/CSS 接口，用于设置全局样式。
 
-由于 CSS 变量根据优先级进行匹配，所有非常适合放到 :root 根元素选择器中，作为一个默认的值（或全局值）使用。结合 JS，可以作为一个天然的 JS/CSS 接口，用于设置全局样式。
-
-比如，张鑫旭的博客中就提到，可以把点击页面任意位置的坐标信息用 JS 设置全局 CSS 变量，解耦动画与坐标信息之间的依赖[^js-css-api]。
-
-[^js-css-api]: [CSS变量对JS交互组件开发带来的提升与变革](https://www.zhangxinxu.com/wordpress/2020/07/css-var-improve-components/)
-
-![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/button-click-piple.gif)
-
-## 阅读更多
+![涟漪点击效果 | https://www.zhangxinxu.com/wordpress/2020/07/css-var-improve-components/](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/button-click-piple.gif)
