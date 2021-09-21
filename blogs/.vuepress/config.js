@@ -10,11 +10,6 @@ const { chainMarkdown, extendMarkdown } = require('./extendMarkdown')
 const valineID = require('./private/valine-id').default
 const valineKey = require('./private/valine-key').default
 
-// const shouldPrefetchPages = ['为什么我要写博客'].map(item =>
-//   pinyin(item, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
-// )
-const shouldPrefetchPages = ['art']
-
 const HOST = 'https://www.lionad.art'
 // const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
 
@@ -37,7 +32,7 @@ module.exports = {
   copyright: '转载请标明来源 www.lionad.art',
   head: headLink,
 
-  shouldPrefetch: page => shouldPrefetchPages.find(x => page.includes(x)),
+  shouldPrefetch: false,
 
   /** theme config */
 
