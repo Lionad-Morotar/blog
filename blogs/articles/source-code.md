@@ -44,15 +44,17 @@ VueJS 源码阅读相关：
 
 ## 小型类库
 
-- [网络安全 | HELMET](/articles/helmet-and-security.html)
+- [node-watch](/articles/source-code/module/node-watch.html)
 
-- [判断 NodeJS 是否在线 | internet-available](/articles/source-code/module/is-online.html)
+- [helmet](/articles/helmet-and-security.html)
 
-- [低版本浏览器兼容 HTML5 标签原理 | html5shiv](/articles/source-code/module/html5shiv.html)
+- [internet-available](/articles/source-code/module/is-online.html)
 
-- [NodeJS | CommonJS Loader](/articles/source-code/nodejs/require.html)
+- [html5shiv](/articles/source-code/module/html5shiv.html)
 
-- [判断两个变量深层相等 | fast-deep-equal](/articles/source-code/module/fast-deep-equal.html)
+- [CommonJS Loader](/articles/source-code/nodejs/require.html)
+
+- [fast-deep-equal](/articles/source-code/module/fast-deep-equal.html)
 
 ## 代码片段
 
