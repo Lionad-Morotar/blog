@@ -1,18 +1,18 @@
 <template>
     <fragment>
         <template v-if="!type">
-            <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+            <a :id="slotContent" :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
         </template>
         <template v-if="type==='blockquote'">
             <blockquote>
                 <p>
-                    <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+                    <a :id="slotContent" :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
                 </p>
             </blockquote>
         </template>
         <template v-if="type==='h5'">
             <h5>
-                <a :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
+                <a :id="slotContent" :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
             </h5>
         </template>
     </fragment>
@@ -69,7 +69,15 @@ export default {
     // TODO auto sourceURL
     data () {
         return {
-            loading: false
+            loading: false,
+            slotContent: ''
+        }
+    },
+    created () {
+        const nameNode = this.$slots.default && this.$slots.default[0]
+        const safe = text => text.toLowerCase().replace(/\s+/g, '-')
+        if (nameNode) {
+            this.slotContent = safe(nameNode.text || '')
         }
     },
     methods: {
