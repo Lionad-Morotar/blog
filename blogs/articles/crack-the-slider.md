@@ -1,24 +1,28 @@
-# 🕷️ 从零破解一款轻量级滑动验证码
+# 🕷️ 滑动验证码破解思路
 
 [TOC]
 
-昨天在掘金看到推荐文章《从零开发一款轻量级滑动验证码插件》，介绍了一些相关验证码的知识点。巧的是就在前两周，公司举办了一个爬虫攻防赛，需要用到多种机器验证的破解，其中一种就是滑块验证。
+昨天在掘金看到推荐文章[《从零开发一款轻量级滑动验证码插件》](https://juejin.cn/post/7007615666609979400)，介绍了一些相关验证码及框架开发的知识点。巧的是就在前两周，我们公司举办了一个爬虫攻防赛，其中用到多种爬虫验证的破解方法，之一就是滑块验证码。
 
-今天在这篇文章里给大家介绍一下怎样通过代码破解滑块验证码。<JJ>文章末尾有源码链接，需要的朋友可以自取，不过拿走之前记得三连哇！</JJ>
+今天在这篇文章里给大家介绍一下怎么使用 JS 破解滑块验证码。
+
+![最终效果（加速）](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/73ba97c7435f.gif)
+
+<JJ>文章末尾有源码链接，需要的朋友可以自取，不过拿走之前记得三连哇！</JJ>
 
 ## 思路讲解
 
-### 打开页面
+### 操作浏览器打开页面
 
-滑块验证码是滑动验证码的一种，生成步骤至少有三步：
+滑块验证码是滑动验证码的一种，生成流程至少包含三步：
 
 1. 根据用户标识，从后台获得验证码图片
 2. 监听鼠标事件并回传后台
 3. 后台判断事件的真伪，回传验证结果
 
-无论生成机制的细节如何，滑块都是要展示在页面上的。直接用 HTTP Request 把页面请求下来肯定不行，这里我们需要使用 Puppeteer 打开页面。测试页面就以 [react-slider-vertify](http://h5.dooring.cn/slider-vertify) 的官网为例。
+无论生成机制的细节如何，滑块终究是要展示在页面上的。直接用 HTTP Request 把页面 HTML 请求下来肯定不行，这里我们需要使用 Puppeteer 打开网页进行渲染。测试页面就以 [react-slider-vertify](http://h5.dooring.cn/slider-vertify) 的官网为例。
 
-[Puppeteer](http://puppeteerjs.com/) 是一个通过 DevTools 协议来控制浏览器行为的库，只需编写不多的代码，就可以操作真实的浏览器搞定诸如爬虫、自动化测试、网页性能分析、浏览器扩展测试等功能。使用起来比较方便，它文档挺全的，根据文档，打开页面前需要启动一个浏览器实例，然后调用 newPage 方法创建一个新页面。核心代码如下。
+[Puppeteer](http://puppeteerjs.com/) 是一个通过 DevTools 协议来控制浏览器行为的库，只需编写不多的代码，就可以操作真实的浏览器搞定诸如爬虫、自动化测试、网页性能分析、浏览器扩展测试等功能。使用起来比较方便，文档齐全。根据文档，打开页面前需要启动一个浏览器实例，然后调用 newPage 方法创建一个新页面。核心代码如下。
 
 ```js
 const puppeteer = require('puppeteer')
@@ -46,7 +50,7 @@ puppeteer.launch().then(async browser => {
 
 可能还有些同学会问，怎么移动鼠标呢？如果我一次性就把滑块给移到指定位置了，那服务器不是会立马把我标记为爬虫嘛... 这两个问题我逐一解答。
 
-### 判断位置
+### 判断缺口位置
 
 要分析缺口的位置，我们必须先知道这个缺口是怎么画上去的。打开控制台初步检查可以发现，页面从服务器先拿到了一张完整的图片，然后缺口位置是通过 JS 随机生成的。啊这...这...这是因为我们用的测试页面是文档页，大家不必在意这些安全方面的小细节。
 
@@ -108,9 +112,11 @@ while (left <= maxOffset) {
 
 题外话，为什么最大的差异在 3000 左右呢？我们简单估算一下。
 
-滑块的大小为 45*45，再加上外面的圆形，约莫占了 2100 像素；也就是说缺口加滑块，理论上最大会有 4200 个像素和原图不同。不过滑块可能和遮住的地方像素有重合，假设重合了 350 像素，再加上我们的最低点的图片差异都有 351，减去这些误差，得 3499。呜呼，3499 约等于 3000，估算成功（手动狗头）。
+滑块的大小为 45*45，再加上外面的圆形，约摸占了 2100 像素；也就是说缺口加滑块，理论上最大会有 4200 个像素和原图不同。不过滑块可能和遮住的地方像素有重合，假设重合了 350 像素，再加上我们的最低点的图片差异都有 351，减去这些误差，得 3499。呜呼，3499 约等于 3000，估算成功（手动狗头）。
 
-不过还没完，你要是把代码跑起来就会发现，卧草，太慢了这玩意儿！正常人划一下验证码顶多两秒钟的事儿，我们一帧一帧截图得花个 40s 的时间才能截完图算出山谷谷底的值来。
+### 速度优化技巧
+
+不过这还没完，你要是把代码跑起来就会发现，卧草，太慢了这玩意儿！正常人划一下验证码顶多两秒钟的事儿，我们一帧一帧截图得花个 40s 的时间才能截完图算出山谷谷底的值来。
 
 这里提供几种思路优化效率：
 
@@ -163,9 +169,9 @@ while (left <= max2Offset) {
 
 估算一下，原先需要截 245 次图片，现在直接降到 1/10，23 次。不过，也别太高兴，因为测试发现只做优化 2，解验证码的时候还是要 7s...
 
-### 移动鼠标
+### 操作鼠标滑滑块
 
-缺口位置都搞定了，那移动鼠标还不简单嘛~
+缺口位置都搞定了，那移鼠标滑滑块儿还不简单嘛~
 
 Puppeteer 已经提供了[鼠标相关的接口](http://puppeteerjs.com/#?product=Puppeteer&version=v10.2.0&show=api-class-mouse)，一共四个：mouse.click、mouse.down、mouse.move、mouse.up，分别是点击、按下、移动和松开。使用 mouse.move 可以直接把鼠标位置移动到一个特定的坐标上。假设我们现在从坐标（100,100）花大约 1s 把鼠标移动到 （200,200），可以使用循环实现。
 
@@ -193,6 +199,8 @@ while (now.x < target.x) {
 }
 ```
 
+### 鼠标轨迹优化
+
 害，要是打游戏的时候也像这段代码一样，我想我的手点到哪儿它就点到哪儿就好了~
 
 机器是不会手抖的，这段代码和真实世界的滑动效果相差太远了！我们看一张我用手滑的效果，尤其是要仔细观察滑动过程中鼠标的位置。
@@ -200,21 +208,21 @@ while (now.x < target.x) {
 ![鼠标轨迹不稳定](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/soov8Gny09.gif)
 
 * 鼠标 Y 轴位置总是在变
-* 鼠标 X 轴位置会滑过头
+* 鼠标 X 轴位置会滑过头（别笑，你肯定也经常划过头）
 
 这里做一波小优化，把这两个细节整合进去。
 
 ```js
 // 获得一个随机的偏移量
-const getRandOffset = (enableNegative = true, max = 3) => {
-  const negative = enableNegative
+const getRandOffset = (randNegative = true, max = 3) => {
+  const negative = randNeagtive
     ? (Math.random() < 0.5) ? -1 : 1
     : 1
   return Math.floor(Math.random() * max) * negative
 }
 
 // 先滑过头十几像素，然后再花 100 毫秒的时间往回滑到正确位置
-const targets = [
+const points = [
   {
     time: 1000,
     x: 200 + getRandOffset(false, 15),
@@ -229,8 +237,8 @@ const targets = [
   }
 ]
 
-// 注意这里用 for await 循环把 targets 串起来执行
-for await (const target of targets) {
+// 注意这里用 for await 循环把 points 串起来执行
+for await (const target of points) {
   const step = {
     x: Math.floor((target.x - now.x) / target.steps),
     y: Math.floor((target.y - now.y) / target.steps),
@@ -253,15 +261,15 @@ for await (const target of targets) {
 }
 ```
 
-如何移动鼠标到这里就解决了，如果要考虑加速度、用户习惯等因素，代码会更加复杂，暂时就不深入讨论啦，有兴趣的同学可以自己研究。
+如何移动鼠标到这里就解决了，如果要考虑加速度、用户习惯等因素，代码会复杂许多，暂时就不深入讨论啦，有兴趣的同学可以自己研究。
 
-最终效果如下（这张 GIF 忘记设置循环播放了，可能要在新页面打开它才能看到效果）。
+最终效果见下图。
 
-![最终效果（加速）](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/small.gif)
+![最终效果（加速）](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/73ba97c7435f.gif)
+
+源码地址在此：[CrackTheShield](https://github.com/Lionad-Morotar/crack-the-shield/tree/master/tasks/dooring-slider)。
 
 ## 阅读更多
-
-源码地址：[Crack-the-Slider](https://github.com/Lionad-Morotar/crack-the-shield/tree/master/tasks/dooring-slider)
 
 **希望本文能对你有所帮助，我是仿生狮子，各位下期见~** 
 
