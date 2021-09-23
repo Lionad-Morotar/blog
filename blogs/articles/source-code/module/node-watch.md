@@ -217,3 +217,8 @@ const getUUID = () => Math.random().toString(16).substr(2)
 * [watcher](https://www.npmjs.com/package/watcher)
 * [chokidar](https://github.com/paulmillr/chokidar)
 * [nsfw](https://github.com/Axosoft/nsfw)
+
+推荐阅读：
+
+* [《node-watch、Chokidar封装思路解析》](https://juejin.cn/post/7000262974430511117)
+* [《如何利用 Nodejs 监听文件夹》](https://www.jianshu.com/p/09dae09457fa)
