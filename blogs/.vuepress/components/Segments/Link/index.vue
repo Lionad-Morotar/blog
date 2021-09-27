@@ -82,19 +82,23 @@ export default {
     },
     methods: {
         async showpage () {
-            this.loading = true
-            try {
-                const threshold = 100 * 1000
-                const filesize = await getOSSFilesize(this.to)
-                if (filesize < threshold) {
-                    await this.display()
-                } else if (this.source) {
-                    window.open(this.source)
-                } else {
-                    alert('资源体积过大，暂时不予展示，敬请谅解')
+            if (this.to) {
+                this.loading = true
+                try {
+                    const threshold = 100 * 1000
+                    const filesize = await getOSSFilesize(this.to)
+                    if (filesize < threshold) {
+                        await this.display()
+                    } else if (this.source) {
+                        window.open(this.source)
+                    } else {
+                        alert('资源体积过大，暂时不予展示，敬请谅解')
+                    }
+                } finally {
+                    this.loading = false
                 }
-            } finally {
-                this.loading = false
+            } else {
+                window.open(this.source)
             }
         },
         async display () {
