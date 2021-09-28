@@ -366,7 +366,7 @@
 
 ### 框架相关
 
-- [VueJS 相关问题](/articles/gists/interview-prepare/vuejs.html)
+- [VueJS 相关问题](/gists/interview-prepare/vuejs.html)
 
 ## 浏览器
 
@@ -485,12 +485,12 @@
 
 <details open>
     <summary>了解浏览器的内容安全策略（CSP）吗？</summary>
-    <p>见：<a href="/articles/gists/network.html#CSP">计算机网络</a></p>
+    <p>见：<a href="/gists/network.html#CSP">计算机网络</a></p>
 </details>
 
 <details open>
     <summary>浏览器原理概述？</summary>
-    <p>见博客：<a href="/articles/gists/browser.html">浏览器原理概述</a></p>
+    <p>见博客：<a href="/gists/browser.html">浏览器原理概述</a></p>
 </details>
 
 ## NodeJS
@@ -527,7 +527,7 @@
 
 ## 网络
 
-更详细的资料看：<a href="/articles/gists/network.html">计算机网络</a>
+更详细的资料看：<a href="/gists/network.html">计算机网络</a>
 
 <details open>
     <summary>HTTP 1.1 对 HTTP 1.0 做出了哪些改进？</summary>

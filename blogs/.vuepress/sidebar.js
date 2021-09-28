@@ -1,8 +1,8 @@
 const fs = require('fs')
 
-console.log('Node Env Test : ', process.env.NODE_ENV)
+console.log('USE NODE_ENV:', process.env.NODE_ENV)
 
-// ! const gistsDir = path.join(baseDir, '../articles/gists')
+// ! const gistsDir = path.join(baseDir, '../gists')
 // ! Do Not Refactor, Static Path to avoid vuepress build error
 let env
 try {
@@ -14,21 +14,22 @@ console.log('USE BUILD ENV: ', env)
 
 let gistsDir, awesomeDir, secretsDir
 if (env === 'windows') {
-  gistsDir = 'D:/@Github/blog/blogs/articles/gists'
-  awesomeDir = 'D:/@Github/blog/blogs/articles/awesome'
-  secretsDir = 'D:/@Github/blog/blogs/articles/secrets'
+  gistsDir = 'D:/@Github/blog/blogs/gists'
+  awesomeDir = 'D:/@Github/blog/blogs/awesome'
+  secretsDir = 'D:/@Github/blog/blogs/secrets'
 } else {
-  gistsDir = '/Users/baixing/@Github/blog/blogs/articles/gists'
-  awesomeDir = '/Users/baixing/@Github/blog/blogs/articles/awesome'
-  secretsDir = '/Users/baixing/@Github/blog/blogs/articles/secrets'
+  gistsDir = '/Users/baixing/@Github/blog/blogs/gists'
+  awesomeDir = '/Users/baixing/@Github/blog/blogs/awesome'
+  secretsDir = '/Users/baixing/@Github/blog/blogs/secrets'
 }
 
 /**
  * 获取目录下所有 Markdown 文件
  * @param {String} src 路径字符串
+ * @param {String} prefix 给返回值添加前缀
  * @todo 按照时间排序
  */
-const getSRCs = src => {
+const getSRCs = (src, prefix = '') => {
   const filenames = []
   const fileTypes = /\.md$/
   const mainFiles = ['index.md', 'README.md']
@@ -46,122 +47,107 @@ const getSRCs = src => {
     }
   }
   filenames.sort()
-  // console.log('filenames: ', filenames)
-  return filenames
+  return filenames.map(x => prefix + x)
 }
 // console.log('getSRCs Test : ', getSRCs(gistsDir))
 
-/**
- * @param flag 对应文章的 Vue 组件所在 Article 中的文件夹 prefix
- */
-const sidebarConfigs = {
-  articles: [
-    {
-      title: '心流思绪 / Heart Flows',
-      label: '心流思绪',
-      collapsable: false,
-      childrenGen: list => list.map(x => 'flow/' + x),
-      childrenRaw: [
-        'art',
-        // 'rss',
-        'books',
-        'punctuations',
-        'misleading-and-assumptions',
-        'everything',
-        'stolen-time-from-god',
-        'expression-and-loneliness',
-        'a-letter-of-silience',
-        'my-shy',
-        'escape-from-mysticism',
-        'messy-in-two-years',
-        'zfold'
-      ]
-    },
-    {
-      title: '技术博客 / Coder',
-      label: '技术',
-      collapsable: false,
-      open: true,
-      children: [
-        // 'windows',
-        'css-light-travel',
-        'design-patterns-and-js-magic-pot',
-        'anysort',
-        'js-100',
-        'helmet-and-security',
-        'css-poaa',
-        'css-judge-direction',
-        'css-interesting',
-        'thinking-while-drinking',
-        'no-more-if-else',
-        'reactive-in-150loc',
-        // 'front-end-mind-map',
-        // 'css-mind-map',
-        'fourty-two',
-        'source-code',
-        'zfold'
-      ]
-    },
-    {
-      title: '绘画系列 / Paint',
-      collapsable: false,
-      childrenGen: list => list.map(x => 'awesome/' + x),
-      childrenRaw: getSRCs(awesomeDir),
-      flag: 'C'
-    },
-    {
-      title: '零散笔记',
-      collapsable: true,
-      childrenGen: list => list.map(x => 'gists/' + x),
-      childrenRaw: getSRCs(gistsDir),
-      flag: 'G'
-    },
-    {
-      title: '请弹琴',
-      collapsable: true,
-      open: true,
-      children: [
-        '163/wait-for-wind',
-        '163/promise-ocean',
-        '163/wings-you-are-the-hero',
-        '163/eva',
-        '163/miracle-mountain',
-        '163/wu-wei',
-        '163/noname'
-      ]
-    },
-    {
-      title: 'Secrets',
-      collapsable: true,
-      childrenGen: list => list.map(x => 'secrets/' + x),
-      childrenRaw: getSRCs(secretsDir),
-      flag: 'S'
-    }
-  ]
-}
-
-Object.values(sidebarConfigs).map(sections => {
-  sections.map(section => {
-    if (!section.children) {
-      section.children = section.childrenGen ? section.childrenGen(section.childrenRaw) : section.childrenRaw
-    }
-    if (!section.childrenRaw) {
-      section.childrenRaw = section.children
-    }
-  })
-})
+const sidebars = [
+  {
+    title: '心流思绪 / Heart Flows',
+    label: '心流思绪',
+    collapsable: false,
+    open: true,
+    path: '/flows/',
+    children: [
+      'flows/art',
+      // 'flows/rss',
+      'flows/books',
+      'flows/punctuations',
+      'flows/everything',
+      'flows/stolen-time-from-god',
+      'flows/expression-and-loneliness',
+      'flows/my-shy',
+      'flows/drinking-while-thinking',
+      'flows/escape-from-mysticism',
+      'flows/messy-in-two-years',
+      'flows/zfold'
+    ]
+  },
+  {
+    title: '技术博客 / Coder',
+    label: '技术',
+    collapsable: false,
+    open: true,
+    path: '/articles/',
+    children: [
+      // 'articles/windows',
+      'articles/crack-the-slider',
+      'articles/css-light-travel',
+      'articles/design-patterns-and-js-magic-pot',
+      'articles/anysort',
+      'articles/js-100',
+      'articles/helmet-and-security',
+      'articles/css-poaa',
+      'articles/css-judge-direction',
+      'articles/css-interesting',
+      'articles/no-more-if-else',
+      'articles/reactive-in-150loc',
+      // 'articles/front-end-mind-map',
+      // 'articles/css-mind-map',
+      'articles/fourty-two',
+      'articles/source-code',
+      'articles/zfold'
+    ]
+  },
+  {
+    title: '绘画系列 / Paint',
+    collapsable: true,
+    open: false,
+    path: '/awesome/',
+    children: getSRCs(awesomeDir, 'awesome/')
+  },
+  {
+    title: '零散笔记',
+    collapsable: true,
+    open: false,
+    path: '/gists/',
+    children: getSRCs(gistsDir, 'gists/')
+  },
+  {
+    title: '吉他剧场',
+    collapsable: true,
+    open: false,
+    path: '/music/',
+    children: [
+      'music/wait-for-wind',
+      'music/promise-ocean',
+      'music/wings-you-are-the-hero',
+      'music/eva',
+      'music/miracle-mountain',
+      'music/wu-wei',
+      'music/noname'
+    ]
+  },
+  {
+    title: 'Secrets',
+    collapsable: true,
+    open: true,
+    path: '/secrets/',
+    children: getSRCs(secretsDir, 'secrets/')
+  }
+]
 
 module.exports = {
-  getSidebar(name) {
-    return sidebarConfigs[name] || []
+  getSidebar() {
+    return sidebars
   },
   getRecommends() {
     return {
-      '黑魔法': {
+      黑魔法: {
         url: '/articles/css-light-travel.html',
         label: '探秘 CSS 光影效果'
       },
-      '心流思绪': {
+      心流思绪: {
         url: '/articles/design-patterns-and-js-magic-pot.html',
         label: '设计模式与JS魔法锅'
       }

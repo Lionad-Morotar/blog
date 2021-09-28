@@ -1,1 +1,0 @@
-<Article-Bax-LateChart />

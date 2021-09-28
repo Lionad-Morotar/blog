@@ -10,6 +10,15 @@
     background: white !important;
     z-index: 99999;
 }
+hide {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+.scrollable {
+    overflow: scroll;
+}
 
 /* Box-Sizing */
 .bb {
@@ -25,6 +34,7 @@
     display: flex;
 }
 
+.flex-center,
 .flex-cc {
     display: flex;
     justify-content: center;
@@ -193,6 +203,9 @@
     letter-spacing: 0;
 }
 
+.breakall {
+    word-break: break-all;
+}
 .nowrap {
     white-space: nowrap;
 }
@@ -251,5 +264,12 @@ img {
     }
     &[src$='w=80'] {
         width: 80%;
+    }
+    &[src$='type=win11'] {
+        border: none !important;
+        border-radius: 8px;
+    }
+    &[src$='type=win11-square'] {
+        border: none !important;
     }
 }
