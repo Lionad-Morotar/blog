@@ -101,3 +101,47 @@
 ![[代理结构](https://www.processon.com/diagraming/614fe9c77d9c0867a3857604)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/99d55f92-79b8-444f-875b-746f141206be.svg)
 
 代理和装饰看起来非常相似，他们都实现了客户端想要的接口，封装对象并伪装成这个对象进行工作，但其实他们有着本质的差异：装饰增强对象，但需要由客户端主动使用装饰；代理重在请求拦截，一般来说它不会提交生成的主动权。
+
+## 行为模式
+
+#### 责任链
+
+责任链使请求沿着处理者链进行发送，每个处理者均可对请求进行处理，或将其传递给链上的下一个处理者。
+
+![[责任链结构](https://www.processon.com/diagraming/6150160ae0b34d69dd7bd4aa)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/500057cf-a4b6-41b9-b0fb-8941ec0dfaa5.svg)
+
+#### 命令
+
+命令将请求转换为一个包含与请求相关的所有信息的独立对象。
+
+![[命令结构](https://www.processon.com/diagraming/615021790e3e74520cb77444)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/753bcbe8-863a-48df-949f-0d1be74bbefc.svg)
+
+命令模式通常作为层与层之间的解耦层，比方说 Web 页面通过 HTTP 请求和服务器通信也算命令模式。
+
+![[迭代器结构](https://www.processon.com/diagraming/6150276e1e085341faa6b78a)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/8bf09139-dac6-4bac-9726-43e00873a06a.svg)
+
+由于迭代器和集合之间紧密耦合，代码若逐渐发展为多对多的关系，那可能会对维护工作增加不小的难度。
+
+#### 中介者
+
+使用中介者限制各个对象之间的交互行为，并强迫他们通过中介者进行合作，以减少对象间的相互依赖。
+
+![[中介者结构](https://www.processon.com/diagraming/61503012e401fd4c898af56d)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/883c48b2-91c4-46b3-a85f-1847dd44dd18.svg)
+
+中介者和外观模式都有逐渐演化出上帝对象的风险。
+
+#### 备忘录
+
+使用备忘录，在不暴露对象实现细节的情况下保存对象状态或恢复对象到之前的状态。
+
+![[备忘录结构](https://www.processon.com/diagraming/61503ed7637689167d1000e8)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/723839a8-a6a1-4b46-a66a-e61ead876980.svg)
+
+在传统 OO 语言中，备忘录总是有着复杂的结构，因为它需要使用类来隔离接口、封装状态，比方说，保存快照时，将对象内部的指取出来组装成新的 Memento 意味着需要掌控着对象权限的原发器来操作这件事情，如果你在编辑器中编辑文本，那么原发器就是编辑器。而在 JavaScript 中，往往 Memento 是和 Caretaker 绑定的，Caretaker 收到 Originator 的指令以维护保存的状态及状态列表。
+
+#### 观察者
+
+观察者允许你定义一种订阅机制，可在对象事件发生时通知多个“观察”该对象的其它对象。
+
+![[观察者结构](https://www.processon.com/diagraming/6151fd9a5653bb6791d97ae2)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6481a46f-cf16-4391-869b-8bacefa2ff5f.svg)
+
+观察者模式中有一个不方便实现的地方就是订阅者的通知顺序该如何确定。
