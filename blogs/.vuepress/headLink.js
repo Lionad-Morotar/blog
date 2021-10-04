@@ -36,7 +36,7 @@ const headLink = [
             var _hmt = _hmt || [];
             (function() {
             var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?774d33180b32709e7d3109ce600657c1";
+            hm.src = "https://hm.baidu.com/hm.js?9f386eab0658c409277cb8e60691de6e";
             var s = document.getElementsByTagName("script")[0]; 
             s.parentNode.insertBefore(hm, s);
             })();
