@@ -151,8 +151,8 @@ module.exports = {
       policies: [
         {
           userAgent: '*',
-          disallow: ['/gists'],
-          allow: ['/articles', '/ideas', '/friends', 'rss.xml']
+          disallow: ['/gists/', '/hire-me/'],
+          allow: ['/articles/', '/ideas/', '/friends/']
         }
       ]
     },
