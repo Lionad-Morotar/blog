@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: helmet,MIME,MIME-sniffing,MIME嗅探,XSS,HTTPS,CSP,DNS-prefetch
+  - name: description
+    content: 本文介绍了NodeJS安全库Helmet的原理，相关MIME嗅探、XSS、CSP、DNS预取等内容。
+---
+
 # 👹 Helmet & Security
 
 <!-- RAW H1 -->

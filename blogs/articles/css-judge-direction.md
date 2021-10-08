@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: CSS,判断方向,判断鼠标位置
+  - name: description
+    content: 本文介绍了使用CSS判断鼠标进入区域方向的原理，并且在codepen笑脸demo的基础上实现了一个眼睛跟随鼠标位置进行转动的效果。
+---
+
 # ❓ 你可以用纯CSS判断鼠标进入的方向吗？
 
 [TOC]

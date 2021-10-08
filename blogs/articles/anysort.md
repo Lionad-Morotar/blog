@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: JavaScript,函数式,排序库,歌单排序,网易云歌单排序,自定义排序,网易云音乐接口,anysort
+  - name: description
+    content: 网易云音乐的歌单排序功能比较弱，本文介绍了使用函数式JS代码搭建一个自定义排序库的思路，以支持对歌单进行任意排序。
+---
+
 # 🌐 Anysort：灵活、优雅、无依赖的排序库
 
 [TOC]

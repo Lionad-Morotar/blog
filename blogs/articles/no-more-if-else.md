@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: JavaScript,策略模式,if-else,switch-case,配置逻辑分离
+  - name: description
+    content: 本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。
+---
+
 # 📝 你本可以少写些 if-else
 
 [TOC]

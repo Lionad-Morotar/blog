@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: CSS,变量字体,variable-font,CSS攻击,css-attack,CSS变量
+  - name: description
+    content: 本文介绍了几种CSS中有趣的内容如变量字体、CSS攻击手段以及CSS新特性CSS变量。
+---
+
 # 🎨 有关 CSS 的一些极有趣的东西
 
 [TOC]
