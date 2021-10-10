@@ -4,115 +4,6 @@
 
 ## JavaScript
 
-### 代码实践
-
-<details open>
-    <summary>在 JS 种，'1'+1 以及 1+'1' 的结果分别是什么？</summary>
-    <p>
-        加法运算符任意操作数为 String 类型，那么会将另一侧用 ToString 转换后，再相加。所以答案是，都为 '11'。
-        这主要涉及到 JS 中的隐式类型转换问题。JS 是弱类型语言，一般而言，不同类型数据之间可以互相转换。
-        进一步了解可以看看这篇：<a href="./gists/interview-prepare/corceion.html">隐式转换</a>
-    </p>
-</details>
-
-<details open>
-    <summary>在 `const obj = { /* ____ */ b: '2', a: '3' }` 空缺部分填什么才能使 obj 在控制台的输出为 `{ a: '3', b: '2' }`？</summary>
-    <p>
-        填写带任意值的 a 属性都可以，如 `a: 1,`，因为如果后定义的属性与先定义的属性冲突，则会替换掉先定义属性的值，但是值顺序不变。
-    </p>
-</details>
-
-<details open>
-    <summary>能不能说说为什么 0.1 + 0.2 !== 0.3 ？</summary>
-    <p>
-        JS 使用 IEEE-754 标准的双精度浮点数表示数字，0.1 和 0.2 转换为双精度浮点数之后，小数部分不能被精确表示，导致精度丢失。
-        进一步了解可以看看这篇：<a href="./gists/interview-prepare/number-in-js.html">JS中的数值</a>
-    </p>
-</details>
-
-<details open>
-    <summary>Object.seal 和 Object.freeze 有什么不同？</summary>
-    <p>
-        Seal 阻止对一个对象添加或删除属性；Freeze 在 Seal 的基础上，还使属性的值不可修改。
-    </p>
-</details>
-
-<details open>
-    <summary>试试手写一个 new 函数吧？</summary>
-    <Highlight>
-        function _new(constructor, ...params) {
-            const context = Object.create(constructor.prototype)
-            const result = constructor.call(context, params)
-            return (result && typeof result === 'object')
-                ? result
-                : context
-        }
-    </Highlight>
-</details>
-
-<details open>
-    <summary>如何解决 JSON.stringify 的循环引用问题？</summary>
-    <Highlight>
-        // create a circular object
-        var circ = {}
-        circ.circ = circ
-        // use cache to store values in the circular object
-        var cache = []
-        function check(key, value) {
-            if (typeof value === 'object' && value !== null) {
-                // Duplicate reference found, discard key
-                if (cache.includes(value)) return;
-                // Store value in our collection
-                cache.push(value);
-            }
-            return value
-        }
-        JSON.stringify(circ, check)
-        // enable gc
-        cache = null
-    </Highlight>
-</details>
-
-<details open>
-    <summary>手写一些常见的数组操作，比如乱序、降维？</summary>
-    <ul>
-        <li>数组乱序</li>
-        <Highlight>
-            [1, 2, 3, 4, 5].sort((a, b) => Math.random() - .5)
-        </Highlight>
-        <li>数组降维：[1,[2,[3,[4]]]] --> [1,2,3,4]</li>
-        <Highlight>
-            function flat(arr = []) {
-                return arr.reduce((h, c) => {
-                    return h.concat(
-                        c instanceof Array ? flat(c) : c
-                    )
-                }, [])
-            }
-            // >>> flat([1,[2,[3,[4]]]]) 
-            // >>> [1,2,3,4]
-        </Highlight>
-    </ul>
-</details>
-
-<details open>
-    <summary>从 JS 的角度考虑，你能想到哪些提高代码性能的办法？</summary>
-    <p>
-        <ul>
-            <li>设计数据尽量扁平，减少人和机器解析数据的时间。</li>
-            <li>代码性能问题会在循环中加倍放大，设计循环的地方需要好好设计，看看能不能找高性能通用算法解决问题。</li>
-            <li>熟记常见的设计模式，可以在编写复杂代码时极大减少与其他人的沟通成本，降低出错率。（嘛... 这也算一种吧。）</li>
-            <li>缓存！一般情况下，对前端而言，内存要比 CPU 廉价许多许多许多倍。所以可以选择常用的空间换时间的操作。</li>
-            <li>使用多线程技术，如在 WebWorker 上运行一些计算量大的代码。WebWorker 线程的阻塞不会影响浏览器的渲染。</li>
-            <li>任务切片，即将大的任务切成小块。在小块任务之间给其它代码和浏览器渲染预留一些时间。</li>
-            <li>使用任务队列，将任务分为轻重缓急执行。比如 requestIdelCallBack 方法，当引擎空闲时执行低优先级回调，但若超过指定时间仍未调用回调，回调则会被强制执行。</li>
-            <li>由任务队列还可以引申出 Vue.nextTick 和 React Fiber。</li>
-            <li>预执行。比如数据预取、对象预实例化等。</li>
-            <li>WebAssembly... 没有实践过...</li>
-        </ul>
-    </p>
-</details>
-
 ### 代码原理
 
 <details open>
@@ -269,6 +160,115 @@
             })()
         </Highlight>
         更详细的内容可以看这篇：<a href="/articles/fold/2020-5/type-check.html">常用类型判断方法的优势及缺陷</a>。
+    </p>
+</details>
+
+### 代码实践
+
+<details open>
+    <summary>在 JS 种，'1'+1 以及 1+'1' 的结果分别是什么？</summary>
+    <p>
+        加法运算符任意操作数为 String 类型，那么会将另一侧用 ToString 转换后，再相加。所以答案是，都为 '11'。
+        这主要涉及到 JS 中的隐式类型转换问题。JS 是弱类型语言，一般而言，不同类型数据之间可以互相转换。
+        进一步了解可以看看这篇：<a href="./gists/interview-prepare/corceion.html">隐式转换</a>
+    </p>
+</details>
+
+<details open>
+    <summary>在 `const obj = { /* ____ */ b: '2', a: '3' }` 空缺部分填什么才能使 obj 在控制台的输出为 `{ a: '3', b: '2' }`？</summary>
+    <p>
+        填写带任意值的 a 属性都可以，如 `a: 1,`，因为如果后定义的属性与先定义的属性冲突，则会替换掉先定义属性的值，但是值顺序不变。
+    </p>
+</details>
+
+<details open>
+    <summary>能不能说说为什么 0.1 + 0.2 !== 0.3 ？</summary>
+    <p>
+        JS 使用 IEEE-754 标准的双精度浮点数表示数字，0.1 和 0.2 转换为双精度浮点数之后，小数部分不能被精确表示，导致精度丢失。
+        进一步了解可以看看这篇：<a href="./gists/interview-prepare/number-in-js.html">JS中的数值</a>
+    </p>
+</details>
+
+<details open>
+    <summary>Object.seal 和 Object.freeze 有什么不同？</summary>
+    <p>
+        Seal 阻止对一个对象添加或删除属性；Freeze 在 Seal 的基础上，还使属性的值不可修改。
+    </p>
+</details>
+
+<details open>
+    <summary>试试手写一个 new 函数吧？</summary>
+    <Highlight>
+        function _new(constructor, ...params) {
+            const context = Object.create(constructor.prototype)
+            const result = constructor.call(context, params)
+            return (result && typeof result === 'object')
+                ? result
+                : context
+        }
+    </Highlight>
+</details>
+
+<details open>
+    <summary>如何解决 JSON.stringify 的循环引用问题？</summary>
+    <Highlight>
+        // create a circular object
+        var circ = {}
+        circ.circ = circ
+        // use cache to store values in the circular object
+        var cache = []
+        function check(key, value) {
+            if (typeof value === 'object' && value !== null) {
+                // Duplicate reference found, discard key
+                if (cache.includes(value)) return;
+                // Store value in our collection
+                cache.push(value);
+            }
+            return value
+        }
+        JSON.stringify(circ, check)
+        // enable gc
+        cache = null
+    </Highlight>
+</details>
+
+<details open>
+    <summary>手写一些常见的数组操作，比如乱序、降维？</summary>
+    <ul>
+        <li>数组乱序</li>
+        <Highlight>
+            [1, 2, 3, 4, 5].sort((a, b) => Math.random() - .5)
+        </Highlight>
+        <li>数组降维：[1,[2,[3,[4]]]] --> [1,2,3,4]</li>
+        <Highlight>
+            function flat(arr = []) {
+                return arr.reduce((h, c) => {
+                    return h.concat(
+                        c instanceof Array ? flat(c) : c
+                    )
+                }, [])
+            }
+            // >>> flat([1,[2,[3,[4]]]]) 
+            // >>> [1,2,3,4]
+        </Highlight>
+    </ul>
+</details>
+
+<details open>
+    <summary>从 JS 的角度考虑，你能想到哪些提高代码性能的办法？</summary>
+    <p>
+        <ul>
+            <li>设计数据尽量扁平，减少人和机器解析数据的时间。</li>
+            <li>代码性能问题会在循环中加倍放大，设计循环的地方需要好好设计，看看能不能找高性能通用算法解决问题。</li>
+            <li>熟记常见的设计模式，可以在编写复杂代码时极大减少与其他人的沟通成本，降低出错率。（嘛... 这也算一种吧。）</li>
+            <li>缓存！一般情况下，对前端而言，内存要比 CPU 廉价许多许多许多倍。所以可以选择常用的空间换时间的操作。</li>
+            <li>使用多线程技术，如在 WebWorker 上运行一些计算量大的代码。WebWorker 线程的阻塞不会影响浏览器的渲染。</li>
+            <li>任务切片，即将大的任务切成小块。在小块任务之间给其它代码和浏览器渲染预留一些时间。</li>
+            <li>使用任务队列，将任务分为轻重缓急执行。比如 requestIdelCallBack 方法，当引擎空闲时执行低优先级回调，但若超过指定时间仍未调用回调，回调则会被强制执行。</li>
+            <li>由任务队列还可以引申出 Vue.nextTick 和 React Fiber。</li>
+            <li>预执行。比如数据预取、对象预实例化等。</li>
+            <li>WebAssembly... 没有实践过...</li>
+        </ul>
     </p>
 </details>
 
@@ -870,3 +870,4 @@
 - [中高级前端大厂面试秘籍，为你保驾护航金三银四，直通大厂(上)](https://juejin.im/post/5c64d15d6fb9a049d37f9c20)
 - [中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂(下)](https://juejin.im/post/5cc26dfef265da037b611738)
 - [JavaScript 开发者应懂的 33 个概念](https://github.com/stephentian/33-js-concepts)
+- [前端面试之道](https://juejin.cn/book/6844733763675488269)
