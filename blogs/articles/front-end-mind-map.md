@@ -28,7 +28,7 @@
     <p>更详细的内容可以看这篇：<a href="/articles/fold/2020-5/js-module-history.html">JS 模块化简史</a>。</p>
 </details>
 
-<details open>
+<details>
     <summary>Require 和 Import 的不同之处？</summary>
     <p>
         Require 和 Import 分别是 CommonJS 和 ES6 Module 规范下的导入模块方式。
@@ -41,7 +41,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>说一说什么是原型/原型链？</summary>
     <p>
         原型（prototype）是一个用来实现对象的属性继承的普通对象。每一个对象都会有一个内部属性 __proto__ 指向它的原型，在寻找对象的某个属性时，如果对象内部找不到，则会去它的原型上找。
@@ -49,7 +49,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>原型，构造函数之间有什么联系？</summary>
     <p>
         通过构造函数使用 new 运算符可以新建一个实例。实例的 __proto__ 指向构造函数的原型，实例的构造器属性和构造函数原型的构造器属性都指向构造函数。
@@ -57,7 +57,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>说一说你对执行上下文的理解？</summary>
     <p>
         执行上下文是执行环境用来追踪代码运行情况的一种机制，不能通过代码直接观测到这种机制，JS 代码总是在某个执行上下文中运行。<br />
@@ -67,7 +67,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>关于 this 绑定的机制能简要概括一下吗？</summary>
     <p>
         this 绑定的概念源于执行上下文的创建。
@@ -78,7 +78,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>暂时性死区是怎么形成的？</summary>
     <p>
         暂时性死区和词法环境机制有关。
@@ -88,7 +88,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>能不能简单概括一下闭包机制？</summary>
     <p>
         闭包是一种特殊的作用域。
@@ -98,7 +98,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>刚才没有提到使用 new 运算符时 this 的指向，能不能详细说一说？</summary>
     <p>
         使用 new 运算符的过程中，构造器的 this 会指向实例。
@@ -112,7 +112,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>我们提到了原型和构造器，能不能详细聊聊通过原型链和构造器实现的继承及其缺陷所在，以及应该怎么改进？</summary>
     <p>
         使用原型链，创建子类型时，不能给超类型传递参数进行个性化定制，在某些场景会有些局限，比方说“所有人都拥有朋友这个属性”这个场景，修改某人的朋友属性，其他人的朋友属性也会跟着变。<br />
@@ -148,7 +148,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>你一般怎么做变量类型判断的？</summary>
     <p>
         三种最常用的方法是：typeof、instanceof、Object.prototype.toString()，不过三种方法的使用场景不同。<br />
@@ -174,7 +174,7 @@
 
 ### 代码实践
 
-<details open>
+<details>
     <summary>在 JS 种，'1'+1 以及 1+'1' 的结果分别是什么？</summary>
     <p>
         加法运算符任意操作数为 String 类型，那么会将另一侧用 ToString 转换后，再相加。所以答案是，都为 '11'。
@@ -183,14 +183,14 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>在 `const obj = { /* ____ */ b: '2', a: '3' }` 空缺部分填什么才能使 obj 在控制台的输出为 `{ a: '3', b: '2' }`？</summary>
     <p>
         填写带任意值的 a 属性都可以，如 `a: 1,`，因为如果后定义的属性与先定义的属性冲突，则会替换掉先定义属性的值，但是值顺序不变。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>能不能说说为什么 0.1 + 0.2 !== 0.3 ？</summary>
     <p>
         JS 使用 IEEE-754 标准的双精度浮点数表示数字，0.1 和 0.2 转换为双精度浮点数之后，小数部分不能被精确表示，导致精度丢失。
@@ -198,14 +198,14 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>Object.seal 和 Object.freeze 有什么不同？</summary>
     <p>
         Seal 阻止对一个对象添加或删除属性；Freeze 在 Seal 的基础上，还使属性的值不可修改。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>试试手写一个 new 函数吧？</summary>
     <Highlight>
         function _new(constructor, ...params) {
@@ -218,7 +218,7 @@
     </Highlight>
 </details>
 
-<details open>
+<details>
     <summary>如何解决 JSON.stringify 的循环引用问题？</summary>
     <Highlight>
         // create a circular object
@@ -241,7 +241,7 @@
     </Highlight>
 </details>
 
-<details open>
+<details>
     <summary>手写一些常见的数组操作，比如乱序、降维？</summary>
     <ul>
         <li>数组乱序</li>
@@ -263,7 +263,7 @@
     </ul>
 </details>
 
-<details open>
+<details>
     <summary>从 JS 的角度考虑，你能想到哪些提高代码性能的办法？</summary>
     <p>
         <ul>
@@ -283,12 +283,12 @@
 
 ### 手写代码
 
-<details open>
+<details>
     <summary>先来点简单的内容吧，试着实现一个 instanceof ？</summary>
     <p>instanceof 操作符本质上是检测右值的原型对象在不在左值对象的原型链上。代码见：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/instanceof.js" target="_blank" rel="nofollow">InstanceOf Polyfill</a></p>
 </details>
 
-<details open>
+<details>
     <summary>必考题，节流及防抖的区别及应用？</summary>
     <p>节流指一定时间内只触发一次函数执行，可以用于削减一些高频函数调用的消耗，如浏览器滚动，窗口缩放和鼠标移动等 API 就会调用非常多次回调函数，这时候可以用节流函数限制一下。</p>
     <Highlight>
@@ -321,17 +321,17 @@
     </Highlight>
 </details>
 
-<details open>
+<details>
     <summary>还是必考题... 手写 bind、apply、call？</summary>
     <p>见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/bind.js" target="_blank" rel="nofollow">手写 bind</a>、<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/call.js" target="_blank" rel="nofollow">手写 call</a>、<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/apply.js" target="_blank" rel="nofollow">手写 apply</a></p>
 </details>
 
-<details open>
+<details>
     <summary>试着手动 polyfill Promise 函数？</summary>
     <p>Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/promise.js" target="_blank" rel="nofollow">手写 Promise</a></p>
 </details>
 
-<details open>
+<details>
     <summary>该如何设计一个可以取消请求的请求函数？</summary>
     <p>
         浏览器发送请求时经过一定时间后，将自动断开连接。如果想主动取消请求的话，可以调用 XMLHttpRequest.abort() 方法。<br />
@@ -363,12 +363,12 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>试着手动 polyfill Generator 函数？</summary>
     <p>Generator 使用了新的关键字和新的语法，所以运行代码前必须将 Generator 代码转译。不过... 倒也有办法实现假的 polyfill，见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/generator.js" target="_blank" rel="nofollow">手写 Generator</a></p>
 </details>
 
-<details open>
+<details>
     <summary>试着手写一下 Webpack 的原理？</summary>
     <p>Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。见代码：<a href="https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack" target="_blank" rel="nofollow">Webpack 打包原理</a></p>
 </details>
@@ -379,7 +379,7 @@
 
 ## 浏览器
 
-<details open>
+<details>
     <summary>从输入 URL 按下回车开始，到用户看到完整的页面，经历了哪些流程？</summary>
     <ol>
         <li>通过 Expired、Cache-Control 查看缓存是否已经过期，未过期则直接使用内存或硬盘中的资源，跳转到解码步骤；如已过期则携带 If-Modified-Since、If-Match 字段尝试向服务器请求新资源。</li>
@@ -431,7 +431,7 @@
     </ol>
 </details>
 
-<details open>
+<details>
     <summary>简要说说浏览器的重绘与回流及如何避免？</summary>
     <p>
         浏览器解析 HTML 文档，生成 DOM Tree；解析 CSS 文档，生成 CSSOM Tree。将两者合二为一得到 Render Tree。根据 Render Tree 进行布局浏览器可以得到节点的几何信息（位置、大小），还可以在内存中绘制，得到节点以像素形式展示的具体样式。最后，将相关信息发送至 GPU 展示在页面上。<br />
@@ -440,7 +440,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>简要说说事件循环机制？</summary>
     <p>
         JS 是单线程语言，但是代码执行分为同步任务和异步任务。
@@ -448,7 +448,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>异步任务还能再细分吗？</summary>
     <p>
         刚刚没有提到，异步任务还可以细分为宏任务（Macro Task）和微任务（Micro Task）。
@@ -459,7 +459,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>先简单介绍一下浏览器的事件捕获机制？</summary>
     <p>
         浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。
@@ -468,7 +468,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>跨标签页通讯有哪些方案？</summary>
     <ul>
         <li>Broadcast Channel：可以建立同源窗口下所有监听了该频道的对象，IE 和 Safari 没有实现。 </li>
@@ -479,7 +479,7 @@
     </ul>
 </details>
 
-<details open>
+<details>
     <summary>浏览器中有哪些常见的安全问题？</summary>
     <ul>
         <li>XSS：Cross-site Scripting Attack，即通过把未经转义的脚本字符植入页面，使得解析 HTML 时自动执行相应脚本。解决方法，简单来说，写个 ecape 工具函数就好了。</li>
@@ -492,26 +492,26 @@
     </ul>
 </details>
 
-<details open>
+<details>
     <summary>了解浏览器的内容安全策略（CSP）吗？</summary>
     <p>见：<a href="/gists/network.html#CSP">计算机网络</a></p>
 </details>
 
-<details open>
+<details>
     <summary>浏览器原理概述？</summary>
     <p>见博客：<a href="/gists/browser.html">浏览器原理概述</a></p>
 </details>
 
 ## NodeJS
 
-<details open>
+<details>
     <summary>NodeJS 的事件循环机制和浏览器中有什么不同？</summary>
     <p>
         类似但稍有区别。具体不清楚。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>引擎的垃圾回收机制有了解吗？</summary>
     <p>
         V8 使用分代回收机制，将内存分为新生代和老生代空间，分别用不同的算法进行 GC。
@@ -538,7 +538,7 @@
 
 更详细的资料看：<a href="/gists/network.html">计算机网络</a>
 
-<details open>
+<details>
     <summary>HTTP 1.1 对 HTTP 1.0 做出了哪些改进？</summary>
     <ul>
         <li>长连接(默认 keep-alive)，复用</li>
@@ -553,7 +553,7 @@
     </ul>
 </details>
 
-<details open>
+<details>
     <summary>HTTP 2.0 做出了哪些改进呢？</summary>
     <ul>
         <li>多路复用</li>
@@ -563,7 +563,7 @@
     </ul>
 </details>
 
-<details open>
+<details>
     <summary>Get 和 Post 请求有哪些区别？</summary>
     <p>
         Get 请求会被浏览器缓存，会被浏览器保存在历史记录中，此外，Get 请求的参数是拼接在 URL 中的明文，且长度也有限制，适合做一些资源翻页之类的场景；
@@ -571,7 +571,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>说说 HTTP 的缓存机制吧？</summary>
     <p>
         缓存主要分两种，强缓存和协商缓存。强缓存即浏览器直接使用本地资源。协商缓存指允许使用本地资源，但是需要发送一个请求向服务端进行验证。
@@ -595,21 +595,21 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>CDN 对前端来说有哪些好处？</summary>
     <p>
         CDN 是一种必要的冗余。普遍而说，CDN 能通过快速响应速度、突破浏览器的同域名请求并发数、节约 Cookie 带宽等手段加快页面加载速度。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>同源策略限制了哪些内容？</summary>
     <p>
         同源策略是一种浏览器遵守的规范，要求页面发送的请求的协议、HOST、端口号必须与脚本来源相同。这是一种最基础的安全策略。绕过同源策略的方法即跨域。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>你是怎么做跨域的？</summary>
     <p>
         有几种常见的解决办法，使用代理、CORS、iframe、WebSocket。
@@ -622,14 +622,14 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>这里打断一下，正向代理和反向代理的区别是？</summary>
     <p>
         正向代理为用户服务，内容服务器无法区分用户或是代理，常见于“能访问谷歌的那种代理”；反向代理为服务器服务，用户无法区分访问的是代理还是服务器，常用于过滤请求及负载均衡。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>再详细说说 CORS？</summary>
     <p>
         CORS 即跨域资源共享机制。通过给 HTTP Header 增加一些额外的字段，让源服务器（通常指浏览器）可以请求不同服务器上的资源。
@@ -641,7 +641,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>详细说说你怎么做的 WebSocket？</summary>
     <p>
         WebSocket 是一种基于 HTTP 的应用层协议。浏览器实现的兼容性不错，可看作长轮询的升级版本。主要有两个特征，是持久化连接以及服务端可以给客户端发送通知。
@@ -654,7 +654,7 @@
 
 ## HTML
 
-<details open>
+<details>
     <summary>HTML5 带来了哪些改进？</summary>
     <p>
         首先是增强了语义化：新增了一些语义化标签，Main、Nav、Sidebar、Header、Footer 之类的，还删除了一些纯表现元素，如 Font、Center 等。
@@ -662,7 +662,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>如何理解语义化标签？</summary>
     <p>
         单纯按照 HTML5 规范就应该这么做；
@@ -670,21 +670,21 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>为什么要增强页面的可访问性？</summary>
     <p>
         增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用处理性能底下或带宽低的设备的人等。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>可访问性和 SEO 的区别是？</summary>
     <p>
         SEO 提高搜索引擎的体验，可访问性是提高人的体验。SEO 有几个比较重要的点，TDK、语义化 HTML、页面速度。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>Cookie、Local Storage、Session Storage 的不同之处？</summary>
     <p>
         Cookie 主要用来标志用户的身份，并且始终会在同源的请求中携带，容量只有 4kb。
@@ -693,14 +693,14 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>HTML 属性 SRC 和 HREF 的区别？</summary>
     <p>
         SRC 即 Source，指使用外部对象替换当前元素；HREF 即 Hypertext Reference，指元素与外部的链接关系。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>iframe 有哪些缺点？</summary>
     <p>
         iframe 有几个特性：会阻塞父页面的 onload 事件，它还和父页面共享请求数量上限。
@@ -710,7 +710,7 @@
 
 ## CSS
 
-<details open>
+<details>
     <summary>聊一聊选择器的优先级？</summary>
     <p>
         这个都比较熟悉了，重要性声明 > 内联样式 > ID 选择器 > 类选择器、伪类选择器 > 标签选择器、元素选择器。
@@ -718,7 +718,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>什么是盒模型？</summary>
     <p>
         盒模型是页面布局过程中将元素转换为盒子时应用的布局模型。
@@ -726,7 +726,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>什么是 BFC？</summary>
     <p>
         块级格式化上下文，是页面上的一个独立渲染、不影响外界元素的区域。
@@ -736,14 +736,14 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>怎样清除浮动？</summary>
     <p>
         一般有两种思路：通过新增标签或者伪元素，并应用 Clear 属性；触发父元素 BFC，就比如设置 Overflow，设置 Display InlineBlock，绝对定位，固定定位，浮动之类的方法。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>关于层叠上下文，你大致了解什么？</summary>
     <p>
         层叠上下文是指元素在一定条件下提升为一个特殊的图层，在 Z 轴的方向上比普通元素靠近用户，并且在同一个图层内会由 ZIndex 属性在 Z 轴方向进行排序。
@@ -752,7 +752,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>聊一聊 CSS 预处理器？</summary>
     <p>
         预处理是指通过编译工具将特定语言转为 CSS 文件。预处理器不能给 CSS 本身带来更高级的特性，但是可以增强语法。
@@ -763,21 +763,21 @@
 
 ## 项目&工程化
 
-<details open>
+<details>
     <summary>Bable 之类的编译器有什么作用？</summary>
     <p>
         编译器主要的作用是转换与编译，能够将新标准中前沿的代码技术转换为相同（或类似）功能的代码，使其能够在旧的浏览器中运行。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>Bable 工作原理了解一些吗？</summary>
     <p>
         Bable 使用 Babylon（Babel-parser） 将代码解析为 AST，使用 Bable-traverse 维护 AST 的状态，做一些源码级别的转换，最后使用 Bable-generator 读取 AST 并生成代码。
     </p>
 </details>
 
-<details open>
+<details>
     <summary>刚刚说到 AST，你对 AST 有什么其它的认识吗？</summary>
     <p>
         AST 即抽象语法树，是源代码的抽象树状语法结构。对于普通的字符串处理，使用正则完全足够。
@@ -787,12 +787,12 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>Prettier 和 ESLint 的区别是？</summary>
     <p>Prettier 是代码格式化工具，而 ESLint 则是 JS/TS 等代码的校验工具，只不过也有格式化这个功能。通过安装 ESLint 插件，可以使项目中的 ESLint 兼容 Prettier 的规则。再配置好 husky，就可以很方便的给暂存区代码进行格式化校验了。</p>
 </details>
 
-<details open>
+<details>
     <summary>怎么在编码时预防内存泄漏？</summary>
     <p>
         JS 使用了标记清除法进行 GC，这意味着如果对象访问不到，则会自动被回收，我们要避免在编码时保存不必要的引用。<br />
@@ -822,7 +822,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>移动端适配有了解么？</summary>
     <p>
         因为不同设备的像素大小及 DPR 不同，所以 CSS 像素和浏览器渲染视口的像素不一致，导致我们看到的页面和设计稿不一致。以往的做法是使用 REM 来写 CSS，把设计稿的尺寸代入计算，得到代码中的值，如 75px 的图片在 750px 的设计稿中，对应到 CSS 代码便是 7.5rem。当然，还得通过 JS 将根元素的字体大小设置为 10px，REM 方案才能正常运作。<br />
@@ -835,7 +835,7 @@
     </p>
 </details>
 
-<details open>
+<details>
     <summary>首屏优化方案你了解过么？</summary>
     <p>
         以前在项目中接触过一点。首屏优化主要从两个方面考虑，第一是提高加载体验使加载状态用户无感，第二是提高页面性能，减少加载速度。<br />
@@ -855,7 +855,7 @@
 
 ## 面试题/编程题
 
-<details open>
+<details>
     <summary>如何获取页面中所有用到的标签？</summary>
     <p>简单处理的话，可以在控制台直接用 document.querySelector('*') 选中所有元素并取 tagName，最后做一下去重就好了。更加工程化的手段则是使用 HTML Parser 解析 HTML，并用一个数组（Set）来保存用到标签。后面这种方案可以通过一个变量 offset 记录解析位置，方便任务中断。</p>
 </details>
@@ -880,3 +880,4 @@
 - [中高级前端大厂面试秘籍，寒冬中为您保驾护航，直通大厂(下)](https://juejin.im/post/5cc26dfef265da037b611738)
 - [JavaScript 开发者应懂的 33 个概念](https://github.com/stephentian/33-js-concepts)
 - [前端面试之道](https://juejin.cn/book/6844733763675488269)
+- [JavaScript 语言精髓和编程实践](https://read.douban.com/ebook/160113393/?dcs=subject-buylink&dcm=douban&dct=35085910)
