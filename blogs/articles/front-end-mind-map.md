@@ -4,9 +4,18 @@
 
 ## JavaScript
 
-### 代码原理
+### 语言规范
 
-<details open>
+<details>
+    <summary>语言类型和规范类型的关系是怎么样的？</summary>
+    <p>
+        按照规范，JS 中应有 Null、Undefined、Object、String、Symbol、Number、BigInt、Boolean 总计共8种<a href="https://262.ecma-international.org/12.0/#sec-ecmascript-language-types" target="_blank" rel="nofollow">语言类型</a>。
+        规范类型是为了更好的表述语言类型而存在的，仅存在于规范中，不能在 JS 中与规范类型直接交互。
+        在 JS 中能操作的类型被称为基础类型，可以按照原始值和引用类型进行划分，可以通多 typeof 运算符确定变量的具体类型（null 和 function 除外）。
+    </p>
+</details>
+
+<details>
     <summary>JavaScript 模块化发展历程有了解过吗？</summary>
     <p>
         模块化主要解决了命名空间冲突和代码抽象的问题，提高了项目的可维护性、可拓展性和可协作性。
