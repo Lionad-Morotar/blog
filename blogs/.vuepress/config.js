@@ -64,7 +64,7 @@ module.exports = {
   },
   locales: {
     '/': {
-      lang: 'zh'
+      lang: 'zh-cmn-Hans'
     }
   },
 
