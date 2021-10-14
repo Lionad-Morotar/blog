@@ -127,6 +127,61 @@ let x
 |...|展开运算符|
 |，|逗号运算符、多重求值|
 
+### 语句
+
+按照类型，JS 中的语句可分为：声明语句、表达式语句、分支语句、循环语句、控制结构（continue、break 等）、其他（空语句、妇科语句、调式语句）、标签化语句。
+
+需要注意的点：
+
+* 调试语句（debugger;）用于开启宿主环境的调试器
+* 除了分号外，EOF 也可以作为语句的结束标志（我没有试验成功）
+* 大括号并不是 for...in 等语句的语法元素，但却是 try...catch 中的语法元素
+
+有一段代码没有看懂：
+
+```js
+// 为什么能传参到这个匿名函数？void 的运算优先级要比函数调用低来着...
+void function (arg) {
+  console.log(arg)
+}(2)
+```
+
+在 for...in 等语句中声明的变量，如果是 var 声明，那么变量作用域将等同于当前所在函数级别，let 及 const 声明则等同于当前语句的块级作用域级别。try...catch 子句中显式声明的变量虽然没有 let、var 等声明关键字，但是经过测试发现其等同于 var 声明。
+
+```js
+try { throw 'test' } catch (e) {
+  console.log(e); // test
+  var e = 1;
+}
+```
+
+标签不能作用与注释语句，因为注释会被解释器忽略，所以标签作用会渗透到下一个语句；同时他不能作用域导入导出、函数或类声明语句，因为这些语句没有可执行的意义。
+
+continue 子句不允许跳转到“当前/外层的单个循环语句起始”之外的地方，所以在循环语句外面加上花括号是会报语法错误的：
+
+```js
+// it works !
+test: for (i = 1; i < 3; i++) {
+  for (j = 5; j < 8; j++) {
+    if (j === 6) continue test;
+    else console.log(i, j)
+  }
+}
+// SyntaxError !
+test: {
+  for (i = 1; i < 3; i++) {
+    for (j = 5; j < 8; j++) {
+      if (j === 6) continue test;
+      else console.log(i, j)
+    }
+  }
+} 
+```
+
+ES2019 后，try...catch 允许省略 catch 中的 exception 声明部分。
+
+try...finnally 中的结束处理的执行顺序需要注意，它会在 try 中的 return 后以及 try 中的 break 前执行。
+
 ## 勘误？
 
 * P71，属性读取器
