@@ -285,7 +285,7 @@
 
 <details>
     <summary>先来点简单的内容吧，试着实现一个 instanceof ？</summary>
-    <p>instanceof 操作符本质上是检测右值的原型对象在不在左值对象的原型链上。代码见：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/instanceof.js" target="_blank" rel="nofollow">InstanceOf Polyfill</a></p>
+    <p>instanceof 运算符本质上是检测右值的原型对象在不在左值对象的原型链上。代码见：<a href="https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/instanceof.js" target="_blank" rel="nofollow">InstanceOf Polyfill</a></p>
 </details>
 
 <details>
