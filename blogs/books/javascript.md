@@ -230,11 +230,66 @@ import defaultExport, * as namespace from 'test.mjs'
 
 一些语法结构被称为“Cover...”，因为在语法分析时，它包含了两种可能的推断，比如 async() 可以理解为调用 async 函数或是匿名同步函数的开头部分，因此 async () 也被称为 “Cover CallExpression And AsyncArrowHead”。
 
+## 面向对象语言特性
+
+### 语法综述
+
+for...in 和 for...of 分别用来遍历对象的成员名和成员值，其中 for...of 不仅仅是用来设计为遍历数组的，所有实现了迭代器接口的对象都可以使用它，Array、Map、Set、String、TypedArray、arguments 等，这些对象也叫做集合（collections）。
+
+从技术上来说，只有在内存中连续布局的才是多维数组，所以把 JS 种这种可以使数组分量指向其它数组的数组叫做“数组的数组”或“交错数组”。
+
+正则中八进制和分组引用是冲突的（\ddd 和 \nn），当发生歧义时，优先理解为分组引用，若找到对应引用才理解为八进制字符匹配。
+
+ES5 严格模式下，字面量中不允出现许同一个属性的名字声明和存取器声明，但这个限制在 ES6 被取消了。为什么要取消，没搞懂。
+
+```js
+var obj={
+  set test(x){
+    c='other';
+  },
+  get test(){
+    return c
+  },
+  // 经过测试发现，声明按照只有最后一个生效，
+  // 比如下面这行会覆盖上面两个属性存取器
+  test: 'test'
+}
+```
+
+ES6 的 class 本质上是声明构造器的一种方式，因而所谓类继承，其实也是传统原型继承模式的一种表现方式。extends 类似以下代码。
+
+```js
+// class A extends B { constructor() { super(/* 传入参数 */) } }
+A.prototype = new B(/* 传入参数 */)
+A.prototype.constructor = A
+```
+
+使用 class 声明的代码是处于严格模式的，这意味这 extends 声明中的代码也同样会处于严格模式，当然，必须是 extends 字面量声明（正常代码几乎不会这么做）。
+
+类的静态成员方法也可以使用 super.x() 的方式调用，只是 this 会绑定到类的 constructor 上。
+
+使用 Object.getOwnPropertyNames 可以列举对象的内置属性，但是规范只是推荐性质地约定了其中部分属性名，所以具体实现依赖引擎。使用 for...in 可以列举对象的成员名，但是顺序不可控，而使用 for...of 列举对象的成员值其顺序是可控的，只是它是调用对象内置的迭代器。严谨一点可以说 for...of 是列举“集合成员”而不是“对象成员”，假设你给数组对象新增了 'test' 名字的属性，那么 for...of 是不会遍历其值的。
+
+总结一下遍历对象成员的方法：
+
+| 键名 | 显隐式 | 语法 | 描述 |
+|---|---|---|---|
+| 一般键名 | 显式 | for...in | 可列举的成员名（包含原型链） |
+| 一般键名 | 显式 | Object.prototype
+| 一般键名 | 显式 & 隐式 | Object.getOwnPropertyNames() | 所有非符号的自由属性名 |
+| 符号键名键名 | 显式 & 隐式 | Object.getOwnPropertySymbols() | 所有符号键名的自有属性名 |
+
+非常老的引擎中可能不支持 in 运算符，一种比 obj[prop] 更好的替代方案是 typeof(obj[prop]) !== 'undefined'，因为前者会因隐式转换检测不出来某些假值。
+
+delete 运算符有些特殊的地方：
+* 可以删除某些全局属性，比如 window.isNaN，但是如果全局属性是通过 var 声明然后挂载到 window 上那就无法删除了
+* 只在尝试删除不能被删除的属性才返回 false，其他时候，删除一个不存在的属性（删除继承得来的属性）都会返回 true
 
 ## 勘误？
 
 * P71，属性读取器
 * P77，逻辑与、按位非
 * P107，catch 子句隐式声明
-
+* P134，第二段代码，computedName 括号
+* P148，ES8
 
