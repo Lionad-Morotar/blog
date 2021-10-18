@@ -275,7 +275,7 @@ A.prototype.constructor = A
 | 键名 | 显隐式 | 语法 | 描述 |
 |---|---|---|---|
 | 一般键名 | 显式 | for...in | 可列举的成员名（包含原型链） |
-| 一般键名 | 显式 | Object.prototype
+| 一般键名 | 显式 | Object.prototype.map、Object.prototype.entries、... | ... |
 | 一般键名 | 显式 & 隐式 | Object.getOwnPropertyNames() | 所有非符号的自由属性名 |
 | 符号键名键名 | 显式 & 隐式 | Object.getOwnPropertySymbols() | 所有符号键名的自有属性名 |
 
@@ -335,6 +335,74 @@ Child.prototype = new Parent()
 
 ### 类继承
 
+JS 中的类继承本质上还是通过原型继承实现的。使用类继承时，不仅会维护类和类之间的层级关系，也会维护对象（类也是对象）原型之间的继承关系，后者是 JS 自带的语义。使用原型继承仿制类继承关系的代码类似：
+
+```js
+/* 类声明 */
+class Parent {}
+class Child extends Parent {}
+/* 仿制代码 */
+function Parent() {}
+function Child() {}
+Object.setPrototypeOf(Child, Parent)
+Object.setPrototypeOf(Child.prototype, Parent.prototype)
+```
+
+类是静态声明，其内部的成员或方法也是声明，也因此不能直接在声明的方法内部直接引用其名字。
+
+super 并不是一个运算符，在规范中其只被称为关键字。另外，new 算然是运算符，但是 new.target 的出现打破了这个认知。
+
+super 有效地解决了调用父类方法的问题，如果不使用 super 关键字，那么只能：
+
+```js
+object.prototype.method = function () {
+  const thisClass = this.constructor
+  const parentClass = thisClass.prototype.constructor
+  const parentMethod = parentClass.method
+  parentMethod()
+}
+```
+
+super 的指向由几个规则所限制：
+
+* 在类构造器中，super 指向父类构造器，this 指向 new 新创建的实例
+* 在类构造器中，super.xxx 指向父类原型方法 xxx，this 指向 new 新创建的实例
+* 在类方法中，super.xxx 指向父类原型方法 xxx，this 指向调用此方法的实例
+* 在静态类方法中，super.xxx 指向父类方法 xxx，this 指向调用此方法的类
+* 在字面量的方法中，super.xxx 指向字面量的原型方法 xxx，this 指向调用此方法时的 this
+
+总结可以得出规律：
+
+* super 和 super.xxx 都可以类构造器中使用，但其余情况只能使用 super.xxx
+* 调用 super.xxx 时，this 绑定的为调用方法时的 this 对象
+
+super 也是基于声明时所在的对象来进行计算的，就算把对象方法赋值给了其他方法，其绑定的语义也不会随着调用方不同而转移：
+
+```js
+proto = {data: 'test'}
+obj = { test() { console.log(super.data) } }
+Object.setPrototypeOf(obj, proto)
+
+obj2 = Object.create(null)
+obj2.test = obj.test
+obj2.test() // 'test'
+```
+
+此外，super 在不同的语义下可能指向父类也可能指向父类原型，是为了在语义上同时支持类和原型继承，这也会带来一些困惑，比如想要在类方法中调用父类静态属性时，使用 super 还是做不到（只能使用 Object.getPrototypeOf(thisClass).constructor.xxx 替代），所以对象方法中缺乏一个重要的语法词汇“parent”来指示当前对象在它类继承链上的父类这种关系。
+
+类继承和原型继承还有一个很不一样的区别：实例生成的时机不一样。原型继承中，实例是由 new 运算符生成的，构造逻辑直接由 new 调用的构造器掌握，而在类继承中，this 实例由 Object 构造，再沿着继承链上的构造器自顶向下执行完成构造过程。所以这引出一条著名的限制：在构造器调用 super 之前，都不能访问 this 实例。
+
+类如果继承了 null，那么语义上来说，没有办法调用 super、super.xxx。如果不更改默认构造器，那么它就是一个“纯静态类”。
+
+```js
+class StaticClass extends null {
+  static pow () {}
+}
+```
+
+P196，这个 new.target.prototype 没看懂。
+
+### 对象系统
 
 
 
@@ -347,4 +415,5 @@ Child.prototype = new Parent()
 * P107，catch 子句隐式声明
 * P134，第二段代码，computedName 括号
 * P148，ES8
+* P179，MyObject() 有没有必要用括号
 
