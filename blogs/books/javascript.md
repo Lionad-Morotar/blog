@@ -451,6 +451,53 @@ this 实在函数执行时动态传入的，规则有三：
 * 在大型系统中采用类继承，其静态的继承关系及支持静态语法检测等特性可以帮助开发者简化大型系统的开发和业务逻辑的实现
 * 在小型结构或体系的局部中采用原型继承，兼顾优美和灵活的实现
 
+标准规范下的 JS 拥有 38 个内置对象，再加上 Arguments 对象，一并称为原生对象。某些宿主环境会把自己自己提供的对象也叫做“原生对象”，这个“规范原生对象”不是一个东西，需要区分开来。
+
+在 JS 的对象系统中，所有对象同可以在某种程度上通过 global 访问得到，甚至 undefined 也是，仅有 Null 对象的实例 null 字面量不在 global 的范围内。
+
+```js
+// 获得所有原生对象、宿主对象等
+Object.getOwnPropertyNames(global)
+
+// 验证 undefined 是否存在 global 对象中
+Object.getOwnPropertyDescriptor(global, 'undefined') // {value: undefined /* ... */ }
+```
+
+数组本质上与对象没什么不同，处于概念的一致性，我们可以认为数组的实现在各引擎中也不一定是连续存储的。为了解决数组储存的不连续性及元素的不一致性带来性能问题，JS 提供了类型化数组这种集合。
+
+JS 中的结构化数据分两种，一种是类型化数组，通常使用 ArrayBuffer 以及其界面 DataView 来操作数据，另一种是 JSON，可以使用 JSON.parse、JSON.stringify 来操作。需要注意的是，由于 JSON 格式的数据不仅仅只是对象，它还可以包括 number、string、bollean 和 null，所以使用 JSON.parse 时需要判断数据类型。
+
+JS 中的内置对象除了具有在对象系统上的封装、继承、多态之外，还有一些额外的特殊效果。
+
+| 对象 | 特殊效果 | 注 |
+|---|---|---|
+| Number、String、Boolean、Symbol | 包装类 | ({}).toString() |
+| Object | 调用包装类 | new Object(5) + new Object(3) |
+| Array | 自动维护 length 属性 |  |
+| Date | 日期对象相关的运算 |  |
+| Function | 创建可执行的函数 |  |
+| RegExp | 可执行 | 仅在某些宿主中 |
+| Proxy | 代理目标对象、回收代理 |  |
+| TypedArray、DataView | 创建及绑定 buffer |  |
+| ArrayBuffer、SharedArray、Buffer | 初始化 buffer 并维护 byteLength 属性 |  |
+| WeakMap、WeakSet | 不修改引用并自动回收对象 |  |
+
+这些特殊效果被引擎绑定在特定的构造器上，其中大多数可以被类继承继承得到。所以，如果你使用原型继承的方式继承这些特殊效果，是无效的，归根到底是因为使用类创建新的实例时，实例是由基类构造的，所以特殊效果得以在实例中实现。当然，可以改写传统的原型继承代码，以仿制类继承中实例创建的逻辑：
+
+```js
+function MyDate(...args) {
+  const Base = Date.prototype.constructor
+  const instance = Object.setPrototypeOf(new Base(...args), MyDate.prototype)
+  return instance
+}
+Object.setPrototypeOf(MyDate.prototype, Date.prototype)
+
+console.log(new MyDate()) // 会隐式调用 Date.prototype.toISOString()
+```
+
+### 可定制的对象属性
+
+
 
 
 
