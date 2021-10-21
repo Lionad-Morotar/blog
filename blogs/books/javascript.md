@@ -497,6 +497,29 @@ console.log(new MyDate()) // 会隐式调用 Date.prototype.toISOString()
 
 ### 可定制的对象属性
 
+一般来说，对继承而来的属性赋值会导致对象在自身属性表中新创一个项，有几种情况例外：
+
+* 在继承来的属性是可配置的情况下，如果继承的属性是不可写属性，那么不会在对象自身新建属性，同时
+* 如果继承的属性不可枚举，那么新属性也不可枚举，同时
+* 如果继承的属性只存在存取描述符，那么无论其读写性，都不会创建新属性
+
+对象有一个内部属性[[Extensible]]用来描述是否可以在其属性表中添加和删除属性，默认是 true。JS 提供了一组方法用于属性表的维护：
+
+| Object.xxx 方法 | 方法说明 | 对自有属性表的操作 | 检查方法 |
+|---|---|---|---|
+| preventExtensions(obj) | 使实例不能添加新属性，也不可重置原型 | <del>add</del>、delete、update | isExtensible(obj) |
+| seal(obj) | 使实例不能新增新属性，也不能删除既有属性 | <del>add、delete</del>、update | isSealed(obj) |
+| freeze(obj) | 使实例所有属性只读，且不能再添加、删除属性 | <del>add、delete、update</del> | isFrozen(obj) |
+
+由于 isExtensible、isSealed、isFrozen 这几个方法都是动态计算返回的结果，在一些边界情况，结果可能和你想象的不同。isSealed 和 isFrozen 检查所有自有属性表中的属性，并分别确认所有属性的属性描述符 configurable 和 writable 都为 false。
+
+* 如果使用 preventExtensions 对空对象设置防止扩展，那么此对象同时是密封和冻结的，因为其自有属性表是空的。
+* 存取属性不受 freeze 状态影响，所以 freeze 可以设置属性描述符 writable 为 false，但是存取属性仍能正常运作。
+* 当原型冻结或指定属性只读时，复制运算就会失效，此时只能使用 Object.defineXXX 重新声明属性。
+
+### 运行期侵入与元编程系统
+
+
 
 
 
