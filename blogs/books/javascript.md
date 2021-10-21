@@ -1,5 +1,7 @@
 # JavaScript 语言精粹与编程实践
 
+[TOC]
+
 ## 语法
 
 ### 语法综述
@@ -517,7 +519,61 @@ console.log(new MyDate()) // 会隐式调用 Date.prototype.toISOString()
 * 存取属性不受 freeze 状态影响，所以 freeze 可以设置属性描述符 writable 为 false，但是存取属性仍能正常运作。
 * 当原型冻结或指定属性只读时，复制运算就会失效，此时只能使用 Object.defineXXX 重新声明属性。
 
-### 运行期侵入与元编程系统
+### 运行期侵入
+
+最早用于运行期侵入的语法元素是 \_\_proto\_\_，它可以让开发人员直接操作对象的原型；valueOf 以及 toString 等方法则被归类到动态语言的特性中去了。
+
+对象在 JS 的内部被描述为具有一些内部槽的结构体，比方说普通对象有 [[Prototype]] 以及 [[Extensible]] 两个槽位，而函数则会多出 [[Realm]] 和 [[ScriptOrModule]] 这两个。某些符号属性可以访问这些内部槽位的，但是限于符号属性总是在对象的自由属性表中维护，而不是作为语言机制（内部槽），所以影响力有限。
+
+对象可以用自己的处理过程来覆盖内部方法，这也就是 Proxy 起作用的原因。Proxy 和内部方法的对应关系如下：
+
+| 内部方法 | handler.xxx |
+|---|---|
+| [[GetPrototypeOf]] | getPrototypeOf() |
+| [[SetPrototypeOf]] | setPrototypeOf() |
+| [[IsExtensible]] | isExtensible() |
+| [[PreventExtensions]] | preventExtensions() |
+| [[GetOwnProperty]] | getOwnPropertyDescriptor() |
+| [[HasProperty]] | has() |
+| [[DefineOwnProperty]] | defineProperty() |
+| [[Get]] | get() |
+| [[Set]] | set() |
+| [[Delete]] | deleteProperty() |
+| [[OwnPropertyKeys]] | ownKeys() |
+| [[Call]] | apply() |
+| [[Construct]] | construct() |
+
+使用 Proxy 看起来可以给对象建立一道完美的防火墙，但墙上其实还是有两道裂缝：
+
+* 一些语言机制会绕过内部方法行动，比方说就算给箭头函数新增带构造器的陷阱，它仍然不能作为构造器使用。
+* 某些方法不具有原子性，比方说调用 [[Set]] 设置属性时实际上会调用 target 和 receiver 以及他们原型上的 [[GetOwnProperty]] 确认属性的描述符。
+
+使用代理替换某些内置对象的原型，可以无侵入式影响运行环境：
+
+```js
+function intrudeOnPrototype(Fn, handler) {
+  const originPrototype = Object.getPrototypeOf(Fn.prototype)
+  const target = Object.create(originPrototype)
+  const { proxy: newPrototype, revoke } = Proxy.revocable(target, handler)
+  Object.setPrototypeOf(Fn.prototype, newPrototype)
+  return () => revoke(Object.setPrototypeOf(Fn.prototype, originPrototype))
+}
+const recovery = intrudeOnPrototype(String, {
+  get: function (target, prop) {
+    if (prop === 'test') {
+      return 'test'
+    } else {
+      return Reflect.get(...arguments)
+    }
+  }
+})
+console.log(''.test) // test
+```
+
+### 元编程系统
+
+就看懂了类类型是怎么来的，其余的没看懂...
+
 
 
 
@@ -535,4 +591,6 @@ console.log(new MyDate()) // 会隐式调用 Date.prototype.toISOString()
 * P148，ES8
 * P179，MyObject() 有没有必要用括号
 * P206，语言仅提供了...能力而已
+* P252，注2 的位置，以及应当标明加粗部分是 handler.xxx 和内部方法不同名的部分
+* P258，setPrototype(..., atom)，同 P259 的 setPrototype，没看懂
 
