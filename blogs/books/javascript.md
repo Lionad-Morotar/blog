@@ -16,7 +16,9 @@ echo '"hello world"' | node -c
 
 ### 声明语法
 
-JS “识别的” 7 种数据类型叫做基本数据类型（第一类类型），识别是以 typeof 运算符为准的。早期的 JS 语言中，正则是可执行的（实现了 [[call]] 内部方法），所以 typeof 会返回 function，这一 bug 后来被修正。
+JS “识别的” 7 种数据类型叫做基本数据类型（第一类类型[^first-class]），识别是以 typeof 运算符为准的。早期的 JS 语言中，正则是可执行的（实现了 [[call]] 内部方法），所以 typeof 会返回 function，这一 bug 后来被修正。
+
+[^first-class]: “第一类”也就是 first-class，类似“一等公民”，意味有着不能分割、不能被重述的概念。
 
 撇开 OO 不论，JS 中有以下几种类型系统可以讨论：
 
@@ -722,6 +724,108 @@ super 绑定了一段“访问父类”的逻辑，由于父类可以重置，�
 
 (_　_)。゜zｚＺ
 
+## 函数式语言特性
+
+### 概述
+
+基于冯诺依曼体系架构设的程序设计语言，必然面对具有储存系统的计算机体系，并依赖储存（如内存）进行运算。这意味着在硬件层面上，冯诺依曼体系亲命令式的程序语言。这一方面产生了类似 JS 这种多范型语言，另一方面产生 JVM 这种能够进行某些函数式运算的虚拟机环境。
+
+函数式语言中的“函数”，应该理解为“Lambda（函数）”，它除了可以被调用之外，还需满足：可作为操作数、可保存数据（闭包）、无副作用这三个性质。
+
+### JS中的函数
+
+默认参数、剩余参数和模板参数被统称为“非简单参数”。当函数参数声明中使用了非简单参数时，函数会进入一种特殊模式，带以下状态：
+
+* 无法显式使用“use strict”切换到严格模式。
+* 不接受重名参数。
+* 形参和 arguments 之间将解除绑定关系。
+
+函数的长度属性依赖参数的性质（简单参数还是非简单参数），而 arguments 只指代函数调用时传入的实参。
+
+```js
+function test(a, b = 1) {
+  console.log(test.length, arguments.length)
+}
+test(1, 2) // 1，2
+```
+
+表达式最后返回的是值而不是引用[^reference]，所以诸如 (0, a.b)() 这种调用会丢失 this 指向。与此同理，函数调用时传参也是传值，而不是引用，这也是作为非惰性求值的实现结果。
+
+```js
+window.x = 1
+const a = {
+  x: 2,
+  b () {
+    console.log(this.x)
+  }
+}
+console.log(a.b()) // 2
+console.log((0, a.b)()) // 1
+```
+
+[^reference]: 引用是指规范中的 Reference，取值是指规范中的 getValue()。
+
+具名函数在表达式中时不会声明标识符。
+
+要区分“方法”和“将函数作为对象的属性”。我们说方法因为没有初始化[[Constructor]]内部槽所以不能作为构造器并非指函数属性，比如：
+
+```js
+const a = {
+  b: function test() {},
+  test() {}
+}
+new a.b() // {}
+new a.test() // TypeError
+```
+
+方法的特性总结以下三点：
+
+* 不能作为构造器。
+* 除了生成器方法，没有内部原型。
+* 方法不能具名。
+
+绑定函数的内部原型与原函数一致，类似于会执行以下代码。也因此如果访问绑定函数原型上的方法没啥问题，但是访问原函数的自有属性就会出错了。
+
+```js
+Object.setPrototypeOf(boundFn, Object.getPrototypeOf(targetFn))
+```
+
+此外，绑定函数的 new.target 逻辑丢失，new.target 仍指向原函数。
+
+```js
+function a () {
+  console.log(new.target === a)
+}
+console.log(new (a.bind())) // true
+```
+
+class 作为函数调用会抛出运行时错误，由于 class 是在 [[Call]] 内部槽中进行禁止调用处理的，所以 class 的代理对象可以设置 apply 陷阱以拦截并触发正常调用。
+
+如果需要在递归中保持 this 引用，可以使用方法声明加箭头函数的写法：
+
+```js
+const obj = {
+  step: 0,
+  run (init) {
+    const exec = x => {
+      if (x > 0) {
+        console.log(x)
+        this.step += 1
+        exec(x - 1)
+      } else {
+        console.log('steps: ', this.step)
+      }
+    }
+    return exec(init)
+  }
+}
+obj.run(10) // steps: 10
+```
+
+### 函数的行为
+
+
+
 
 ## 勘误？
 
@@ -734,4 +838,5 @@ super 绑定了一段“访问父类”的逻辑，由于父类可以重置，�
 * P206，语言仅提供了...能力而已
 * P252，注2 的位置，以及应当标明加粗部分是 handler.xxx 和内部方法不同名的部分
 * P258，setPrototype(..., atom)，同 P259 的 setPrototype，没看懂
+* P424，最后一行，存取运算符（.）的优先级高于不带参数表的 new 运算符
 
