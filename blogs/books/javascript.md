@@ -824,8 +824,58 @@ obj.run(10) // steps: 10
 
 ### 函数的行为
 
+诸如 arguments.callee、fn.caller、fn.arguments 等属性是早期规范用于访问执行上下文栈的一种手段，现规范已在严格模式下将其移除。
 
+将调用函数时“持有有效的 this 引用”叫做方法调用。
 
+规范中的引用类型（Ref）由三个部分构成：base、referencedName、strict，分别指代对象所在环境、引用该对象的名字、当前是否处于严格模式。
+
+迭代器界面中的 return 和 throw 需要外部代码负责，如：
+
+```js
+function* GetThisDone() {
+  try {
+    yield 1
+    yield 10
+    yield 1
+  } finally {
+    console.log('done')
+  }
+}
+const get = GetThisDone()
+let val
+while (val = get.next().value) {
+  if (val < 10) {
+    console.log('right val:', val)
+  } else {
+    console.log('wrong val')
+    get.return()
+  }
+}
+// right val: 1
+// wrong val
+// done
+```
+
+### 闭包
+
+模块和全局脚本不能被实例化，而函数可以。函数实例运行期间生成的词法环境结构，也就是闭包；它也可看作执行期的作用域链，因为其外部引用指向函数实例被调用时的作用域。
+
+函数执行的大致步骤是：用户代码调用 -> 创建环境（Environment） -> 绑定 this -> 执行代码（EvaluateBody = 初始化闭包 + 执行用户代码（Evaluating））。
+
+* 在创建环境时，会将标识符列表指向函数实例所在作用域。这在概念上而言就是初始化的闭包；闭包本质上是一个对作用域的引用。
+* 标识符列表包含变量环境以及词法环境，两者指向根据是否是严格模式有所不同。严格模式下的 eval 作用域块中有自己的 varDecls，所以严格模式下的函数内不需要同时维护变量环境和词法环境了，作用域引用指向词法环境，后者再包含指向变量环境的引用。
+* 除了绑定 this 以及处理标识符列表，执行代码时还会处理函数实例内的顶层函数列表、参数列表以及 arguments 参数。参数列表中的标识符优先级最高。
+
+由于闭包中不包含函数声明的名字，所以这个名字类似 var 声明是允许重绑定的：
+
+```js
+function test () {
+  test = 1
+}
+test()
+console.log(typeof test) // number
+```
 
 ## 勘误？
 
