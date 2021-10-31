@@ -74,6 +74,7 @@ class Vector {
   }
   init (ctx) {
     this.ctx = ctx
+    return this
   }
   copy () {
     return new Vector(this)
@@ -169,8 +170,28 @@ class Particle {
   }
 }
 
+class Attractor {
+  constructor ({ x, y, magnitude = 1 }) {
+    this.instance = new Particle({ x, y })
+    this.magnitude = magnitude
+  }
+  get position () {
+    return this.instance.position
+  }
+  setMagnitude (m) {
+    this.magnitude = m
+  }
+  force (position) {
+    return this.position
+      .sub(position)
+      .normalize()
+      .mult(this.magnitude)
+  }
+}
+
 export default {
   Point,
   Vector,
-  Particle
+  Particle,
+  Attractor
 }

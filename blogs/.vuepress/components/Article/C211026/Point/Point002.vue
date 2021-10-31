@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Utils from './utils'
+import Utils from '../utils'
 
 const { Point } = Utils
 
@@ -26,12 +26,13 @@ export default {
       ctx.background(233)
 
       const points = []
+      
       let i = 1000
       while(i--) {
         points.push(
           new Point(
             ctx.random(this.canvasWidth),
-            ctx.random(this.canvasHeight),
+            ctx.map(ctx.pow(ctx.random(1), 0.32), 1, 0, 0, this.canvasHeight),
             ctx.random(20),
             ctx.random(256),
           )
