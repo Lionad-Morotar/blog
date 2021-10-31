@@ -34,12 +34,12 @@ export default {
         const radius = Math.min(this.canvasWidth, this.canvasHeight) / 2
         const radiusUnite = ctx.pow(ctx.random(1), .5) * radius
         points.push(
-          new Point(
-            ctx.cos(rad) * radiusUnite,
-            ctx.sin(rad) * radiusUnite,
-            ctx.random(16),
-            ctx.random(256),
-          )
+          new Point({
+            x: ctx.cos(rad) * radiusUnite,
+            y: ctx.sin(rad) * radiusUnite,
+            width: ctx.random(16),
+            color: ctx.random(256),
+          })
         )
       }
 

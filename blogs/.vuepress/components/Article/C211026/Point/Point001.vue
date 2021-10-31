@@ -29,12 +29,12 @@ export default {
       let i = 1000
       while(i--) {
         points.push(
-          new Point(
-            ctx.random(this.canvasWidth),
-            ctx.random(this.canvasHeight),
-            ctx.random(20),
-            ctx.random(256),
-          )
+          new Point({
+            x: ctx.random(this.canvasWidth),
+            y: ctx.random(this.canvasHeight),
+            width: ctx.random(20),
+            color: ctx.random(256),
+          })
         )
       }
       points.map(x => x.init(ctx).draw())

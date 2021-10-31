@@ -29,12 +29,12 @@ export default {
       let i = 500
       while(i--) {
         points.push(
-          new Point(
-            ctx.random(this.canvasWidth),
-            ctx.random(this.canvasHeight),
-            ctx.random(3),
-            ctx.random(256),
-          )
+          new Point({
+            x: ctx.random(this.canvasWidth),
+            y: ctx.random(this.canvasHeight),
+            width: ctx.random(3),
+            color: ctx.random(256),
+          })
         )
       }
 

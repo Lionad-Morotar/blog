@@ -31,12 +31,12 @@ export default {
 
       Array(count).fill('').map((x, idx) => {
         points.push(
-          new Point(
-            ctx.random(padding, this.canvasWidth - padding),
-            ctx.random(padding, this.canvasHeight - padding),
-            1,
-            1,
-          )
+          new Point({
+            x: ctx.random(padding, this.canvasWidth - padding),
+            y: ctx.random(padding, this.canvasHeight - padding),
+            width: 1,
+            color: 1,
+          })
         )
       })
       points.map(x => x.init(ctx))

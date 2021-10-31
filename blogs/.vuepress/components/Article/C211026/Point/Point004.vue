@@ -34,12 +34,12 @@ export default {
       while(curRadius < radius) {
         if (curRadius == 0) {
           points.push(
-            new Point(
-              0,
-              0,
-              ctx.random(pointSizeMax/2, pointSizeMax),
-              ctx.random(pointColorMax),
-            )
+            new Point({
+              x: 0,
+              y: 0,
+              width: ctx.random(pointSizeMax/2, pointSizeMax),
+              color: ctx.random(pointColorMax),
+            })
           )
         } else {
           const girth = ctx.TAU * curRadius
@@ -47,12 +47,12 @@ export default {
           Array(count).fill('').map((x, idx) => {
             const rad = ctx.TAU * (idx / count)
             points.push(
-              new Point(
-                ctx.cos(rad) * curRadius,
-                ctx.sin(rad) * curRadius,
-                ctx.random(pointSizeMax),
-                ctx.random(pointColorMax),
-              )
+              new Point({
+                x: ctx.cos(rad) * curRadius,
+                y: ctx.sin(rad) * curRadius,
+                width: ctx.random(pointSizeMax),
+                color: ctx.random(pointColorMax),
+              })
             )
           })
         }

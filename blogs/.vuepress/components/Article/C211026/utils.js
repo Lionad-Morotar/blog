@@ -1,5 +1,5 @@
 class Point {
-  constructor (x, y, width, color) {
+  constructor ({ x, y, width = 1, color = 0 }) {
     this.ctx = null
     this.x = x
     this.y = y
@@ -19,12 +19,7 @@ class Point {
     return this
   }
   copy () {
-    return new Point(
-      this.x,
-      this.y,
-      this.width,
-      this.color
-    )
+    return new Point(this)
   }
   draw () {
     this.ctx.stroke(this.color)
