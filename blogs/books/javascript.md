@@ -983,6 +983,58 @@ a.sort(() => Math.random() - 0.5) // [1, 1, 1, empty x 7]
 
 类数组对象最重要的两个属性是 length 和 Symbol.iterator，分别给与它被大部分 Array 原型方法（以及展开运算符）以及被当作集合对象操作的能力。
 
+### 重写
+
+let 与 const 声明的标识符的延迟绑定，也就是说标识符在语法分析期是没有类型和值的，类型和值要推迟到运行期才能决定；而将值赋给标识符这个过程也就是绑定。规范中，在环境构建过程中，从“标识符名”到“环境中可访问的标识符”叫做创建绑定，let 和 const 分别对应可变绑定和不可变绑定。也就是说 const 的不可写性质是语义决定的。此外，var x = 0 和 const x = 0 中 x = 0 的语义分别是赋值表达式以及绑定也好理解了。
+
+因为历史原因，undefined 在非严格模式下是可写的，只是在新的浏览器中值不会改变。严格模式下，arguments 和 undefined 都是不可写的，但是前者是以“声明环境记录”登记到词法环境的，语义上的不可写，后者则是作为 global 对象上的属性，根据属性描述符决定的不可写性质。
+
+限制标识符动态重写的主要相关两个概念：引用类型以及绑定的不变性，通常分别对应运行时的引用错误与类型错误；限制对象属性重写主要是属性描述符，其内部使用内部方法[[Set]]来重写值，但是此内部方法用代理与反射跳过：
+
+```js
+const a = Object.defineProperties({}, {
+  test: {
+    value: 100,
+    configurable: true
+  }
+})
+a.test = 1
+console.log(a.test) // 100
+const b = new Proxy(a, {
+  set (target, key, value) {
+    if (key === 'test') {
+      // 仅当该属性的 configurable 为 true 才能成功
+      return Reflect.defineProperty(target, key, { value })
+    } else {
+      return Reflect.set(target, key, value)
+    }
+  }
+})
+b.test = 1
+console.log(b.test) // 1
+```
+
+自增自减运算符会隐式的转换操作数的类型。
+
+类声明的 extends 部分是执行时期的语义，而执行这段代码时类还未完成初始化，所以以下语句会报初始化错误：
+
+```js
+class a extends a {}
+```
+
+由于 global 对象可视为从 Object 构造器中构造出来的对象，所以修改 Object.prototype 也会带来变量声明之类的效果。
+
+for...of 和 for...in 的行为不一样，for...in 在执行时会一次性取出对象的属性表，所以对动态加入的属性不敏感；for...of 中，迭代器使用的是索引值，并且迭代次数动态根据 length 属性改变，所以能枚举到某些动态加入的值。
+
+类似 this、super 以及 new.target 虽然也能作为标识符或者对象属性中的某部分访问，但是在单独使用时，引擎会将它们作为特定的语法结构解析，也因此不能作为标识符使用。比如在 with 语句中，单独使用 this 并不能访问到对象的 this 属性。同理，delete、yield、void 会被解析为运算符；true、false、null 会被解析为操作数；但有特殊情况：
+
+```js
+with (a = { undefined: 'test' }) {
+  delete undefined
+}
+console.log(a) // {}
+```
+
 ## 勘误？
 
 * P71，属性读取器
@@ -997,3 +1049,4 @@ a.sort(() => Math.random() - 0.5) // [1, 1, 1, empty x 7]
 * P424，最后一行，存取运算符（.）的优先级高于不带参数表的 new 运算符
 * P536，表格最后一行 String 
 * P535，存取描述符
+* P564，运算符
