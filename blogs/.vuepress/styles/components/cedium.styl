@@ -149,7 +149,7 @@ p, details, form {
     text-rendering: optimizeLegibility;
     text-align: justify;
     font-style: normal;
-    word-break: break-all;
+    word-break: break-word;
     outline: none;
 
     input[type='text'] {
@@ -303,7 +303,8 @@ a {
 {header-tags} {
     a.header-anchor, a:not(.header-anchor) {
         &:visited, &:active {
-            color: #fefefe;
+            /* !FIXME */
+            /* color: #fefefe; */
             text-decoration-color: #fefefe;
         }
     }
@@ -492,7 +493,7 @@ table {
     }
 
     h1, h2, h3, h4, h5, h6 {
-        word-break: break-all;
+        word-break: break-word;
     }
 
     hr {
