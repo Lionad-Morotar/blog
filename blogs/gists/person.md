@@ -1,3 +1,34 @@
 # 人物
 
+## 中国
+
+#### 周
+
 * [姜子牙](/gists/person/jiang-zi-ya.html)
+
+#### 战国
+
+* [吴起](/gists/person/wu-qi.html)
+
+#### 秦
+
+* [商鞅](/gists/person/shang-yang.html)
+
+#### 楚汉
+
+* [项羽](/gists/person/xiang-yu.html)
+* [刘邦](/gists/person/liu-bang.html)
+* [韩信](/gists/person/han-xin.html)
+
+#### 三国
+
+* [周瑜](/gists/person/zhou-yu.html)
+* [曹操](/gists/person/cao-cao.html)
+
+#### 满清
+
+* [曾国潘](/gists/person/zeng-guo-pan.html)
+
+## 美国
+
+* [阿姆斯特朗](/gists/person/armstrong.html)
