@@ -99,3 +99,21 @@
 线的分裂。
 
 <Article-C211026-Line-Line010 />
+
+## 圆形
+
+一些随机的圆，透明度和面积相关。
+
+<Article-C211026-Circle-Circle001 />
+
+近似均匀铺满的圆形。
+
+<Article-C211026-Circle-Circle002 />
+
+使用螺旋布局用圆形将区域铺满。
+
+<Article-C211026-Circle-Circle003 />
+
+圆相交。
+
+<Article-C211026-Circle-Circle004 />

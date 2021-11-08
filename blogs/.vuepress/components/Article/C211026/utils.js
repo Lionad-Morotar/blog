@@ -282,10 +282,69 @@ class Line {
   }
 }
 
+class Circle {
+  constructor({ x, y, radius = 1, color = 0, fill = true } = { x: 0, y: 0 }) {
+    this.ctx = null
+    this.center = new Point({ x, y })
+    this.radius = radius
+    this.color = color
+    this.fill = fill
+  }
+  init (ctx) {
+    this.ctx = ctx
+    this.center.init(ctx)
+    return this
+  }
+  get area () {
+    return this.radius * this.radius * Math.PI
+  }
+  cross (circle) {
+    const distance = this.center.distance(circle.center)
+    return (this.radius + circle.radius) >= distance
+  }
+  include (circle) {
+    const distance = this.center.distance(circle.center)
+    return (this.radius - circle.radius) > distance
+  }
+  intersect (circle) {
+    if (this.cross(circle)) {
+      const d = this.center.distance(circle.center)
+      const k = (this.radius ** 2 + d ** 2 - circle.radius ** 2) / (2 * this.radius * d)
+      const angle = this.ctx.acos(k)
+      const v1 = new Vector({
+        x: circle.center.x - this.center.x,
+        y: circle.center.y - this.center.y,
+      }).mag(this.radius).rotate(angle).add({ x: this.center.x, y: this.center.y })
+      const v2 = new Vector({
+        x: circle.center.x - this.center.x,
+        y: circle.center.y - this.center.y,
+      }).mag(this.radius).rotate(-angle).add({ x: this.center.x, y: this.center.y })
+      const p1 = new Point(v1).init(this.ctx)
+      const p2 = new Point(v2).init(this.ctx)
+      return [p1, p2]
+    } else {
+      return []
+    }
+  }
+  draw () {
+    if (this.fill) {
+      this.ctx.noStroke()
+      this.ctx.fill(this.color)
+    } else {
+      this.ctx.stroke(this.color)
+      this.ctx.strokeWeight(1)
+      this.ctx.noFill()
+    }
+    this.ctx.ellipse(this.center.x, this.center.y, this.radius * 2, this.radius * 2)
+  }
+}
+
 export default {
+  GOLDEN_RATIO: (Math.sqrt(5) - 1) / 2,
   Point,
   Vector,
   Particle,
   Attractor,
-  Line
+  Line,
+  Circle,
 }
