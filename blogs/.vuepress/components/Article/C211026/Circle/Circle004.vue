@@ -15,6 +15,7 @@ export default {
   data: () => ({
     drawIDX: 0,
     circles: [],
+    points: [],
     memo: {},
     canvasWidth: 0,
     canvasHeight: 0,
@@ -51,8 +52,8 @@ export default {
           fill: false
         }).init(ctx)
         circle.draw()
-        const points = this.circles.map(x => x.intersect(circle)).flat()
-        points.map(p => p.set({ width: 5, color: ctx.color(0, 255 * 0.62) }).draw())
+        this.points = this.points.concat(this.circles.map(x => x.intersect(circle)).flat())
+        this.points.map(p => p.set({ width: 5, color: ctx.color(0, 255 * 0.62) }).draw())
         this.circles.push(circle)
       }
     }

@@ -31,6 +31,7 @@ class Point {
       this.ctx.strokeWeight(width)
       this.ctx.line(this.x, this.y, x, y)
     })
+    return this
   }
   distance (point) {
     const { x, y } = point
@@ -283,30 +284,45 @@ class Line {
 }
 
 class Circle {
-  constructor({ x, y, radius = 1, color = 0, fill = true } = { x: 0, y: 0 }) {
+  constructor({ x, y, center, radius = 1, color = 0, fill = true } = { x: 0, y: 0 }) {
     this.ctx = null
-    this.center = new Point({ x, y })
+    this.center = center
+      ? center instanceof Point
+      ? center
+      : new Point(center)
+      : new Point({ x, y })
     this.radius = radius
     this.color = color
     this.fill = fill
   }
-  init (ctx) {
+  init(ctx) {
     this.ctx = ctx
     this.center.init(ctx)
     return this
   }
-  get area () {
+  set (circle) {
+    Object.entries(circle).map(([k, v]) => {
+      const checked =
+        circle.hasOwnProperty(k) &&
+        this.hasOwnProperty(k)
+      if (checked) {
+        this[k] = v
+      }
+    })
+    return this
+  }
+  get area() {
     return this.radius * this.radius * Math.PI
   }
-  cross (circle) {
+  cross(circle) {
     const distance = this.center.distance(circle.center)
     return (this.radius + circle.radius) >= distance
   }
-  include (circle) {
+  include(circle) {
     const distance = this.center.distance(circle.center)
     return (this.radius - circle.radius) > distance
   }
-  intersect (circle) {
+  intersect(circle) {
     if (this.cross(circle)) {
       const d = this.center.distance(circle.center)
       const k = (this.radius ** 2 + d ** 2 - circle.radius ** 2) / (2 * this.radius * d)
@@ -326,7 +342,7 @@ class Circle {
       return []
     }
   }
-  draw () {
+  draw() {
     if (this.fill) {
       this.ctx.noStroke()
       this.ctx.fill(this.color)
@@ -339,6 +355,94 @@ class Circle {
   }
 }
 
+class Triangle {
+  constructor ({ apexes, color = 0, fill = true, ctx } = { apexes: [] }) {
+    this.apexes = apexes.map(apex => {
+      if (apex instanceof Point) return apex
+      else return new Point(apex)
+    })
+    this.color = color
+    this.fill = fill
+    if (ctx) this.init(ctx)
+    else this.ctx = null
+  }
+  init (ctx) {
+    this.ctx = ctx
+    this.apexes.map(point => point.init(ctx))
+    return this
+  }
+  set (triangle) {
+    Object.entries(triangle).map(([k, v]) => {
+      const checked =
+        triangle.hasOwnProperty(k) &&
+        this.hasOwnProperty(k)
+      if (checked) {
+        this[k] = v
+      }
+    })
+    return this
+  }
+  get lines () {
+    const l1 = new Line({ start: this.apexes[0], end: this.apexes[1] })
+    const l2 = new Line({ start: this.apexes[1], end: this.apexes[2] })
+    const l3 = new Line({ start: this.apexes[2], end: this.apexes[0] })
+    l1.init(this.ctx)
+    l2.init(this.ctx)
+    l3.init(this.ctx)
+    return [l1, l2, l3]
+  }
+  get area () {
+    /* 海伦公式求三角形面积 */
+    const lens = this.lines.map(l => l.length)
+    const p = lens.reduce((h, c) => h + c, 0) / 2
+    const area = this.ctx.sqrt(p * (p - lens[0]) * (p - lens[1]) * (p - lens[2]))
+    return area
+  }
+  // 外接圆的中心
+  get circumcenter () {
+    const [p1, p2, p3] = this.apexes
+    const a = new Vector({ x: p2.x - p1.x, y: p2.y - p1.y })
+    const b = new Vector({ x: p3.x - p2.x, y: p3.y - p2.y })
+    const c = new Vector({ x: p1.x - p3.x, y: p1.y - p3.y })
+    const n = a.perpendicular()
+    const d = n.mult(b.dot(c) / n.dot(c))
+    const p = a.add(d).mult(.5).add(new Vector({ x: p1.x, y: p1.y }))
+    return new Point(p).init(this.ctx)
+  }
+  get circumcircle () {
+    const center = this.circumcenter
+    const radius = center.distance(this.apexes[0])
+    return new Circle({ center, radius }).init(this.ctx)
+  }
+  lerp (t) {
+    const apexes = this.lines.map(line => line.lerp(t))
+    return new Triangle({
+      ...this,
+      apexes,
+    })
+  }
+  draw () {
+    if (this.fill) {
+      this.ctx.noStroke()
+      this.ctx.fill(this.color)
+    } else {
+      this.ctx.stroke(this.color)
+      this.ctx.strokeWeight(1)
+      this.ctx.noFill()
+    }
+    const apexes = this.apexes
+    this.ctx.triangle(
+      apexes[0].x,
+      apexes[0].y,
+      apexes[1].x,
+      apexes[1].y,
+      apexes[2].x,
+      apexes[2].y
+    )
+    return this
+  }
+}
+
 export default {
   GOLDEN_RATIO: (Math.sqrt(5) - 1) / 2,
   Point,
@@ -347,4 +451,5 @@ export default {
   Attractor,
   Line,
   Circle,
+  Triangle,
 }

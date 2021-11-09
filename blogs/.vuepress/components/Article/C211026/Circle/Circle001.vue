@@ -31,7 +31,7 @@ export default {
       const circles = Array(15).fill().map((_, idx) => {
         const x = ctx.random(this.canvasWidth)
         const y = ctx.random(this.canvasHeight)
-        const radius = ctx.random(this.canvasLongEdge / 4)
+        const radius = ctx.random(10, this.canvasLongEdge / 4)
         const opacity = ctx.map(radius, 0, this.canvasLongEdge, 135, 0)
         return new Circle({ x, y, radius, color: ctx.color(0, opacity) }).init(ctx)
       })
