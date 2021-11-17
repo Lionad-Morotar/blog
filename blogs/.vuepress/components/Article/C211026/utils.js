@@ -1,11 +1,12 @@
 class Point {
-  constructor ({ x, y, width = 1, color = 0 }) {
-    this.ctx = null
+  constructor ({ x, y, width = 1, color = 0, ctx }) {
     this.x = x
     this.y = y
     this.width = width
     this.color = color
     this.lines = []
+    if (ctx) this.init(ctx)
+    else this.ctx = null
   }
   set (point) {
     if (point.hasOwnProperty('x')) this.x = point.x
@@ -20,6 +21,9 @@ class Point {
   }
   copy () {
     return new Point(this).init(this.ctx)
+  }
+  get vertexes () {
+    return [this]
   }
   draw () {
     this.ctx.stroke(this.color)
@@ -195,8 +199,7 @@ class Attractor {
 }
 
 class Line {
-  constructor({ start, end, width = 1, color = 0 }) {
-    this.ctx = null
+  constructor({ start, end, width = 1, color = 0, ctx }) {
     this.start = start instanceof Point
       ? start
       : new Point(start)
@@ -205,9 +208,14 @@ class Line {
       : new Point(end)
     this.width = width
     this.color = color
+    if (ctx) this.init(ctx)
+    else this.ctx = null
   }
   get length () {
     return this.start.distance(this.end)
+  }
+  get vertexes() {
+    return [start, end]
   }
   init (ctx) {
     this.ctx = ctx
@@ -356,7 +364,7 @@ class Circle {
 }
 
 class Triangle {
-  constructor ({ apexes, color = 0, fill = true, ctx } = { apexes: [] }) {
+  constructor({ apexes, color = 0, fill = true, ctx } = { apexes: [] }) {
     this.apexes = apexes.map(apex => {
       if (apex instanceof Point) return apex
       else return new Point(apex)
@@ -366,12 +374,12 @@ class Triangle {
     if (ctx) this.init(ctx)
     else this.ctx = null
   }
-  init (ctx) {
+  init(ctx) {
     this.ctx = ctx
     this.apexes.map(point => point.init(ctx))
     return this
   }
-  set (triangle) {
+  set(triangle) {
     Object.entries(triangle).map(([k, v]) => {
       const checked =
         triangle.hasOwnProperty(k) &&
@@ -382,7 +390,10 @@ class Triangle {
     })
     return this
   }
-  get lines () {
+  get vertexes() {
+    return [...this.apexes]
+  }
+  get lines() {
     const l1 = new Line({ start: this.apexes[0], end: this.apexes[1] })
     const l2 = new Line({ start: this.apexes[1], end: this.apexes[2] })
     const l3 = new Line({ start: this.apexes[2], end: this.apexes[0] })
@@ -391,7 +402,7 @@ class Triangle {
     l3.init(this.ctx)
     return [l1, l2, l3]
   }
-  get area () {
+  get area() {
     /* 海伦公式求三角形面积 */
     const lens = this.lines.map(l => l.length)
     const p = lens.reduce((h, c) => h + c, 0) / 2
@@ -399,7 +410,7 @@ class Triangle {
     return area
   }
   // 外接圆的中心
-  get circumcenter () {
+  get circumcenter() {
     const [p1, p2, p3] = this.apexes
     const a = new Vector({ x: p2.x - p1.x, y: p2.y - p1.y })
     const b = new Vector({ x: p3.x - p2.x, y: p3.y - p2.y })
@@ -409,19 +420,19 @@ class Triangle {
     const p = a.add(d).mult(.5).add(new Vector({ x: p1.x, y: p1.y }))
     return new Point(p).init(this.ctx)
   }
-  get circumcircle () {
+  get circumcircle() {
     const center = this.circumcenter
     const radius = center.distance(this.apexes[0])
     return new Circle({ center, radius }).init(this.ctx)
   }
-  lerp (t) {
+  lerp(t) {
     const apexes = this.lines.map(line => line.lerp(t))
     return new Triangle({
       ...this,
       apexes,
     })
   }
-  draw () {
+  draw() {
     if (this.fill) {
       this.ctx.noStroke()
       this.ctx.fill(this.color)
@@ -443,6 +454,135 @@ class Triangle {
   }
 }
 
+class Rectangle {
+  // Corners，矩形中两个相对的角点，传入的顺序无所谓
+  constructor({ corners, color = 0, fill = true, ctx } = { corners: [] }) {
+    this.corners = [
+      new Point({
+        x: Math.min(corners[0].x, corners[1].x),
+        y: Math.min(corners[0].y, corners[1].y)
+      }),
+      new Point({
+        x: Math.max(corners[0].x, corners[1].x),
+        y: Math.max(corners[0].y, corners[1].y)
+      })
+    ]
+    this.color = color
+    this.fill = fill
+    if (ctx) this.init(ctx)
+    else this.ctx = null
+  }
+  init(ctx) {
+    this.ctx = ctx
+    this.corners.map(point => point.init(ctx))
+    return this
+  }
+  set(triangle) {
+    Object.entries(triangle).map(([k, v]) => {
+      const checked =
+        triangle.hasOwnProperty(k) &&
+        this.hasOwnProperty(k)
+      if (checked) {
+        this[k] = v
+      }
+    })
+    return this
+  }
+  get area () {
+    const ctx = this.ctx
+    const [p1, p2] = this.corners
+    return ctx.abs(p1.x - p2.x) * ctx.abs(p1.y - p2.y)
+  }
+  get vertexes () {
+    const ctx = this.ctx
+    const [c1, c2] = this.corners
+    return [
+      c1.copy(),
+      new Point({ x: c2.x, y: c1.y }).init(ctx),
+      c2.copy(),
+      new Point({ x: c1.x, y: c2.y }).init(ctx),
+    ]
+  }
+  get edges () {
+    const ctx = this.ctx
+    const [p1, p3, p2, p4] = this.vertexes
+    return [
+      new Line({ start: p1, end: p3 }).init(ctx),
+      new Line({ start: p3, end: p2 }).init(ctx),
+      new Line({ start: p2, end: p4 }).init(ctx),
+      new Line({ start: p4, end: p1 }).init(ctx),
+    ]
+  }
+  contains (shape) {
+    return shape.vertexes.filter(point => {
+      const { x, y } = point
+      const [p1, p2] = this.corners
+      return p1.x < x &&
+        p1.y < y &&
+        x < p2.x &&
+        y < p2.y
+    }).length
+  }
+  containVetexes (shape) {
+    return shape.vertexes.filter(point => {
+      const { x, y } = point
+      const [p1, p2] = this.corners
+      return p1.x < x &&
+        p1.y < y &&
+        x < p2.x &&
+        y < p2.y
+    })
+  }
+  intersect (rect) {
+    return this.edges.reduce((h, edge) => {
+      const points = rect.edges.map(e => e.intersect(edge)).filter(x => x)
+      h = h.concat(points)
+      return h
+    }, [])
+  }
+  intersectRect (rect) {
+    const ctx = this.ctx
+    let points = this.intersect(rect)
+    points = points.concat(this.containVetexes(rect))
+    if (points.length === 0) {
+      return null
+    } else {
+      return new Rectangle({
+        ...this,
+        corners: [
+          {
+            x: ctx.min(...points.map(p => p.x)),
+            y: ctx.min(...points.map(p => p.y)),
+          },
+          {
+            x: ctx.max(...points.map(p => p.x)),
+            y: ctx.max(...points.map(p => p.y)),
+          },
+        ]
+      })
+    }
+  }
+  draw() {
+    this.ctx.rectMode(this.ctx.CORNERS)
+    if (this.fill) {
+      this.ctx.noStroke()
+      this.ctx.fill(this.color)
+    } else {
+      this.ctx.stroke(this.color)
+      this.ctx.strokeWeight(1)
+      this.ctx.noFill()
+    }
+    const [p1, p2] = this.corners
+    this.ctx.rect(
+      p1.x,
+      p1.y,
+      p2.x,
+      p2.y,
+    )
+    return this
+  }
+}
+
 export default {
   GOLDEN_RATIO: (Math.sqrt(5) - 1) / 2,
   Point,
@@ -452,4 +592,5 @@ export default {
   Line,
   Circle,
   Triangle,
+  Rectangle,
 }
