@@ -29,6 +29,10 @@
 
 * [曾国潘](/gists/person/zeng-guo-pan.html)
 
+## 法国
+
+* [亨利四世](/gists/person/henry-4th.html)
+
 ## 美国
 
 * [阿姆斯特朗](/gists/person/armstrong.html)
