@@ -32,6 +32,7 @@
 ## 法国
 
 * [亨利四世](/gists/person/henry-4th.html)
+* [夏尔·戴高乐](/gists/person/charles-de-gaulle.html)
 
 ## 美国
 
