@@ -35,4 +35,5 @@
 
 ## 美国
 
+* [维克多·雨果·格林](/gists/person/victor-hugo-green.html)
 * [阿姆斯特朗](/gists/person/armstrong.html)
