@@ -1,7 +1,5 @@
 <template>
-  <ClientOnly>
-    <div class="p5-con" />
-  </ClientOnly>
+  <div class="p5-con" />
 </template>
 
 <script>
@@ -87,7 +85,10 @@ export default {
   },
   methods: {
     async initP5() {
-      await this.$utils.loadScriptFromURL('https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js')
+      await this.$utils.loadScriptFromURL(
+        'https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js',
+        // 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js'
+      )
       new p5(ctx => {
         /* extends ctx with some helper fns */
         ctx = this.extendP5(ctx)
