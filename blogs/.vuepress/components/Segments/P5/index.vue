@@ -64,6 +64,7 @@ export default {
     'h'
   ],
   data: () => ({
+    id: String(+new Date()) + String(Math.random()).slice(-6),
     width: 740,
     height: 450
   }),
@@ -75,20 +76,35 @@ export default {
         : initialEvents
     }
   },
-  mounted() {
+  async mounted() {
     /* init p5.js */
-    this.initP5()
+    await this.loadScript()
+    this.observeIntersection()
     /* init canvas size */
-    const $h1 = document.querySelector('h1')
+    const $h1 = document && document.querySelector('h1')
     this.width = this.w || ($h1 ? $h1.offsetWidth : (window.innerWidth || this.width))
     this.height = this.h || (~~(this.width * 0.618))
   },
   methods: {
-    async initP5() {
-      await this.$utils.loadScriptFromURL(
+    async loadScript() {
+      return await this.$utils.loadScriptFromURL(
         'https://cdn.jsdelivr.net/npm/p5@latest/lib/p5.min.js',
         // 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js'
       )
+    },
+    // 只在出现于视窗内时才开始加载
+    observeIntersection() {
+      const observer = new IntersectionObserver(changeElms => {
+        changeElms.forEach(elm => {
+          if (elm.isIntersecting) {
+            observer.unobserve(this.$el)
+            this.initP5()
+          }
+        })
+      })
+      observer.observe(this.$el)
+    },
+    async initP5() {
       new p5(ctx => {
         /* extends ctx with some helper fns */
         ctx = this.extendP5(ctx)

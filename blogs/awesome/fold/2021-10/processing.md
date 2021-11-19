@@ -2,7 +2,7 @@
 
 [TOC]
 
-<!-- ## 点
+## 点
 
 随机位置的点。
 
@@ -138,7 +138,7 @@
 
 三角形细分，并控制细分的顺序。
 
-<Article-C211026-Triangle-Triangle005 /> -->
+<Article-C211026-Triangle-Triangle005 /> 
 
 ## 矩形
 
@@ -157,3 +157,4 @@
 矩形的细分。
 
 <Article-C211026-Rectangle-Rectangle004 />
+
