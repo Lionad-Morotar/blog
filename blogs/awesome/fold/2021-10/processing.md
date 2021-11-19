@@ -158,3 +158,16 @@
 
 <Article-C211026-Rectangle-Rectangle004 />
 
+## 图表
+
+冒泡排序历史记录的可视化。
+
+<Article-C211026-Chart-Chart001 />
+
+倒序数组的冒泡排序历史记录的环形图展现了高度的秩序性。
+
+<Article-C211026-Chart-Chart002 />
+
+数组长度增加，初始半径为负数。
+
+<Article-C211026-Chart-Chart003 />
