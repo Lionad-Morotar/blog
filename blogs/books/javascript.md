@@ -1035,6 +1035,40 @@ with (a = { undefined: 'test' }) {
 console.log(a) // {}
 ```
 
+### 动态绑定
+
+间接调用 eval 的 this 引用指向全局对象，同时还处于非严格模式。间接调用可能包括：
+
+```js
+function indirect() {
+  const exec = eval
+  const getEval = () => eval
+  // 单值表达式
+  exec('console.log(this === globalThis)')
+  // 函数返回
+  getEval()('console.log(this === globalThis)')
+  // 携带逗号运算符的分组运算符
+  ;(0, eval)('console.log(this === globalThis)')
+  // eval.call 等方法
+  eval.call((), 'console.log(this === globalThis)')
+}
+indirect.bind({})()
+```
+
+有个看起来比较像特殊情况的是分组运算符中不携带逗号运算符的例子，比如：(eval)('')。此时返回最后一个表达式的 Result。如果携带逗号运算符，表达式最终返回 Value，所以这时又类似间接调用。
+
+除了间接调用 eval 函数，在全局代码块顶层直接使用 eval 时，其 this 引用指向全局对象。
+
+```js
+x = 100
+const obj = { x: 200 }
+with (obj) { 
+  eval(console.log(x, this.x)) // 200 100
+}
+```
+
+动态创建的函数作用域总是全局，且除非指定 “use strict”，不然它总是默认以非严格模式执行。
+
 ## 勘误？
 
 * P71，属性读取器
