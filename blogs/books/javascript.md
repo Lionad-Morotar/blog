@@ -1069,6 +1069,29 @@ with (obj) {
 
 动态创建的函数作用域总是全局，且除非指定 “use strict”，不然它总是默认以非严格模式执行。
 
+### 动态方法调用
+
+从 ES6 开始，函数和方法的一个显著区别在于有没有有效的 this。
+
+apply 函数的第二个参数可以使用数组或者类数组对象，所以在大多数引擎中他们的效率要比 call 方法稍高。
+
+早期的 NodeJS 中的 console.log 方法以及 FireFox 中的 document.writeLn 依赖隐式的 this，如果没有绑定到正确的 console 或 document 上就会报错。
+
+使用 bind 函数后得到结果的并不是新的函数，只是没有 prototype 属性（在部分版本的 V8 的是线上有 Bug），可以使用以下代码验证：
+
+```js
+function Test() {}
+TestAnother = Test.bind({})
+console.log(new Test() instanceof TestAnother) // true
+console.log(test2.prototype) // undefined
+```
+
+严格模式禁用 arguments.callee.caller 和 fn.caller 的理由是通过函数的栈可以访问到上层函数并经由 arguments 的引用修改部分参数、改变参数长度，甚至使用 sort 方法重排序传入参数。
+
+### 通用执行环境的实现
+
+跳过。
+
 ## 勘误？
 
 * P71，属性读取器
