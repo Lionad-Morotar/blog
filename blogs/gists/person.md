@@ -29,6 +29,12 @@
 
 * [曾国潘](/gists/person/zeng-guo-pan.html)
 
+#### 近代
+
+* [林纾](/gists/person/lin-shu.html)
+* [钱玄同](/gists/person/qian-xuan-tong.html)
+* [胡适](/gists/person/hu-shi.html)
+
 ## 法国
 
 * [亨利四世](/gists/person/henry-4th.html)
