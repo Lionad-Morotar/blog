@@ -41,7 +41,12 @@
 * [卢梭 1712~1778](/gists/person/jean-jacques-rousseau.html)
 * [夏尔·戴高乐](/gists/person/charles-de-gaulle.html)
 
+## 德国
+
+* [贝特拉基](/gists/person/beltracchi.html)
+
 ## 美国
 
 * [维克多·雨果·格林](/gists/person/victor-hugo-green.html)
 * [阿姆斯特朗](/gists/person/armstrong.html)
+* [保罗·罗辛](/gists/person/paul-rozin.html)
