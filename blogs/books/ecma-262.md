@@ -6,7 +6,7 @@
 
 一些极其有用的前置参考资料，有助于甄别与理解规范里各种概念，不至于被绕晕。
 
-* [<i>How to Read the ECMAScript Specification</i>](https://timothygu.me/es-howto/)，这个资料简要介绍了一些阅读规范时需要知悉且有助于你理解规范的前置概念并予例说明，比如说抽象操作（abstract operation）、内部槽以及内部方法（internal slots & internal methods）、完成记录（Completion Record）、变异对象（exotic objects）。
+* [<i>How to Read the ECMAScript Specification</i>](https://timothygu.me/es-howto/)，这个资料简要介绍了一些阅读规范时需要知悉且有助于你理解规范的前置概念并予例说明，比如说抽象操作、内部槽以及内部方法、完成记录、变异对象等。
 * [<i>Understanding ECMAScript</i>](https://v8.dev/blog/tags/understanding-ecmascript)，V8 团队写的 ECMAScript 阅读指南文章系列，一共四篇，很有参考价值。
 * [《ECMAScript 阅读指南》](https://juejin.cn/post/6944587399418609701)，<i>Understanding ECMAScript</i> 的翻译版本。
 * [<i>What is the difference between JavaScript and ECMAScript?</i>](https://stackoverflow.com/questions/912479/what-is-the-difference-between-javascript-and-ecmascript)
