@@ -1,5 +1,9 @@
 # 人物
 
+## 希腊
+
+* [亚里士多德（BC384~BC322）](/gists/person/aristotle.html)
+
 ## 中国
 
 #### 周
