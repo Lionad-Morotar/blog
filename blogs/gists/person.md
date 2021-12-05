@@ -51,6 +51,7 @@
 
 ## 美国
 
+* [菲尼斯·盖奇（1823~1850）](/gists/person/phineas-gage.html)
 * [维克多·雨果·格林](/gists/person/victor-hugo-green.html)
 * [阿姆斯特朗](/gists/person/armstrong.html)
 * [保罗·罗辛](/gists/person/paul-rozin.html)
