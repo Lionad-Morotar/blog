@@ -55,3 +55,4 @@
 * [维克多·雨果·格林](/gists/person/victor-hugo-green.html)
 * [阿姆斯特朗](/gists/person/armstrong.html)
 * [保罗·罗辛](/gists/person/paul-rozin.html)
+* [吉姆·琼斯（1931~1978）](/gists/person/jim-jones.html)
