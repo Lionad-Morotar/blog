@@ -56,6 +56,7 @@
 * [阿姆斯特朗](/gists/person/armstrong.html)
 * [保罗·罗辛](/gists/person/paul-rozin.html)
 * [吉姆·琼斯（1931~1978）](/gists/person/jim-jones.html)
+* [亨利·莫莱森（1926~2008）](/gists/person/henry-molaison.html)
 
 ## 葡萄牙
 
