@@ -56,3 +56,7 @@
 * [阿姆斯特朗](/gists/person/armstrong.html)
 * [保罗·罗辛](/gists/person/paul-rozin.html)
 * [吉姆·琼斯（1931~1978）](/gists/person/jim-jones.html)
+
+## 葡萄牙
+
+* [安东尼奥·埃加斯·莫尼斯（1874~1955）](/gists/person/antonio-egas-moniz.html)
