@@ -2,7 +2,8 @@
 
 ## 希腊
 
-* [亚里士多德（BC384~BC322）](/gists/person/aristotle.html)
+* [希波克拉底（B.C. 460 ~ B.C. 370）](/gists/person/hippocrates.html)
+* [亚里士多德（B.C. 384 ~ B.C. 322）](/gists/person/aristotle.html)
 
 ## 中国
 
