@@ -59,7 +59,7 @@ const sidebars = [
     open: true,
     path: '/flows/',
     children: [
-      'flows/brain-history',
+      // 'flows/brain-history',
       'flows/art',
       // 'flows/rss',
       'flows/books',
@@ -145,8 +145,8 @@ module.exports = {
   getRecommends() {
     return {
       心流思绪: {
-        url: '/flow/brain-history.html',
-        label: '设计模式与JS魔法锅'
+        url: '/flow/art.html',
+        label: '神秘主义的艺术'
       },
       黑魔法: {
         url: '/articles/css-light-travel.html',
