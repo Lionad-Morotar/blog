@@ -1,27 +1,11 @@
 const fs = require('fs')
+const path = require('path')
 
 console.log('USE NODE_ENV:', process.env.NODE_ENV)
 
-// ! const gistsDir = path.join(baseDir, '../gists')
-// ! Do Not Refactor, Static Path to avoid vuepress build error
-let env
-try {
-  env = require('./build-env')
-} catch (_) {
-  env = 'windows'
-}
-console.log('USE BUILD ENV: ', env)
-
-let gistsDir, awesomeDir, secretsDir
-if (env === 'windows') {
-  gistsDir = 'D:/@Github/blog/blogs/gists'
-  awesomeDir = 'D:/@Github/blog/blogs/awesome'
-  secretsDir = 'D:/@Github/blog/blogs/secrets'
-} else {
-  gistsDir = '/Users/baixing/@Github/blog/blogs/gists'
-  awesomeDir = '/Users/baixing/@Github/blog/blogs/awesome'
-  secretsDir = '/Users/baixing/@Github/blog/blogs/secrets'
-}
+let gistsDir = path.join(__dirname, '../gists'),
+  awesomeDir = path.join(__dirname, '../awesome'),
+  secretsDir = path.join(__dirname, '../secrets')
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -49,7 +33,6 @@ const getSRCs = (src, prefix = '') => {
   filenames.sort()
   return filenames.map(x => prefix + x)
 }
-// console.log('getSRCs Test : ', getSRCs(gistsDir))
 
 const sidebars = [
   {
@@ -151,7 +134,7 @@ module.exports = {
       黑魔法: {
         url: '/articles/css-light-travel.html',
         label: '探秘 CSS 光影效果'
-      },
+      }
     }
   }
 }
