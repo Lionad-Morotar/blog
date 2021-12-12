@@ -36,7 +36,7 @@ jobs:
       run: npm run build
       
     - name: Upload
-      uses: wangyucode/sftp-upload-action@v1.1
+      uses: Creepios/sftp-action@v1.0.3
       env:
         host: ${{ secrets.HOST_IP }}
         username: ${{ secrets.USER }}
