@@ -14,8 +14,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Decrypto
-      run: sudo /home/runner/work/blog/blog/build/decrypto.sh
+    - name: Decrypto Valine ID
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPG_PASS" $GITHUB_WORKSPACE/blogs/.vuepress/private/valine-id.js.gpg
+      env:
+        GPG_PASS: ${{ secrets.GPG_PASS }}
+
+    - name: Decrypto Valine Key
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPG_PASS" $GITHUB_WORKSPACE/blogs/.vuepress/private/valine-key.js.gpg
       env:
         GPG_PASS: ${{ secrets.GPG_PASS }}
     
