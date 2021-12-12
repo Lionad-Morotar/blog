@@ -1,0 +1,35 @@
+name: Build and Deploy to AliInstance
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: production
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Setup NodeJS
+      uses: actions/setup-node@v2.5.0
+      with:
+        node-version: 14.15.5
+        
+    - name: Install
+      run:  npm install
+      
+    - name: Build
+      run: npm run build
+      
+    - name: Upload
+      uses: wangyucode/sftp-upload-action@v1.1
+      env:
+        host: ${{ secrets.HOST_IP }}
+        username: ${{ secrets.USER }}
+        password: ${{ secrets.PASSWORD }}
+        localDir: 'dist'
+        remoteDir: '/home/morotar/blog'
