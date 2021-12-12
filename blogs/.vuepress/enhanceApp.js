@@ -20,7 +20,7 @@ export default ({
   siteData // 站点元数据
 }) => {
   Vue.use(Fragment.Plugin)
-  
+
   Vue.config.ignoredElements = ['css-doodle', 'flow', 'name', 'time', 'pixel', 'hide']
   Vue.component('vue-p5', VueP5)
   Vue.component('WHRatio', WHRatio)
