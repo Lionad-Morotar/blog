@@ -57,7 +57,7 @@ module.exports = {
       // '/music/': sidebar.getSidebar(),
       // '/secrets/': sidebar.getSidebar(),
       '/ideas/': [],
-      '/friends/': [],
+      '/friends/': []
     },
     nextLinks: false,
     prevLinks: false
@@ -134,10 +134,9 @@ module.exports = {
       selector: '.content__default',
       count: 10,
       filter: page => {
-        const shouldConvert = /^articles\/((ideas\/)|([^\/]*\.md$))/.test(page.relativePath)
-        const manual = ['art']
-
-        return manual.length ? manual.find(x => (page.relativePath || '').includes(x)) : shouldConvert
+        // const shouldConvert = /^articles\/((ideas\/)|([^\/]*\.md$))/.test(page.relativePath)
+        // const manual = ['art']
+        return false
       }
     },
     sitemap: {
