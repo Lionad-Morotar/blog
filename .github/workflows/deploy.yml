@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Decrypto
-      run: sudo ./build/decrypto.sh
+      run: sudo /home/runner/work/blog/blog/build/decrypto.sh
       env:
         GPG_PASS: ${{ secrets.GPG_PASS }}
     
