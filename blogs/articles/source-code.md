@@ -28,6 +28,8 @@ VueJS 源码相关：
 
 - [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
 
+- [VueJS | TestKit](/articles/source-code/vuejs/test-kit.html)
+
 VueJS 周边：
 
 - [element-ui](/articles/source-code/vuejs/element-ui.html)
