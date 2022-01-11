@@ -127,7 +127,7 @@ module.exports = {
   getRecommends() {
     return {
       心流思绪: {
-        url: '/flow/books.html',
+        url: '/flows/books.html',
         label: '2021 荐书两本'
       },
       黑魔法: {
