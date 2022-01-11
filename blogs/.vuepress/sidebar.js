@@ -128,8 +128,8 @@ module.exports = {
   getRecommends() {
     return {
       心流思绪: {
-        url: '/flow/art.html',
-        label: '神秘主义的艺术'
+        url: '/flow/books.html',
+        label: '2021 荐书两本'
       },
       黑魔法: {
         url: '/articles/css-light-travel.html',
