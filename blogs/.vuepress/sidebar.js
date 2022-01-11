@@ -43,7 +43,6 @@ const sidebars = [
     path: '/flows/',
     children: [
       // 'flows/brain-history',
-      'flows/art',
       // 'flows/rss',
       'flows/books',
       'flows/punctuations',
