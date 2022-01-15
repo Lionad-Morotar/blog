@@ -32,6 +32,7 @@
 
 #### 满清
 
+* [爱新觉罗·福临（1638~1661）](/gists/person/shun-zhi.html)
 * [曾国潘](/gists/person/zeng-guo-pan.html)
 
 #### 近代
@@ -49,6 +50,10 @@
 ## 德国
 
 * [贝特拉基](/gists/person/beltracchi.html)
+
+## 瑞士
+
+* [亨利·马克拉姆](/gists/person/henry-markram.html)
 
 ## 美国
 
