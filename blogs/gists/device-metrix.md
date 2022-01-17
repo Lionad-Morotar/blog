@@ -1,5 +1,7 @@
 # Device Metrics
 
+[TOC]
+
 ## iPhone
 
 <br />

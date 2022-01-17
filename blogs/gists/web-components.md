@@ -1,5 +1,6 @@
 # Web Components
 
+[TOC]
 
 ## Shadow DOM
 

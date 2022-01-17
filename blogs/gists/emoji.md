@@ -1,5 +1,7 @@
 # Emoji
 
+[TOC]
+
 ##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/JavaScript%E4%B8%8B%E5%90%AB%E6%9C%89emoji%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%A4%84%E7%90%86%20-%20%E6%8E%98%E9%87%91.html' source='https://juejin.cn/post/6941276804472635405' >《JavaScript 下含有 emoji 字符串的处理》</Link>
 
 在处理 emoji 字符时有些坑。

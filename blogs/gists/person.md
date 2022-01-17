@@ -1,5 +1,7 @@
 # 人物
 
+[TOC]
+
 ## 希腊
 
 * [希波克拉底（B.C. 460 ~ B.C. 370）](/gists/person/hippocrates.html)

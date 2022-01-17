@@ -1,5 +1,7 @@
 # 字体
 
+[TOC]
+
 ##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20line-height%E3%80%81vertical-align%20-%20%E5%A4%A7%E6%AD%A5%E5%BE%80%E5%89%8D%E8%B5%B0_%E4%B8%8D%E5%9B%9E%E5%A4%B4%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD.html' source='https://www.cnblogs.com/wfeicherish/p/8884903.html' >《深入理解：line-height、vertical-align》</Link>
 
 由于每个字体占据的行内的实际高度是要按照字体属性计算的，font-size 指定了 em-square 的大小，但是字体展示在行内的高度（内容区高度）是按照字体的 Ascent 和 Descent 属性计算的，这就是为什么设置了字体的展示范围要比 font-size 大得多。

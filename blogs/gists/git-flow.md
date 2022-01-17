@@ -1,5 +1,7 @@
 # Gitflow
 
+[TOC]
+
 ## 从 PR 开始说起
 
 PR（Pull Request）是一种使用 Gitlab 或其它版本管理系统附带的一种工作流程。

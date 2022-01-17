@@ -1,5 +1,7 @@
 # JavaScript 诡计
 
+[TOC]
+
 ## 运行时语法错误
 
 以下案例能证明 JS 存在“动态作用域”以及“运行时语法错误（Syntax Error）”：

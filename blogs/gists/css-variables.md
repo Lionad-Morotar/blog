@@ -1,5 +1,7 @@
 # CSS 变量
 
+[TOC]
+
 ##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/%40property_%20giving%20superpowers%20to%20CSS%20variables.html' source='https://web.dev/at-property/' >《@property: giving superpowers to CSS variables》</Link>
 
 <Article-A200903-Transition />

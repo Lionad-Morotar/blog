@@ -1,5 +1,7 @@
 # Gitlab CI/CD
 
+[TOC]
+
 CI/CD 即 Continuous Integration / Continuous Deployment。CI 主要概括为项目自动构建、自动测试（修复 Bug 后重复构建、测试）的持续性，CD 则包括自动构建、测试以及部署。
 
 ## gitlab-ci.yml

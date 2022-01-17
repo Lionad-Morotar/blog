@@ -1,5 +1,7 @@
 # VSCode 插件开发
 
+[TOC]
+
 ## 遇到的一些问题
 
 ### Hello World
