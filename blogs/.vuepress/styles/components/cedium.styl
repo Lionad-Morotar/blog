@@ -60,10 +60,20 @@ h2, h3, h4, h5 {
 }
 
 h1 {
+    position: relative;
     // 覆盖 Vuepress 样式
     margin-top: 1.25rem !important;
     margin-bottom: 3rem !important;
     font-size: 3rem;
+
+    /* &::after {
+        content: attr(id);
+        position: absolute;
+        left: -3.5rem;
+        top: 0;
+        font-size: 8rem;
+        color: rgba(0,0,0,0.13);
+    } */
 }
 
 h2 {
