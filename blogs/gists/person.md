@@ -4,46 +4,26 @@
 
 ## 希腊
 
-* [希波克拉底（B.C. 460 ~ B.C. 370）](/gists/person/hippocrates.html)
-* [亚里士多德（B.C. 384 ~ B.C. 322）](/gists/person/aristotle.html)
-* [埃拉托色尼（B.C. 275 ~ B.C. 193）](/gists/person/eratosthenes.html)
-* [克罗狄斯·托勒密（90 ~ 168）](/gists/person/claudius-ptolemaeus.html)
+* [希波克拉底（B.C. 460~B.C. 370）](/gists/person/hippocrates.html)
+* [亚里士多德（B.C. 384~B.C. 322）](/gists/person/aristotle.html)
+* [埃拉托色尼（B.C. 275~B.C. 193）](/gists/person/eratosthenes.html)
+* [克罗狄斯·托勒密（90~168）](/gists/person/claudius-ptolemaeus.html)
 
 ## 中国
 
-#### 周
-
-* [姜子牙](/gists/person/jiang-zi-ya.html)
-
-#### 战国
-
-* [吴起](/gists/person/wu-qi.html)
-
-#### 秦
-
-* [商鞅](/gists/person/shang-yang.html)
-
-#### 楚汉
-
-* [项羽](/gists/person/xiang-yu.html)
-* [刘邦](/gists/person/liu-bang.html)
-* [韩信](/gists/person/han-xin.html)
-
-#### 三国
-
-* [周瑜](/gists/person/zhou-yu.html)
-* [曹操](/gists/person/cao-cao.html)
-
-#### 满清
-
-* [爱新觉罗·福临（1638~1661）](/gists/person/shun-zhi.html)
-* [曾国潘](/gists/person/zeng-guo-pan.html)
-
-#### 近代
-
-* [林纾](/gists/person/lin-shu.html)
-* [钱玄同](/gists/person/qian-xuan-tong.html)
-* [胡适](/gists/person/hu-shi.html)
+* [姜子牙（周）](/gists/person/jiang-zi-ya.html)
+* [吴起（战国）](/gists/person/wu-qi.html)
+* [商鞅（秦）](/gists/person/shang-yang.html)
+* [项羽（楚汉）](/gists/person/xiang-yu.html)
+* [刘邦（楚汉）](/gists/person/liu-bang.html)
+* [韩信（楚汉）](/gists/person/han-xin.html)
+* [周瑜（三国）](/gists/person/zhou-yu.html)
+* [曹操（三国）](/gists/person/cao-cao.html)
+* [爱新觉罗·福临（1638~1661，满清）](/gists/person/shun-zhi.html)
+* [曾国潘（满清）](/gists/person/zeng-guo-pan.html)
+* [林纾（近代）](/gists/person/lin-shu.html)
+* [钱玄同（近代）](/gists/person/qian-xuan-tong.html)
+* [胡适（近代）](/gists/person/hu-shi.html)
 
 ## 法国
 
@@ -71,3 +51,7 @@
 ## 葡萄牙
 
 * [安东尼奥·埃加斯·莫尼斯（1874~1955）](/gists/person/antonio-egas-moniz.html)
+
+## 波兰
+
+* [尼古拉·哥白尼（1473~1543）](/gists/person/mikolaj-kopernik.html)

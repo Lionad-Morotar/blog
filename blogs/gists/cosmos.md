@@ -8,7 +8,7 @@
 
 托勒密运用数学和几何工具计算推导出了一个数学上较为圆满的[宇宙模型](/gists/person/claudius-ptolemaeus.html#地心说)：他把地球放在了模型的中心，然后依次用更大的圆环指代月球、水星、金星、太阳、火星、木星以及土星的运行轨道，最外面一层则是恒星。他的计算结果以肉眼为度量时非常精确，并且成功使用本轮概念解释了行星的逆行现象（retrograde motion）。在教会的支持下，托勒密的天体模型深入人心，影响持续了一千多年，直到十六世纪的哥白尼。
 
-哥白尼是教会中的神职人员，也是大教堂参事会的成员。他曾经十分欣赏托勒密的模型，但一心想要把它简化。最终，他的理论把宇宙的中心从托勒密的地心转移到了日心。可惜的是，直到他去世六十年后，其理论才被开普勒继续进一步研究。在开普勒的理论中，行星的运行轨道是椭圆形的。
+哥白尼是教会中的神职人员，也是大教堂参事会的成员。他曾经十分欣赏托勒密的模型，一心想要把它简化。最终，他的理论把宇宙的中心从托勒密的地心说转移到了[日心说](/gists/person/mikolaj-kopernik.html#日心说)。可惜的是，其作品受教会等诸多因素导致被人们忽视，直到哥白尼去世六十年后，其理论才被开普勒继续进一步研究。在开普勒的理论中，行星的运行轨道是椭圆形的。
 
 伽利略把哥白尼的著作发表成书，向大众宣传日心说，而教会采取了镇压的手段以抵抗。伽利略被迫收回言论，他本人也被教会软禁在朱里奥大宅中，不得外出也不得受访。在这段时期，他发明了望远镜，并对月球、木星等天体进行了观测与绘制。
 
@@ -74,3 +74,6 @@ E06 其他理论 7分
 
 其他出场人物：Robert Jastrow，Spiros Cotsakis，Maria Papathanassiou，Michael Sharratt，Julian Barbour，Francisco Diego，Fay Dowker，Gregory Benford，Sallie Balliunas，Michael Heller，Dennis Sciama，Chris Halls，Marcelo Gleiser，Cherry Cilchrist，Eugene Babaev，Montague Cohen，Fred Niell，Andria Erzberger，Priya Natarajan，Daniel Holz，Sidney Coleman，加来道雄 -->
 
+#### [从“地心说”到“日心说”，不是简单的意识形态斗争](https://www.bilibili.com/video/BV1N44y1m7we)
+
+科学革命的动机是科学方法论的简化——改变一个坐标系，就使得计算规则大大化简。
