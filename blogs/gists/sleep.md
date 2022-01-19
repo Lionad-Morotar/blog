@@ -10,8 +10,7 @@
 
 ## 多相
 
-这一阶段尝试主周期睡两个周期。测试网址见：[HUMAN BENCHMARK](https://humanbenchmark.com/dashboard)
+这一阶段尝试主周期睡两个周期。测试网址见：[HUMAN BENCHMARK](https://humanbenchmark.com/dashboard)。由于完整的测试需要花费十来分钟，所以只做反应时间测试。
 
-* 第一天，主周期 01:00 ~ 05:40（06:40）
-
-![第一天主周期结果](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/humanbenchmark.com_dashboard_2022年1月18日.png)
+* 第一天，主周期 _*_U2FsdGVkX18ip567a4pIOCc6BNGxvG0MjlCFOuTm92o=_*_，反应时间 _*_U2FsdGVkX1+U1RZyWh2B9Q6JLI/sKNJwNExewz2hG1U=_*_，副周期 _*_U2FsdGVkX1+jt3F2WbBG4rI47b/1gAkAjpUZGjZLN0k=_*_，反应时间 _*_U2FsdGVkX1/hS3JxR5vVnVrxbIyxI2c64HY94nxrerk=_*_
+* 第二天，主周期 _*_U2FsdGVkX18mwnq5CgZtcKwhNHM5e0Sw3oXHJArDF68=_*_，反应时间 _*_U2FsdGVkX1+qtd1PvY1pmcZ0uFeehD1zGO3L1I/9wtQ=_*_，副周期 _*_U2FsdGVkX1+SXtVzpIuYzgmbBzwlG0el3Ewo1dAz2hM=_*_，反应时间 _*_U2FsdGVkX1+9Ngat+LL8zOHLL239Hr5xEGATyFq3Afc=_*_
