@@ -416,7 +416,7 @@ ssh -T git@github.com
 
 如果提示 ssh: connect to host ... time out 那就是了。此时需要到 ~/.ssh/ 文件夹下创建一个 config 文件，内容如下：
 
-```text
+```
 Host github.com
 User lionad-trident
 Hostname ssh.github.com

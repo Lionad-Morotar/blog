@@ -27,6 +27,9 @@ const getSRCs = (src, prefix = '') => {
         }
       })
     } catch (err) {
+      // 在 Build 时会碰到这个莫名奇妙的错误，
+      // 和 __dirname node 执行路径有关，
+      // 可以不用管
       console.error('Error in getSRCs : ', err)
     }
   }
