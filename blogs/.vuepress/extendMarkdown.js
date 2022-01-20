@@ -15,13 +15,18 @@ function extendMarkdown(md) {
         figcaption: true,
         dataType: true
     })
+    md.use(imageLazyLoadPlugin)
 }
 
 function chainMarkdown(config) {
     const { PLUGINS } = require('@vuepress/markdown')
     const originalLinkPlugin = require('@vuepress/markdown/lib/link.js')
 
-    /* 去除外链后面的图标 */
+    /**
+     * Vuepress Link 插件增强
+     *      1. 去除链接后面的图标（OutboundLink）
+     *      2. 添加 rel="noopener noreferrer" 属性
+     * */
     config.plugins.delete(PLUGINS.CONVERT_ROUTER_LINK)
     const linkPlugin = function(md) {
         const result = originalLinkPlugin.apply(this, arguments)
