@@ -33,7 +33,8 @@
 
 ## 德国
 
-* [贝特拉基](/gists/person/beltracchi.html)
+* [约翰尼斯·开普勒（1951~1630）](/gists/person/johannes-kepler.html)
+* [贝特拉基（1951~xxxx）](/gists/person/beltracchi.html)
 
 ## 瑞士
 
