@@ -55,3 +55,7 @@
 ## 波兰
 
 * [尼古拉·哥白尼（1473~1543）](/gists/person/mikolaj-kopernik.html)
+
+## 丹麦
+
+* [第谷·布拉赫（1546~1601）](/gists/person/tycho-brahe.html)
