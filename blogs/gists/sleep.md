@@ -26,3 +26,8 @@
 
 * 主周期 _*_U2FsdGVkX1+P5ZQWpIMUlOuK4iZknkw6PrKXYuDxwBE=_*_，反应时间 _*_U2FsdGVkX1/GmwHvhkyCYKi9womPFmOg96TcUlVNfD0=_*_，感觉反应迟缓，脑袋要炸了一般
 * 副周期 _*_U2FsdGVkX1/hKEJ9xqo5ebqMpDTAAIp/3Bq05QkyyVc=_*_，反应时间 _*_U2FsdGVkX19wkDY5LBZWFM88O4xQXZjQXUKN7t98tlY=_*_，又睡过头了，玩了一把塔科夫来测的，反应时间反而增加了！？
+* 清醒时反应时间：_*_U2FsdGVkX18n2QjsN8TgHEC8F9zgIrLpSGyBEoFhqPc=_*_
+
+#### 第四天
+
+* 主周期 _*_U2FsdGVkX19u3doekv9adao3k0n1YyLThQIqziYHh6g=_*_，反应时间 _*_U2FsdGVkX18bWC80/QnSsw2Dm+AzXEiQnO3jj7FfLm0=_*_，这天不算多相，也许算补觉？反应时间提高不是因为睡的时间更长，而可能是因为使用了特殊的方法，我猜测视觉细胞对形状的敏感程度要甚于颜色。
