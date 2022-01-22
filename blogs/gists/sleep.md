@@ -31,3 +31,7 @@
 #### 第四天
 
 * 主周期 _*_U2FsdGVkX19u3doekv9adao3k0n1YyLThQIqziYHh6g=_*_，反应时间 _*_U2FsdGVkX18bWC80/QnSsw2Dm+AzXEiQnO3jj7FfLm0=_*_，这天不算多相，也许算补觉？反应时间提高不是因为睡的时间更长，而可能是因为使用了特殊的方法，我猜测视觉细胞对形状的敏感程度要甚于颜色。
+
+#### 第五天
+
+* 主周期 _*_U2FsdGVkX18+Uy8UELPnnzVKRntcnebzKiM7moXPuJy6tWuxuPwbinQi5xmr4P7I_*_，反应时间 _*_U2FsdGVkX18rbtUkaH9uIhuT2bGyh1N+3SpuOZPEZfg=_*_
