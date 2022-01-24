@@ -49,6 +49,10 @@
 * [吉姆·琼斯（1931~1978）](/gists/person/jim-jones.html)
 * [亨利·莫莱森（1926~2008）](/gists/person/henry-molaison.html)
 
+## 意大利
+
+* [伽利略·伽利雷（1564~1642）](/gists/person/galileo.html)
+
 ## 葡萄牙
 
 * [安东尼奥·埃加斯·莫尼斯（1874~1955）](/gists/person/antonio-egas-moniz.html)
