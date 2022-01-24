@@ -160,7 +160,25 @@ walkthroughs
 
 如果你想更详细配置手头的项目，或是想在 VSCode 的插件市场发布你的插件的话，就需要对 package.json 好好设定一番了。以下以一个简单的统计 Markdown 文件字数插件的配置为例，初步介绍一下各个属性的作用，让你有一个大致印象。
 
-```js
+```shell
+npm install -g yo code-generator
+```
+
+安装完工具后，使用以下指令便可创建一个新的项目。
+
+```shell
+yo code
+```
+
+选择好基础项目设置（这里以我常用的配置为例），脚手架会自动生成项目代码以及安装依赖。这里需要稍微等一会儿。
+
+![项目启动配置](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121233025.png)
+
+yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VSCode 插件所启用的功能；后者则是插件的主入口。
+
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VSCode 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VSCode 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+
+```json
 {
   // 插件的名称
   "name": "wordcount",
@@ -218,6 +236,8 @@ walkthroughs
   // 项目主页
   "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md"
 }
+
+export function deactivate() {}
 ```
 
 package.json 中每个属性的具体描述、用法都可以在官方文档找到实例。详情请参考：[Extension Manifest](https://code.visualstudio.com/api/references/extension-manifest)。许多属性并不是 VSCode Plugin 专用属性，而是沿用的 NPM 的那套设置，这是需要参考：[NPM package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)。
