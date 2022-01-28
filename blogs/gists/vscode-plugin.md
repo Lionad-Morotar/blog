@@ -62,3 +62,137 @@ export function deactivate() {}
 脚手架默认生成了调试插件所需要的配置，存放在了 .vscode 文件夹中。只需要按 F5 键就可以在新窗口启动当前插件查看运行效果。如果你对插件有修改，可以 Shift+F5 停用插件后再重开，或者直接在新窗口使用 Ctrl+R 重载（或使用指令 Reload Window）。
 
 ![Reload Window](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121235255.png)
+
+### 项目配置
+
+正如上一小节提到的 package.json 中最重要的两项设置分别是 activationEvents 和 contributes，者两个属性直接关系到项目可以做什么。
+
+activationEvents 指示了插件在哪些情况下会激活，VSCode 提供了以下激活场景供开发者选择。详细说明参见官方文档：[Activation Events](https://code.visualstudio.com/api/references/activation-events)，以下对每项进行简要说明。
+
+```markdown
+<!-- 打开某种语言的文件时激活，如：onLanguage:python -->
+* onLanguage
+<!-- 使用 Ctrl+P 调用指令时激活 -->
+* onCommand
+<!-- 调试插件时激活插件；还细分出了两个颗粒度更小的 API -->
+* onDebug
+  * onDebugInitialConfigurations
+  * onDebugResolve
+<!-- 当工作区中包含某些文件时，如：workspaceContains:**/.gitignore -->
+* workspaceContains
+<!-- 从不同类型的文件系统中读取项目时激活，如：onFileSystem:sftp -->
+* onFileSystem
+<!-- 当某个 ID 的侧边栏被打开时激活，如：onView:nodeDependencies -->
+* onView
+<!-- 收到 URI 协议时激活插件；这里的 URI 协议是系统级别的协议 -->
+<!-- 比如你在 VSCode 登录 Github 账号时收到的那一串以“vscode:”打头的地址 -->
+<!-- 此时浏览器会通过系统 API 自动通知 VSCode 接收调用 -->
+* onUri
+<!-- 当某种类型的面板打开时激活，如：onWebviewPanel:testPage -->
+<!-- 面板类型是指使用 window.createWebviewPanel API 创建新面板时其 viewType 属性 -->
+* onWebviewPanel
+<!-- 当一个自定义面板打开时（如某个渲染 PPT 的页面）激活 -->
+* onCustomEditor
+<!-- 当使用同步功能登陆时激活，如 onAuthenticationRequest:github -->
+* onAuthenticationRequest
+<!-- 等 VSCode 启动结束且默认插件加载完毕时激活（比“*”要晚一些但不会影响启动速度） -->
+* onStartupFinished
+<!-- 启动 VSCode 时便激活插件（比 onStartupFinished 早一些） -->
+* *
+```
+
+contributes 指示了插件有哪些功能。详细说明参见官方文档：[Contribution Points](https://code.visualstudio.com/api/references/contribution-points)，以下对 VSCode 所有插件所支持的功能列表做一个简短的说明。
+
+```js
+// 为扩展断点提供支持
+breakpoints
+colors
+commands
+configuration
+configurationDefaults
+customEditors
+debuggers
+grammars
+iconThemes
+jsonValidation
+keybindings
+languages
+menus
+problemMatchers
+problemPatterns
+productIconThemes
+resourceLabelFormatters
+snippets
+submenus
+taskDefinitions
+themes
+typescriptServerPlugins
+views
+viewsContainers
+viewsWelcome
+walkthroughs
+```
+
+如果你想更详细配置手头的项目，或是想在 VSCode 的插件市场发布你的插件的话，就需要对 package.json 好好设定一番了。以下以一个简单的统计 Markdown 文件字数插件的配置为例，初步介绍一下各个属性的作用，让你有一个大致印象。
+
+```js
+{
+  // 插件的名称
+  "name": "wordcount",
+  // 插件在插件市场显示的名称
+  "displayName": "Word Count",
+  // 版本号
+  "version": "0.1.0",
+  // 发表插件时所需要的发布者 ID
+  "publisher": "ms-vscode",
+  // 描述
+  "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
+  // 作者
+  "author": {
+    "name": "sean"
+  },
+  // 插件类型
+  "categories": ["Other"],
+  // 插件图标
+  "icon": "images/icon.png",
+  //  插件市场展示插件时显示的颜色主题
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  // 插件在哪些情况下会激活
+  "activationEvents": ["onLanguage:markdown"],
+  // 其中的 vscode 属性指示了插件兼容哪个版本的 VSCode
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  // 脚本主入口
+  "main": "./out/extension",
+  // 同 NPM package.json 的 scripts 属性
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+    "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+  },
+  // 同 NPM package.json 的 devDependencies 属性
+  "devDependencies": {
+    "@types/vscode": "^0.10.x",
+    "typescript": "^1.6.2"
+  },
+  // 版权说明
+  "license": "SEE LICENSE IN LICENSE.txt",
+  // 指示了在哪反馈插件的缺陷
+  "bugs": {
+    "url": "https://github.com/microsoft/vscode-wordcount/issues",
+    "email": "sean@contoso.com"
+  },
+  // 源代码仓库地址
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/vscode-wordcount.git"
+  },
+  // 项目主页
+  "homepage": "https://github.com/microsoft/vscode-wordcount/blob/main/README.md"
+}
+```
+
+package.json 中每个属性的具体描述、用法都可以在官方文档找到实例。详情请参考：[Extension Manifest](https://code.visualstudio.com/api/references/extension-manifest)。许多属性并不是 VSCode Plugin 专用属性，而是沿用的 NPM 的那套设置，这是需要参考：[NPM package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)。
