@@ -106,30 +106,55 @@ contributes 指示了插件有哪些功能。详细说明参见官方文档：[C
 ```js
 // 为扩展断点提供支持
 breakpoints
+// 定义新的颜色（以便在代码中快速引用）
 colors
+// 定义新的指令（可以使用 Ctrl+Shift+P、快捷键等多种方式打开）
 commands
+// 给用户提供自定义设置
 configuration
+// 给特定语言提供自定义设置的默认值
 configurationDefaults
+// 自定义编辑器页面（比如 Markdown 预览）
 customEditors
+// 为扩展调试功能提供支持
 debuggers
+// 为扩展语法及高亮等功能提供支持
 grammars
+// 文件类型的图标
 iconThemes
+// 为特定 JSON 文件提供模式校验（如 .eslintrc 的模式是：https://json.schemastore.org/eslintrc）
 jsonValidation
+// 给插件注册的指令绑定快捷键
 keybindings
+// 定义新语言
 languages
+// 在右键菜单上新增选项（编辑区、文件树等各种区域都能右键）
 menus
+// 对 Output 或是 Terminal 中抛出的错误进行捕获
 problemMatchers
+// 对抛出的错误进行命名
 problemPatterns
+// 对 VSCode 自带的图标进行替换
 productIconThemes
+// 对工作区中的 URI 文本进行替换
 resourceLabelFormatters
+// 定义代码片段
 snippets
+// 右键菜单的子菜单
 submenus
+// 定义任务（比方说把 NPM Script 定义为任务，以便在代码中执行）
 taskDefinitions
+// VSCode 主题
 themes
+// 自带的 TS 语言服务器
 typescriptServerPlugins
+// 扩展左侧图标导航区（扩展导航视图、测试视图等，或是提供自定义的新视图）
 views
+// 扩展新视图时需要用 viewsContainers 绑定 ID
 viewsContainers
+// 定义视图区的欢迎页（比如项目没有初始化 Git 时，Git 视图会提示初始化的快捷键）
 viewsWelcome
+// 一些大型插件需要提供演示页面（walkthroughs）以便让用户更方便地配置及掌握插件
 walkthroughs
 ```
 
