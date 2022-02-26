@@ -47,7 +47,7 @@
     "moment": "^2.27.0",
     "node-cmd": "^3.0.0",
     "osssync": "git+https://github.com/Lionad-Morotar/oss-sync.git",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "raw-loader": "^4.0.1",
     "vuepress": "^1.6.0",
     "vuepress-plugin-comment": "git+https://github.com/Lionad-Morotar/vuepress-plugin-comment.git",
