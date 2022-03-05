@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: CSS,抗锯齿,POAA,字体平滑,图片渲染,FXAA
+  - name: description
+    content: 传统网页的渲染是基于像素的，所以常出现锯齿。本文简单介绍了锯齿出现的成因，以及CSS中相关锯齿处理的字体平滑、图片渲染属性，并通过实践创造了一种类似FXAA原理的background背景图案抗锯齿技术poaa（pixel-offset-anti-aliasing）。
+---
+
 # 💫 CSS 幻术 | 抗锯齿
 
 [TOC]

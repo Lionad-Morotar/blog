@@ -1,11 +1,10 @@
 ![Blog](https://img.shields.io/badge/Lionad--Guirotar-Blog-blueviolet)
-![MIT](https://img.shields.io/badge/License-MIT-blue)
+![LICENSE](https://img.shields.io/badge/license-CC--BY--NC--CD--4.0-blue)
+![HEART](https://img.shields.io/badge/made%20with-%E2%9D%A4-red)
 
 # Lionad's Blog
 
 My personal websites，build with VuePress. Online URL: [https://www.lionad.art](https://www.lionad.art)
-
-- [RSS Address](https://lionad.art/rss.xml)
 
 ## [Homepage](https://codepen.io/cmykpixels/pen/akYxmW)
 
@@ -26,7 +25,17 @@ My personal websites，build with VuePress. Online URL: [https://www.lionad.art]
 大体参考 [LeanCode Git Commit Style](https://open.leancloud.cn/git-commit-message/)。Commit Message 控制在一行以内，格式如：$chore: 加入 fflate 依赖$。如果有需要详细说明的内容，请再空一行后补充内容，如：
 
 ```
-chore: update package-lock.json
+chore: install vuepress、fflate
 
-!breaking-change
+see http://github.com/issue/xxxx
 ```
+
+## License
+
+<center>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+<br />
+本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。
+<br />
+如需转载部分内容，请邮件联系作者。
+</center>

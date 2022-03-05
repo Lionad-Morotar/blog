@@ -5,6 +5,9 @@ dist_tmp/
 .tmp/
 tmp/
 .DS_Store
-private/
+valine-id.js
+valine-key.js
+aliyun-mgear.js
+huaweiyun.js
 .sync/
 .osssync.json

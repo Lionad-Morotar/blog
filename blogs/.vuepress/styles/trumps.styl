@@ -20,10 +20,7 @@
     }
 }
 
-/* ********************************************** */
-.page > .content__default .CodeMirror {
-    pre {
-        margin-top: unset;
-        padding: unset;
-    }
+// 移除代码块 pre 自带的换行
+.page > .content__default pre[class^="language-"] {
+    text-indent: -0.15em;
 }

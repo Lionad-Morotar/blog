@@ -11,7 +11,7 @@
             </blockquote>
         </template>
         <template v-if="type==='h5'">
-            <h5>
+            <h5 style="display: content">
                 <a :id="slotContent" :href="to" rel="noopener noreferrer" target="_blank" @click.prevent.stop="showpage"><slot/></a>
             </h5>
         </template>
@@ -58,7 +58,7 @@ export default {
         },
         to: {
             type: String,
-            required: true
+            default: ''
         },
         source: {
             type: String,

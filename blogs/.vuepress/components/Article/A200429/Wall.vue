@@ -112,13 +112,13 @@ count = 5;
         }
         .box:nth-child({i}) {
             .box-inner:hover .des::after {
-                content: '，90deg';
+                content: '90deg';
             }
             .box-inner .left:hover ~ .des::after {
-                content: '，130deg';
+                content: '130deg';
             }
             .box-inner .right:hover ~ .des::after {
-                content: '，45deg';
+                content: '45deg';
             }
         }
     }

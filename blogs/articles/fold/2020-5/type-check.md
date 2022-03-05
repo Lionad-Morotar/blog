@@ -14,7 +14,7 @@
 
 ## typeof
 
-当我还是一个 JS 萌新的时候，我就爱上了 typeof 操作符，因为它的作用正如其名，非常好理解。
+当我还是一个 JS 萌新的时候，我就爱上了 typeof 运算符，因为它的作用正如其名，非常好理解。
 利用 typeof 我们可以轻松判断常见的基础类型，如 Number、String、Boolean 等。
 
 ECMAScript 文档中有对 typeof 这样描述：
@@ -75,7 +75,7 @@ null 是用来标记“期待指向”的，不是 Object 类型，所以 typeof
 
 ## instanceof
 
-内置 instanceof 操作符是用来检测构造函数的 prototype 属性是否存在于某个实例对象的原型链。
+内置 instanceof 运算符是用来检测构造函数的 prototype 属性是否存在于某个实例对象的原型链。
 用代码解释要更直观一些：
 
 ```js
@@ -90,7 +90,7 @@ const auto = new Car('Honda', 'Accord', 1998)
 console.log((auto.__proto__ === Car.prototype) === auto instanceof Car)
 ```
 
-我们直接看看规范是怎么定义 instanceof 操作符的：
+我们直接看看规范是怎么定义 instanceof 运算符的：
 
 **InstanceofOperator(O, C)**
 
@@ -113,7 +113,7 @@ VM1008:1 Uncaught TypeError: Right-hand side of 'instanceof' is not an object
 :::
 
 第二至第四条，判断 C 是否有内置的 hasInstance 实现，即 Symbol.hasInstance，如果有，则调用此方法。
-也就是说，对复杂类型，我们可以通过 Symbol，自定义 instanceof 操作符的实现，用下列代码举例：
+也就是说，对复杂类型，我们可以通过 Symbol，自定义 instanceof 运算符的实现，用下列代码举例：
 
 ```js
 class Lionad {
@@ -145,7 +145,7 @@ VM684:1 Uncaught TypeError: Right-hand side of 'instanceof' is not callable
 
 ### 依据原型链
 
-使用 instanceof 操作符判断对象字面量，会出现另人诧异的结果，见下代码：
+使用 instanceof 运算符判断对象字面量，会出现另人诧异的结果，见下代码：
 
 ```js
 console.log(
@@ -179,7 +179,7 @@ console.log(xArr instanceof Array) // false
 
 ## Object.prototype.toString.call
 
-一般来说，在业务代码中，我们使用 typeof 和 instanceof 关键字判断变量的类型就足够了。虽然这两种方法都有缺陷，但是我们记住这些常见的容易混淆的地方，避免使用就可以。
+一般来说，在业务代码中，我们使用 typeof 和 instanceof 运算符判断变量的类型就足够了。虽然这两种方法都有缺陷，但是我们记住这些常见的容易混淆的地方，避免使用就可以。
 下面要介绍的是一种更精确的方法，一般会用在工具函数或者类库中，如：
 
 ```js

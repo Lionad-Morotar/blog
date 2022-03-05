@@ -1,7 +1,5 @@
 # 正则表达式
 
-正则表达式相关的内容将会收录到这份 Memo 中
-
 ## Memo Table
 
 ### Symbol
@@ -45,7 +43,11 @@
 | Flag  |                  Meaning                  |               Example                |
 | :---: | :---------------------------------------: | :----------------------------------: |
 |   s   |           使 `.` 能够匹配换行符           |       /./s.test("\n") // true        |
-|   u   | Unicode Property Escapes 打开特殊过滤开关 | /\p{Number}+/u.test('㉛¹¼Ⅰ') // true |
+|   u   | 使用 Unicode 字符集 | /\p{Number}+/u.test('㉛¹¼Ⅰ') // true |
+|   m   | 匹配多行文本（此时 ^ 和 $ 用于匹配单行的首尾） |  |
+|   g   | 全局匹配 |  |
+|   i   | 忽略字符大小写 |  |
+|   y   | 仅匹配正则表达式的 lastIndex 属性只是的索引，此时 ^ 会动态改变位置 |  |
 
 ### Operator precedence
 

@@ -1,3 +1,11 @@
+---
+meta:
+  - name: keywords
+    content: JavaScript,defineProperty,响应式,reactive,状态管理,观察者,发布订阅,小程序,小程序刷新页面
+  - name: description
+    content: 本文介绍了在150行代码内使用defineProperty实现一个简单的拥有事件发布订阅能力的状态管理库的思路。
+---
+
 # 🚀 150 行代码带你实现小程序中的数据侦听
 
 [TOC]
@@ -101,11 +109,11 @@ set (key, val, options = {}, obj = this.store) {
 
 这边提供一个很简单的思路, 并不推荐实践中这么做:
 
-```diff
+```js
 set (key, val, options = {}, obj = this.store) {
   const dep = new Dep()
   Object.defineProperty(obj, key, {})
-+ return dep
+  return dep
 }
 ```
 
@@ -147,13 +155,13 @@ const vx = new VX()
 
 我们设置一个全局的 depHandler, 在 obj.key 的 getter 中主动将 depHandler 设置为当前 obj.key 的 dep 实例, 那么我们在 watch 函数里, 只要用任意操作触发 obj.key 的 getter, 就能通过 depHandler 得到它的 dep 实例了, 代码形如:
 
-```diff
-+ // 一开始没有持有dep实例
-+ let handleDep = null
+```js
+  // 一开始没有持有dep实例
+  let handleDep = null
   class VX {
     watch (key, fn, obj = this.store) {
-+     console.log(obj.key) // 使用任意操作触发obj.key的getter, 那么handleDep将自动引用obj.key的dep实例
-+     handleDep.addSub(fn)
+      console.log(obj.key) // 使用任意操作触发obj.key的getter, 那么handleDep将自动引用obj.key的dep实例
+      handleDep.addSub(fn)
     }
     set (key, val, options = {}, obj = this.store) {
       const dep = new Dep()
@@ -161,7 +169,7 @@ const vx = new VX()
         enumerable: true,
         configurable: true,
         get: () => {
-+         handleDep = dep
+          handleDep = dep
           return val
         },
         set: newVal => {}
@@ -320,13 +328,13 @@ class VX {
 
 在我在对 VX 进行删除属性方法的扩展时, 我往 walkChain 函数中添加了一个执行回调函数的机制, 并且在删除属性这个方法直接调用了 walkChain:
 
-```diff
-+ function walkChains (key, obj, fn) {
+```js
+  function walkChains (key, obj, fn) {
     const segments = key.split('.')
     let deepObj = obj
     while (segments.length) {
       deepObj = deepObj[segments.shift()]
-+     fn && fn()
+      fn && fn()
     }
   }
 ```
@@ -340,9 +348,9 @@ del (key, obj = this.store) {
 
 因为 handleDep.clear 当成参数传递进 walkChains 中会**丢失 this 绑定**, 所以上面那段代码其实是有问题的, 不过稍作修改就好了:
 
-```diff
+```js
   del (key, obj = this.store) {
-+   walkChains(key, obj, () => handleDep.clear())
+    walkChains(key, obj, () => handleDep.clear())
     delete obj[key]
   }
 ```

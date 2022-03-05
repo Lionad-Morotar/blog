@@ -53,7 +53,7 @@ console.log(a['0']) // -> 'test'
 
 不过，很遗憾，尽管 JS 中确实存在隐式转换这么一说，但是以上关于 delete 的解释是**完全错误的**。稍加深入探索，你就会发现，对于控制台直接运行 delete window['0'] 的结果，和上述推断正好相反。此外，delete eval("window['0']") 的结果则更是会让人不可思议。
 
-想要知道 delete 操作符实际是怎么运作的，我们必须回归 [JS 规范](http://www.ecma-international.org/ecma-262/6.0/index.html)。不过 JS 规范太长了，也许我们<del>应该从 MDN 开始</del>可以从最简单的问题二开始，逐步前进。
+想要知道 delete 运算符实际是怎么运作的，我们必须回归 [JS 规范](http://www.ecma-international.org/ecma-262/6.0/index.html)。不过 JS 规范太长了，也许我们<del>应该从 MDN 开始</del>可以从最简单的问题二开始，逐步前进。
 
 ## 陷入泥泞
 

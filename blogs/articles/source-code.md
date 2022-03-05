@@ -1,12 +1,20 @@
 # 🚄 源码阅读
 
-这里保存一些关于源码阅读的笔记，慢慢攒着，也许以后能转换成技术博客。
+这里攒着一些阅读笔记，也许以后能转换成技术博客。
 
 ## 语言
+
+JavaScript:
+
+- [《JS语言精粹与编程实践》](/books/9787121386695.html)
 
 TypeScript：
 
 - [常用类型推导](/articles/source-code/ts/utility-types.html)
+
+CSS：
+
+- [CSS Scrollbars Styling Module Level 1](/articles/source-code/css/scrollbar.html)
 
 ## 框架
 
@@ -19,6 +27,8 @@ VueJS 源码相关：
 - [VueJS | Global API](/articles/source-code/vuejs/api.html)
 
 - [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
+
+- [VueJS | TestKit](/articles/source-code/vuejs/test-kit.html)
 
 VueJS 周边：
 
