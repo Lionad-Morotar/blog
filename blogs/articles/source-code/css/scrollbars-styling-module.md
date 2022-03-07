@@ -1,4 +1,4 @@
-# CSS Scrollbars Styling Module Level 1
+# CSS Scrollbars Styling Module
 
 [TOC]
 
