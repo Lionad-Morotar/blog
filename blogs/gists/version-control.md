@@ -14,4 +14,4 @@ Semver 被设计用来解决依赖地狱的问题，常用于定义了公共 API
 
 ## Git
 
-[Git](/gists/git.html)
+<Frame src="/gists/git.html" />

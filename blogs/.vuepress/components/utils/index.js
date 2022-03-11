@@ -116,6 +116,19 @@ function nextFrameCB(cb) {
     }
 }
 
+/**
+ * insert css styles into node
+ * @param {Element} node 
+ * @param {String} styles 
+ */
+function insertStyles(node, styles) {
+    if (document) {
+        const $css = document.createElement('style')
+        $css.innerHTML = styles
+        node.appendChild && node.appendChild($css)
+    }
+}
+
 const utils = {
     forAwait,
     nextFrame,
@@ -148,7 +161,8 @@ const utils = {
                 window.msCancelRequestAnimationFrame ||
                 clearTimeout)
         return fn(id)
-    }
+    },
+    insertStyles
 }
 
 let isMobile = null
