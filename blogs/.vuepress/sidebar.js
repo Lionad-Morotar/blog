@@ -48,14 +48,13 @@ const sidebars = [
       // 'flows/brain-history',
       // 'flows/rss',
       'flows/books',
-      'flows/punctuations',
+      'flows/long-night-dream',
       'flows/everything',
       'flows/stolen-time-from-god',
       'flows/expression-and-loneliness',
       'flows/my-shy',
       'flows/drinking-while-thinking',
       'flows/escape-from-mysticism',
-      'flows/messy-in-two-years',
       'flows/zfold'
     ]
   },
@@ -129,13 +128,13 @@ module.exports = {
   },
   getRecommends() {
     return {
-      心流思绪: {
+      心流: {
+        url: '/flows/long-night-dream.html',
+        label: '长夜梦'
+      },
+      杂文: {
         url: '/flows/books.html',
         label: '2021 荐书两本'
-      },
-      黑魔法: {
-        url: '/articles/css-light-travel.html',
-        label: '探秘 CSS 光影效果'
       }
     }
   }
