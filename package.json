@@ -9,10 +9,10 @@
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
     "test": "npm run build && http-server -c0 ./dist",
-    "upload": "sftp morotar@47.100.27.221 && lcd dist && put -r ./ /home/morotar/blog",
+    "upload": "sftp root@47.100.27.221 && lcd dist && put -r ./ /home/root/blog",
     "presync": "node ./chore/gen-sync-conf.js",
     "sync": "osssync",
-    "post": "npm run build && npm run upload"
+    "post": "npm run build && npm run upload" 
   },
   "repository": {
     "type": "git",
