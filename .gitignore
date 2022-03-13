@@ -11,4 +11,4 @@ aliyun-mgear.js
 huaweiyun.js
 .sync/
 .osssync.json
-.ftc/**/*.*
+.ftc/
