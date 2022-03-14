@@ -1,8 +1,9 @@
 /** Utils | Common Functions */
 
-Array.prototype._remove = function (x) {
-    this.splice(this.findIndex(item => item === x), 1)
-}
+// ! cause Valine error
+// Array.prototype._remove = function (x) {
+//     this.splice(this.findIndex(item => item === x), 1)
+// }
 
 // @see http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
 const tween = {

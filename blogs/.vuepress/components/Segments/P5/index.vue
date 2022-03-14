@@ -44,9 +44,10 @@ const extFns = {
   drawUntil (condFn, step) {
     this._predraw = this._predraw || []
     const condFnWrapper = () => {
+      const _remove = x => x.splice(x.findIndex(item => item === x), 1)
       const isStop = extFns.stopIf.bind(this)(condFn)
       if (isStop) {
-        this._predraw._remove(condFnWrapper)
+        _remove(this._predraw, condFnWrapper)
       } else {
         step && step()
       }
