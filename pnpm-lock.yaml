@@ -18,7 +18,7 @@ specifiers:
   moment: ^2.27.0
   node-cmd: ^3.0.0
   osssync: git+https://github.com/Lionad-Morotar/oss-sync.git
-  prismjs: ^1.20.0
+  prismjs: ^1.27.0
   qrcodejs2: 0.0.2
   raw-loader: ^4.0.1
   vue-fragment: ^1.5.2
@@ -54,7 +54,7 @@ devDependencies:
   moment: 2.29.1
   node-cmd: 3.0.0
   osssync: github.com/Lionad-Morotar/oss-sync/2cd810db17862de090b87d03c15f45897423c417
-  prismjs: 1.25.0
+  prismjs: 1.27.0
   raw-loader: 4.0.2_webpack@4.46.0
   vuepress: 1.8.2
   vuepress-plugin-comment: github.com/Lionad-Morotar/vuepress-plugin-comment/058bbcd208c2fc97337e8f6cad798b87081c1da5
@@ -4426,6 +4426,7 @@ packages:
 
   /formidable/1.2.2:
     resolution: {integrity: sha512-V8gLm+41I/8kguQ4/o1D3RIHRmhYFG4pnNyonvua+40rqcEmT4+V71yaZ3B457xbbgCsCfjSPi65u/W6vK1U5Q==}
+    deprecated: 'Please upgrade to latest, formidable@v2 or formidable@v3! Check these notes: https://bit.ly/2ZEqIau'
     dev: true
 
   /forwarded/0.2.0:
@@ -7601,6 +7602,11 @@ packages:
     resolution: {integrity: sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==}
     dev: true
 
+  /prismjs/1.27.0:
+    resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
+    engines: {node: '>=6'}
+    dev: true
+
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -8857,6 +8863,7 @@ packages:
   /superagent/3.8.3:
     resolution: {integrity: sha512-GLQtLMCoEIK4eDv6OGtkOoSMt3D+oq0y3dsxMuYuDvaNUvuT8eFBuLmfR0iYYzHC1e8hpzC6ZsxbuP6DIalMFA==}
     engines: {node: '>= 4.0'}
+    deprecated: Please upgrade to v7.0.2+ of superagent.  We have fixed numerous issues with streams, form-data, attach(), filesystem errors not bubbling up (ENOENT on attach()), and all tests are now passing.  See the releases tab for more information at <https://github.com/visionmedia/superagent/releases>.
     dependencies:
       component-emitter: 1.3.0
       cookiejar: 2.1.3
@@ -8873,6 +8880,7 @@ packages:
   /superagent/5.3.1:
     resolution: {integrity: sha512-wjJ/MoTid2/RuGCOFtlacyGNxN9QLMgcpYLDQlWFIhhdJ93kNscFonGvrpAHSCVjRVj++DGCglocF7Aej1KHvQ==}
     engines: {node: '>= 7.0.0'}
+    deprecated: Please upgrade to v7.0.2+ of superagent.  We have fixed numerous issues with streams, form-data, attach(), filesystem errors not bubbling up (ENOENT on attach()), and all tests are now passing.  See the releases tab for more information at <https://github.com/visionmedia/superagent/releases>.
     dependencies:
       component-emitter: 1.3.0
       cookiejar: 2.1.3
