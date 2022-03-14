@@ -82,8 +82,13 @@ export default {
     this.observeIntersection()
     /* init canvas size */
     const $h1 = document && document.querySelector('h1')
-    this.width = this.w || ($h1 ? $h1.offsetWidth : (window.innerWidth || this.width))
-    this.height = this.h || (~~(this.width * 0.618))
+    if ($h1) {
+      this.width = this.w || ($h1 ? $h1.offsetWidth : (window.innerWidth || this.width))
+      this.height = this.h || (~~(this.width * 0.618))
+    } else {
+      this.width = 0
+      this.height = 0
+    }
   },
   methods: {
     async loadScript() {
