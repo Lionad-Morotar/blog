@@ -2,6 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const headLink = [
     ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
+    ['meta', { 'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8' }],
     ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
     ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
     [
