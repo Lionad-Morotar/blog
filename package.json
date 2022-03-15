@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
-    "test": "npm run build && http-server -c0 ./dist",
+    "test": "npm run build | http-server -c0 ./dist",
     "upload": "sftp root@47.100.27.221 && lcd dist && put -r ./ /home/root/blog",
     "presync": "node ./chore/gen-sync-conf.js",
     "sync": "osssync",

@@ -6,6 +6,7 @@
         :class="[hoverTrigger ? 'hover-trigger' : '']"
         :rel="nofollow ? 'nofollow' : ''"
         :href="src"
+        :key="`${name}-${src}`"
     >
         <div class="list-content-con">
             <div class="friend-list-label">
