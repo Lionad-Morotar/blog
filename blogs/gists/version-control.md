@@ -12,6 +12,8 @@
 
 Semver 被设计用来解决依赖地狱的问题，常用于定义了公共 API 的项目，因为其各个版本号的意义都和 API 的变动挂钩。但是许多项目在使用版本号标记时只采用了 X.Y.Z 的形式，而没有遵守严格的 Semver 设计规则，需要注意。相关例子见：[Typescript should follow semantic versioning](https://github.com/microsoft/TypeScript/issues/14116)，Typescript 的开发者回应称，Typescript 只是遵守了 major.minor 的规则，其 minor 版本可能引入 Breaking Change。
 
+Semver 太理想化的原因主要是实际开发中所有的修复都没用绝对的 no breaking change 这么一说，bug 和 breaking change 本身的界限太过模糊。实际上，任何改动都可能带来意料之外的 breaking change。
+
 ## Git
 
 <Frame src="/gists/git.html" />

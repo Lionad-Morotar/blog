@@ -11,6 +11,10 @@
 * [CommonJS Loader](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/loader.js)
 * [CommonJS Helpers](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/helpers.js)
 
+官方文档见：
+
+* [Node Resolution Algorithm](https://nodejs.org/api/modules.html#modules_all_together)
+
 ## 功能简介
 
 NodeJS 导入模块时有主要两个地方要注意：如何解析模块地址以及如何改善 IO 操作消耗大量的性能。
