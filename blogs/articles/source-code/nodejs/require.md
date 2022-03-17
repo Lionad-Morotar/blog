@@ -1,4 +1,6 @@
-# NodeJS 模块化 | Require 源码解析
+# NodeJS Require
+
+[TOC]
 
 预备知识：
 
@@ -9,21 +11,16 @@
 * [CommonJS Loader](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/loader.js)
 * [CommonJS Helpers](https://github.com/nodejs/node/blob/master/lib/internal/modules/cjs/helpers.js)
 
-## 一些工具变量
+## 功能简介
 
-pendingDeprecation，用来判断是否打开命令行参数：--pending-deprecation。打开时，使用部分待弃用的 API 会报警告。
+NodeJS 导入模块时有主要两个地方要注意：如何解析模块地址以及如何改善 IO 操作消耗大量的性能。
 
-```js
-const pendingDeprecation = getOptionValue('--pending-deprecation')
-```
+* **地址解析**：在 require 时，我们可以传入 fs、path、a/index.js、webpack 等各种参数，解析分两种情况：如果传入核心部件名或是相对路径名称，则直接导入模块；不然则从本目录开始寻找 node_modules 目录，没找到时递归回退直到系统根目录。
+* **性能消耗**：所有加载过的模块都用 WeakMap 缓存下来，再次加载时，直接返回已经加载好的内容。
 
-preserveSymlinks，用来判断是否打开命令行参数：--preserve-symlinks。用来标志当解析路径时，是否需要将符号链接替换为真实路径。
+## 代码解析
 
-```js
-const preserveSymlinks = getOptionValue('--preserve-symlinks')
-```
-
-## 模块初始化
+### 模块初始化
 
 模块实例上保存有 id、path、filename、loaded、children、exports 等信息，各有用处。
 
@@ -38,7 +35,7 @@ function Module(id = '') {
 }
 ```
 
-### 模块包装
+#### 模块包装
 
 模块引入本质上是调用 Require 函数去加载一段代码，并引入 exports 的结果。模块并不能直接引入，在初始化的时候，会通过 Wrapper 进行包装，也就是：
 
@@ -93,9 +90,9 @@ ObjectDefineProperty(Module, 'wrapper', {
 
 TODO 修改 wrapper 导致 patched 变动带来的影响
 
-### 数据缓存
+#### 数据缓存
 
-#### module.parent
+##### module.parent
 
 module.parent 属性用来表示第一次引入某模块的模块。比如，当 parent 为 null 时，就说明此模块不被其它模块引入，所以是执行程序的入口。我们来看看它的实现。
 
@@ -124,7 +121,7 @@ ObjectDefineProperty(Module.prototype, 'parent', {
 })
 ```
 
-#### 内置对象
+##### 内置对象
 
 内置对象即 http、path 等模块。
 
@@ -158,9 +155,9 @@ ObjectFreeze(builtinModules)
 Module.builtinModules = builtinModules
 ```
 
-## 模块导入
+### 模块导入
 
-### 自动后缀补全
+#### 自动后缀补全
 
 导入一个模块时，如果模块名不带后缀，则会自动匹配其后缀。比如，require('a')，会自动匹配 'a'，'a.xxx'，'a/index.xxx'。
 
@@ -261,7 +258,7 @@ function tryPackage(requestPath, exts, isMain, originalPath) {
 }
 ```
 
-### 文件预判
+#### 文件预判
 
 在读取某个模块并处理之前，我们得先确定该文件的存在，并读取该文件。就像 tryPackage 函数中的 tryFile、tryExtensions 等函数，就是读取某个目录（下的某文件）。
 
@@ -310,14 +307,14 @@ TODO realpathCache
 const realpathCache = new Map()
 ```
 
-## 模块载入
+### 模块载入
 
 模块载入的缓存判定大致如下：
 
 1. 如果已经载入模块，直接返回模块的导出内容
 2. 读取文件，创造一个新的 module 实例保存到缓存，然后载入文件内容并返回导出结果。
 
-模块载入需要调用原始模块的 require 方法，而实力上的 module.require 方法也提供了一种载入的方法，和 require 类似。
+模块载入需要调用原始模块的 require 方法，而实际上 module.require 方法也提供了一种载入的方法，和 require 类似。
 
 ```js
 // 用来维护依赖层级
@@ -475,7 +472,7 @@ Module._extensions['.json'] = function(module, filename) {
 }
 ```
 
-## 模块编译
+### 模块编译
 
 模块编译，即向模块注入 exports、__filename 等变量，并在指定上下文中运行模块的代码。可以发现，之前小节提到的模块包装是其中一个步骤。
 
@@ -536,4 +533,20 @@ Module.prototype._compile = function(content, filename) {
 }
 ```
 
-TODO ... 先看其它玩意儿去了
+### 相关命令行参数
+
+#### pendingDeprecation
+
+用来判断是否打开命令行参数：--pending-deprecation。打开时，使用部分待弃用的 API 会报警告。
+
+```js
+const pendingDeprecation = getOptionValue('--pending-deprecation')
+```
+
+#### preserveSymlinks
+
+用来判断是否打开命令行参数：--preserve-symlinks。用来标志当解析路径时，是否需要将符号链接替换为真实路径。
+
+```js
+const preserveSymlinks = getOptionValue('--preserve-symlinks')
+```
