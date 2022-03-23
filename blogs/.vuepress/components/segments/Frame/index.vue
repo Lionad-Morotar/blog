@@ -28,6 +28,11 @@ export default {
         .frame { display: none }
         .wh-container[data-cmpt="frame"] > .padding-box { display: none }
         .wh-container[data-cmpt="frame"] > .frame + #frame-tip { display: block }
+        .page > .content__default h1 + h1,
+        .page > .content__default h1 + h2,
+        .page > .content__default h1 + h3, 
+        .page > .content__default h1 + h4, 
+        .page > .content__default h1 + h5 { margin-top: revert; }
         `
       )
     }
