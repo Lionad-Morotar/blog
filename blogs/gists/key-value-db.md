@@ -2,7 +2,7 @@
 
 [TOC]
 
-##### [<i>IKVA Part 1: What are key-value stores, and why implement one?</i>](https://codecapsule.com/2012/11/07/implementing-a-key-value-store-part-1-what-are-key-value-stores-and-why-implement-one/)
+## [<i>IKVA Series</i>](https://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/)
 
 在看过《C++ 新经典》后，被其繁杂的特性及语法小小的震撼到了，想进一步深入学习一下（C++ 以及相关知识）。并不是像 Anysort 一样想做出点什么有用的东西，只是一个小小的练习。据《Implement...》博主所说，选择做一个简单的关系型数据库可能是一个做为练习的合适选择，它能提供以下方面的挑战：
 
@@ -13,6 +13,8 @@
 * 多线程及多进程并发控制
 * C/S 网络通讯模型
 * IO 操作以及与文件系统打交道
+
+##### [<i>IKVA Part 1: What are key-value stores, and why implement one?</i>](https://codecapsule.com/2012/11/07/implementing-a-key-value-store-part-1-what-are-key-value-stores-and-why-implement-one/)
 
 一般来说，KV 数据库具有以下几个接口：Get(key)、Set(key)、Delete(key)，一般基于哈希表或某种自平衡树（B-Tree、红黑树）来实现。其中“key”就是数据于其位置的映射，根据 key，KV 数据库能高效查找到对应的数据。另一方面，由于 KV 数据库不知道它到底存了哪种的数据，所以如果你想想 SQL 一样使用 WHERE 语句的话，那就只能把所有数据都遍历一遍了。
 
@@ -134,3 +136,17 @@ uint32_t fold_hash(uint64_t hash) {
 ```
 
 ##### [<i>IKVA Part 6: Open-Addressing Hash Tables</i>](https://codecapsule.com/2014/05/07/implementing-a-key-value-store-part-6-open-addressing-hash-tables/)
+
+Emmanuel 使用 DIP、DFB、DMB、DSB 等多个指标，重新对比了线性寻址、跳房子哈希和罗宾汉哈希的性能。
+
+* DIB：Distance to Initial Bucket，指储存一个条目的位置到其键最初被散列到的位置的距离。
+* DFB：Distance to Free Bucket，从给定入口到扫描到空位所跳过的数量。
+* DMB：Distance to Missing Bucket，从给定入口扫描直到判断出该键不属于当前索引的扫描次数。
+* DSB：Distance to Shift Bucket，？？？
+* Number of bucket swaps：罗宾汉哈希和跳房子哈希在插入后会重排序，会带来读写操作，所以需要考虑这个指标。
+
+![Metrics](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220322225431.png)
+
+## Hash Collisions
+
+<Frame src="/gists/hash-collision.html" />
