@@ -151,7 +151,27 @@ Emmanuel 使用 DIP、DFB、DMB、DSB 等多个指标，重新对比了线性寻
 
 ##### [<i>IKVA Part 7 - Optimizing Data Structures for SSDs</i>](https://codecapsule.com/2014/10/18/implementing-a-key-value-store-part-7-optimizing-data-structures-for-ssds/)
 
-* [SSD固态硬盘基本原理 Flash闪存/VNAND是如何工作的](https://www.bilibili.com/video/BV1WR4y1L7io)
+[SSD 的基本原理](/gists/ssd.html)和 HDD 有着巨大的不同。SSD 的基本更新单位是页，页的大小按照不同规格的储存器可能设计为 4KB、16KB 或是其它容量。这意味着，无论是多么小的数据，每次写入时都要按页写入。这浪费了许多写入性能，即**写入放大效应**。此外，SSD 通过内部的寄存器和 RAM 控制器来给出每一页设置过期标记，这割裂了储存的逻辑空间和物理空间。所以经典算法中的就地更新策略以及大于页容量级别的顺序读写算法，对于使用 SSD 作为储存介质的程序而言，只会徒增代码复杂度，不会带来任何性能提升。
+
+普遍来说，SSD 的读取速度要远快于 HHD。所以针对 SSD 的程序的优化，通常是专注于写入。通常，SSD 的集群块（Clustered Block）的大小可以达到 32MB。由于内部的并行结构，对集群块的写入操作是十分快的（？）。依此原理，KingDB 需要尽量使用“追加”而不是“覆盖”的方式来一次性写入大量（集群块大小的）数据。
+
+听起来好像到了 LSM-tree 擅长的领域？LSM-tree 通过建立了多级缓存，使写入以追加的形式写入快速缓存中；如果快速缓存慢了，比如达到了 32MB，再将缓存中的树合并为一颗更大的树，写入磁盘。假设 LSM-tree 有两级缓存，分别位于内存和 SSD 中，可以想象，它充分利用了内存的高速读写特性和 SSD 大批量写入时增速的特性。也即，LSM-tree 天然地把多次随机写操作推迟并合并成了在磁盘中的顺序写。当然，缺点也是有的。合并操作可能不可预测，且会造成突然的 CPU 高负载。
+
+Emmanuel 还列举了几种围绕减少系统调用[^reduce-sys-call]出现的优化 IO 的方法。
+
+[^reduce-sys-call]: 用户态与内核态间的切换大约需要 100ns；Michael Kerrisk 在他的书中做了一个测试，分别设缓存区大小为 1byte、4KB，并写入 100MB 数据，结果分别耗时 72s、0.11s，表明大量系统调用确实在宏观上极度影响性能。
+
+* **内存映射**：使用内存映射相当于将文件区域映射为物理内存地址，这样一来，可以在程序中像操作缓存一样操作文件，而把 IO 操作留给系统内核优化及完成。
+* **向量 IO**：又称聚集发散 IO（scatter-gather I/O），不知是个啥。
+* **零拷贝**：见[零拷贝](/gists/linux.html#零拷贝)。
+
+剩下几篇要 C++，我温习下再来吧。
+
+##### [<i>IKVA Part 8: Architecture of KingDB</i>](https://codecapsule.com/2015/05/25/implementing-a-key-value-store-part-8-architecture-of-kingdb/)
+
+##### [<i>IKVA Part 9: Data Format and Memory Management in KingDB</i>](https://codecapsule.com/2015/08/03/implementing-a-key-value-store-part-9-data-format-and-memory-management-in-kingdb/)
+
+##### [<i>IKVA Part 10: High-Performance Networking: KingServer vs. Nginx</i>](https://codecapsule.com/2016/07/21/implementing-a-key-value-store-part-10-high-performance-networking-kingserver-vs-nginx/)
 
 ## Hash Collisions
 
