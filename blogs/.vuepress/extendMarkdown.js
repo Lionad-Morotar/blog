@@ -1,3 +1,5 @@
+const uslug = require('uslug')
+
 /* 原生懒加载插件 */
 function imageLazyLoadPlugin(md) {
     const rule = md.renderer.rules.image
@@ -9,7 +11,9 @@ function imageLazyLoadPlugin(md) {
 }
 
 function extendMarkdown(md) {
-    md.use(require('markdown-it-toc-done-right'))
+    md.use(require('markdown-it-toc-done-right'), {
+        slugify: s => uslug(s)
+    })
     md.use(require('markdown-it-footnote'))
     md.use(require('markdown-it-implicit-figures'), {
         figcaption: true,

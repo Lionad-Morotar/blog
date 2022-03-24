@@ -21,6 +21,7 @@ specifiers:
   prismjs: ^1.27.0
   qrcodejs2: 0.0.2
   raw-loader: ^4.0.1
+  uslug: ^1.0.4
   vue-fragment: ^1.5.2
   vuepress: ^1.6.0
   vuepress-plugin-comment: git+https://github.com/Lionad-Morotar/vuepress-plugin-comment.git
@@ -56,6 +57,7 @@ devDependencies:
   osssync: github.com/Lionad-Morotar/oss-sync/2cd810db17862de090b87d03c15f45897423c417
   prismjs: 1.27.0
   raw-loader: 4.0.2_webpack@4.46.0
+  uslug: 1.0.4
   vuepress: 1.8.2
   vuepress-plugin-comment: github.com/Lionad-Morotar/vuepress-plugin-comment/058bbcd208c2fc97337e8f6cad798b87081c1da5
   vuepress-plugin-mathjax: 1.2.8
@@ -9258,6 +9260,11 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: true
 
+  /unorm/1.6.0:
+    resolution: {integrity: sha512-b2/KCUlYZUeA7JFUuRJZPUtr4gZvBh7tavtv4fvk4+KV9pfGiR6CQAQAWl49ZpR3ts2dk4FYkP7EIgDJoiOLDA==}
+    engines: {node: '>= 0.4.0'}
+    dev: true
+
   /unpipe/1.0.0:
     resolution: {integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=}
     engines: {node: '>= 0.8'}
@@ -9354,6 +9361,13 @@ packages:
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /uslug/1.0.4:
+    resolution: {integrity: sha1-uaIvCRTgqGFAYz2swwLl9PpFBnc=}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      unorm: 1.6.0
     dev: true
 
   /util-deprecate/1.0.2:
