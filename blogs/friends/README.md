@@ -38,6 +38,12 @@
 
 <!-- todo: 随机排序 -->
 <FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/ryan4yin.jpg"
+  src="https://thiscute.world/"
+  name="於清樂"
+  achieve="有很多的绝望，但也有美的时刻，只不过在美的时刻，时间是不同于以往的 ☀️"
+/>
+<FriendLink
   img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Cheese.jpg"
   src="https://chee5e.space/"
   name="Cheese"
