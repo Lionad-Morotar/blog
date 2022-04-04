@@ -23,7 +23,7 @@ export default {
       this.$utils.insertStyles(
         $frame.contentDocument.querySelector('body'),
         `.navbar, .sidebar, h1, #valine-vuepress-comment, #page-bottom { display: none }
-        .page { overflow-x: hidden }
+        .page { overflow-x: hidden; padding-left: 0; }
         .page > *:first-child { padding-top: 0 }
         .frame { display: none }
         .wh-container[data-cmpt="frame"] > .padding-box { display: none }
