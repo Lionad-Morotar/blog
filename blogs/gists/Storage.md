@@ -1,10 +1,20 @@
-# Solid State Driver
+# Storage
 
 [TOC]
 
-## 工程原理
+## RTX IO
 
-### VNAND
+![games bottlenecked by traditional IO](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220406092957.png)
+![compressed data needed, but CPU cant keep up](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220406093020.png)
+![RTX IO](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220406093202.png)
+
+## SSD（Solid State Driver）
+
+[TOC]
+
+### 工程原理
+
+#### VNAND
 
 SSD 的基本储存单位是 CTF 单元（Charge Trap Flash memoery cell），它通过控制电子的数量以电流通路来判断单个位的信息，即 0 或 1。2020 年，前沿的 CTF 单元可以单单元储存 4 Bits 的信息，且其控制电子的数量级可以保持 10 年（也即 SSD 的寿命）。
 
@@ -30,6 +40,6 @@ SSD 的基本储存单位是 CTF 单元（Charge Trap Flash memoery cell），�
 
 ![Chips](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220324210230.png?w=60)
 
-## 阅读更多
+### 阅读更多
 
 * [SSD固态硬盘基本原理 Flash闪存/VNAND是如何工作的](https://www.bilibili.com/video/BV1WR4y1L7io)

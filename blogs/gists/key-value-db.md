@@ -62,7 +62,7 @@ Emmanuel 对比了 KC 和 LevelDB 的架构图，粗略分析了一下两者的�
 ![Kyoto Cabinet v1.2.76](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220321121058.png?w=60)
 ![LevelDB v1.7.0](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220321121216.png?w=60)
 
-LevelDB 和核心（Core/Interface）更小，API 设计更紧凑。比方说，LevelDB 把参数也对象化，并通过 ReadOptions 和 WriteOptions 暴露读写操作，使得这些接口没必要与数据库的核心耦合起来。
+LevelDB 的核心（Core/Interface）更小，API 设计更紧凑。比方说，LevelDB 把参数也对象化，并通过 ReadOptions 和 WriteOptions 暴露读写操作，使得这些接口没必要与数据库的核心耦合起来。
 
 Emmanuel 认为单独设计字符串的操作类 String 是有必要的，比如说 LevelDB 使用“Slice”来存储字符串可以把获取字符串长度降低到 O(1)（对比 strlen 在 C 中是 O(n) 的性能）。“Slice” 在拷贝时使用浅拷贝而不是深拷贝，使得它和 C++ 中 std::string 的表现不一致。总的来说，LevelDB 的 String 可以节约拷贝和分配内存的时间。而 KC 完全依赖 std::string。
 
@@ -168,6 +168,41 @@ Emmanuel 还列举了几种围绕减少系统调用[^reduce-sys-call]出现的�
 剩下几篇要 C++，我温习下再来吧。
 
 ##### [<i>IKVA Part 8: Architecture of KingDB</i>](https://codecapsule.com/2015/05/25/implementing-a-key-value-store-part-8-architecture-of-kingdb/)
+
+![KingDB Architecture](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220405172549.png?w=60)
+
+对相同值的索引，KingDB 直接使用新值去覆盖旧的值，而不是写入删除。这也就是为什么它的写入速度很快。所有的索引都使用 std::multimap 储存，分别记录 hashed key 和 location；索引有多个读取和一个写入，同时使用锁来保证在读取时索引不会改变。
+
+Emmanuel 考虑过要实现自己的零锁版本的罗宾汉哈希，但是鉴于 std::multimap 能节约巨大的工作量，所以就直接用了。使用 std::multimap 带来的问题是：
+
+* 需要经过两次哈希运算，手动计算哈希时一次，std::multimap 储存时本身需要对手动哈希得到的值在进行一次哈希。
+* 索引需要完整的存入内存，这也就意味着数据库快照也需要占有许多内存。
+
+KingDB 用 ByteArray 封装读取操作，它使用 RAII 以及内存映射技术提升性能。Another interesting point is that the data retrieved is likely to be larger than the maximum payload that can transit on a network, thus any type of caching while reading data from disk is going to increase the throughput. Memory maps are an easy way to get such caching, by reading only what is needed from the buffer and letting the kernel handle the caching. 因为储存在磁盘中的数据使用 LSM-tree 来保证在同一个区域不会同时有读写操作，所以 HSTable 中的内容可以访问时不加锁也没关系。
+
+KingDB 被划分为了 Storage Engine 和 Server 两个部分，可以更方便测试。由于 Server 需要把接受到的所有数据都先放到新开辟的内存中再传到缓存，在传递大文件时很容易导致内存溢出，所以后来在 Write Buffer 和 Storage Engine 中引入了“Part” （应该是部分写入之类的概念）。同时，Server 需要完善 Multipart API（大文件分块接收与储存），而其中的权衡是：当客户端并发数很少时，revc() 允许客户端占用更大的缓存区，减少写入次数；如果并发多那么分块能使内存占用减少，但同时写入次数（以及相应的系统调用次数）就上去了。
+
+写缓存（Write Buffer）把随机写入聚合起来，转换为一次更大的顺序写入,不过它的缺点在于可能会在大文件写入时造成写停顿（？？？）。见 [<i>Why buffered writes are sometimes stalled</i>](http://yoshinorimatsunobu.blogspot.com/2014/03/why-buffered-writes-are-sometimes.html) 。KingDB 有两个写缓存区，其中一个用于接受数据请求，另一个用做刷新操作的源（？？？）。当接受数据的缓存区准备好被刷新时，就会被锁定，然后两缓存区的角色互换。The two std::vector in the Write Buffer are storing instances of the Order class. Each order contains the key of the entry it belongs to, a part of data for the value of that entry, and the offset of that part in the value array. Keys and parts are instances of ByteArray, which allows to share allocated memory buffers when they are needed all along the persisting pipeline, and seamlessly release them once they have been persisted by the Storage Engine.
+
+将所有可能等待 IO 操作的工作用多线程设计可以明显减少等待时间（downtimes）。Emmanuel 使用 C++11 的 std::mutex 来同步这些线程。尽管零锁版本可能是更优解，但是对于瓶颈在磁盘 IO 的 KingDB 来说，算过早优化了。如上图 KingDB 架构所示，其线程包含：
+
+* Buffer Manager：用于控制缓存区与 Storage Engine 的交互。
+* Entry Writer：等待 EventManager::flush_buffer 事件并处理从写缓存传入的 Orders Vector。
+* Index Updater：等待 EventManager::update_index 并在合适的时机更新索引。
+* Compactor：定期检查数据库的各项数据以确定是否需要调用压缩以回收磁盘空间。
+* System Statics Poller：定期收集系统各项数据（如磁盘剩余容量）。
+
+对于多线程间的消息通讯，KingDB 有自己的实现，仅 70 loc，使用 std::condition_variable 和 std::mutex 打造（源码见 [KingDB/thread/event_manager.h](C:\goossaert\kingdb\blob\master\thread\event_manager.h)）。如果线程间需要传输数据，那么就会使用到内部的事件系统。
+
+异常管理还是沿用的 LevelDB 那套风格。KingDB 没有处理内存不足时的异常，作为内存数据库，对此异常无能为力。不过，KingDB 通过 Valgrind 详细检测了内存泄漏、堆破坏（Heap Corruption）、静态等项目。KingDB 使用 Status Class 而不是异常的原因是：
+
+* Status 类更易读，可以容易分辨源码有没有明确地处理或是如何处理的错误；
+* Exception 难以维护，想象一下为之前没有考虑过的错误情况添加或更改额外的异常类型；
+* Code locality matters, and exceptions make everything they can to make that not the case — technically, exceptions are free as long as they are not thrown; when they’re thrown, they incur a 10-20x slowdown with the Zero-Cost model.
+
+在调试时，可以把日志级别设置为“trace”，而在生产环境这设置为“error”。日志相关方法都是在 printf 基础上的封装。另一方面，参数类也是单独的封装。正如前文所描述的，将参数化对象封装起来有助于解耦核心引擎，这也是从 LevelDB 中习得的。
+
+压缩算法选用了 LZ4，校验和算法是 CRC32，哈希算法可以从 Murmurhash3 以及 xxHash 中任选。
 
 ##### [<i>IKVA Part 9: Data Format and Memory Management in KingDB</i>](https://codecapsule.com/2015/08/03/implementing-a-key-value-store-part-9-data-format-and-memory-management-in-kingdb/)
 
