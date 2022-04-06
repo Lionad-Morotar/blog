@@ -2,7 +2,7 @@
 
 [TOC]
 
-## [<i>IKVA Series</i>](https://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/)
+## [<i>IKVS Series</i>](https://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/)
 
 在看过《C++ 新经典》后，被其繁杂的特性及语法小小的震撼到了，想进一步深入学习一下（C++ 以及相关知识）。并不是像 Anysort 一样想做出点什么有用的东西，只是一个小小的练习。据《Implement...》博主所说，选择做一个简单的关系型数据库可能是一个做为练习的合适选择，它能提供以下方面的挑战：
 
@@ -14,7 +14,7 @@
 * C/S 网络通讯模型
 * IO 操作以及与文件系统打交道
 
-##### [<i>IKVA Part 1 - What are key-value stores, and why implement one?</i>](https://codecapsule.com/2012/11/07/implementing-a-key-value-store-part-1-what-are-key-value-stores-and-why-implement-one/)
+##### [<i>IKVS Part 1 - What are key-value stores, and why implement one?</i>](https://codecapsule.com/2012/11/07/implementing-a-key-value-store-part-1-what-are-key-value-stores-and-why-implement-one/)
 
 一般来说，KV 数据库具有以下几个接口：Get(key)、Set(key)、Delete(key)，一般基于哈希表或某种自平衡树（B-Tree、红黑树）来实现。其中“key”就是数据于其位置的映射，根据 key，KV 数据库能高效查找到对应的数据。另一方面，由于 KV 数据库不知道它到底存了哪种的数据，所以如果你想想 SQL 一样使用 WHERE 语句的话，那就只能把所有数据都遍历一遍了。
 
@@ -27,14 +27,14 @@
 * 给使用他的人提供方便（如提供完整的文档以及代码示例）
 * 适配特定应用程序（比如许多爬虫都会使用到大量的 URL 地址）
 
-##### [<i>IKVA Part 2 - Using existing key-value stores as models</i>](http://codecapsule.com/2012/12/03/implementing-a-key-value-store-part-2-using-existing-key-value-stores-as-models/)
+##### [<i>IKVS Part 2 - Using existing key-value stores as models</i>](http://codecapsule.com/2012/12/03/implementing-a-key-value-store-part-2-using-existing-key-value-stores-as-models/)
 
 遵从高尔定律，我们应该从一个简单的、能验证的模型入手，一步一步实现并完善新的 KV 数据库。为了避免重复造轮子，需要考察一下现有的经过时间检验过的 KV 数据库。经过挑选，Emmanuel 决定选用 Berkeley DB、Kyoto Cabinet（下简称 KC） 和 LevelDB。
 
 > A complex system that works is invariably found to have evolved from a simple system that worked. The inverse proposition also appears to be true - A complex system designed from scratch never works and cannot be made to work. You have to start over, beginning with a working simple system.
 > <name>Gall’s law</name>
 
-##### [<i>IKVA Part 3 - Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB</i>](https://codecapsule.com/2012/12/30/implementing-a-key-value-store-part-3-comparative-analysis-of-the-architectures-of-kyoto-cabinet-and-leveldb/)
+##### [<i>IKVS Part 3 - Comparative Analysis of the Architectures of Kyoto Cabinet and LevelDB</i>](https://codecapsule.com/2012/12/30/implementing-a-key-value-store-part-3-comparative-analysis-of-the-architectures-of-kyoto-cabinet-and-leveldb/)
 
 忽略这些知名数据库不同的架构，大部分 KV 数据库都包含以下几个组件：
 
@@ -70,7 +70,7 @@ KC 使用 C 风格的错误处理，在任何出错的地方返回数值异常�
 
 在内存管理上两者有很大区别：KC 持续跟踪由 mmap() 映射的空闲内存块，并将数据储存到足够大小的块中。LevelDB 使用 LSM 树进行数据管理，一旦其大小超过一定阈值，便开始压缩。这两个数据库都是用文件系统储存数据。
 
-##### [<i>IKVA Part 4 - API Design</i>](https://codecapsule.com/2013/04/03/implementing-a-key-value-store-part-4-api-design/)
+##### [<i>IKVS Part 4 - API Design</i>](https://codecapsule.com/2013/04/03/implementing-a-key-value-store-part-4-api-design/)
 
 Emmanuel 决定把自己的 KV Store 叫做 KingDB。在设计 API 时，他建议遵循 Joshua Bloch 的原则（以及 <i>Effective C++</i>）：
 
@@ -96,7 +96,7 @@ delete db;
 
 KC 和 LevelDB 使用了两种完全不同的设定方法（见架构图）。给 KC 数据库实例设置参数时可以直接调用其方法；而 LevelDB 在设定参数时，需要创建新的参数对象，这样可以方便地在多个数据库之间共享对象。不过 LevelDB 每次 Get 或 Put 时都需要将参数对象作为第一个参数传入，Emmanuel 认为这样做也许有其理由，但是使用重载或是将参数对象作为最后一项可选参数要更“C++-style”一些。
 
-##### [<i>IKVA Part 5 - Hash table implementations</i>](https://codecapsule.com/2013/05/13/implementing-a-key-value-store-part-5-hash-table-implementations/)
+##### [<i>IKVS Part 5 - Hash table implementations</i>](https://codecapsule.com/2013/05/13/implementing-a-key-value-store-part-5-hash-table-implementations/)
 
 哈希表可以高效存取数据，但是在实际使用时，需要考虑许多值哈希后可能会得到一个结果，这时需要如何存储。为了解决哈希碰撞，常常使用链表或自平衡树来储存值，或使用线性或平分寻址技术。好的哈希算法应该使结果尽可能均匀地分布在索引数据范围内，比如 MurmurHash3、CityHash。
 
@@ -135,7 +135,7 @@ uint32_t fold_hash(uint64_t hash) {
 }
 ```
 
-##### [<i>IKVA Part 6 - Open-Addressing Hash Tables</i>](https://codecapsule.com/2014/05/07/implementing-a-key-value-store-part-6-open-addressing-hash-tables/)
+##### [<i>IKVS Part 6 - Open-Addressing Hash Tables</i>](https://codecapsule.com/2014/05/07/implementing-a-key-value-store-part-6-open-addressing-hash-tables/)
 
 Emmanuel 使用 DIP、DFB、DMB、DSB 等多个指标，重新对比了线性寻址、跳房子哈希和罗宾汉哈希的性能。由于 CPU Cache Line 的限制，DIB 等指标可能会在某些值附近出现性能突变的情况。也就是说，他们和性能并不是简单的线性关系。另外，作者还有一些感兴趣但没有列出的指标，比如：哈希冲突次数（这意味着额外的 IO 操作次数）和寄存器的缓存命中率。
 
@@ -149,7 +149,7 @@ Emmanuel 使用 DIP、DFB、DMB、DSB 等多个指标，重新对比了线性寻
 
 最终，得出罗宾汉哈希的性能要比跳房子哈希好许多。作者选用了罗宾汉哈希作为 KingDB 之后将实现的哈希表算法。
 
-##### [<i>IKVA Part 7 - Optimizing Data Structures for SSDs</i>](https://codecapsule.com/2014/10/18/implementing-a-key-value-store-part-7-optimizing-data-structures-for-ssds/)
+##### [<i>IKVS Part 7 - Optimizing Data Structures for SSDs</i>](https://codecapsule.com/2014/10/18/implementing-a-key-value-store-part-7-optimizing-data-structures-for-ssds/)
 
 [SSD 的基本原理](/gists/ssd.html)和 HDD 有着巨大的不同。SSD 的基本更新单位是页，页的大小按照不同规格的储存器可能设计为 4KB、16KB 或是其它容量。这意味着，无论是多么小的数据，每次写入时都要按页写入。这浪费了许多写入性能，即**写入放大效应**。此外，SSD 通过内部的寄存器和 RAM 控制器来给出每一页设置过期标记，这割裂了储存的逻辑空间和物理空间。所以经典算法中的就地更新策略以及大于页容量级别的顺序读写算法，对于使用 SSD 作为储存介质的程序而言，只会徒增代码复杂度，不会带来任何性能提升。
 
@@ -167,7 +167,7 @@ Emmanuel 还列举了几种围绕减少系统调用[^reduce-sys-call]出现的�
 
 剩下几篇要 C++，我温习下再来吧。
 
-##### [<i>IKVA Part 8: Architecture of KingDB</i>](https://codecapsule.com/2015/05/25/implementing-a-key-value-store-part-8-architecture-of-kingdb/)
+##### [<i>IKVS Part 8: Architecture of KingDB</i>](https://codecapsule.com/2015/05/25/implementing-a-key-value-store-part-8-architecture-of-kingdb/)
 
 ![KingDB Architecture](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220405172549.png?w=60)
 
@@ -204,9 +204,9 @@ KingDB 被划分为了 Storage Engine 和 Server 两个部分，可以更方便�
 
 压缩算法选用了 LZ4，校验和算法是 CRC32，哈希算法可以从 Murmurhash3 以及 xxHash 中任选。
 
-##### [<i>IKVA Part 9: Data Format and Memory Management in KingDB</i>](https://codecapsule.com/2015/08/03/implementing-a-key-value-store-part-9-data-format-and-memory-management-in-kingdb/)
+##### [<i>IKVS Part 9: Data Format and Memory Management in KingDB</i>](https://codecapsule.com/2015/08/03/implementing-a-key-value-store-part-9-data-format-and-memory-management-in-kingdb/)
 
-##### [<i>IKVA Part 10: High-Performance Networking: KingServer vs. Nginx</i>](https://codecapsule.com/2016/07/21/implementing-a-key-value-store-part-10-high-performance-networking-kingserver-vs-nginx/)
+##### [<i>IKVS Part 10: High-Performance Networking: KingServer vs. Nginx</i>](https://codecapsule.com/2016/07/21/implementing-a-key-value-store-part-10-high-performance-networking-kingserver-vs-nginx/)
 
 ## Hash Collisions
 
