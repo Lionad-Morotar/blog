@@ -204,6 +204,11 @@ magick -version
 rename -v 'oldname' 'newname' file
 ```
 
+今天安装了 Windows Linux Subsystem。用的 Debian，但是它居然没有自带的 rename 工具，所以只好使用 apt install rename 重新安装了一个。令我诧异的是，这个 rename 的用法和上面提到的完全不一样。
+
+```bash
+rename "s/oldstr/newstr"
+```
 
 ---
 
@@ -211,3 +216,14 @@ rename -v 'oldname' 'newname' file
 
 Linux 单个进程只能操作有限个文件数量。可以使用 ulimit -n xxxx 突破这个限制。
 
+
+## C/C++
+
+signal.h，用于信号处理。
+
+* SIGTERM：终止请求，发送到程序
+* SIGSEGV：无效的内存访问（分段故障）
+* SIGINT：外部中断，通常由用户发起
+* SIGILL：无效的程序映像，如无效指令
+* SIGABRT：异常终止条件，如例如由 abort() 触发
+* SIGFPE：错误的算术运算，如除以零

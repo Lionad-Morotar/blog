@@ -165,8 +165,6 @@ Emmanuel 还列举了几种围绕减少系统调用[^reduce-sys-call]出现的�
 * **向量 IO**：又称聚集发散 IO（scatter-gather I/O），不知是个啥。
 * **零拷贝**：见[零拷贝](/gists/linux.html#零拷贝)。
 
-剩下几篇要 C++，我温习下再来吧。
-
 ##### [<i>IKVS Part 8: Architecture of KingDB</i>](https://codecapsule.com/2015/05/25/implementing-a-key-value-store-part-8-architecture-of-kingdb/)
 
 ![KingDB Architecture](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220405172549.png?w=60)
