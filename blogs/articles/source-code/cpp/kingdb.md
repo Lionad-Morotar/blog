@@ -196,3 +196,91 @@ for (int i = 0; i < size; i++) {
   str[i] = static_cast<char>(random_dist(generator));
 }
 ```
+
+## 异常
+
+代码没有使用 C++ 风格的异常捕获，取而代之的是设计了状态类 Status。就像 kingdb_user 示例展示的，所有数据库操作都会返回一个状态实例，通过调用其 IsOK 方法，调用者可以判断处出操作有没有成功；如果失败了，可以使用 ToString 方法把出错原因输出。尽管这种设计会带来额外的内存开销，且使每次调用都带来轻微的性能消耗，不过这种消耗可以避免魔法数值，它将错误码和核心解耦，使代码有更佳的可读性。
+
+```cpp
+class Status {
+  // ...
+  static Status OK() { return Status(); }
+  bool IsOK() const { return (code_ == kOK); }
+  // ...
+  enum Code {
+    kOK = 0, 
+    kNotFound = 1,
+    kDeleteOrder = 2,
+    kInvalidArgument = 3,
+    kIOError = 4,
+    kDone = 5,
+    kMultipartRequired = 6
+  };
+  // ...
+}
+std::string Status::ToString() const {
+  if (message1_ == "") {
+    return "OK";
+  } else {
+    char tmp[30];
+    const char* type;
+    switch (code()) {
+      case kOK:
+        type = "OK";
+        break;
+      // ...
+    }
+    // ...
+    return result;
+  }
+}
+```
+
+## 日志
+
+如果没有日志，那么在排查代码问题时简直就是噩梦。KDB 有两套日志的输出目标，分别是系统输出和标准输出设备。日志类记录输出目标、日志级别、线程锁等成员，并通过静态方法 Logv 实现记录日志。锁的最大用处是保证记录顺序。仅有当出现最高级别的日志（kLogLevelEMERG）时，才会跳过锁直接写入。出现 kLogLevelEMERG 时意味着程序遇到了紧急问题，通常会直接退出或是返回 Status 异常，所以这个时候需要及时记录。
+
+#### 用宏还是函数
+
+原先的提交中，日志调用被定义在了宏里，直接调用 Logger::Logv 去记录。日志宏中使用子宏 __VA_ARGS__ 来记录可变参数。__VA_ARGS__ 前面有标记黏贴运算符的原因是当日志宏的可变参数为空时，可以把末尾的逗号去掉。
+
+尚不清楚为什么不用宏，而是使用运行时的方法调用（即 log 的 public 方法）。
+
+```cpp
+class log {
+  static void emerg(const char* logname, const char* format, ...) {
+    va_list args;
+    va_start(args, format);
+    Logger::Logv(false, Logger::kLogLevelEMERG, LOG_EMERG, logname, format, args);
+    va_end(args);
+  }
+}
+// ...
+#define LOG_EMERG(logname, fmt, ...) \
+        Logger::Logv(false, Logger::kLogLevelEMERG, logname, fmt, ##__VA_ARGS__)
+```
+
+#### 日志时间
+
+使用系统输出（syslog）时不需要手动记录时间，但是把日志打印出来时却是要的。尤其是在调试时，精确时间非常有用。KDB 使用 Linux 的 timeval、tm 两个结构体，分别拿到精确时间及可读时间，再格式化输出。
+
+```cpp
+struct timeval now_tv;
+gettimeofday(&now_tv, NULL);
+const time_t seconds = now_tv.tv_sec;
+struct tm t;
+// 初始化 tm 时需要用到当前秒数，
+// 所以需要提前初始化 now_tv
+localtime_r(&seconds, &t);
+p += snprintf(p, limit - p,
+              "%04d/%02d/%02d-%02d:%02d:%02d.%06d %s %s ",
+              t.tm_year + 1900,
+              t.tm_mon + 1,
+              t.tm_mday,
+              t.tm_hour,
+              t.tm_min,
+              t.tm_sec,
+              static_cast<int>(now_tv.tv_usec), // 毫秒
+              ss.str().c_str(),
+              logname);
+```
