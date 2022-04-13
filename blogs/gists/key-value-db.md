@@ -187,7 +187,7 @@ KingDB 被划分为了 Storage Engine 和 Server 两个部分，可以更方便�
 * Buffer Manager：用于控制缓存区与 Storage Engine 的交互。
 * Entry Writer：等待 EventManager::flush_buffer 事件并处理从写缓存传入的 Orders Vector。
 * Index Updater：等待 EventManager::update_index 并在合适的时机更新索引。
-* Compactor：定期检查数据库的各项数据以确定是否需要调用压缩以回收磁盘空间。
+* Compactor：定期检查数据库的各项数据以确定是否需要调用<del>压缩</del>合并以回收磁盘空间。
 * System Statics Poller：定期收集系统各项数据（如磁盘剩余容量）。
 
 对于多线程间的消息通讯，KingDB 有自己的实现，仅 70 loc，使用 std::condition_variable 和 std::mutex 打造（源码见 [KingDB/thread/event_manager.h](C:\goossaert\kingdb\blob\master\thread\event_manager.h)）。如果线程间需要传输数据，那么就会使用到内部的事件系统。

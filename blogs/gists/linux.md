@@ -16,6 +16,17 @@ Linux 2.4 又进行了一些修改。在 sendFile 的基础上，如果网卡支
 
 * [<i>Zero copy : mmap and sendfile in detail</i>](https://trashcode.io/post/d/Zero-copy-mmap-and-sendfile-in-detail)
 
+### 权限设定
+
+* ---，0，no excute，no write，no read
+* --x，1，excute
+* -w-，2，write
+* -wx，3，write，excute
+* r--，4，read
+* r-x，5，read，excute
+* rw-，6，read，write ，
+* rwx，7，read，write ，excute
+
 ## 常用操作
 
 ### 给用户添加管理员权限

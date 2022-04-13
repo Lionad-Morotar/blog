@@ -6,12 +6,14 @@
 
 源码分两部分，从相关的测试文件，到核心源码。参考 IKVS 系列文章给的架构图，核心源码的阅读顺序沿着 Put、Delete、Get 三个接口，由 Database 一路向 Buffer、Event Manager、Storage Engine、HSTable Manager、File System 相关、Index 前进。最好再看相关快照、迭代器、Multipart 等部分。期间如果遇到简单的帮助函数会先讲帮助函数。
 
-本来想从第一个 Git Commit 开始看起的。但我 checkout 过去之后，碰到了一堆编译问题，根本跑不通，索性就直接回到 master 来看最新代码了。本文章的源码快照见 [KingDB@58994](https://github.com/goossaert/kingdb/tree/58994280e789fc7248d61371f03a6c04c844c197)。
+本来想从第一个 Git Commit 开始看起的。但我 checkout 过去之后，碰到了一堆编译问题，根本跑不通，索性就直接回到 master 来看最新代码了。本文章的源码快照见 [KingDB@58994](https://github.com/goossaert/kingdb/tree/58994280e789fc7248d61371f03a6c04c844c197)。阅读源码前可以先看一下 KingDB 的 Readme：doc/kingdb.md 以及 doc/kingserver.md。
 
 下文可能出现的缩写：
 
 * KDB：KingDB，泛指，有时指 KingDB 程序，有时指 KingDB 源码。
 * IKVS：作者相关 KingDB 做的一些调研及笔记的博客系列。这个系列从 13 年开始写，现在还没写完... 见 [IKVS](https://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/)。
+
+另，为了简便起见，下文给出的代码很可能并非原本的代码，而是截取或经过剔除后的部分代码。比如说，去除了某函数中的错误处理，使之代码更短，更容易展示。
 
 ## 从测试开始
 
@@ -197,7 +199,63 @@ for (int i = 0; i < size; i++) {
 }
 ```
 
-## 异常
+## 接口层
+
+接口的声明位于 interface/kingdb.h，实现则是 interface/kingdb.cc。KingDB 类给 Database 和 Snapshot 定义了要求实现的 Get、Put、Delete、NewIterater、Open、Close、Flush、Compact、NewMultipartReader 接口。KDB 有自己的数据传输格式 ByteArray，诸如 Get、Put 这些接口在 KingDB 类中对应方法得到了重载，以实现通过 std::string 来传递键、值或者两者，可视为为接受 ByteArray 的方法的包装。所有数据库操作方法都返回 Status 对象，相关异常部分的简介见[异常与日志](#异常与日志)小节。
+
+重载方法的实现示例如下，即先把 std::string 转回 ByteArray 再调用子类（Database 或 Snapshot）的实现。
+
+```cpp
+virtual Status Put(WriteOptions& write_options, const std::string& key, const std::string& chunk) {
+  ByteArray byte_array_key = NewDeepCopyByteArray(key.c_str(), key.size());
+  ByteArray byte_array_chunk = NewDeepCopyByteArray(chunk.c_str(), chunk.size());
+  return Put(write_options, byte_array_key, byte_array_chunk);
+}
+```
+
+#### 数据库开关
+
+数据库的开启与关闭，分别对应 Database 类的 Open 和 Close 方法。开启时，通过 stat 库函数找到数据库路径以及配置文件，使用 open 库函数获取其文件描述符。配置文件须先用 flock 锁住，使用 mmap 映射后再读取；如果没有那么分情况写入。之后，创建好 EventManager、WriteBuffer 和 StorageEngine 的实例，就完成了。关闭时过程类似，锁定住配置文件后再关闭，同时删除以上创建的实例。可以发现，资源申请全放在了 Open 中，而资源的销毁放在了 Close 中，而 Database 类析构时会自动调用 Close，所以这是一个类似 RAII 的资源管理过程。
+
+```cpp
+class Database: public KingDB {
+  virtual ~Database() { Close(); }
+  virtual Status Open() override {
+    std::string filepath_dboptions = DatabaseOptions::GetPath(dbname_);
+    fd_dboptions_ = open(filepath_dboptions.c_str(), O_RDONLY, 0644);
+    flock(fd_dboptions_, LOCK_EX | LOCK_NB);
+    Mmap mmap(filepath_dboptions, info.st_size);
+    Status status_dboptions = DatabaseOptionEncoder::DecodeFrom(mmap.datafile(), mmap.filesize(), &db_options_candidate);
+    // ...
+    em_ = new EventManager();
+    wb_ = new WriteBuffer(db_options_, em_);
+    se_ = new StorageEngine(db_options_, em_, dbname_);
+    return Status::OK(); 
+  }
+  virtual void Close() override {
+    flock(fd_dboptions_, LOCK_UN);
+    close(fd_dboptions_);
+    wb_->Close();
+    se_->Close();
+    delete wb_;
+    delete se_;
+    delete em_;
+  }
+}
+```
+
+因为数据库不能同时关闭或是开启，所以 Open 以及 Close 中都使用了 std::unique_lock 进行锁定。
+
+```cpp
+virtual Status Open() override {
+  std::unique_lock<std::mutex> lock(mutex_close_);
+}
+virtual void Close() override {
+  std::unique_lock<std::mutex> lock(mutex_close_);
+}
+```
+
+## 异常与日志
 
 代码没有使用 C++ 风格的异常捕获，取而代之的是设计了状态类 Status。就像 kingdb_user 示例展示的，所有数据库操作都会返回一个状态实例，通过调用其 IsOK 方法，调用者可以判断处出操作有没有成功；如果失败了，可以使用 ToString 方法把出错原因输出。尽管这种设计会带来额外的内存开销，且使每次调用都带来轻微的性能消耗，不过这种消耗可以避免魔法数值，它将错误码和核心解耦，使代码有更佳的可读性。
 
@@ -236,11 +294,22 @@ std::string Status::ToString() const {
 }
 ```
 
-## 日志
+KDB 内部代码出现异常时会使用日志将其记录下来。如果没有日志，那么在排查代码问题时简直就是噩梦。KDB 有两套日志的输出目标，分别是系统输出和标准输出设备。日志类记录输出目标、日志级别、线程锁等成员，并通过静态方法 Logv 实现记录日志。锁的最大用处是保证记录顺序。仅有当出现最高级别的日志（kLogLevelEMERG）时，才会跳过锁直接写入。出现 kLogLevelEMERG 时意味着程序遇到了紧急问题，通常会直接退出或是返回 Status 异常，所以这个时候需要及时记录。
 
-如果没有日志，那么在排查代码问题时简直就是噩梦。KDB 有两套日志的输出目标，分别是系统输出和标准输出设备。日志类记录输出目标、日志级别、线程锁等成员，并通过静态方法 Logv 实现记录日志。锁的最大用处是保证记录顺序。仅有当出现最高级别的日志（kLogLevelEMERG）时，才会跳过锁直接写入。出现 kLogLevelEMERG 时意味着程序遇到了紧急问题，通常会直接退出或是返回 Status 异常，所以这个时候需要及时记录。
+日志级别的划分参考了 Syslog：
 
-#### 用宏还是函数
+* silent: all logging is turned off
+* emerg: system is unusable, imminent crash
+* alert: error event, immediate action required
+* crit: error event, immediate action required
+* error: error event, action is required but is not urgent
+* warn: events that can be harmful if no action is taken
+* notice: unusual events, but no immediate action required
+* info: normal operation events, no action required
+* debug: events used for debugging, no action required
+* trace: fine-grained events used for debugging, no action required
+
+#### 日志调用用宏还是函数
 
 原先的提交中，日志调用被定义在了宏里，直接调用 Logger::Logv 去记录。日志宏中使用子宏 __VA_ARGS__ 来记录可变参数。__VA_ARGS__ 前面有标记黏贴运算符的原因是当日志宏的可变参数为空时，可以把末尾的逗号去掉。
 
