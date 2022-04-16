@@ -255,6 +255,8 @@ virtual void Close() override {
 }
 ```
 
+
+
 ## 异常与日志
 
 代码没有使用 C++ 风格的异常捕获，取而代之的是设计了状态类 Status。就像 kingdb_user 示例展示的，所有数据库操作都会返回一个状态实例，通过调用其 IsOK 方法，调用者可以判断处出操作有没有成功；如果失败了，可以使用 ToString 方法把出错原因输出。尽管这种设计会带来额外的内存开销，且使每次调用都带来轻微的性能消耗，不过这种消耗可以避免魔法数值，它将错误码和核心解耦，使代码有更佳的可读性。
@@ -313,8 +315,6 @@ KDB 内部代码出现异常时会使用日志将其记录下来。如果没有�
 
 原先的提交中，日志调用被定义在了宏里，直接调用 Logger::Logv 去记录。日志宏中使用子宏 __VA_ARGS__ 来记录可变参数。__VA_ARGS__ 前面有标记黏贴运算符的原因是当日志宏的可变参数为空时，可以把末尾的逗号去掉。
 
-尚不清楚为什么不用宏，而是使用运行时的方法调用（即 log 的 public 方法）。
-
 ```cpp
 class log {
   static void emerg(const char* logname, const char* format, ...) {
@@ -327,6 +327,18 @@ class log {
 // ...
 #define LOG_EMERG(logname, fmt, ...) \
         Logger::Logv(false, Logger::kLogLevelEMERG, logname, fmt, ##__VA_ARGS__)
+```
+
+尚不清楚为什么不用宏，而是使用运行时的方法调用（即 log 的 public 方法）。猜测可能是因为宏不能跨行？因为我看到了这种很长的调用。
+
+```cpp
+log::trace(
+  "Database::PutPartValidSize()",
+  "[%s] size_chunk:%" PRIu64 " offset_chunk:%" PRIu64,
+  key.ToString().c_str(),
+  chunk.size(),
+  offset_chunk
+);
 ```
 
 #### 日志时间
