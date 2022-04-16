@@ -51,6 +51,12 @@ TNPM 还在开发中~ 很期待中国能有 TNPM 这样一个顶尖的软件工�
 
 `cnpm install` 时不会更新 package-lock.json，有可能导致一些稀奇古怪的问题。如果想更新 package-lock.json 的话，需要删除 node_modules、package-lock.json，再重新 `npm install`。
 
+##### <Link type='h5' source='https://medium.com/@jakubsynowiec/you-should-always-quote-your-globs-in-npm-scripts-621887a2a784' ><i>Why you should always quote your globs in NPM scripts</i></Link>
+
+NPM 在 Linux 平台使用 sh -s 指令运行脚本，在 Windows 上使用 cmd /d /s /c。看起来它是跨平台的，但是其中有一些小的兼容问题。只有 bash-4 才支持星号占位符（**），所以 eslint src/**/*.js 指令在不被识别的系统中，可能会被当成 eslint src/*/*.js 执行而报错。
+
+解决方法就是用引号（并且最好是双引号）将路径包裹起来。尽管这样一来，星号占位符就不会被自动展开了，但是库仍然可以使用诸如 node-glob 等工具处理输入，来达到跨平台的一致性。
+
 ## 阅读更多
 
 * [node_modules 困境](https://zhuanlan.zhihu.com/p/137535779)，除了 NodeJS 生态，文章还介绍了 Rust 是如何进行包管理的。
