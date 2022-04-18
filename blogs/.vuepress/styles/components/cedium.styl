@@ -11,6 +11,7 @@ header-tags = 'h1, h2, h3, h4, h5';
 
     // TODO refactor ?
     & + h1, & + h2, & + h3, & + h4, & + h5 {
+        display: block;
         margin-top: 0;
     }
 
@@ -33,8 +34,16 @@ h2, h3, h4, h5 {
     font-weight: bolder;
 
     &:target {
-        outline: dashed 2px var(--theme-black);
+        animation: showTarget 1.5s 1 linear;
         outline-offset: .2em;
+    }
+    @keyframes showTarget {
+        from {
+            outline: dashed 3px var(--theme-black);
+        }
+        to {
+            outline: dashed 3px rgba(0,0,0,0);
+        }
     }
 
     &::before {
