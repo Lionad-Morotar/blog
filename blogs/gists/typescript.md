@@ -45,7 +45,7 @@ TS 中有五种字面量，分别是数字、布尔值、元组、字符串和�
 type test_bool = true
 type test_num = 1
 type test_string = `a_${test_num}`
-type test_tuple = ['a', 'b']
+type test_tupple = ['a', 'b']
 type test_object = { a: 'a' }
 ```
 
@@ -129,12 +129,12 @@ type test_Shift = Shift<raw> // ['b','c']
 由于在 TS 的类型系统中数字字面量不能直接应用加法减法等运算符，所以数字的计算要依靠其它数据结构实现。以下是一个加法减法的快速实现，通过递归执行元组的 Push、Pop 等操作，来改变元组的长度，并将其长度作为最终的计算结果返回。需要说明的是，这个实现和文中其它实现一样，仅作为实现示意，其中有许多问题，不能用于生产环境。
 
 ```ts
-type CreateTuple<n extends number, T extends any[] = []> =
-  T['length'] extends n ? T : CreateTuple<n, [...T, any]>
+type CreateTupple<n extends number, T extends any[] = []> =
+  T['length'] extends n ? T : CreateTupple<n, [...T, any]>
 
-type Add1<n extends number> = [...CreateTuple<n>, any]['length']
+type Add1<n extends number> = [...CreateTupple<n>, any]['length']
 type Minus1<n extends number> =
-  CreateTuple<n> extends [...infer Pre, infer Last] ? Pre['length'] : never;
+  CreateTupple<n> extends [...infer Pre, infer Last] ? Pre['length'] : never;
 
 type test1 = Add1<5> // 6
 type test2 = Minus1<5> // 4
@@ -278,7 +278,9 @@ declare interface Window {
 }
 ```
 
-##### 如何把用相交运算符连接的两个对象字面量合成一个新类型
+##### 对象合成
+
+如何把用相交运算符连接的两个对象字面量合成一个新类型？用 Required 就可以。原理就是把键逐一复制到新对象中，但要注意 Required 会去掉属性的可省略性。
 
 ```ts
 Required<{a:'a'} & {b: 'b'}> // { a: 'a', b: 'b' }
