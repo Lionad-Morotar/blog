@@ -282,6 +282,8 @@ declare interface Window {
 
 如何把用相交运算符连接的两个对象字面量合成一个新类型？用 Required 就可以。原理就是把键逐一复制到新对象中，但要注意 Required 会去掉属性的可省略性。
 
+[TypeScript conditional types - filter out readonly properties / pick only required properties](https://stackoverflow.com/questions/49579094/typescript-conditional-types-filter-out-readonly-properties-pick-only-requir)
+
 ```ts
 Required<{a:'a'} & {b: 'b'}> // { a: 'a', b: 'b' }
 ```
