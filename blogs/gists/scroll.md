@@ -59,7 +59,7 @@ this.scroll(document.querySelector('.parallax'), 999)
 
 预期是，每次 Run 函数执行时，ele 的 scrollTop 值都会改变，但是出现了一个很诡异的问题，如果只执行一次 Run 函数，则 ele.scrollTop 值能改变，树林和山脉能看见变化；如果加上了 `window.requestAnimFrame(run)`，ele.scrollTop 的值就始终为零。
 
-我写了一个预期应该实现的功能的 Demo。为了节约流量，我把运行代码的组件去掉了，你可以在 Codepen 里面试试这段代码。
+我写了一个预期应该实现的功能的 Demo。为了节约流量，我把运行代码的组件去掉了，你可以在 CodePen 里面试试这段代码。
 
 ```js
 window.requestAnimFrame = (function() {

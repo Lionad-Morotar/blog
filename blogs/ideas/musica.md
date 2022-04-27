@@ -44,4 +44,4 @@
 
 相关：
 
-* 参考 Codepen 的 Serverless 方案。
+* 参考 CodePen 的 Serverless 方案。

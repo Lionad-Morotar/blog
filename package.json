@@ -12,7 +12,8 @@
     "upload": "sftp root@47.100.27.221 && lcd dist && put -r ./ /home/root/blog",
     "presync": "node ./chore/gen-sync-conf.js",
     "sync": "osssync",
-    "post": "npm run build && npm run upload"
+    "post": "npm run build && npm run upload",
+    "fix": "npx case-police \"**/*.md\" --fix"
   },
   "repository": {
     "type": "git",

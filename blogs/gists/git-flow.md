@@ -4,7 +4,7 @@
 
 ## 从 PR 开始说起
 
-PR（Pull Request）是一种使用 Gitlab 或其它版本管理系统附带的一种工作流程。
+PR（Pull Request）是一种使用 GitLab 或其它版本管理系统附带的一种工作流程。
 
 最直观的感受是，PR 可以作为一种告知团队其它成员当前分支功能已经完成的提醒。除了消息通知，每个 PR 还附带有代码变更内容和讨论区，团队成员可以通过 PR 进行 Code Review，讨论方案，或者评论某行代码。可以使开发人员很方便地从邮件或者即时通讯软件中解脱出来。
 
@@ -46,7 +46,7 @@ Thoughtworks 认为短生命周期的分支策略给实施 CI/CD 带来更小的
 ## 相关资源
 
 * [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
-* [Github flow](https://guides.github.com/introduction/flow/)
+* [GitHub flow](https://guides.github.com/introduction/flow/)
 * [Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [Trunk Based Development](https://trunkbaseddevelopment.com/)
 * [常见的代码分支模型和比较](http://fresky.github.io/2020/03/10/common-branching-models/)

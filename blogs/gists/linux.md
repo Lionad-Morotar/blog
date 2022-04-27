@@ -62,7 +62,7 @@ pwd
 
 ### SFTP
 
-在 VSCode 中添加 [SFTP 插件](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp)，用来和服务器同步文件。
+在 VS Code 中添加 [SFTP 插件](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp)，用来和服务器同步文件。
 
 配置可参考：
 

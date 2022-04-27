@@ -142,9 +142,9 @@ NodeJS 的依赖出问题时，我们经常要删除 node_modules 并重新 npm 
 git diff <hash-1> <hash-2>
 ```
 
-不过，还是推荐用可视化工具来比较文件，比如装一个 [VSCode Git History 插件](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)，就可以可以让文件比较效率翻数倍不止。
+不过，还是推荐用可视化工具来比较文件，比如装一个 [VS Code Git History 插件](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)，就可以可以让文件比较效率翻数倍不止。
 
-![VSCode Git History](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615005622.png)
+![VS Code Git History](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615005622.png)
 
 一般只有在学习源码时才会用到比较提交记录这种方式查看代码。业务开发时更常用的是查看某一行是谁写的（这样就不会出现看到垃圾代码发火时发现代码是自己写的这种尴尬场景了）。
 
@@ -153,9 +153,9 @@ git diff <hash-1> <hash-2>
 git blame -L <line-start>,<line-end> <filename>
 ```
 
-同理，推荐使用插件。使用 [VSCode Git Lens 插件](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)可以让 blame 的效率翻十倍不止。
+同理，推荐使用插件。使用 [VS Code Git Lens 插件](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)可以让 blame 的效率翻十倍不止。
 
-![VSCode Git Lens](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615012000.png)
+![VS Code Git Lens](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615012000.png)
 
 ### 分支操作
 
@@ -202,7 +202,7 @@ git cherry-pick <commit-hash> <commit-hash>
 
 #### 添加远端
 
-Github 流行一种 PR 的开发方式，也就是从主仓库 fork 一份代码到自己的域下以方便本地开发。提交时先提交到自己的仓库，再通过 Pull Request（请求将分支合并入主仓库）的方式提交到主仓库。也就是说，你不能直接提交到主仓库。
+GitHub 流行一种 PR 的开发方式，也就是从主仓库 fork 一份代码到自己的域下以方便本地开发。提交时先提交到自己的仓库，再通过 Pull Request（请求将分支合并入主仓库）的方式提交到主仓库。也就是说，你不能直接提交到主仓库。
 
 有时，如果别人也 fork 了一份主仓库的代码，并提交了新功能到他自己的分支，你希望合并他的提交，那首先要做的就是在本地添加他的仓库地址。
 
@@ -226,7 +226,7 @@ git clone <repo-url>
 git clone <repo-url> <local-directory-name>
 ```
 
-业务开发时，我常常碰到多个需求并线开发的场景，平反切分支会导致总要重启开发环境，十分恼人，所以某些情况我再拷贝一份代码到本地。两个 VSCode 各打开一个项目的一个分支，哇哦，感觉好多了~
+业务开发时，我常常碰到多个需求并线开发的场景，平反切分支会导致总要重启开发环境，十分恼人，所以某些情况我再拷贝一份代码到本地。两个 VS Code 各打开一个项目的一个分支，哇哦，感觉好多了~
 
 如果遇上仓库十分大，拷贝要半天，甚至经常超时导致拷贝失败，应该怎么处理呢？
 
@@ -277,7 +277,7 @@ git config --global user.email <email>
 git config --global core.editor Code
 ```
 
-当然，不要忘了把 VSCode 所在目录添加到环境变量中哈。设置完毕后，类似 rebase -i、commit --amend 之类的文本编辑工作会交由你指定的编辑器处理。
+当然，不要忘了把 VS Code 所在目录添加到环境变量中哈。设置完毕后，类似 rebase -i、commit --amend 之类的文本编辑工作会交由你指定的编辑器处理。
 
 ![git rebase -i](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/V05ZM9D4fl.gif)
 
@@ -332,7 +332,7 @@ fix: 更改 VuePress 版本，修复布局错乱问题
 https://github.com/vuejs/vuepress/issues/1321
 ```
 
-上面这个示例是一种“修复类型（fix）”示例，其描述链接了一个 Github Issue。
+上面这个示例是一种“修复类型（fix）”示例，其描述链接了一个 GitHub Issue。
 
 【类型说明】
 
@@ -353,7 +353,7 @@ https://github.com/vuejs/vuepress/issues/1321
 
 特殊标记
 
-特殊标记用作标注注意事项，如“BREAKING”、“close”标记的使用。特殊标记通常与项目工程化实践中其它工具配合使用，如用于关闭 Gitlab Issues，后续有需要再展开约定。
+特殊标记用作标注注意事项，如“BREAKING”、“close”标记的使用。特殊标记通常与项目工程化实践中其它工具配合使用，如用于关闭 GitLab Issues，后续有需要再展开约定。
 
 完整示例
 

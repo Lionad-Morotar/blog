@@ -186,7 +186,7 @@ data.frag = data.createFrag()
 // >>> Uncaught TypeError: Illegal invocation
 ```
 
-由于没有具体的报错原因，只能暂时猜测是 this 指向的锅。更改 this 指向后，再试了一次，这次没得问题。在 Github issues 中没有人提过这个问题，所以我只能猜测因为所有现代浏览器都支持使用原生 API 创建非标准元素，所以不会走 shivMethods 的逻辑。
+由于没有具体的报错原因，只能暂时猜测是 this 指向的锅。更改 this 指向后，再试了一次，这次没得问题。在 GitHub issues 中没有人提过这个问题，所以我只能猜测因为所有现代浏览器都支持使用原生 API 创建非标准元素，所以不会走 shivMethods 的逻辑。
 
 ```js
 data = {}

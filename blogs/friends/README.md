@@ -29,8 +29,8 @@
 <FriendLink
   img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/icons/github.svg"
   src="https://github.com/Lionad-Morotar"
-  name="Github"
-  achieve="Github 存有本博客的源码及其它一些也许意思的东西 💻"
+  name="GitHub"
+  achieve="GitHub 存有本博客的源码及其它一些也许意思的东西 💻"
   :nofollow="true"
 />
 

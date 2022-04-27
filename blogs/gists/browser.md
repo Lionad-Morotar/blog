@@ -20,14 +20,14 @@ Chrome 浏览器的每个标签页都分别对应一个呈现引擎实例。每�
 
 ### 渲染引擎
 
-FireFox 使用 Gecko，Safari 和 Chrome 则使用起源于 Linux 的开源渲染引擎 Webkit。尽管浏览器的渲染引擎因浏览器而异，但目的都是一样的：解析文档与资源并将其渲染至屏幕。具体步骤则可以详细划分为：解析、构建、布局、渲染，但不一定严格按照此步骤执行。
+Firefox 使用 Gecko，Safari 和 Chrome 则使用起源于 Linux 的开源渲染引擎 WebKit。尽管浏览器的渲染引擎因浏览器而异，但目的都是一样的：解析文档与资源并将其渲染至屏幕。具体步骤则可以详细划分为：解析、构建、布局、渲染，但不一定严格按照此步骤执行。
 
 ![解析、构建、布局、渲染](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200812095857.png)
 
 渲染引擎会从网络层取出完整缓存区大小的文档（8KB），边解析边渲染。
 
 * 解析 HTML：将字符流解析为标记（Tokenizing），将标记转换为带有属性的对象（Lexing）。最后根据节点关系将对象组成 DOM Tree（DOM Construct）。
-* 解析 CSS：构建 CSSOM Tree 的过程和构建 DOM Tree 类似。FireFox 解析 CSS 时会阻塞脚本的执行，而 Webkit 阻塞那些可能访问到未加载完的样式表的脚本。
+* 解析 CSS：构建 CSSOM Tree 的过程和构建 DOM Tree 类似。Firefox 解析 CSS 时会阻塞脚本的执行，而 WebKit 阻塞那些可能访问到未加载完的样式表的脚本。
 * 构建渲染树：从根节点开始遍历每一个可见节点，从 CSSOM Tree 中找到相应规则并应用。渲染树的算法很大程度上和 CSS 规范相关，因为每一个渲染节点都代表了一个矩形的 CSS 框。
 * 构建渲染树完毕之后，进行布局处理，计算节点在屏幕上出现的确切坐标。然后由用户界面后端层遍历渲染树进行绘制。
 * 预解析：预解析器会找出解析文档的其余部分中未加载的资源，使用并行连接先加载。
@@ -54,7 +54,7 @@ HTML 无法使用常规的自上而下或自下而上的解析器进行解析，
 
 #### CSS 解析
 
-FireFox 使用自己写的解析器解析 CSS；Webkit 则用解析器生成器（Flex、Bison）生成解析器解析 CSS。因为 CSS 的语法上下文无关，所以可以使用传统的解析器进行解析。
+Firefox 使用自己写的解析器解析 CSS；WebKit 则用解析器生成器（Flex、Bison）生成解析器解析 CSS。因为 CSS 的语法上下文无关，所以可以使用传统的解析器进行解析。
 
 实际上，CSS 规范已经定义好了词法及语法。词法用正则描述，如：
 
@@ -82,7 +82,7 @@ pseudo
 
 #### 渲染树
 
-CSS 最初参与渲染的过程在生成渲染树的时刻。可以说，渲染树的构建和 CSS 规范之间有密切联系。除了一些不可见节点，每一个节点都会初始化为渲染树节点（或 FireFox 的：框 Frame）。渲染树节点会顺序地按照元素 Display 创建对应渲染器。
+CSS 最初参与渲染的过程在生成渲染树的时刻。可以说，渲染树的构建和 CSS 规范之间有密切联系。除了一些不可见节点，每一个节点都会初始化为渲染树节点（或 Firefox 的：框 Frame）。渲染树节点会顺序地按照元素 Display 创建对应渲染器。
 
 ```typescript
 RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
@@ -114,20 +114,20 @@ RenderObject* RenderObject::createObject(Node* node, RenderStyle* style)
 }
 ```
 
-解析样式以及创建渲染器的过程在 Webkit 中被称为“Attach 附加”，在 DOM 树中添加新的节点，则需要调用新节点的附加操作。
+解析样式以及创建渲染器的过程在 WebKit 中被称为“Attach 附加”，在 DOM 树中添加新的节点，则需要调用新节点的附加操作。
 
 其中，样式计算是一个复杂的操作，通常有以下问题：
 
 * 样式表通常结构巨大，容易占用大量内存
 * 样式规则通常十分复杂，嵌套和层叠往往引起计算性能问题
 
-Webkit 使用共享渲染样式对象来减少内存占用与计算次数。但是使用共享对象有一些条件：
+WebKit 使用共享渲染样式对象来减少内存占用与计算次数。但是使用共享对象有一些条件：
 
 * 元素标签名必须相同，类属性必须匹配，且不能使用 ID 选择器，属性选择器，同级选择器（如 :first-child）
 * 属性必须完全相同，且不能有 Inline 样式
 * 元素的鼠标状态、焦点状态必须相同
 
-FireFox 还使用了**规则树**这一方案。
+Firefox 还使用了**规则树**这一方案。
 
 ![规则树](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200813142147.png)
 

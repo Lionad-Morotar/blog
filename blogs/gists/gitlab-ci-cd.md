@@ -1,4 +1,4 @@
-# Gitlab CI/CD
+# GitLab CI/CD
 
 [TOC]
 

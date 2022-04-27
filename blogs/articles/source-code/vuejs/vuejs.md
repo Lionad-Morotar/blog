@@ -4,7 +4,7 @@
 
 ## 读源码前
 
-- 从 Github 克隆一份 vue@2 在 dev 上的分支
+- 从 GitHub 克隆一份 vue@2 在 dev 上的分支
 - 使用 flow-remove-types 将 src 目录下的 flow 文件转换为普通的 JS
 - 使用 PowerShell 的 tree 指令输出 src 目录的树形结构，以理解源码结构
 

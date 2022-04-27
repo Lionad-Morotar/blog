@@ -1,10 +1,10 @@
-# VSCode 插件开发
+# VS Code 插件开发
 
 [TOC]
 
 ## 权威指南
 
-为了不让插件对编辑器本身造成破坏性影响，VSCode 会对插件进行进程隔离。在初始化时，编辑器初始化出主进程、渲染进程和插件进程三个进程。由插件进程（Extension Host）复杂加载与运行插件。这样可以保证编辑器的启动速度、界面的响应速度以及界面样式都不会受插件的影响。
+为了不让插件对编辑器本身造成破坏性影响，VS Code 会对插件进行进程隔离。在初始化时，编辑器初始化出主进程、渲染进程和插件进程三个进程。由插件进程（Extension Host）复杂加载与运行插件。这样可以保证编辑器的启动速度、界面的响应速度以及界面样式都不会受插件的影响。
 
 ## 开始开发
 
@@ -26,9 +26,9 @@ yo code
 
 ![项目启动配置](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121233025.png)
 
-yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VSCode 插件所启用的功能；后者则是插件的主入口。
+yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
 
-看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VSCode 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VSCode 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
 
 ```json
 {
@@ -67,7 +67,7 @@ export function deactivate() {}
 
 正如上一小节提到的 package.json 中最重要的两项设置分别是 activationEvents 和 contributes，者两个属性直接关系到项目可以做什么。
 
-activationEvents 指示了插件在哪些情况下会激活，VSCode 提供了以下激活场景供开发者选择。详细说明参见官方文档：[Activation Events](https://code.visualstudio.com/api/references/activation-events)，以下对每项进行简要说明。
+activationEvents 指示了插件在哪些情况下会激活，VS Code 提供了以下激活场景供开发者选择。详细说明参见官方文档：[Activation Events](https://code.visualstudio.com/api/references/activation-events)，以下对每项进行简要说明。
 
 ```markdown
 <!-- 打开某种语言的文件时激活，如：onLanguage:python -->
@@ -85,8 +85,8 @@ activationEvents 指示了插件在哪些情况下会激活，VSCode 提供了�
 <!-- 当某个 ID 的侧边栏被打开时激活，如：onView:nodeDependencies -->
 * onView
 <!-- 收到 URI 协议时激活插件；这里的 URI 协议是系统级别的协议 -->
-<!-- 比如你在 VSCode 登录 Github 账号时收到的那一串以“vscode:”打头的地址 -->
-<!-- 此时浏览器会通过系统 API 自动通知 VSCode 接收调用 -->
+<!-- 比如你在 VS Code 登录 GitHub 账号时收到的那一串以“vscode:”打头的地址 -->
+<!-- 此时浏览器会通过系统 API 自动通知 VS Code 接收调用 -->
 * onUri
 <!-- 当某种类型的面板打开时激活，如：onWebviewPanel:testPage -->
 <!-- 面板类型是指使用 window.createWebviewPanel API 创建新面板时其 viewType 属性 -->
@@ -95,13 +95,13 @@ activationEvents 指示了插件在哪些情况下会激活，VSCode 提供了�
 * onCustomEditor
 <!-- 当使用同步功能登陆时激活，如 onAuthenticationRequest:github -->
 * onAuthenticationRequest
-<!-- 等 VSCode 启动结束且默认插件加载完毕时激活（比“*”要晚一些但不会影响启动速度） -->
+<!-- 等 VS Code 启动结束且默认插件加载完毕时激活（比“*”要晚一些但不会影响启动速度） -->
 * onStartupFinished
-<!-- 启动 VSCode 时便激活插件（比 onStartupFinished 早一些） -->
+<!-- 启动 VS Code 时便激活插件（比 onStartupFinished 早一些） -->
 * *
 ```
 
-contributes 指示了插件有哪些功能。详细说明参见官方文档：[Contribution Points](https://code.visualstudio.com/api/references/contribution-points)，以下对 VSCode 所有插件所支持的功能列表做一个简短的说明。
+contributes 指示了插件有哪些功能。详细说明参见官方文档：[Contribution Points](https://code.visualstudio.com/api/references/contribution-points)，以下对 VS Code 所有插件所支持的功能列表做一个简短的说明。
 
 ```js
 // 为扩展断点提供支持
@@ -134,7 +134,7 @@ menus
 problemMatchers
 // 对抛出的错误进行命名
 problemPatterns
-// 对 VSCode 自带的图标进行替换
+// 对 VS Code 自带的图标进行替换
 productIconThemes
 // 对工作区中的 URI 文本进行替换
 resourceLabelFormatters
@@ -144,7 +144,7 @@ snippets
 submenus
 // 定义任务（比方说把 NPM Script 定义为任务，以便在代码中执行）
 taskDefinitions
-// VSCode 主题
+// VS Code 主题
 themes
 // 自带的 TS 语言服务器
 typescriptServerPlugins
@@ -158,7 +158,7 @@ viewsWelcome
 walkthroughs
 ```
 
-如果你想更详细配置手头的项目，或是想在 VSCode 的插件市场发布你的插件的话，就需要对 package.json 好好设定一番了。以下以一个简单的统计 Markdown 文件字数插件的配置为例，初步介绍一下各个属性的作用，让你有一个大致印象。
+如果你想更详细配置手头的项目，或是想在 VS Code 的插件市场发布你的插件的话，就需要对 package.json 好好设定一番了。以下以一个简单的统计 Markdown 文件字数插件的配置为例，初步介绍一下各个属性的作用，让你有一个大致印象。
 
 ```shell
 npm install -g yo code-generator
@@ -174,9 +174,9 @@ yo code
 
 ![项目启动配置](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121233025.png)
 
-yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VSCode 插件所启用的功能；后者则是插件的主入口。
+yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
 
-看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VSCode 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VSCode 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
 
 ```json
 {
@@ -205,7 +205,7 @@ yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src
   },
   // 插件在哪些情况下会激活
   "activationEvents": ["onLanguage:markdown"],
-  // 其中的 vscode 属性指示了插件兼容哪个版本的 VSCode
+  // 其中的 vscode 属性指示了插件兼容哪个版本的 VS Code
   "engines": {
     "vscode": "^1.0.0"
   },
@@ -240,4 +240,4 @@ yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src
 export function deactivate() {}
 ```
 
-package.json 中每个属性的具体描述、用法都可以在官方文档找到实例。详情请参考：[Extension Manifest](https://code.visualstudio.com/api/references/extension-manifest)。许多属性并不是 VSCode Plugin 专用属性，而是沿用的 NPM 的那套设置，这是需要参考：[NPM package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)。
+package.json 中每个属性的具体描述、用法都可以在官方文档找到实例。详情请参考：[Extension Manifest](https://code.visualstudio.com/api/references/extension-manifest)。许多属性并不是 VS Code Plugin 专用属性，而是沿用的 NPM 的那套设置，这是需要参考：[NPM package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)。

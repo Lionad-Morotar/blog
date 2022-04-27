@@ -186,7 +186,7 @@ proxy._prop = 'somevalue'
 
 若脱离 ES 6，代理模式会变成什么？
 
-会变成一团带有 Proxy Patterns 注释的函数，会被某个 Github 上的库吸收下放到 Readme 中亦或是变成社区中新增的几篇“JS 中的代理模式”的博客... 害，无所谓了。
+会变成一团带有 Proxy Patterns 注释的函数，会被某个 GitHub 上的库吸收下放到 Readme 中亦或是变成社区中新增的几篇“JS 中的代理模式”的博客... 害，无所谓了。
 
 ## 设计模式的消融
 
