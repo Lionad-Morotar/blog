@@ -21,3 +21,7 @@ task.ps1
 ```bash
 ftype Microsoft.Powershellscript.1="%SystemRoot%\system32\windowspowershell\v1.0\powershell.exe" "%1"
 ```
+
+##### [终端、Shell、tty 和控制台（console）有什么区别？](https://www.zhihu.com/question/21711307)
+
+控制台直接和主机相连，终端可以接线远程连接，Shell 则是软件界面。而 tty 是打字机这种具体类型的终端，在带视频界面的终端之前很流行。
