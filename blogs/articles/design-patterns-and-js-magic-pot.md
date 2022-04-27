@@ -3,7 +3,7 @@ meta:
   - name: keywords
     content: 设计模式,JavaScript,语言特性,语言特征,魔法锅,塔列辛传奇,面向对象
   - name: description
-    content: 排除人的因素，设计模式的本质只是相关代码复用。本文通过使用JS仿制并简化了几种OOL中经典设计模式，以探讨经典设计模式和代码模板的区别主要在于代码复用的层次不同，以及粗浅聊了聊设计模式与语言特征之间此墙彼弱的关系。
+    content: 排除人的因素，设计模式的本质只是相关代码复用。本文通过使用JS仿制并简化了几种OOL中经典设计模式，以探讨经典设计模式和代码模板的区别主要在于代码复用的层次不同，以及粗浅聊了聊设计模式与语言特征之间此强彼弱的关系。
 ---
 
 # 🍲 设计模式与 JS 魔法锅
@@ -247,6 +247,7 @@ JavaScript 的火热日益见长，前端社区[越加活跃](https://githut.inf
 
 - [15 年后 GoF 设计模式作者再谈设计模式](https://www.jdon.com/37356)
 - [为什么不能乱点技能树](https://www.zhihu.com/question/37009570)
+- [超越库和框架的技术创新](https://mp.weixin.qq.com/s?src=11&timestamp=1651051411&ver=3764&signature=AiaMcpc*LLVNlmVWIHaOvu4sThNq8OFp8ckqlVllLSohG8dWn**P3unuBhRwZAEND0uJdnurJtHvE6IKlBYAUUwuvRYknXkKje6CzOZaQBxRPIlnN4kwtzYsfa8fxKSM&new=1)
 
 希望本文能对你有所帮助，也欢迎各位批评文中观点或指出错误。
 
