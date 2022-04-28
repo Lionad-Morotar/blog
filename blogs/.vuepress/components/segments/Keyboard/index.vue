@@ -7,54 +7,70 @@
           <span>Esc</span>
           <span>`</span>
         </div>
-        <div class="key" data-content="!-1" :class="has('!-1')">
-          <span>!</span>
-          <span>1</span>
-        </div>
-        <div class="key" data-content="@-2" :class="has('@-2')">
-          <span>@</span>
-          <span>2</span>
-        </div>
-        <div class="key" data-content="#-3" :class="has('#-3')">
-          <span>#</span>
-          <span>3</span>
-        </div>
-        <div class="key" data-content="$-4" :class="has('$-4')">
-          <span>$</span>
-          <span>4</span>
-        </div>
-        <div class="key" data-content="%-5" :class="has('%-5')">
-          <span>%</span>
-          <span>5</span>
-        </div>
-        <div class="key" data-content="^-6" :class="has('^-6')">
-          <span>^</span>
-          <span>6</span>
-        </div>
-        <div class="key" data-content="&-7" :class="has('&-7')">
-          <span>&</span>
-          <span>7</span>
-        </div>
-        <div class="key" data-content="*-8" :class="has('*-8')">
-          <span>*</span>
-          <span>8</span>
-        </div>
-        <div class="key" data-content="(-9" :class="has('(-9')">
-          <span>(</span>
-          <span>9</span>
-        </div>
-        <div class="key" data-content=")-0" :class="has(')-0')">
-          <span>)</span>
-          <span>0</span>
-        </div>
-        <div class="key" data-content="_--" :class="has('_--')">
-          <span>_</span>
-          <span>-</span>
-        </div>
-        <div class="key" data-content="+-=" :class="has('+-=')">
-          <span>+</span>
-          <span>=</span>
-        </div>
+        <template v-if="fnMode">
+          <div class="key" data-content="F1" :class="has('F1')">F1</div>
+          <div class="key" data-content="F2" :class="has('F2')">F2</div>
+          <div class="key" data-content="F3" :class="has('F3')">F3</div>
+          <div class="key" data-content="F4" :class="has('F4')">F4</div>
+          <div class="key" data-content="F5" :class="has('F5')">F5</div>
+          <div class="key" data-content="F6" :class="has('F6')">F6</div>
+          <div class="key" data-content="F7" :class="has('F7')">F7</div>
+          <div class="key" data-content="F8" :class="has('F8')">F8</div>
+          <div class="key" data-content="F9" :class="has('F9')">F9</div>
+          <div class="key" data-content="F10" :class="has('F10')">F10</div>
+          <div class="key" data-content="F11" :class="has('F11')">F11</div>
+          <div class="key" data-content="F12" :class="has('F12')">F12</div>
+        </template>
+        <template v-else>
+          <div class="key" data-content="!-1" :class="has('!-1')">
+            <span>!</span>
+            <span>1</span>
+          </div>
+          <div class="key" data-content="@-2" :class="has('@-2')">
+            <span>@</span>
+            <span>2</span>
+          </div>
+          <div class="key" data-content="#-3" :class="has('#-3')">
+            <span>#</span>
+            <span>3</span>
+          </div>
+          <div class="key" data-content="$-4" :class="has('$-4')">
+            <span>$</span>
+            <span>4</span>
+          </div>
+          <div class="key" data-content="%-5" :class="has('%-5')">
+            <span>%</span>
+            <span>5</span>
+          </div>
+          <div class="key" data-content="^-6" :class="has('^-6')">
+            <span>^</span>
+            <span>6</span>
+          </div>
+          <div class="key" data-content="&-7" :class="has('&-7')">
+            <span>&</span>
+            <span>7</span>
+          </div>
+          <div class="key" data-content="*-8" :class="has('*-8')">
+            <span>*</span>
+            <span>8</span>
+          </div>
+          <div class="key" data-content="(-9" :class="has('(-9')">
+            <span>(</span>
+            <span>9</span>
+          </div>
+          <div class="key" data-content=")-0" :class="has(')-0')">
+            <span>)</span>
+            <span>0</span>
+          </div>
+          <div class="key" data-content="_--" :class="has('_--')">
+            <span>_</span>
+            <span>-</span>
+          </div>
+          <div class="key" data-content="+-=" :class="has('+-=')">
+            <span>+</span>
+            <span>=</span>
+          </div>
+        </template>
         <div class="key" data-content="Backspace" :class="has('Backspace')">Backspace</div>
       </div>
 
@@ -153,15 +169,32 @@ export default {
       default: ''
     }
   },
+  data () {
+    return {
+      fnMode: false
+    }
+  },
   computed: {
+    // no wrong input validator
     rawKeys() {
       return (this.$slots.default && this.$slots.default[0].text) || this.active
     },
     delim() {
-      return this.rawKeys.includes(' + ') ? ' + ' : data.includes('+') ? '+' : ''
+      return this.rawKeys.includes(' + ') ? ' + ' : this.rawKeys.includes('+') ? '+' : ' '
+    },
+    filtered() {
+      const delim = this.delim
+      const fnMaps = Array(12).fill('').map((_,i) => [`F${i+1}`, `Fn${delim}F${i+1}`])
+      let find = null
+      let ret = this.rawKeys
+      if (find = fnMaps.find(fn => ret.includes(fn[0]))) {
+        this.fnMode = true
+        ret = ret.replace(find[0], find[1])
+      }
+      return ret
     },
     activeKeys() {
-      return this.rawKeys.split(this.delim)
+      return this.filtered.split(this.delim)
     }
   },
   methods: {
@@ -179,9 +212,12 @@ export default {
 
   .raw-keys {
     cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,.0);
+    transition: var(--timing-quick);
 
     &:hover {
-      text-decoration: underline;
+      text-decoration-color: rgba(0,0,0,0.6);
 
       &+.keyboard {
         display: flex;
