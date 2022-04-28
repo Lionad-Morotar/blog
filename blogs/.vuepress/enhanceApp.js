@@ -9,6 +9,7 @@ import FPS from './components/segments/FPS'
 import JJ from './components/segments/JJ'
 import Link from './components/segments/Link'
 import Frame from './components/segments/Frame'
+import Keyboard from './components/segments/Keyboard'
 
 import utils from './components/utils'
 
@@ -31,6 +32,7 @@ export default ({
   Vue.component('JJ', JJ)
   Vue.component('Link', Link)
   Vue.component('Frame', Frame)
+  Vue.component('Keyboard', Keyboard)
 
   Vue.use(Worker)
 
