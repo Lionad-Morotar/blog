@@ -893,7 +893,7 @@ CSS 居中往往是新手们抱怨的问题。下面，我们分别探讨**水�
 
 ### 打印
 
-我想所有人都知道要怎么预览页面的打印结果，Ctrl + P，等待一段时间，搞定，见下图：
+我想所有人都知道要怎么预览页面的打印结果，<keyboard>Ctrl + P</keyboard>，等待一段时间，搞定，见下图：
 
 ![打印预览](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200629213829.png)
 

@@ -28,7 +28,7 @@ yo code
 
 yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
 
-看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 <keyboard>Ctrl + P</keyboard> 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
 
 ```json
 {
@@ -59,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 ```
 
-脚手架默认生成了调试插件所需要的配置，存放在了 .vscode 文件夹中。只需要按 F5 键就可以在新窗口启动当前插件查看运行效果。如果你对插件有修改，可以 Shift+F5 停用插件后再重开，或者直接在新窗口使用 Ctrl+R 重载（或使用指令 Reload Window）。
+脚手架默认生成了调试插件所需要的配置，存放在了 .vscode 文件夹中。只需要按 <keyboard>F5</keyboard> 键就可以在新窗口启动当前插件查看运行效果。如果你对插件有修改，可以 <keyboard>Shift + F5</keyboard> 停用插件后再重开，或者直接在新窗口使用 <keyboard>Ctrl + R</keyboard> 重载（或使用指令 Reload Window）。
 
 ![Reload Window](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121235255.png)
 
@@ -176,7 +176,7 @@ yo code
 
 yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
 
-看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 Ctrl+P 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 <keyboard>Ctrl + P</keyboard> 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
 
 ```json
 {
