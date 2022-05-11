@@ -41,6 +41,7 @@
 ## TypeScript
 
 - [常用类型推导](/articles/source-code/ts/utility-types.html)
+- [类型体操](/articles/source-code/ts/type-challenges.html)
 
 ## C++
 
