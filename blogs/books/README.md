@@ -7,7 +7,8 @@
 * [中国图书馆分类法](http://clc.nlc.cn)
 * [中图分类查询](https://www.clcindex.com/category/)
 
-<style>
+<!-- FIXME: 这个样式污染了其它页面！？ -->
+<!-- <style>
   /* 防止分类太长撑爆显示区域 */
   .page > .content__default ol,
   .page > .content__default ul {
@@ -16,7 +17,7 @@
     -webkit-padding-end: 1.25em !important;
     padding-inline-end: 1.25em !important;
   }
-</style>
+</style> -->
 
 ### A 哲学、宗教
 
