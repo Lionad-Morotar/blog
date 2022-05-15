@@ -69,7 +69,7 @@ const sidebars = [
       'articles/crack-the-slider',
       'articles/css-light-travel',
       'articles/design-patterns-and-js-magic-pot',
-      'articles/anysort',
+      'articles/anysort-2th',
       'articles/js-100',
       'articles/helmet-and-security',
       'articles/css-poaa',
@@ -132,9 +132,9 @@ module.exports = {
         url: '/flows/long-night-dream.html',
         label: '长夜梦'
       },
-      杂文: {
-        url: '/flows/books.html',
-        label: '2021 荐书两本'
+      技术: {
+        url: '/articles/anysort-2th.html',
+        label: 'Anysort'
       }
     }
   }
