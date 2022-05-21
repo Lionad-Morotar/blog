@@ -12,7 +12,7 @@
         ul, ol {
             list-style: unset;
             padding-inline-start: 0 !important;
-            padding-inline-end: 0 !important;
+            padding-inline-end: 0em !important;
         }
 
         & > ol, & > ul {
@@ -38,9 +38,14 @@
 
             & > ol {
                 margin-top: 1em;
-                padding-right: 10px;
+                // 不知为何失效了，把 padding-right 挪到下一级 li 中才能生效
+                /* padding-right: 10px; */
                 max-height: 50vh;
                 overflow: hidden scroll;
+
+                li {
+                    padding-right: .5em;
+                }
             }
 
             ::-webkit-scrollbar {
