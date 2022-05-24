@@ -12,9 +12,9 @@
 
 #### VueJS
 
-- [VueJS | 整体架构](/articles/source-code/vuejs/vuejs.html)
-- [VueJS | Global API](/articles/source-code/vuejs/api.html)
+- [VueJS | Observer](/articles/source-code/vuejs/observer.html)
 - [VueJS | Parser](/articles/source-code/vuejs/parser.html)
+- [VueJS | Global API](/articles/source-code/vuejs/api.html)
 - [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
 - [VueJS | TestKit](/articles/source-code/vuejs/test-kit.html)
 - [de-indent](/articles/source-code/vuejs/de-indent.html)

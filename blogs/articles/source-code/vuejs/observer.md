@@ -1,4 +1,4 @@
-# VueJS
+# VueJS | Observer
 
 [TOC]
 
@@ -362,110 +362,11 @@ class Watcher {
 }
 ```
 
+Watcher 是组件级别的，如果状态发生了变化，只能通知到组件。再由组件对比内部的虚拟节点的变化。换句话说，Vue 对响应式状态变化侦测只通知到组件，这意味着只要某个属性变化了，相应的组件都会重渲染。
+
 ---
 
 TODO
-
-## 虚拟节点
-
-Watcher 是组件级别的，如果状态发生了变化，只能通知到组件。再由组件对比内部的虚拟节点的变化。
-
-虚拟节点通过一些特定的选项来表示真实的 DOM 结构。由于只涉及 JS 计算，所以开销要比真实 DOM 小。
-
-虚拟节点只做了两件事情：
-
-- 用内部 vnode 映射真实的 DOM 结构
-- 比较 vnode 与 oldVnode，即 Patch，然后更新到 DOM
-
-vnode 即节点描述对象。根据其中属性值的不同，可以将节点可以分为以下几类：
-
-- EmptyVNode：空节点
-- TextVNode：文本节点
-- ElementVNode：元素节点
-- ComponentVNode：组件节点
-- CloneVNode：克隆节点
-
-### 克隆节点
-
-```js
-function cloneVNode(vnode) {
-  const clonedChild = (vnode.children || []).map(vnode => cloneVNode(vnode))
-  const cloned = createElement(vnode.tag, vnode.data, clonedChild)
-  const copyProps = ['text', 'isComment', 'isStatic', 'key', 'elm', 'context', 'ns', 'componentOptions']
-  copyProps.map(prop => (cloned[prop] = vnode[prop]))
-  return cloned
-}
-```
-
-### CreateElement
-
-VueJS createElement API 解析如下：
-
-```js
-createElement(
-  'name', // HTML 元素名、组件名或者函数也行
-  { // 一些可选参数
-    class： { /* loaded: isLoaded */ }, // :class
-    style: { /* background: isRed ? 'red' : 'white' */ }, // :style
-    props: { /* name */ }, // 组件 Props
-    attrs: { /* id, class */ }, // HTML attributes
-    domProps: { /* innerHTML、innerText */ }, // DOM props
-    on: { /* !~click: () => {} */ }, // 通过 Vue.$emit 触发的事件；感叹号和波浪号分别代表 capture 和 once
-    nativeOn: { /* click: () => {} */ }, // 原生 DOM 事件
-    scopedSlot: { /* default: props => h('div', {}, props.text) */ }, // 作用域插槽
-    key: '/* keyName */',
-    ref: '/* refName */',
-  },
-  []  // 子节点或者文本节点
-)
-```
-
-## PatchNode
-
-### 更新节点
-
-- 两个节点是否相同？结束更新。
-- 两个节点是否是静态节点？结束更新。
-- 新节点有 text 属性？
-- 两个节点都有子节点？如果子节点不同则更新子节点。
-- 只有新节点有子节点？
-- 只有旧节点有子节点？
-- 旧节点有 text 属性？
-
-### 更新子节点
-
-对比子节点是用一个从两边至中间的循环，分别比较新前旧前、新后旧后、新后旧前、新前旧后。
-
-## 模板编译
-
-> 去年读 HTML Parser 的时候，仿照着写了一个 Markdown Parser：[TEditor](https://github.com/Lionad-Morotar/media-gear/blob/master/src/renderer/utils/suites/teditor/index.js)，代码解析见：[从一个越写越慢的编辑器中聊聊优化思路](/articles/fold/2019-6/a-markdown-parser.html)。
-
-模板 -> 解析器、优化器、代码生成器 -> 渲染函数 -> PatchNode -> DOM
-
-Paser 分为三类，HTML Parser、文本解析器（Text Parser）、过滤器解析器（Filter Parser）。
-
-其中，文本解析器能将字符串中的变量引用解析出来，解析后形如下代码：
-
-```js
-with (this) {
-  return createVNode('p', { attrs: { hello } }, [createTextNode('Hello World')])
-}
-```
-
-HTML Parser 和 Text Parser 都是一个从左一直匹配到右侧的 while 循环。
-
-HTMLParser 会处理开始标签、标签属性、文本、结束标签、注释、Script、DocumentType...
-
-Text Parser 将文本和变量不断解析到一个数组中，然后 join ~
-
-模板编译优化分两个步骤：
-
-1. 标记所有静态节点，markStaticNode
-2. 标记所有静态根节点，markStaticNodeRoot
-
-静态节点是指在 PatchNode 时可以调过的节点，比如带 v-pre 指令、HTML 内置标签、SVG 内置标签、只含静态文本的标签等... 总之，不和变量、组件打交道的标签都是静态标签。对于静态标签，markStaticNode 时 VNode 中会被标记 isStatic。
-
-标记静态根节点的作用很好理解，就是 PatchNode 时如果遇到静态根节点，就不用向下继续比较了。
 
 ## 阅读更多
 
