@@ -29,6 +29,10 @@ Vue 通过原 HTML Parser 提供的接口，传入钩子函数，分别对标签
 
 优化器（Optimizer）在 HTML Parser 生成的 AST 的基础上，对静态节点进行标记，以提高重渲染以及 node patching 时的性能：node patching 时静态节点完全不变，所以可以跳过比较；重渲染时意味着可以在新的渲染过程中服用第一次渲染时生成好的 DOM Node。
 
+## Generator
+
+Generator 在这里指代码生成器。Generator 从 AST 节点的根开始遍历，把所以节点转化为类似 _c(tag,data,children) 的字符串。这些字符串最后经过运行，也就得到了货真价实的 VNodes。也就是说，_c 和实例的 _h 函数是一样的。它在 Vue 实例，也就是组件，的初始化时就被诸如。除了 _c，Generator 中还添加了许多类似的函数，用于创建 VNode，比如 _s，对应 createTextNode。这些函数在 Vue 实例的 renderMixin 时，被挂载到实例原型上。
+
 ## Node Patching
 
 ### VNode
@@ -43,7 +47,7 @@ Vue 通过原 HTML Parser 提供的接口，传入钩子函数，分别对标签
 - ComponentVNode：组件节点
 - CloneVNode：克隆节点
 
-#### 克隆节点
+渲染函数通过 AST Node 生成了 VNode，这些 VNode 可能被复用，此时会拷贝出一个新节点用来渲染，这个节点就是克隆节点。
 
 ```js
 function cloneVNode(vnode) {
@@ -54,6 +58,10 @@ function cloneVNode(vnode) {
   return cloned
 }
 ```
+
+关于 VNode 的属性更多解释见 [vnode.js](https://github.com/Lionad-Morotar/read-source-code/blob/343ecd050ec0eaaf56b59b6a4ed8f5c9595838f3/module/mini-vue/vdom/vnode.js)
+
+使用 VNode 作为节点状态和 DOM 之间的中间层，可以避免性能浪费。每次渲染时，VNode 可以和上一次的 VNode 进行比较，以便重新生成 DOM 或是只改变 DOM 的一部分。
 
 #### CreateElement
 
