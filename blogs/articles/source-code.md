@@ -17,6 +17,7 @@
 - [VueJS | Global API](/articles/source-code/vuejs/api.html)
 - [VueJS | Scoped CSS](/articles/source-code/vuejs/scoped-css.html)
 - [VueJS | TestKit](/articles/source-code/vuejs/test-kit.html)
+- [VueJS | 源码技巧](/articles/source-code/vuejs/tricks.html)
 - [de-indent](/articles/source-code/vuejs/de-indent.html)
 - [vue-error-boundary](/articles/source-code/vuejs/error-boundary.html)
 - [Git Branches](/articles/source-code/vuejs/git-log.html)
