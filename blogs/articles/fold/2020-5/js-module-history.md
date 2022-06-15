@@ -140,7 +140,7 @@ require(['module/module1.js', 'module/module2.js'], function(module1, module2) {
 })
 ```
 
-玉伯（@玉伯）认为 RequireJS 不够完善，并从头开始实现模块加载程序 SeaJS。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。
+玉伯认为 RequireJS 不够完善，并从头开始实现模块加载程序 SeaJS。CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。
 
 ```js
 define(function(require, exports, module) {

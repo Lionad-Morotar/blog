@@ -4,6 +4,9 @@
 
 ## 树
 
+* [神级遍历——morris](https://zhuanlan.zhihu.com/p/101321696)
+* [Morris Traversal方法遍历二叉树（非递归，不用栈，O(1)空间） ](https://www.cnblogs.com/anniekim/archive/2013/06/15/morristraversal.html)
+
 ##### 二叉树的删除
 
 如果是排序树，节点的删除分为三种情况：如果被删除的是叶子节点，那么直接删除；如果被删除的节点只有左子树或右子树，那么用子树替换该节点；不然，使用左值树最大值节点或右子树最小值节点替换该节点。
