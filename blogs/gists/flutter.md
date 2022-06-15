@@ -6,7 +6,7 @@
 
 ##### [Flutter architectural overview](https://docs.flutter.dev/resources/architectural-overview)
 
-![flutter architectural layers](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615144456.png)
+![flutter architectural layers](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615164750.png?type=win11-square)
 
 响应式及声明式的视图是从 React 框架中获取的灵感。
 
@@ -48,11 +48,11 @@ Container(
 
 <q>Cross-platform frameworks typically work by creating an abstraction layer over the underlying native Android and iOS UI libraries, attempting to smooth out the inconsistencies of each platform representation. App code is often written in an interpreted language like JavaScript, which must in turn interact with the Java-based Android or Objective-C-based iOS system libraries to display UI.</q>
 
-![wt render means in flutter](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615144529.png)
+![what's render means in flutter](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615164637.png)
 
 Layouts 时，依据深度优先策略把 constraints（min size、max size）自根像叶传递，相反地，实际的元素尺寸信息由叶向根传递。这有点类似某个浏览器中的布局算法？
 
-![from widgets to element tree, to render tree](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615150405.png)
+![from widgets to element tree, to render tree](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615164604.png)
 
 事件不是 Dart 层处理，最终还是交给 Embedded 层处理，为什么要优于“跨平台的框架”？
 
@@ -64,4 +64,4 @@ Skia 对接的是 iOS 或 macOS 的 UIViewController 和 NSViewController，安�
 
 Flutter 如果要在 Web 端用 WebGL 绘制，需要引入编译为 WASM 的 Skia 引擎。
 
-![flutter web support](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615160242.png)
+![flutter web support](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220615164818.png?type=win11-square)
