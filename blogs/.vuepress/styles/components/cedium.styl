@@ -381,6 +381,23 @@ h1 + blockquote, h2 + blockquote, h3 + blockquote {
     margin-top: 2em;
 }
 
+q {
+    display: block;
+    font-size: 12px;
+    /* font-size: 70%; */
+    line-height: 1.7;
+
+    &::before,
+    &::after {
+        padding: .2em;
+        font-size: 125%;
+        font-weight: bold;
+    }
+    &::after {
+        padding: .3em;
+    }
+}
+
 ol, ul {
     padding-inline-start: 3.25em;
     padding-inline-end: 3.25em;
