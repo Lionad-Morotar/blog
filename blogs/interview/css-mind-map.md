@@ -167,7 +167,7 @@ input, textarea, img, video, object {
 - display: none，自身及内容都会在布局时被移除，不会生成任何盒子
 - display: content，会保留盒子、子元素以及其自身伪元素，只是浏览器不会渲染盒子的边界
 
-### position 与流的关系有几种？
+#### position 与流的关系有几种？
 
 CSS2.2 的定位方案就三种，普通流定位，浮动定位或是绝对定位。
 
@@ -326,6 +326,10 @@ flex-grow 光看概念有些难懂，这里用数值说明一下：假设父容�
 </div>
 
 ![FFC 强制换行](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628071523.png)
+
+#### 元素的层叠顺序是怎样的？
+
+![CSS Stacking Order](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220619191531.png)
 
 ## 文本
 
@@ -552,6 +556,48 @@ CSS 命名方案可以解决命名冲突和复用两大问题，可以尝试使�
         </p>
     </ul>
 </details>
+
+#### 有哪些移动端 1px 的方案？
+
+1. @media query
+
+```css
+@media only screen and (min-device-pixel-ratio: 1.5) {
+  /* ... */
+}
+```
+
+```css
+#component[data-dpr="2"] {
+  /* ... */
+}
+```
+
+2. transform
+
+```css
+#component[data-dpr="2"] {
+  position: relative;
+}
+#component[data-dpr="2"]::after {
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  content:"";
+  transform: scale(0.5);
+  transform-origin: left top;
+  box-sizing: border-box;
+  border: 1px solid #333;
+}
+```
+
+3. viewport 缩放
+
+```html
+<meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
+```
 
 ## 调试
 

@@ -1,5 +1,6 @@
 import Fragment from 'vue-fragment'
 
+import Highlight from './components/Highlight.vue'
 import VueP5 from './components/segments/P5'
 import WHRatio from './components/segments/WHRatio'
 import Spark from './components/segments/Spark'
@@ -33,6 +34,8 @@ export default ({
   Vue.component('Link', Link)
   Vue.component('Frame', Frame)
   Vue.component('Keyboard', Keyboard)
+  Vue.component('Highlight', Highlight)
+  Vue.component('Code', Highlight)
 
   Vue.use(Worker)
 
