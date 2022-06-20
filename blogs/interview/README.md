@@ -4,23 +4,27 @@
 
 ## 面试流程
 
-* [反向面试（感兴趣的问题）](./reverse-interview.html)
+* [反向面试（感兴趣的问题）](/interview/reverse-interview.html)
 
 ## JavaScript
 
-* [FrontEnd Mind Map](./front-end-mind-map.html)
+* [JavaScript Mind Map](/interview/javascript-mind-map.html)
 
 ## HTML
 
-* [HTML Mind Map](./html-mind-map.html)
+* [HTML Mind Map](/interview/html-mind-map.html)
 
 ## CSS
 
-* [CSS Mind Map](./css-mind-map.html)
+* [CSS Mind Map](/interview/css-mind-map.html)
 
 ## Network
 
-* [Network Mind Map](./network-mind-map.html)
+* [Network Mind Map](/interview/network-mind-map.html)
+
+## TODO
+
+* [FrontEnd Mind Map](/interview/front-end-mind-map.html)
 
 ##### [Vue的高频面试](https://zhuanlan.zhihu.com/p/438669938)
 
