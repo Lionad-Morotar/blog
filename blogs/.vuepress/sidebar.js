@@ -85,14 +85,14 @@ const sidebars = [
     ]
   },
   {
-    title: '绘画系列 / Paint',
+    title: '玩乐广场 / Paint',
     collapsable: true,
     open: false,
     path: '/awesome/',
     children: getSRCs(awesomeDir, 'awesome/')
   },
   {
-    title: '零散笔记',
+    title: '等待整理',
     collapsable: true,
     open: false,
     path: '/gists/',
