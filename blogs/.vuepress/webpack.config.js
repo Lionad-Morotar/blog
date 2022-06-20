@@ -3,9 +3,20 @@ const path = require('path')
 const CompressionPlugin = require('compression-webpack-plugin')
 
 module.exports = {
+    module: {
+        rules: [
+            {
+                test: /.txt$/,
+                use: [{
+                    loader: 'raw-loader'
+                }]
+            }
+        ],
+    },
     resolve: {
         alias: {
-            '@project': path.join(__dirname, '../../')
+            '@project': path.join(__dirname, '../../'),
+            '@interview': path.join(__dirname, '../interview')
         }
     },
     // plugins: [

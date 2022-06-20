@@ -127,6 +127,7 @@ function insertStyles(node, styles) {
         const $css = document.createElement('style')
         $css.innerHTML = styles
         node.appendChild && node.appendChild($css)
+        return $css
     }
 }
 
