@@ -203,6 +203,8 @@ s
 
 Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。Promise Polyfill 的核心是内部使用一个回调数组来保存 then 方法回传的新 Promise；延迟运行可以使用 queueMicrotask 或者下位替代 process.nextTick 来实现。
 
+题外话，process.nextTick 的优先级要比 Promise 的高。
+
 见：[Promise.polyfill.js](https://github.com/Lionad-Morotar/read-source-code/tree/master/polyfill/promise)
 
 #### 设计一个可以取消请求的请求函数？
