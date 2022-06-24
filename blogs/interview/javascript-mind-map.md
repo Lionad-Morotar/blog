@@ -35,13 +35,14 @@ EC 保存了代码解析状态，比如 Generator EC 是可以暂停以及在栈
 
 暂时性死区和词法环境机制有关。执行上下文被创建时，会初始化词法环境和变量环境组件。当解析到 let、const 之类的声明时，引擎会将变量添加到词法环境组件的环境记录器里，但不进行值的关联，规范规定了若在执行到声明语句前读取此变量需要报错。
 
-#### this 绑定机制原理是什么？
+#### this 绑定机制有哪些？
 
 1. 在全局执行上下文中，this 的值为全局对象。见：[InitializeHostDefinedRealm](https://tc39.es/ecma262/#sec-initializehostdefinedrealm)
 2. 在函数执行上下文，this 取决于函数如何被调用。如果被引用对象调用，那么指向引用对象，要么指向全局对象或为 undefined（严格模式）；
-3. Eval 执行上下文中，取决于 Eval 如何被调用。如果被直接调用，那么指向当前词法环境的 this，如果被间接调用，那么指向全局对象。
-4. Fn.call 和 fn.apply 会绑定第一个参数。
-5. 调用构造器时 this 指向内部新创建的实例。
+3. 箭头函数没有 this 值，其 this 值取决于它的外部的词法作用域中的 this。
+4. Eval 执行上下文中，取决于 Eval 如何被调用。如果被直接调用，那么指向当前词法环境的 this，如果被间接调用，那么指向全局对象。
+5. Fn.call 和 fn.apply 会绑定第一个参数，并使用 ToObject 进行转换，除非传入的是 Null 或 Undefined，此时则为全局对象，除非是严格模式。
+6. 调用构造器时 this 指向内部新创建的实例。
 
 #### fn.call(1) 和 fn.apply(1) 会报错吗？
 
@@ -58,6 +59,10 @@ toString.bind('a')() // 'a'
 
 闭包是一种特殊的作用域。一般来说，当代码中的某个函数执行完毕后，会销毁掉他的执行上下文及其中的词法环境、变量环境，但如果以函数作为返回值时而此函数的此法环境、变量环境保留了对原函数标识符或变量绑定的引用，那这就叫闭包，此时尽管原函数执行完毕，但某些引用仍有效。
 
+#### ES6 Promise 和 A+ 规范的关系是什么？
+
+ES6 Promise 是 Promise/A+ 的一种实现。
+
 ## ECMA EVAL
 
 #### 填空缺部分 `const obj = { /* ____ */ b: 2, a: 3 }` 控制台的输出为 `{ a: 3, b: 2 }`？
@@ -69,6 +74,133 @@ toString.bind('a')() // 'a'
 ECMAScript 使用 IEEE-754 双精度浮点数表示数字，数字由阶符、阶码和尾数三个域共同组成内存中的 64 位。有些数字不能被这种形式精确表示，所以 0.1 和 0.2 在实际计算时是使用一个近似的值。
 
 见：[JS 中的数值](/gists/interview-prepare/number-in-js.html)
+
+#### Promise.resolve(1).then(2).then(log)
+
+then 方法中如果不是函数，那么会被忽略。
+
+```js
+Promise.resolve(1)
+  .then(2)
+  .then(data => console.log(data + 1))
+  // -> 2
+```
+
+见：[Promise/A+ #point-23](https://promisesaplus.com/#point-23)
+
+#### Promise.resolve(1).then(() => 2)
+
+Promise.then 以及 catch 和 finally 方法都返回一个新 Promise。如果 then 方法中 return 了值 x，x 会进入 Promise.then 的 PRP 过程（Promise Resolution Procedure），可比作：Promise.then.resolve(x)。
+
+```js
+Promise.resolve(1).then(() => 2)
+// -> Promise {<fulfilled>: 2}
+Promise.reject(1).then(() => 2, () => 3)
+// -> Promise {<fulfilled>: 3}
+```
+
+见：[Promise/A+ #point-41](https://promisesaplus.com/#point-41)
+
+#### 多次执行 resolve 会发生什么？
+
+多次执行 resolve 只有第一次有效。已经确定状态的 Promise 不能再改变状态，所以再次执行 resolve 或 reject 都不会发生任何事（为什么不抛错，真是奇怪的设计）。
+
+```js
+new Promise(resolve => (resolve(1), resolve(2)))
+  .then(data => console.log(data))
+  // -> 1
+```
+
+见：[Promise/A+ #point-59](https://promisesaplus.com/#point-59)
+
+#### 使用 Promise 设计一个可以取消请求的请求函数？
+
+```js
+function request (url) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(url), 1000)
+    })
+}
+let abort
+let abortController = new Promise(resolve => abort = resolve)
+Promise
+  .race([request('123'), abortController])
+  .then(data => console.log(data))
+abort()
+```
+
+注意，Promise.race 以及 Promise.all 等函数尽管可以通过提前调用 then、catch 方法以达到特定目的，但是不会影响其它作为入参的 Promise 的正常执行。
+
+#### 一个关于 Promise 的综合问题
+
+```js
+const p1 = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve('resolve3');
+    console.log('timer1')
+    new Promise(r => r('promise1')).then(console.log)
+  }, 0)
+  resolve('resovle1');
+  resolve('resolve2');
+}).then(res => {
+  console.log(res)
+  setTimeout(() => {
+    console.log(p1)
+    new Promise(r => r('promise2')).then(console.log)
+  }, 1000)
+}).finally(res => {
+  console.log('finally1', res)
+  throw new Error('error1')
+}).catch(err => {
+  console.log(err)
+  throw new Error('error2')
+}).catch(err => {
+  console.log(err)
+}).then(res => {
+  console.log(res)
+}).finally(res => {
+  console.log('finally2', res)
+})
+```
+
+#### new (a.b.bind(c)) 中的 this 指向是什么？
+
+new 绑定的 this 优先级要大于显示绑定 call、bind，所以 this 值是 a.b 函数作为构造器调用时系统创建的实例对象。
+
+```js
+const a = { b () { console.log(this) } }
+const c = {}
+
+new (a.b.bind(c))
+```
+
+#### new、点号和函数调用的优先级是怎么样的？
+
+点号的优先级最高，其次是带参数列表的 new 调用，然后是函数调用，最后是无参数列表的 new 调用。
+
+#### 一题能搞懂原型和原型链么？
+
+```js
+function Person(name) {}
+var p2 = new Person()
+
+console.log(p2.__proto__)
+console.log(p2.__proto__.__proto__)
+console.log(p2.__proto__.__proto__.__proto__)
+console.log(p2.__proto__.__proto__.__proto__.__proto__)
+console.log(p2.__proto__.__proto__.__proto__.__proto__.__proto__)
+console.log(p2.constructor)
+console.log(p2.prototype)
+console.log(Person.constructor)
+console.log(Person.prototype)
+console.log(Person.prototype.constructor)
+console.log(Person.prototype.__proto__)
+console.log(Person.__proto__)
+console.log(Function.prototype.__proto__)
+console.log(Function.__proto__)
+console.log(Object.__proto__)
+console.log(Object.prototype.__proto__)
+```
 
 ## 语言应用
 
@@ -218,20 +350,26 @@ function request (url) {
     })
 }
 function post (url) {
-    let _resolve
-    new Promise(resolve => { _resolve = resolve })
     let skip = false
-    request(url).then(() => {
-        if (!skip) {
-            _resolve()
-            console.log('done!')
-        }
+    new Promise(resolve => {
+        request(url).then(() => {
+          if (!skip) {
+              console.log('done!')
+              resolve()
+          }
+        })
     })
     return () => skip = true
 }
 const abort = post('url')
 abort()
 ```
+
+#### Aync Await 的代码执行顺序是怎么样的？
+
+可以把 async 函数看成 Promise。await x 的 x 也是 Promise，await x 以及这行之后的语句被塞到了 then 方法中执行。x 可以当作 Promise，就算是普通值，也会被转换为 Promise.resolve(x) 这种形式。当 x 是 Promise 时，如果没有被 resolve，那 await 后面的语句就不会执行。
+
+见：[Async/Await 的宏实现：sweet-async-await](https://github.com/jayphelps/sweet-async-await)
 
 ## 框架原理
 
