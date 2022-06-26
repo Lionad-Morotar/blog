@@ -66,6 +66,12 @@ ES6 Promise 是 Promise/A+ 的一种实现。
 5. 任一操作数为 Object，另一操作数为 String、Number 或 Symbol，取 Object 原始值继续比较 
 6. 返回 False
 
+#### void 操作符存在的意义什么是？
+
+void 用来产生纯正的 undefined 值，来避免在某些老旧的浏览器中 undefined 作为一个可修改的标识符可能被篡改的问题。
+
+见：[Void Operator](https://tc39.es/ecma262/#sec-void-operator)
+
 ## ECMA EVAL
 
 #### 填空缺部分 `const obj = { /* ____ */ b: 2, a: 3 }` 控制台的输出为 `{ a: 3, b: 2 }`？
@@ -205,6 +211,17 @@ console.log(Object.__proto__)
 console.log(Object.prototype.__proto__)
 ```
 
+#### 存在运行时语法错误吗？
+
+```js
+;(function() {
+  let x = 1
+  console.log(x)
+  eval('var x = 2')
+  return x
+})()
+```
+
 ## 手写代码
 
 #### 手写 instanceof 函数？
@@ -243,6 +260,27 @@ function _new(constructor, ...params) {
   ret.constructor = constructor
   return ret
 }
+```
+
+#### 标记模版字面量怎么使用？
+
+```js
+function highlight(strings, ...values) {
+  let result = ''
+  strings.map((str, i) => {
+    result += str
+    if (values[i]) {
+      result += `yes~${values[i]}`
+    }
+  })
+  return result
+}
+const firstName = 'Lionad'
+const lastName = 'RedOne'
+
+highlight`${firstName} ${lastName}`
+
+// -> yes~Lionad yes~RedOne
 ```
 
 #### 手写 Object.create 函数？
