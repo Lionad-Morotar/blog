@@ -17,12 +17,6 @@
 通过构造函数使用 new 运算符可以新建一个实例。实例的内部属性 proto 指向构造函数的原型，实例的构造器属性和构造函数原型的构造器属性，都指回构造函数。
 ![Ctor，Instance and Prototype](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200703192140.png?type=draw)
 
-#### instanceof 的原理是什么？
-
-instanceof 运算符本质上是检测右值（构造器）的原型在不在左值对象的原型链上。
-
-见：[InstanceOf Polyfill](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/instanceof.js)
-
 #### 执行上下文是什么？
 
 执行上下文（Execution Contexts）是执行环境用来追踪代码运行情况的一种机制，具体是代码执行环境维护了 FILO 结构的执行栈来追踪执行上下文。有三种具体的执行上下文：全局执行上下文、函数执行上下文、Eval 执行上下文。每当代码运行，新的 EC 创建并便推入栈，它就作为运行时执行上下文使用（running EC 或 active function object）。
@@ -62,6 +56,15 @@ toString.bind('a')() // 'a'
 #### ES6 Promise 和 A+ 规范的关系是什么？
 
 ES6 Promise 是 Promise/A+ 的一种实现。
+
+#### 相等关系运算符的隐式转换规则是？
+
+1. 若左右操作数类型相等，返回对两者进行严格相等运算的结果
+2. 两操作数都为 Null 或 Undefined，返回 True
+3. 任一操作数为 String，另一操作数为 Number，String 转 Number 后继续比较
+4. 任一操作数为 Boolean，则转 Number 后继续比较
+5. 任一操作数为 Object，另一操作数为 String、Number 或 Symbol，取 Object 原始值继续比较 
+6. 返回 False
 
 ## ECMA EVAL
 
@@ -202,6 +205,158 @@ console.log(Object.__proto__)
 console.log(Object.prototype.__proto__)
 ```
 
+## 手写代码
+
+#### 手写 instanceof 函数？
+
+instanceof 运算符先通过检测类的 Symbol.hasInstance 来判断对象是否是类实例，如果没有相应方法则是构造器的原型在不在对象的原型链上。
+
+```js
+// @see https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/instanceof.js
+function _instanceof (val, fn) {
+  const hasInstance = fn[Symbol.hasInstance]
+  if (hasInstance) {
+    return fn[Symbol.hasInstance](val)
+  }
+  const proto = fn.prototype
+  while ((val = Object.getPrototypeOf(val))) {
+    if (val === proto) {
+      return true
+    }
+  }
+  return false
+}
+```
+
+见：[Instanceof Operator](https://tc39.es/ecma262/#sec-instanceofoperator)
+
+#### 手写 new 函数？
+
+```js
+function _new(constructor, ...params) {
+  if (!constructor || typeof constructor !== 'function' || !constructor.prototype) {
+    throw new Error('Constructor type error')
+  }
+  const context = Object.create(constructor.prototype)
+  const result = constructor.apply(context, params)
+  const ret = result && typeof result === 'object' ? result : context
+  ret.constructor = constructor
+  return ret
+}
+```
+
+#### 手写 Object.create 函数？
+
+```js
+function create (proto, properties) {
+    let instance = {}
+    if (Object.setPrototypeOf) {
+        Object.setPrototypeOf(instance, proto)
+    } else if (({}).__proto__) {
+        instance.__proto__ = proto
+    } else {
+        const fn = function () {}
+        fn.prototype = proto
+        instance = new fn()
+    }
+    if (properties) {
+      Object.defineProperties(instance, properties)
+    }
+    return instance
+}
+```
+
+见：[Object.create](https://tc39.es/ecma262/#sec-object.create)
+
+#### 手写 bind、apply、call 函数？
+
+核心思路就是改变 this 指向，所以核心实现是 a.fn() 这种形式。
+s
+见 [手写 bind](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/bind.js)、[手写 call](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/call.js)、[手写 apply](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/apply.js)
+
+#### 手写柯里化函数？
+
+核心原理是利用了 function 的 length 属性拿到参数表的长度。
+
+```js
+const curry = (fn, ...args) => {
+  if (args.length >= fn.length) {
+    return fn.apply(null, args)
+  } else {
+    const newFn = (...extraArgs) => curry(fn, ...args, ...extraArgs)
+    Object.defineProperty(newFn, 'length', { value: fn.length - args.length })
+    return newFn
+  }
+}
+```
+
+#### 手写 Promise 函数？
+
+Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。Promise Polyfill 的核心是内部使用一个回调数组来保存 then 方法回传的新 Promise；延迟运行可以使用 queueMicrotask 或者下位替代 process.nextTick 来实现。
+
+题外话，process.nextTick 的优先级要比 Promise 的高。
+
+见：[Promise.polyfill.js](https://github.com/Lionad-Morotar/read-source-code/tree/master/polyfill/promise)
+
+#### 手写 XHR 请求？
+
+尽管 XHR 是老掉牙的东西了，但是面试依旧有人问，就很离谱。
+
+```js
+const xhr = new XMLHttpRequest()
+xhr.open('GET', 'www.baidu.com', true)
+xhr.onreadystatechange = function () {
+  if (this.readyState !== 4) return
+  if (this.status === 200) {
+    console.log(this.response)
+  }
+}
+xhr.onerror = function () {
+  console.log(this.statusText)
+}
+xhr.responseType = 'json'
+xhr.setRequestHeader('accept', 'application/json')
+xhr.send()
+xhr.abort()
+```
+
+#### 手写实现深拷贝函数？
+
+```js
+function cloneDeep (obj) {
+  if (typeof obj !== 'object') {
+    return obj
+  }
+  if (obj instanceof Array) {
+    return obj.map(cloneDeep)
+  }
+  return Object.entries(obj).reduce((h, [k, v]) => {
+    h[k] = cloneDeep(v)
+    return h
+  }, {})
+}
+```
+
+#### 将列表数据转树？
+
+```js
+function toTree (data) {
+  data = data || []
+  const map = {}
+  const roots = []
+  source.map(x => map[x.id] = x)
+  source.map(x => {
+    if (map[x.pid]) {
+      map[x.pid].children = map[x.pid].children || []
+      map[x.pid].children.push(x)
+    } else {
+      roots.push(x)
+    }
+  })
+  return roots
+}
+```
+
 ## 语言应用
 
 #### 实现继承有哪些方法？
@@ -241,6 +396,8 @@ const inherit = function(child, parent) {
 
 见：[常用类型判断方法的优势及缺陷](/articles/fold/2020-5/type-check.html)
 
+Extra，直接用原型的 constructor 属性判断也可以，只是不推荐使用。
+
 #### 模块化的发展历程大致是怎样的？
 
 模块化主要解决了命名空间冲突和代码抽象的问题。一开始大家都用 IIFE 来隔离代码，随着技术发展，演化出了三种模块规范：CommonJS、UMD（AMD/CMD）、ESM（ES6 Module）。
@@ -264,16 +421,6 @@ UMD 规范则是 CommonJS 和 AMD 规范的统一，以实现代码可在浏览�
 #### 有哪些提高代码性能的办法？
 
 经典算法、设计模式、缓存、Web Worker、任务切片、任务队列、池化技术、WebAssembly...
-
-#### 手写一个 new 函数？
-
-```js
-function _new(constructor, ...params) {
-  const context = Object.create(constructor.prototype)
-  const result = constructor.call(context, params)
-  return result && typeof result === 'object' ? result : context
-}
-```
 
 #### 如何解决拷贝时的循环引用问题？
 
@@ -324,20 +471,6 @@ function debounce(fn, time = 100) {
   }
 }
 ```
-
-#### 手写 bind、apply、call 函数？
-
-核心思路就是改变 this 指向，所以核心实现是 a.fn() 这种形式。
-s
-见 [手写 bind](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/bind.js)、[手写 call](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/call.js)、[手写 apply](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/apply.js)
-
-#### 手写 Promise 函数？
-
-Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态机。Promise Polyfill 的核心是内部使用一个回调数组来保存 then 方法回传的新 Promise；延迟运行可以使用 queueMicrotask 或者下位替代 process.nextTick 来实现。
-
-题外话，process.nextTick 的优先级要比 Promise 的高。
-
-见：[Promise.polyfill.js](https://github.com/Lionad-Morotar/read-source-code/tree/master/polyfill/promise)
 
 #### 设计一个可以取消请求的请求函数？
 

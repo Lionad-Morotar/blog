@@ -180,7 +180,6 @@ SYN 洪水攻击是 DDOS 攻击中最常见的攻击类型。攻击者向服务�
 
 ## 阅读更多
 
-- [前端内参：了解 TCP、UDP、TLS](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.2)
 - [TCP 四种计时器](https://www.cnblogs.com/13224ACMer/p/6616960.html)
 - [HTTP/2 和 HTTP/1.X 相比的新特性](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.3)
 - [HTTP/2 协议之头部压缩](https://blog.csdn.net/gaoliang1719/article/details/106346201/)
