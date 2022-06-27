@@ -46,11 +46,11 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Posts', link: '/articles/' },
-      { text: 'Ideas', link: '/ideas/' },
+      { text: 'Maps', link: '/maps/' },
       { text: 'Links', link: '/friends/' }
     ].concat(isDEV ? [
+      { text: 'Ideas', link: '/ideas/' },
       { text: 'HireMe', link: '/hire-me/' },
-      { text: 'Interview', link: '/interview/' },
     ] : []),
     sidebar: {
       '/': sidebar.getSidebar(),
