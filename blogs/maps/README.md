@@ -31,6 +31,7 @@
 
 #### 团队协作
 
+* [DevOps](/maps/devops-mind-map.html)
 * [Git Mind Map](/maps/git-mind-map.html)
 * [Gitflow](/maps/teamwork/gitflow.html)
 

@@ -140,9 +140,10 @@ abort()
 
 注意，Promise.race 以及 Promise.all 等函数尽管可以通过提前调用 then、catch 方法以达到特定目的，但是不会影响其它作为入参的 Promise 的正常执行。
 
-#### 一个关于 Promise 的综合问题
+#### 一些关于 Promise 的综合问题？
 
 ```js
+// 考察事件循环
 const p1 = new Promise((resolve) => {
   setTimeout(() => {
     resolve('resolve3');
@@ -170,6 +171,18 @@ const p1 = new Promise((resolve) => {
 }).finally(res => {
   console.log('finally2', res)
 })
+```
+
+```js
+// 考察 Promise 原理
+Promise.resolve(1)
+  .then()
+  .then(data => {
+    return Promise.reject(2)
+      .then(_ => console.log(data))
+      .catch(err => console.log(err))
+      .then(_ => console.log(data))
+  })
 ```
 
 #### new (a.b.bind(c)) 中的 this 指向是什么？
