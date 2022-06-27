@@ -15,6 +15,7 @@
 
 #### 计算机基础
 
+* [Computer Mind Map](/maps/computer-mind-map.html)
 * [Network Mind Map](/maps/network-mind-map.html)
 * [Security Mind Map](/maps/security-mind-map.html)
 
