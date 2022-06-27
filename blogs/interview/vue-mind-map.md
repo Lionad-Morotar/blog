@@ -1,4 +1,4 @@
-## Vue Mind Map
+# Vue Mind Map
 
 [TOC]
 
