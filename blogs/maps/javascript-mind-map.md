@@ -175,14 +175,17 @@ const p1 = new Promise((resolve) => {
 
 ```js
 // 考察 Promise 原理
-Promise.resolve(1)
+const promise = Promise.resolve(1)
   .then()
   .then(data => {
-    return Promise.reject(2)
-      .then(_ => console.log(data))
+    return Promise.reject('error')
+      .then(_ => console.log('result is ' + data))
       .catch(err => console.log(err))
-      .then(_ => console.log(data))
+      .then(_ => console.log('result is not ' + data))
   })
+promise.then(() => {
+  console.log(promise)
+})
 ```
 
 #### new (a.b.bind(c)) 中的 this 指向是什么？
