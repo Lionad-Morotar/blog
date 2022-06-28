@@ -8,33 +8,33 @@
 
 #### 前端基础
 
-* [JavaScript Mind Map](/maps/javascript-mind-map.html)
-* [HTML Mind Map](/maps/html-mind-map.html)
-* [CSS Mind Map](/maps/css-mind-map.html)
-* [FrontEnd Mind Map，TODO](/maps/front-end-mind-map.html)
+* [JavaScript](/maps/basic/javascript.html)
+* [HTML](/maps/basic/html.html)
+* [CSS](/maps/basic/css.html)
+* [FrontEnd Mind Map，TODO](/maps/todo/front-end.html)
 
 #### 计算机基础
 
-* [Computer Mind Map](/maps/computer-mind-map.html)
-* [Network Mind Map](/maps/network-mind-map.html)
-* [Security Mind Map](/maps/security-mind-map.html)
+* [计算机原理](/maps/computer/computer.html)
+* [计算机网络](/maps/computer/network.html)
+* [安全相关](/maps/computer/security.html)
 
 #### 浏览器相关
 
-* [Browser Mind Map](/maps/browser-mind-map.html)
+* [浏览器](/maps/browser/browser.html)
 
 #### 框架相关
 
-* [Vue Mind Map](/maps/vue-mind-map.html)
-* [React Mind Map](/maps/react-mind-map.html)
+* [Vue](/maps/framework/vue.html)
+* [React](/maps/framework/react.html)
 
 ## 团队相关
 
 #### 团队协作
 
-* [DevOps](/maps/devops-mind-map.html)
-* [Git Mind Map](/maps/git-mind-map.html)
-* [Gitflow](/maps/teamwork/gitflow.html)
+* [DevOps](/maps/devops/devops.html)
+* [Git](/maps/devops/git.html)
+* [Gitflow](/maps/devops/gitflow.html)
 
 #### 项目整理 TODO
 
@@ -42,4 +42,4 @@
 
 ## 面试相关
 
-* [感兴趣的问题](/maps/reverse-maps.html)
+* [感兴趣的问题](/maps/hire/reverse-interview.html)
