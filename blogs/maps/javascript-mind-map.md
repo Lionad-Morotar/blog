@@ -528,29 +528,9 @@ function debounce(fn, time = 100) {
 
 #### 设计一个可以取消请求的请求函数？
 
-Axios 取消请求的底层原理是调用了 [XMLHttpRequest.abort](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort) 接口。Fetch 的请求可以用 [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) 取消。简单版本可以如下实现。
+取消请求常用于大文件传输等情况。XHR 可以使用 [XMLHttpRequest.abort](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest/abort) 接口取消，Fetch 可以用 [AbortController](https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController) 取消。
 
-```js
-function request (url) {
-    return new Promise(resolve => {
-        setTimeout(resolve, 1000)
-    })
-}
-function post (url) {
-    let skip = false
-    new Promise(resolve => {
-        request(url).then(() => {
-          if (!skip) {
-              console.log('done!')
-              resolve()
-          }
-        })
-    })
-    return () => skip = true
-}
-const abort = post('url')
-abort()
-```
+喜闻乐见：[Axios 也可以使用 AbortController](https://axios-http.com/zh/docs/cancellation)
 
 #### Aync Await 的代码执行顺序是怎么样的？
 

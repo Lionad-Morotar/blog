@@ -2,9 +2,22 @@
 
 [TOC]
 
-#### Fiber 是什么？
+#### Fiber 是什么，怎么实现的？
 
-在 React 15 之前更新 VDOM 树时，React 会找到所有差异并一次性地同步更新它们，这可能会导致卡顿。而使用 Fiber 后，React 会分批异步更新 DOM，给浏览器执行高优先级任务提供让步。
+在 React 15 之前更新 VDOM 树时，React 会找到所有差异并一次性地同步更新它们，这可能会导致卡顿。使用 Fiber 后，React 把树的遍历转换为从父节点，到子节点，到兄弟节点，再回到父节点这一流程，使得遍历是可以中断的，分批异步更新 DOM 成为可能。React 可以在浏览器有动画、用户输入任务等高优先级任务时，先执行高优先级任务。直到有空闲才继续执行 Diff 操作。
+
+```js
+const tasks = []
+function diff (time) {
+  while (time > 0 & task.length) {
+    doHighLevelWork()
+  }
+  if (task.length) {
+    requestIdelCallBack(diff)
+  }
+}
+requestIdelCallBack(render)
+```
 
 #### SyntheticEvent 是什么？
 
@@ -58,6 +71,6 @@ static getDerivedStateFromProps(nextProps, prevState) {
 
 #### React 和 Vue 有什么异同？
 
-React 和 Vue 相同的地方在于他们都是渐进式的框架，都有自己的脚手架和最佳实践的模板；在框架层面，数据流都是自顶向下的，都引入了 VDOM。
+相同的地方在于他们都是渐进式的框架，都有自己的脚手架和最佳实践的模板；在框架层面，数据流都是自顶向下的，都引入了 VDOM。
 
-不同的地方在于 Vue 的数据和视图是双向绑定的，React 推崇不可变数据，并且需要手动优化。
+不同的地方在于 Vue 的数据和视图是双向绑定的，React 推崇不可变数据，并且需要手动优化。所以 Vue 的模板是有利于静态优化的。
