@@ -1,6 +1,6 @@
 # 🚄 源码阅读
 
-这里攒着一些阅读笔记，也许以后能转换成技术博客。
+这里攒着一些阅读笔记，也许以后能转换成技术博客。正在逐渐往“知识骨架”栏中搬迁。
 
 [TOC]
 
@@ -35,10 +35,6 @@
 - [CommonJS Loader](/articles/source-code/nodejs/require.html)
 - [fast-deep-equal](/articles/source-code/module/fast-deep-equal.html)
 - [Micro-Templating | John Resig](/articles/source-code/segment/micro-templating.html)
-
-## CSS
-
-- [CSS Scrollbars Styling Module Level 1](/articles/source-code/css/scrollbar.html)
 
 ## TypeScript
 

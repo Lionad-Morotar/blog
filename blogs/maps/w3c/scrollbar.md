@@ -10,7 +10,9 @@
 
 ## 内容简介
 
-Scrollbars Styling 模块主要定义了用于控制滚动条的样式使用到的一些属性。在 Level 1 规范中，主要介绍了两种，scrollbar-color 和 scroll-width，分别用来控制滚动条的颜色和宽度。
+<!-- BLOCK - 2a2171afae04283296e4f0a931eec534 -->
+Scrollbars Styling 模块主要定义了用于控制滚动条的样式使用到的一些属性。在 Level 1 规范中，主要介绍了 scrollbar-color 和 scroll-width，分别用来控制滚动条的颜色和宽度。
+<!-- BLOCK - END -->
 
 主要相关三个使用场景：
 
