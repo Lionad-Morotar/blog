@@ -215,6 +215,10 @@ Taro 对小程序的性能优化体现在：
 
 TODO
 
+TODO
+
+https://www.w3.org/TR/mini-app-white-paper/
+
 ---
 
 ...

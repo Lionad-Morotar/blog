@@ -39,3 +39,9 @@ keep-alive 独有 activated 和 deactivated 两个生命周期。
 #### \$route VS \$router
 
 $route 是路由信息对象，包含 path、params、hash、query 等，$router 是 vue-router 实例，包含路由跳转方法和钩子函数等。
+
+## SSR
+
+TODO
+
+[Vue SSR](https://vuejs.org/guide/scaling-up/ssr.html)
