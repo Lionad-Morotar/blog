@@ -17,6 +17,8 @@
 
 * [计算机原理](/maps/computer/computer.html)
 * [计算机网络](/maps/computer/network.html)
+<!-- * [数据结构](/maps/computer/data-structure.html) -->
+* [算法](/maps/computer/algorithm.html)
 * [安全相关](/maps/computer/security.html)
 
 #### 浏览器相关
