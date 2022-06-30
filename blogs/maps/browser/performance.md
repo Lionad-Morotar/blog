@@ -4,6 +4,10 @@
 
 ## 指标与模型
 
+#### 网页性能的上下游？
+
+选定合适的 API 收集数据，进行简单预处理后，通过 SDK 上报到后端或者云服务。为了展示收集到的数据，可以设置 99 线等图表，在某些特定的业务场景，还可以设置 A/B 图和告警。
+
 #### 性能指标和性能模型的不同？
 
 两个立场不同，性能指标如 Navigation Timing 使用绝对的量来衡量页面各项性能参数，性能模型如 Web Vitals 使用算法定性分析页面加载时的用户体验。
@@ -14,13 +18,9 @@
 
 ![页面渐进式加载示例](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/progressive-rendering.png)
 
-#### PerformanceTiming API 被弃用了？
+#### 合成监控和真实用户监控是什么？
 
-PerformanceTiming 被弃用了，取而代之的是 PerformanceNavigationTiming。不应该再使用 performance.navigation，而应该用 performance.getEntriesByType("navigation")
-
-![Navigation Timing Processing Model](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628165411.png)
-
-见：[Navigation Timing Level 2](https://www.w3.org/TR/navigation-timing-2/)
+从技术上来说，可以把监控分为合成监控（Synthetic Monitoring，SYN）和真实用户监控（Real User Monitoring，RUM）。合成监控是在一个模拟的场景中，使用 Lighthouse 等工具，提取出性能指标并获得审计报告。真实用户监控是在真实用户访问时，通过数据源获取数据，再上报到日志服务器，以用来展示和分析这么一流程。
 
 #### Web Vitals 有哪些指标？
 
@@ -42,6 +42,115 @@ Web Vitals 关注 <abbr title="Largest Contentful Paint">LCP</abbr>、<abbr titl
 * [lighthouse-parade](https://github.com/cloudfour/lighthouse-parade)，递归抓取页面并评分，输出关于网站的完整报告。
 
 ![webpack-lighthouse-plugin](https://github.com/Lionad-Morotar/webpack-lighthouse-plugin/blob/main/assets/example.gif?raw=true)
+
+---
+
+* [TODO，Web Performance @MDN](https://developer.mozilla.org/zh-CN/docs/Web/Performance)
+
+## 如何测量性能指标
+
+#### 怎么测定页面帧率？
+
+可以使用 requestAnimationFrame，但是不推荐，因为脚本本身就会对性能造成影响。
+
+#### 可以使用哪些 API 测量性能？
+
+![Web Performance Related Specs](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630135906.png)
+
+#### Performance Timing 被弃用了？
+
+Performance Timing 被弃用了，取而代之的是 Performance Navigation Timing。不应该再使用 performance.navigation、performance.getEntries 等 API，这些旧的 API 没有办法肩检测如加载新脚本等情况，不支持新的性能指标如 Long Tasks API，此外可能干扰页面性能，所以推荐使用 Navigation Timing API 获取数据，并使用 Performance Observer 进行侦测。
+
+![Navigation Timing Level 2](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628165411.png)
+
+见：[Navigation Timing Level 2](https://www.w3.org/TR/navigation-timing-2/)
+
+#### Navigation Timing 中不同的阶段是连续的吗？
+
+可能不是。如浏览器有同域下最多 6 个请求并行的限制，那么 domainLoopupEnd 到 requestStart 之间可能会出现较长的等待时间（Stalled Time）。此外，不一定每个阶段都会有数据，如：未发生跳转时，redirectCount 为 0；如果页面没有 service worker，那么 workerStart 为 0；DNS 从缓存中获取时，domainLoopupStart 和 domainLoopupEnd 可能相等。
+
+#### PerformanceObserver 是什么？
+
+“有效的性能测量的第一条规则是确保性能测量技术本身不会导致性能问题”，使用 Performance Observer 可以获取某个具体类型的指标的同时不会干扰或影响页面性能，因为它会在浏览器空闲时期执行。
+
+```js
+try {
+  // "element"、"event"、"first-input"、
+  // "largest-contentful-paint"、"layout-shift"、
+  // "longtask"、"mark"、"measure"、
+  // "navigation"、"paint"、"resource"
+	PerformanceObserver.supportedEntryTypes.map(type => {
+		new PerformanceObserver((list) => {
+		  for (const entry of list.getEntries()) {
+		    console.log(entry.toJSON())
+		  }
+	    }).observe({
+        type,
+        // 使用 buffered 可以在第一次回调时获取缓存区中的历史记录
+        buffered: true
+      })
+	})
+} catch {
+	// nothing	
+}
+```
+
+见：[Performance Observer](https://web.dev/custom-metrics/#)
+
+#### Long Tasks API 是什么？
+
+Long Tasks API 将会汇报使主线程阻塞超过 50ms 的任何任务。通过观测阻塞时长，可以获得诸如 TTI（Time To Interactive）、TBT（Total Blocking Time）等数据。
+
+见：[Long Tasks API](https://web.dev/custom-metrics/#long-tasks-api)
+
+#### 如何测量函数执行的时长？
+
+可以使用 Date.now()、performance.now()，但是如果不考虑兼容性的话，使用 User Timing API 要更好一些，它可以和相关套件很好的结合：比如说在 Performance 面板中可视化，或通过 Performance Observer 进行观测。
+
+```js
+performance.mark('myTask:start')
+await task()
+performance.mark('myTask:end')
+performance.measure('myTask', 'myTask:start', 'myTask:end')
+```
+
+见：[User Timing API](https://web.dev/custom-metrics/#user-timing-api)
+
+#### 如何测量元素的渲染时间？
+
+可以使用 Element Timing API。通过给 element 增加 elementtiming 属性，可以在注册 Performance Observer 后监听 element 类型的事件并获得元素渲染时间。LCP 指标就是建立在 ET API 基础上的，只是汇报的是最大内容元素的渲染时间。
+
+```html
+<img elementtiming="hero-image" />
+<script>
+  new PerformanceObserver(/* ... */)
+    .observe({ type: 'element', buffered: true })
+</script>
+```
+
+见：[Element Timing API](https://web.dev/custom-metrics/#element-timing-api)
+
+#### Event Timing API 是什么？
+
+见：[Event Timing API](https://web.dev/custom-metrics/#event-timing-api)
+
+#### Resource Timing API 是什么？
+
+见：[Resource Timing API](https://web.dev/custom-metrics/#resource-timing-api)
+
+#### Navigation Timing API 是什么？
+
+类似于 Resource Timing API，但不同的地方在于它会在导航时被触发，还附带了 DOMContentLoaded 和 load 事件的触发事件。
+
+见：[Navigation Timing API](https://web.dev/custom-metrics/#navigation-timing-api)
+
+#### 除了规范定义数据，还可以上报哪些？
+
+**5W**：时间、地理位置、页面 URL、浏览器、系统、账号 ID、现场还原。**网络**：页面加载方式、Service Worker、HTTP 协议版本、资源压缩方式。**其它**：页面在前台还是后台。
+
+### Links
+
+* [蚂蚁金服如何把前端性能监控做到极致?](https://mp.weixin.qq.com/s/pqFhhb5u6w7gmUutilH5xQ)
 
 ## 性能优化
 

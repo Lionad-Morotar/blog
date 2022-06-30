@@ -17,7 +17,7 @@
 #### 浏览器相关
 
 * [浏览器](/maps/browser/browser.html)
-* [页面性能优化](/maps/browser/performance.html)
+* [页面性能](/maps/browser/performance.html)
 
 #### 框架相关
 
