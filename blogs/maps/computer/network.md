@@ -44,7 +44,9 @@ TFO 规定服务器第一次返回 ACK 时，携带一个用以标志客户端�
 
 - 超时重传计时器：对方没有返回 ACK 时，发送方需要重新发送数据。一般计时器的时间选择 2RTT。
 - 2MSL 定时器：主动断开连接的一方发送 FIN 后需要等待 2MSL 时间。因为如果服务端没有收到最后一个 ACK，它将重新发送 FIN。
-- 保活计时器：每当服务端收到消息，将计时器重设为两小时。计时器到期时，每 75s 发送一次探测报文段，如果连续 10 次都没有被响应则断开连接。
+- 保活计时器：每当接收方收到消息，将计时器重设为两小时。计时器到期时，每 75s 发送一次探测报文段，如果连续 10 次都没有被响应则断开连接。
+
+见：[TCP 四种计时器](https://www.cnblogs.com/13224ACMer/p/6616960.html)
 
 ## UDP
 
@@ -84,7 +86,23 @@ UDP，即 User Datagram Protocol 用户数据报协议。数据报不保证信�
 
 <Frame src="./segments/http-response-example.html" />
 
-#### HTTP2 更先进在哪里？
+#### HTTP 1.1 对比 HTTP 1.0 做了哪些改进？
+
+长链接（keep-alive）、断点续传、HTTP 缓存。
+
+#### HTTP 缓存分几种？
+
+分强缓存和协商缓存：Expires、Cache-Control、Last-Modified、Etag。
+
+![HTTP Cache](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630205606.png?type=win11)
+
+TODO，[https://imweb.io/topic/55c6f9bac222e3af6ce235b9](https://imweb.io/topic/55c6f9bac222e3af6ce235b9)
+
+#### no-store 和 no-cache 的区别？
+
+no-store 告诉客户端每次都在服务器取最新的资源。no-cache 也要求每次都要重新请求，但服务器可能返回 304 告诉客户端资源未改变。
+
+#### HTTP2 的改进在哪里？
 
 HTTP/2 主要包含以下几个方面的变化，显著增强了性能，也增加了安全性。
 
@@ -101,13 +119,19 @@ HTTP 头部被转为帧之前，会通过维护一个表结构，通过序号记
 
 建立连接后，双方通过交换 SETTING 帧，以确认双向的流量窗口控制大小。然后开始发送帧。帧可以在一个连接中根据优先级发送，或是被乱序发送，响应方也能乱序接收。由于流是双向的，只要服务端 SETTING 帧设置的流量窗口大小不为 0，服务端可按照同源策略推送资源给客户端。
 
+见：[HTTP/2 和 HTTP/1.X 相比的新特性](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.3)、[HTTP/2 协议之头部压缩](https://blog.csdn.net/gaoliang1719/article/details/106346201/)
+
 #### HTTP3 相比 HTTP2 改变了什么东西？
 
 HTTP3 使用全新的传输层协议 QUIC，实现了 H2 中的流式传输（HTTP2）、多路复用（TCP）、流量控制（TCP）以及可靠性（TCP）等内容，其网络层协议应用的是 UDP 而不是 TCP，本意是用来解决 TCP 建立链接需要  1.5 RTT 延迟的问题。这种改善在移动端更加有效。
 
 ![HTTP3 VS HTTP2 VS HTTP1.1](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220621003527.png)
 
+见：[HTTP3 发布了！](https://mp.weixin.qq.com/s/40YBEWZBaHakDuRuh27fMg)
+
 ## TLS
+
+TODO，[详细介绍 RFC 8446（即 TLS 1.3）](https://www.oschina.net/translate/rfc-8446-aka-tls-1-3)
 
 TLS 是一种混合式加密系统，同时使用对称加密和非对称加密。它使用非对称加密以加密对称加密所需的密钥。它有多个版本。TLS 1.3 是一种比起 TLS1.2 而言更清晰、更快速、更安全的现代化安全协议。TLS 1.2 有两点问题：1. 包括 POODLE 在内的众多可行漏洞；2. 性能低。为了改善这些问题，IETF 在 2013 年，着手 TLS 1.3 的讨论，主要改进：
 
@@ -162,6 +186,8 @@ TLS 1.3 中，通讯双方可以得到一个“恢复主密钥”的密钥，用
 
 CA 主要是用来防范服务器端返回 Server Hello 前就和客户端提供了假的公钥。CA 是一个可信的第三方机构，客户端想要服务器的公钥，需要从 CA 获得。CA 返回公钥以及 CA 自身私钥加密的公钥的摘要两部分信息。客户端只要拿到公钥计算出摘要，并通过 CA 公钥解密出加密内容，再将两者对比就能知道是否拿到了可信的公钥。
 
+见：[HTTPS CA 原理](https://www.jianshu.com/p/9de06222793b)
+
 ## 攻防
 
 #### HTTPS 降级攻击的原理是什么？
@@ -172,19 +198,34 @@ CA 主要是用来防范服务器端返回 Server Hello 前就和客户端提供
 
 SYN 洪水攻击是 DDOS 攻击中最常见的攻击类型。攻击者向服务器发送大量伪造的 TCP 连接请求，而源 IP 是伪造的。由于服务器收不到伪造源回应的 ACK 数据包，就会不断重发。一般应对方式是：减少重发次数、使用 [SYN Cookie](https://baike.baidu.com/item/syn%20cookie/6898884?fr=aladdin)、增加 backlog 队列长度、限制 SYN 并发数。
 
-## 其它
+见：[服务器遭到SYN攻击该如何处理呢？](https://www.qycn.com/about/hd/2049.html)
+
+## CDN
+
+#### CDN 有什么好处？
+
+对页面加载而言，CDN 可以减少请求时间、突破浏览器同域的 TCP 并发数、节约 Cookie 带宽。
+
+## 浏览器
 
 #### URL 由哪些部分组成？
 
 协议头、域名、端口、目录、文件名（index.html）、页面锚、参数。
 
+#### 怎么做跨域？
+
+用代理服务器、CORS、iFrame 或者 WebSocket 都可以。
+
+服务器可以忽略同源限制；WebSocket 和 CORS 不受同源影响；iFrame 需要浏览器加载一个跨域页面，然后和主页面用 postMessage 或者哈希监听的方式通信，让 iFrame 中的脚本代替主页面发送请求。
+
+#### 正向代理和反向代理的区别是？
+
+正向代理为用户服务，反向代理为服务器服务，分别对应“VPN”和“负载均衡”的概念。
+
+#### CORS 运作流程是怎样的？
+
+CORS 即跨域资源共享机制。浏览器在请求资源前通过携带 Origin 字段的 OPTIONS 请求向服务器索取设置有 Access-Control-Allow-Methods、Access-Control-Allow-Headers、Access-Control-Allow-Origin 的响应。在得到响应的允许后再继续发送请求。
+
 ## 阅读更多
 
-- [TCP 四种计时器](https://www.cnblogs.com/13224ACMer/p/6616960.html)
-- [HTTP/2 和 HTTP/1.X 相比的新特性](https://coffe1891.gitbook.io/frontend-hard-mode-interview/1/1.5.3)
-- [HTTP/2 协议之头部压缩](https://blog.csdn.net/gaoliang1719/article/details/106346201/)
-- [HTTP3 发布了！](https://mp.weixin.qq.com/s/40YBEWZBaHakDuRuh27fMg)
-- [详细介绍 RFC 8446（即 TLS 1.3）](https://www.oschina.net/translate/rfc-8446-aka-tls-1-3)
-- [HTTPS CA 原理](https://www.jianshu.com/p/9de06222793b)
 - [为你的网站带上帽子 | 使用 helmet 保护 Express 应用](https://juejin.im/post/6844903518826921998)
-- [服务器遭到SYN攻击该如何处理呢？](https://www.qycn.com/about/hd/2049.html)

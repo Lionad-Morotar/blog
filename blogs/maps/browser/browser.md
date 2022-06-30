@@ -4,7 +4,7 @@
 
 ## 组成原理
 
-#### 浏览器有哪些组件（架构）？
+#### 浏览器有哪些组件 / 浏览器架构？
 
 ![浏览器的主要组件](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200811234200.png)
 
@@ -34,7 +34,7 @@ WebWorker 由当前页面进程管理，它是一个新的线程；SharedWorker 
 
 ## 网络请求
 
-#### 请求位于 CDN 的资源的流程是怎样的？
+#### 请求 CDN 中的资源的流程是怎样的？
 
 1. 发请求，本地 DNS 服务器根据记录将请求重定向到 CDN 专用的 DNS 服务器
 2. CDN 专用 DNS 服务器将全局负载均衡服务器的 IP 地址返回给用户
@@ -82,6 +82,12 @@ Firefox 使用了**规则树**这一方案。TODO
 
 ## 渲染
 
+#### 如何避免重绘与回流？
+
+渲染树将会被带入布局处理，计算节点在屏幕上的精确坐标，随后在图层合层过程中分割为磁贴，并交由栅格线程栅格化并储存在显存中。如果更改了节点宽高等属性，可能需要从新计算渲染树，然后从布局开始执行逻辑，这叫做回流。如果只是改动节点的文字颜色等属性，只要从重新绘制单个节点开始，这叫做重绘。所以避免回流和重绘，需要减少更改样式的频率，或者换方式实现。
+
+浏览器会用一个队列缓存频繁的重绘和回流相关操作，但是如果用了 getComputedStyle、getBoundingRect 接口，会立即清空队列，所以频繁使用此类接口是有害性能的。
+
 #### DOMContentLoaded 和 onload 事件先后顺序是？
 
 所有同步脚本执行完，DOM Tree 构建好之后，触发 DOMContentLoaded。所有样式、图片都加载完了才会触发 window.onload。
@@ -96,11 +102,29 @@ Firefox 使用了**规则树**这一方案。TODO
 
 图层是用来管理渲染树的一种结构。在一个图层中的渲染树的所有节点都会经过布局再交给 GPU 绘制，若 DOM 元素发生改变，可能会引起相应图层中的回流与重绘。可以通过通过 translate3D、will-change 等方式创建新图层（复合图层），这样一来相关元素会被单独绘制，不会影响默认图层。
 
+## 浏览器操作
+
+#### 从输入 URL 到页面显示的过程？
+
+1. 浏览器进程响应键鼠操作，将 URL 传递给网络线程准备进行请求。
+2. 根据 Expired、Cache-Control 查看缓存是否过期。如果已过期，则携带 If-Modified-Since、If-Match 字段准备发起请求。
+3. 解析域名，DNS 查址。涉及浏览器、操作系统、HOSTS、路由器、各级 DNS 服务器缓存。
+4. 如果是请求 CDN 中的资源，见：[请求 CDN 中的资源的流程是怎样的？](#请求-cdn-中的资源的流程是怎样的)
+5. 建立 TCP 链接。如果是 HTTPS，涉及 HTTPS 握手过程和 CA 认证过程。
+6. 服务器收到请求，根据 Nginx 重新向到具体文件后，检查 If-Modified-Since、If-Match 字段。缓存新鲜则返回 304，否则计算并设置 Etag 返回最新资源。
+7. 浏览器根据响应，缓存资源。
+8. 渲染进程开始渲染，见：[渲染进程的大致工作流程是怎样的？](#渲染进程的大致工作流程是怎样的)
+9. 渲染结束，所以资源加载完毕，触发 onload 事件。
+
+#### 简单介绍一下浏览器的事件捕获机制？
+
+浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。事件捕获默认发生在冒泡阶段，但可以在事件监听时使用 useCapture 参数使回调在 Capture 阶段触发。
+
+![event processing in browser](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/event-capture.svg?w=60)
+
 #### 为什么 passive true 能改善滚动性能？
 
 绑定了事件的 DOM 相关区域会在合成器线程中被标记为 Non-fast Scrollable Region，滚动时，需要等待可能的 JS 执行（比如说 e.preventDefault），将渲染树复合分割为磁贴后，交由栅格线程渲染，最后由 GPU 绘制到界面上。当一个事件标记了 passive: true 之后，合成器线程知悉 JS 执行不会改变滚动事件，所以可以直接走复合、栅格化、渲染的流程。
-
-## 缓存
 
 #### BFCache 是如何运作的？
 
@@ -110,7 +134,13 @@ Firefox 使用了**规则树**这一方案。TODO
 
 见：[BFCache](https://web.dev/bfcache)
 
-## 阅读更多
+#### 浏览器怎么跨页面通信？
+
+考虑兼容性的话需要使用服务器中转，否则使用 Broadcast Channel 非常合适。Broadcast Channel 可以在 Workers 中使用，它能实现同源 URL 下多窗口、多标签或 iFrames 中的通信。
+
+见：[Broadcast Channel](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API)
+
+## TODO
 
 * [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
 * [HTML SPEC](https://html.spec.whatwg.org/multipage/parsing.html#parsing)
@@ -118,3 +148,8 @@ Firefox 使用了**规则树**这一方案。TODO
 * [Inside look at modern web browser (part 1)](https://developer.chrome.com/blog/inside-browser-part1/)
 * [图解浏览器的基本工作原理](https://zhuanlan.zhihu.com/p/47407398)，现代浏览器内部原理系列的中文翻译其一。
 * [浏览器地址栏中输入URL到页面显示，浏览器到底发生了什么？](https://www.starryskystar.space/detail/612beeddf1daf402f34f4fa5)，综合笔记。
+- [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
+- [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
+- [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
+- [Concurrent marking in V8](https://v8.dev/blog/concurrent-marking)
+- [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)

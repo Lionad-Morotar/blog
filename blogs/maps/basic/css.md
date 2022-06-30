@@ -557,6 +557,19 @@ CSS 命名方案可以解决命名冲突和复用两大问题，可以尝试使�
     </ul>
 </details>
 
+#### 移动端适配有了解么？
+
+因为不同设备的像素及 DPR 不同，所以按照 CSS 像素写出来的页面在不同浏览器渲染的效果不一样。简单解决可以使用 rem 方案，更现代化的方案是使用响应式单位如 vw、vh 或者 viewport。
+
+```js
+<meta name="viewport" content="
+  width=device-width,
+  user-scalable=no,
+  initial-scale=1.0,
+  maximum-scale=1.0,
+  minimum-scale=1.0">
+```
+
 #### 有哪些移动端 1px 的方案？
 
 1. @media query

@@ -2,9 +2,13 @@
 
 [TOC]
 
-## 标签明细
+## 简介
 
-#### 语义化标签
+#### H5 带来了哪些改进？
+
+新增了一些语义化标签如 main；删除了一些纯表现元素如 center；新增了 API 如拖拽、音视频、Canvas、Local Storage、Web Worker 等。
+
+#### 语义化标签有哪些？
 
 常见的语义化标签：
 
@@ -14,26 +18,28 @@
 * aside：侧栏，用来存放和上下文中主要内容不是很密切相关的栏目，如广告栏、搜索、说明性文字等
 * footer：页脚，通常包含版权信息、来源、友情链接等内容
 
-#### strong、em、b、i
+#### 如何理解语义化标签？
 
-在观察 VuePress 编译出的 HTML 时，我发现它把 Markdown 文件中两个星号 （**）之间的内容，用 strong 标签给包裹住了。
-我想起了以前看 SEO 相关内容时，提到的 HTML 标签，strong、em、b、i 之间的辨析，特意又去 MDN 上看了一眼，加深了一下印象。
+一是方便搜索引擎或读屏器解析页面，二是方面使开发人员维护，其实，遵守 HTML5 规范是应该做的。
 
-* **strong 标签用来表示“本段文本在文中十分重要”**
-* em 标签，则是突出和强调的意思，可以理解为平时交谈时的<em>语音着重</em>
-* b 标签，最好不要用到，因为他仅仅意味着<b>样式加粗</b>，几乎没有语义，并且**违反了 HTML 和 CSS 的分离原则**
-* i 标签，一般情况不会用到，它用来表示文本流中的不同概念的文本，比如英文斜体（书名等）。
+#### 为什么要增强页面的可访问性？
 
-简单说明一下这几种标签的应用场景：
+增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士的读屏器、处理性能底下、带宽低的设备等。
 
-* strong 我常用来表示一段文本中的精彩部分，如观点、总结等
-* em 强调句子中的重点，比如 “Just <em>do</em> it” 中的 “do”
-* b 标签适合用于关键字加粗，比如长文本中出现的产品名称
-* i 标签常用于特殊字体标记、外来词汇、词语定义
+## 标签明细
 
-#### Label
+#### strong、em、b、i 有什么不同？
 
-Label 用来表示 input 的标题，并且提供了一些体验优化，比方说点击 Input Checkbox 的 Label 时，相当于点击 Checkbox。
+* strong 表示本段文本在文中**语义上**十分重要，如精彩观点
+* em 可以理解为平时交谈时的<em>语音着重</em>
+* b 仅仅意味着<b>样式加粗</b>，没有语义，可用于长文本中的产品名称加粗
+* i 标签，一般用来表示外来词汇、英文书名或词语定义
+
+VuePress 会把 Markdown 文件中两个星号（**）中的内容，用 strong 包裹住。
+
+#### label 是什么？
+
+label 用来表示 input 的标题，并且提供了一些体验优化，比方说点击 Input Checkbox 的 label 时，相当于点击 Checkbox。
 
 ```js
 <label for="Name">Number:</label>
@@ -42,15 +48,21 @@ Label 用来表示 input 的标题，并且提供了一些体验优化，比方�
 
 见 MDN 的 [示例](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)。
 
-#### [Difference between SRC and HREF](https://stackoverflow.com/questions/3395359/difference-between-src-and-href/21549827#21549827)
+#### src 和 href 的区别？
 
-这是一个 12 年前的问题，至今为止被浏览了 14w 次。
+src 即 Source，指使用外部对象替换当前元素；href 即 Hypertext Reference，指元素与外部的链接关系。
+
+见：[Difference between SRC and HREF](https://stackoverflow.com/questions/3395359/difference-between-src-and-href/21549827#21549827)，这是一个 12 年前的问题，至今为止被浏览了 14w 次。
 
 #### defer VS async
 
 defer 和 async 都是并行下载，defer 延迟执行，async 下载完执行。
 
 ![bare script VS defer script VS async script](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220618194223.png)
+
+#### 使用 iframe 需要注意什么？
+
+iframe 会和父页面共享 TCP 并发上限，也会阻塞父页面的 onload 事件。可以等页面加载完再动态设置 src 属性，就可以规避以上问题。
 
 ## H5
 

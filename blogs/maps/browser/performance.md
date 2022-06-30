@@ -250,10 +250,4 @@ Native Side Render，GMTC 2019 UC 团队提到的一种“前端 SSR”方案，
   * 内容分发
     * 域名分开，避免 Cookie
     * 静态资源走 CDN
-  * 服务器和浏览器缓存
-    * reusable response? no -> no-store
-    * revalidate each time? yes -> no-cache
-    * cacheable by proxy? yes -> public, no -> private
-    * maximum cache lifetime? expires / cache-control, max-age=1s
-    * modified? last-modified / etag
 
