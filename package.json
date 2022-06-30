@@ -5,6 +5,7 @@
   "author": "Lionad <tangnad@qq.com>",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "npm run dev",
     "dev": "vuepress dev blogs",
     "build": "vuepress build blogs",
@@ -47,6 +48,7 @@
     "mathjax3": "^3.0.0-beta.4",
     "moment": "^2.27.0",
     "node-cmd": "^3.0.0",
+    "only-allow": "^1.1.1",
     "osssync": "git+https://github.com/Lionad-Morotar/oss-sync.git",
     "prismjs": "^1.27.0",
     "raw-loader": "^4.0.1",
