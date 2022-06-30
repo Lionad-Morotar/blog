@@ -39,10 +39,11 @@
 * [DevOps](/maps/devops/devops.html)
 * [Git](/maps/devops/git.html)
 * [Gitflow](/maps/devops/gitflow.html)
+* [包管理器](/maps/project/package-manager.html)
 
 #### 项目管理
 
-* [项目管理](/maps/project/project-management.html)
+* [项目管理](/maps/manage/project-management.html)
 
 #### 项目整理 TODO
 

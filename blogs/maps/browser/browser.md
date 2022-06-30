@@ -116,4 +116,5 @@ Firefox 使用了**规则树**这一方案。TODO
 * [HTML SPEC](https://html.spec.whatwg.org/multipage/parsing.html#parsing)
 * [CSS Selectors Level 3](https://www.w3.org/TR/selectors-3/#grammar)
 * [Inside look at modern web browser (part 1)](https://developer.chrome.com/blog/inside-browser-part1/)
-* [图解浏览器的基本工作原理](https://zhuanlan.zhihu.com/p/47407398)：现代浏览器内部原理系列的中文翻译其一。
+* [图解浏览器的基本工作原理](https://zhuanlan.zhihu.com/p/47407398)，现代浏览器内部原理系列的中文翻译其一。
+* [浏览器地址栏中输入URL到页面显示，浏览器到底发生了什么？](https://www.starryskystar.space/detail/612beeddf1daf402f34f4fa5)，综合笔记。
