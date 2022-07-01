@@ -8,9 +8,9 @@
 
 #### 前端基础
 
-* [JavaScript](/maps/basic/javascript.html)
-* [HTML](/maps/basic/html.html)
-* [CSS](/maps/basic/css.html)
+* [JavaScript](/maps/javascript/javascript.html)
+* [HTML](/maps/html/html.html)
+* [CSS](/maps/css/css.html)
 * [W3C](/maps/w3c/standards.html)
 
 #### 浏览器相关

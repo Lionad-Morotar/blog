@@ -387,11 +387,133 @@ article {
     </ul>
 </details>
 
+## CSS New
+
+#### JS 如何与 CSS 变量交互？
+
+```js
+// 设置变量
+$elm.style.setProperty('--var', 'value')
+```
+
+#### CSS 变量如何赋默认值？
+
+CSS 变量的第二个值为默认值，如果想兼容不支持 CSS 变量的浏览器，需要新增一个同名属性作为使用了 CSS 变量的属性的回退方案。
+
+```js
+.button {
+  width: 80px;
+  width: var(--button-default-width, 80px);
+}
+```
+
+Less 代码可以使用正则替换来实现简单的替换效果。
+
+```js
+@button-default-width: 80px;
+.setFallback(@property, @imp) {
+  @{property}: e(replace(@imp, '@([^() ]+)', '@{$1}', 'ig'));
+  @{property}: e(replace(@imp, '@([^() ]+)', 'var(--$1, @{$1})', 'ig'));
+}
+.button {
+  .setFallback(width, '@button-default-width');
+}
+```
+
+见：[use CSS variable with fallback in Less](https://codepen.io/Lionad/pen/MWVYRzL)
+
+#### CSS 变量的与门和或门逻辑？
+
+可以利用 CSS 变量的空值来运算与逻辑和或逻辑。
+
+```css
+.box {
+  /* --tog1 --tog2 --tog3 同时为空值时是 red */
+  --red-if-and: var(--tog1) var(--tog2) var(--tog3) red;
+}
+.box {
+  /* --tog1 --tog2 --tog3 任意为空值时是 red */ 
+  --red-if-or: var(--tog1, var(--tog2, var(--tog3))) red;
+}
+```
+
+#### Houdini 是什么？
+
+Houdini 包含一系列的底层 API，使开发者有能力访问 CSSOM，对自定义属性提供解析、渲染支持。
+
+#### Properties and Values API 有什么用？
+
+它提供了 CSS.registerProperty 接口以及 @property at-rule，使 JS、CSS 有能力自定义 CSS 变量，并提供变量的初始值、语法（值类型）和可继承性的的定义。
+
+```css
+@supports (background: paint(houdini)) {
+  @property --stop {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 40%;
+  }
+}
+.anim {
+  /* fallback */
+  --stop: 40%;
+  background: linear-gradient(pink var(--stop), orange calc(var(--stop) + 20%));
+}
+```
+
+<Article-A200903-Transition />
+
+见：[@property @MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@property)、[@property: giving superpowers to CSS variables](https://web.dev/at-property/)
+
+#### 怎么实现字符转换的动画效果？
+
+CSS 数字变量有过渡效果，如果同时配合 counter 的格式化参数，可以把数字过渡效果转换成字符的过渡效果！
+
+```css
+@property --num {
+  syntax: "<integer>";
+  initial-value: 2541;
+  inherits: false;
+}
+.css-variable-transition {
+  padding: 2em;
+  counter-set: num var(--num);
+  border: solid 1px;
+  font-size: 2em;
+  font-weight: bold;
+  transition: --num .3s;
+  cursor: pointer;
+
+  &:hover {
+    --num: 17049;
+    &::after {
+      content: counter(num, lower-alpha) "!";
+    }
+  }
+  &::after {
+    content: counter(num, lower-alpha);
+  }
+}
+```
+
+<Article-A210920-Transition />
+
+见：[Animating Number Counters](https://css-tricks.com/animating-number-counters)
+
 ## 工程
 
 #### 怎么解决命名冲突问题？
 
 CSS 命名方案可以解决命名冲突和复用两大问题，可以尝试使用：CSS Module、Tailwind、BEM 等方案。
+
+#### 怎么管理样式的继承关系？
+
+<!-- BLOCK - d95f28ea5e53b5f7bc4510ba68f937c8 -->
+ITCSS 使用倒立的三角形表示项目的样式继承关系。三角中的每一层都代表一类样式，而每一层都会被下一层更高的优先级覆盖。所以实践 ITCSS 意味着，随着层级自上而下，选择器特殊性递增，能影响的 DOM 数量也越来越少，我们可以轻易修改特定样式，而不影响其它样式，或是导致样式继承的崩塌这种连锁效应。
+
+![ITCSS（Inverted Triangle CSS）](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/20200628214218.png?type=win11)
+<!-- BLOCK - END -->
+
+见：[ITCSS](/maps/css/inverted-triangle-css.html)
 
 #### 有哪些水平居中方案？
 

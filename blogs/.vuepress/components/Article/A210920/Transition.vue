@@ -1,5 +1,5 @@
 <template>
-  <div class="css-variable-transition">悬浮以观察效果：</div>
+  <div class="css-variable-transition">Hover to checkout：</div>
 </template>
 
 <script>
@@ -31,7 +31,5 @@ export default {}
   &::after {
     content: counter(num, lower-alpha);
   }
-
 }
-
 </style>

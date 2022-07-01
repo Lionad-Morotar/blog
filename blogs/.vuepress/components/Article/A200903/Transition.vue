@@ -20,26 +20,26 @@ export default {}
   @property --stop {
     syntax: '<percentage>';
     inherits: false;
-    initial-value: 40%;
+    initial-value: 62%;
   }
 }
 
 .css-variable-transition {
-    --stop: 40%;
+    --stop: 62%;
     box-sizing: border-box;
     margin: 0 auto;
     padding: 1.4em;
     width: 400px;
     max-width: 100%;
     background: linear-gradient(pink var(--stop), orange calc(var(--stop) + 20%));
-    transition: --stop 2.5s, filter .5s;
+    transition: --stop 2s, filter .5s;
     cursor: pointer;
 
     @supports (background: paint(houdini)) {
       &:hover,
       &:target,
       &:focus {
-        --stop: 100%;
+        --stop: -20%;
         transition: --stop .5s, filter .5s;
       }
     }

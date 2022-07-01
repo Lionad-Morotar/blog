@@ -238,6 +238,10 @@ console.log(Object.prototype.__proto__)
 })()
 ```
 
+### Links
+
+[TODO，Promise A+](https://promisesaplus.com/#point-23)
+
 ## 手写代码
 
 #### 手写 instanceof 函数？
