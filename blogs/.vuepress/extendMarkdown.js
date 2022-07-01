@@ -12,7 +12,12 @@ function imageLazyLoadPlugin(md) {
 
 function extendMarkdown(md) {
     md.use(require('markdown-it-toc-done-right'), {
-        slugify: s => uslug(s)
+        slugify: s => uslug(s
+            .replace(/\/\*.*\*\//g, '')
+            .replace(/\/|，|\(|\)|\./g, '-')
+            .replace(/-+/g, '-')
+            .replace(/-+$/, '')
+        )
     })
     md.use(require('markdown-it-footnote'))
     md.use(require('markdown-it-implicit-figures'), {
