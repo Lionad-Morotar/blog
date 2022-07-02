@@ -61,5 +61,6 @@ https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/button-click-piple.
 [] [?] why quick mark
 [] .md 自动跳转 .html
 [] details 中不能插入 md 语法的问题
+[] MathJax 体积有些过大
 
 * JS 并发处理多个任务 property

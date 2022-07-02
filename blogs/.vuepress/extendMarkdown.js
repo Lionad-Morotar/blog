@@ -14,7 +14,7 @@ function extendMarkdown(md) {
     md.use(require('markdown-it-toc-done-right'), {
         slugify: s => uslug(s
             .replace(/\/\*.*\*\//g, '')
-            .replace(/\/|，|\(|\)|\./g, '-')
+            .replace(/\/|，|\(|\)|\.|（|）/g, '-')
             .replace(/-+/g, '-')
             .replace(/-+$/, '')
         )
