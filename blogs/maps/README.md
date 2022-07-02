@@ -30,6 +30,10 @@
 * [计算机原理](/maps/computer/computer.html)
 * [计算机网络](/maps/computer/network.html)
 
+#### 语言
+
+* [TypeScript](/maps/typescript/typescript.html)
+
 #### 软件工程
 
 <!-- * [数据结构](/maps/computer/data-structure.html) -->

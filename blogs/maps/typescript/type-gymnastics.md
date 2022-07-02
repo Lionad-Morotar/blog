@@ -1,12 +1,8 @@
-# TypeScript
+# 类型体操（Type Gymnastics）
 
 [TOC]
 
-## 类型体操
-
-TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。
-
-### 语法关键字
+## 语法关键字
 
 做操之前，需要了解 TypeScript 的关键字的用法，这样才能看懂其语句的基本模式。
 
@@ -37,7 +33,7 @@ type test1 = ['a', 'b', 'c']
 type test2 = [...test1, 'd'] // ['a', 'b', 'c', 'd']
 ```
 
-### 字面量
+## 字面量
 
 TS 中有五种字面量，分别是数字、布尔值、元组、字符串和对象。其使用方法和 JS 类似。
 
@@ -49,11 +45,36 @@ type test_tupple = ['a', 'b']
 type test_object = { a: 'a' }
 ```
 
-### 语句结构
+#### 如何判断 never？
+
+```ts
+type Test<T> = T extends never ? true : false
+type test = Test<never> // never !!!
+
+// Right Version 1
+type IsNever<T> = (T extends never ? true : false) extends true ? true : false
+
+// Right Version 2
+type IsNever<T extends any> = [T] extends [never] ? true : false
+```
+
+见：[TypeScript 中的 never 类型具体有什么用？](https://www.zhihu.com/question/354601204)、[what is "extends never" used for?](https://stackoverflow.com/questions/68693054/what-is-extends-never-used-for)
+
+#### 如何合并对象？
+
+使用 Required，传入对象的相交的值。
+
+```ts
+Required<{ a: 'a' } & { b: 'b' }> // { a: 'a', b: 'b' }
+```
+
+见：[TypeScript conditional types - filter out readonly properties / pick only required properties](https://stackoverflow.com/questions/49579094/typescript-conditional-types-filter-out-readonly-properties-pick-only-requir)
+
+## 语句结构
 
 在入门一门语言时，基础的语法篇都离不开选择（ifelse）、循环（loop）、函数三大篇。学完这几个基础结构之后就可以写一些简单的逻辑啦。我们说 TypeScript 的类型系统很强，说的是他也能实现选择、循环、运算和函数这几种功能。
 
-#### 函数
+### 函数
 
 其实函数最简单。函数的调用就发生在我们定义新类型的时候，此时 TypeScript 会自动计算出相应定义是否合规及其返回结果。泛型中传递的参数则可看作函数传参。
 
@@ -62,7 +83,7 @@ type test1<T> = T | string
 type test2 = test1<number>
 ```
 
-#### 选择
+### 选择
 
 选择对应 TS 中的 extends。用来判断某种范围是否是另一种范围的子集（更严谨的说法是判断某种类型是否可以分配给另一种类型）。这里的范围可以是某种值，也可以是某种类型。所以我们可以看到 1 extends number 或 number extends number | string 这种写法。既然是判断范围而不是直接判断值是否相等，所以才会通过结合三元运算返回 true 或 false 来达到返回某种值的功能。
 
@@ -70,7 +91,7 @@ type test2 = test1<number>
 type test = 1 extends 1 ? (/* other logic */) : (/* other logic */)
 ```
 
-#### 循环
+### 循环
 
 TS 类型系统中的循环需要使用递归来实现，姑且可以把它们看成一个东西。循环的闭包可以用递归调用时传递的参数替代。
 
@@ -80,9 +101,9 @@ type For<n extends number, res extends string = ''> = n extends 0 ? res : For<n-
 
 嘿嘿，眼尖的同学可能看出来了，这其实是字符串和数字的乘法。不过，这个 n-1 在这里会报错！至于怎么解决报错，我们将在下一小节详细讨论。
 
-### 基本运算
+## 基本运算
 
-#### 比较运算
+### 比较运算
 
 比较运算好像有点类似 extends 奥。某些情况下，两者的确是“等价”的。
 
@@ -104,7 +125,7 @@ type Equals<T, S> =
 
 想讨论更复杂的相等判断见：[type level equal operator](https://github.com/microsoft/TypeScript/issues/27024)。
 
-#### 加减乘除
+### 加减乘除
 
 和 JS 不一样的是，除了比较运算的其它运算（加减乘除等）在 TS 类型系统中是件难事儿，因为入参不同，实现也不同。需要分情况讨论。
 
@@ -232,7 +253,7 @@ type res = MultipleNum<6, 8> // 48
 
 以上介绍了元组、字符串和数字的运算
 
-### 工具
+## 工具
 
 - [常用类型推导](/articles/source-code/ts/utility-types.html)
 - [类型训练](/articles/source-code/ts/type-challenges.html)
@@ -242,94 +263,14 @@ type res = MultipleNum<6, 8> // 48
 - [type-fest](https://github.com/sindresorhus/type-fest)
 - [Todash](https://hannq.github.io/todash/)
 
-#### 阅读更多
+### 阅读更多
 
 * [TypeScript 类型体操指北](https://zhuanlan.zhihu.com/p/452657140)：最棒的入门文章。
 * [深入理解 TypeScript 高级用法](https://zhuanlan.zhihu.com/p/136254808)：相关 TypeScript 类型编程的经验性的理解，用于入门。
 * [TS 类型体操：图解一个复杂高级类型](https://mp.weixin.qq.com/s?__biz=Mzg3OTYzMDkzMg==&mid=2247488220&idx=1&sn=b675fc51709580dddfd92b5d00b4dc82&chksm=cf00dde7f87754f1ae22492fe30de137dbe8a03bf9cfe4df371b10380efdc40d5f01b3ee219d&token=276884438&lang=zh_CN#rd)
 * [使用 TypeScript 类型系统实现的贪吃蛇](https://www.typescriptlang.org/zh/play?ts=4.5.0-beta&ssl=3&ssc=4&pln=3&pc=28#code/FAegVGwARlj+8oClcoBUCeAHApgZQMYCcBLdAFykG8fQaPVBvn0H2-QPO1AG50BC3QKljBgFUHGw6SGKQDjtA8EaAX6MBwZoCx-nlAC0UQFgJgcfjAd-KBOUyjYSAQ3wkA4poC2mKM0BDyoAdTQKbmgAH1A05pDAQAxSZUQDTegADlAVHIXABPKBTRSE7QDfTDk5mQAV1QHALJz4XV0AYuW9zf0ABI0BIc0B9jMBLJwjIwBh-wGV9UPZABiVs5iDATAVALHlAf1TAck08wDc9QAp1QGg5d0ByPUAvxUYOz2yY2DjASDkk-0B56y7mQAqlQB15BygAdUBABgBBFewVgBEoQDAlQGolQGO5QAsIqEAoORXAM90VtpXAZ+UhqClZQAJ8yMAag0A7WxaqKAAxACMLn+ADkLoBT80A0O5TTrMQDcroAjdKGIGAJAwxm2mAAZpoAK4AGxI-wA9iSACYAZygAF4oABtemAgA0UAADABdVn0gCsrM53IAHPyORyANxojFQLG4wkkbAAO00AGtjHSAN7QKAAC0wmnJAC4GWyRRKoFAAEYU1BGxkmqCArnG1kAJid9PtAGZRRKAL4S9FYKD6IzAukabR6QyYAA8Wpl+KJipVmGZ8ZxieJZKpafN9K15oARNtC7nzVBi6WCxWS2Wi7Xq5W6zWq+WW82m43sK3y4Xux3+12e0XB22+8OK2sJ4Wpx3Z42p1qOcAAHwBqVA2nB6OAj3iyVB-4urchzC7x3rw+ek87+luy-Gf4AFhvofp3ofAJ5r7P9Kf+8DR8ADYf13HkAI3AB2UD6SAiDD0FGDIPgx8AE4YMFFCAUBNkYNQrCgTDbc3xwgjAWPOlT3PC9QBAKAADpGIPYwABlNEpYktzYjiAEkSEwAwYyotdgFE2ioEpEk8XwXBMGYqAAFEDFIVAt0LQBeDcAS-3C0-ZNVQACT1ck1PUwAWXZ0+S9MwAAha0TMAU-2LMAgFszUwA+DcALV2LPkgAFElKUIEhCBJBUt3pBU8QMC1MHwVkIqimKsKsrdNXNXV9SNPyAqCkKzUta1Mv8wLgoVel939eTSQpak6Sy4qQrKiV5NBTAAA8SFBSLovwONzXBNr+IVKkoHi7qy2QKABswIbqVGmKyrC5cVy3ZB6ULAlpoAcxIbVCw5Sb2um4bBS1AB+RT8HwEl8C1I1VvWradr2g7BuG0EzoZRj6OQEU1o2hVtt25dzSNFr2s6hKetBbkvp+9kORE5yfPwTAADcIe63qoH6w6ZpGrqYvGl6jtmgn8AWukytXFa-seoHibx97zXOiaprx+lNAVVBWS+wgFWxGKoGs4Hy3O6zaYBp6RZBi6rpumXkbRjGYpjaHnQYxjkAR3TtUIbESBjVnceGznUDK5a6SN17qXpbFCHwDijVNnnGO0TbKSNPmBfwKAACV9vO32oFtLC-PQQ2GZNrnzZWyObd5-nBbWVlTYDqA1mDhksIAVQVbBdf1iO2ajs2nQUi2GQUl3vtDvFKW1IvjepU2ytZHiK-pWG26w7iSD4gTG+tqAW4R2Pi-j12udZL3BYAWTT2fM4VNGYs-f57d4-jBKtknh+j0fLb3OOoFRklCGM87l9RwW7r3JrnPBOlC00QsoAAHwrC1X4-wtcG-ityT-0LJgIB2IgGbSAbtd+FZCBOSlDxSktlySoBjNZY+Vk1pWmQXtVkPlj51RygqCu4sHqS3puPdkH1cQEkpHJGWaCKH0h8tXVOH0SD4DxHQzODCm4MmdhreiM8fYAGERbnWEegpUqpMHWj2tWc6CCkEoOEbglc1YjRXxirdEaK98D3ylL7I6MUWJ81jFqAAmsfOasUtTYEkSmNa6VAFci1DwoeGDCxYNQDgrU-x8FFUIWWAAGlYsmW42TUzpCEihJ1mYMiCaycx+0KHYHkeoKRmBDL6nUVARR1pUHcgSVAJJy0KHsM4WkqySicn0iKUk4+-w0lVXJDkpSKltG1MSck3hqS4kAAMAAk6orJZPJL6IZhihrGNMTGcxrJsCsmsqyf4rIwYdTJjGIJK4Vy+j6dovJyCCnxK6aU3h5SuHnUGcMjJSjxnqkmeSaZy9ZnzMWcs1ZA1lY9S2TsvZMtOnFO6UPRp-ShnNLuQ8p5sY5nqDeQCD54MNk-N2doq5bT0QQqMfgExzyYULKFu87GnykXbN2fooMuhMAkBxbGZUFdlTH2foWD6ESZYMooZ45lcTATaPZbw3+XKoDnRdLyxlgCPqelFRykBH0nxSv5WAj6PJ5VD0LBAj6QEVW70LLtD6kEtV40LLAj6sSl66PJcYPA00zHmlGfY6ROqjI+PNEo+1mAZHYJceaPxFDmmUkiVAVKDIGV82xhyI0kLsUzMpdSmZdLWSjMWdaZZe4RIVXkpGmMdiUkZOWQ07MlIK5WuedgRxTqnSls8bIp0-wRLyVniSa+2wSQAHcFRZrdRXINTjbSVqcXtPcCL1mQyzWW-UA7HQrn3OaLxRpc75z1gbMOo6q2epXPMsdzi00WqgA26+2dw7Zp6RkrtWoe0Mj7eWwdUBFbow2Ze8dHImQI2nflZBc684FyXSSQ9HrvEIw3Y6x927RLOT3ZgFiOIDZHvcSelKZ6jK2lvV8ld-an2cnXeoTdE6fRalnVAedX6YzLsrV4vamGH1br9Du8DvtCCbW1NBzt8G0qIYZGslDlGB0YcA2h59r78OEcXcRn9K6yMAaw0BqjwB03OX+PgaMHac0pjzb6gtFdM34trTutYuBCExgzhQjiRAAbzOY3SQz-KliCvOuBg9Wa1Ey0s6q7sH1wPNrbQ57RzntWLjieByDhdsCOczj5w1JY3ONswHRhj0GQsaPNaBqUugrotqU8elTN6K54IoQQkqH0g1tnPVx19bZ8M+Trg3Uj1bVF5XNL6bRmi9FJaDNgPEuBZKUkpDGH1vC8shVZDvPG-WiFbl60PZAbCOFcKNNQ2hO6Iw6FPFjGDu8rJlnG7vP1ZZdOEOpEZ9hfNNoUyzhthTRh9u8JHotANu2SqUgloDZ6FDWVCpvZVnr53MCUmWV9rNyztneb0yVHrG8+5bwM8DkKhb5mnNgymD68nowPdIU9oFu9XtxMW1GIwkP9PrwduDged3ocUcwys9QRGScKhhwyJHuOtNTpCzLNrHXvvdZK8ssH-dBK1rh7vc5lStBLcU9WNsKXW145BwTzexOoc07J6yXuPOxPVu2c2NsC7C61o1+WLXBtqcw7F+WCr9dPvI9+4pxnzPyw26NNj5bxvzTU9B4TlXhvFdO-hV7-XUvSe6-NKbhu9PvuW4ZwDm35p4s6Ovs1oAA)
 * [用类型系统做的 TicTacToe](https://juejin.cn/post/7025619077158666270)
-* [使用TypeScript类型体操实现一个简易版扫雷游戏](https://zhuanlan.zhihu.com/p/429165133)
+* [使用 TypeScript 类型体操实现一个简易版扫雷游戏](https://zhuanlan.zhihu.com/p/429165133)
 * [用 TypeScript 类型运算实现一个中国象棋程序](https://zhuanlan.zhihu.com/p/426966480)
 * [TypeScript 类型体操天花板，用类型运算写一个 Lisp 解释器](https://zhuanlan.zhihu.com/p/427309936)
 * [TypeScript 类型体操通关秘籍](https://juejin.cn/book/7047524421182947366)
-
-## 奇怪的问题
-
-##### [详解Typescript里的This](https://zhuanlan.zhihu.com/p/104565681)
-
-TODO
-
-##### [In typescript, why is `[boolean, string?]` different from `[boolean, string] | [boolean]`?](https://stackoverflow.com/questions/69635559/in-typescript-why-is-boolean-string-different-from-boolean-string/69653332#69653332)
-
-TODO
-
-##### [TypeScript error: "Type 'number' is not assignable to type '0 | 1 | 2' ". Why am I getting this error?](https://stackoverflow.com/questions/56346520/typescript-error-type-number-is-not-assignable-to-type-0-1-2-why-am)
-
-TODO
-
-##### 如何理解 Interface 和 Type 的异同
-
-Interface 和 Type 分别指“接口”和“类型”，即面向对象编程中字面意义上的接口或类型。
-
-可以由前提条件逐步推导：
-
-* 1. 变量实际指向一块内存；
-* 2. 这块内存有着特定的大小和结构，因为其物理地址必须是有序的；
-* 3. 所以，变量只能有一种类型；
-* 4. 函数是一种变量，它有某种特定的类型；
-* 5. 在面向对象编程中，对象需要和其它对象进行通讯，此时它必须实现了某种功能；
-* 6. 对象实现了某功能也即它实现了某种接口；
-* 7. 函数作为对象的一种，可以实现接口；
-* 8. 函数可以同时实现多种功能，也即对应多种接口的实现；
-
-在 TypeScript 中，实现多种接口这个特性有多种实现的办法，一个典型的用法是：同名接口自动合并。比如，如果要给 Windows 对象挂一个新属性，可以声明一个带这个新属性的 Window 接口，这个新接口会与 TypeScript 内置的 Window 接口合并成一个。见下代码。
-
-```js
-declare interface Window {
-  propertyA: string;
-}
-```
-
-##### 对象合成
-
-如何把用相交运算符连接的两个对象字面量合成一个新类型？用 Required 就可以。原理就是把键逐一复制到新对象中，但要注意 Required 会去掉属性的可省略性。
-
-[TypeScript conditional types - filter out readonly properties / pick only required properties](https://stackoverflow.com/questions/49579094/typescript-conditional-types-filter-out-readonly-properties-pick-only-requir)
-
-```ts
-Required<{a:'a'} & {b: 'b'}> // { a: 'a', b: 'b' }
-```
-
-##### extends never
-
-在某些情况下，extends never 不会得到正确的返回。要进一步查看源码才能了解到底发生了什么事情。
-
-```ts
-type Test<T> = T extends never ? true : false
-type test = Test<never> // never !!!
-
-// Right Version 1
-type IsNever<T> = (T extends never ? true : false) extends true ? true : false
-
-// Right Version 2
-type IsNever<T extends any> = [T] extends [never] ? true : false
-```
-
-* [TypeScript中的never类型具体有什么用？](https://www.zhihu.com/question/354601204)
-* [what is "extends never" used for?](https://stackoverflow.com/questions/68693054/what-is-extends-never-used-for)
-
-##### 裸类型
-
-裸类型在带入运算时会自动展开，非裸类型则不会。
-
-```js
-type WrapNaked<T> = T extends any ? { o: T } : never
-type WrapUnNaked<T> = { o: T } extends any ? { o: T } : never
-
-type Foo = WrapNaked<string | number | boolean> // { o: string } | { o: number } | { o: boolean }
-type Bar = WrapUnNaked<string | number | boolean> // { o: string | number | boolean }
-
-```
-
-##### [伪动态类型](https://www.typescriptlang.org/play?#code/C4TwDgpgBAggjFAvFA3lCAPCBjGAKASgC4oAhBAXwChRIyFk1MdTCT4pqqAbCYKAIbsGqKlHRZcUNvVHjxAJz4BXBQDs588c2ylpBTVsUr1UYAAsAlgGdBt5WoDWagPYB3DQNvwxR6lv9OKi4AehCoAHkAaQAaM3AIFwAzQSgbWDgqASRBKjCoAAFgawBaTEhsYDKFBRcFKAAjHAFla2hsgBMIJMs1CA67KGtgAWBLbHi6H2zkAQA6HXwCPPDouNpElIa023IePkac+cXCKjPz-f4wbmUAc17bRkESAHIBF6CNqAAFG-u1R6TTZQa53B5nJIOSqWFwaW4QNQAHgAKgA+PDXW7WEjIgwoXxKYCqDT4rSY6wxXzaSSIgCq6IECixJFpeKp8kJxKg8KRyIAZPS8KSjOI5mLyZSRaKxYysezxBRlgFfNQuLx+AIAEw5HkYv4PZZao6arKaubkuYCU3GhaSIUNIgvBovRUrQrFMoYCpVCA1Oo-WqQBSgKBOj4dFwQWyufiYGz8WFA0NoIRDYAKXq3ADcnBec1N5u4WLmDUujW1szNOiF2Ed2Bdy3y0SoDTNFuwZy+AFkBI4ICjUTlheScZKJDg6QymdioKySD2+yiBajgmd1YIAMzz3v935ggGD5C60H-ayGjdHDdZDeF4tWgQX2Y36soB1h135Iqlco4H1++rfIGvohmGUARlGUAxhI8ZQImXwvCmJDDBmajZrm+YPre1glmWAgACyXraOA1nWDZus2+FYXMHZAA)
