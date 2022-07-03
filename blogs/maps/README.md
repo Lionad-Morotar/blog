@@ -33,6 +33,7 @@
 #### 语言
 
 * [TypeScript](/maps/typescript/typescript.html)
+* [HTML](/maps/html/html-extends.html)
 
 #### 软件工程
 
@@ -69,5 +70,11 @@
 
 ## 面试相关
 
-* [感兴趣的问题](/maps/hire/reverse-interview.html)
-* [实习生](/maps/hire/intern.html)
+#### 简历
+
+* [前端p6什么水平？如何衡量？](https://www.zhihu.com/question/61281984/answer/1306626251)
+
+#### 面试
+
+* [需要关注的问题](/maps/hire/reverse-interview.html)
+* [实习生问题](/maps/hire/intern.html)

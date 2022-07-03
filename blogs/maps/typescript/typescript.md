@@ -23,6 +23,14 @@ type Bar = WrapUnNaked<string | number | boolean>
 // { o: string | number | boolean }
 ```
 
+## 高级类型
+
+#### Iterable 和 Array 是什么关系？
+
+实现了 Symbol.iterator 接口的对象都视为是 Iterable 的对象，所以 Array、Map、Set、String、Int32Array 等都是 Iterable 的。
+
+见：[Iterators and Generators](https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html#iterables)
+
 ## 应用
 
 #### 怎么给 Window 新增属性？
