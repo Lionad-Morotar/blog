@@ -109,3 +109,68 @@ promise.then(() => {
 ### Links
 
 [TODO，Promise A+](https://promisesaplus.com/#point-23)
+
+## Bluebird
+
+#### mapSeries 和 each 的区别？
+
+mapSeries 类似 async 版本的 .map 方法，each 类似 map(asycn => {})；each 语义上用来执行有副作用的函数，函数的 return 对 each 的返回值无影响，each 将返回它接收到的值（fulfilled promise）。
+
+见：[Promise.each](http://bluebirdjs.com/docs/api/promise.each.html)、[Promise.mapSeries](http://bluebirdjs.com/docs/api/promise.mapseries.html)、[Promise.each testcase](https://github.com/doodlewind/nativebird/blob/e55c3164dcaf33493d31f9eabbe50b3962219660/test/each.mjs)
+
+#### try 有什么用？
+
+Promise.try 将操作包含在 try 内，可以返回与 Promise 一致的实现形式的 Promise，以及带来了更好的错误处理和可读性。
+
+```js
+Bluebird.try(() => {
+  // return Bluebird Promise,
+  // and throwed error will be catch
+  return database.getUser('lionad')
+}).then(lionad => {
+  // ...
+}).catch(error => {
+  // ...
+})
+```
+
+见：[什么是 Promise.try，为什么它这么重要？](https://segmentfault.com/a/1190000018586947)
+
+#### 为 map 的并发参数设计测试用例？
+
+拿到 promise 的 resolve 函数，手动控制 promise fulfilled 的时机，并判断执行的队列和结果队列的长度。
+
+```js
+const tasks = []
+const createTask = val => {
+  let resolve
+  const promise = new Promise(_resolve => resolve = _resolve)
+  tasks.push(() => resolve(val))
+  return promise
+}
+const results = []
+Promise.all([
+  // Run Tasks
+  Promise.map([0,1,2], val => {
+    return createTask(val).then(res => results.push(res))
+  }, { concurrency: 2 }),
+  // Check the length of tasks and results
+  Promise.delay(100).then(() => {
+    tasks.map(fn => fn())
+    assert(tasks.length === 2)
+    assert(results.length === 0)
+  }).then(() => {
+    assert(tasks.length === 2)
+    assert(results.length === 2)
+  }).delay(100).then(() => {
+    tasks.map(fn => fn())
+    assert(tasks.length === 3)
+    assert(results.length === 2)
+  }).then(() => {
+    assert(tasks.length === 3)
+    assert(results.length === 3)
+  })
+])
+```
+
+见：[Promise.map testcase](https://github.com/doodlewind/nativebird/blob/e55c3164dcaf33493d31f9eabbe50b3962219660/test/map.mjs#L247)

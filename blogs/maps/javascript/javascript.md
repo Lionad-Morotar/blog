@@ -224,8 +224,8 @@ function create (proto, properties) {
 
 #### 手写 bind、apply、call 函数？
 
-核心思路就是改变 this 指向，所以核心实现是 a.fn() 这种形式。
-s
+核心思路就是改变 this 指向，所以核心实现是 a.fn() 这种形式。call 和 apply 唯一的区别就在于 Call 参数数量不固定，而 apply 第二个是数组参数并作为 arguments 列表传递下去。一个好记的方法是：call 是打电话，电话号码有 5 位数的，有 8 位数的也有 11 位数的，不固定，即传参数量不固定。
+
 见 [手写 bind](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/bind.js)、[手写 call](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/call.js)、[手写 apply](https://github.com/Lionad-Morotar/read-source-code/blob/master/polyfill/apply.js)
 
 #### 手写柯里化函数？
