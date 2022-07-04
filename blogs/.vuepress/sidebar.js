@@ -5,7 +5,8 @@ console.log('USE NODE_ENV:', process.env.NODE_ENV)
 
 let gistsDir = path.join(__dirname, '../gists'),
   awesomeDir = path.join(__dirname, '../awesome'),
-  secretsDir = path.join(__dirname, '../secrets')
+  secretsDir = path.join(__dirname, '../secrets'),
+  mapsDir = path.join(__dirname, '../maps')
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -97,6 +98,13 @@ const sidebars = [
     open: false,
     path: '/gists/',
     children: getSRCs(gistsDir, 'gists/')
+  },
+  {
+    title: '知识骨架',
+    collapsable: true,
+    open: false,
+    path: '/maps/',
+    children: getSRCs(mapsDir, 'maps/')
   },
   {
     title: '吉他剧场',

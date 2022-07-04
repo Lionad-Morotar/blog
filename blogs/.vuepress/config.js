@@ -46,9 +46,9 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Posts', link: '/articles/' },
-      { text: 'Maps', link: '/maps/' },
       { text: 'Links', link: '/friends/' }
     ].concat(isDEV ? [
+      { text: 'Maps', link: '/maps/' },
       { text: 'Ideas', link: '/ideas/' },
       { text: 'HireMe', link: '/hire-me/' },
     ] : []),
