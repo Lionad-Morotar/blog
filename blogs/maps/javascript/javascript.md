@@ -4,6 +4,8 @@
 
 ## ECMA 规范
 
+TODO，[JavaScript 核心原理解析](https://time.geekbang.org/column/article/164312)
+
 #### 语言类型和规范类型的关系是怎么样的？
 
 规范定义了 Null、Undefined、Object、String、Symbol、Number、BigInt、Boolean 总计[共 8 种语言类型](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types)。规范类型是为了更好的表述语言类型而存在的，比如有 List、Record、Completion、Environment Record 等。

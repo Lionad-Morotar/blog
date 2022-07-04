@@ -154,7 +154,7 @@ module.exports = {
       policies: [
         {
           userAgent: '*',
-          disallow: ['/gists/', '/hire-me/']
+          disallow: ['/gists/', '/hire-me/', '/maps/']
         }
       ]
     },
