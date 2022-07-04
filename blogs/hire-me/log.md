@@ -6,6 +6,22 @@
 
 ## 第四家公司，让我康康这次是谁？
 
+#### **🌑 2022 年 7 月 04 日**
+
+第三个礼拜开始辽！运气真不好呀，一起床就流鼻血。改了一下简历，“修饰”了一番，想着注册下 Boss 直聘看看能不能多捞一点面试机会，结果下午回复我的全是外包公司，麻了。
+
+又一个不看简历的猎头打我电话，听到她问我在职还是离职的时候，心都凉了一截。也是泛微，又是问 React 有几年经验，不好玩儿，我要屏蔽它！到处都是招 React 的，React 真的有这么好写么！？对开发者来说，屏蔽了底层逻辑的 Vue 才是最适合上手以及快速开发的。此外，React 代码也并没有比 Vue 好维护，心智负担很重。哦哦，也有我的偏见啦~ 这种很焦虑的时候就想把理智放在一旁，然后随心所欲去发泄，当键盘侠或者打烂点什么东西也行，呜呜呜，要坏掉了，以后会得精神病的。
+
+_*_U2FsdGVkX19qbJotzENra5Wx/IgSa+rmIeq8RHOwyfK1X9rOgUnJx4qlLyfSqV3aqh77dGReyY55mUYtxiOHz+h8b05yAYUHH5Gs7YJljnJVIeA45247803MbpC8T6+40FgROPiugz+vPF7vdNqFH4XAwPmzghFUEjVo/sFbqAaEByBH52/HPOwSwVyxH9jTN+R1Xuq+KEC3XCe9JlxcNQFdR9VuXXN2zSAHk1OqK08=_*_
+
+_*_U2FsdGVkX19lrL7qzYmyK2XCFlaLj8aMP5vNgUu6Gqs+qyaKCRcDX/bv4T1uLWWMTp60mECivRDusfbmV9NTEZwpsUtJh01Y89dueGWmbVLJ7YRMhgE/vBYVEr1cwfWIWMq4OglBr5Y78W39j2jZFS69ThZ6ye/mfwjSNjVngPg=_*_
+
+#### **🌗 2022 年 6 月 29 日**
+
+格林底下的 IT 部门招人，面试官问了一些主观题及一些简单的全栈问题，没答上来，可惜了。
+
+这周开始整理博客的 gists 文档，想把以前收集的零碎的资料整理到知识骨架中，我觉得开始摸到“笔记”的窍门了。
+
 #### **🌘 2022 年 6 月 23 日**
 
 可能是人家看到快一年的空窗期心都凉啦，所以说好的等电话，等得我是一点回音也没听到！

@@ -28,6 +28,28 @@
 
 ## 标签明细
 
+#### http-equiv 有什么用？
+
+是一个 HTML 中的程序指令，可以用来定义 CSP、Content-Type、Refresh 等 HTTP 头部。
+
+```html
+<meta http-equiv="refresh" content="0; url=https://www.lionad.art">
+```
+
+见：[http-equiv](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-http-equiv)
+
+#### src 和 href 的区别？
+
+src 即 Source，指使用外部对象替换当前元素；href 即 Hypertext Reference，指元素与外部的链接关系。
+
+见：[Difference between SRC and HREF](https://stackoverflow.com/questions/3395359/difference-between-src-and-href/21549827#21549827)，这是一个 12 年前的问题，至今为止被浏览了 14w 次。
+
+#### defer VS async
+
+defer 和 async 都是并行下载，defer 延迟执行，async 下载完执行。
+
+![bare script VS defer script VS async script](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220618194223.png)
+
 #### strong、em、b、i 有什么不同？
 
 * strong 表示本段文本在文中**语义上**十分重要，如精彩观点
@@ -47,18 +69,6 @@ label 用来表示 input 的标题，并且提供了一些体验优化，比方�
 ```
 
 见 MDN 的 [示例](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)。
-
-#### src 和 href 的区别？
-
-src 即 Source，指使用外部对象替换当前元素；href 即 Hypertext Reference，指元素与外部的链接关系。
-
-见：[Difference between SRC and HREF](https://stackoverflow.com/questions/3395359/difference-between-src-and-href/21549827#21549827)，这是一个 12 年前的问题，至今为止被浏览了 14w 次。
-
-#### defer VS async
-
-defer 和 async 都是并行下载，defer 延迟执行，async 下载完执行。
-
-![bare script VS defer script VS async script](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220618194223.png)
 
 #### 使用 iframe 需要注意什么？
 

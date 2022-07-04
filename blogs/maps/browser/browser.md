@@ -146,6 +146,14 @@ Firefox 使用了**规则树**这一方案。TODO
 
 见：[Broadcast Channel](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API)
 
+## Dev Tools
+
+#### 代码覆盖率怎么看？
+
+通过代码覆盖率选项查看某个页面或某流程中，执行到的 JS 和 CSS 代码的百分比。可以用来优化首屏等场景。
+
+![Code Coverage](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220704211729.png)
+
 ## TODO
 
 * [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)

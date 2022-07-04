@@ -37,6 +37,12 @@ Git 用 vim 作为默认的文本编辑器，好在可以在配置中进行替�
 git config --global core.editor Code
 ```
 
+#### 怎么配置代理？
+
+```bash
+git config --global http.proxy <your-proxy-url>
+```
+
 ## 分支操作
 
 #### 如何添加远端仓库？
