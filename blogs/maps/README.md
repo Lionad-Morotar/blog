@@ -29,6 +29,7 @@
 
 * [计算机原理](/maps/computer/computer.html)
 * [计算机网络](/maps/computer/network.html)
+* [Linux](/maps/linux/linux.html)
 
 #### 语言
 
