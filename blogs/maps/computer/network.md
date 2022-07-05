@@ -8,7 +8,7 @@
 
 应用层有 HTTP、DNS、FTP，表示层有 base64、MIDI、JPEG，会话层有xxx，传输层则是 TCP、UDP，网络层有 IP，数据链路层xxx，物理层有以太网协议。
 
-![OSI 参考模型](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620033400.png)
+![OSI 参考模型](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620033400.png?type=win11&w=60)
 
 ## TCP
 
@@ -20,25 +20,25 @@ TODO，[终于有人能把TCP/IP协议讲的明明白白了！](https://develope
 
 #### TCP Header 由哪些部分组成？
 
-![TCP Header](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731153510.png)
+![TCP Header](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731153510.png?type=win11&w=60)
 
 #### 三次握手具体过程？
 
 从三次握手图示可以发现，仅仅是连接的建立，就需要大量时间消耗。客户端想发送数据，至少要等 1.5xRTT；服务端想发送数据，至少要 2xRTT。
 
-![Three-way Handshake](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731162450.png)
+![Three-way Handshake](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731162450.png?type=win11&w=40)
 
 #### TCP Fast Open 如何优化握手过程？
 
 TFO 规定服务器第一次返回 ACK 时，携带一个用以标志客户端身份的 Cookie。后续客户端发送 SYN 建立连接的时候带上这个 Cookie，服务端确认身份之后，就能直接返回数据了（节约了 1.5 RTT）。
 
-![TFO](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807054219.png)
+![TFO](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807054219.png?type=win11&w=80)
 
 #### 四次挥手的具体过程？
 
 四次挥手如下所示。为什么建立连接要三次，而断开连接要四次请求呢？从图中可以看出，接收到 FIN 请求时，服务端立即返回 ACK 表示收到请求，但是要等自己这边剩余一些工作（可能时未发送完的请求内容）完成之后，才会返回 FIN。
 
-![Four-way Wavehand](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731165331.png)
+![Four-way Wavehand](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731165331.png?type=win11&w=40)
 
 #### TCP 链接中如果某端出故障了会怎么办？
 
@@ -96,9 +96,13 @@ UDP，即 User Datagram Protocol 用户数据报协议。数据报不保证信�
 
 分强缓存和协商缓存：Expires、Cache-Control、Last-Modified、Etag。
 
-![HTTP Cache](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630205606.png?type=win11)
+![HTTP Cache](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630205606.png?type=win11&w=60)
 
 TODO，[https://imweb.io/topic/55c6f9bac222e3af6ce235b9](https://imweb.io/topic/55c6f9bac222e3af6ce235b9)
+
+#### 强缓存和协商缓存的主要区别是？
+
+强缓存是一但匹配就无条件使用缓存，而面对协商缓存的资源，浏览器需要向服务端发请求，对比资源是否变更，并依靠服务端的响应来判断是否使用缓存。如果资源同时应用了强缓存和协商缓存，那么浏览器优先使用强缓存。
 
 #### no-store 和 no-cache 的区别？
 
@@ -127,7 +131,7 @@ HTTP 头部被转为帧之前，会通过维护一个表结构，通过序号记
 
 HTTP3 使用全新的传输层协议 QUIC，实现了 H2 中的流式传输（HTTP2）、多路复用（TCP）、流量控制（TCP）以及可靠性（TCP）等内容，其网络层协议应用的是 UDP 而不是 TCP，本意是用来解决 TCP 建立链接需要  1.5 RTT 延迟的问题。这种改善在移动端更加有效。
 
-![HTTP3 VS HTTP2 VS HTTP1.1](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220621003527.png)
+![HTTP3 VS HTTP2 VS HTTP1.1](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220621003527.png?type=draw&w=80)
 
 见：[HTTP3 发布了！](https://mp.weixin.qq.com/s/40YBEWZBaHakDuRuh27fMg)
 

@@ -132,6 +132,8 @@ Firefox 使用了**规则树**这一方案。TODO
 
 绑定了事件的 DOM 相关区域会在合成器线程中被标记为 Non-fast Scrollable Region，滚动时，需要等待可能的 JS 执行（比如说 e.preventDefault），将渲染树复合分割为磁贴后，交由栅格线程渲染，最后由 GPU 绘制到界面上。当一个事件标记了 passive: true 之后，合成器线程知悉 JS 执行不会改变滚动事件，所以可以直接走复合、栅格化、渲染的流程。
 
+passive 在 document 绑定 touchmove 或 touchstart 时默认是开启的，但是如果内部使用了 preventDefault，则会使优化失效，在控制台也会报警告。
+
 #### BFCache 是如何运作的？
 
 [BFCache（Back/Forward Cache）](https://www.youtube.com/watch?v=cuPsdRckkF0)是一种缓存策略。浏览器会把当前页面的快照（包括 JS Heap 快照）缓存到内存中，以便用户从当前页面导航到其它页面短暂浏览后又返回原先页面时，迅速地展现页面。
