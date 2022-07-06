@@ -92,7 +92,7 @@ meta:
 
 ![抗锯齿后的“后浪”中的“后”字](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200604/fullpixels.jpg)
 
-“后浪”的“后”字，中间那一横，实际的宽度要小于一个像素，所以也用透明暗色渲染。除了单字，在 [@MAXVOLTAR](http://maxvoltar.com/archive/-Webkit-font-smoothing) 这篇博客，有英文排版的示例图片，以下直接引用了：
+“后浪”的“后”字，中间那一横，实际的宽度要小于一个像素，所以也用透明暗色渲染。除了单字，在 [@MAXVOLTAR](http://maxvoltar.com/archive/-WebKit-font-smoothing) 这篇博客，有英文排版的示例图片，以下直接引用了：
 
 - none
 
@@ -360,7 +360,7 @@ Well done!
 }
 ```
 
-理论上，通过 SCSS 函数，能自动判断代码中线段的位置并生成填充抗锯齿的像素。无论是 LinearGradient、ConicGradient 还是 RadialGradient，都可以抗锯齿。不过我只是当试验品来写，所以没有写相应的工具函数。欢迎各位补充到 Github。
+理论上，通过 SCSS 函数，能自动判断代码中线段的位置并生成填充抗锯齿的像素。无论是 LinearGradient、ConicGradient 还是 RadialGradient，都可以抗锯齿。不过我只是当试验品来写，所以没有写相应的工具函数。欢迎各位补充到 GitHub。
 
 ## 实践&后记
 
@@ -375,7 +375,7 @@ Well done!
 
 ## 彩蛋：<del>脑放</del>
 
-好吧，这里想介绍的不是“纯脑放”，而是一种先将图片变模糊以平滑图形边缘，再锐化图片强化边缘的思路。日常生活中使用 PhotoShop 等工具处理图片经常会用到这种方法；有时电脑游戏画面增强也是这样处理的。
+好吧，这里想介绍的不是“纯脑放”，而是一种先将图片变模糊以平滑图形边缘，再锐化图片强化边缘的思路。日常生活中使用 Photoshop 等工具处理图片经常会用到这种方法；有时电脑游戏画面增强也是这样处理的。
 
 先模糊，再锐化，两个步骤不能反过来，同时参数的调节也很重要（很玄学）。我在自己的博客中进行实验时，以下是我的尝试的方法：
 

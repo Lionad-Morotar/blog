@@ -22,10 +22,10 @@ My personal websites，build with VuePress. Online URL: [https://www.lionad.art]
 * format：代码格式化
 * style：页面样式变动
 
-大体参考 [LeanCode Git Commit Style](https://open.leancloud.cn/git-commit-message/)。Commit Message 控制在一行以内，格式如：$chore: 加入 fflate 依赖$。如果有需要详细说明的内容，请再空一行后补充内容，如：
+大体参考 [LeanCode Git Commit Style](https://open.leancloud.cn/git-commit-message/)。Commit Message 控制在一行以内，格式如：chore: 加入 fflate 依赖。如果有需要详细说明的内容，请再空一行后补充内容，如：
 
 ```
-chore: install vuepress、fflate
+chore: install package fflate
 
 see http://github.com/issue/xxxx
 ```

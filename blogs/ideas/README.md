@@ -1,3 +1,10 @@
+<flow>一图胜千言，先来看看用 HTTP/2 加载小文件到底有多快...
+<p><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/oIVaJryPbb.gif" alt="HTTP/2 is fast" title="HTTP/2 is fast" /></p>
+</flow>
+
+<flow>侯世达定律：做事所花费的时间总是比你预期的要长，即使你的预期中考虑了侯世达定律。
+</flow>
+
 <flow>我突然意识到，我并不是做一个个人笔记系统，而是要做一个搜索引擎一样的东西。
 <name>Lionad</name>
 </flow>
@@ -69,10 +76,10 @@ A poem is never finished, only abandoned.
 <name><a href="https://calibreapp.com/blog/css-performance" rel="noopener noreferrer" target="_blank">《How to Improve CSS Performance》</a></name>
 </flow>
 
-<flow>Github Actions 会屏蔽等同于 Secrets 的字符串的输出（以星号代之）。
+<flow>GitHub Actions 会屏蔽等同于 Secrets 的字符串的输出（以星号代之）。
 为了方便调试，你可以修改该字符串，比如插入空格，这样能正常输出。
-不过别忘了，Github Actions 会保留日志，所以调试时需要使用假的 Secrets。
-<name><a href="https://zellwk.com/blog/debug-github-actions-secret/" rel="noopener noreferrer" target="_blank">How to debug a Github Actions’ secret</a></name>
+不过别忘了，GitHub Actions 会保留日志，所以调试时需要使用假的 Secrets。
+<name><a href="https://zellwk.com/blog/debug-github-actions-secret/" rel="noopener noreferrer" target="_blank">How to debug a GitHub Actions’ secret</a></name>
 </flow>
 
 <flow>相关 CSS 父选择器的一些内容。

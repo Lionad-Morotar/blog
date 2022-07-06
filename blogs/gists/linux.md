@@ -1,6 +1,33 @@
-# Linux 操作备忘
+# Linux
 
-## 全新开始
+[TOC]
+
+## 内核相关
+
+### 零拷贝
+
+传统的文件传输需要经历四次拷贝以及四次内核态用户态切换：磁盘数据 -> dmacopy() -> 内核缓存区 -> read() -> 用户缓存区 -> write() -> 套接字缓存区 -> dmacopy() -> 网卡。read 或 write 时，系统先从用户态切换到内核态，等内核完成任务再切换回去。由于每次切换都需要消耗 50ns~100ns 的时间，所以在并发量大的情况下，会多很多不必要的开销。
+
+使用 mmap 替代 read 可以把内核区中的文件直接映射到用户缓冲区，这可以减少一次 CPU 拷贝带来的消耗。
+
+从 Linux 2.1 可以使用 sendFile 替代 read，数据根本不经过用户态，可以在调用 write 时，直接把数据从内核缓冲区进入到 Socket 缓存区，减少了一次 CPU 拷贝和上下文切换。
+
+Linux 2.4 又进行了一些修改。在 sendFile 的基础上，如果网卡支持 SG-DMA 技术，在从用 DMA 拷贝把磁盘数据拷贝到内核缓冲区后，可以直接把内核缓存区的数据拷贝到网卡。这样一来就只有 3 次上下文切换和 2 次拷贝。为什么还有两次拷贝也能叫两拷贝呢？实际上，零拷贝应该叫零冗余拷贝，因为磁盘到内核，内核到网卡这两次拷贝并没有像 Linux 2.1 的 sendFile 一样在内核与内核之间多一次冗余拷贝（内核缓存区到 Socket 缓存区），内核只保有一份数据。
+
+* [<i>Zero copy : mmap and sendfile in detail</i>](https://trashcode.io/post/d/Zero-copy-mmap-and-sendfile-in-detail)
+
+### 权限设定
+
+* ---，0，no excute，no write，no read
+* --x，1，excute
+* -w-，2，write
+* -wx，3，write，excute
+* r--，4，read
+* r-x，5，read，excute
+* rw-，6，read，write ，
+* rwx，7，read，write ，excute
+
+## 常用操作
 
 ### 给用户添加管理员权限
 
@@ -35,7 +62,7 @@ pwd
 
 ### SFTP
 
-在 VSCode 中添加 [SFTP 插件](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp)，用来和服务器同步文件。
+在 VS Code 中添加 [SFTP 插件](https://marketplace.visualstudio.com/items?itemName=liximomo.sftp)，用来和服务器同步文件。
 
 配置可参考：
 
@@ -188,6 +215,11 @@ magick -version
 rename -v 'oldname' 'newname' file
 ```
 
+今天安装了 Windows Linux Subsystem。用的 Debian，但是它居然没有自带的 rename 工具，所以只好使用 apt install rename 重新安装了一个。令我诧异的是，这个 rename 的用法和上面提到的完全不一样。
+
+```bash
+rename "s/oldstr/newstr"
+```
 
 ---
 
@@ -195,3 +227,14 @@ rename -v 'oldname' 'newname' file
 
 Linux 单个进程只能操作有限个文件数量。可以使用 ulimit -n xxxx 突破这个限制。
 
+
+## C/C++
+
+signal.h，用于信号处理。
+
+* SIGTERM：终止请求，发送到程序
+* SIGSEGV：无效的内存访问（分段故障）
+* SIGINT：外部中断，通常由用户发起
+* SIGILL：无效的程序映像，如无效指令
+* SIGABRT：异常终止条件，如例如由 abort() 触发
+* SIGFPE：错误的算术运算，如除以零

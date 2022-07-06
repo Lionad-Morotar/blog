@@ -7,6 +7,8 @@ const headLink = require('./headLink')
 const configureWebpack = require('./webpack.config.js')
 const { chainMarkdown, extendMarkdown } = require('./extendMarkdown')
 
+const isDEV = process.env.NODE_ENV === 'development'
+
 const valineID = require('./private/valine-id').default
 const valineKey = require('./private/valine-key').default
 
@@ -44,10 +46,12 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Posts', link: '/articles/' },
+      { text: 'Maps', link: '/maps/' },
+      { text: 'Links', link: '/friends/' }
+    ].concat(isDEV ? [
       { text: 'Ideas', link: '/ideas/' },
       { text: 'HireMe', link: '/hire-me/' },
-      { text: 'Links', link: '/friends/' }
-    ],
+    ] : []),
     sidebar: {
       '/': sidebar.getSidebar(),
       // '/flows/': sidebar.getSidebar(),

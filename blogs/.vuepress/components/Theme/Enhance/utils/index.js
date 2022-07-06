@@ -7,7 +7,27 @@ const utils = {
             add: fn => (store.push(fn), store),
             destroy: () => store.map(fn => fn._destroy && fn._destroy())
         }
-    })()
+    })(),
+    requestIdleCallback: (...args) => {
+        const methods = window.requestIdleCallback || function (cb) {
+            var start = Date.now()
+            return setTimeout(function () {
+            cb({
+                didTimeout: false,
+                timeRemaining: function () {
+                return Math.max(0, 50 - (Date.now() - start))
+                }
+            })
+            }, 1)
+        }
+        return methods(...args)
+    },
+    cancelIdleCallback: (...args) => {
+        const methods = window.cancelIdleCallback || function (id) {
+            clearTimeout(id)
+        }
+        return methods(...args)
+    }
 }
 
 let isMobile = null

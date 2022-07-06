@@ -124,8 +124,8 @@ container-height = 500
     .shadows,
     .head {
         border-radius: 50%;
-        idth: face-width px;
-        eight: face-width px;
+        width: face-width px;
+        height: face-width px;
         transform: translate(-50%, -50%);
         top: calc(50%);
         left: calc(50%);

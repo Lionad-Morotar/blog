@@ -44,9 +44,10 @@ const extFns = {
   drawUntil (condFn, step) {
     this._predraw = this._predraw || []
     const condFnWrapper = () => {
+      const _remove = x => x.splice(x.findIndex(item => item === x), 1)
       const isStop = extFns.stopIf.bind(this)(condFn)
       if (isStop) {
-        this._predraw._remove(condFnWrapper)
+        _remove(this._predraw, condFnWrapper)
       } else {
         step && step()
       }
@@ -82,8 +83,13 @@ export default {
     this.observeIntersection()
     /* init canvas size */
     const $h1 = document && document.querySelector('h1')
-    this.width = this.w || ($h1 ? $h1.offsetWidth : (window.innerWidth || this.width))
-    this.height = this.h || (~~(this.width * 0.618))
+    if ($h1) {
+      this.width = this.w || ($h1 ? $h1.offsetWidth : (window.innerWidth || this.width))
+      this.height = this.h || (~~(this.width * 0.618))
+    } else {
+      this.width = 0
+      this.height = 0
+    }
   },
   methods: {
     async loadScript() {

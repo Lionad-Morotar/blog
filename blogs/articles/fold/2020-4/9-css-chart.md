@@ -54,7 +54,7 @@
     观察变长圆环的顺序，能发现“每逢三就变长”这种规律，推测使用了 :nth-child(3) 选择器。
 
 下面是 CSS 源码。
-```Scss
+```SCSS
   .card {
     justify-content: flex-start;
     overflow: hidden;
@@ -115,7 +115,7 @@
 - 观察小球的个数，欸？貌似有些问题，圆形小球数量和瓷砖数量对不上。应该是对小球的显隐的顺序做了特殊处理。
 
 下面是 CSS 源码。
-```Scss
+```SCSS
   .card {
     cursor: pointer;
   
@@ -226,7 +226,7 @@
 
     三角形的角度变化很有规律，可以大致推测，旋转角度和列数有关。
 
-```Scss
+```SCSS
   .card {
     overflow: hidden;
     cursor: pointer;
@@ -318,7 +318,7 @@
 
 - 特殊颜色的圆有多种可能的实现方法。
 
-    第一，在 Scss 编译时，调用随机函数，给这些随机位置圆改变颜色就好。
+    第一，在 SCSS 编译时，调用随机函数，给这些随机位置圆改变颜色就好。
 
     第二，使用蝉原则或类似方式实现 CSS 伪随机。
 
@@ -326,7 +326,7 @@
 
 害~ 这里直接上源码。
 
-```Scss
+```SCSS
   .card {
     .node {
       background: #EE92A5;
@@ -414,7 +414,7 @@
 
 以下是 CSS 源码。
 
-```Scss
+```SCSS
   .card {
     cursor: pointer;
   
@@ -508,7 +508,7 @@
 
 以下是 CSS 源码。
 
-```Scss
+```SCSS
   .card {
     .node {
       background: #71A2DB;
@@ -582,7 +582,7 @@
 
 这个玩意儿是上一张图的升级版本，误导可能在会猜测伪元素是点，而不是线，然后用空出的一个伪元素去构造菱形格子内其它东西。
 
-```Scss
+```SCSS
   .card:nth-child(8) {
     .node {
       border: solid 8px #71A2DB;
@@ -646,7 +646,7 @@
 
 下面就直接给代码了。
 
-```Scss
+```SCSS
   // 可以看到父元素用到了 filter: contrast 滤镜
   .card {
     position: relative;
@@ -738,7 +738,7 @@
 
 下面看源码。
 
-```Scss
+```SCSS
   .card {
     background: linear-gradient(45deg, #F5CB6C 0%,#F5CB6C 20%,#F5856C 20%, #F5856C 45%,#F5CB6C 45%,#F5CB6C 70%,#F5856C 70%, #F5856C 95%,#F5CB6C 95%,#F5CB6C 100%);
     background-size:30px 30px;
@@ -807,7 +807,7 @@
 
 以下是源码。
 
-```Scss
+```SCSS
   // 右图的样式代码
   .card {
     
@@ -863,7 +863,7 @@
 
 它的 CSS 代码长这样：
 
-```Scss
+```SCSS
   // 灰色 Border
   .card {
     justify-content: flex-start;

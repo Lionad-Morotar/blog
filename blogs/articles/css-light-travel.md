@@ -90,7 +90,7 @@ body:before {
 
 ![材质图片](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020054.png)
 
-我们再把这张材质平铺为文档背景，就可以得到类似磨砂金属般的表面纹理（由于图片压缩的原因，效果可能不好，可直接前往[Codepen](https://codepen.io/Lionad/pen/mdWWxdg)查看细节）。
+我们再把这张材质平铺为文档背景，就可以得到类似磨砂金属般的表面纹理（由于图片压缩的原因，效果可能不好，可直接前往[CodePen](https://codepen.io/Lionad/pen/mdWWxdg)查看细节）。
 
 ![https://codepen.io/Lionad/pen/mdWWxdg](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210523020615.png)
 
@@ -342,7 +342,7 @@ body {
 
 ### 成品展示
 
-最后，把所有代码整合到一起，调调参数，改改细节，就完成啦。嘿嘿，再放一张效果图。[可以到 Codepen 查看最终效果](https://codepen.io/Lionad/pen/XWMMNKK)。
+最后，把所有代码整合到一起，调调参数，改改细节，就完成啦。嘿嘿，再放一张效果图。[可以到 CodePen 查看最终效果](https://codepen.io/Lionad/pen/XWMMNKK)。
 
 ![《罗生门》](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/book-cover-3.png)
 
@@ -354,9 +354,9 @@ body {
 
 ## 阅读更多
 
-**希望本文能对你有所帮助，我是仿生狮子，各位下期见咯~**
+<JJ>**希望本文能对你有所帮助，我是仿生狮子，各位下期见咯~**</JJ>
 
-想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案；欢迎 Star & Follow；也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~
+<JJ>想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案；欢迎 Star & Follow；也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~</JJ>
 
 
 

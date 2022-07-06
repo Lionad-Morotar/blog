@@ -1,5 +1,7 @@
 # 隐式类型转换
 
+[TOC]
+
 能回答出以下表达式的结果并指出具体原理，就不用继续看了。
 
 1. 1 + 1 + '2'
@@ -136,12 +138,7 @@ PreferredType 用来表明想转换到哪种原始值类型，比数组索引中
 
 #### 抽象相等运算
 
-1. 若左操作数和右操作数类型相等，则回退到严格相等运算
-2. 两操作数取 Null 或 Undefined，返回 True
-3. 任一操作数为 String，另一操作数为 Number，则 ToNumber 转换 String 值后继续比较
-4. 任一操作数为 Boolean，则 ToNumber 将其转换后继续比较
-5. 任一操作数为 Object，另一操作数为 String、Number 或 Symbol，则 ToPrimitive 将 Object 转换后继续比较 
-6. 返回 False
+move to: js mind map
 
 #### 抽象关系运算
 

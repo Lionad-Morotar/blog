@@ -9,6 +9,12 @@ header-tags = 'h1, h2, h3, h4, h5';
         color: #fefefe;
     }
 
+    // TODO refactor ?
+    & + h1, & + h2, & + h3, & + h4, & + h5 {
+        display: block;
+        margin-top: 0;
+    }
+
     margin-bottom: 0;
     border: none;
     text-align: left;
@@ -16,7 +22,7 @@ header-tags = 'h1, h2, h3, h4, h5';
     font-family: var(--font-text--bold);
 }
 
-h2, h3, h4, h5 {
+h2, h3, h4, h5, h6 {
     position: relative;
     margin: 2em 0 1em 0;
     padding: 3px 0.5em;
@@ -28,8 +34,16 @@ h2, h3, h4, h5 {
     font-weight: bolder;
 
     &:target {
-        outline: dashed 2px var(--theme-black);
+        animation: showTarget 1.5s 1 linear;
         outline-offset: .2em;
+    }
+    @keyframes showTarget {
+        from {
+            outline: dashed 3px var(--theme-black);
+        }
+        to {
+            outline: dashed 3px rgba(0,0,0,0);
+        }
     }
 
     &::before {
@@ -60,10 +74,20 @@ h2, h3, h4, h5 {
 }
 
 h1 {
+    position: relative;
     // 覆盖 Vuepress 样式
     margin-top: 1.25rem !important;
     margin-bottom: 3rem !important;
     font-size: 3rem;
+
+    /* &::after {
+        content: attr(id);
+        position: absolute;
+        left: -3.5rem;
+        top: 0;
+        font-size: 8rem;
+        color: rgba(0,0,0,0.13);
+    } */
 }
 
 h2 {
@@ -95,8 +119,8 @@ h3 {
     }
 }
 
-h4, h5 {
-    display: inline-block;
+h4, h5, h6 {
+    display: block;
     margin-top: 1.75em;
     padding: 0;
     color: inherit;
@@ -219,7 +243,7 @@ p + div {
     margin-top: 1.5rem;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     & + p {
         margin-top: 0;
     }
@@ -280,7 +304,7 @@ a {
         }
 
         &:hover {
-            text-decoration-color: var(--text-gray);
+            text-decoration-color: #c62222;
         }
     }
 
@@ -318,7 +342,7 @@ sup {
 
 blockquote {
     position: relative;
-    margin: 1em;
+    margin: 1.5em;
     padding: 0 4.5em;
     border: 0;
     font-family: 'MJXTEX-I','楷体';
@@ -357,6 +381,23 @@ h1 + blockquote, h2 + blockquote, h3 + blockquote {
     margin-top: 2em;
 }
 
+q {
+    display: block;
+    font-size: 14px;
+    /* font-size: 70%; */
+    line-height: 1.7;
+
+    &::before,
+    &::after {
+        padding: .2em;
+        /* font-size: 125%; */
+        font-weight: bold;
+    }
+    &::after {
+        padding: .3em;
+    }
+}
+
 ol, ul {
     padding-inline-start: 3.25em;
     padding-inline-end: 3.25em;
@@ -381,10 +422,10 @@ mark, .highlighted {
 code {
     background: var(--medium-gray);
     border-radius: 3px;
-    margin: 0 3px;
     padding: 3px 0.3em;
     font-size: 1.25rem;
     font-family: var(--font-code);
+    color: #5a3858;
 }
 
 li code {

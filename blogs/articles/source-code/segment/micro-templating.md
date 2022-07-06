@@ -1,5 +1,7 @@
 # JavaScript Micro-Templating
 
+[TOC]
+
 回顾 HTML Parser 的时候，回想起在忍者秘籍中提到的这个微型模板解析器。当时没怎么看懂，现在过了一年了，拿出来重新看看，应该能看懂了... 
 
 ## 完整实现
@@ -182,6 +184,8 @@ str = `<% for ( var i = 0; i < users.length; i++ ) { %>
 * 复杂代码可以借助 Chrome 调试器或 lambda-view、Madge 等工具
 
 ## 阅读更多
+
+* [VueJS Parser](../vuejs/parser.html)
 
 * [JavaScript Micro-Templating](https://johnresig.com/blog/javascript-micro-templating/)
 * [with@MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/with)

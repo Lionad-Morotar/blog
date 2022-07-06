@@ -29,54 +29,59 @@
 <FriendLink
   img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/icons/github.svg"
   src="https://github.com/Lionad-Morotar"
-  name="Github"
-  achieve="Github 存有本博客的源码及其它一些也许意思的东西 💻"
+  name="GitHub"
+  achieve="GitHub 存有本博客的源码及其它一些也许意思的东西 💻"
   :nofollow="true"
 />
 
 ## <spark>🏂 友情链接</spark>
 
-<FriendLinks>
-  <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Cheese.jpg"
-    src="https://chee5e.space/"
-    name="Cheese"
-    achieve="有梦想，也有忧伤和理想 🌻"
-  />
-  <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Raptazure.png"
-    src="https://raptazure.github.io"
-    name="Raptazure"
-    achieve="在个人网站里记日记的少女 (大雾 🎉"
-  />
-  <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Renwangyu.jpg"
-    src="https://blog.renwangyu.com/"
-    name="Renwangyu"
-    achieve="保持童心的80后程序猿大叔 😀"
-  />
-  <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Kicoe.jpg"
-    src="https://www.kicoe.com/"
-    name="Kicoe"
-    achieve="和 Roki 一样在学习 go 语言的老弟 🌐"
-  />
-  <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Roki.jpg"
-    src="https://blog.weekii.cn/"
-    name="Roki"
-    achieve="和 Roki 一起玩塔科夫玩到半夜三点 🕒"
-  />
-  <!-- <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Deeruby.jpg"
-    src="https://deeruby.com"
-    name="Deeruby"
-    achieve="易骏的博客 🍺"
-  /> -->
-  <FriendLink
-    img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Wrath.png"
-    src="https://wrath.cc"
-    name="Wrath"
-    achieve="有一部漂亮的索尼手机 📱"
-  />
-</FriendLinks>
+<!-- todo: 随机排序 -->
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/ryan4yin.jpg"
+  src="https://thiscute.world/"
+  name="於清樂"
+  achieve="有很多的绝望，但也有美的时刻，只不过在美的时刻，时间是不同于以往的 ☀️"
+/>
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Cheese.jpg"
+  src="https://chee5e.space/"
+  name="Cheese"
+  achieve="有梦想，也有忧伤和理想 🌻"
+/>
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Raptazure.png"
+  src="https://raptazure.github.io"
+  name="Raptazure"
+  achieve="在个人网站里记日记的少女 (大雾 🎉"
+/>
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Kicoe.jpg"
+  src="https://www.kicoe.com/"
+  name="Kicoe"
+  achieve="和 Roki 一样在学习 go 语言的老弟 🌐"
+/>
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Roki.jpg"
+  src="https://blog.weekii.cn/"
+  name="Roki"
+  achieve="和 Roki 一起玩塔科夫玩到半夜三点 🕒"
+/>
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Renwangyu.jpg"
+  src="https://blog.renwangyu.com/"
+  name="Renwangyu"
+  achieve="保持童心的80后程序猿大叔 😀"
+/>
+<!-- <FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Deeruby.jpg"
+  src="https://deeruby.com"
+  name="Deeruby"
+  achieve="易骏的博客 🍺"
+/> -->
+<FriendLink
+  img="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/friends/Wrath.png"
+  src="https://wrath.cc"
+  name="Wrath"
+  achieve="有一部漂亮的索尼手机 📱"
+/>

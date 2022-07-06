@@ -27,6 +27,9 @@ const getSRCs = (src, prefix = '') => {
         }
       })
     } catch (err) {
+      // 在 Build 时会碰到这个莫名奇妙的错误，
+      // 和 __dirname node 执行路径有关，
+      // 可以不用管
       console.error('Error in getSRCs : ', err)
     }
   }
@@ -45,14 +48,13 @@ const sidebars = [
       // 'flows/brain-history',
       // 'flows/rss',
       'flows/books',
-      'flows/punctuations',
+      'flows/long-night-dream',
       'flows/everything',
       'flows/stolen-time-from-god',
       'flows/expression-and-loneliness',
       'flows/my-shy',
       'flows/drinking-while-thinking',
       'flows/escape-from-mysticism',
-      'flows/messy-in-two-years',
       'flows/zfold'
     ]
   },
@@ -67,7 +69,7 @@ const sidebars = [
       'articles/crack-the-slider',
       'articles/css-light-travel',
       'articles/design-patterns-and-js-magic-pot',
-      'articles/anysort',
+      'articles/anysort-2th',
       'articles/js-100',
       'articles/helmet-and-security',
       'articles/css-poaa',
@@ -83,14 +85,14 @@ const sidebars = [
     ]
   },
   {
-    title: '绘画系列 / Paint',
+    title: '玩乐广场 / Paint',
     collapsable: true,
     open: false,
     path: '/awesome/',
     children: getSRCs(awesomeDir, 'awesome/')
   },
   {
-    title: '零散笔记',
+    title: '等待整理',
     collapsable: true,
     open: false,
     path: '/gists/',
@@ -126,13 +128,13 @@ module.exports = {
   },
   getRecommends() {
     return {
-      心流思绪: {
-        url: '/flows/books.html',
-        label: '2021 荐书两本'
+      心流: {
+        url: '/flows/long-night-dream.html',
+        label: '长夜梦'
       },
-      黑魔法: {
-        url: '/articles/css-light-travel.html',
-        label: '探秘 CSS 光影效果'
+      技术: {
+        url: '/articles/anysort-2th.html',
+        label: 'Anysort'
       }
     }
   }

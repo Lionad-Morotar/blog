@@ -1,5 +1,7 @@
 # mklink
 
+[TOC]
+
 ##### <Link type="h5" to="https://mgear-file.oss-cn-shanghai.aliyuncs.com/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0PInvoke_%E9%BB%84%E8%85%BE%E9%9C%84%E7%9A%84%E5%8D%9A%E5%AE%A2_CSDN%E5%8D%9A%E5%AE%A2.html" source="https://blog.csdn.net/htxhtx123/article/details/104323450" ><i>Creating a Symbolic Link using PowerShell</i></Link>
 
 在 cmd.exe 中可以直接调用 mklink.exe，但在某些情况下你想和 cmd 撇清关系，一种取巧的办法是在 powershell 中先调用 cmd.exe。

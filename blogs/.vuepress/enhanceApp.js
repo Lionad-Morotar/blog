@@ -1,5 +1,6 @@
 import Fragment from 'vue-fragment'
 
+import Highlight from './components/Highlight.vue'
 import VueP5 from './components/segments/P5'
 import WHRatio from './components/segments/WHRatio'
 import Spark from './components/segments/Spark'
@@ -8,6 +9,8 @@ import Worker from './components/segments/Worker'
 import FPS from './components/segments/FPS'
 import JJ from './components/segments/JJ'
 import Link from './components/segments/Link'
+import Frame from './components/segments/Frame'
+import Keyboard from './components/segments/Keyboard'
 
 import utils from './components/utils'
 
@@ -21,7 +24,7 @@ export default ({
 }) => {
   Vue.use(Fragment.Plugin)
 
-  Vue.config.ignoredElements = ['css-doodle', 'flow', 'name', 'time', 'pixel', 'hide']
+  Vue.config.ignoredElements = ['css-doodle', 'flow', 'name', 'time', 'pixel', 'hide',]
   Vue.component('vue-p5', VueP5)
   Vue.component('WHRatio', WHRatio)
   Vue.component('Spark', Spark)
@@ -29,6 +32,10 @@ export default ({
   Vue.component('FPS', FPS)
   Vue.component('JJ', JJ)
   Vue.component('Link', Link)
+  Vue.component('Frame', Frame)
+  Vue.component('Keyboard', Keyboard)
+  Vue.component('Highlight', Highlight)
+  Vue.component('Code', Highlight)
 
   Vue.use(Worker)
 

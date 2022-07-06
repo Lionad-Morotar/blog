@@ -74,7 +74,7 @@ response.setHeader('X-XSS-Protection', '0')
 
 这得追溯回去年的 Chrome 移除 XSS Auditor，准备使用新的 XSS 防护方法这事儿上。“XSS Auditor 已经充满了漏洞”，并且“修复所有信息泄漏已经证明是困难的”。所以就把这玩意儿给废除了[^xss-auditor]。至于程序员们最担心的 Edge，它已经在 18 年去除了 XSS Auditor，并开始使用 CSP 等现代标准（更现代的标准）[^delete-xss-auditor]。
 
-更详细的讨论，见 [Github Issue](https://github.com/OWASP/CheatSheetSeries/issues/376)。
+更详细的讨论，见 [GitHub Issue](https://github.com/OWASP/CheatSheetSeries/issues/376)。
 
 #### 禁止页面被嵌套
 
@@ -343,7 +343,7 @@ response.setHeader('X-DNS-Prefetch-Control', 'on')
 [^shp]: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
 [^helmet]: [HELMET](https://helmetjs.github.io/)
 [^dns-rebinding-1]: [来自微信外挂的安全风险](https://xlab.tencent.com/cn/2018/10/23/weixin-cheater-risks/?from=timeline&isappinstalled=0)
-[^dns-rebinding-2]: [Github Issue](https://github.com/helmetjs/helmet/issues/182)
+[^dns-rebinding-2]: [GitHub Issue](https://github.com/helmetjs/helmet/issues/182)
 [^xss-auditor]: [XSS Auditor (removed)](https://www.chromestatus.com/feature/5021976655560704)
 [^delete-xss-auditor]: [Google 将删除 Chrome 内置的 XSS 保护](https://zhuanlan.zhihu.com/p/74288648)
 [^referer]: Referer 是 Referrer 的错误拼写，但为了后向兼容，便一直保留下来了。

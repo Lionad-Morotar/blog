@@ -6,7 +6,7 @@
         <div class="full-background-cmpt" :class="animClass">
             <div :ref="componentID + '-grid' " class="grid">
                 <template v-if="this.request">
-                  <div v-for="(image, idx) in displayImages" class="grid__item">
+                  <div v-for="image in displayImages" class="grid__item" :key="image.src">
                       <div
                           class="grid__item-img"
                           :style="{ 'background-image': `url(\'${encodeURI(image.src)}\')` }"
@@ -85,8 +85,6 @@ export default {
             name: x.replace && x.replace('.jpg', '') || x.title || x.name,
             src: this.handleURL(x.imageURL || x)
         }))
-        // console.log(this.displayImages)
-
         this.$nextTick(() => {
             this.$eles = [...this.$refs[componentID + '-grid'].querySelectorAll('.grid__item')]
         })

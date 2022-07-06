@@ -2,6 +2,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const headLink = [
     ['meta', { name: 'baidu-site-verification', content: 'Mdz47FJiHx' }],
+    ['meta', { 'http-equiv': 'Content-Type', content: 'text/html; charset=UTF-8' }],
     ['link', { rel: 'dns-prefetch', href: '/utteranc.es' }],
     ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
     [
@@ -35,11 +36,38 @@ const headLink = [
         `
             var _hmt = _hmt || [];
             (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?9f386eab0658c409277cb8e60691de6e";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?9f386eab0658c409277cb8e60691de6e";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
             })();
+        `
+    ])
+
+// ARMS
+!isDev &&
+    headLink.push([
+        'script',
+        { defer: 'defer', crossorigin: 'crossorigin' },
+        `
+            window.__bl = {
+                config: {
+                    pid:"eeh52p97ae@20a026fed78311e",
+                    appType:"web",
+                    imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",
+                    sendResource:true,
+                    enableLinkTrace:true,
+                    behavior:true,
+                    enableConsole:true,
+                    useFmp:true
+                }
+            }
+            ;(function() {
+                var hm = document.createElement("script");
+                hm.src = "https://retcode.alicdn.com/retcode/bl.js";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })()
         `
     ])
 

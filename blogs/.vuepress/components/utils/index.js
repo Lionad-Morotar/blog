@@ -1,8 +1,9 @@
 /** Utils | Common Functions */
 
-Array.prototype._remove = function (x) {
-    this.splice(this.findIndex(item => item === x), 1)
-}
+// ! cause Valine error
+// Array.prototype._remove = function (x) {
+//     this.splice(this.findIndex(item => item === x), 1)
+// }
 
 // @see http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
 const tween = {
@@ -116,6 +117,20 @@ function nextFrameCB(cb) {
     }
 }
 
+/**
+ * insert css styles into node
+ * @param {Element} node 
+ * @param {String} styles 
+ */
+function insertStyles(node, styles) {
+    if (document) {
+        const $css = document.createElement('style')
+        $css.innerHTML = styles
+        node.appendChild && node.appendChild($css)
+        return $css
+    }
+}
+
 const utils = {
     forAwait,
     nextFrame,
@@ -148,7 +163,8 @@ const utils = {
                 window.msCancelRequestAnimationFrame ||
                 clearTimeout)
         return fn(id)
-    }
+    },
+    insertStyles
 }
 
 let isMobile = null

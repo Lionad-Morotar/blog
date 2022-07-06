@@ -8,7 +8,7 @@ ElementUI 的项目结构是按照功能划分的，如源文件、主题样式�
 
 ```
 element
-├── /.github        // Github 流程相关，包括贡献者列表、缺陷模板、PR 模板文件
+├── /.github        // GitHub 流程相关，包括贡献者列表、缺陷模板、PR 模板文件
 ├── /build          // 项目打包和部署相关脚本、Webpack 配置
 ├── /examples       // 代码示例（Element-UI 官网）
 ├── /packages       // Element-UI 模块源码

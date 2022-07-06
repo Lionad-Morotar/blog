@@ -1,5 +1,7 @@
 # Shape Up
 
+[TOC]
+
 [《「Shape Up」 适合中小团队的一种工作方式》](https://rebornix.com/work/2019/10/18/Shape-Up/)
 
 * **Shipt It**：保证每一个迭代的新功能发布是最重要的事情。一切以 deadline 为准则，其余事情为 daedline 让步。

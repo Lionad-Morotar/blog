@@ -1,5 +1,7 @@
 # 图片模糊
 
+[TOC]
+
 ## 效果示例
 
 <Article-G210206-BlurStandards />

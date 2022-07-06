@@ -132,19 +132,19 @@ Warning，分割线以下的内容多和专业相关。
 - 地址：http://blog.chromium.org/atom.xml
 - 描述：相关 Chromium 的新闻以及开发进展。
 
-#### Github 个人动态
+#### GitHub 个人动态
 
-- 名称：Github 个人动态
+- 名称：GitHub 个人动态
 - 推荐：⭐⭐⭐⭐⭐
 - 活跃：视情况而定
 - 地址：见下图
-- 描述：可以订阅自己以及大佬的最新动态，康康谁星星了自己的项目或者大佬们最近又在关注些啥。相当于把你的 Github 个人首页的信息移到了推流中。
+- 描述：可以订阅自己以及大佬的最新动态，康康谁星星了自己的项目或者大佬们最近又在关注些啥。相当于把你的 GitHub 个人首页的信息移到了推流中。
 
-![Github 个人动态订阅地址](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317151612.png)
+![GitHub 个人动态订阅地址](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210317151612.png)
 
-#### Github 仓库动态
+#### GitHub 仓库动态
 
-- 名称：Github 仓库订阅
+- 名称：GitHub 仓库订阅
 - 推荐：⭐⭐⭐⭐⭐
 - 活跃：视情况而定
 - 地址：https://github.com/{作者名称}/{项目名称}/commits/master.atom

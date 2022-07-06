@@ -1,5 +1,7 @@
 # Symbol
 
+[TOC]
+
 Symbol.toStringTag 会影响 Object.prototype.toString。
 
 ```js

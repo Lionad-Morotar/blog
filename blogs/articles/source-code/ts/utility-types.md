@@ -1,5 +1,7 @@
 # Utility Types
 
+[TOC]
+
 ## 内置工具类型
 
 #### Partial
@@ -28,7 +30,7 @@ type Readonly<T> = { readonly [P in keyof T]: T[P]} }
 
 #### Record
 
-构造一个属性的值其类型皆为某种特定类型的类型。
+构造一个属性的值其类型皆为某种特定类型的类型。有点类似声明 C++ 中的 map，如 `map<string, int>`。
 
 ```ts
 type Record<K extends keyof any, T> = { [P in K]: T }
@@ -76,7 +78,7 @@ type NonNullable<T> = T extends null | undefined ? never : T
 
 #### Parameters
 
-获取函数参数的类型组成的数组类型。
+获取函数参数的类型组成的元组类型。
 
 ```ts
 type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) ? P : never
@@ -84,7 +86,7 @@ type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) 
 
 #### ReturnType
 
-返回函数的返回值的类型组成的数组类型。
+返回函数的返回值的类型组成的元组类型。
 
 ```ts
 type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer P ? P : never

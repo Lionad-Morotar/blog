@@ -1,5 +1,7 @@
 # Markdown Inline Style
 
+[TOC]
+
 通过 VuePress 可以在 Markdown 文件中嵌套 HTML 和 VueJS 代码，然而贴到掘金之后需要我手动贴图，太麻烦了。
 
 于是我测试了几种 Inline CSS 的方案：
