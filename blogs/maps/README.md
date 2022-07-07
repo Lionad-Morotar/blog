@@ -21,11 +21,18 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [页面性能](/maps/web/performance.html)
 * [爬虫](/maps/web/crawler.html)
 
-#### 框架相关
+#### 框架
 
 * [Vue](/maps/framework/vue.html)
 * [React](/maps/framework/react.html)
 * [Angular](/maps/framework/angular.html)
+
+#### 工程化
+
+* [包管理器](/maps/workflow/package-manager.html)
+* [打包工具](/maps/workflow/webpack.html)
+* [编译器](/maps/workflow/compiler.html)
+* [Linter](/maps/workflow/linter.html)
 
 ## 计算机
 
@@ -53,12 +60,6 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [NodeJS](/maps/server/nodejs.html)
 
 ## 团队
-
-#### 工程化
-
-* [包管理器](/maps/project/package-manager.html)
-* [编译器](/maps/project/compiler.html)
-* [Linter](/maps/project/linter.html)
 
 #### 团队协作
 

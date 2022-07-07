@@ -156,6 +156,14 @@ passive 在 document 绑定 touchmove 或 touchstart 时默认是开启的，但
 
 ![Code Coverage](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220704211729.png)
 
+## API
+
+#### EventSource
+
+EventSource 是一个基于 HTTP 协议，能在浏览器端自动重连的服务端推送协议。常用于股票、天气等服务端需要实时向客户端推送消息的场景。
+
+见：[Event Source API Test](https://github.com/Lionad-Morotar/read-source-code/blob/6e866c893fc1edb3fa2da1979af0c1b252f81da5/api/event-source/index.html)
+
 ## TODO
 
 * [浏览器的工作原理：新式网络浏览器幕后揭秘](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
