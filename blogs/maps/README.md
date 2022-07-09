@@ -47,7 +47,7 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [TypeScript](/maps/typescript/typescript.html)
 * [HTML](/maps/html/html-extends.html)
 
-#### 软件工程
+#### 软件
 
 <!-- * [数据结构](/maps/computer/data-structure.html) -->
 * [算法](/maps/computer/algorithm.html)
