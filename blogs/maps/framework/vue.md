@@ -36,6 +36,16 @@
 
 Vue2 使用双端 diff，Vue3 使用最长递增子序列。
 
+### TODO
+
+为什么 React 的 Diff 算法不采用 Vue 的双端对比算法？https://juejin.cn/post/7116141318853623839
+
+diff 算法深入一下？https://zhuanlan.zhihu.com/p/401340016
+
+聊聊 Vue 的双端 diff 算法 https://zhuanlan.zhihu.com/p/534903909
+
+diff算法之双端对比 https://zhuanlan.zhihu.com/p/432927438
+
 ## 组件
 
 #### keep-alive 的理解，它是如何实现的，具体缓存的是什么？

@@ -105,25 +105,29 @@ new (a.b.bind(c))
 
 点号的优先级最高，其次是带参数列表的 new 调用，然后是函数调用，最后是无参数列表的 new 调用。
 
+#### Function.__proto__ 是什么？
+
+Function.__proto__ == Function.prototype，因为 Function 的构造函数是他本身，这是一个特例。
+
 #### 一题能搞懂原型和原型链么？
 
 ```js
 function Person(name) {}
-var p2 = new Person()
+const p = new Person()
 
-console.log(p2.__proto__)
-console.log(p2.__proto__.__proto__)
-console.log(p2.__proto__.__proto__.__proto__)
-console.log(p2.__proto__.__proto__.__proto__.__proto__)
-console.log(p2.__proto__.__proto__.__proto__.__proto__.__proto__)
-console.log(p2.constructor)
-console.log(p2.prototype)
+console.log(p.__proto__)
+console.log(p.__proto__.__proto__)
+console.log(p.__proto__.__proto__.__proto__)
+console.log(p.__proto__.__proto__.__proto__.__proto__)
+console.log(p.__proto__.__proto__.__proto__.__proto__.__proto__)
+console.log(p.constructor)
+console.log(p.prototype)
 console.log(Person.constructor)
 console.log(Person.prototype)
 console.log(Person.prototype.constructor)
 console.log(Person.prototype.__proto__)
 console.log(Person.__proto__)
-console.log(Function.prototype.__proto__)
+console.log(Person.__proto__.__proto__)
 console.log(Function.__proto__)
 console.log(Object.__proto__)
 console.log(Object.prototype.__proto__)

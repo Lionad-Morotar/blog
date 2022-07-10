@@ -36,6 +36,10 @@
 
 如果测试每分钟抓 100 次被封了，那么很可能在 80 次就上了监控，所以可以把频次控制在 40 次左右，防止别人的爬虫触发了目标站的反爬虫限制（如 80 次上监控进化为 60 次）。
 
+## 调试工具
+
+* [puppeteer-heap-snapshot](https://github.com/adriancooney/puppeteer-heap-snapshot)，根据属性的名字遍历堆内存，查找有这些属性的对象。
+
 ## Links
 
 [TODO，猿人学爬虫教程](https://www.yuanrenxue.com/crawler/why-write-python-crawler.html)
