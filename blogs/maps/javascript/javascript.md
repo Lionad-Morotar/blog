@@ -258,6 +258,26 @@ Promise 本质上是一个状态只能向 fulfilled 或 rejected 变动的状态
 
 见：[Promise.polyfill.js](https://github.com/Lionad-Morotar/read-source-code/tree/master/polyfill/promise)
 
+#### 手写 Generator 函数？
+
+```js
+const generator = function (fn) {
+  /* your implemention */
+}
+const testGen = generator(function test () {
+  generator.yield('a')
+  generator.yield('b')
+})
+const iterator = testGen()
+iterator.next() // { value: 'a'，done:false }
+iterator.next() // { value: 'b'，done:false }
+iterator.next() // { value: undefined，done:true }
+```
+
+TODO ...
+
+见：[TODO，深入理解 Generators](http://www.alloyteam.com/2016/02/generators-in-depth/)
+
 #### 手写 XHR 请求？
 
 尽管 XHR 是老掉牙的东西了，但是面试依旧有人问，就很离谱。

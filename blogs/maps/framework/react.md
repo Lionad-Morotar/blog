@@ -33,7 +33,7 @@ React.PureComponent 中默认在 shouldComponentUpdate 中实现了 state 和 pr
 
 #### 受控组件和非受控组件有什么区别？
 
-受控组件通过绑定 value state 以及 onChange 事件来控制表单的状态，非受控组件则直接通过 ref 拿到表单的值。后者的代码要简单不少。
+受控组件通过绑定 value state 以及 onChange 事件来控制表单的状态，使用 HOC 能轻松创建受控组件。非受控组件则直接通过 ref 拿到表单的值。后者的代码要简单不少。
 
 #### React 的生命周期是怎么样的？
 
@@ -84,3 +84,15 @@ TODO
 * [useHooks(🐠)](https://usehooks.com/)
 * [精读《Hooks 取数 - swr 源码》](https://juejin.cn/post/6844903991730503687)
 * [从 UX 与 DX 来谈一谈 React SWR](https://my.oschina.net/wsafight/blog/3133057)
+
+## 应用
+
+#### 什么是 HOC？
+
+高阶组件是一种使用 React 组件的组合特性，把某种组件转换成另一种组件的设计模式，可以用来处理有横切关系的组件。
+
+见：[高阶组件](https://zh-hans.reactjs.org/docs/higher-order-components.html)、[TODO 深入理解 React 高阶组件](https://zhuanlan.zhihu.com/p/24776678)
+
+#### 什么是组件横切关系？
+
+横切关系是那些和程序中大部分模块都有联系的部分，它们形成了切面开发的基础单元。
