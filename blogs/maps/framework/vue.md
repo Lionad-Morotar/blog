@@ -2,6 +2,11 @@
 
 [TOC]
 
+## TODO
+
+* [Vue.js 技术揭秘](https://www.zhihu.com/question/390956688/answer/1184696066)
+* [vue-design](https://github.com/HcySunYang/vue-design/blob/elegant/docs/art/1start-learn.md)
+
 ## 简介
 
 #### MVVM、MVC 的区别

@@ -1,5 +1,11 @@
 # Promise
 
+## TODO
+
+* [How can I synchronously determine a JavaScript Promise's state?](https://stackoverflow.com/questions/30564053/how-can-i-synchronously-determine-a-javascript-promises-state/52790734#52790734)
+* [Promise 被玩出 48 种“花样”，深度解析10个常用模块](https://juejin.cn/post/6999804617320038408)
+* [[译] 如何取消你的 Promise？](https://juejin.cn/post/6844903533393772557#comment)
+
 ## Promise A+
 
 #### Promise.resolve(1).then(2).then(log)
@@ -37,6 +43,7 @@ new Promise(resolve => (resolve(1), resolve(2)))
   .then(data => console.log(data))
   // -> 1
 ```
+
 
 见：[Promise/A+ #point-59](https://promisesaplus.com/#point-59)
 

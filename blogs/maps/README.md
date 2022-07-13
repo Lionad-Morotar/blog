@@ -72,9 +72,13 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 
 ## 商业
 
-TODO，PaaS（https://azure.microsoft.com/zh-cn/resources/cloud-computing-dictionary/what-is-paas/）
+[TODO，PaaS](https://azure.microsoft.com/zh-cn/resources/cloud-computing-dictionary/what-is-paas/)
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220710210532.png)
+
+#### 方案
+
+* [低码](/maps/business/low-code.html)
 
 #### 项目整理 TODO
 
