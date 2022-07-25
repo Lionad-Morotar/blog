@@ -308,3 +308,9 @@ Port 443
 ```
 
 再次输入测试指令，会提示是否记录指纹，选择“yes”就好。
+
+#### Reference Broken 问题？
+
+好像是因为断电，我本地或者线上的仓库记录坏掉了，无法拉或推送代码。按照以下 Issue 设置后也没能解决。
+
+见：[Reference Broken](https://github.com/desktop/desktop/issues/3838)
