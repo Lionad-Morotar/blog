@@ -98,6 +98,12 @@ git log dev
 git cherry-pick <commit-hash> <commit-hash>
 ```
 
+#### 如何关联远程分支？
+
+```js
+git branch --set-upstream-to=origin/branch-1 branch-2
+```
+
 ## 进阶技巧
 
 #### 如何快速拷贝仓库代码？
