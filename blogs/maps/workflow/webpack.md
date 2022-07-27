@@ -318,6 +318,12 @@ TODO，[Webpack 热更新实现原理分析](https://zhuanlan.zhihu.com/p/306230
 
 TODO，[Webpack HMR 原理解析](https://zhuanlan.zhihu.com/p/30669007)
 
+#### 模块联邦是什么？
+
+使用模块联邦插件后，每次构建都可以作为打包后的容器，向其它容器（构建）提供模块或者消费其它容器提供的模块。能直接解决微前端项目中基础库升级后，其它业务项目也要重新拉新版基础库并构建、发版带来的繁琐的问题。
+
+见：[模块联邦浅析](https://juejin.cn/post/7101457212085633054)
+
 ## Links
 
 TODO，[Webpack4中的Tree-Shaking](https://zhuanlan.zhihu.com/p/193663299)
