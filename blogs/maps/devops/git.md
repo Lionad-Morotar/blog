@@ -223,6 +223,13 @@ git update-index --skip-worktree -- filename.js
 
 3. git filter
 
+4. rm
+
+```js
+git rm --cached file1
+git rm -r --cached <folder-name>
+```
+
 ## 工程化实践
 
 #### 提交规范有什么用？
