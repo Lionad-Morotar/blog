@@ -17,6 +17,7 @@ function extendMarkdown(md) {
             .replace(/\/|，|\(|\)|\.|（|）/g, '-')
             .replace(/-+/g, '-')
             .replace(/-+$/, '')
+            .replace(/【】：/g, '-')
         )
     })
     md.use(require('markdown-it-footnote'))

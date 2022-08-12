@@ -151,7 +151,7 @@ add(1)(2)(3)()()()()()()()()(1)
 // >>> 7
 ```
 
-无限级 $Currying$ 能无限消耗参数，知道没有参数传入时，才执行原函数：
+无限级 $Currying$ 能无限消耗参数，直到没有参数传入时，才执行原函数：
 
 ```js
 Function.prototype.curry = function curry(func) {
