@@ -66,6 +66,7 @@ const sidebars = [
     open: true,
     path: '/articles/',
     children: [
+      'articles/zindex-manager',
       // 'articles/windows',
       'articles/crack-the-slider',
       'articles/css-light-travel',
@@ -141,8 +142,8 @@ module.exports = {
         label: '长夜梦'
       },
       技术: {
-        url: '/articles/anysort-2th.html',
-        label: 'Anysort'
+        url: '/articles/zindex-manager.html',
+        label: '一统多组件库的层叠顺序'
       }
     }
   }

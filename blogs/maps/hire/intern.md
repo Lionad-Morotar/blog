@@ -104,7 +104,7 @@
 
 #### 中等-instanceof
 
-instanceof 运算符先通过检测类的 Symbol.hasInstance 来判断对象是否是类实例，如果没有相应方法则是构造器的原型在不在对象的原型链上。
+instanceof 运算符先通过检测类的 Symbol.hasInstance 来判断对象是否是类实例，如果没有相应方法则检测构造器的原型在不在对象的原型链上。
 
 <details>
   <summary>参考实现</summary>
@@ -358,8 +358,8 @@ recur(500000)
 // >>> RangeError: Maximum call stack size exceeded
 ```
 
-* 简单-将该函数转换为非递归的写法（循环）
-* 困难-使用循环以外的方法改写函数避免栈溢出
+* 简单-将该函数转换为循环的写法避免栈溢出
+* 困难-使用任意循环以外的方法改写函数避免栈溢出
 
 <details>
   <summary>参考实现</summary>
@@ -381,10 +381,10 @@ recur(500000)
 
 #### 困难-商品全排列
 
-任意技术栈。给定商品的规格信息以及库存列表，实现商品的全排列表格。表格行能多选，但如果库存中没有此规格，则此行不能选中。
+任意技术栈。给定商品的规格信息以及库存列表，实现商品的全排列表格。表格行首有 checkbox，表格能多选，但如果库存中没有此行的商品规格则此行不能被选中。
 
 <details>
-  <summary>用例</summary>
+  <summary>基础代码及用例</summary>
   <p>
     <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220812105700.png" />
     代码地址：<a href="https://element-plus.run/#eyJBcHAudnVlIjoiPHRlbXBsYXRlPlxuICA8ZWwtdGFibGUgOmRhdGE9XCJ0YWJsZURhdGFcIiBzdHlsZT1cIndpZHRoOiAxMDAlXCI+XG4gICAgPGVsLXRhYmxlLWNvbHVtbiB0eXBlPVwic2VsZWN0aW9uXCIgd2lkdGg9XCI1NVwiIC8+XG4gICAgPGVsLXRhYmxlLWNvbHVtbiBwcm9wPVwibmFtZVwiIGxhYmVsPVwi5ZCN56ewXCIgd2lkdGg9XCIxODBcIiAvPlxuICAgIDxlbC10YWJsZS1jb2x1bW4gcHJvcD1cImNvbG9yXCIgbGFiZWw9XCLpopzoibJcIiAvPlxuICAgIDxlbC10YWJsZS1jb2x1bW4gcHJvcD1cInNhbGVzZXRcIiBsYWJlbD1cIuWll+mkkFwiIC8+XG4gICAgPGVsLXRhYmxlLWNvbHVtbiBwcm9wPVwic2l6ZVwiIGxhYmVsPVwi5YaF5a2YXCIgLz5cbiAgPC9lbC10YWJsZT5cbjwvdGVtcGxhdGU+XG48c2NyaXB0IGxhbmc9XCJ0c1wiIHNldHVwPlxuICAvLyDllYblk4HlsZ7mgKfmmI7nu4ZcbiAgY29uc3Qgc3BlY0xpc3QgPSBbXG4gICAgeyB0aXRsZTogXCLpopzoibJcIiwga2V5OiAnY29sb3InLCBsaXN0OiBbXCLnuqLoibJcIiwgXCLntKvoibJcIiwgXCLnmb3oibJcIiwgXCLpu5HoibJcIl0gfSxcbiAgICB7IHRpdGxlOiBcIuWll+mkkFwiLCBrZXk6ICdzYWxlc2V0JywgbGlzdDogW1wi5aWX6aSQ5LiAXCIsIFwi5aWX6aSQ5LqMXCIsIFwi5aWX6aSQ5LiJXCJdIH0sXG4gICAgeyB0aXRsZTogXCLlhoXlrZhcIiwga2V5OiAnc2l6ZScsIGxpc3Q6IFtcIjY0R1wiLCBcIjEyOEdcIiwgXCIyNTZHXCJdIH1cbiAgXVxuICAvLyDliankvZnlupPlrZjliJfooahcbiAgY29uc3Qgc3RvcmFnZSA9IFtcbiAgICB7IGlkOiBcIjFcIiwgc3BlY3M6IFtcIue0q+iJslwiLCBcIuWll+mkkOS4gFwiLCBcIjY0R1wiXSB9LFxuICAgIHsgaWQ6IFwiMlwiLCBzcGVjczogW1wi57Sr6ImyXCIsIFwi5aWX6aSQ5LiAXCIsIFwiMTI4R1wiXSB9LFxuICAgIHsgaWQ6IFwiM1wiLCBzcGVjczogW1wi57Sr6ImyXCIsIFwi5aWX6aSQ5LqMXCIsIFwiMTI4R1wiXSB9LFxuICAgIHsgaWQ6IFwiNFwiLCBzcGVjczogW1wi6buR6ImyXCIsIFwi5aWX6aSQ5LiJXCIsIFwiMjU2R1wiXSB9XG4gIF1cbiAgY29uc3QgdGFibGVEYXRhID0gW11cbjwvc2NyaXB0PlxuIiwiaW1wb3J0X21hcC5qc29uIjoie1xuICBcImltcG9ydHNcIjoge31cbn0iLCJfbyI6e319" rel="noopener noreferrer" target="_blank">Element Plus Playground</a>
