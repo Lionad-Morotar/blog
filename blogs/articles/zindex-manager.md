@@ -8,9 +8,9 @@
 
 ## 背景
 
-上周在项目中碰到个棘手的问题。公司某项目使用微前端开发，依赖了两个不同的组件库，element-plus@2.0.2 和 element-plus@2.1.8。因为 zIndex 没有被统一管理起来，所以这两个组件库的弹窗各弹各的，可能互相遮住，很是尴尬。
+上周在项目中碰到个棘手的问题。公司某项目依赖了两个不同的组件库，element-plus@2.0.2 和 element-plus@2.1.8。由于没把两个组件库的 zIndex 统一管理起来，所以这两库的弹窗各弹各的，可能互相遮住，很是尴尬。
 
-这里举例说明一下，两个组件库以下使用简称 E1 和 E2。我们知道，element-plus（以及 element-ui）在内部实现了 zIndex 管理器，使打开的弹框的 zIndex 永远递增，解决了在单个 element 内部打开 dialog、popover、selector-option 等组件时互相遮盖的问题。element 默认的 zIndex 起始值是 2000，首先打开一个弹窗，dialog1，dialog1 的 zIndex 设置为 2001，如果在 dialog1 中使用按钮用打开了新的 dialog2，那么 dialog2 的 zIndex 值被置为 2002，遮住了 dialog1，这是正常的[^append-to-body]。那么问题来了，以上两个 dialog 都是通过 E1 打开的，一但在 dialog2 引用了 E2 的组件，打开弹窗 dialog3，那么 dialog3 的 zIndex 使用的是 E2 从 2000 开始递增为 2001 的值，不足以遮盖 E1 中 2002 的 dialog2，所以 dialog3 被 dialog2 遮挡，显示异常。
+举例说明一下，两个组件库以下使用简称 E1 和 E2。element-plus（以及 element-ui）在内部实现了 zIndex 管理器，使打开的弹框的 zIndex 永远递增，解决了在单个 element 内部打开 dialog、popover、selector-option 等组件时互相遮盖的问题。element 默认的 zIndex 起始值是 2000，首先打开一个弹窗，dialog1，dialog1 的 zIndex 设置为 2001，如果在 dialog1 中使用按钮用打开了新的 dialog2，那么 dialog2 的 zIndex 值被置为 2002，遮住了 dialog1，这是正常的[^append-to-body]。那么问题来了，以上两个 dialog 都是通过 E1 打开的，一但在 dialog2 引用了 E2 的组件，打开弹窗 dialog3，那么 dialog3 的 zIndex 使用的是 E2 从 2000 开始递增为 2001 的值，不足以遮盖 E1 中 2002 的 dialog2，所以 dialog3 被 dialog2 遮挡，显示异常。
 
 ![打开多个弹窗示例](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220814192040.png)
 
@@ -91,9 +91,7 @@ watch([
 })
 ```
 
-需要注意的是，可能有非常多组件依赖了 useZIndex 的内部的响应式值，所以直接使用 watch 暴力递增 zIndex 是有问题的。想象一下，每递增一次，相关 vue 组件会被收集到等待更新的队列中，如果 z1 和 z2 的差值很大，容易报栈溢出问题。好在解决方式也非常简单，使用 nextTick 分担每个 tick 的任务就行了。
-
-统一管理多组件库的层叠顺序的完整代码实现如下：
+需要注意的是，可能有非常多组件依赖了 useZIndex 的内部的响应式值，所以直接使用 watch 暴力递增 zIndex 是有问题的。想象一下，每递增一次，相关 vue 组件会被收集到等待更新的队列中，如果 z1 和 z2 的差值很大，容易报栈溢出问题。好在解决方式也非常简单，使用 nextTick 分担每个 tick 的任务，并在回调中，根据最新的 zIndex 值进行 zIndex 递增就行了。
 
 ```js
 const { watch, nextTick } from "vue"
@@ -105,7 +103,11 @@ export function useSameZIndex(ctx1, ctx2) {
     () => ctx1.currentZIndex.value,
     () => ctx2.currentZIndex.value,
   ], ([z1, z2]) => nextTick(() => {
-    if (z1 < z2) {
+    const [nz1, nz2] = [
+      ctx1.currentZIndex.value,
+      ctx2.currentZIndex.value
+    ]
+    if (nz1 < nz2) {
       ctx1.nextZIndex()
     } else {
       ctx2.nextZIndex()
@@ -121,4 +123,4 @@ export function useSameZIndex(ctx1, ctx2) {
 
 <JJ>**希望本文能对你有所帮助，我是仿生狮子，各位下期见~** </JJ>
 
-<JJ>想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案；欢迎 Star & Follow；也请大家多来我的[线上博客逛逛](www.lionad.art)，排版超 Nice 哦~</JJ>
+<JJ>想看看这篇文章是如何被创造的？你能从我的[博客项目](https://github.com/Lionad-Morotar/blogs)中找到答案；欢迎 Star & Follow；也请大家多来我的[线上博客逛逛](https://www.lionad.art)，排版超 Nice 哦~</JJ>
