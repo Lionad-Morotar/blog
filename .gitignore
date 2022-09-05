@@ -12,3 +12,4 @@ huaweiyun.js
 .sync/
 .osssync.json
 .ftc/
+*.log

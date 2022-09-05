@@ -11,10 +11,8 @@
     "build": "vuepress build blogs",
     "test": "npm run build | http-server -c0 ./dist",
     "upload": "sftp root@47.100.27.221 && lcd dist && put -r ./ /home/root/blog",
-    "presync": "node ./chore/gen-sync-conf.js",
-    "sync": "osssync",
     "post": "npm run build && npm run upload",
-    "fix": "npx case-police \"**/*.md\" --fix"
+    "lint": "npx case-police \"**/*.md\" --fix"
   },
   "repository": {
     "type": "git",
@@ -39,7 +37,6 @@
     "compression-webpack-plugin": "^6.0.2",
     "cross-env": "^7.0.2",
     "del": "^5.1.0",
-    "esdk-obs-nodejs": "git+https://github.com/huaweicloud/huaweicloud-sdk-nodejs-obs.git",
     "figlet": "^1.5.2",
     "http-server": "^0.12.1",
     "markdown-it-footnote": "^3.0.2",
@@ -49,7 +46,6 @@
     "moment": "^2.27.0",
     "node-cmd": "^3.0.0",
     "only-allow": "^1.1.1",
-    "osssync": "git+https://github.com/Lionad-Morotar/oss-sync.git",
     "prismjs": "^1.27.0",
     "raw-loader": "^4.0.1",
     "uslug": "^1.0.4",

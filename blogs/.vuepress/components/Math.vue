@@ -1,6 +1,4 @@
 <script>
-const url = require('url')
-const path = require('path')
 const { TeX } = require('mathjax3/mathjax3/input/tex')
 const { SVG } = require('mathjax3/mathjax3/output/svg')
 const { HTMLDocument } = require('mathjax3/mathjax3/handlers/html/HTMLDocument')
