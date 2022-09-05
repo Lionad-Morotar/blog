@@ -8,7 +8,7 @@
 
 ## 样式污染产生原因
 
-提及样式污染，主要要追溯到`Webpack`对`CSS`文件的打包过程，这里我们以[`Vue-Element-Admin`](https://github.com/PanJiaChen/vue-element-admin)中的 Webpack 配置项举例：
+提及样式污染，主要要追溯到`webpack`对`CSS`文件的打包过程，这里我们以[`Vue-Element-Admin`](https://github.com/PanJiaChen/vue-element-admin)中的 webpack 配置项举例：
 
 ```JS
 const webpackConfig = merge(baseWebpackConfig, {
@@ -21,15 +21,15 @@ const webpackConfig = merge(baseWebpackConfig, {
 })
 ```
 
-Webpack 使用 `MiniCssExtractPlugin` 插件，将文件(如 Vue 单文件组件)中的 CSS 代码，经过处理后，分离到形如`app.hash1234.css`的单独的 CSS 文件：
+webpack 使用 `MiniCssExtractPlugin` 插件，将文件(如 Vue 单文件组件)中的 CSS 代码，经过处理后，分离到形如`app.hash1234.css`的单独的 CSS 文件：
 
 ![单独的CSS文件](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/scoped-css/browser_fYMdZDAMsI.png)
 
 如果没有加入防止样式污染的措施的同时，项目中存在了大量的同名 ClassName，那么可能会产生意想不到的 CSS 选择器权重覆盖。这可能使后文件中某部分选择器权重更高的类影响整个应用，而此过程通常发生在组件的编写中，所以一般称之为组件样式污染。
 
-## Webpack & Vue SFC Object
+## webpack & Vue SFC Object
 
-对于 Vue 项目而言，使用 Webpack 将极大的优化了工作流程，因为通过`Vue Loader`，Vue 单文件组件能很好的融合进 Webpack 工作流中。
+对于 Vue 项目而言，使用 webpack 将极大的优化了工作流程，因为通过`Vue Loader`，Vue 单文件组件能很好的融合进 webpack 工作流中。
 通过跟踪源码，可以发现，我们写的单文件组件都被处理为了`SFC对象`，即包含了单个 HTML 模块，单个脚本模块，一个或多个样式模块，一个或多个自定义模块的对象：
 
 ```js
@@ -63,7 +63,7 @@ function parseComponent(content, options) {
 }
 ```
 
-我们可以将 SFC 结构融合到`Webpack`进行开发的过程成中，主要有这几点影响：
+我们可以将 SFC 结构融合到`webpack`进行开发的过程成中，主要有这几点影响：
 
 - 允许为 Vue 组件的每个部分使用其它的 webpack loader，例如在`<style>`的部分使用 Sass Loader ，在 `<customBlocks>`的部分使用自定义 Loader
 - 使用 webpack loader 将 `<style>`和 `<template>` 中引用的资源当作模块依赖来处理
@@ -76,7 +76,7 @@ function parseComponent(content, options) {
 
 ### 大白话版本之 Scoped CSS 原理
 
-通过 Webpack 调用 VueJS 中相应 Loader，给组件 HTML 模板添加自定义属性 (Attribute) `data-v-x`，以及给组件内 CSS 选择器添加对应的属性选择器 (Attribute Selector) `[data-v-x]`，达到组件内样式只能生效与组件内 HTML 的效果，代码效果如下：
+通过 webpack 调用 VueJS 中相应 Loader，给组件 HTML 模板添加自定义属性 (Attribute) `data-v-x`，以及给组件内 CSS 选择器添加对应的属性选择器 (Attribute Selector) `[data-v-x]`，达到组件内样式只能生效与组件内 HTML 的效果，代码效果如下：
 
 ```HTML
 <div class='lionad' data-v-lionad></div>
@@ -89,7 +89,7 @@ function parseComponent(content, options) {
 
 ### 源码跟踪
 
-Webpack 使用其它 CSS Loader 处理 VueJS 中对应 CSS 代码之前，`Vue Loader` 已经替我们做了一层简单的处理，如果组件中 `style` 块包含了 `scoped` 属性：
+webpack 使用其它 CSS Loader 处理 VueJS 中对应 CSS 代码之前，`Vue Loader` 已经替我们做了一层简单的处理，如果组件中 `style` 块包含了 `scoped` 属性：
 
 ```HTML
 <!-- 某个VueJS组件中 -->
@@ -116,7 +116,7 @@ templateImport = `import { render, staticRenderFns } from ${request}`
 
 #### HTML 模板处理
 
-在用于处理 SFC 结构中 HTML 模板的 `templateLoader` 中，我们可以得知，query 中所设置的参数将合并为 loader options 经由 Webpack 转交 `templateLoader` 再转交 `@vue/component-compiler-utils.compileTemplate` 处理：
+在用于处理 SFC 结构中 HTML 模板的 `templateLoader` 中，我们可以得知，query 中所设置的参数将合并为 loader options 经由 webpack 转交 `templateLoader` 再转交 `@vue/component-compiler-utils.compileTemplate` 处理：
 
 ```JS
 // vue-loader/templateLoader.js
@@ -170,7 +170,7 @@ function elementToOpenTagSegments (el, state) {
 
 #### 样式模板处理
 
-与 HTML Template 解析的过程类似，通过 Webpack 将样式模板转交 `stylePostLoader` 进行处理，处理逻辑主要引用了 `@vue/component-compiler-utils` 中的 `compileStyle` 部分，后者对样式模板进行解析的过程中，将会对含 scoped 标记的模板引入插件 `stylePlugins/scoped.js`：
+与 HTML Template 解析的过程类似，通过 webpack 将样式模板转交 `stylePostLoader` 进行处理，处理逻辑主要引用了 `@vue/component-compiler-utils` 中的 `compileStyle` 部分，后者对样式模板进行解析的过程中，将会对含 scoped 标记的模板引入插件 `stylePlugins/scoped.js`：
 
 ```JS
 // component-compiler-utils/compileStyle.js

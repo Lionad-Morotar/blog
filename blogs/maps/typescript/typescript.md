@@ -47,7 +47,7 @@ declare interface Window {
 
 [TODO，伪动态类型](https://www.typescriptlang.org/play?#code/C4TwDgpgBAggjFAvFA3lCAPCBjGAKASgC4oAhBAXwChRIyFk1MdTCT4pqqAbCYKAIbsGqKlHRZcUNvVHjxAJz4BXBQDs588c2ylpBTVsUr1UYAAsAlgGdBt5WoDWagPYB3DQNvwxR6lv9OKi4AehCoAHkAaQAaM3AIFwAzQSgbWDgqASRBKjCoAAFgawBaTEhsYDKFBRcFKAAjHAFla2hsgBMIJMs1CA67KGtgAWBLbHi6H2zkAQA6HXwCPPDouNpElIa023IePkac+cXCKjPz-f4wbmUAc17bRkESAHIBF6CNqAAFG-u1R6TTZQa53B5nJIOSqWFwaW4QNQAHgAKgA+PDXW7WEjIgwoXxKYCqDT4rSY6wxXzaSSIgCq6IECixJFpeKp8kJxKg8KRyIAZPS8KSjOI5mLyZSRaKxYysezxBRlgFfNQuLx+AIAEw5HkYv4PZZao6arKaubkuYCU3GhaSIUNIgvBovRUrQrFMoYCpVCA1Oo-WqQBSgKBOj4dFwQWyufiYGz8WFA0NoIRDYAKXq3ADcnBec1N5u4WLmDUujW1szNOiF2Ed2Bdy3y0SoDTNFuwZy+AFkBI4ICjUTlheScZKJDg6QymdioKySD2+yiBajgmd1YIAMzz3v935ggGD5C60H-ayGjdHDdZDeF4tWgQX2Y36soB1h135Iqlco4H1++rfIGvohmGUARlGUAxhI8ZQImXwvCmJDDBmajZrm+YPre1glmWAgACyXraOA1nWDZus2+FYXMHZAA)
 
-[TODO，详解 Typescript 里的 This](https://zhuanlan.zhihu.com/p/104565681)
+[TODO，详解 TypeScript 里的 This](https://zhuanlan.zhihu.com/p/104565681)
 
 [TODO，In typescript, why is `[boolean, string?]` different from `[boolean, string] | [boolean]`?](https://stackoverflow.com/questions/69635559/in-typescript-why-is-boolean-string-different-from-boolean-string/69653332#69653332)
 

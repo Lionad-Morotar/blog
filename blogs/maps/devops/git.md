@@ -27,7 +27,7 @@ git config --global user.name <username>
 git config --global user.email <email>
 ```
 
-#### 如何把 Vim 编辑器换掉？
+#### 如何把 VIM 编辑器换掉？
 
 Git 用 vim 作为默认的文本编辑器，好在可以在配置中进行替换。
 

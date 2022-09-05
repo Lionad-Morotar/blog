@@ -466,8 +466,8 @@ function debounce(fn, time = 100) {
 
 ## 框架原理
 
-#### Webpack 的基本原理？
+#### webpack 的基本原理？
 
-Webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 Webpack Require Wrapper 函数中。
+webpack 使用 acorn 将 JS 代码转换为 AST，从 AST 中读取到该文件的依赖关系并将所有文件的依赖关系组成一个图结构，输入到 webpack Require Wrapper 函数中。
 
-见：[Webpack 基本原理](https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack)
+见：[webpack 基本原理](https://github.com/Lionad-Morotar/read-source-code/tree/master/webpack)

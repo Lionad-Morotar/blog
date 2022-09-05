@@ -12,13 +12,13 @@ DevOps 是一种开发理论，它致力于将大量自动化操作整合进开�
 
 #### CI/CD 是什么？
 
-CI/CD 即持续集成和持续部署（Continuous Integration & Continuous Deployment），是 DevOps 理论的一种实践，专注于自动化流水线。CI 可以概括为项目自动构建、自动测试等操作的持续性，CD 则包括为自动构建、测试以及部署。CI/CD 通常要借助特定服务实现，比如 Github Action、Gitlab CI/CD。
+CI/CD 即持续集成和持续部署（Continuous Integration & Continuous Deployment），是 DevOps 理论的一种实践，专注于自动化流水线。CI 可以概括为项目自动构建、自动测试等操作的持续性，CD 则包括为自动构建、测试以及部署。CI/CD 通常要借助特定服务实现，比如 GitHub Action、Gitlab CI/CD。
 
 ## Local Environment
 
-### Gitlab
+### GitLab
 
-[Gitlab](/maps/devops/gitlab.html)
+[GitLab](/maps/devops/gitlab.html)
 
 ## Pack & Build
 
