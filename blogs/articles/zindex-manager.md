@@ -2,6 +2,10 @@
 
 [TOC]
 
+## 增订 | 2022年9月5日
+
+终于狠下心把两个 ElementPlus 实例干得只剩了一个，也顺带解决了一些项目中出现的稀奇古怪的问题。不过，这里容我吐槽一句，目前来说 ElementPlus 的问题是真的多，因为遇见 A 问题所以升级 Element 版本却引起了 B 问题这种情况屡见不鲜。我经常对着问题一调试就是两三个小时，恍惚之间就下班了，觉得一天喂狗了。呼呼，我想摸鱼啊，请给机会！
+
 ## 背景
 
 上周在项目中碰到个棘手的问题。公司某项目使用微前端开发，依赖了两个不同的组件库，element-plus@2.0.2 和 element-plus@2.1.8。因为 zIndex 没有被统一管理起来，所以这两个组件库的弹窗各弹各的，可能互相遮住，很是尴尬。
@@ -18,7 +22,7 @@
 
 #### 层叠管理器
 
-element-plus 的层叠管理器实现比较简单，其核心原理和 element-ui 一致，通过闭包维护了一个 zIndex 的值的单例，暴露出获取值以及递增值的接口，以方便内部的 dialog 等组件在需要的时候有能力获取最新 zIndex 或者对 zIndex 进行递增。element-plus 中的层叠值管理的实现甚至比 element-ui 还要简单，它是一个 vue3 的 hook，只有 20 行代码。
+element-plus 的层叠管理器（PopupManager）实现比较简单，其核心原理和 element-ui 一致，通过闭包维护了一个 zIndex 的值的单例，暴露出获取值以及递增值的接口，以方便内部的 dialog 等组件在需要的时候有能力获取最新 zIndex 或者对 zIndex 进行递增。element-plus 中的层叠值管理的实现甚至比 element-ui 还要简单，它是一个 vue3 的 hook，只有 20 行代码。
 
 ```js
 import { ref, computed } from 'vue'
