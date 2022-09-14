@@ -293,6 +293,12 @@ feat: 大盘中国地图增加地图下钻功能
 BREAKING: 下钻功能导致了地图缩放时错位的问题，所以暂时禁用了地图的拖拽能力
 ```
 
+#### 如何跳过钩子？
+
+```bash
+git commit --no-verify -am 'bad commit message'
+```
+
 ## 常见问题
 
 #### SSH 链接超时问题怎么解决？
