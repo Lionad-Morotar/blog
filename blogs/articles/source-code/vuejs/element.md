@@ -1,10 +1,12 @@
-# ElementUI
+# ElementUI & ElementPlus
 
 [TOC]
 
 ## 项目结构
 
-ElementUI 的项目结构是按照功能划分的，如源文件、主题样式、文档文件夹都直接存放在项目一级目录下，而管理内部的文件，如“把 JS 文件压缩后移动到 Dist 目录”，则是通过项目内部依赖的多种任务管理工具，如 Make、Gulp 和 NPM Script（package.json）。
+#### element-ui 的项目结构是怎样的？
+
+ElementUI 的项目结构按照功能划分，把源文件、主题样式、文档文件夹存放在项目一级目录下。
 
 ```
 element
@@ -19,6 +21,10 @@ element
 ├── package.json    // 携带有 NPM Scripts 任务信息
 └── Makefile        // Make 的任务信息
 ```
+
+#### element-plus 的包结构是怎样的？
+
+
 
 ## 项目工程化
 
@@ -332,18 +338,6 @@ $image.src = 'xxx'
   }
 }
 
-```
-
-#### Dialog
-
-你在按钮组件里面套过模态框么？
-
-反正我新手的时候就干过这事儿。模态框往往有一层黑色遮罩，会 100% 贴合其父元素，但如果在按钮组件里面套模态框，那遮罩就不能覆盖整个页面了。
-
-Element 使用给 dialog 增加 append-to-body 属性，将 dialog 的 DOM 节点直接添加到 body 内，就可解决。
-
-```js
-document.body.appenChild(this.$el)
 ```
 
 ### 帮助函数
