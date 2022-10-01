@@ -104,7 +104,26 @@ git cherry-pick <commit-hash> <commit-hash>
 git branch --set-upstream-to=origin/branch-1 branch-2
 ```
 
-## 进阶技巧
+## 常见功能
+
+#### 草稿功能应该怎么使用？
+
+如果你写代码时突然来了一个紧急线上 bug 要处理，而手头的改动又没写完，不适合直接提交，你可以将手头写好的代码存为草稿。
+
+```bash
+# 将所有改动保存到本分支下名为 <stash-description> 的草稿中，
+# 加上 -u 参数后，文件的新增或删除操作也能一并存为草稿
+git stash save -u <stash-description>
+```
+
+哼哧哼哧改为 bug 之后，找到并应用相应的草稿就可以回到初始状态了。
+
+```bash
+# 使用 list 指令查看有哪些草稿
+git stash list
+# 应用某草稿
+git stash pop <stash-hash>
+```
 
 #### 如何快速拷贝仓库代码？
 
@@ -162,6 +181,10 @@ git reset --hard <hashname>
 git reset --hard <repo-name>/<branch-name>
 ```
 
+#### 如何拯救因删除或还原造成丢失的信息？
+
+git reflog 指令可以恢复已经被 reset 或删除的 commit 记录，但是并不保证一定成功，因为 git 有定期清理的策略。
+
 #### 如何清理最近几次提交？
 
 可以使用 reset --soft 或者 rebase。使用 rebase 可以对前几次提交进行重新排序、修改提交消息或者进行压缩提交等操作。
@@ -173,24 +196,6 @@ git rebase -i HEAD~<number>
 
 ![rebase -i](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615022038.png)
 
-#### 草稿功能应该怎么使用？
-
-如果你写代码时突然来了一个紧急线上 bug 要处理，而手头的改动又没写完，不适合直接提交，你可以将手头写好的代码存为草稿。
-
-```bash
-# 将所有改动保存到本分支下名为 <stash-description> 的草稿中，
-# 加上 -u 参数后，文件的新增或删除操作也能一并存为草稿
-git stash save -u <stash-description>
-```
-
-哼哧哼哧改为 bug 之后，找到并应用相应的草稿就可以回到初始状态了。
-
-```bash
-# 使用 list 指令查看有哪些草稿
-git stash list
-# 应用某草稿
-git stash pop <stash-hash>
-```
 
 #### 怎么对比文件历史？
 
@@ -218,7 +223,7 @@ git pull origin master --allow-unrelated-histories
 2. update-index
 
 ```js
-git update-index --skip-worktree -- filename.js
+git update-index --skip-worktree filename.js
 ```
 
 3. git filter
@@ -228,6 +233,15 @@ git update-index --skip-worktree -- filename.js
 ```js
 git rm --cached file1
 git rm -r --cached <folder-name>
+```
+
+#### 如何本地同步代码？
+
+将 diff 文件输出，之后就可使用 apply 指令应用更改。
+
+```bash
+git diff > diff.patch
+git apply diff.patch
 ```
 
 ## 工程化实践

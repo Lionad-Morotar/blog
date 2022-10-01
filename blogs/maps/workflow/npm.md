@@ -14,6 +14,19 @@
 {
   // 用来标记当模块作为依赖时必要的文件范围，默认值是 '*'。
   files: ['*'],
+  // 条件导出，node 版本必须大于 14.13
+  exports: {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    }
+  }
+  // 覆盖依赖的子依赖版本，yarn 需使用 resolution 字段
+  overrides: {
+    "A": {
+      "foo": "1.1.0-patch",
+    }
+  }
 }
 ```
 
