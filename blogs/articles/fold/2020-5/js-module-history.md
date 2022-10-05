@@ -200,7 +200,7 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 
 <!-- ![动态 Import 兼容性](./assets/2020-05-18-03-22-46.png) -->
 
-## CommonJS VS ES Module
+## CJS VS ESM
 
 尽管 ES Module 规范发布已久，但并没有得到广泛的兼容。由于 ES Module 继承了现在来说仍属主流的 CommonJS 规范的诸多优点，所以两者之间有许多共性。我们来看看它们之间的区别。
 
@@ -210,6 +210,19 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 2. Require 本质是一个函数，所以容易实现动态导入的功能；ES Module 依赖于编译器的静态分析，所以动态导入功能难以被完善实现。
 
 要看看 Require 到底是个啥玩意儿，请看这篇：<a href="/articles/source-code/nodejs/require.html">Require</a>。
+
+#### 如何在 esm 中引入 cjs 中的命名导出？
+
+```js
+// .mjs
+import { namedExport } from './lib.cjs'
+// .cjs
+exports.namedExport = 'yes'
+// .cjs wrong example
+// exports = { namedExport: 'yes' }
+```
+
+见：[How to write CommonJS exports that can be name-imported from ESM](https://2ality.com/2022/10/commonjs-named-exports.html)，就算在 mjs 中导入了 cjs 的导出，为了兼容性考虑，导入的并不是映射。
 
 ## 打包工具之争
 
