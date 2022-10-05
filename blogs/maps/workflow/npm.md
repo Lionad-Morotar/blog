@@ -7,6 +7,7 @@
 参阅：
 
 * [package.json document](https://docs.npmjs.com/cli/v8/configuring-npm/package-json)
+* [package.json 完全解读](https://juejin.cn/post/7145001740696289317)
 
 #### 常用字段有哪些？
 
