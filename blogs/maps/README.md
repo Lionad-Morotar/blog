@@ -17,12 +17,13 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 
 #### Web
 
-* [浏览器](/maps/web/browser.html)
+* [浏览器](/maps/web/browser/index.html)
 * [页面性能](/maps/web/performance.html)
 * [爬虫](/maps/web/crawler.html)
 
 #### 框架
 
+* [Micro FrontEnd](/maps/framework/micro-frontent.html)
 * [Vue](/maps/framework/vue.html)
 * [React](/maps/framework/react.html)
 * [Angular](/maps/framework/angular.html)

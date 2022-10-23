@@ -3,7 +3,7 @@ name: Build and Deploy to AliInstance
 on:
   push:
     branches:
-      - master
+      - release
 
 jobs:
   build:
