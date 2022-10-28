@@ -388,6 +388,14 @@ UMD 规范则是 CommonJS 和 AMD 规范的统一，以实现代码可在浏览�
 
 见：[JS 模块化简史](/articles/fold/2020-5/js-module-history.html)。
 
+#### UMD 模式代码在 Window 上挂属性不生效问题？
+
+```js
+global['el-icon'] = {}
+// ...
+window['el-icon'] // => undefined
+```
+
 #### Require 和 Import 的不同之处？
 
 - Require 是同步导入（DFS），Import 是异步导入（BFS）
