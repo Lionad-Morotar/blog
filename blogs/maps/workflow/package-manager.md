@@ -6,6 +6,14 @@
 
 * [NPM](/maps/workflow/npm.html)
 
+#### PNPM 找不到全局路径的解决方法？
+
+尽管设置了全局变量，也重新安装了最新版本 PNPM，也执行了 pnpm setup，却仍然报错找不到全局路径的临时解决方案：
+
+```powershell
+$PNPM_HOME="<path>" | pnpm install -g xxx
+```
+
 ## 发展历程
 
 推荐阅读：

@@ -41,10 +41,32 @@ main 标记了程序的主入口。按约定惯例，main 标记了 ES5 语法�
 
 见：[聊聊 package.json 文件中的 module 字段](https://blog.csdn.net/sd19871122/article/details/122405592)
 
-## 速记
+## 配置
+
+#### 不同 npmrc 的优先级？
+
+项目内的 > 用户目录下的 > 全局配置文件 > 包管理器自带的
+
+## 镜像源
 
 #### 如何设置淘宝源？
 
 ```bash
-npm set registry https://registry.npm.taobao.org
+# 淘宝源更换过地址，所以`https://registry.npm.taobao.org`已失效
+npm set registry https://registry.npmmirror.com
 ```
+
+#### 如何对比不同源的速度？
+
+```bash
+npx nrm test
+```
+
+见：[NRM Document@GitHub](https://github.com/Pana/nrm#usage)
+
+#### 如何安装不同来源的依赖？
+
+* 在域下发布私有包，并给域配置 registry
+* 安装包时指定 registry（如 npm install vue --registry=xxx） 
+
+见：[pnpm 不能安装不同来源的包](https://github.com/pnpm/pnpm/issues/5581)
