@@ -224,6 +224,7 @@ git pull origin master --allow-unrelated-histories
 
 ```js
 git update-index --skip-worktree filename.js
+git update-index --assume-unchanged package.json
 ```
 
 3. git filter
