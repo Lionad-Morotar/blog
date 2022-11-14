@@ -3,10 +3,10 @@ const path = require('path')
 
 console.log('USE NODE_ENV:', process.env.NODE_ENV)
 
-let gistsDir = path.join(__dirname, '../gists'),
-  awesomeDir = path.join(__dirname, '../awesome'),
-  secretsDir = path.join(__dirname, '../secrets'),
-  mapsDir = path.join(__dirname, '../maps')
+let gistsDir = path.join(__dirname, '../gists')
+let awesomeDir = path.join(__dirname, '../awesome')
+let secretsDir = path.join(__dirname, '../secrets')
+let mapsDir = path.join(__dirname, '../maps')
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -18,21 +18,19 @@ const getSRCs = (src, prefix = '') => {
   const filenames = []
   const fileTypes = /\.md$/
   const mainFiles = ['index.md', 'README.md']
-  if (fs && fs.readdirSync) {
-    try {
-      fs.readdirSync(src).forEach(file => {
-        if (fileTypes.test(file) > 0) {
-          if (!mainFiles.includes(file)) {
-            filenames.push(file.replace('.md', ''))
-          }
+  try {
+    fs.readdirSync(src).forEach(file => {
+      if (fileTypes.test(file) > 0) {
+        if (!mainFiles.includes(file)) {
+          filenames.push(file.replace('.md', ''))
         }
-      })
-    } catch (err) {
-      // 在 Build 时会碰到这个莫名奇妙的错误，
-      // 和 __dirname node 执行路径有关，
-      // 可以不用管
-      console.error('Error in getSRCs : ', err)
-    }
+      }
+    })
+  } catch (err) {
+    // 在 Build 时会碰到这个莫名奇妙的错误，
+    // 和 __dirname node 执行路径有关，
+    // 可以不用管
+    console.error('Error in getSRCs : ', err)
   }
   filenames.sort()
   return filenames.map(x => prefix + x)
