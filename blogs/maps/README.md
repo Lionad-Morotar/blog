@@ -20,6 +20,7 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [浏览器](/maps/web/browser/index.html)
 * [页面性能](/maps/web/performance.html)
 * [爬虫](/maps/web/crawler.html)
+* [小程序](/maps/web/miniapp.html)
 
 #### 框架
 
