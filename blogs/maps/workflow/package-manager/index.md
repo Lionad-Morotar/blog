@@ -2,17 +2,10 @@
 
 [TOC]
 
-## 包管理器
+## 常用的包管理器
 
-* [NPM](/maps/workflow/npm.html)
-
-#### PNPM 找不到全局路径的解决方法？
-
-尽管设置了全局变量，也重新安装了最新版本 PNPM，也执行了 pnpm setup，却仍然报错找不到全局路径的临时解决方案：
-
-```powershell
-$PNPM_HOME="<path>" | pnpm install -g xxx
-```
+* [npm](/maps/workflow/package-manager/npm.html)
+* [pnpm](/maps/workflow/package-manager/pnpm.html)
 
 ## 发展历程
 
@@ -56,21 +49,6 @@ Yarn（V2）带来一种独特的依赖安装模式：[PnP（Plug'n'Play）](htt
 #### pnpm 解决了什么问题？
 
 2017 年，pnpm V1 通过统一依赖管理以及创建系统链接的方法一举解决了幽灵依赖和多重依赖的问题。所有项目的依赖都被统一安装到了磁盘特定位置。即使多个项目中用到相同的依赖也只会安装一次。此外，项目中的 node_modules 文件夹仍然是[结构化的](https://www.pnpm.cn/blog/2020/05/27/flat-node-modules-is-not-the-only-way)，所以比 PnP 有更好的兼容性。
-
-#### pnpm 怎么解决幽灵依赖和多重依赖问题的？
-
-使用硬链接将本项目的依赖链接到统一缓存后，再使用符号链接递归地创造出依赖的依赖，最后使用隐藏的 .pnpm 文件夹模拟出 node_modules 的[层级结构](https://www.pnpm.cn/symlinked-node-modules-structure)以便 NodeJS Require 递归查找依赖。
-
-![Modules Mapping in pnpm](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220317192927.png)
-
-由于项目的依赖入口是项目根目录的 node_modules，所以从项目 node_modules 入手，不能 require 未安装的依赖；项目的直接依赖通过符号链接链接到了 .pnpm 文件夹（也叫做虚拟储存文件夹），而其子依赖的结构是嵌套的，但是通过符号链接指向到 .pnpm 中被提升的位置。由此可见，在解决了依赖地狱问题的基础上，pnpm 还完美解决了幽灵依赖和多重依赖的问题。
-
-#### 软硬链接有什么问题？
-
-* 软链接会导致某些应用出现死循环（IDE、OneDrive）
-* 硬链接是同一份文件，不便调试
-* 软链接在非 SSD 上的读写会有性能损耗
-* .pnpm 维护的结构可能破坏某些插件所依赖的相对路径的加载逻辑
 
 #### tnpm 的主要思路是什么？
 

@@ -32,7 +32,7 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 #### 工程化
 
 * [Monorepo](/maps/workflow/monorepo.html)
-* [包管理器](/maps/workflow/package-manager.html)
+* [包管理器](/maps/workflow/package-manager/index.html)
 * [打包工具](/maps/workflow/packer/index.html)
 * [编译器](/maps/workflow/compiler.html)
 * [Linter](/maps/workflow/linter.html)
