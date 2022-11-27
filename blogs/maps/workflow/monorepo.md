@@ -2,6 +2,12 @@
 
 [TOC]
 
+## TODO
+
+* [现代 Monorepo 工程技术选型，聊聊我的思考](https://juejin.cn/post/7102452341210611720)
+* [Monorepo Tools](https://monorepo.tools/)
+* [Monorepo 的这些坑，我们帮你踩过了](https://juejin.cn/post/6972139870231724045)
+
 ## 简介
 
 #### monorepo 是什么？
