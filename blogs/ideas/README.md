@@ -1,3 +1,7 @@
+<flow>技术公司基本上都有2到10倍的冗员，这是人尽皆知的行业秘密。只要业务还在賺錢，那么雇佣更多的人，总是比摆脱低绩效的员工更容易。 
+<name><a href="https://twitter.com/natfriedman/status/1585399067906932736" rel="noopener noreferrer" target="_blank">Github CEO</a></name>
+</flow>
+
 <flow>一图胜千言，先来看看用 HTTP/2 加载小文件到底有多快...
 <p><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/oIVaJryPbb.gif" alt="HTTP/2 is fast" title="HTTP/2 is fast" /></p>
 </flow>
