@@ -65,7 +65,7 @@ const sidebars = [
     path: '/articles/',
     children: [
       // 'articales/even-more-modern-error-handling',
-      // 'articales/image-format',
+      // 'articles/image-format',
       'articles/zindex-manager',
       // 'articles/windows',
       'articles/crack-the-slider',

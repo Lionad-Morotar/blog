@@ -1,3 +1,8 @@
+<flow>歌德：伦琴家具出品的橱柜犹如仙境中的城堡般精美绝伦。
+<p><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230104002207.png" alt="路易十五御桌" title="路易十五御桌" /></p>
+<name><a href="https://www.yystv.cn/p/10178" rel="noopener noreferrer" target="_blank">《游戏中常见的机关书桌，在历史上有多精巧？》@游研社</a></name>
+</flow>
+
 <flow>技术公司基本上都有2到10倍的冗员，这是人尽皆知的行业秘密。只要业务还在賺錢，那么雇佣更多的人，总是比摆脱低绩效的员工更容易。 
 <name><a href="https://twitter.com/natfriedman/status/1585399067906932736" rel="noopener noreferrer" target="_blank">Github CEO</a></name>
 </flow>
