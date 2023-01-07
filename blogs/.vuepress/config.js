@@ -15,7 +15,7 @@ const valineKey = require('./private/valine-key').default
 const HOST = 'https://www.lionad.art'
 // const HOST = 'https://mgear-blogs.obs-website.cn-east-3.myhuaweicloud.com'
 
-console.log(figlet.textSync(`Welcome!`))
+console.log(figlet.textSync("Welcome!"))
 
 module.exports = {
   /** develop config */
@@ -100,7 +100,7 @@ module.exports = {
         const pinyinName = pinyin(page.title || defaultName, { removeTone: true }).replace(/[^a-zA-Z0-9]/g, '')
         return pinyinName
       },
-      layoutChunkName: layout => 'layout-' + layout.componentName
+      layoutChunkName: layout => `layout-${layout.componentName}`
     },
     'vuepress-plugin-medium-zoom': {
       selector:
