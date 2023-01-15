@@ -3,10 +3,15 @@ const path = require('path')
 
 console.log('USE NODE_ENV:', process.env.NODE_ENV)
 
-let gistsDir = path.join(__dirname, '../gists')
-let awesomeDir = path.join(__dirname, '../awesome')
-let secretsDir = path.join(__dirname, '../secrets')
-let mapsDir = path.join(__dirname, '../maps')
+// let gistsDir = path.join(__dirname, '../gists')
+// let awesomeDir = path.join(__dirname, '../awesome')
+// let secretsDir = path.join(__dirname, '../secrets')
+// let mapsDir = path.join(__dirname, '../maps')
+
+let gistsDir = 'D:\\@Github\\blog\\blogs\\gists'
+let awesomeDir = 'D:\\@Github\\blog\\blogs\\awesome'
+let secretsDir = 'D:\\@Github\\blog\\blogs\\secrets'
+let mapsDir = 'D:\\@Github\\blog\\blogs\\maps'
 
 /**
  * 获取目录下所有 Markdown 文件
