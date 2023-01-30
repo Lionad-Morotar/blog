@@ -24,6 +24,12 @@
 <br>
 👎：兼容性较差、需要管理员权限
 
+#### 如何获得链接的真实地址？
+
+```powershell
+dir <parentPath> | format-table | findstr <childPath>
+```
+
 ## 环境变量
 
 ##### <Link type="h5" to="https://mgear-file.oss-cn-shanghai.aliyuncs.com/%E6%80%8E%E6%A0%B7%E6%89%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8FPath%E4%B8%AD%E7%9B%AE%E5%BD%95%E7%9A%84%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84%E7%A8%8B%E5%BA%8F_CSDN%E7%A4%BE%E5%8C%BA.html" source="https://bbs.csdn.net/topics/390354388" >《怎样才能直接运行环境变量Path中目录的子目录中的程序》</Link>
