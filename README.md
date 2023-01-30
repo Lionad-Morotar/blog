@@ -1,6 +1,7 @@
 ![Blog](https://img.shields.io/badge/Lionad--Guirotar-Blog-blueviolet)
 ![LICENSE](https://img.shields.io/badge/license-CC--BY--NC--CD--4.0-blue)
 ![HEART](https://img.shields.io/badge/made%20with-%E2%9D%A4-red)
+![CI Status](https://github.com/Lionad-Morotar/blog/actions/workflows/ci-on-master.yml/badge.svg?branch=master)
 
 # Lionad's Blog
 

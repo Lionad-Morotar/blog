@@ -1,0 +1,53 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Initial Valine
+        env:
+          VALINE_ID: ${{ secrets.VALINE_ID }}
+          VALINE_KEY: ${{ secrets.VALINE_KEY }}
+        run: |
+          touch $GITHUB_WORKSPACE/blog/.vuepress/private/valine-id.js
+          echo module.exports = { default: "'$VALINE_ID'" } >> $GITHUB_WORKSPACE/blog/.vuepress/private/valine-id.js
+          touch $GITHUB_WORKSPACE/blog/.vuepress/private/valine-key.js
+          echo module.exports = { default: "'$VALINE_KEY'" } >> $GITHUB_WORKSPACE/blog/.vuepress/private/valine-key.js
+
+      - name: Build Module
+        # run: pnpm build
+        run: echo "test upload so disabled build step"
+
+      - name: Upload
+        uses: Creepios/sftp-action@v1.0.4
+        env:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USER }}
+          password: ${{ secrets.HOST_PWD }}
+          localDir: $GITHUB_WORKSPACE/blog/dist
+          remoteDir: /home/root/blog
