@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /gists/
+Disallow: /hire-me/
+Disallow: /maps/
+Sitemap: https:/www.lionad.art/sitemap.xml
+Host: https://www.lionad.art

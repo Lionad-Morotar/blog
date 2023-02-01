@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - 'release'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: release
+
+      - name: Upload
+        uses: Creepios/sftp-action@v1.0.4
+        env:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USER }}
+          password: ${{ secrets.HOST_PWD }}
+          localDir: $GITHUB_WORKSPACE/blog/dist
+          remoteDir: /home/root/blog

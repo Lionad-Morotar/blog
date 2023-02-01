@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Lionad Blog]]></title>
+        <description><![CDATA[Lionad Blog 是仿生狮子的个人专栏。其中有技术文章、杂文散文，或是狮子的个人动态。他是前端工程师，也是未来的独立游戏开发，此外他对设计、音乐和写作都颇感兴趣。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，相信你能在这找到一些乐趣。]]></description>
+        <link>https://www.lionad.art</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Sat, 07 Jan 2023 16:21:05 GMT</lastBuildDate>
+        <atom:link href="https://www.lionad.art/rss.xml" rel="self" type="application/rss+xml"/>
+        <copyright><![CDATA[Lionad 2023]]></copyright>
+        <language><![CDATA[zh-CN]]></language>
+    </channel>
+</rss>

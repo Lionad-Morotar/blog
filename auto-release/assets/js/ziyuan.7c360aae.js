@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[290],{772:function(t,s,n){"use strict";n.r(s);var i=n(0),e=Object(i.a)({},(function(){var t=this._self._c;return t("ContentSlotsDistributor",{attrs:{"slot-key":this.$parent.slotKey}},[t("h1",{attrs:{id:"资源"}},[this._v("资源")]),this._v(" "),t("p",[this._v("临时放置")])])}),[],!1,null,null,null);s.default=e.exports}}]);

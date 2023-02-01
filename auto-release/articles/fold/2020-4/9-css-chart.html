@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>🍥 9种CSS图案解析！ | Lionad Blog</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="dns-prefetch" href="/utteranc.es">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw" defer="defer"></script>
+    <script src="//js.fundebug.cn/fundebug.2.5.0.min.js" crossorigin="anonymous" apikey="6cf8608d1691cea338ccf8b2057530f1991968b20555ea79ff3cb6261e6cba77" defer="defer"></script>
+    <script defer="defer">
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?9f386eab0658c409277cb8e60691de6e";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    <script defer="defer" crossorigin="crossorigin">
+            window.__bl = {
+                config: {
+                    pid:"eeh52p97ae@20a026fed78311e",
+                    appType:"web",
+                    imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",
+                    sendResource:true,
+                    enableLinkTrace:true,
+                    behavior:true,
+                    enableConsole:true,
+                    useFmp:true
+                }
+            }
+            ;(function() {
+                var hm = document.createElement("script");
+                hm.src = "https://retcode.alicdn.com/retcode/bl.js";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })()
+        </script>
+    <meta name="description" content="Lionad Blog 是仿生狮子的个人专栏。其中有技术文章、杂文散文，或是狮子的个人动态。他是前端工程师，也是未来的独立游戏开发，此外他对设计、音乐和写作都颇感兴趣。如果你是 GitHub、豆瓣、Medium、CodePen 等网站的用户，相信你能在这找到一些乐趣。">
+    <meta name="baidu-site-verification" content="Mdz47FJiHx">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="preload" href="/assets/css/0.styles.8e331a69.css" as="style"><link rel="preload" href="/assets/js/app.a3c6d88b.js" as="script"><link rel="preload" href="/assets/js/layout-Layout.4f71e0d9.js" as="script"><link rel="preload" href="/assets/js/vendors~layout-Layout.e1a4d7b9.js" as="script"><link rel="preload" href="/assets/js/zhongtuanjiexi.b3fdeded.js" as="script"><link rel="prefetch" href="/assets/js/07007614.98e793b3.js"><link rel="prefetch" href="/assets/js/292.932b68b4.js"><link rel="prefetch" href="/assets/js/293.d85edef5.js"><link rel="prefetch" href="/assets/js/294.e2e7cd83.js"><link rel="prefetch" href="/assets/js/295.23f6cc2b.js"><link rel="prefetch" href="/assets/js/296.11042b3c.js"><link rel="prefetch" href="/assets/js/297.88eaf3a6.js"><link rel="prefetch" href="/assets/js/298.5512a7f0.js"><link rel="prefetch" href="/assets/js/299.a3838c97.js"><link rel="prefetch" href="/assets/js/300.0474b5c8.js"><link rel="prefetch" href="/assets/js/301.5e09d867.js"><link rel="prefetch" href="/assets/js/302.12609c66.js"><link rel="prefetch" href="/assets/js/303.1a1c7afb.js"><link rel="prefetch" href="/assets/js/304.5a71b943.js"><link rel="prefetch" href="/assets/js/305.27152abe.js"><link rel="prefetch" href="/assets/js/306.e5d9b38d.js"><link rel="prefetch" href="/assets/js/307.04dc3876.js"><link rel="prefetch" href="/assets/js/308.26a3ee65.js"><link rel="prefetch" href="/assets/js/309.cc27bdd4.js"><link rel="prefetch" href="/assets/js/310.b15a015a.js"><link rel="prefetch" href="/assets/js/311.4d51b243.js"><link rel="prefetch" href="/assets/js/312.3790ebc0.js"><link rel="prefetch" href="/assets/js/313.5cc2933d.js"><link rel="prefetch" href="/assets/js/314.b941a2a1.js"><link rel="prefetch" href="/assets/js/315.58c9bcca.js"><link rel="prefetch" href="/assets/js/316.8fa389e2.js"><link rel="prefetch" href="/assets/js/317.ab340609.js"><link rel="prefetch" href="/assets/js/318.c8da841f.js"><link rel="prefetch" href="/assets/js/319.62a2b142.js"><link rel="prefetch" href="/assets/js/320.3969096f.js"><link rel="prefetch" href="/assets/js/321.280984e8.js"><link rel="prefetch" href="/assets/js/322.c6329773.js"><link rel="prefetch" href="/assets/js/323.ff7d8c38.js"><link rel="prefetch" href="/assets/js/324.f6401eb8.js"><link rel="prefetch" href="/assets/js/325.b51e32a4.js"><link rel="prefetch" href="/assets/js/326.1b2b8349.js"><link rel="prefetch" href="/assets/js/327.9e638480.js"><link rel="prefetch" href="/assets/js/328.e3ea488e.js"><link rel="prefetch" href="/assets/js/329.130833c4.js"><link rel="prefetch" href="/assets/js/330.b739534c.js"><link rel="prefetch" href="/assets/js/331.c8a62a5f.js"><link rel="prefetch" href="/assets/js/332.f7c4e1b7.js"><link rel="prefetch" href="/assets/js/333.42f7dd3c.js"><link rel="prefetch" href="/assets/js/334.9d301edd.js"><link rel="prefetch" href="/assets/js/335.b9b019d8.js"><link rel="prefetch" href="/assets/js/336.12e18b91.js"><link rel="prefetch" href="/assets/js/337.3202d934.js"><link rel="prefetch" href="/assets/js/338.c8c32d92.js"><link rel="prefetch" href="/assets/js/339.14a6185d.js"><link rel="prefetch" href="/assets/js/340.10b1c550.js"><link rel="prefetch" href="/assets/js/341.c12bb46f.js"><link rel="prefetch" href="/assets/js/342.4886e922.js"><link rel="prefetch" href="/assets/js/343.ddf95b92.js"><link rel="prefetch" href="/assets/js/344.3274e808.js"><link rel="prefetch" href="/assets/js/345.9f802170.js"><link rel="prefetch" href="/assets/js/346.5b610194.js"><link rel="prefetch" href="/assets/js/347.7b3e0b08.js"><link rel="prefetch" href="/assets/js/348.21553862.js"><link rel="prefetch" href="/assets/js/349.546e7d1f.js"><link rel="prefetch" href="/assets/js/350.4e9051ea.js"><link rel="prefetch" href="/assets/js/351.1d56eaae.js"><link rel="prefetch" href="/assets/js/352.ac13c4ea.js"><link rel="prefetch" href="/assets/js/353.7920bfce.js"><link rel="prefetch" href="/assets/js/354.78190e65.js"><link rel="prefetch" href="/assets/js/355.19a84d34.js"><link rel="prefetch" href="/assets/js/356.26878bd2.js"><link rel="prefetch" href="/assets/js/357.41af6d1d.js"><link rel="prefetch" href="/assets/js/358.8770e9d7.js"><link rel="prefetch" href="/assets/js/359.4e47e3e3.js"><link rel="prefetch" href="/assets/js/360.95cb3b1f.js"><link rel="prefetch" href="/assets/js/361.ed56f9d6.js"><link rel="prefetch" href="/assets/js/362.1655682c.js"><link rel="prefetch" href="/assets/js/363.13ba5508.js"><link rel="prefetch" href="/assets/js/364.5d2bcb67.js"><link rel="prefetch" href="/assets/js/365.44da9754.js"><link rel="prefetch" href="/assets/js/366.9422b3e2.js"><link rel="prefetch" href="/assets/js/367.f4576137.js"><link rel="prefetch" href="/assets/js/368.4257f312.js"><link rel="prefetch" href="/assets/js/369.5f54a114.js"><link rel="prefetch" href="/assets/js/370.77f40c27.js"><link rel="prefetch" href="/assets/js/371.a003c78a.js"><link rel="prefetch" href="/assets/js/372.81cc51e0.js"><link rel="prefetch" href="/assets/js/373.4cf92e30.js"><link rel="prefetch" href="/assets/js/374.aa154a6d.js"><link rel="prefetch" href="/assets/js/375.eeea8b65.js"><link rel="prefetch" href="/assets/js/376.41257f31.js"><link rel="prefetch" href="/assets/js/377.564066e4.js"><link rel="prefetch" href="/assets/js/378.3a45929b.js"><link rel="prefetch" href="/assets/js/379.03b1d183.js"><link rel="prefetch" href="/assets/js/4ed8c02e.350efb00.js"><link rel="prefetch" href="/assets/js/4fe718e7.279c97ba.js"><link rel="prefetch" href="/assets/js/540a1dfa.091aa6cb.js"><link rel="prefetch" href="/assets/js/694b53d4.0be094d9.js"><link rel="prefetch" href="/assets/js/72fd99e0.204febc8.js"><link rel="prefetch" href="/assets/js/AST.044c7b7f.js"><link rel="prefetch" href="/assets/js/AWESOME.4c632089.js"><link rel="prefetch" href="/assets/js/Angular.1303b1ce.js"><link rel="prefetch" href="/assets/js/C.bf57a536.js"><link rel="prefetch" href="/assets/js/CSSColorModule.01dd7287.js"><link rel="prefetch" href="/assets/js/CSSConditionalRulesModule.62c784a3.js"><link rel="prefetch" href="/assets/js/CSSCyberCity.3cfd26a0.js"><link rel="prefetch" href="/assets/js/CSSMindMap.b60f24d3.js"><link rel="prefetch" href="/assets/js/CSSScrollbarsStylingModule.033dea77.js"><link rel="prefetch" href="/assets/js/CSSStateControl.6ae8477f.js"><link rel="prefetch" href="/assets/js/CanvasBlocker.8bfc02e7.js"><link rel="prefetch" href="/assets/js/CloudNative.42407b1d.js"><link rel="prefetch" href="/assets/js/Command.d08a6d3a.js"><link rel="prefetch" href="/assets/js/Compiler.5932d2d2.js"><link rel="prefetch" href="/assets/js/ComputerMindMap.c50144a9.js"><link rel="prefetch" href="/assets/js/Cut.25d02156.js"><link rel="prefetch" href="/assets/js/DEPRESSION.9277371b.js"><link rel="prefetch" href="/assets/js/DataStructure.4b3c187c.js"><link rel="prefetch" href="/assets/js/DevOpsMindMap.142c9226.js"><link rel="prefetch" href="/assets/js/DeveloperExperience.faf984ce.js"><link rel="prefetch" href="/assets/js/DeviceMetrics.63e5c3b4.js"><link rel="prefetch" href="/assets/js/Docker.d69fc504.js"><link rel="prefetch" href="/assets/js/ECMAScriptLanguageSpecification.3f840b77.js"><link rel="prefetch" href="/assets/js/ECMAScriptStandard.34f936f5.js"><link rel="prefetch" href="/assets/js/ESNextES6ES11.4491070d.js"><link rel="prefetch" href="/assets/js/ElementUIElementPlus.2a0155ef.js"><link rel="prefetch" href="/assets/js/Emoji.a8465c47.js"><link rel="prefetch" href="/assets/js/Erlang.e5ec522a.js"><link rel="prefetch" href="/assets/js/Eval.f58d915f.js"><link rel="prefetch" href="/assets/js/Eviljs.f19376dd.js"><link rel="prefetch" href="/assets/js/FingerStyle.e5b47168.js"><link rel="prefetch" href="/assets/js/Flutter.2c7477e7.js"><link rel="prefetch" href="/assets/js/GitLab.46be67d7.js"><link rel="prefetch" href="/assets/js/GitMindMap.ff19fd9e.js"><link rel="prefetch" href="/assets/js/Gitflow.002b78a5.js"><link rel="prefetch" href="/assets/js/GoogleCStandard.dd8cfaf9.js"><link rel="prefetch" href="/assets/js/HTMLExtends.430d4036.js"><link rel="prefetch" href="/assets/js/HTMLMindMap.fade4d8c.js"><link rel="prefetch" href="/assets/js/HelmetSecurity.7ea6849d.js"><link rel="prefetch" href="/assets/js/ITCSSInvertedTriangleCSS.0a874767.js"><link rel="prefetch" href="/assets/js/JavaScriptMicroTemplating.edb0b245.js"><link rel="prefetch" href="/assets/js/JavaScriptMindMap.295700cd.js"><link rel="prefetch" href="/assets/js/KVStore.e29ba6f5.js"><link rel="prefetch" href="/assets/js/KingDB.73509058.js"><link rel="prefetch" href="/assets/js/Kubernetes.c4a41cd0.js"><link rel="prefetch" href="/assets/js/Linter.c299357d.js"><link rel="prefetch" href="/assets/js/Linux.497df733.js"><link rel="prefetch" href="/assets/js/Lodashtemplate.0d5da419.js"><link rel="prefetch" href="/assets/js/Makefile.35aca90f.js"><link rel="prefetch" href="/assets/js/MarkdownInlineStyle.51b9c2eb.js"><link rel="prefetch" href="/assets/js/Monorepo.89db741c.js"><link rel="prefetch" href="/assets/js/NPM.3efaa83c.js"><link rel="prefetch" href="/assets/js/NginxConfigExample.06d0c61f.js"><link rel="prefetch" href="/assets/js/NodeJS.41753b1e.js"><link rel="prefetch" href="/assets/js/NodeJSRequire.5b94a169.js"><link rel="prefetch" href="/assets/js/Objectassign.e5730031.js"><link rel="prefetch" href="/assets/js/PInvoke.76ed3c5b.js"><link rel="prefetch" href="/assets/js/PNPMPerformantnpm.745d0846.js"><link rel="prefetch" href="/assets/js/PowerShell.51e03f2d.js"><link rel="prefetch" href="/assets/js/Processing.9dce0037.js"><link rel="prefetch" href="/assets/js/Promise.14b163a5.js"><link rel="prefetch" href="/assets/js/ReactMindMap.a9240672.js"><link rel="prefetch" href="/assets/js/ReactNative.44566854.js"><link rel="prefetch" href="/assets/js/SEO.8765b7d1.js"><link rel="prefetch" href="/assets/js/SSSSR.b30909b2.js"><link rel="prefetch" href="/assets/js/ScopedCSS.69642979.js"><link rel="prefetch" href="/assets/js/SecretScore.f0650863.js"><link rel="prefetch" href="/assets/js/Secrets.ca395b1e.js"><link rel="prefetch" href="/assets/js/SecurityMindMap.ef2f9706.js"><link rel="prefetch" href="/assets/js/Serverless.ae97671b.js"><link rel="prefetch" href="/assets/js/ShapeUp.69b78fa0.js"><link rel="prefetch" href="/assets/js/Storage.54b2ba20.js"><link rel="prefetch" href="/assets/js/SubresourceIntegrity.31fee570.js"><link rel="prefetch" href="/assets/js/Symbol.0c691cc9.js"><link rel="prefetch" href="/assets/js/Taro.4d98c5c1.js"><link rel="prefetch" href="/assets/js/TypeScript.623a82e6.js"><link rel="prefetch" href="/assets/js/TypeScriptTypeChanllenges.cf7f6e46.js"><link rel="prefetch" href="/assets/js/UtilityTypes.518d112f.js"><link rel="prefetch" href="/assets/js/VersionControl.fe0f9b1d.js"><link rel="prefetch" href="/assets/js/VueJSObserver.5c082f9b.js"><link rel="prefetch" href="/assets/js/VueJSParser.6de59452.js"><link rel="prefetch" href="/assets/js/VueMindMap.da342923.js"><link rel="prefetch" href="/assets/js/VueTestUtils.dbc770b6.js"><link rel="prefetch" href="/assets/js/WebComponents.0c9cd7d1.js"><link rel="prefetch" href="/assets/js/Windows.8495341c.js"><link rel="prefetch" href="/assets/js/WindowsCommand.3ed6a8c5.js"><link rel="prefetch" href="/assets/js/WingsYouaretheHero.8acb4db9.js"><link rel="prefetch" href="/assets/js/WuWei.614848e0.js"><link rel="prefetch" href="/assets/js/ailatuoseni.33edb8be.js"><link rel="prefetch" href="/assets/js/aixinjueluofulinshunzhihuangdi.3a63aaf6.js"><link rel="prefetch" href="/assets/js/amusitelang.c9e50de9.js"><link rel="prefetch" href="/assets/js/andongniaoaijiasimonisi.f60aaac3.js"><link rel="prefetch" href="/assets/js/balabaxiwangluokexue.74281e57.js"><link rel="prefetch" href="/assets/js/banmananti.02204486.js"><link rel="prefetch" href="/assets/js/baochihaoqixin.39712ed1.js"><link rel="prefetch" href="/assets/js/baoguanliqi.78df9397.js"><link rel="prefetch" href="/assets/js/baoluoluoxin.01ffef50.js"><link rel="prefetch" href="/assets/js/beitelaji.68d86373.js"><link rel="prefetch" href="/assets/js/beiwanglu.5a8ad1d9.js"><link rel="prefetch" href="/assets/js/biaodahegudu.19f69eed.js"><link rel="prefetch" href="/assets/js/bokegaibanpengdaodeliulanqipinghuagundongwenti.f19caf79.js"><link rel="prefetch" href="/assets/js/cankutianshidexingdonggangling.2ff4769a.js"><link rel="prefetch" href="/assets/js/caocao.e745403c.js"><link rel="prefetch" href="/assets/js/cengguopan.0bbe5973.js"><link rel="prefetch" href="/assets/js/chajiankaifa.f276f6db.js"><link rel="prefetch" href="/assets/js/changyemeng.8f2f8c48.js"><link rel="prefetch" href="/assets/js/changyongleixingpanduanfangfadeyoushijiquexian.c073d99b.js"><link rel="prefetch" href="/assets/js/chaquebulou.6a5fdfbc.js"><link rel="prefetch" href="/assets/js/chengyunxiaochengxu.aa0db492.js"><link rel="prefetch" href="/assets/js/chengyunxinlingshou.fe4a4614.js"><link rel="prefetch" href="/assets/js/congyifufengjinghuazhongxuexigehuituzhishidian.b67f823a.js"><link rel="prefetch" href="/assets/js/congyigeyuexieyuemandebianjiqizhongliaoliaoyouhuasilu.a697765c.js"><link rel="prefetch" href="/assets/js/cuowubianjiezujian.5fa6c958.js"><link rel="prefetch" href="/assets/js/dabaogongju.0fed518e.js"><link rel="prefetch" href="/assets/js/dakaiheixiangtongguobujingdiandianyingjieminaokexue.992be995.js"><link rel="prefetch" href="/assets/js/danaodiguo.927c59c4.js"><link rel="prefetch" href="/assets/js/deindent.c1229915.js"><link rel="prefetch" href="/assets/js/dengdaidefeng.4da72484.js"><link rel="prefetch" href="/assets/js/dibanbenliulanqijianrongbiaoqianyuanli.b71b4443.js"><link rel="prefetch" href="/assets/js/digubulahe.20cce8cc.js"><link rel="prefetch" href="/assets/js/dima.f6fffd59.js"><link rel="prefetch" href="/assets/js/duoduanyingyong.b172016d.js"><link rel="prefetch" href="/assets/js/feinisigaiqi.cc182b6c.js"><link rel="prefetch" href="/assets/js/filetextcrypto.c2cf3923.js"><link rel="prefetch" href="/assets/js/fuzakexue.10f03578.js"><link rel="prefetch" href="/assets/js/ganxingqudewenti.d980e071.js"><link rel="prefetch" href="/assets/js/gengxiandaidecuowuchuli.c8491360.js"><link rel="prefetch" href="/assets/js/gongcheng.3604d5b9.js"><link rel="prefetch" href="/assets/js/gongjuhanshuwuchongtuchuli.e8c2657e.js"><link rel="prefetch" href="/assets/js/guanyubiaodiandeneixieshier.8fef7136.js"><link rel="prefetch" href="/assets/js/guifanjihe.4a390b9f.js"><link rel="prefetch" href="/assets/js/hanshushibiancheng.78b5ea56.js"><link rel="prefetch" href="/assets/js/hanxin.b414fe0e.js"><link rel="prefetch" href="/assets/js/haxichongtu.6f5e49b6.js"><link rel="prefetch" href="/assets/js/henglimakelamu.088f86cf.js"><link rel="prefetch" href="/assets/js/henglimolaisen.1f3586be.js"><link rel="prefetch" href="/assets/js/henglisishi.559d8b18.js"><link rel="prefetch" href="/assets/js/houzhenxiangshidai.c2a3850f.js"><link rel="prefetch" href="/assets/js/huadongyanzhengmapojiesilu.3df2aa08.js"><link rel="prefetch" href="/assets/js/huahuaguidang.ff52f534.js"><link rel="prefetch" href="/assets/js/huanshukangjuchi.2b9bbf96.js"><link rel="prefetch" href="/assets/js/huanshuwanquanzhinan.03fb5067.js"><link rel="prefetch" href="/assets/js/hushi.659add5b.js"><link rel="prefetch" href="/assets/js/jialiluejialilei.c26ccd9d.js"><link rel="prefetch" href="/assets/js/jiangziya.f0002d55.js"><link rel="prefetch" href="/assets/js/jianxiaoyemiankuaizhaotiji.d81d47a2.js"><link rel="prefetch" href="/assets/js/jianzhi.d4408404.js"><link rel="prefetch" href="/assets/js/jimuqiongsi.d2766916.js"><link rel="prefetch" href="/assets/js/jishubokeguidang.992f63f4.js"><link rel="prefetch" href="/assets/js/jishudizhenxiang.d23e57df.js"><link rel="prefetch" href="/assets/js/jishujianli.a2e9e212.js"><link rel="prefetch" href="/assets/js/jishupianhao.f6693cec.js"><link rel="prefetch" href="/assets/js/jisuanjiwangluo.c8613098.js"><link rel="prefetch" href="/assets/js/kangyanshenghuo.835cb95a.js"><link rel="prefetch" href="/assets/js/kebianziti.45788a31.js"><link rel="prefetch" href="/assets/js/keliandepankongjian.2e6cb015.js"><link rel="prefetch" href="/assets/js/keluodisituolemi.e3a51e11.js"><link rel="prefetch" href="/assets/js/kuheyuanma.e4b65a58.js"><link rel="prefetch" href="/assets/js/layout-NotFound.97f56275.js"><link rel="prefetch" href="/assets/js/leixingticao.97cd65af.js"><link rel="prefetch" href="/assets/js/liangzi.e9caf034.js"><link rel="prefetch" href="/assets/js/liaoliaocicilizhibiyejiqitazaluandeshiqing.b66105c8.js"><link rel="prefetch" href="/assets/js/linghuoyouyadeduoshuxingpaixu.d850cad2.js"><link rel="prefetch" href="/assets/js/linghuoyouyawuyilaidepaixuku.9b972b1b.js"><link rel="prefetch" href="/assets/js/linshu.6e862264.js"><link rel="prefetch" href="/assets/js/liubang.356484d7.js"><link rel="prefetch" href="/assets/js/liulanqi.cf07b058.js"><link rel="prefetch" href="/assets/js/liulanqixiangguan.856c6420.js"><link rel="prefetch" href="/assets/js/luyoujishu.fe02883f.js"><link rel="prefetch" href="/assets/js/mianshifupan.6443c845.js"><link rel="prefetch" href="/assets/js/mianshititiku.89e41500.js"><link rel="prefetch" href="/assets/js/mianxiangduixiang.9de60319.js"><link rel="prefetch" href="/assets/js/mklink.8bdcccce.js"><link rel="prefetch" href="/assets/js/mokuaihuajianshi.f9d0f0dc.js"><link rel="prefetch" href="/assets/js/musika.1d4bf0ad.js"><link rel="prefetch" href="/assets/js/nianyinggairuhexuanzetupiangeshi.6d7c5b5f.js"><link rel="prefetch" href="/assets/js/nibenkeyishaoxiexie.e26b48d9.js"><link rel="prefetch" href="/assets/js/nigulagebaini.80c9ff49.js"><link rel="prefetch" href="/assets/js/nikeyiyongchunpanduanshubiaojinrudefangxiangma.50e6fb75.js"><link rel="prefetch" href="/assets/js/niujintongshidubenzhongguowenxue.9a8b4441.js"><link rel="prefetch" href="/assets/js/nodewatch.fdfc2960.js"><link rel="prefetch" href="/assets/js/pachongyufanpachong.a8c05d72.js"><link rel="prefetch" href="/assets/js/panduanlianggebianliangxiangdeng.b325de4f.js"><link rel="prefetch" href="/assets/js/panduanshifouzaixian.06e13da8.js"><link rel="prefetch" href="/assets/js/qianduanzhishigujia.e6359dec.js"><link rel="prefetch" href="/assets/js/qiantaoliebiaobujudexiefa.72f56a05.js"><link rel="prefetch" href="/assets/js/qianxuantong.93e34f50.js"><link rel="prefetch" href="/assets/js/qijishan.de8bd1db.js"><link rel="prefetch" href="/assets/js/qinaidejiemian.f32a2da2.js"><link rel="prefetch" href="/assets/js/quanju.2e0b17f7.js"><link rel="prefetch" href="/assets/js/quanlidouzhengzhongdewudaoyujiashe.f3806255.js"><link rel="prefetch" href="/assets/js/qukuailian.23be351b.js"><link rel="prefetch" href="/assets/js/rangyakelusuo.cc291ebc.js"><link rel="prefetch" href="/assets/js/renwu.e3b833bd.js"><link rel="prefetch" href="/assets/js/renwuqiepian.a570c405.js"><link rel="prefetch" href="/assets/js/richangshenghuozhongdeziwochengxian.ab2cdc94.js"><link rel="prefetch" href="/assets/js/ruanjineng.ce491161.js"><link rel="prefetch" href="/assets/js/shang.13061b38.js"><link rel="prefetch" href="/assets/js/shanghupingtai.715dae31.js"><link rel="prefetch" href="/assets/js/shangyang.300824a4.js"><link rel="prefetch" href="/assets/js/shejimoshi.201ece38.js"><link rel="prefetch" href="/assets/js/shejimoshiyumofaguo.95caa5c4.js"><link rel="prefetch" href="/assets/js/shenjingkexue.78f26977.js"><link rel="prefetch" href="/assets/js/shenmizhuyideyishu.98e4df54.js"><link rel="prefetch" href="/assets/js/shijuecuojue.289e12f7.js"><link rel="prefetch" href="/assets/js/shizideshudantuijian.6621f734.js"><link rel="prefetch" href="/assets/js/shuangxianglianjiewanquanti.87c93560.js"><link rel="prefetch" href="/assets/js/shufengzhanshi.71ef1aed.js"><link rel="prefetch" href="/assets/js/shuijiao.801d83cb.js"><link rel="prefetch" href="/assets/js/shujudapan.9738db46.js"><link rel="prefetch" href="/assets/js/shuzuqiankaobei.1b4b43d8.js"><link rel="prefetch" href="/assets/js/sishierpianxilie.de21fd0e.js"><link rel="prefetch" href="/assets/js/suanfa.5ed07d33.js"><link rel="prefetch" href="/assets/js/tanmiguangyingxiaoguo.80f0ad5e.js"><link rel="prefetch" href="/assets/js/taolitakefu.d7ff1325.js"><link rel="prefetch" href="/assets/js/taolixuwuzaiyongbaota.9bb94645.js"><link rel="prefetch" href="/assets/js/tianzhongyiguang.c0193915.js"><link rel="prefetch" href="/assets/js/tingshuonihaizaishouxielanjiazai.3ea807f1.js"><link rel="prefetch" href="/assets/js/touqushijian.74fea813.js"><link rel="prefetch" href="/assets/js/tuiliutuijian.ecfb954b.js"><link rel="prefetch" href="/assets/js/tupianmohu.4d81fd78.js"><link rel="prefetch" href="/assets/js/tushuzhengli.4bfd0c34.js"><link rel="prefetch" href="/assets/js/wangzhandekefangwenxing.02dbac69.js"><link rel="prefetch" href="/assets/js/wanwulianjieyuxingfugan.827d8546.js"><link rel="prefetch" href="/assets/js/webpack.74872168.js"><link rel="prefetch" href="/assets/js/weikeduoyuguogelin.4e640ae1.js"><link rel="prefetch" href="/assets/js/weiqianduan.3cfd5e3d.js"><link rel="prefetch" href="/assets/js/weishimewoyaoxieboke.d974b1dc.js"><link rel="prefetch" href="/assets/js/wentijilu.18c4bf08.js"><link rel="prefetch" href="/assets/js/wenziyuqingxu.a221aa37.js"><link rel="prefetch" href="/assets/js/wodemiantian.9a2cbe7b.js"><link rel="prefetch" href="/assets/js/wuqi.eb82be7c.js"><link rel="prefetch" href="/assets/js/wuti.bc061b0c.js"><link rel="prefetch" href="/assets/js/xiaerdaigaole.fb3cde1c.js"><link rel="prefetch" href="/assets/js/xiangmuguanli.1d925a59.js"><link rel="prefetch" href="/assets/js/xiangsu.b6e730aa.js"><link rel="prefetch" href="/assets/js/xiangyu.22aa6b65.js"><link rel="prefetch" href="/assets/js/xianjizhe.560abb49.js"><link rel="prefetch" href="/assets/js/xiaochengxu.e2b10a39.js"><link rel="prefetch" href="/assets/js/xiaoduji.33c37a4f.js"><link rel="prefetch" href="/assets/js/xibokeladi.3c988eb4.js"><link rel="prefetch" href="/assets/js/xingdaimadainishixianxiaochengxuzhongdeshujuzhenting.0ae48ea9.js"><link rel="prefetch" href="/assets/js/xingongzuohexinyinliao.6b129a4c.js"><link rel="prefetch" href="/assets/js/xinliuguidang.3383cf83.js"><link rel="prefetch" href="/assets/js/xinliusixu.e63c3d2e.js"><link rel="prefetch" href="/assets/js/xinlixuebao.90adf24e.js"><link rel="prefetch" href="/assets/js/xinxisheji.24f96b34.js"><link rel="prefetch" href="/assets/js/xitonglun.e2754100.js"><link rel="prefetch" href="/assets/js/xuanranxiangguan.a57405b2.js"><link rel="prefetch" href="/assets/js/xuanranxiangguanbiji.8c8c7e21.js"><link rel="prefetch" href="/assets/js/xuexicongrenzhedaoshashou.2c40ae9e.js"><link rel="prefetch" href="/assets/js/yalishiduode.472cc36a.js"><link rel="prefetch" href="/assets/js/yemianxingneng.a174abdd.js"><link rel="prefetch" href="/assets/js/yifengchenmo.cc12b34a.js"><link rel="prefetch" href="/assets/js/yiliuwentizhengli.816d32c5.js"><link rel="prefetch" href="/assets/js/yinmi.42be2a5a.js"><link rel="prefetch" href="/assets/js/yinshileixingzhuanhuan.9fb918bc.js"><link rel="prefetch" href="/assets/js/yinshipinliuchuli.3dabe380.js"><link rel="prefetch" href="/assets/js/yitongduozujiankudecengdieshunxu.a9b0fae6.js"><link rel="prefetch" href="/assets/js/youguandeyixiejiyouqudedongxi.adb8bb98.js"><link rel="prefetch" href="/assets/js/youguanxinxiangmudifangfalun.15c57ed5.js"><link rel="prefetch" href="/assets/js/yuanmajiqiao.b2b78b71.js"><link rel="prefetch" href="/assets/js/yuanmaxuexi.afabbaf2.js"><link rel="prefetch" href="/assets/js/yuanmayuedu.127052e0.js"><link rel="prefetch" href="/assets/js/yuedingdehaiyang.fcc41f18.js"><link rel="prefetch" href="/assets/js/yuehannisikaipule.cb943925.js"><link rel="prefetch" href="/assets/js/yunnazhuanzhengxiaojie.8afc4f9f.js"><link rel="prefetch" href="/assets/js/yuwolianluoyouqinglianjie.5d231b64.js"><link rel="prefetch" href="/assets/js/yuyanjingcuiyubianchengshijian.1ab90d69.js"><link rel="prefetch" href="/assets/js/yuyanxuedeyaoqing.a35978b7.js"><link rel="prefetch" href="/assets/js/yuzhou.d8fe469d.js"><link rel="prefetch" href="/assets/js/zaoxinggoucheng.2a4b3728.js"><link rel="prefetch" href="/assets/js/zhikun.b0214565.js"><link rel="prefetch" href="/assets/js/zhongdeshuzhi.4a5bc455.js"><link rel="prefetch" href="/assets/js/zhongguohua.581cc57d.js"><link rel="prefetch" href="/assets/js/zhouyu.a6f5e412.js"><link rel="prefetch" href="/assets/js/zhuixunziyouyumanhuaixiwang.58694925.js"><link rel="prefetch" href="/assets/js/zhuyilizhuanzhudekexueyuxunlian.7b6bd91a.js"><link rel="prefetch" href="/assets/js/ziti.02903210.js"><link rel="prefetch" href="/assets/js/ziyuan.7c360aae.js"><link rel="prefetch" href="/assets/js/zuopinshouji.56db6b82.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.8e331a69.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Lionad Blog</span></a> <div class="links"><!----> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link router-link-active">
+  Posts
+</a></div><div class="nav-item"><a href="/friends/" class="nav-link">
+  Links
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link router-link-active">
+  Posts
+</a></div><div class="nav-item"><a href="/friends/" class="nav-link">
+  Links
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/flows/" class="sidebar-heading clickable open"><span>心流思绪 / Heart Flows</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/flows/books.html" class="sidebar-link">📕 狮子的书单推荐</a></li><li><a href="/flows/long-night-dream.html" class="sidebar-link">🌃 长夜梦</a></li><li><a href="/flows/everything.html" class="sidebar-link">🌌 万物联结与幸福感</a></li><li><a href="/flows/stolen-time-from-god.html" class="sidebar-link">⌛ 偷取时间</a></li><li><a href="/flows/expression-and-loneliness.html" class="sidebar-link">🌆 表达和孤独</a></li><li><a href="/flows/my-shy.html" class="sidebar-link">🌧️ 我的腼腆</a></li><li><a href="/flows/drinking-while-thinking.html" class="sidebar-link">🥛 新工作，喝新饮料</a></li><li><a href="/flows/escape-from-mysticism.html" class="sidebar-link">💖 逃离虚无，再拥抱它</a></li><li><a href="/flows/zfold.html" class="sidebar-link">📝 心流归档</a></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/articles/" class="sidebar-heading clickable router-link-active"><span>技术博客 / Coder</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/articles/zindex-manager.html" class="sidebar-link">⚖️ 一统多组件库的层叠顺序</a></li><li><a href="/articles/crack-the-slider.html" class="sidebar-link">🕷️ 滑动验证码破解思路</a></li><li><a href="/articles/css-light-travel.html" class="sidebar-link">🌟 探秘 CSS 光影效果</a></li><li><a href="/articles/design-patterns-and-js-magic-pot.html" class="sidebar-link">🍲 设计模式与 JS 魔法锅</a></li><li><a href="/articles/anysort-2th.html" class="sidebar-link">🌐 Anysort：灵活、优雅的多属性排序</a></li><li><a href="/articles/js-100.html" class="sidebar-link">🏆 学习 JS，从忍者到杀手</a></li><li><a href="/articles/helmet-and-security.html" class="sidebar-link">👹 Helmet &amp; Security</a></li><li><a href="/articles/css-poaa.html" class="sidebar-link">💫 CSS 幻术 | 抗锯齿</a></li><li><a href="/articles/css-judge-direction.html" class="sidebar-link">❓ 你可以用纯CSS判断鼠标进入的方向吗？</a></li><li><a href="/articles/css-interesting.html" class="sidebar-link">🎨 有关 CSS 的一些极有趣的东西</a></li><li><a href="/articles/no-more-if-else.html" class="sidebar-link">📝 你本可以少写些 if-else</a></li><li><a href="/articles/reactive-in-150loc.html" class="sidebar-link">🚀 150 行代码带你实现小程序中的数据侦听</a></li><li><a href="/articles/fourty-two.html" class="sidebar-link">🚝 四十二篇系列</a></li><li><a href="/articles/source-code.html" class="sidebar-link">🚄 源码阅读</a></li><li><a href="/articles/zfold.html" class="sidebar-link">📝 技术博客归档</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/awesome/" class="sidebar-heading clickable"><span>玩乐广场 / Paint</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/gists/" class="sidebar-heading clickable"><span>等待整理</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/maps/" class="sidebar-link">知识骨架</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/music/" class="sidebar-heading clickable"><span>吉他剧场</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/secrets/" class="sidebar-heading clickable"><span>Secrets</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="🍥-9种css图案解析">🍥 9种CSS图案解析！</h1> <nav class="table-of-contents"><ol><li><a href="#9种css图案解析">🍥 9种CSS图案解析！</a><ol><li><a href="#前言">前言</a></li><li><a href="#效果图展示">效果图展示</a></li><li><a href="#分析顺序介绍">分析顺序介绍</a><ol><li><a href="#圆环变形">圆环变形</a></li><li><a href="#厕所里的瓷砖">厕所里的瓷砖</a></li><li><a href="#三角与圆球印花">三角与圆球印花</a></li><li><a href="#瓷砖变异">瓷砖变异</a></li><li><a href="#山与云">山与云</a></li><li><a href="#冰崖上生长的仙人掌">冰崖上生长的仙人掌</a></li><li><a href="#no-name-2">No Name 2</a></li><li><a href="#挤冰淇淋">挤冰淇淋</a></li><li><a href="#lionad">Lionad</a></li><li><a href="#万花筒">万花筒</a></li><li><a href="#トラ酱-tiger酱">トラ酱（Tiger酱）</a></li></ol></li><li><a href="#练习题">练习题</a></li><li><a href="#last-but-important">LAST BUT IMPORTANT</a></li><li><a href="#阅读更多">阅读更多</a></li></ol></li></ol></nav><h2 id="前言">前言</h2> <p>又到了金三银四面试季，这里我整理了... 欸！？不好意思，跑题了... 感觉近来掘金首页全是面试相关的内容，我是打开掘金也不知道该看啥，实在无奈。</p> <p>上个礼拜看了许多关于平面构成的资料，我就边用 CSS 画了一些类似背景图案的玩意儿。这里给大家选了12种，从观察者的角度由易到难的给大家解一下思路。本文包含大量图片及代码所以较长，建议先点赞收藏。</p> <p><strong>⚠预警，本文没有对基础知识的详解，不过推荐一边看文章实践一边学习，效率更高。</strong></p> <p><strong>⚠预警，文末有惊喜。</strong></p> <h2 id="效果图展示">效果图展示</h2> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/K0L1Ov1rMI.gif" alt="" loading="lazy"><figcaption>CSS图案效果图</figcaption></figure> <h2 id="分析顺序介绍">分析顺序介绍</h2> <p>粗略看过效果之后，我们按照图案种元素的多少及元素变异程度、动画难易程度、<s>有无头绪</s>等因素给文章小节排一个序，顺序见下图。每小节都有源码，你可以通过标题直接跳转到你想看的图案。</p> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/ureSLEWBCZ.png" alt="" loading="lazy"><figcaption>CSS图案效果图分析顺序</figcaption></figure> <hr> <h3 id="圆环变形">圆环变形</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/1DlfMqAvJH.gif" alt="" loading="lazy"><figcaption>圆环变形图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in 100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+    <span class="token selector">// 其余所有图案的 card 类标签都套用了这段样式，为了减少文章长度，下略。
+    .card</span> <span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token property">flex-wrap</span><span class="token punctuation">:</span> wrap<span class="token punctuation">;</span>
+      <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+      <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/-1.jpg" alt="" loading="lazy"><figcaption>圆环变形图案动画</figcaption></figure> <p>通过图片动画效果，我们大致得出动画变化的模式。</p> <ul><li><p>有部分圆环变形成两个圆环的长度，并改变了底色。</p> <p>观察变长圆环的顺序，能发现“每逢三就变长”这种规律，推测使用了 :nth-child(3) 选择器。</p></li></ul> <p>下面是 CSS 源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+    <span class="token comment">// 每逢三个元素，则执行动画，源代码和我们分析的动画的顺序相反，圆环是从长变短，不过不影响</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">border</span><span class="token punctuation">:</span> solid 5px #F29338<span class="token punctuation">;</span>
+      <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+  
+      
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+        <span class="token property">flex-basis</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #F8C798<span class="token punctuation">;</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> change-circle-width 2s ease alternate infinite<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token atrule"><span class="token rule">@keyframes</span> change-circle-width</span> <span class="token punctuation">{</span>
+    <span class="token keyword">from</span> <span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+      <span class="token property">flex-basis</span><span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #F8C798<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">60% </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+      <span class="token property">flex-basis</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 动画 60% - 100% 这段时间，属性没有变动，所以图案看起来像是静止的。</span>
+    <span class="token selector">to </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+      <span class="token property">flex-basis</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="厕所里的瓷砖">厕所里的瓷砖</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/Cq4jhBX0QD.gif" alt="" loading="lazy"><figcaption>厕所里的瓷砖图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in 100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>和上一张图思路类似，只是多出了一些圆形小球。</p> <ul><li><p>小球的动画应该包含位置的偏移和颜色、透明度的改变。</p></li> <li><p>当鼠标悬浮时（注意图片右下角的鼠标手势），图中多了一排小圆球，样式和行为和前一排原球几乎一样。</p> <p>推测第二排圆球使用了 animation-delay 效果。</p></li> <li><p>观察小球的个数，欸？貌似有些问题，圆形小球数量和瓷砖数量对不上。应该是对小球的显隐的顺序做了特殊处理。</p></li></ul> <p>下面是 CSS 源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+    <span class="token comment">// 鼠标悬浮时显示第二排的小圆球</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+      <span class="token selector">.node </span><span class="token punctuation">{</span>
+        &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>2n<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+          <span class="token property">visibility</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #71A2DB<span class="token punctuation">;</span>
+      <span class="token property">outline</span><span class="token punctuation">:</span> solid 1px white<span class="token punctuation">;</span>
+  
+      <span class="token comment">// 3n-1，3n+1 一起使用时等价于 3n </span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n-1<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-last-child</span><span class="token punctuation">(</span>3n+1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #C2D7F0<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 去除末行及每行末尾的伪元素</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>10n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-last-child</span><span class="token punctuation">(</span>-n+10<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 75%<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 75%<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> card-4-circle-move 1s linear alternate infinite<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>2n<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> card-4-circle-move-delay 1s linear alternate infinite<span class="token punctuation">;</span>
+        <span class="token property">animation-delay</span><span class="token punctuation">:</span> .3s<span class="token punctuation">;</span>
+        <span class="token property">visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token atrule"><span class="token rule">@keyframes</span> card-4-circle-move</span> <span class="token punctuation">{</span>
+    <span class="token keyword">from</span> <span class="token punctuation">{</span>
+      <span class="token property">left</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span>
+      <span class="token property">top</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to </span><span class="token punctuation">{</span>
+      <span class="token property">left</span><span class="token punctuation">:</span> 130%<span class="token punctuation">;</span>
+      <span class="token property">top</span><span class="token punctuation">:</span> 130%<span class="token punctuation">;</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #F2C07D<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token atrule"><span class="token rule">@keyframes</span> card-4-circle-move-delay</span> <span class="token punctuation">{</span>
+    <span class="token keyword">from</span> <span class="token punctuation">{</span>
+      <span class="token property">left</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span>
+      <span class="token property">top</span><span class="token punctuation">:</span> 45%<span class="token punctuation">;</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #F2C07D<span class="token punctuation">;</span>
+      <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to </span><span class="token punctuation">{</span>
+      <span class="token property">left</span><span class="token punctuation">:</span> 130%<span class="token punctuation">;</span>
+      <span class="token property">top</span><span class="token punctuation">:</span> 130%<span class="token punctuation">;</span>
+      <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="三角与圆球印花">三角与圆球印花</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/browser_TdDhrdE1kJ.png" alt="" loading="lazy"><figcaption>三角与圆球印花图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in 100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>乍一眼看，用每个节点的伪元素画一个圆形和一个三角形就完成了这张图。</p> <p>其实并不对，先别往下翻答案，想想为什么。</p> <p>答案分割线，小心越界：</p> <hr> <p>观察图案和HTML代码：</p> <ul><li><p>从每行来看，每行有10个三角形，但是每行有9个圆+2个半圆。</p> <p>猜测圆形是由半圆组装的，再结合纵向观测，可以推测圆形是由4个 1/4 圆组成的。</p> <p>但是用伪元素没有办法画 1/4 圆。思路不对，再换个思路。</p> <p>猜测伪元素是一个整圆，利用 Box-Shadow 复制了4份，分别放在了正方形四个角落。.card 或是 .node 使用 overflow 裁剪掉多余元素。</p></li> <li><p>再看三角形。</p> <p>三角形的画法比较常见，可以用透明 Border + 带颜色的 Border 绘制。</p> <p>三角形的角度变化很有规律，可以大致推测，旋转角度和列数有关。</p></li></ul> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+    <span class="token comment">// 根据三角形的序号与10的模来确定旋转角度</span>
+    <span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> 0 <span class="token keyword">through</span> <span class="token selector">9 </span><span class="token punctuation">{</span>
+      .<span class="token property">node</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>10n <span class="token operator">-</span> <span class="token variable">#{$i}</span><span class="token punctuation">)</span><span class="token selector">::before </span><span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span><span class="token punctuation">(</span>-19 <span class="token operator">+</span> <span class="token variable">$i</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">unquote</span><span class="token punctuation">(</span><span class="token string">'deg'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token comment">// 上面那串函数编译出来就成了下面这一长串模样</span>
+    <span class="token comment">// .node:nth-child(10n)::before {</span>
+    <span class="token comment">//   transform: rotate(-19deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-1)::before {</span>
+    <span class="token comment">//   transform: rotate(-18deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-2)::before {</span>
+    <span class="token comment">//   transform: rotate(-17deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-3)::before {</span>
+    <span class="token comment">//   transform: rotate(-16deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-4)::before {</span>
+    <span class="token comment">//   transform: rotate(-15deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-5)::before {</span>
+    <span class="token comment">//   transform: rotate(-14deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-6)::before {</span>
+    <span class="token comment">//   transform: rotate(-13deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-7)::before {</span>
+    <span class="token comment">//   transform: rotate(-12deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-8)::before {</span>
+    <span class="token comment">//   transform: rotate(-11deg);</span>
+    <span class="token comment">// }</span>
+    <span class="token comment">// .node:nth-child(10n-9)::before {</span>
+    <span class="token comment">//   transform: rotate(-10deg);</span>
+    <span class="token comment">// }</span>
+  
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #F5C1CB<span class="token punctuation">;</span>
+      <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">saturate</span><span class="token punctuation">(</span>1.6<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+      <span class="token comment">// 通过伪元素 Border 绘制的三角形</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> solid 10px transparent<span class="token punctuation">;</span>
+        <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> #D2F3BF<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 使用 Box-Shadow 属性，将圆形复制了额外的三份</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 9px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 9px<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #FBF5C5<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 20px 0 #FBF5C5<span class="token punctuation">,</span> 20px 20px #FBF5C5<span class="token punctuation">,</span> 0 20px #FBF5C5<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="瓷砖变异">瓷砖变异</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/4yjR5DrBgy.gif" alt="" loading="lazy"><figcaption>瓷砖变异图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in 100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>这张图应该大体上来说比较简单。需要额外注意的是，那些特殊颜色的圆出现的位置。</p> <ul><li><p>观察鼠标移动时格子的缩放，可以推测每个格子由4个 1/4圆和一个十字组成。</p> <p>十字好处理，由 2*2 像素的伪元素通过 Box-Shadow 复制即可完成。</p> <p>根据 1/4 圆可推测每个格子都有 overflow: hidden 样式。</p></li> <li><p>特殊颜色的圆有多种可能的实现方法。</p> <p>第一，在 SCSS 编译时，调用随机函数，给这些随机位置圆改变颜色就好。</p> <p>第二，使用蝉原则或类似方式实现 CSS 伪随机。</p> <p><s>第三，写死。</s></p></li></ul> <p>害~ 这里直接上源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #EE92A5<span class="token punctuation">;</span>
+      <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> .3s<span class="token punctuation">;</span>
+      <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+      <span class="token comment">// 鼠标在格子上悬浮时的放大效果</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1.4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 十字线的构成</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 2px white<span class="token punctuation">,</span> 2px 0 white<span class="token punctuation">,</span> -2px 0 white<span class="token punctuation">,</span> 0 -2px white<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token comment">// 圆形的构成</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #F8C798<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 20px 0 #F8C798<span class="token punctuation">,</span> 20px 20px #F8C798<span class="token punctuation">,</span> 0 20px #F8C798<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// CSS 伪随机给特定元素设置特殊色。在实践时，可以自己调整以下参数，以达到想要的效果。</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>2n<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #E03A5C<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n-1<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>5n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>6n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>7n-3<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #F8C798
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="山与云">山与云</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/KkRVqm20Qd.gif" alt="" loading="lazy"><figcaption>山与云图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in 100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>这个图案，嘛... 讲道理，这谁看的出来是啥玩意儿嘛！其实我心里想，要不是玩意儿是自己画的，我估摸着自己也看不透这图案~~（红尘）~~，不过下面还是正经扒一下。</p> <ul><li><p>三角形，好办，用伪元素画。至于颜色么，可以仿照上一张图片的 CSS 伪随机的思路。至于山的动画，不好确定是山在动还是说山在跟随其它元素动。</p></li> <li><p>再看横线，欸不对，这图里怎么有这么多横线竖线，到底哪一个伪元素哪一个又不是，害...</p> <p>猜测，横线竖线是格子的 Outline。不对，Outline 只能是正方形的。</p> <p>那会不会是 Border 呢？能从观察得出，这些横线的边缘又半透明像素，再结合三角形可有 Border 绘制而成，推测，横线竖线是圆角矩形格子的 Border，被形成三角形的伪元素的白色 Border 遮挡而消失了一部分。</p></li> <li><p>继续观察线条，发现有的横线会消失，有的横线只会缩短而不会消失，所有竖线都只会缩短不会消失。</p> <p>根据竖线变长时，一定伴随着横线的缩短或消失，推测，格子在经历高度的变化，而不是位移。继续推测，三角形可能是跟随格子一起运动。</p> <p>再根据垂直方向两座山之间的横线和山的运动趋势是一样的，推测，图中横线是格子的上边而不是下边，下边都被遮住了。</p> <p>猜测山把格子的下边遮住了，但这与实际观察不符，因为，山在向上运动时，竖线的伸缩有伸缩。格子的边的一部分的消失并不是构成山的伪元素的 Border 遮挡而成的，而是另一个伪元素，大致也是矩形。</p></li> <li><p>我们可以大概构成这副图案了：格子被束缚在了 align-items: center 的 Flex 布局中，三角形以及另一个类似矩形的伪元素随着格子的运动而运动。</p></li></ul> <p>嘛... 长吁一口气，要是上面没看懂的话，还是看下面这张图构好了。这是去掉白色遮罩物的样子。</p> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/browser_leZw7Ch43e.png" alt="" loading="lazy"><figcaption>山与云图案解析</figcaption></figure> <p>（谁帮我命个名儿）</p> <p>以下是 CSS 源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+    <span class="token comment">// 横线与竖线并不是节点的 Border，而是背景色+遮罩形成的</span>
+    <span class="token comment">// 格子会根据动画在高度上变化</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #A45963<span class="token punctuation">;</span>
+      <span class="token property">border-radius</span><span class="token punctuation">:</span> 90%<span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> card-1 .4s ease alternate infinite<span class="token punctuation">;</span>
+  
+      <span class="token comment">// 格子动画延迟处理</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>2n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">animation-delay</span><span class="token punctuation">:</span> .2s<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">animation-delay</span><span class="token punctuation">:</span> .3s<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>4n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">animation-delay</span><span class="token punctuation">:</span> .3s<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 山的颜色处理</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>2n<span class="token punctuation">)</span><span class="token selector">::before </span><span class="token punctuation">{</span>
+        <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> #F5CB6C<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span><span class="token selector">::before </span><span class="token punctuation">{</span>
+        <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> #F5856C<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>4n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>5n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>6n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>7n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>8n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>9n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>before<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>10n<span class="token punctuation">)</span><span class="token selector">::before </span><span class="token punctuation">{</span>
+        <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> #D2F3BF<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token comment">// 山的构成</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> solid 10px transparent<span class="token punctuation">;</span>
+        <span class="token property">border-bottom-color</span><span class="token punctuation">:</span> #D2F3BF<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 白色遮罩</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 19px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 这是一个特殊处理，为了让白色遮罩长度减少1像素以显示每行格子的背景颜色的最后一列像素</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>10n<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token atrule"><span class="token rule">@keyframes</span> card-1</span> <span class="token punctuation">{</span>
+    <span class="token keyword">from</span> <span class="token punctuation">{</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 19px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to </span><span class="token punctuation">{</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="冰崖上生长的仙人掌">冰崖上生长的仙人掌</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/lALUw0IGT2.gif" alt="" loading="lazy"><figcaption>冰崖上生长的仙人掌图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>item in 100<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>这张图比较简单。</p> <ul><li><p>易知格子由横线和虚线及背景颜色组成。</p> <p>易知圆柱状的“仙人掌”是每个格子单独控制裁切得来。</p> <p>半圆形到正方形变化的动画可以由 Clip-Path 属性裁切得来，推测竖线和横线分别是一种伪元素绘制。</p></li></ul> <p>以下是 CSS 源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #71A2DB<span class="token punctuation">;</span>
+  
+      <span class="token comment">// 部分仙人掌添加动画</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n+2<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>5n-3<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>6n-2<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>7n+1<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> card-7-grow .6s ease alternate infinite<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 一部分仙人掌不需要添加动画</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n-1<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>5n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>6n<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>7n-3<span class="token punctuation">)</span><span class="token selector">::after </span><span class="token punctuation">{</span>
+        <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>75% at 0 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 这里使用的是背景色 + Box-Shadow 画线。也可以使用 Border + Box-Shadow 画线</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 2px white<span class="token punctuation">,</span> 0 4px white<span class="token punctuation">,</span> 0 6px white<span class="token punctuation">,</span> 0 8px white<span class="token punctuation">,</span> 0 10px white<span class="token punctuation">,</span> 0 12px white<span class="token punctuation">,</span> 0 14px white<span class="token punctuation">,</span> 0 16px white<span class="token punctuation">,</span> 0 18px white<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 2px 0 white<span class="token punctuation">,</span> 4px 0 white<span class="token punctuation">,</span> 6px 0 white<span class="token punctuation">,</span> 8px 0 white<span class="token punctuation">,</span> 10px 0 white<span class="token punctuation">,</span> 12px 0 white<span class="token punctuation">,</span> 14px 0 white<span class="token punctuation">,</span> 16px 0 white<span class="token punctuation">,</span> 18px 0 white<span class="token punctuation">;</span>
+        <span class="token property">transition</span><span class="token punctuation">:</span> .6s<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token comment">// 鼠标悬浮时显示所有的线条（为了使 Clip-Path 有过渡效果，这里不能直接去掉属性，而是要换一个较大的值）</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+      <span class="token selector">.node </span><span class="token punctuation">{</span>
+        <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+          <span class="token property">animation</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+          <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>150% at 0% 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token atrule"><span class="token rule">@keyframes</span> card-7-grow</span> <span class="token punctuation">{</span>
+    <span class="token keyword">from</span> <span class="token punctuation">{</span>
+      <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>50% at 0 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">50% </span><span class="token punctuation">{</span>
+      <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>50% at 0 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">to </span><span class="token punctuation">{</span>
+      <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>150% at 0 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="no-name-2">No Name 2</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/browser_OK4VHnjq1J.png" alt="" loading="lazy"><figcaption>无题</figcaption></figure> <p>这个玩意儿是上一张图的升级版本，误导可能在会猜测伪元素是点，而不是线，然后用空出的一个伪元素去构造菱形格子内其它东西。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  .<span class="token property">card</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>8<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">border</span><span class="token punctuation">:</span> solid 8px #71A2DB<span class="token punctuation">;</span>
+      <span class="token property">border-top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+      <span class="token property">border-left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> #71A2DB<span class="token punctuation">;</span>
+      <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">polygon</span><span class="token punctuation">(</span>50% 0<span class="token punctuation">,</span> 100% 50%<span class="token punctuation">,</span> 50% 100%<span class="token punctuation">,</span> 0% 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> .3s<span class="token punctuation">;</span>
+      <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+      <span class="token comment">// 给一部分格子去掉 Border</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n-1<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>5n<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>6n<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>7n-3<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+        <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+          <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">circle</span><span class="token punctuation">(</span>30%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 将一部分格子裁剪为菱形区域。Clip-Path 四个值对应菱形四个顶点位置。</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>2n<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      &amp;<span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span>3n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> solid 8px #CCDDF2<span class="token punctuation">;</span>
+        <span class="token property">clip-path</span><span class="token punctuation">:</span> <span class="token function">polygon</span><span class="token punctuation">(</span>50% 0<span class="token punctuation">,</span> 100% 50%<span class="token punctuation">,</span> 50% 100%<span class="token punctuation">,</span> 0% 50%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 2px white<span class="token punctuation">,</span> 0 4px white<span class="token punctuation">,</span> 0 6px white<span class="token punctuation">,</span> 0 8px white<span class="token punctuation">,</span> 0 10px white<span class="token punctuation">,</span> 0 12px white<span class="token punctuation">,</span> 0 14px white<span class="token punctuation">,</span> 0 16px white<span class="token punctuation">,</span> 0 18px white<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+        <span class="token property">height</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 2px 0 white<span class="token punctuation">,</span> 4px 0 white<span class="token punctuation">,</span> 6px 0 white<span class="token punctuation">,</span> 8px 0 white<span class="token punctuation">,</span> 10px 0 white<span class="token punctuation">,</span> 12px 0 white<span class="token punctuation">,</span> 14px 0 white<span class="token punctuation">,</span> 16px 0 white<span class="token punctuation">,</span> 18px 0 white<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="挤冰淇淋">挤冰淇淋</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/tLBNQ2phFI.gif" alt="" loading="lazy"><figcaption>挤冰淇淋图案</figcaption></figure> <p>(⊙﹏⊙)，我不是故意画这么恶心的，是因为他要用到 CSS contrast 滤镜，这个滤镜会增加对比度，提亮亮色。</p> <p>融合效果的原理是这样的：在父元素使用一个 contrast 滤镜，在子元素使用 blur 滤镜，会发现，子元素在互相接近时，会产生融合效果。</p> <p>图片边框的处理方法应该很常见了，用 Background-Image 就能搞定，此外，《CSS Secret》还提到一种使用 Background 渐变叠加的方式产生图片边框，各位也可以尝试以下（广告：来 Lionad 的<a href="https://jq.qq.com/?_wv=1027&amp;k=5FnYN8L" target="_blank" rel="noopener noreferrer">全干交流群</a> 805392878，群里有各种书籍资料以及好玩的东西）</p> <p>下面就直接给代码了。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token comment">// 可以看到父元素用到了 filter: contrast 滤镜</span>
+  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-end<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> solid .5em transparent<span class="token punctuation">;</span>
+    <span class="token property">border-image</span><span class="token punctuation">:</span> 8 <span class="token function">repeating-linear-gradient</span><span class="token punctuation">(</span>-45deg<span class="token punctuation">,</span> #F5E66C 0<span class="token punctuation">,</span> #F5E66C .5em<span class="token punctuation">,</span> transparent 0<span class="token punctuation">,</span> transparent 1em<span class="token punctuation">,</span> #DA60D2 0<span class="token punctuation">,</span> #DA60D2 1.5em<span class="token punctuation">,</span> transparent 0<span class="token punctuation">,</span> transparent 2em<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+    <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">contrast</span><span class="token punctuation">(</span>10<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 给每个格子分别设定背景颜色和动画延迟</span>
+    <span class="token property"><span class="token variable">$background</span></span><span class="token punctuation">:</span><span class="token punctuation">(</span>#DA60D2<span class="token punctuation">,</span> #E7667E<span class="token punctuation">,</span> #E7667E<span class="token punctuation">,</span> #F5866C<span class="token punctuation">,</span> #F5866C<span class="token punctuation">,</span> #F5E66C<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">@for</span> <span class="token variable">$i</span> <span class="token keyword">from</span> 1 <span class="token keyword">through</span> <span class="token selector">6 </span><span class="token punctuation">{</span>
+      .<span class="token property">node</span><span class="token punctuation">:</span><span class="token function">nth-child</span><span class="token punctuation">(</span><span class="token variable">#{$i}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token function">80-</span><span class="token punctuation">(</span>10 <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">-</span> 1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>+<span class="token function">unquote</span><span class="token punctuation">(</span><span class="token string">'px'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">animation</span><span class="token punctuation">:</span> card-6 .8s ease-in <span class="token punctuation">(</span>0.1*<span class="token variable">$i</span><span class="token punctuation">)</span>+<span class="token function">unquote</span><span class="token punctuation">(</span><span class="token string">'s'</span><span class="token punctuation">)</span> alternate infinite<span class="token punctuation">,</span> card-6-margin .8s ease-in alternate infinite<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">nth</span><span class="token punctuation">(</span><span class="token variable">$background</span><span class="token punctuation">,</span> <span class="token variable">$i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token comment">// 格子使用了 blur 滤镜</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">flex-basis</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+      <span class="token property">margin-top</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+      <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">blur</span><span class="token punctuation">(</span>5px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token comment">// 鼠标悬浮时暂停动画，因为子元素的融化效果，所以需要把字体调粗一些</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;Paused&quot;</span><span class="token punctuation">;</span>
+        <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+        <span class="token property">font-weight</span><span class="token punctuation">:</span> bolder<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">.node </span><span class="token punctuation">{</span>
+        <span class="token property">animation-play-state</span><span class="token punctuation">:</span> paused<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token atrule"><span class="token rule">@keyframes</span> card-6</span> <span class="token punctuation">{</span>
+      <span class="token keyword">from</span> <span class="token punctuation">{</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 50%<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">to </span><span class="token punctuation">{</span>
+        <span class="token property">width</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token atrule"><span class="token rule">@keyframes</span> card-6-margin</span> <span class="token punctuation">{</span>
+      <span class="token keyword">from</span> <span class="token punctuation">{</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> -13px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">to </span><span class="token punctuation">{</span>
+        <span class="token property">margin-top</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="lionad">Lionad</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/uhhDQH3g3L.gif" alt="" loading="lazy"><figcaption>Lionad的名称</figcaption></figure> <p>马上就到胜利的尾声了，坚持住！w(ﾟДﾟ)w</p> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card 5<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>      
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>node<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>   
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>这是我们第一次碰上背景移动的情况，不过这张图片组成简单，以下是分析。</p> <ul><li><p>背景的移动不外乎都是 CSS Animation + Background-* 属性完成的。此图的背景渐变是一个简单的 45deg 的两条纹理渐变，推测背景使用了 Animation + Background-Position 进行平移。</p></li> <li><p>再看文字部分，易得文字是由一个带 180deg 渐变的背景 + Text-Shadow 组成。</p> <p>文字可以使用渐变背景？对，通过 Background-Clip 可以实现文字对背景图案裁剪功能。</p> <p>由于 Text-Shadow 的颜色比渐变深，但是观察发现 Text-Shadow 并没有被裁剪进入字体中，推断文字应该是由两个伪元素组成的，使用 Background-Clip 属性的伪元素层级要比使用 Text-Shadow 的伪元素高。</p></li> <li><p>最后是文字下面两道横线。这个的画实现方法太多了，双伪元素 Border 也可，Box-Shadow 也可，Border-Image 也可，Background-Image 也可...</p></li></ul> <p>下面看源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>45deg<span class="token punctuation">,</span> #F5CB6C 0%<span class="token punctuation">,</span>#F5CB6C 20%<span class="token punctuation">,</span>#F5856C 20%<span class="token punctuation">,</span> #F5856C 45%<span class="token punctuation">,</span>#F5CB6C 45%<span class="token punctuation">,</span>#F5CB6C 70%<span class="token punctuation">,</span>#F5856C 70%<span class="token punctuation">,</span> #F5856C 95%<span class="token punctuation">,</span>#F5CB6C 95%<span class="token punctuation">,</span>#F5CB6C 100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span>30px 30px<span class="token punctuation">;</span>
+    <span class="token property">background-position</span><span class="token punctuation">:</span>0 0<span class="token punctuation">;</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> card-5 1s infinite linear<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token comment">// 使用 Background-Clip 的伪元素</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::before </span><span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;Lionad&quot;</span><span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -1.5em<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -.7em<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+        <span class="token property">font-family</span><span class="token punctuation">:</span> didot<span class="token punctuation">;</span>
+        <span class="token property">font-weight</span><span class="token punctuation">:</span> bolder<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>180deg<span class="token punctuation">,</span> #F5CB6C<span class="token punctuation">,</span> #F5856C<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">background-size</span><span class="token punctuation">:</span> 1px 2px<span class="token punctuation">;</span>
+        <span class="token property">background-clip</span><span class="token punctuation">:</span> text<span class="token punctuation">;</span>
+        <span class="token property">-webkit-background-clip</span><span class="token punctuation">:</span> text<span class="token punctuation">;</span>
+        <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  
+      <span class="token comment">// 生产 Text-Shadow 的伪元素</span>
+      <span class="token selector"><span class="token parent important">&amp;</span>::after </span><span class="token punctuation">{</span>
+        <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;Lionad&quot;</span><span class="token punctuation">;</span>
+        <span class="token property">left</span><span class="token punctuation">:</span> -1.5em<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -.7em<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+        <span class="token property">font-family</span><span class="token punctuation">:</span> didot<span class="token punctuation">;</span>
+        <span class="token property">font-weight</span><span class="token punctuation">:</span> bolder<span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+        <span class="token property">text-shadow</span><span class="token punctuation">:</span> 4px 4px 0px #F5856C<span class="token punctuation">;</span>
+        <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 5px 0px #F5CB6C<span class="token punctuation">,</span> 0 12px 0px #F5856C<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token atrule"><span class="token rule">@keyframes</span> card-5</span> <span class="token punctuation">{</span>
+      <span class="token selector">0%</span><span class="token punctuation">{</span>
+        <span class="token property">background-position</span><span class="token punctuation">:</span> 0 0<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token selector">100%</span><span class="token punctuation">{</span>
+        <span class="token property">background-position</span><span class="token punctuation">:</span> 30px 0<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="万花筒">万花筒</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/rstkkpB6P1.gif" alt="" loading="lazy"><figcaption>万花筒图案</figcaption></figure> <div class="language-HTML extra-class"><pre class="language-html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card 10<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>card 11<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>把这两个图案放到一起是因为思路是一样的。实话说，第一次见到这种花纹，我也对这莫名其妙的色彩变化一脸懵逼，所以这里就直接讲原理了。</p> <ul><li><p>两张图片都是用渐变画的，仔细观察能发现左边和右边的图案都是三层渐变的叠加。</p> <p>不同的地方在于，左图最小的那层渐变是辐射渐变（Radial-Gradient），右图的则是圆锥渐变（英文叫 Conic-Gradient，饼图就可以用这玩意儿画）</p></li> <li><p>莫名其妙的颜色变换（如左图中心点）使用的是 CSS 混合模式（CSS Blend-Mode）效果，它负责计算当两种色彩层叠在一起时最终显示的颜色，可以理解为滤镜。</p></li> <li><p>背景移动之前看过，左图是变换 Background-Position，右图是变换 Background-Size</p></li></ul> <p>以下是源码。</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token comment">// 右图的样式代码</span>
+  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    
+    <span class="token comment">// 这里使用了三层背景渐变，两层圆锥渐变和一层辐射渐变</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span>
+      <span class="token function">repeating-conic-gradient</span><span class="token punctuation">(</span>red 50%<span class="token punctuation">,</span> #E1F5C4 60%<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function">repeating-conic-gradient</span><span class="token punctuation">(</span>red 50%<span class="token punctuation">,</span> #E1F5C4 60%<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token function">radial-gradient</span><span class="token punctuation">(</span>
+        gold 0%<span class="token punctuation">,</span> gold 35%<span class="token punctuation">,</span>
+        red 35%<span class="token punctuation">,</span> red 40%<span class="token punctuation">,</span>
+        orangered 40%<span class="token punctuation">,</span> orangered 50%<span class="token punctuation">,</span>
+        gold 50%<span class="token punctuation">,</span> gold 60%<span class="token punctuation">,</span>
+        yellowgreen 60%<span class="token punctuation">,</span> yellowgreen 70%<span class="token punctuation">,</span>
+        skyblue 70%<span class="token punctuation">,</span> skyblue 80%<span class="token punctuation">,</span>
+        steelblue 80%<span class="token punctuation">,</span> steelblue 90%<span class="token punctuation">,</span>
+        violet 90%
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// 对每一层被渐变分别设置混合模式</span>
+    <span class="token property">background-blend-mode</span><span class="token punctuation">:</span> 
+      lighten<span class="token punctuation">,</span> 
+      overlay<span class="token punctuation">,</span>
+      lighten<span class="token punctuation">;</span> 
+    
+    <span class="token comment">// 对每一层被渐变分别设置背景大小（40px 是因为正好能被 200px 的盒子整除）</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span> 
+      40px 40px<span class="token punctuation">,</span>
+      6em 6em<span class="token punctuation">,</span>
+      8em 8em<span class="token punctuation">;</span>
+    <span class="token property">background-position</span><span class="token punctuation">:</span> 50% 50%<span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> .45s ease-in<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  
+    <span class="token comment">// 鼠标悬浮时，变换渐变大小</span>
+    <span class="token selector"><span class="token parent important">&amp;</span>:hover </span><span class="token punctuation">{</span>
+      <span class="token property">background-size</span><span class="token punctuation">:</span> 
+        40px 40px<span class="token punctuation">,</span>
+        4em 4em<span class="token punctuation">,</span>
+        12em 12em<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><h3 id="トラ酱-tiger酱">トラ酱（Tiger酱）</h3> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/browser_Uufg8gfFWn.png" alt="" loading="lazy"><figcaption>Lionad的头像</figcaption></figure> <p>一整图片而已，有啥了不起的？</p> <p>不，这不是图片。</p> <p>你以为有外链么？不，没有。这是仅用 Box-Shadow 绘制成的トラ酱。</p> <p>它的 CSS 代码长这样：</p> <div class="language-SCSS extra-class"><pre class="language-scss"><code>  <span class="token comment">// 灰色 Border</span>
+  <span class="token selector">.card </span><span class="token punctuation">{</span>
+    <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+    <span class="token property">align-items</span><span class="token punctuation">:</span> flex-start<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> solid 10px #eee<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  
+    <span class="token comment">// トラ酱</span>
+    <span class="token selector">.node </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 1px<span class="token punctuation">;</span>
+      <span class="token property">box-shadow</span><span class="token punctuation">:</span> ????? 你猜，使劲儿猜这后面有多长
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>至于具体原理的话，害，看我掘金的上篇文章吧。</p> <hr> <h2 id="练习题">练习题</h2> <p>最后，这里有几个需要稍微思考的练习，给尚存斗志的同学实践~~（我不是白嫖！）~~。</p> <ol><li>《トラ酱》，利用 Box-Shadow + CSS Animation 实现 GIF 的播放</li> <li>《冰崖上生长的仙人掌》，能不能让这些横着长的仙人掌生长的长度超过两格？</li></ol> <p>哦对了，千万别问我这些练习题有啥用。</p> <p>这些练习题的作用就和我画的这些图案一样——我也不知道有啥用，只是好玩。</p> <p>话说回来，掘金上的老哥们都是技术流选手，每天都投面试的文章，太死板了。都不整些花里胡哨的东西，难怪找不到女票~~（如有雷同，请对号入座，手动狗头(￣ε(#￣)）~~。</p> <hr> <h2 id="last-but-important"><strong>LAST BUT IMPORTANT</strong></h2> <p style="color:red;font-weight:bold;">点赞、关注、评论三连，三天后从掘金文章评论中抽奖送一本<a rel="nofollow" href="https://book.douban.com/subject/5323008/">《超越平凡的版式设计》</a></p> <p>这是一本不错的排版案例参考。</p> <p>前端工程师也要好好学设计哟~ ヽ(￣ω￣(￣ω￣〃)ゝ</p> <figure data-type="image"><img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/TIM20200416035604.jpg" alt="" loading="lazy"><figcaption>《超越平凡的版式设计》</figcaption></figure> <h2 id="阅读更多">阅读更多</h2> <p>本文撰写时用到的相关网站或是参考资料</p> <ul><li><a href="https://css-doodle.com/" target="_blank" rel="noopener noreferrer">CSS Doodle</a> : CSS Patterns 终极解决方案</li> <li><a href="https://nipponcolors.com" target="_blank" rel="noopener noreferrer">NIPPON COLORS</a> : 一个好看的日系配色网站</li> <li><a href="https://www.oxxostudio.tw/articles/201408/sticky-ball.html" target="_blank" rel="noopener noreferrer">OXXO STUDIO</a> : 质量很高的前端博客，《挤冰淇淋》中的效果就这来的</li> <li><a href="https://codepen.io/swifty_star4/pen/QPgaxe" target="_blank" rel="noopener noreferrer">Code Pen @JiaQianKoh</a> : 这个页面有各种渐变特效</li> <li><a href="http://www.patternify.com" target="_blank" rel="noopener noreferrer">Patternify</a> : 有意思的像素背景生成网站，终于不用写代码了害...</li> <li><a href="https://leaverou.github.io/css3patterns/" target="_blank" rel="noopener noreferrer">CSS3 Patterns</a> : 《CSS Secrets》作者写的 CSS Patterns 网站，不必我多说了吧...</li></ul> <p>我的博客有源码 <a href="http://localhost:8080/articles/9%E5%BC%A0%E7%9C%8B%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%9F%E5%86%99%E4%B8%8D%E5%87%BA%E6%9D%A5%E7%9A%84CSS%E5%9B%BE%E6%A1%88.html" target="_blank" rel="noopener noreferrer">Lionad's Blog</a>。</p> <p>转载随意，注明出处掘金及名 Lionad 即可。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">本文最后更新于:</span> <span class="time">April 27 2022 16:05</span></div></footer> <!----> <div id="page-bottom" data-v-7b64de4a><a href="/rss.xml" target="_blank" class="rss" data-v-7b64de4a>RSS 订阅</a> <a href="/friends/" target="_blank" class="friends" data-v-7b64de4a>Friends &amp; Me</a></div></main></div><div class="global-ui"><Comment></Comment></div></div>
+    <script src="/assets/js/app.a3c6d88b.js" defer></script><script src="/assets/js/layout-Layout.4f71e0d9.js" defer></script><script src="/assets/js/vendors~layout-Layout.e1a4d7b9.js" defer></script><script src="/assets/js/zhongtuanjiexi.b3fdeded.js" defer></script>
+  </body>
+</html>
