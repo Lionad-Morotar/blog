@@ -59,6 +59,8 @@ RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
 2. 启动容器：docker run -p 8081:7001 -it 5d0c03824600 sleep 999m
 3. 进入并调试：docker exec -it name /bin/bash
 
+`-p 8081:7001`，把本机的 8081 端口绑定到 Container 的 7001 端口。
+
 ## 常见问题
 
 关闭 Hyper-V：`bcdedit /set hypervisorlaunchtype off`
