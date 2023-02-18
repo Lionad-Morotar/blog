@@ -138,9 +138,14 @@ module.exports = {
       selector: '.content__default',
       count: 10,
       filter: page => {
-        // const shouldConvert = /^articles\/((ideas\/)|([^\/]*\.md$))/.test(page.relativePath)
-        // const manual = ['art']
-        return false
+        const shouldConvert = /^articles\/([^\/]*\.md$)/.test(page.relativePath)
+        if (/image-format/.test(page.relativePath)) {
+          return false
+        }
+        if (/error-handling/.test(page.relativePath)) {
+          return false
+        }
+        return shouldConvert
       }
     },
     sitemap: {
