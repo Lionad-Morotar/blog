@@ -144,12 +144,12 @@ module.exports = {
     return {
       心流: {
         url: '/flows/long-night-dream.html',
-        label: '长夜梦'
+        label: '长夜梦',
       },
       技术: {
-        url: '/articles/zindex-manager.html',
-        label: '一统多组件库的层叠顺序'
-      }
+        url: '/articles/use-scrollbars.html',
+        label: '怎样定制复杂组件的自定义滚动条',
+      },
     }
   }
 }
