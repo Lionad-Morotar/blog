@@ -59,8 +59,8 @@ const sidebars = [
       'flows/my-shy',
       'flows/drinking-while-thinking',
       'flows/escape-from-mysticism',
-      'flows/zfold'
-    ]
+      'flows/zfold',
+    ],
   },
   {
     title: '技术博客 / Coder',
@@ -69,6 +69,7 @@ const sidebars = [
     open: true,
     path: '/articles/',
     children: [
+      'articles/use-scrollbars',
       // 'articales/even-more-modern-error-handling',
       // 'articles/image-format',
       'articles/zindex-manager',
@@ -88,29 +89,29 @@ const sidebars = [
       // 'articles/css-mind-map',
       'articles/fourty-two',
       'articles/source-code',
-      'articles/zfold'
-    ]
+      'articles/zfold',
+    ],
   },
   {
     title: '玩乐广场 / Paint',
     collapsable: true,
     open: false,
     path: '/awesome/',
-    children: getSRCs(awesomeDir, 'awesome/')
+    children: getSRCs(awesomeDir, 'awesome/'),
   },
   {
     title: '等待整理',
     collapsable: true,
     open: false,
     path: '/gists/',
-    children: getSRCs(gistsDir, 'gists/')
+    children: getSRCs(gistsDir, 'gists/'),
   },
   {
     title: '知识骨架',
     collapsable: true,
     open: false,
     path: '/maps/',
-    children: getSRCs(mapsDir, 'maps/')
+    children: getSRCs(mapsDir, 'maps/'),
   },
   {
     title: '吉他剧场',
@@ -124,16 +125,16 @@ const sidebars = [
       'music/eva',
       'music/miracle-mountain',
       'music/wu-wei',
-      'music/noname'
-    ]
+      'music/noname',
+    ],
   },
   {
     title: 'Secrets',
     collapsable: true,
     open: true,
     path: '/secrets/',
-    children: getSRCs(secretsDir, 'secrets/')
-  }
+    children: getSRCs(secretsDir, 'secrets/'),
+  },
 ]
 
 module.exports = {

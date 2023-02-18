@@ -359,6 +359,6 @@ del (key, obj = this.store) {
 
 在这篇文章中, 我们通过对 defineProperty 进行封装, 实现了一个简单的对象属性侦听器的功能, 以弥补小程序所没有的\$watch 能力. 在此基础上, 各位可以再对 VX 进行扩展, 更方便地去书写业务代码.
 
-完整代码[GitHub 直达](https://github.com/Lionad-Morotar/media-gear/blob/master/src/renderer/utils/suites/vx/index.js)
+完整代码 [GitHub 直达](https://github.com/Lionad-Morotar/media-gear/blob/master/src/renderer/utils/suites/vx/index.js)
 
 
