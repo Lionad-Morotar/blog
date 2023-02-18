@@ -53,7 +53,7 @@
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-rss-feed": "github:Lionad-Morotar/vuepress-plugin-rss",
     "vuepress-plugin-sitemap": "^2.3.1",
-    "webpack": "^5.75.0"
+    "webpack": "^4.46.0"
   },
   "pnpm": {
     "peerDependencyRules": {
