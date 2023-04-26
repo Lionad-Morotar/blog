@@ -60,7 +60,9 @@ tnpm 想给包管理工具提供一套方案，以解决所有恼人的问题。
 
 #### 如何锁定包管理器？
 
-可以使用环境变量中的 npm_execpath 或者 npm_config_user_agent，分别根据执行指令的包管理器具体路径、执行指令的包管理器具体版本及环境做判断。Vue3 和 Vite 分别使用了这两种办法限制特定的包管理器（Vite 实际使用了 only-allow 这个包）。
+1. 可以使用脚本判断环境变量中的 npm_execpath 或者 npm_config_user_agent，分别根据执行指令的包管理器具体路径、执行指令的包管理器具体版本（Vue3 和 Vite 分别使用了这两种办法限制特定的包管理器）。
+2. 使用 only-allow 包（Vite 使用这种方法）。
+3. 使用 Corepack 锁定包管理器
 
 ```js
 process.env.npm_execpath
@@ -70,6 +72,35 @@ process.env.npm_config_user_agent
 ```
 
 见：[preinstall 钩子和 only-allow](https://blog.csdn.net/Android062005/article/details/124794071)
+
+#### Corepack 是什么？
+
+Corepack 是 NodeJS v16.13、 v14.19.0 实装的包管理工具。
+
+* 配合 package.json 中的 packageManager 字段锁定库的包管理工具，如 `"packageManager": "pnpm@7.14.1"`
+
+常见问题：
+
+* Corepack 是实验功能，所以需要手动启用
+
+```bash
+corepack enable
+```
+
+* Corepack 不会拦截 npm，但可以启用对 npm 指令的拦截
+
+```bash
+corepack enable npm
+```
+
+* Corepack 自动安装了 NodeJS 发版时截至的最新的 yarn 和 pnpm，但是可以更新
+
+```bash
+corepack prepare pnpm@<version> --activate
+```
+
+见：[Corepack | NodeJS](https://nodejs.org/api/corepack.html)
+见：[NodeJS Corepack](https://juejin.cn/post/7111998050184200199)
 
 #### 如何锁定 NodeJS 版本？
 

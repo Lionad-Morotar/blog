@@ -74,3 +74,6 @@ https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729021114.png
 
 * JS 并发处理多个任务 property
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230219020750.png)
+
+* 常见的模式
+1. 迭代器模式 weekday
