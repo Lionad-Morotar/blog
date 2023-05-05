@@ -48,7 +48,7 @@ Yarn（V2）带来一种独特的依赖安装模式：[PnP（Plug'n'Play）](htt
 
 #### pnpm 解决了什么问题？
 
-2017 年，pnpm V1 通过统一依赖管理以及创建系统链接的方法一举解决了幽灵依赖和多重依赖的问题。所有项目的依赖都被统一安装到了磁盘特定位置。即使多个项目中用到相同的依赖也只会安装一次。此外，项目中的 node_modules 文件夹仍然是[结构化的](https://www.pnpm.cn/blog/2020/05/27/flat-node-modules-is-not-the-only-way)，所以比 PnP 有更好的兼容性。
+2017 年，pnpm V1 通过统一依赖管理以及创建系统链接的方法一举解决了幽灵依赖和多重依赖的问题。所有项目的依赖都被统一安装到了磁盘特定位置。即使多个项目中用到相同的依赖也只会安装一次。此外，项目中的 node_modules 文件夹仍然是 [结构化的](https://www.pnpm.cn/blog/2020/05/27/flat-node-modules-is-not-the-only-way)，所以比 PnP 有更好的兼容性。
 
 #### tnpm 的主要思路是什么？
 
@@ -57,6 +57,14 @@ tnpm 想给包管理工具提供一套方案，以解决所有恼人的问题。
 ![tnpm](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220318001222.png)
 
 ## 常见问题
+
+#### 包管理器差异？
+
+peerDependencies：
+
+* npm v3 ~ v6 不会自动安装 peerDependencies，见：[peerDependencies | npm](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#peerdependencies)
+* npm v6.x 没有考虑 peerDependencies 的依赖结构，容易在用户安装了和 peerDepend 的包的不同版本号的依赖时导致问题，见：[npm 与 yarn 对 peerDependencies 处理的差异 | 张立理](https://zhuanlan.zhihu.com/p/237532427)
+* pnpm 有特殊处理，见 [How peers are resolved | pnpm](https://pnpm.io/how-peers-are-resolved)
 
 #### 如何锁定包管理器？
 
