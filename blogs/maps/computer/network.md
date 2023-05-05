@@ -6,7 +6,7 @@
 
 #### 各网络层有哪些代表性的协议？
 
-应用层有 HTTP、DNS、FTP，表示层有 SSL、TSL、base64、MIDI、JPEG，会话层有xxx，传输层则是 TCP、UDP，网络层有 IP，数据链路层xxx，物理层有以太网协议。
+应用层有 HTTP、DNS、FTP，表示层有 SSL、TSL、base64、MIDI、JPEG，会话层有 xxx，传输层则是 TCP、UDP，网络层有 IP，数据链路层 xxx，物理层有以太网协议。
 
 ![OSI 参考模型](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620033400.png?type=win11&w=60)
 
@@ -14,9 +14,9 @@
 
 #### TCP/IP 是什么？
 
-TCP/IP 协议是一个协议集。TCP/IP 包括了应用层、传输层、网络层、数据链路层和网络层，是一个四层体系结构。各层有代表性的协议有 HTTP、DNS，TLS，IP 和xxx。
+TCP/IP 协议是一个协议集。TCP/IP 包括了应用层、传输层、网络层、数据链路层和网络层，是一个四层体系结构。各层有代表性的协议有 HTTP、DNS，TLS，IP 和 xxx。
 
-TODO，[终于有人能把TCP/IP协议讲的明明白白了！](https://developer.51cto.com/article/597961.html)
+TODO，[终于有人能把 TCP/IP 协议讲的明明白白了！](https://developer.51cto.com/article/597961.html)
 
 #### TCP Header 由哪些部分组成？
 
@@ -184,7 +184,7 @@ TLS 1.3 中，通讯双方可以得到一个“恢复主密钥”的密钥，用
 
 ### Links
 
-TODO，[深入理解HTTPS原理、过程与实践](https://zhuanlan.zhihu.com/p/26682342)
+TODO，[深入理解 HTTPS 原理、过程与实践](https://zhuanlan.zhihu.com/p/26682342)
 
 #### HTTPS 的握手过程是怎样的？
 
@@ -212,7 +212,7 @@ CA 主要是用来防范服务器端返回 Server Hello 前就和客户端提供
 
 SYN 洪水攻击是 DDOS 攻击中最常见的攻击类型。攻击者向服务器发送大量伪造的 TCP 连接请求，而源 IP 是伪造的。由于服务器收不到伪造源回应的 ACK 数据包，就会不断重发。一般应对方式是：减少重发次数、使用 [SYN Cookie](https://baike.baidu.com/item/syn%20cookie/6898884?fr=aladdin)、增加 backlog 队列长度、限制 SYN 并发数。
 
-见：[服务器遭到SYN攻击该如何处理呢？](https://www.qycn.com/about/hd/2049.html)
+见：[服务器遭到 SYN 攻击该如何处理呢？](https://www.qycn.com/about/hd/2049.html)
 
 ## CDN
 
@@ -241,6 +241,14 @@ SYN 洪水攻击是 DDOS 攻击中最常见的攻击类型。攻击者向服务�
 #### CORS 运作流程是怎样的？
 
 CORS 即跨域资源共享机制。浏览器在请求资源前通过携带 Origin 字段的 OPTIONS 请求向服务器索取设置有 Access-Control-Allow-Methods、Access-Control-Allow-Headers、Access-Control-Allow-Origin 的响应。在得到响应的允许后再继续发送请求。
+
+#### 什么是私有网络请求攻击？
+
+在内网域名向 localhost 发起请求就算一种私有网络请求。而恶意代码通过向比浏览器当前浏览页面的域名 IP 更私密的 IP 地址发起请求，以达到获取信息或攻击手段的方式就是私有网络请求攻击。
+
+自 Chrome 96 后， Chrome 开始实施私有网络控制策略，需要部署以下两个请求头以解除控制：`Access-Control-Request-Private-Network: true` 和 `Access-Control-Allow-Private-Network: true`
+
+见：[Chrome 重大更新，CORS 增加了两个新的请求头？ |  code 秘密花园](https://mp.weixin.qq.com/s?__biz=Mzk0MDMwMzQyOA==&mid=2247491913&idx=1&sn=2bb0a28358c02a8ec1832781205df72c&chksm=c2e11462f5969d74fac277131e1ba8c417ec86754b2f1b2dbe8e238ca27d5c2eaebe602ec803&token=1851580176&lang=zh_CN&scene=21#wechat_redirect)
 
 ## 阅读更多
 
