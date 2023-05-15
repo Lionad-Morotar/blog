@@ -22,7 +22,7 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [爬虫](/maps/web/crawler.html)
 * [小程序](/maps/web/miniapp.html)
 
-#### 框架
+#### [框架](/maps/framework/index.html)
 
 * [Micro FrontEnd](/maps/framework/micro-frontent.html)
 * [Vue](/maps/framework/vue.html)
@@ -93,7 +93,7 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 
 * [Hire Me](/hire-me/index.html)
 
-## 面试相关
+## 工作
 
 #### 简历
 
