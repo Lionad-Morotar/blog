@@ -196,7 +196,7 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 
 #### 动态 Import
 
-动态 Import 如近已经被大部分浏览器所支持：
+动态 Import 如今已经被大部分浏览器所支持。
 
 <!-- ![动态 Import 兼容性](./assets/2020-05-18-03-22-46.png) -->
 
