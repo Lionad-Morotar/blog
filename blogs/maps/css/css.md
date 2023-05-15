@@ -183,7 +183,7 @@ CSS2.2 的定位方案就三种，普通流定位，浮动定位或是绝对定�
 
 布局时，VFM 依据盒子的类型生成格式化上下文，有 BFC（Block Formatting Context） 或是 IFC 等。格式化上下文使盒子在界面上形成一个独立的，不影响外界的容器。
 
-最直观的感受肯定是 HTML 元素，即根元素，它是浏览器中最重要的一个独立的不影响外界的容器。根元素会创建 BFC，在一些情况下，其它元素也会。这里有 MDN 的一份创建 BFC 方法的[清单](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)：
+最直观的感受肯定是 HTML 元素，即根元素，它是浏览器中最重要的一个独立的不影响外界的容器。根元素会创建 BFC，在一些情况下，其它元素也会。这里有 MDN 的一份创建 BFC 方法的 [清单](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)：
 
 - 根元素
 - 浮动元素
@@ -337,7 +337,7 @@ Line Height & Vertical Align，先挖坑，以后再跳。想要详细了解的�
 
 #### vertical-align 默认对齐哪里？
 
-vertical-align 必须在内联元素中才能起作用，默认值是 baseline，将对齐父元素的基线，即字母x的底端。
+vertical-align 必须在内联元素中才能起作用，默认值是 baseline，将对齐父元素的基线，即字母 x 的底端。
 
 #### letter-spacing 与 word-spacing 的区别？
 
@@ -388,6 +388,28 @@ article {
 </details>
 
 ## CSS New
+
+#### Counter 计数的用处？
+
+* 在导航、文章目录等地方使用 counter 计数自增实现章节功能
+* 使用 counter 自增来处理 CSS 参数，如 [Sliding Enter Animation | antfu](https://antfu.me/posts/sliding-enter-animation)，虽然目前代码不能运行，但思路很有启发性
+
+```css
+.slide-enter-content {
+  counter-reset: enter-count;
+}
+.slide-enter-content > p {
+  --stagger: 0;
+  --delay: 150ms;
+  --start: 0ms;
+  animation: slide-enter 1s both 1;
+  animation-delay: calc(var(--start) + var(--stagger) * var(--delay));
+}
+.slide-enter-content > p {
+  counter-increment: enter-count;
+  --stagger: counter(enter-count);
+}
+```
 
 #### JS 如何与 CSS 变量交互？
 
@@ -550,7 +572,6 @@ ITCSS 使用倒立的三角形表示项目的样式继承关系。三角中的�
         <li>一般来说，可以改变块级元素的 Display，改为 Inline Block，于是我们又可以通过 Text Align 居中了</li>
         <p>
             <div class="bg-gray" style="padding: 10px; text-align: center">
-                <div style="display: inline-block; width: 30%; height: 45px; line-height: 45px; text-align: center; border: 1px solid;">Block</div>
                 <div style="display: inline-block; width: 30%; height: 45px; line-height: 45px; text-align: center; border: 1px solid;">Block</div>
             </div>
         </p>
