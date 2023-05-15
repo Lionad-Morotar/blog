@@ -8,11 +8,11 @@ TODO，[JavaScript 核心原理解析](https://time.geekbang.org/column/article/
 
 #### 语言类型和规范类型的关系是怎么样的？
 
-规范定义了 Null、Undefined、Object、String、Symbol、Number、BigInt、Boolean 总计[共 8 种语言类型](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types)。规范类型是为了更好的表述语言类型而存在的，比如有 List、Record、Completion、Environment Record 等。
+规范定义了 Null、Undefined、Object、String、Symbol、Number、BigInt、Boolean 总计 [共 8 种语言类型](https://262.ecma-international.org/12.0/#sec-ecmascript-language-types)。规范类型是为了更好的表述语言类型而存在的，比如有 List、Record、Completion、Environment Record 等。
 
 #### 简单介绍一下原型和原型链机制？
 
-每一个对象都会有一个[内部属性 proto](https://262.ecma-international.org/12.0/#sec-object.prototype.__proto__) 指向它的原型，用来实现属性继承。如果访问对象的某个属性，在对象内部找不到，则会去原型上找。内部属性 proto 将 JS 中的对象依次连接起来，这种链式的关系就称作原型链。
+每一个对象都会有一个 [内部属性 proto](https://262.ecma-international.org/12.0/#sec-object.prototype.__proto__) 指向它的原型，用来实现属性继承。如果访问对象的某个属性，在对象内部找不到，则会去原型上找。内部属性 proto 将 JS 中的对象依次连接起来，这种链式的关系就称作原型链。
 
 #### 原型，构造函数之间有什么联系？
 
@@ -316,6 +316,8 @@ function cloneDeep (obj) {
   }, {})
 }
 ```
+
+此外，还可以尝试通过 MessageChanel 通讯机制让浏览器处理深拷贝。
 
 #### 将列表数据转树？
 
