@@ -2,6 +2,16 @@
 
 [TOC]
 
+## tsup
+
+#### tsup 是什么？
+
+tsup 是一个基于 ESBuild、SWC 的小型大宝漆，允许用户使用非常简单的配置项来编译 TS 项目生成目标代码。
+
+默认支持 NodeJS 生态相关文件如 .cjs、.esm、.json，有多入口、类型生成、编译格式（cjs、esm、iife）、编译目标（浏览器等）、代码切分、支持 hashbang、watch、压缩等能力。运行命令行或代码调用，一个典型的使用案例是：`tsup src/index.ts --format cjs,esm --dts`
+
+见：[publish-esm-and-cjs#tsup | antfu](https://antfu.me/posts/publish-esm-and-cjs#tsup)、[tsup document](https://tsup.egoist.dev/)
+
 ## Webpack
 
 * [Webpack]('/maps/workflow/packer/webpack.html')
@@ -10,7 +20,9 @@
 
 #### unbuild 的 stub 模式是什么意思？
 
-unbuild 的 stub 模式意味着只需要启动一个文件监听进程，就可以监听不同项目的代码的改变并触发对应项目的重新构建。可以配合 Monorepo 使用。为了达到这一效果，unbuild 使用 jiti 库，后者通过 Node Require Hook，将 TS 或 ESM 文件作为输入，以在运行时无缝支持 TS 及 ESM 文件的读取。
+stub 即插桩。unbuild 的插桩模式意味着只需要启动一个文件监听进程，就可以监听不同项目的代码的改变并触发对应项目的重新构建。配合 Monorepo 使用，修改某个包不需要触发重新构建，达到类似热更新的效果。
+
+见：[还在用 rollup 打包库？试试 unbuild 吧 | markthree](https://juejin.cn/post/7203968787325992997)、[publish-esm-and-cjs#stubbing | antfu](https://antfu.me/posts/publish-esm-and-cjs#stubbing)
 
 ## Rome
 
