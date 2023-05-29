@@ -69,7 +69,7 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 见：[TODO，类型体操](/maps/typescript/type-gymnastics.md)
 
-## 观点
+## 经验
 
 #### [大规模采用 TypeScript 之后的 10 个见解](https://blog.csdn.net/yeluoxiang/article/details/111602386)
 
@@ -101,3 +101,19 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 * 对输出添加类型注释，显式类型注释可以强制指定引用的行为，防止内联
 
 <q>Type Shaking 有时会效果极为显著。我们曾经遇到过一些包中超过 90% 文件中有超过 90% 的类型定义行是可以去掉的。</q>
+
+## 反对
+
+#### [“TypeScript 不值得！”前端框架 Svelte 作者宣布重构代码，反向迁移到 JavaScript 引争议](https://mp.weixin.qq.com/s?src=11&timestamp=1685334730&ver=4557&signature=YHLVy3Pb0b4pKL4-x5Qn7MHu71CQCnJfE04W3iJTm1pQ0X-LgQ6kLfW9TMnfXmTHvmM1YN-xRsFsuAlSKCePE-Goat-MdhOzQqvIVcMl6kPLpJ10vTrrRmwQRZljDCoD&new=1)
+
+2023 年 5 月 9 日，Svelte 团队发布 TS to JSDoc Conversion 的 PR，讨论点在 JSDoc 对类型开发的友好程度不如 TS。作者 Rich Harris 表示原因比较复杂。
+
+![原因](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230529124336.png)
+
+<q>团队在 Sveltekit 中尝试这么做并取得了良好效果，所以想在  Svelte 4.0 也这么做。</q>
+
+<q>“这就没必要了，因为在构建应用程序的过程中，大家无论如何都需要构建的步骤。应用开发的重点在于优化代码、控制它的体量，并把一切都捆绑起来。但如果是想构建一个库，那我强烈建议改用 JSDoc。”</q>
+
+如果是构建应用程序，没必要转向 JSDoc。
+
+对 Svelte 而言，框架本身没有放弃类型安全；对开发者而言，能降低贡献门槛；对用户而言，代码直接指向源码方便调试，也助于能减小代码体积。

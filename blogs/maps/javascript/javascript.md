@@ -2,7 +2,7 @@
 
 [TOC]
 
-## ECMA 规范
+## ECMA 规范相关
 
 TODO，[JavaScript 核心原理解析](https://time.geekbang.org/column/article/164312)
 
@@ -142,6 +142,18 @@ console.log(Object.prototype.__proto__)
   eval('var x = 2')
   return x
 })()
+```
+
+## 语言特性
+
+### ESM（ES Module）
+
+#### 如何在 CJS 模块中引用 ESM 模块代码
+
+可以使用动态 import 实现；直接使用 require 导入 ESM 会报错。
+
+```js
+const { default: pkg } = await import('esm-pkg')
 ```
 
 ## 手写代码
