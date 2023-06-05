@@ -13,3 +13,6 @@ huaweiyun.js
 .osssync.json
 .ftc/
 *.log
+
+// obsidian
+workspace.json

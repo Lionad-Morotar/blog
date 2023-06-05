@@ -69,7 +69,13 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [Serverless](/maps/cloud-native/serverless.html)
 * [DevOps](/maps/cloud-native/devops.html)
 
-## 协作
+## 测试
+
+#### E2E
+
+- [Playwright](/maps/test/tools/playwright.html)
+
+## 工程
 
 #### 团队协作
 

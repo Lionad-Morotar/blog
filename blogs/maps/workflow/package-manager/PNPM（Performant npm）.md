@@ -166,3 +166,10 @@ node_modules
 $PNPM_HOME="<path>" | pnpm install -g xxx
 ```
 
+#### PNPM 速度变慢了？
+
+今天逛官网时，偶然发现 Readme 中的 benchmark 过时了。它说“要比 Yarn Classic 和 npm “快两倍以上，但是从 benchmark 来看，他要比 Yarn 和 npm 慢了不少。以后启用 NodeJS 20 以上时，如果问题得不到改善，我应该会重新选择 npm 而不是 pnpm，鉴于幽灵依赖和依赖分身带来的问题是可排查可解决的，而速度是解决不了的问题。
+
+![pnpm vs npm vs yarn benchmark](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230605235736.png)
+
+相关见：[pnpm seems to be consistently slower than yarn (classic)](https://github.com/pnpm/pnpm/issues/6447)
