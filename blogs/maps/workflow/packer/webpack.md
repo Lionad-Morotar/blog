@@ -1,5 +1,3 @@
-# webpack
-
 [TOC]
 
 <div style="position: relative; padding: 20px; background: #2b3a42;">

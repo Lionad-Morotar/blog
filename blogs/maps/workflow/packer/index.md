@@ -16,6 +16,10 @@ tsup 是一个基于 ESBuild、SWC 的小型大宝漆，允许用户使用非常
 
 * [Webpack]('/maps/workflow/packer/webpack.html')
 
+## Rspack
+
+* [Rspack](./rspack.md)
+
 ## Unbuild
 
 #### unbuild 的 stub 模式是什么意思？
