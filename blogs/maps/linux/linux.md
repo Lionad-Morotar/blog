@@ -4,6 +4,10 @@
 
 ## 系统原理
 
+#### Linux 内核是如何分层的？
+
+!(Linux Kernel)[https://makelinux.github.io/kernel/diagram/]
+
 #### 什么是零拷贝技术？
 
 TODO review
