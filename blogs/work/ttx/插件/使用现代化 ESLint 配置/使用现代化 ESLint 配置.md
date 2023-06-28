@@ -4,9 +4,22 @@
 
 ## 操作步骤
 
-1. 移除 package.json 中 eslint 和 prettier 相关依赖。
+1. 移除 package.json 中 eslint 和 prettier 相关依赖，以及移除 TypeScript@5。
 2. `pnpm install @rushstack/eslint-patch@^1.1.4 @types/node@^18.11.12 @vue/eslint-config-prettier@^7.0.0 @vue/eslint-config-typescript@^11.0.0 eslint@^8.22.0 eslint-plugin-vue@^9.3.0 prettier@^2.7.1 @vue/tsconfig@^0.1.3 typescript@~4.7.4 -D`
 3. 添加 `.prettierrc.json` 文件。如果项目中已经又 prettier 配置（如 package.json 中 prettier 字段），需要转移到对应的文件。
+
+```prettier
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": false,
+  "trailingComma": "es5",
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "printWidth": 120
+}
+```
+
 4. 添加 `.eslintrc.cjs` 文件。如果项目中已有配置，需同步。
 
 ```js
@@ -42,8 +55,19 @@ module.exports = {
 };
 ```
 
-5. 删除 jsconfig.json
-6. 增加 `tsconfig.json` 和 `tsconfig.config.json` 文件。如果项目已有配置，需同步。
+5. 移除项目 eslintignore 文件，使用 .eslintrc.cjs 中的 ignorePatterns 作为替代
+
+```json
+{
+  ignorePatterns: [
+    ".vscode",
+    "**/secrets/**/*"
+  ]
+}
+```
+
+6. 删除 jsconfig.json
+7. 增加 `tsconfig.json` 和 `tsconfig.config.json` 文件。如果项目已有配置，需同步。
 
 tsconfig.json
 

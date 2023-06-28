@@ -1,0 +1,12 @@
+!**/*.json
+.husky/**/*
+.idea/**/*
+.vscode/**/*
+assets/**/*
+dist/**/*
+node_modules/**/*
+package.json
+tsconfig.json
+tsconfig.config.json
+vue.config.js
+**/*.d.ts

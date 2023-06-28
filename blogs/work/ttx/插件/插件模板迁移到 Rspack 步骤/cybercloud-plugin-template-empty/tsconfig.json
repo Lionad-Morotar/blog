@@ -1,0 +1,37 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": [
+    "shims-cyber.d.ts",
+    "env.d.ts",
+    "src/**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "element-plus/global",
+      "@cybercloud/ui/global"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@cybercloud-internal/*": [
+        ".cybercloud/*"
+      ],
+      "@cyber": [
+        ".cybercloud/lib/index.js"
+      ],
+      "@cybercloud/lib": [
+        ".cybercloud/lib/index.js"
+      ]
+    },
+    "allowJs": true,
+    "noImplicitAny": false,
+  },
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+# !important 真实插件项目的 CI 文件会被后端模板覆盖
+
+image: registry.cn-hangzhou.aliyuncs.com/ttx/cidocker:gradle7-jdk8-node16
+
+variables:
+  CR_REGISTRY_IMAGE: "registry.cn-hangzhou.aliyuncs.com/ttx/nginx"
+  GIT_DEPTH: 1
+
+stages:
+  - install
+  - compile
+  - build
+
+install:
+  stage: install
+  tags:
+    - shell
+  only:
+    changes:
+      - pnpm-lock.yaml
+      - package-lock.json
+      - yarn.lock
+      - .gitlab-ci.yml
+  cache:
+    - key: cyber-plugin:${tenantCode}-${pluginCode}:node_modules
+      policy: push
+      paths:
+        - node_modules
+  script:
+    - echo $env.ci
+    - >
+      if [[ -f "pnpm-lock.yaml" || -f "package-lock.json" || -f "yarn.lock" ]]; then
+        echo "has lock file"
+        npx @antfu/ni install --frozen
+      else
+        echo "no lock file, fallback to unstable install"
+        npx @antfu/ni install
+      fi;
+
+compile:
+  stage: compile
+  tags:
+    - shell
+  cache:
+    - key: cyber-plugin:${tenantCode}-${pluginCode}:node_modules
+      policy: pull
+      paths:
+        - node_modules
+  script:
+    - export NODE_OPTIONS="--max-old-space-size=4096"
+    - export NODE_ENV=production
+    - npm run build
+  artifacts:
+    expire_in: 24 hrs
+    paths:
+      - dist/
+
+build:
+  image: docker:latest
+  stage: build
+  only:
+    - main
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CR_USERNAME" -p "$CR_PASSWORD" $CR_REGISTRY
+  script:
+    - ls -alh
+    - tag=plugin-${tenantCode}-${pluginCode}-dev
+    - docker build --pull -t "$CR_REGISTRY_IMAGE:${tag}" .
+    - docker push "$CR_REGISTRY_IMAGE:${tag}"
+    - docker image rm "$CR_REGISTRY_IMAGE:${tag}"
+  # 防止网络错误
+  retry: 2
+
+
+# TODO refactor，和 build stage 合并
+build-tags:
+  image: docker:latest
+  stage: build
+  only:
+    - tags
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CR_USERNAME" -p "$CR_PASSWORD" $CR_REGISTRY
+  script:
+    - ls -alh
+    - tmp=`echo $CI_COMMIT_TAG | awk '{print substr($1, 2)}'`
+    - tag=plugin-${tenantCode}-${pluginCode}-$tmp
+    - docker build --pull -t "$CR_REGISTRY_IMAGE:${tag}" .
+    - docker push "$CR_REGISTRY_IMAGE:${tag}"
+    - docker image rm "$CR_REGISTRY_IMAGE:${tag}"
+  # 防止网络错误
+  retry: 2
