@@ -1,3 +1,4 @@
+import { H } from 'highlight.run';
 import Fragment from 'vue-fragment'
 
 import Highlight from './components/Highlight.vue'
@@ -15,6 +16,21 @@ import Keyboard from './components/segments/Keyboard'
 import utils from './components/utils'
 
 import './styles/devices.styl'
+
+// https://app.highlight.io/7745/setup/client/js/vue
+H.init('4g8940d5', {
+  environment: 'production',
+  version: 'v1.0.0',
+	networkRecording: {
+		enabled: true,
+		recordHeadersAndBody: true,
+      urlBlocklist: [
+        "https://www.googleapis.com/identitytoolkit",
+        "https://securetoken.googleapis.com",
+      ],
+	  },
+  }
+);
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
