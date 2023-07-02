@@ -69,6 +69,7 @@ const sidebars = [
     open: true,
     path: '/articles/',
     children: [
+      'articles/use-gpt-learn-complex-frontend',
       'articles/use-scrollbars',
       // 'articales/even-more-modern-error-handling',
       // 'articles/image-format',

@@ -17,21 +17,6 @@ import utils from './components/utils'
 
 import './styles/devices.styl'
 
-// https://app.highlight.io/7745/setup/client/js/vue
-H.init('4g8940d5', {
-  environment: 'production',
-  version: 'v1.0.0',
-	networkRecording: {
-		enabled: true,
-		recordHeadersAndBody: true,
-      urlBlocklist: [
-        "https://www.googleapis.com/identitytoolkit",
-        "https://securetoken.googleapis.com",
-      ],
-	  },
-  }
-);
-
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
@@ -56,4 +41,17 @@ export default ({
   Vue.use(Worker)
 
   Vue.prototype.$utils = utils
+
+  setTimeout(() => {
+    // https://app.highlight.io/7745/setup/client/js/vue
+    H.init('4g8940d5', {
+      environment: 'production',
+      version: 'v1.0.0',
+      networkRecording: {
+        enabled: true,
+        recordHeadersAndBody: true,
+        urlBlocklist: ['https://www.googleapis.com/identitytoolkit', 'https://securetoken.googleapis.com'],
+      },
+    })
+  }, 3000)
 }
