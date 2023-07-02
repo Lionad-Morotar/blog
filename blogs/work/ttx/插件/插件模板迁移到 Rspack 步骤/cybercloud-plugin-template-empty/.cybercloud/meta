@@ -1,5 +1,0 @@
-PLUGIN_CODE = ${code}
-
-TENANT_CODE = ${tenantCode}
- 
-isTest=true
