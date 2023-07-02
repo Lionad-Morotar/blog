@@ -173,3 +173,13 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 ![pnpm vs npm vs yarn benchmark](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230605235736.png)
 
 相关见：[pnpm seems to be consistently slower than yarn (classic)](https://github.com/pnpm/pnpm/issues/6447)
+
+#### 关于 V8 版本的变化
+
+* `resolve-peers-from-workspace-root` is `true` by default
+* `auto-install-peers` is `true` by default
+* `dedupe-peer-dependents` set to true by default
+* 停止 NodeJS 14 的支持
+* lockfile v6 by default
+* resolution mode（prebundle、time-based、lowest-direct）default set to lowest-based，需要注意手动升级，尤其是在没有锁文件的情况
+* only deply `files` field when the field exist
