@@ -148,8 +148,8 @@ module.exports = {
         label: '长夜梦',
       },
       技术: {
-        url: '/articles/use-scrollbars.html',
-        label: '怎样定制复杂组件的自定义滚动条',
+        url: '/articles/use-gpt-learn-complex-frontend.html',
+        label: '如何向 GPT 咨询前端问题',
       },
     }
   }
