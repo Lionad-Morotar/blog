@@ -214,7 +214,7 @@ git blame -L <line-start>,<line-end> <filename>
 git pull origin master --allow-unrelated-historiese
 ```
 
-#### 如何忽略 merge 快速合并？
+#### 如何忽略冲突快速合并？
 
 ```bash
 git merge dev --strategy-option theirs

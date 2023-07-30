@@ -21,3 +21,8 @@
 和大家理解的不太一样，line-height：middle 并不是指父元素的中线位置，而是父元素的 base-line + half-x-height。
 
 
+## 免费商用字体
+
+![[Pasted image 20230730231610.png]]
+
+https://www.figma.com/file/mtPPLBBq4p3RFKucX47wFW/%E5%85%8D%E8%B4%B9%E5%95%86%E7%94%A8%E5%AD%97%E4%BD%93%E5%BA%93-(Community)?type=design&node-id=1-177&mode=design&t=NBLaDAXojVu6beVl-0
