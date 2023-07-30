@@ -109,3 +109,38 @@ $route 是路由信息对象，包含 path、params、hash、query 等，$router
 TODO
 
 [Vue SSR](https://vuejs.org/guide/scaling-up/ssr.html)
+
+## with TypeScript
+
+#### [Using Vue with TypeScript](https://vuejs.org/guide/typescript/overview.html)
+
+"With a Vite-based setup, the dev server and the bundler are transpilation-only and do not perform any type-checking."
+
+Vite-based 的项目不会在开发服务器启用类型检查。Vue 推荐开发者依赖 IDE 进行类型检查，或使用 vue-tsc watch mode、使用 vite-plugin-checker 另起线程插件。Vue 认为类型检查降低开发环境的速度是不值得的。
+
+两个 tsconfig.json 编译选项必须开启：isolatedModule 以便允许 esbuild 解析模块、noImplicitThis 以便启用 this 的类型。
+
+“but for each project we are running two TS language service instances: one from Volar, one from VSCode's built-in service”
+
+禁用 `@builtin` TS 插件或打开 Volar 的 Takeover Mode，重启后便能使 Takeover Mode 生效。
+
+“... with `ts-loader`. This, however, isn't a clean solution because the type system needs knowledge of the entire module graph to perform type checks”
+
+使用 loader 用来类型检查的两个缺陷：检测缓慢阻塞编译、只能解析预解析后的文件所以报错不能直接跳转回源码。
+
+“In version 3.2 and below, the generic type parameter for `defineProps()` were limited to a type literal or a reference to a local interface. This limitation has been resolved in 3.3.”
+
+TODO。为什么 Vue 3.2 不能使用外部引入的 Props 作为 type-based defineProps？Vue 3.3 是如何解决的？runtime-declare defineProps 和 runtime-declare emits 会不会对性能有影响？
+
+“specify a generic type argument but omit the initial value, the resulting type will be a union type that includes `undefined`”
+
+如果不包含初始值，ref 的类型推断会自动包含 undefined。
+
+```vue
+// inferred type: Ref<number | undefined>
+const n = ref<number>()
+```
+
+”Without type annotation, the `event` argument will implicitly have a type of `any`. This will also result in a TS error if `"strict": true` or `"noImplicitAny": true` are used in `tsconfig.json`.“
+
+因为 noImplicitAny 需要打开，不然没法推断 options api 函数中 this 的类型，所以在组件中，接受事件的函数面对 Event 参数必须显式指定类型，不然就会报错。

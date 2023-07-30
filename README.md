@@ -11,8 +11,6 @@ My personal websites，build with VuePress. Online URL: [https://www.lionad.art]
 
 <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/home.png" alt="Homepage" style="border: 1px solid" />
 
-modified from Fire Watcher
-
 ## How to Run
 
 ### Commit Style

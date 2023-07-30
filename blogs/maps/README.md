@@ -57,9 +57,7 @@ TODO，https://www.processon.com/mindmap/62a8a1ac1e08535c73e7f661
 * [算法](./computer/algorithm.md)
 * [安全相关](./computer/security.md)
 
-## AI
-
-* [提示工程](./ai/prompt/prompt.md)
+## [AI](./ai/ai.md)
 
 ## 后端
 

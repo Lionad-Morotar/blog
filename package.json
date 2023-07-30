@@ -7,9 +7,9 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "npm run dev",
-    "dev": "vuepress dev blogs",
+    "dev": "npx cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress dev blogs",
     "serve": "pnpm dev",
-    "build": "vuepress build blogs",
+    "build": "npx cross-env NODE_OPTIONS=--openssl-legacy-provider vuepress build blogs",
     "test": "npm run build | http-server -c0 ./dist",
     "upload": "sftp root@47.100.27.221 && lcd dist && put -r ./ /home/root/blog",
     "post": "npm run build && npm run upload",

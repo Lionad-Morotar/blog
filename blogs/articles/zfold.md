@@ -20,7 +20,7 @@
 
 ##### 2020-5
 
-- [JS 模块化简史](/articles/fold/2020-5/js-module-history.html)
+- [JS 模块化简史](/articles/fold/2020-5/js-module-history)
 - [常用类型判断方法的优势及缺陷](/articles/fold/2020-5/type-check.html)
 
 ##### 2020-4

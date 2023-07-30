@@ -117,3 +117,11 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 如果是构建应用程序，没必要转向 JSDoc。
 
 对 Svelte 而言，框架本身没有放弃类型安全；对开发者而言，能降低贡献门槛；对用户而言，代码直接指向源码方便调试，也助于能减小代码体积。
+
+## 项目设置
+
+#### [isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
+
+许多编译工具如 Babel 不支持在“一个系统层面”角度理解类型。所以需要开启 isolatedModules。开启后，TS 会将每一个 TS 文件都视为独立的 Module，这需要项目使用 ES Module 语法，但同时，TS 会带来更严格的类型检测支持。
+
+在 vite-based 项目中，这个选项应该且默认打开。

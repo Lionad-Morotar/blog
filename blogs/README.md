@@ -7,4 +7,4 @@ url: '/articles'
 footer: Lionad-Guirotar / Made with 💗
 ---
 
-前端偏甜工程师 | 午夜吉他恶魔 | 兴趣泛滥 | 逃离地球
+前端偏甜工程师 | 兴趣泛滥 | 逃离地球 | <del><a href="/flows/long-night-dream.html" style="color: inherit">午夜吉他恶魔</a></del>

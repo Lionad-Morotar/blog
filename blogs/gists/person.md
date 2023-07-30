@@ -49,6 +49,7 @@
 * [吉姆·琼斯（1931~1978）](/gists/person/jim-jones.html)
 * [亨利·莫莱森（1926~2008）](/gists/person/henry-molaison.html)
 * [Nolan Kay Bushnell（1943~）](/gists/person/nolan-bushnell.html)
+* [Bill Gates（1955~）](/gists/person/bill-gates.md)
 
 ## 意大利
 
