@@ -1,0 +1,18 @@
+node_modules
+node_modules_old
+dist/
+dist_tmp/
+.tmp/
+tmp/
+.DS_Store
+valine-id.js
+valine-key.js
+aliyun-mgear.js
+huaweiyun.js
+.sync/
+.osssync.json
+.ftc/
+*.log
+
+// obsidian
+workspace.json
