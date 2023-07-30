@@ -174,7 +174,7 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 
 相关见：[pnpm seems to be consistently slower than yarn (classic)](https://github.com/pnpm/pnpm/issues/6447)
 
-#### 关于 V8 版本的变化
+#### 关于 V8 版本的变化？
 
 * `resolve-peers-from-workspace-root` is `true` by default
 * `auto-install-peers` is `true` by default
@@ -183,3 +183,16 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 * lockfile v6 by default
 * resolution mode（prebundle、time-based、lowest-direct）default set to lowest-based，需要注意手动升级，尤其是在没有锁文件的情况
 * only deply `files` field when the field exist
+
+#### PnP 模式下的依赖提升设置？
+
+默认的 node_modules 依赖的层级处于严格和不严格之间的水平，
+
+* 最严格的设置：在 PnP 模式中 node_modules 的配置最为严格，因为在 monorepo 中 PnP 模式中，就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
+
+```
+node-linker=pnp
+symlink=false
+```
+
+见：[Node-Modules configuration options with pnpm](https://pnpm.io/blog/2020/10/17/node-modules-configuration-options-with-pnpm)
