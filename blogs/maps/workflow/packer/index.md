@@ -2,6 +2,10 @@
 
 [TOC]
 
+## Vite
+
+* [Vite]('/maps/workflow/packer/vite.md')
+
 ## tsup
 
 #### tsup 是什么？
@@ -14,7 +18,7 @@ tsup 是一个基于 ESBuild、SWC 的小型大宝漆，允许用户使用非常
 
 ## Webpack
 
-* [Webpack]('/maps/workflow/packer/webpack.html')
+* [Webpack]('/maps/workflow/packer/webpack.md')
 
 ## Rspack
 
