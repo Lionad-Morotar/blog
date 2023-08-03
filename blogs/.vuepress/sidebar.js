@@ -8,10 +8,10 @@ console.log('USE NODE_ENV:', process.env.NODE_ENV)
 // let secretsDir = path.join(__dirname, '../secrets')
 // let mapsDir = path.join(__dirname, '../maps')
 
-let gistsDir = 'D:\\@Github\\blog\\blogs\\gists'
-let awesomeDir = 'D:\\@Github\\blog\\blogs\\awesome'
-let secretsDir = 'D:\\@Github\\blog\\blogs\\secrets'
-let mapsDir = 'D:\\@Github\\blog\\blogs\\maps'
+let gistsDir = 'C:\\@Github\\blog\\blogs\\gists'
+let awesomeDir = 'C:\\@Github\\blog\\blogs\\awesome'
+let secretsDir = 'C:\\@Github\\blog\\blogs\\secrets'
+let mapsDir = 'C:\\@Github\\blog\\blogs\\maps'
 
 /**
  * 获取目录下所有 Markdown 文件
@@ -69,6 +69,7 @@ const sidebars = [
     open: true,
     path: '/articles/',
     children: [
+      'articles/css-parser',
       'articles/use-gpt-learn-complex-frontend',
       'articles/use-scrollbars',
       // 'articales/even-more-modern-error-handling',
@@ -148,8 +149,8 @@ module.exports = {
         label: '长夜梦',
       },
       技术: {
-        url: '/articles/use-gpt-learn-complex-frontend.html',
-        label: '如何向 GPT 咨询前端问题',
+        url: '/articles/css-parser.html',
+        label: 'Mini CSS Parser',
       },
     }
   }

@@ -3,7 +3,7 @@ meta:
   - name: keywords
     content: CSS Parser,CSS,css-parser,css解析,解析,html parser,html-parser
   - name: description
-    content: TODO
+    content: 我的项目使用 micro-app 框架作为微前端框架。使用 micro-app 时，由于开启了样式隔离功能，子应用加载的 CSS 会被解析器解析，在选择器前增加一个子应用属性选择器前缀。我碰到的问题是，如果 CSS 源码中带嵌套语法那么解析就会失败。今天借这个问题给大家简单介绍一下 CSS Parser 的基本流程。
 ---
 
 # Ⓜ️ Mini CSS Parser
@@ -12,7 +12,7 @@ meta:
 
 ## 前言
 
-Vue 源码中包含 HTML Parser，随着大家在框架方向的深入学习（卷），不免要开始接触一些编译解析相关的东西。社区很多借着 Vue 源码讲解 HTML Parser 的文章，但是很少有介绍 CSS Parser 的文章。今天借着在开发时碰到的一个问题，给大家简单介绍一下 CSS Parser 的基本流程。
+Vue 源码中包含 HTML Parser，随着大家在框架方向的深入学习（卷），不免要开始接触一些编译解析相关的东西。社区很多看 Vue 源码时总结的 HTML Parser 的文章，但是很少有介绍 CSS Parser 的文章。今天借着在开发时碰到的一个问题，给大家简单介绍一下 CSS Parser 的基本流程。
 
 我的项目使用 micro-app 框架作为微前端框架。使用 micro-app 时，由于开启了样式隔离功能，子应用加载的 CSS 会被解析器解析，在选择器前增加一个子应用属性选择器前缀。代码示例见下。我碰到的问题是，如果 CSS 源码中带[嵌套语法](https://caniuse.com/?search=css%20nesting)，那么解析就会失败。
 
@@ -251,6 +251,10 @@ private matchAllDeclarations (): void {
 + return this.matchAllDeclarations(nesting)
 }
 ```
+
+最终 CSS Nesting 解析成功。
+
+![result](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230804025910.png)
 
 ## 结语
 
