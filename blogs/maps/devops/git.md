@@ -211,7 +211,7 @@ git blame -L <line-start>,<line-end> <filename>
 #### 如何合并两个不相关分支？
 
 ```bash
-git pull origin master --allow-unrelated-historiese
+git pull origin master --allow-unrelated-histories
 ```
 
 #### 如何忽略冲突快速合并？
