@@ -320,6 +320,13 @@ BREAKING: 下钻功能导致了地图缩放时错位的问题，所以暂时禁�
 git commit --no-verify -am 'bad commit message'
 ```
 
+#### 怎么记住 HTTPs 账号密码？
+
+```bash
+# 先执行再重试
+git config --global credential.helper store
+```
+
 ## 常见问题
 
 #### SSH 链接超时问题怎么解决？
