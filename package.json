@@ -45,7 +45,7 @@
     "prismjs": "^1.29.0",
     "raw-loader": "^4.0.2",
     "uslug": "^1.0.4",
-    "vue": "^2.5.16",
+    "vue": "^3.0.0",
     "vuepress": "^1.9.8",
     "vuepress-plugin-comment": "github:Lionad-Morotar/vuepress-plugin-comment",
     "vuepress-plugin-mathjax": "^1.2.8",
