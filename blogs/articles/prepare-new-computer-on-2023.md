@@ -14,6 +14,7 @@
 
 - [ ] [Volta](https://docs.volta.sh/guide/#features)
 - [ ] [nvm-windows](https://github.com/coreybutler/nvm-windows)
+- [ ] [Github](https://desktop.github.com/)
 
 ### IDE
 
@@ -22,6 +23,11 @@
 - [ ] [k8slens](https://k8slens.dev/)
 
 ## 常用软件
+
+#### 浏览器
+
+- [ ] [MSEdge](https://www.microsoft.com/en-us/edge/download?form=MA13FW)
+- [ ] [FireFox](https://www.firefox.com.cn/)
 
 #### 通讯工具
 

@@ -9,7 +9,6 @@
 <!-- 汤唯国 -->
 
 * 常见的垂直居中方案（不定长文本居中）
-
 * 深拷贝函数思路（循环引用）
 * UMD、ESM 各自的优缺点（异步加载）
 * UMD 格式兼容浏览器和 NodeJS 端加载的原理
@@ -133,3 +132,40 @@ React 为主。
 * 新⽼业务接⼊移除，版本控制、分包管理、代码分⽀管理
 * 封装公共组件：Search、表格（动态表单 key）、看实际场景
 * Code Review：业务流程、金额校验
+
+<!-- 郑志良 -->
+
+简历问题：
+
+* 精通 jQuery，今年的更新的内容
+* 擅长前端项目架构和组件封装
+* SCRM 项目，脚手架，如果非脚手架，Linter、TS 等工具是怎么维护的
+* 西瓜视频，常见视频编码，不同 profile 的区别
+* 云湾基金，升级为 Vue 的思路和难点，
+	* 依赖不支持
+	* 分包
+	* Vue3
+* 低码项目，模板能无限嵌套原理
+	* 路由，
+* CRM 项目，大量组件带来的大量文档的处理思路，
+	* 处理文档 Markdown，
+* joh-ui 组件库
+	* 怎么做的，二次封装 elment-ui，
+	* elment-ui 暗黑色主题，CSS 配置，公共变量，
+	* sumodule monorepo 相比，
+	* 时间较久了，如果做新的组件库会考虑什么不同的
+* Vue3，vapper
+	* Vue2 和 Vue3，性能，
+	* 主包项目大小
+* 前端
+	* 掘金、知乎
+
+简单的编程题目：
+
+* [获取数组子集](https://phuoc.ng/collection/1-loc/get-all-subsets-of-an-array/)：https://play.vuejs.org/#eNp9kstuwjAQRX9l5A0PUaKWHQWktgK1XbRV2x1hAckAoY5t2WMeivLvHYcGWFTs4rn3zpxxXIgHY7pbj6IvBi6xmSFwSN6MYpXlRluCwuKyhKXVOTTY2IhVrBKtHEGmjCcYwvS2A3cd6M1qQXs6KhxtThtrlFLDTluZNmatkI/a8JIbiTkqgklo/YwWoR2dmx+0txOvEsq04k7NFgxHUAS95Hz0N6O7nUuPrF/amxVYNWgQHZfidfhAyEPnhHwCZnNeUh+KouYtufMgujDx0dFBIrhEG0y5svBEzMMcAEut6GaH2WrNXRZapvcVG48MmZHoCOKcWmar7sZpxTdcxWKR6NxkEu27CbQuFgwRlKDN+ap2r1WNrMdOXU/WmPz8U9+4fajF4oP3QbvFWJw0mtsV0lEef73hnr9PYq5TL9l9RfxEp6UPjEfbo1cpY1/4Klr+k/xOMrX6duM9oXL1UgE0OMvKHwt+PU9XVj/j9rq9Ksf3Kcpfwsbl6g==
+
+- 主要项目 Vue、混合开发、H5
+- 居中布局，ok
+- margin 塌陷，可能怎么解决，清除
+- JS 模块，了解 commonjs 和 esm 模块，esm，懒执行
+- 
