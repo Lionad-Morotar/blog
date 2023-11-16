@@ -16,7 +16,7 @@
     "lint": "npx case-police \"**/*.md\" --fix"
   },
   "dependencies": {
-    "debounce": "^1.2.1",
+    "debounce": "^2.0.0",
     "highlight.run": "^7.2.0",
     "qrcodejs2": "0.0.2",
     "vue-fragment": "^1.6.0"
