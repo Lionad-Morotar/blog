@@ -5,7 +5,7 @@
   "errorNoticeTimeout": 0,
   "focusOnNewInstance": true,
   "hideStatusBar": "focused",
-  "language": "",
+  "language": "zh-Hans",
   "lastReadChangelogVersion": "3.9.1",
   "newInstanceBehavior": "newHorizontalSplit",
   "noticeTimeout": 5,

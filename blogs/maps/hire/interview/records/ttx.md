@@ -322,3 +322,63 @@ React 为主。
 * 简历
 - 其他问题
 
+<!-- 白冰 -->
+
+简历问题：
+
+* 喜欢研究什么类型的技术问题
+* 今年使用 NodeJS 多，主要在研究啥
+* Lerna 与 pnpm workspace
+* 子应用依赖主应用的 API 不，能做到独立开发，怎么样部署的
+* 组件的封装程度和利用率哪些指标
+* 大纲树做的优化，如果组件数据量大的情况下怎么优化
+* 怎么优化首屏时间的
+* 怎么优化加载资源的体积的
+* typescript 类型体操
+* CSS Module 缺点
+* 虚拟列表的实现方法
+
+* 从 toC 官网到 toB、低代码、后台
+
+* CSS 垂直居中
+	* flex
+	* 新 CSS 特性
+	* 动效组合
+	* lottie
+
+* 低代码平台
+	* 模块功能：类似 PS 组方便
+	* 怎么实现模块：H5 容器父组件、
+	* 怎么衡量复用率：？
+	* 常用模块：底通、CopyRight、抽奖模块（预约，需要接口不同）、ID
+
+* NodeJS
+	* Nest.js，筛选游戏列表
+	* 怎么部署上线，推完代码，打包，镜像打包，发布系统
+
+* QianKun
+	* 不同前端框架的沙箱机制实现：兼容 IE8、Proxy（FakeWindow）
+	* 样式隔离：
+	* 主子应用加载同一个库，
+	* lerna 依赖提升
+
+* React 性能优化策略
+	* useMemo、React.memo
+	* react
+
+* Webpack
+  * Anylyzer
+		* 比如说 lambda.js、lodash
+		* 精简，context-replacement-plugin
+		* 懒加载，react-loadable
+		* 第三方库懒加载，lodash.js
+	* import('lodash.js').then
+		* 具体原理，chunk、webpack.then
+
+import maps
+
+<!-- 炎 -->
+
+* 介绍了几个解决的难题
+
+<!-- QC -->
