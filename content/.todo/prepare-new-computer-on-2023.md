@@ -18,7 +18,7 @@
 
 ### IDE
 
-- [ ] [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)
+- [ ] [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable)
 - [ ] [docker](https://www.docker.com/)
 - [ ] [k8slens](https://k8slens.dev/)
 
@@ -45,4 +45,4 @@
 
 ### 注册表设置
 
-- [ ] [让 Windows 11 壁纸能高画质显示](https://www.apprcn.com/enable-high-quality-wallpaper-in-windows-11.html)
+- [ ] [让 Windows 11 壁纸能高画质显示](https://www.apprcn.com/enable-high-quality-wallpaper-in-windows-11)

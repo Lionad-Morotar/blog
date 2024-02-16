@@ -4,7 +4,7 @@
 
 ## News
 
-* [Web.dev 月刊（新浏览器特性）](/maps/_web/browser/new.html)
+* [Web.dev 月刊（新浏览器特性）](/maps/_web/browser/new)
 
 ## API
 
@@ -29,8 +29,8 @@
 
 ## 浏览器原理
 
-* [浏览器](/maps/_web/browser/browser.html)
+* [浏览器](/maps/_web/browser/browser)
 
 ## 浏览器相关
 
-* [路由技术](/maps/_web/browser/router.html)
+* [路由技术](/maps/_web/browser/router)

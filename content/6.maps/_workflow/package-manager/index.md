@@ -4,8 +4,8 @@
 
 ## 常用的包管理器
 
-* [npm](/maps/_workflow/package-manager/npm.html)
-* [pnpm](/maps/_workflow/package-manager/pnpm.html)
+* [npm](/maps/_workflow/package-manager/npm)
+* [pnpm](/maps/_workflow/package-manager/pnpm)
 
 ## 发展历程
 

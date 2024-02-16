@@ -40,4 +40,4 @@ node:vm 模块允许在 V8 虚拟机上下文中编译和运行代码，上下�
 
 ## 源码解析
 
-[NodeJS | require](/maps/_server/nodejs/require.html)
+[NodeJS | require](/maps/_server/nodejs/require)

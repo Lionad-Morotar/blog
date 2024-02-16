@@ -23,7 +23,7 @@
 ## ES6
 
 * Arrow Functions
-* [Modules (import/export)](/articles/fold/2020-05/js-module-history)
+* [Modules (import/export)](/_archieved/2020-05/js-module-history)
 * Promises
 * Default function parameters
 * Array/Object Destructuring

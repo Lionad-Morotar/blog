@@ -4,8 +4,8 @@
 
 ## 源码管理
 
-- [Git](/maps/_devops/git.html)
-- [Gitflow](/maps/_devops/gitflow.html)
+- [Git](/maps/_devops/git)
+- [Gitflow](/maps/_devops/gitflow)
 
 TODO：[Sapling](https://sapling-scm.com/docs/introduction/differences-git)
 

@@ -1,12 +1,1 @@
-archieved -> /flows/fold
-.html
-
 Link -> LLink
-
-name
-  display: block;
-  margin: auto;
-  width: 95%;
-  text-align: right;
-  font-weight: 700;
-  font-family: var(--font-text--bold);

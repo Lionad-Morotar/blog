@@ -18,12 +18,12 @@ CI/CD 即持续集成和持续部署（Continuous Integration & Continuous Deplo
 
 ### GitLab
 
-[GitLab](/maps/_devops/gitlab.html)
+[GitLab](/maps/_devops/gitlab)
 
 ## Pack & Build
 
-[Docker](/maps/_devops/docker.html)
+[Docker](/maps/_devops/docker)
 
 ## Monitor
 
-[Bax Sentry 清理](/work/bax/sentry.html)
+[Bax Sentry 清理](/work/bax/sentry)

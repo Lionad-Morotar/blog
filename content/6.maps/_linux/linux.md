@@ -143,7 +143,7 @@ ps aux | grep 'nginx'
 chmod 777 xxx
 ```
 
-见：[Nginx 配置文件示例](/maps/_linux/nginx/config-example.html)
+见：[Nginx 配置文件示例](/maps/_linux/nginx/config-example)
 
 #### 如何安装 ImageMagick？
 

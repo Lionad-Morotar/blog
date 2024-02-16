@@ -9,7 +9,7 @@ description: TODO
 
 新工作邀请欢迎分享到：1806234223@qq.com
 
-<!-- #### [商户平台](/hire-me/resume-prepare/commercial-platform.html) -->
-<!-- #### [数据大盘](/hire-me/resume-prepare/shop-data.html) -->
-<!-- #### [乘云新零售](/hire-me/resume-prepare/retail.html) -->
-<!-- #### [乘云小程序](/hire-me/resume-prepare/takecloud.html) -->
+<!-- #### [商户平台](/hire-me/resume-prepare/commercial-platform) -->
+<!-- #### [数据大盘](/hire-me/resume-prepare/shop-data) -->
+<!-- #### [乘云新零售](/hire-me/resume-prepare/retail) -->
+<!-- #### [乘云小程序](/hire-me/resume-prepare/takecloud) -->

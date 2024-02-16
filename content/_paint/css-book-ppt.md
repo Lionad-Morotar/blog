@@ -214,4 +214,4 @@
 * 书的边缘进行了模糊处理。
 * 阴影使用了多重阴影。
 
-详情请参见博客：[《CSS 幻术 | 光影效果探秘》](/articles/css-light-travel.html)
+详情请参见博客：[《CSS 幻术 | 光影效果探秘》](/articles/css-light-travel)
