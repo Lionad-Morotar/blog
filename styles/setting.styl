@@ -1,0 +1,99 @@
+:root {
+    /* Structure */
+    --width-mobile: 888px;
+    --scrollbar-width: 0.625rem;
+    --sidebar-width: 25rem;
+    --navbar-height: 3.6rem;
+    /* Font */
+    --font-garamond: 'Garamond';
+    --font-code: 'Quote', 'Fira', 'Consolas', 'Monaco', 'Courier New', 'Courier', 'monospace';
+    --font-text: 'Quote', 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--noquote: 'Noto Serif CJK', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--general: 'Quote', 'Noto Serif CJK', 'Consolas', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-text--bold: 'Quote', 'Noto Serif CJK BOLD', 'Lato', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --font-sidebar: 'Quote', 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    /* General Color */
+    --theme-color: #221522;
+    --theme-black: #221522;
+    --dark-black: #231622;
+    --medium-black: #300c22;
+    --light-black: #ccc;
+    --light-gray: #f9f9f9;
+    --medium-gray: #f2f2f2;
+    /* Component Color */
+    --color-background: white;
+    /* Text Color */
+    --text-black: #262626;
+    --text-black--lighter: #333;
+    --text-gray: #757575;
+    --text-gray--lighter: #b2b2b2;
+    /* Transition */
+    --timing-slow: 0.5s;
+    --timing-norm: 0.3s;
+    --timing-quick: 0.2s;
+    --timing-light: 0.1s;
+    --timing-slow: 1s;
+    --timing-reduce: 999s;
+    /* ThemeBG */
+    --button-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='64' viewBox='0 0 16 32'%3E%3Cg fill='%23920000' fill-opacity='0.1'%3E%3Cpath fill-rule='evenodd' d='M0 24h4v2H0v-2zm0 4h6v2H0v-2zm0-8h2v2H0v-2zM0 0h4v2H0V0zm0 4h2v2H0V4zm16 20h-6v2h6v-2zm0 4H8v2h8v-2zm0-8h-4v2h4v-2zm0-20h-6v2h6V0zm0 4h-4v2h4V4zm-2 12h2v2h-2v-2zm0-8h2v2h-2V8zM2 8h10v2H2V8zm0 8h10v2H2v-2zm-2-4h14v2H0v-2zm4-8h6v2H4V4zm0 16h6v2H4v-2zM6 0h2v2H6V0zm0 30h2v2H6v-2z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* 给字符串添加字体存储路径前缀 */
+useFontBaseURL(path) {
+    $font-url = 'https://mgear-font.oss-cn-shanghai.aliyuncs.com/'
+    return url($font-url + path);
+}
+
+/* English Font */
+@font-face {
+    font-family: 'Dhenmark';
+    font-display: swap;
+    src: local('Dhenmark'), useFontBaseURL('Dhenmark/Dhenmark.ttf');
+}
+
+@font-face {
+    font-family: 'Edo';
+    font-display: swap;
+    src: local('Edo'), useFontBaseURL('Edo/Edo.woff2'), useFontBaseURL('Edo/Edo.woff'), useFontBaseURL('Edo/Edo.ttf');
+}
+
+@font-face {
+    font-family: 'Garamond';
+    font-display: swap;
+    src: local('Garamond'), useFontBaseURL('Garamond/Garamond.ttf');
+}
+
+/* CJK Font */
+@font-face {
+    font-family: 'Quote';
+    src: useFontBaseURL('Noto_CJK_Quote/NotoQuote.woff2') format('woff2');
+    unicode-range: U+201c, U+201d, U+300C, U+300D;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Noto Serif CJK BOLD';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: local('Noto Serif CJK SemiBold'), local('NotoSerifSC-SemiBold'), local('SourceHanSerifCN-SemiBold'), useFontBaseURL('Noto_Serif_CJK_SemiBold/7000/Noto_Serif_SC.woff2');
+}
+
+@font-face {
+    font-family: 'Noto Serif CJK';
+    font-style: normal;
+    font-display: swap;
+    src: local('Noto Serif CJK Light'), local('NotoSerifSC-Light'), local('SourceHanSerifCN-Light'), useFontBaseURL('Noto_Serif_CJK_Light/7000/Noto_Serif_SC.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Pixel';
+    font-style: normal;
+    font-display: swap;
+    src: useFontBaseURL('DinkieBitmap/DinkieBitmap.ttf');
+}
+
+html, body {
+    font-family: var(--font-text--general);
+    font-size: 16px;
+}

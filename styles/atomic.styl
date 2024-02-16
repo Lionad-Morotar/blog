@@ -1,0 +1,284 @@
+/* Position */
+.fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: white;
+    z-index: 99999;
+}
+hide {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+.scrollable {
+    overflow: scroll;
+}
+
+/* Box-Sizing */
+.bb {
+    box-sizing: border-box;
+}
+
+/* Display */
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center,
+.flex-cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-sa {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.db {
+    display: block;
+}
+
+.dib {
+    display: inline-block;
+}
+
+/* Position */
+.pr {
+    position: relative;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+/* Float */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* Margin & Padding */
+.mauto {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.m0 {
+    margin: 0 !important;
+}
+
+.m10 {
+    margin: 10px !important;
+}
+
+.mt1em {
+    margin-top: 1em;
+}
+
+.mt2em {
+    margin-top: 2em;
+}
+
+.p010 {
+    padding: 0 10px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+/* Border */
+.nb {
+    border: none !important;
+}
+
+.b1 {
+    border: solid 1px;
+}
+
+/* Width & Height */
+.w100 {
+    width: 100%;
+}
+
+.w90 {
+    width: 90%;
+}
+
+.w80 {
+    width: 80%;
+}
+
+.w70 {
+    width: 70%;
+}
+
+.w68 {
+    width: 68%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+/* Color */
+.bg-gray {
+    background: var(--light-gray);
+}
+
+/* Text */
+.tac {
+    text-align: center !important;
+}
+
+.elipsis-1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.elipsis-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.elipsis-3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.elipsis-h-2 {
+    --line-height: 1.75;
+    --bg-color: var(--color-background);
+    --dot-color: #eee;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+    height: calc(2em * var(--line-height));
+    line-height: var(--line-height);
+
+    &::after {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 5em;
+        height: 1em;
+        text-indent: 3em;
+        color: var(--dot-color);
+        height: calc(1em * var(--line-height));
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), var(--bg-color) 50%);
+    }
+}
+
+.ls0 {
+    letter-spacing: 0;
+}
+
+.breakall {
+    word-break: break-all;
+}
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Other */
+.vm {
+    vertical-align: middle;
+}
+
+/* Function */
+.no-outline {
+    outline: none;
+}
+
+.ghost-center {
+    &::before {
+        display: inline-block;
+        content: '';
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+.bg-shadow {
+    &::after {
+        --blur: 0.5;
+        --dencity: 0.5;
+        content: '';
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        filter: blur(var(--blur));
+        opacity: var(--dencity);
+        z-index: -1;
+    }
+}
+
+img {
+    &[src*='w=30'] {
+        width: 30%;
+    }
+    &[src*='w=40'] {
+        width: 40%;
+    }
+    &[src*='w=50'] {
+        width: 50%;
+    }
+    &[src*='w=60'] {
+        width: 60%;
+    }
+    &[src*='w=62'] {
+        width: 62%;
+    }
+    &[src*='w=g'] {
+        width: 62%;
+    }
+    &[src*='w=70'] {
+        width: 70%;
+    }
+    &[src*='w=80'] {
+        width: 80%;
+    }
+    &[src*='type=win11'] {
+        border: none !important;
+        border-radius: 8px;
+    }
+    &[src*='type=draw'] {
+        border: none !important;
+    }
+    &[src*='type=win11-square'] {
+        border: none !important;
+    }
+}

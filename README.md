@@ -7,7 +7,7 @@
 
 My personal websites，build with VuePress. Online URL: [https://www.lionad.art](https://www.lionad.art)
 
-## [Homepage](https://codepen.io/cmykpixels/pen/akYxmW)
+## Homepage
 
 <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/home.png" alt="Homepage" style="border: 1px solid" />
 
@@ -40,3 +40,7 @@ see http://github.com/issue/xxxx
 <br />
 如需转载部分内容，请邮件联系作者。
 </center>
+
+## Thanks
+
+* [cmykpixels](https://codepen.io/cmykpixels/pen/akYxmW)
