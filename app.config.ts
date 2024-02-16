@@ -10,7 +10,7 @@ export default defineAppConfig({
     }
   },
   seo: {
-    siteName: 'Lionad\'s Blog and Knowledgebase',
+    siteName: 'Lionad\'s Blog and KnowledgeBase',
   },
   header: {
     logo: {
