@@ -30,7 +30,7 @@ export default defineAppConfig({
       },
       {
         label: 'Links',
-        to: '/links',
+        to: '/_links',
       },
     ],
     colorMode: true,

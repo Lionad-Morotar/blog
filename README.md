@@ -5,7 +5,7 @@
 
 # Lionad's Blog
 
-My personal websites，build with VuePress. Online URL: [https://www.lionad.art](https://www.lionad.art)
+My personal websites，build with NuxtPro. Online URL: [https://www.lionad.art](https://www.lionad.art)
 
 ## Homepage
 
