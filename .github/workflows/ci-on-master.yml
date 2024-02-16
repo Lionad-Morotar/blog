@@ -44,7 +44,7 @@ jobs:
         run: echo "test upload so disabled build step"
 
       - name: Upload
-        uses: Creepios/sftp-action@v1.0.4
+        uses: Creepios/sftp-action@v1.0.5
         env:
           host: ${{ secrets.HOST_IP }}
           username: ${{ secrets.HOST_USER }}
