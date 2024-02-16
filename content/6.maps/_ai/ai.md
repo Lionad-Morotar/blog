@@ -2,8 +2,8 @@
 
 ## Prompt
 
-* [提示](/maps/_ai/prompt/promp)
+* [提示](/maps/_ai/prompt/prompt)
 
-## Image Generator
+<!-- ## Image Generator -->
 
-* [Stable Diffusion](/maps/_image/stable-diffusion)
+<!-- * [Stable Diffusion](/maps/_image/stable-diffusion) -->

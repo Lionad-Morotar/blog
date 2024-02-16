@@ -12,11 +12,14 @@ title: 🧊 文字与情绪
 
 实话说画画我一窍不通。音乐倒是可以方便地传递情绪——至少大体上而言信息不易被误读。只要不坐在帅哥美女旁边，相信你我听到的如果都是同声调同时长同一首音乐，尽管脑海里形成的意象可能不同，但是体验的情绪大体是相同的（或相通的）。所以请忽略以上无聊的文字，来听听这曲子。
 
+<!-- cSpell:disable-next-line -->
 《Lost Starts》你应该听过吧，这首《Lost Rlivers》是她的姐妹篇。
 
+<client-only>
 <div style="margin-top: 3em; text-align: center;">
   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height=86 src="//music.163.com/outchain/player?type=2&id=4466775&auto=0&height=66"></iframe>
 </div>
+</client-only>
 
 除了传递情绪的能力不同之外，我相信你还能得出一个显而易见的事实。你不是计算机，所以没有办法通过压缩聆听时间还同时没有误差地理解一段音乐，没有开始听，你不知道这曲子里面有什么东西；就算听了一小节，也完全预测不了之后的走向。然而文字可以，你只消得扫一眼某个段落，就能抓住作者的结论及其理由。段落中的结论和文章整体的结论总是密切相关的。
 

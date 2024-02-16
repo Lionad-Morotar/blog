@@ -15,5 +15,5 @@
 
 ## 相关
 
-* [尼古拉·哥白尼@BAIKE](https://baike.baidu.com/item/%E5%B0%BC%E5%8F%A4%E6%8B%89%C2%B7%E5%93%A5%E7%99%BD%E5%B0%BC)
+* [尼古拉·哥白尼@baike](https://baike.baidu.com/item/%E5%B0%BC%E5%8F%A4%E6%8B%89%C2%B7%E5%93%A5%E7%99%BD%E5%B0%BC)
 * [新书来了 Vol.02 | 用《哥白尼问题》回答你关于世界的疑惑](https://www.bilibili.com/video/BV1Si4y1g7JA)

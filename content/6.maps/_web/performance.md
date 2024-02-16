@@ -235,14 +235,15 @@ Native Side Render，GMTC 2019 UC 团队提到的一种“前端 SSR”方案，
 
 * 网络层面
   * 构建工具优化
-    * include/exclude 避免不必要的查找，比如用在 bable-loader 可以避免不必要的转译
-    * bable-loader 可配置 cache，只编译修改过的文件
+    * include/exclude 避免不必要的查找，比如用在 babel-loader 可以避免不必要的转译
+    * babel-loader 可配置 cache，只编译修改过的文件
     * alias 优化文件查找性能
     * thread-loader 多进程编译
     * BundleAnalyzer 分析文件体积
     * SplitChunks 替换 CommonChunks，渐进式加载
     * 摇树优化
-    * [按需加载](/articles/source-code/vuejs/element-ui.html#如何按需载入组件)
+    <!-- * [按需加载](source-code/vuejs/element-ui.html#如何按需载入组件) -->
+    * 按需加载
     * 动态垫片
     * 变量提升
     * 压缩，比如 [terser](https://webpack.docschina.org/plugins/terser-webpack-plugin/)

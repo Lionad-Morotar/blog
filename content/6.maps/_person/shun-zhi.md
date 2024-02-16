@@ -32,4 +32,4 @@
 
 ## 相关
 
-* [爱新觉罗·福临@BAIKE](https://baike.baidu.com/item/%E7%88%B1%E6%96%B0%E8%A7%89%E7%BD%97%C2%B7%E7%A6%8F%E4%B8%B4/2163834)
+* [爱新觉罗·福临@baike](https://baike.baidu.com/item/%E7%88%B1%E6%96%B0%E8%A7%89%E7%BD%97%C2%B7%E7%A6%8F%E4%B8%B4/2163834)

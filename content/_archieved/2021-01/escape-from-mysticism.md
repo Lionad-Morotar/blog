@@ -2,9 +2,11 @@
 title: 💖 逃离虚无，再拥抱它
 ---
 
+<client-only>
 <div style="margin-top: 1.5em; text-align: center;">
   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height=86 src="//music.163.com/outchain/player?type=2&id=1391144474&auto=0&height=66"></iframe>
 </div>
+</client-only>
 
 ## 虚无蛇环
 
@@ -70,17 +72,17 @@ title: 💖 逃离虚无，再拥抱它
 
 19 年时不知道应该怎么找题材，只写了零散的几篇。20 年时，逐渐写开了，除了技术博客，还写小诗、碎碎念、议论文之类的东西，基本每个月都有输出：
 
-* [《🍥 9 种纯 CSS 图案》](/archieved//2020-04/9-css-chart)（⭐⭐）
+* [《🍥 9 种纯 CSS 图案》](/_archieved/2020-04/9-css-chart)（⭐⭐）
 * [《❓ 你可以用纯CSS判断鼠标进入的方向吗？》](/articles/css-judge-direction)（⭐⭐⭐⭐）
 * [《💫 CSS 幻术 | 抗锯齿》](/articles/css-poaa)（⭐⭐⭐⭐⭐）
-* [《🎉 斑马难题解法》](/archieved//2020-06/zebra-puzzle)（⭐⭐）
-* [《🎉 CSS Mind Map》](/articles/css-mind-map)（⭐⭐⭐）
+* [《🎉 斑马难题解法》](/_archieved/2020-06/zebra-puzzle)（⭐⭐）
+* [《🎉 CSS Mind Map》](/maps/_frontend/css/css-mind-map)（⭐⭐⭐）
 * [《🍲 设计模式与 JS 魔法锅》](/articles/design-patterns-and-js-magic-pot)（⭐⭐⭐⭐）
-* [《🎉 Front End Mind Map》](/articles/front-end-mind-map)（⭐⭐⭐）
-* [《👑 Helmet & Security》](/articles/helmet-and-security)（⭐⭐⭐）
-* [《📕 四十二篇 | 有关新项目的方法论》](/articles/42/dark-room)（⭐⭐⭐⭐）
-* [《🏆 学习 JS，从忍者到杀手》](/articles/js-100)（⭐⭐⭐⭐⭐）
-* [《🥛 新工作，喝新饮料》](/articles/thinking-while-drinking)（⭐⭐⭐⭐）
+* [《🎉 JavaScript Mind Map》](/maps/_frontend/javascript/javasript-mind-map)（⭐⭐⭐）
+* [《👑 Helmet & Security》](/_archieved/2020-08/helmet-and-security)（⭐⭐⭐）
+* [《📕 四十二篇 | 有关新项目的方法论》](/articles/_fourty-two/dark-room)（⭐⭐⭐⭐）
+* [《🏆 学习 JS，从忍者到杀手》](/_archieved/2020-12/js-100)（⭐⭐⭐⭐⭐）
+* [《🥛 新工作，喝新饮料》](/flows/drinking-while-thinking)（⭐⭐⭐⭐）
 
 2021 年希望能在写作方面常写、常进步吧。以前听别人说，“写作其实是与读者的交流，所以你需要用简单直接的语言”，我也找来几本写作技巧的书学习，书中也表达了类似的观点。2021 年的新目标是在写技术博客的同时，用目前所学的内容改一遍以前写的内容，修正错误，精进表达。
 
@@ -94,7 +96,7 @@ title: 💖 逃离虚无，再拥抱它
 
 以下是一篇用于测试你了解多少 JavaScript 语言细节熟练度的博客，仅供娱乐：
 
-* [《🏆 学习 JS，从忍者到杀手》](/articles/js-100)
+* [《🏆 学习 JS，从忍者到杀手》](/_archieved/2020-12/js-100)
 
 在此列一下 2021 相关语言规范能力的新年目标：
 

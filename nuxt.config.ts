@@ -41,5 +41,23 @@ export default defineNuxtConfig({
   },
   typescript: {
     strict: false
+  },
+  mdc: {
+    highlight: {
+      langs: [
+        'bash',
+        'cpp',
+        'css',
+        'glsl',
+        'html',
+        'less',
+        'js',
+        'powershell',
+        'scss',
+        'shell',
+        'ts',
+        'vue',
+      ]
+    }
   }
 })

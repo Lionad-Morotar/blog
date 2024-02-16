@@ -308,7 +308,9 @@ title: 🎃 斑马难题
 
 <br />
 
+<client-only>
 <iframe src="//player.bilibili.com/player.html?aid=926028678&bvid=BV1WT4y1J7No&cid=204804596&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px" />
+</client-only>
 
 ## 阅读更多
 

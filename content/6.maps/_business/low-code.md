@@ -11,7 +11,7 @@
 
 #### 使用 MyBricks 搭建计算器
 
-![[使用 MyBricks 搭建一个计算器.png]]
+<!-- ![[使用 MyBricks 搭建一个计算器.png]] -->
 
 ## 简介
 

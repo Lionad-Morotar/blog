@@ -255,8 +255,11 @@ type res = MultipleNum<6, 8> // 48
 
 ## 工具
 
-- [常用类型推导](/articles/source-code/ts/utility-types)
-- [类型训练](/articles/source-code/ts/type-challenges)
+- 常用类型推导
+- 类型训练
+
+<!-- - [常用类型推导](/articles/source-code/ts/utility-types) -->
+<!-- - [类型训练](/articles/source-code/ts/type-challenges) -->
 
 - [typepark](https://github.com/kgtkr/typepark)
 - [tsafe](https://github.com/garronej/tsafe)

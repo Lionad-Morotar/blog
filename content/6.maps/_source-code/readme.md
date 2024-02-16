@@ -7,4 +7,4 @@
 
 ## TODO
 
-等待整理归档：[Source Code](/articles/source-code)
+等待整理归档：[Source Code](/source-code)
