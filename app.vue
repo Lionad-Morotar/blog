@@ -51,7 +51,7 @@ provide('navigation', navigation)
 </template>
 
 <style lang="stylus">
-// @import "./styles/index.styl";
+@import "./styles/index.styl";
 
 #app-page > div:first-child {
   padding-left: 12px;

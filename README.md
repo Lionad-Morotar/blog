@@ -5,31 +5,13 @@
 
 # Lionad's Blog
 
-My personal websites，build with NuxtPro. Online URL: [https://www.lionad.art](https://www.lionad.art)
+My personal knowledge base，also a blog，build with NuxtPro，online url: [https://www.lionad.art](https://www.lionad.art)
 
 ## Homepage
 
 <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/home.png" alt="Homepage" style="border: 1px solid" />
 
-## How to Run
-
-### Commit Style
-
-* chore：项目配置等杂项变动
-* gist（gists）: 零散的思绪
-* blog（blogs）：技术博客
-* text：细小的修复，如文本、图片链接
-* feat：项目功能变动（或是博客内容相关功能）
-* format：代码格式化
-* style：页面样式变动
-
-大体参考 [LeanCode Git Commit Style](https://open.leancloud.cn/git-commit-message/)。Commit Message 控制在一行以内，格式如：chore: 加入 fflate 依赖。如果有需要详细说明的内容，请再空一行后补充内容，如：
-
-```
-chore: install package fflate
-
-see http://github.com/issue/xxxx
-```
+thanks [cmykpixels@codepen](https://codepen.io/cmykpixels/pen/akYxmW) for beautiful backgrounds
 
 ## License
 
@@ -40,7 +22,3 @@ see http://github.com/issue/xxxx
 <br />
 如需转载部分内容，请邮件联系作者。
 </center>
-
-## Thanks
-
-* [cmykpixels](https://codepen.io/cmykpixels/pen/akYxmW)

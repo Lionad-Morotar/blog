@@ -13,7 +13,7 @@ const { header } = useAppConfig()
         <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
       </template>
       <template v-else>
-        Lionad's Blog
+        LIONAD'S BLOG
       </template>
     </template>
 
