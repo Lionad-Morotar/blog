@@ -99,6 +99,7 @@ onMounted(() => {
     margin-bottom: .8em;
     padding: .8em 1em;
     background: rgba(235,236,237,0.3);
+    border-radius: 4px;
 
     .callout-icon {
       margin-top: .1em;
@@ -110,6 +111,13 @@ onMounted(() => {
       line-height: 1.75;
       word-break: break-word;
     }
+  }
+}
+
+html.dark {
+  .callout-con {
+    background: rgba(0,0,0,0.24);
+    color: var(--tw-prose-invert-counters);
   }
 }
 
