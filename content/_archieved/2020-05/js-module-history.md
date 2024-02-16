@@ -209,7 +209,7 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 1. Require 导入值的拷贝，模块内部变化不能直接反应到外部；ES Module 导入值的映射，就算是模块内部的字符串有修改，同样会反映到模块外部。
 2. Require 本质是一个函数，所以容易实现动态导入的功能；ES Module 依赖于编译器的静态分析，所以动态导入功能难以被完善实现。
 
-要看看 Require 到底是个啥玩意儿，请看这篇：<a href="/articles/source-code/nodejs/require.html">Require</a>。
+要看看 Require 到底是个啥玩意儿，请看这篇：<a href="/source-code/_server/nodejs/require.html">Require</a>。
 
 #### 如何在 esm 中引入 cjs 中的命名导出？
 

@@ -78,7 +78,7 @@ title: 💖 逃离虚无，再拥抱它
 * [《🎉 斑马难题解法》](/_archieved/2020-06/zebra-puzzle)（⭐⭐）
 * [《🎉 CSS Mind Map》](/maps/_frontend/css/css-mind-map)（⭐⭐⭐）
 * [《🍲 设计模式与 JS 魔法锅》](/articles/design-patterns-and-js-magic-pot)（⭐⭐⭐⭐）
-* [《🎉 JavaScript Mind Map》](/maps/_frontend/javascript/javasript-mind-map)（⭐⭐⭐）
+* [《🎉 JavaScript Mind Map》](/maps/_frontend/javascript/javascript-mind-map)（⭐⭐⭐）
 * [《👑 Helmet & Security》](/_archieved/2020-08/helmet-and-security)（⭐⭐⭐）
 * [《📕 四十二篇 | 有关新项目的方法论》](/articles/_fourty-two/dark-room)（⭐⭐⭐⭐）
 * [《🏆 学习 JS，从忍者到杀手》](/_archieved/2020-12/js-100)（⭐⭐⭐⭐⭐）
@@ -109,7 +109,7 @@ title: 💖 逃离虚无，再拥抱它
 * 《CSS 权威指南第四版》
 * 《浏览器工作原理与实践》，由于内容太多了，不打算全部看完，主要看相关 HTML、CSS 的部分。
 
-三是今年习惯了阅读源码。总结来看，由于缺乏规划，一些教大型的库没有办法坚持看下去。再是受能力限制，看源码还停留在“语义”和“解决问题”层面，没能有效输出[笔记](/articles/source-code)，更别说博客了。暂时没有啥解决方法，目前也几乎是瞎摸前进。
+三是今年习惯了阅读源码。总结来看，由于缺乏规划，一些教大型的库没有办法坚持看下去。再是受能力限制，看源码还停留在“语义”和“解决问题”层面，没能有效输出[笔记](/source-code)，更别说博客了。暂时没有啥解决方法，目前也几乎是瞎摸前进。
 
 * 读完 ElementUI 库源码，从项目架构到组件写法都要做到“掌握”。
 * 配合《深入浅出 VueJS》通读 Vue2 核心代码，仿造一个小模型。

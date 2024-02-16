@@ -26,7 +26,7 @@ tsup 是一个基于 ESBuild、SWC 的小型大宝漆，允许用户使用非常
 
 ## Rspack
 
-* [Rspack](/maps/_packer/rspack)
+* [Rspack](/maps/_workflow/packer/rspack)
 
 ## Unbuild
 
