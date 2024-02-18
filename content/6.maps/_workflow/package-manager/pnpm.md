@@ -1,4 +1,7 @@
-
+---
+title: pnpm
+description: pnpm 是一个快速、省空间的包管理器
+---
 
 ## API 细节和配置项
 
@@ -173,6 +176,17 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 ![pnpm vs npm vs yarn benchmark](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230605235736.png)
 
 相关见：[pnpm seems to be consistently slower than yarn (classic)](https://github.com/pnpm/pnpm/issues/6447)
+
+#### 和 Bun 在安装速度上的对比？
+
+有锁文件、本地缓存，无 node_modules 的情况下，bun 要比 pnpm 安装至少快 3 倍。
+
+* 一个原因是 pnpm、yarn 等工具会在安装时请求最新的 metadata，而 bun 使用的 metadata 源于本地缓存的 metadata。
+* 另一个原因是 pnpm 在创建 node_modules 层次结构是使用了大量的 symlink，相比其他包管理工具仅使用复制或 hardlink 有更多系统调用。
+
+所以如果想使 pnpm 更快的安装，可以使用 prefer-offline 选项，以及，node-linker=hoisted 也许有用。
+
+见：[Bun.sh-like Module Resolution](https://github.com/pnpm/pnpm/issues/7391)
 
 #### 关于 V8 版本的变化？
 
