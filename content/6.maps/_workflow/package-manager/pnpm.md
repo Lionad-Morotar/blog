@@ -200,9 +200,7 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 
 #### PnP 模式下的依赖提升设置？
 
-默认的 node_modules 依赖的层级处于严格和不严格之间的水平，
-
-* 最严格的设置：在 PnP 模式中 node_modules 的配置最为严格，因为在 monorepo 中 PnP 模式中，就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
+默认的 node_modules 依赖的层级处于严格和不严格之间的水平（semi-strict）。使用最严格的设置需要打开 PnP 模式，因为在 monorepo 中 PnP 模式中，就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
 
 ```
 node-linker=pnp
@@ -210,3 +208,9 @@ symlink=false
 ```
 
 见：[Node-Modules configuration options with pnpm](https://pnpm.io/blog/2020/10/17/node-modules-configuration-options-with-pnpm)
+
+#### 在 Windows Dev Driver 上可能会碰到的问题？
+
+2024 年初 pnpm 实现了 Dev Driver 上的 Copy on Write 功能，但可能会碰到变慢的问题。
+
+见：[pnpm lately slow and pnpx stuck at installing deps using executable package](https://github.com/pnpm/pnpm/issues/7547)
