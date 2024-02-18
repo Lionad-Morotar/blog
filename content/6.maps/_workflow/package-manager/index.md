@@ -1,11 +1,22 @@
-# 包管理器
+---
+title: 包管理器
+description: 用于管理项目依赖的工具
+tags:
+  - package-manager
+  - npm
+  - pnpm
+  - yarn
+  - tnpm
+  - corepack
+  - lockfile
+  - dependencies
+---
 
-
-
-## 常用的包管理器
+## 包管理器或二次概念 
 
 * [npm](/maps/_workflow/package-manager/npm)
 * [pnpm](/maps/_workflow/package-manager/pnpm)
+* [lockfile](/maps/_workflow/package-manager/lockfile)
 
 ## 发展历程
 
@@ -29,18 +40,6 @@ NPM V3 开始，使用扁平模式管理依赖，把重复依赖提升到 node_m
 * **幽灵依赖**：如果某依赖不是包本身的依赖但是被提升到了一级目录，那么就能在代码中引入。
 * **多重依赖**：首先，依赖的某版本已经提升了，却不会影响其它依赖共同依赖它的其它版本，所以还是存在多重依赖的问题；其次，由于 NodeJS 的 require 的缓存规则是按照文件名及路径而不是模块名，此时对依赖进行有副作用的修改会破环单例模式；再者不同版本依赖的 types 可能会冲突。
 * **不确定性**：手动安装依赖可能会带来和 npm install 安装后不同的结构。
-
-#### lockfiles 解决了什么问题？
-
-lockfiles 主要解决包管理的不确定性问题，此外可以通过共享 lockfiles 使团队的 node_modules 保持一致。
-
-Yarn V1 在 NPM V3 时发布了，引入了 lockfiles。但由于不能完整记录依赖之间的依赖结构，所以不如 NPM V5 的 lockfiles 好，后者将依赖的元信息及结构完整记录在文件中。
-
-#### 为什么用了 lockfiles 还是不能保证环境统一？
-
-因为 npm install 时可能会根据 Semver 自动更新依赖的版本。Semver 被设计用来解决模块不同版本的兼容性问题，但是并不完美，因为在实际的代码开发中，所有代码更改都没用绝对的 no breaking change 一说。也就是说，尽管是小版本改动，也可能带来问题。
-
-<Frame src="/maps/devops/version-control.html" />
 
 #### yarn 的 PnP 模式是什么？
 
