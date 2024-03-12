@@ -58,6 +58,10 @@ Bit 的工作区域没有 package.json，所以无论是否是 Monorepo，都可
 
 从某种角度而言，大部分的组件库都是“重复造轮子”的典型，如果在架构层次没什么独到的地方，那说是换皮也不为过。这两年“无头组件”的模式原来越流行，估计要不了几年，就能看到这些新理论实践带来的新开发模式在前端掀起一波新浪潮。
 
+<q>However, the isolated linker uses symlinks, and some tools in the JavaScript ecosystem don't work well with symlinks (for instance, React Native). For those cases, you may set the nodeLinker setting to hoisted</q>
+
+从来没有使用过 nodeLinker
+
 ## 推荐阅读
 
 * [How to Reuse React Components Across Your Projects](https://bit.dev/blog/how-to-reuse-react-components-across-your-projects-l4pz83f4/)，这篇介绍了开发和使用 Bit 组件的完整的流程。
