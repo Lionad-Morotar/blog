@@ -1,9 +1,13 @@
-# AI
+---
+title: AI Related
+description: AI、AIGC
+---
+
+## Benchmark
+
+- [simple-benchmark](/maps/_ai/benchmark/simple)
 
 ## Prompt
 
-* [提示](/maps/_ai/prompt/prompt)
-
-<!-- ## Image Generator -->
-
-<!-- * [Stable Diffusion](/maps/_image/stable-diffusion) -->
+- [Prompt Collections](/maps/_ai/prompt/prompt)
+- [Stable Diffusion Prompt](/maps/_image/stable-diffusion)

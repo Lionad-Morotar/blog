@@ -1,4 +1,7 @@
-# 提示词收集
+---
+title: Prompt Collections
+description: Prompt collections for AI models
+---
 
 #### Grammar Corrector
 
@@ -11,37 +14,42 @@ You: Sounds good.
 
 If you understand, please reply with "Understood."
 
-## Tiamat / Midjourney Prompt Collection
+#### MDX Component Transformer
 
-realism tentacles, (cinematic, masterpiece, professional), (hyper detailed, fine glossy, hdr, 8k)
+```
+hi, here's an example to transfer html tag to yaml config.
 
-## 特定的风格
+example:
+untransfer:
+<Commend src="http://image" :tags="['q']">
+  <!-- # xxx -->
+</Commend>
+transfered:
+::commend
+---
+src: http://image
+tags:
+  - q
+---
+::
 
-artstation
+you should transfer this html to yaml config, with code that I could copy with, thanx!
 
-### 反向提示词
+<Commend
+src="https://mgear-blog-image.obs.cn-east-3.myhuaweicloud.com/douban/s28637162.jpg"
+caption="《莫泊桑短篇小说精选》"
+:tags="['📕 短篇小说','🌈 通俗易读']"
+:callouts="[
+'大艺术家就是那些将个人的想象力强加给全人类的人们。',
+'我们所爱的,常常不是一个男人,而是爱情本身。那天晚上,月光才是你的真正情人。',
+'后来他们开始安安静静讨论起来，用和平而智慧有限的人的一种稳健理由，辨明政治上的大问题，结果彼此都承认人是永远不会自由的。\n\n 然而瓦雷良山的炮声却没有停息，用炮弹摧毁了好些法国房子，捣毁了好些生活，压碎了好些生命，结束了许多梦想，许多在期待中的快乐，许多在希望中的幸福，并且在远处，其他的地方，贤母的心上，良妻的心上，爱女的心上，制造好些再也不会了结的苦痛。\n\n这就是人生！索瓦日先生高声喊着。\n\n您不如说这就是死亡吧。莫利梭带着笑容回答。',
+]"
+/>
+```
 
-#### 通用
+## More
 
-longbody, lowres, bad anatomy, bad hands, missing fingers, pubic hair,extra digit, fewer digits, cropped, worst quality, low quality
+- [提示词收集](/maps/_ai/prompt/prompt-collections)
+- [Midjourney Prompt 提示词秘籍](https://zhuanlan.zhihu.com/p/615010380)
 
-nsfw,
-(worst quality :2), (low quality :1), (normal quality :1),
-lowres, (low resolution :2),
-(bad face :2), (bad eye :2), bad hand, bad fingers, bad anatomy, bad feet, bad head,
-missing fingers, missing args, missing legs, missing eye,
-extra fingers, extra arms, extra limbs, extra legs, extra eye,
-too many fingers,
-poorly drawn hands, poorly drawn face,
-cross-eyed, teeth croppe,
-skin spots, acnes, skin blemishes,
-pubic hair,
-facing away, looking away,
-bad proportions, gross proportions,
-fewer digits,
-signature, watermark, username, blurry, cropped, jpeg artifacts, text, error,
-
-## Tools
-
-* [Midjourney 提示词生成器](http://www.atoolbox.net/Tool.php?Id=1102)
-* [元素法典](https://docs.qq.com/doc/DWHl3am5Zb05QbGVs)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230723155011.png)
