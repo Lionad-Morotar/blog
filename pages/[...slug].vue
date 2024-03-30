@@ -27,11 +27,12 @@ useSeoMeta({
   ogDescription: page.value.description
 })
 
-defineOgImage({
-  component: 'Docs',
-  title: page.value.title,
-  description: page.value.description
-})
+// remove og-image
+// defineOgImage({
+//   component: 'Docs',
+//   title: page.value.title,
+//   description: page.value.description
+// })
 
 const headline = computed(() => findPageHeadline(page.value))
 
