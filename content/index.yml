@@ -6,5 +6,5 @@ recommends:
     label: '长夜梦'
     to: '/flows/long-night-dream'
   - category: 技术
-    label: 'Mini CSS Parser'
-    to: '/articles/css-parser'
+    label: '本地部署 Qwen 翻译网页'
+    to: '/articles/local-translator'
