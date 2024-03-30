@@ -10,4 +10,4 @@ description: AI、AIGC
 ## Prompt
 
 - [Prompt Collections](/maps/_ai/prompt/prompt)
-- [Stable Diffusion Prompt](/maps/_image/stable-diffusion)
+- [Stable Diffusion Prompt](/maps/_ai/image/stable-diffusion)
