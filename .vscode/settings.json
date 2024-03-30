@@ -24,5 +24,10 @@
         "ESRGAN",
         "LDSR",
         "qwen"
+    ],
+    "cSpell.words": [
+        "iconify",
+        "nuxthq",
+        "typecheck"
     ]
 }

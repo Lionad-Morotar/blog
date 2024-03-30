@@ -28,7 +28,7 @@ title: 🍥 9种CSS图案解析
 
 ![圆环变形图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/1DlfMqAvJH.gif)
 
-```HTML
+```html
   <div class="card">
     <div class="node" v-for="item in 100"></div>
   </div>
@@ -54,7 +54,7 @@ title: 🍥 9种CSS图案解析
     观察变长圆环的顺序，能发现“每逢三就变长”这种规律，推测使用了 :nth-child(3) 选择器。
 
 下面是 CSS 源码。
-```SCSS
+```scss
   .card {
     justify-content: flex-start;
     overflow: hidden;
@@ -99,7 +99,7 @@ title: 🍥 9种CSS图案解析
 
 ![厕所里的瓷砖图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/Cq4jhBX0QD.gif)
 
-```HTML
+```html
   <div class="card">
     <div class="node" v-for="item in 100"></div>
   </div>
@@ -115,7 +115,7 @@ title: 🍥 9种CSS图案解析
 - 观察小球的个数，欸？貌似有些问题，圆形小球数量和瓷砖数量对不上。应该是对小球的显隐的顺序做了特殊处理。
 
 下面是 CSS 源码。
-```SCSS
+```scss
   .card {
     cursor: pointer;
   
@@ -196,7 +196,7 @@ title: 🍥 9种CSS图案解析
 
 ![三角与圆球印花图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/browser_TdDhrdE1kJ.png)
 
-```HTML
+```html
   <div class="card">
     <div class="node" v-for="item in 100"></div>
   </div>
@@ -226,7 +226,7 @@ title: 🍥 9种CSS图案解析
 
     三角形的角度变化很有规律，可以大致推测，旋转角度和列数有关。
 
-```SCSS
+```scss
   .card {
     overflow: hidden;
     cursor: pointer;
@@ -302,7 +302,7 @@ title: 🍥 9种CSS图案解析
 
 ![瓷砖变异图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/4yjR5DrBgy.gif)
 
-```HTML
+```html
   <div class="card">
     <div class="node" v-for="item in 100"></div>
   </div>
@@ -326,7 +326,7 @@ title: 🍥 9种CSS图案解析
 
 害~ 这里直接上源码。
 
-```SCSS
+```scss
   .card {
     .node {
       background: #EE92A5;
@@ -381,7 +381,7 @@ title: 🍥 9种CSS图案解析
 
 ![山与云图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/KkRVqm20Qd.gif)
 
-```HTML
+```html
   <div class="card">
     <div class="node" v-for="item in 100"></div>
   </div>
@@ -414,7 +414,7 @@ title: 🍥 9种CSS图案解析
 
 以下是 CSS 源码。
 
-```SCSS
+```scss
   .card {
     cursor: pointer;
   
@@ -492,7 +492,7 @@ title: 🍥 9种CSS图案解析
 
 ![冰崖上生长的仙人掌图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/lALUw0IGT2.gif)
 
-```HTML
+```html
   <div class="card">
     <div class="node" v-for="item in 100"></div>
   </div>
@@ -508,7 +508,7 @@ title: 🍥 9种CSS图案解析
 
 以下是 CSS 源码。
 
-```SCSS
+```scss
   .card {
     .node {
       background: #71A2DB;
@@ -582,7 +582,7 @@ title: 🍥 9种CSS图案解析
 
 这个玩意儿是上一张图的升级版本，误导可能在会猜测伪元素是点，而不是线，然后用空出的一个伪元素去构造菱形格子内其它东西。
 
-```SCSS
+```scss
   .card:nth-child(8) {
     .node {
       border: solid 8px #71A2DB;
@@ -646,7 +646,7 @@ title: 🍥 9种CSS图案解析
 
 下面就直接给代码了。
 
-```SCSS
+```scss
   // 可以看到父元素用到了 filter: contrast 滤镜
   .card {
     position: relative;
@@ -719,7 +719,7 @@ title: 🍥 9种CSS图案解析
 
 马上就到胜利的尾声了，坚持住！w(ﾟДﾟ)w
 
-```HTML
+```html
   <div class="card 5">      
     <div class="node" />   
   </div>
@@ -738,7 +738,7 @@ title: 🍥 9种CSS图案解析
 
 下面看源码。
 
-```SCSS
+```scss
   .card {
     background: linear-gradient(45deg, #F5CB6C 0%,#F5CB6C 20%,#F5856C 20%, #F5856C 45%,#F5CB6C 45%,#F5CB6C 70%,#F5856C 70%, #F5856C 95%,#F5CB6C 95%,#F5CB6C 100%);
     background-size:30px 30px;
@@ -791,7 +791,7 @@ title: 🍥 9种CSS图案解析
 
 ![万花筒图案](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/rstkkpB6P1.gif)
 
-```HTML
+```html
   <div class="card 10"></div>
   <div class="card 11"></div>
 ```
@@ -807,7 +807,7 @@ title: 🍥 9种CSS图案解析
 
 以下是源码。
 
-```SCSS
+```scss
   // 右图的样式代码
   .card {
     
@@ -863,7 +863,7 @@ title: 🍥 9种CSS图案解析
 
 它的 CSS 代码长这样：
 
-```SCSS
+```scss
   // 灰色 Border
   .card {
     justify-content: flex-start;

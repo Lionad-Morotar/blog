@@ -99,7 +99,7 @@ function ObjectAssignPolyfill(target, ...args) {
 
 和 MDN 的描述不同，Lodash 实现的这个函数不接受目标对象的类型错误。
 
-```JS
+```js
 /**
  * The base implementation of `_.assign` without support for multiple sources
  * or `customizer` functions.

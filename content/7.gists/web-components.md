@@ -26,7 +26,7 @@
 
 此外，CSS 作用域规范提供了深度选择器（$/deep/$），用于穿刺选择，无论嵌套多深的影子树中的元素都能被选中。不过，一些 CSS 中可继承的属性会穿透影子边界，所以建议使用如下样式重置组件内的 CSS：
 
-```CSS
+```css
 :host {
   all: initial;
 }
@@ -45,7 +45,7 @@
 
 见以下代码：
 
-```HTML
+```html
 <!-- HTML 源码 -->
 <WebComponents>
   <h2 slot="title-2" class="title-2">First</h2>

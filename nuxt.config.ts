@@ -57,6 +57,8 @@ export default defineNuxtConfig({
         'shell',
         'ts',
         'vue',
+        'makefile',
+        'csharp'
       ]
     }
   }

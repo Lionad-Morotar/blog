@@ -66,7 +66,7 @@ parsedContent = [`<h3>一个<i>斜体</i>标题</h3>`]
 
 一开始写解析结果缓存的时候，我犯了一个很严重的错误，那就是想尝试将所有内容以及其解析值缓存到备忘录对象，代码形如：
 
-```JS
+```js
 data: {
   // 缓存对象
   memo: {}
@@ -91,7 +91,7 @@ watch： {
 
 假设我们有某文章字符长度总量为 n，那么备忘录模型将生长成这个样子：
 
-```JS
+```js
 value = [1，2，3，...，n-1，n].join('')
 memo == {
   '1': '1',
@@ -132,7 +132,7 @@ $$O = N(N+1)/2 ≈ N^2$$
 
 我们需要提前定义好节点类`Node`：
 
-```JS
+```js
 function Node (config) {
   this.key = config.key
   this.prev = null
@@ -174,7 +174,7 @@ Node.prototype.unLink = function () {
 数组可以直接通过下标去获取某个特定的元素，而链表不行，在缓存类中我使用一个备忘录对象去记录每一个节点的访问地址，充当数组下标的作用，详见下代码中`nodeMemo`的使用
 ```
 
-```JS
+```js
 function LFU (limit) {
   this.headNode = new Node({ key: '__head__'，data: { val: null，weight: Number.MAX_VALUE } })
   this.tailNode = new Node({ key: '__tail__'，data: { val: null，weight: Number.MIN_VALUE } })
@@ -253,7 +253,7 @@ LFU.prototype.addNodeWeight = function (node，w = 1) {
 
 #### 另附测试用例
 
-```JS
+```js
 import LFU from '@/utils/suites/teditor/LFU'
 
 describe('LFU测试'，() => {
