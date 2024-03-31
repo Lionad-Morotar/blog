@@ -185,7 +185,7 @@ const assets: Record<string, {
               <p class="article-list">
                 <span class="article-list-label" v-text="article.category + '：'" />
                 <span class="article-list-content">
-                  <a :href="article.url" v-text="article.label" />
+                  <a :href="article.to" v-text="article.label" />
                 </span>
               </p>
             </template>
