@@ -22,6 +22,15 @@ export default defineNuxtConfig({
   site: {
     url: 'https://www.lionad.art',
   },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/',
+        '/sitemap.xml'
+      ]
+    }
+  },
   // @ts-ignore see https://github.com/nuxt-community/feed-module
   feed: {
     path: "/rss.xml",
