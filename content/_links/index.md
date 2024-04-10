@@ -17,7 +17,7 @@ description: 与我联络 & 友链
 <del>🚧 WIP 随机排列</del>
 
 * [☀️ 於清樂](https://thiscute.world/)：有很多的绝望，但也有美的时刻，只不过在美的时刻，时间是不同于以往的。
-* [🌐 Kicoe](https://www.kicoe.com/)：Kiceo 就连在撸猫时也在背单词。
+* [🌐 Kicoe](https://www.kicoe.com/)：Kicoe 就连在撸猫时也在背单词。
 * [😀 Renwangyu](https://blog.renwangyu.com/)：保持童心的80后程序猿大叔~
 * [📱 Wrath](https://wrath.cc)：wrath 有一部漂亮的索尼手机。
 * [🎉 Raptazure](https://raptazure.github.io)：神秘的佬。
