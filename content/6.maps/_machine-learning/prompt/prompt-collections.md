@@ -49,7 +49,7 @@ caption="《莫泊桑短篇小说精选》"
 
 ## More
 
-- [提示词收集](/maps/_ai/prompt/prompt-collections)
+- [提示词收集](/maps/_machine-learning/prompt/prompt-collections)
 - [Midjourney Prompt 提示词秘籍](https://zhuanlan.zhihu.com/p/615010380)
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230723155011.png)
