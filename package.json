@@ -36,7 +36,7 @@
     "@nuxthq/studio": "^1.0.13",
     "@nuxtjs/sitemap": "^5.1.2",
     "@vueuse/core": "^10.9.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.2.0",
     "only-allow": "^1.2.1",
     "sass": "^1.72.0",
     "vue-tsc": "^2.0.7"
