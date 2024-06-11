@@ -3,8 +3,8 @@ description: 'newest posts'
 navigation: false
 recommends:
   - category: 心流
-    label: '长夜梦'
-    to: '/flows/long-night-dream'
+    label: '四十二篇系列 · 第二 · 成熟的小孩子'
+    to: '/articles/_fourty-two/mature-child'
   - category: 技术
     label: '本地部署 Qwen 翻译网页'
     to: '/articles/local-translator'
