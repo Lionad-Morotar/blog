@@ -1,7 +1,5 @@
 # 新浏览器特性
 
-
-
 系列来源：[News to the web platform](https://web.dev/series/new-to-the-web?hl=en)
 
 以下只记录对应博客文章发布时主流浏览器都支持的特性。
