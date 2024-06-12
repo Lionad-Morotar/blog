@@ -14,13 +14,13 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
-    // ! wierd error, disable for a while
+    // ! weird error, disable for a while
     // "@nuxtjs/feed",
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
   ],
   site: {
-    url: 'https://www.lionad.art',
+    url: 'https://lionad.art',
   },
   nitro: {
     prerender: {
