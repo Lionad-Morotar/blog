@@ -1,4 +1,4 @@
-import rssPosts from "./rss.js";
+import rssPosts from './rss.js'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -7,13 +7,13 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => [].includes(tag),
     },
   },
-  extends: ["@nuxt/ui-pro"],
+  extends: ['@nuxt/ui-pro'],
   modules: [
-    "@nuxt/content",
-    "@nuxt/ui",
-    "@nuxthq/studio",
-    "@nuxtjs/fontaine",
-    "@nuxtjs/sitemap",
+    '@nuxt/content',
+    '@nuxt/ui',
+    '@nuxthq/studio',
+    '@nuxtjs/fontaine',
+    '@nuxtjs/sitemap',
     // ! wierd error, disable for a while
     // "@nuxtjs/feed",
     // ! cant fetch twimoji error, so disable for a while
@@ -25,21 +25,18 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: [
-        '/',
-        '/sitemap.xml'
-      ]
-    }
+      routes: ['/', '/sitemap.xml'],
+    },
   },
   // @ts-ignore see https://github.com/nuxt-community/feed-module
   feed: {
-    path: "/rss.xml",
+    path: '/rss.xml',
     async create(feed) {
       feed.options = {
-        title: "Lionad's blog",
-        link: "https://www.lionad.art/rss.xml",
-        description: "Feed for Lionad's Blog",
-      };
+        title: 'Lionad\'s blog',
+        link: 'https://www.lionad.art/rss.xml',
+        description: 'Feed for Lionad\'s Blog',
+      }
       rssPosts.forEach((post) => {
         feed.addItem({
           title: post.title,
@@ -47,49 +44,49 @@ export default defineNuxtConfig({
           link: post.url,
           description: post.description,
           content: post.content,
-        });
-      });
-      feed.addCategory("Lionad");
+        })
+      })
+      feed.addCategory('Lionad')
       feed.addContributor({
-        name: "Lionad",
-        email: "1806234223@qq.com",
-        link: "https://www.lionad.art",
-      });
+        name: 'Lionad',
+        email: '1806234223@qq.com',
+        link: 'https://www.lionad.art',
+      })
     },
   },
   hooks: {
     // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
-    "components:extend": (components) => {
+    'components:extend': (components) => {
       const globals = components.filter((c) =>
         [
-          "Commend",
-          "Compare",
-          "ReadBase64",
-          "LLink",
-          "Spark",
-          "UButton",
-          "UIcon",
-          "AspectRatio",
+          'Commend',
+          'Compare',
+          'ReadBase64',
+          'LLink',
+          'Spark',
+          'UButton',
+          'UIcon',
+          'AspectRatio',
         ].includes(c.pascalName)
-      );
+      )
 
-      globals.forEach((c) => (c.global = true));
+      globals.forEach((c) => (c.global = true))
     },
   },
   ui: {
-    icons: ["heroicons", "simple-icons"],
+    icons: ['heroicons', 'simple-icons'],
   },
   content: {
     highlight: {
       theme: {
-        default: "github-light",
-        dark: "github-dark",
-        sepia: "monokai",
+        default: 'github-light',
+        dark: 'github-dark',
+        sepia: 'monokai',
       },
     },
   },
   routeRules: {
-    "/api/search.json": { prerender: true },
+    '/api/search.json': { prerender: true },
   },
   devtools: {
     enabled: false,
@@ -100,21 +97,21 @@ export default defineNuxtConfig({
   mdc: {
     highlight: {
       langs: [
-        "bash",
-        "cpp",
-        "css",
-        "glsl",
-        "html",
-        "less",
-        "js",
-        "powershell",
-        "scss",
-        "shell",
-        "ts",
-        "vue",
-        "makefile",
-        "csharp",
+        'bash',
+        'cpp',
+        'css',
+        'glsl',
+        'html',
+        'less',
+        'js',
+        'powershell',
+        'scss',
+        'shell',
+        'ts',
+        'vue',
+        'makefile',
+        'csharp',
       ],
     },
   },
-});
+})
