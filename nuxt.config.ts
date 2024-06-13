@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   },
   extends: ['@nuxt/ui-pro'],
   modules: [
+    'nuxt-gtag',
     '@nuxt/content',
     '@nuxt/ui',
     '@nuxthq/studio',
@@ -19,6 +20,9 @@ export default defineNuxtConfig({
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
   ],
+  gtag: {
+    id: 'G-P6HBJNW6QT'
+  },
   site: {
     url: 'https://lionad.art',
   },
