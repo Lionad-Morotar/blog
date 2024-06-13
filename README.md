@@ -5,7 +5,7 @@
 
 # Lionad's Blog
 
-My personal knowledge base，also a blog，build with NuxtPro，online url: [https://www.lionad.art](https://www.lionad.art)
+My personal knowledge base，also a blog，build with Nuxt，online url: [https://www.lionad.art](https://www.lionad.art)
 
 ## Homepage
 
