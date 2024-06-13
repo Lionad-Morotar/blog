@@ -136,7 +136,7 @@ CSS 变量（官方叫做 Custom Properties，即自定义属性）是一个意�
 </style>
 ```
 
-```JavaScript
+```js
 const $con = document.querySelector('.my-component')
 $con.style.setProperty('--theme-color', 'gray')
 ```

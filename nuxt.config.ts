@@ -55,7 +55,6 @@ export default defineNuxtConfig({
     },
   },
   hooks: {
-    // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
     'components:extend': (components) => {
       const globals = components.filter((c) =>
         [
@@ -86,7 +85,9 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    '/api/search.json': { prerender: true },
+    '/api/search.json': {
+      prerender: true
+    },
   },
   devtools: {
     enabled: false,
@@ -103,6 +104,7 @@ export default defineNuxtConfig({
         'glsl',
         'html',
         'less',
+        'stylus',
         'js',
         'powershell',
         'scss',
@@ -110,6 +112,7 @@ export default defineNuxtConfig({
         'ts',
         'vue',
         'makefile',
+        'mermaid',
         'csharp',
       ],
     },
