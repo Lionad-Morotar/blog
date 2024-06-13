@@ -1,6 +1,6 @@
 {
   "name": "mgear-blogs",
-  "description": "Lionad-Morotar's Blogs",
+  "description": "Lionad-Morotar's Blog",
   "author": "Lionad <1806234223@qq.com>",
   "private": true,
   "type": "module",
@@ -13,9 +13,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "upload": "sftp root@47.100.27.221 && lcd dist && put -r ./ /home/root/blog",
     "post": "npm run build && npm run upload",
-    "lint": "eslint . && npx case-police \"**/*.md\" --fix"
+    "lint": "eslint . --fix && npx case-police \"**/*.md\" --fix"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.1.21",

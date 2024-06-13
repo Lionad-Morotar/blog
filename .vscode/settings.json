@@ -1,4 +1,53 @@
+
 {
+    /* nuxt ui */
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+
+    // 启用ESlint flat配置
+    "eslint.experimental.useFlatConfig": true,
+
+    // 禁用prettier并用eslint取代
+    "prettier.enable": false,
+    "editor.formatOnSave": false,
+
+    // 静默一些验证规则降低心智负担, 当然还是会被自动fix
+    "eslint.rules.customizations": [
+      { "rule": "style/*", "severity": "off" },
+      { "rule": "format/*", "severity": "off" },
+      { "rule": "*-indent", "severity": "off" },
+      { "rule": "*-spacing", "severity": "off" },
+      { "rule": "*-spaces", "severity": "off" },
+      { "rule": "*-order", "severity": "off" },
+      { "rule": "*-dangle", "severity": "off" },
+      { "rule": "*-newline", "severity": "off" },
+      { "rule": "*quotes", "severity": "off" },
+      { "rule": "*semi", "severity": "off" }
+    ],
+    // 启用保存自动fix功能
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.organizeImports": "never"
+    },
+
+    // 设置eslint影响范围
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "html",
+      "markdown",
+      "json",
+      "jsonc",
+      "yaml",
+      "toml"
+    ],
     "peacock.color": "#000",
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#1a1a1a",
