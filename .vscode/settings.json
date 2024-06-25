@@ -85,5 +85,6 @@
       "Templating",
       "twimoji",
       "typecheck"
-    ]
+    ],
+    "explorer.excludeGitIgnore": true
 }
