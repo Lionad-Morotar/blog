@@ -1,8 +1,9 @@
-# Gitflow
+---
+title: Gitflow
+description: Gitflow 是一种使用 Git 合作时使用的工作流程。
+---
 
-
-
-## 工作流
+## Quick Questions
 
 #### Gitflow 是什么？
 
@@ -52,7 +53,7 @@ Gitflow Workflow 最早在 Vincent Driessen 2010 年写的一篇博客中被提�
 
 Thoughtworks 认为短生命周期的分支策略给实施 CI/CD 带来更小的伤害，反之类似 Gitflow 中经常用到的长生命周期分治策略反而是在鼓励后期集成（late integration）。
 
-<q>We firmly belive that long-lived version-control branches harm valuable engineering practieces such as CI, and this belief underlies our dislike for Gitflow.</q>
+<q>We firmly believe that long-lived version-control branches harm valuable engineering practieces such as CI, and this belief underlies our dislike for Gitflow.</q>
 
 见：[Gitflow long-lived-branch on Tech Radar](https://www.thoughtworks.com/cn/radar/techniques/long-lived-branches-with-gitflow)
 

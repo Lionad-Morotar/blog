@@ -1,6 +1,7 @@
-# NodeJS
-
-
+---
+title: NodeJS
+description: NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
+---
 
 ## 简介
 
@@ -14,7 +15,7 @@ NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
 
 #### 事件循环机制和浏览器中有什么不同？
 
-TODO，类似但稍有区别。具体不清楚。
+TODO，类似但稍有区别。
 
 ## V8
 
@@ -40,4 +41,4 @@ node:vm 模块允许在 V8 虚拟机上下文中编译和运行代码，上下�
 
 ## 源码解析
 
-[NodeJS | require](/maps/_server/nodejs/require)
+[NodeJS | require](/maps/_server/nodejs/source/require)

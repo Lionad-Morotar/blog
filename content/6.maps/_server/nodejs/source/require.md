@@ -1,6 +1,7 @@
-# NodeJS Require
-
-
+---
+title: NodeJS Require
+description: NodeJS 模块导入的源码解析
+---
 
 相关源码对应：
 
@@ -13,7 +14,7 @@
 
 ## 功能简介
 
-NodeJS 导入模块时有主要两个地方要注意：如何解析模块地址以及如何改善 IO 操作消耗大量的性能。
+NodeJS 导入模块时有主要功能点：解析模块地址算法以及改善 IO 操作消耗大量的性能的优化算法。
 
 * **地址解析**：在 require 时，我们可以传入 fs、path、a/index.js、webpack 等各种参数，解析分两种情况：如果传入核心部件名或是相对路径名称，则直接导入模块；不然则从本目录开始寻找 node_modules 目录，没找到时递归回退直到系统根目录。
 * **性能消耗**：所有加载过的模块都用 WeakMap 缓存下来，再次加载时，直接返回已经加载好的内容。
@@ -88,7 +89,7 @@ ObjectDefineProperty(Module, 'wrapper', {
 })
 ```
 
-TODO 修改 wrapper 导致 patched 变动带来的影响
+也许是这种包装方法启发了现在许多微前端框架的 ProxyWindow 机制。
 
 #### 数据缓存
 
@@ -161,7 +162,7 @@ Module.builtinModules = builtinModules
 
 导入一个模块时，如果模块名不带后缀，则会自动匹配其后缀。比如，require('a')，会自动匹配 'a'，'a.xxx'，'a/index.xxx'。
 
-读取目录（'a'）听起来有些奇怪。其实主要逻辑一说就清楚了：如果目录下定义了 package.json 并在其中指定了 main 属性，便直接加载 main 指向的文件。
+“读取目录`/a`”听起来有些奇怪，其实是：如果目录下定义了 package.json 并在其中指定了 main 属性，便直接加载 main 指向的文件。
 
 ```js
 // 获取 package.json 的 main 属性
@@ -334,7 +335,7 @@ Module.prototype.require = function(id) {
 }
 ```
 
-从前面几个小节可以看到，代码的各个细节都充满了缓存对象。module.require 也不例外，不仅缓存了模块和文件名的对应关系，还缓存了模块与载入模块间相对路径的对应关系。
+从前面几个小节可以看到，代码各逻辑层都存在缓存。module.require 也不例外，不仅缓存了模块和文件名的对应关系，还缓存了模块与载入模块间相对路径的对应关系。
 
 ```js
 // 模块的相对路径关系的缓存

@@ -1,12 +1,12 @@
 ---
-title: Version Control
-description: tag control, version number control, and version sync system etc.
+title: 版本管理
+description: 版本管理是一种软件开发过程中的管理方法，它通过对软件的版本号进行管理，以便于开发者和用户了解软件的变动情况。
 ---
 
 ## 源码管理
 
 - [Git](/maps/_devops/git)
-- [Gitflow](/maps/_devops/gitflow)
+- [Gitflow](/maps/_devops/git/gitflow)
 
 TODO：[Sapling](https://sapling-scm.com/docs/introduction/differences-git)
 

@@ -1,8 +1,11 @@
-# GitLab
+---
+title: GitLab
+description: GitLab 是一个基于 Git 的 DevOps 平台，提供了代码仓库、CI/CD、Issue 管理等功能
+---
 
+## 流水线
 
-
-## 流水线文件
+### 流水线配置
 
 #### 有哪些预定义变量？
 
@@ -61,7 +64,9 @@ test:
 
 * CI_DEBUG_TRACE：将其定义为 true 以便排查流水线错误
 
-#### 相对完整的 .gitlab-ci.yml 实例文件？
+### 流水线实例
+
+相对完整的 .gitlab-ci.yml 实例文件？
 
 ```yml
 ## 任务的执行环境

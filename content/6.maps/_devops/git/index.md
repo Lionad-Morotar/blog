@@ -1,12 +1,13 @@
-# Git Mind Map
-
-
+---
+title: Git
+description: Git 是一种版本控制工具，用来追踪代码在开发进程中发生的变化。
+---
 
 ## 简介
 
-#### Git 是什么，有什么优势？
+#### Git 的优势？
 
-Git 是一种版本控制工具，用来追踪代码在开发进程中发生的变化。它的关键字是“分支策略”以及“变化追踪”，前者保证了在不同大小的团队中，代码的变化都可以相对保持独立，并可以通过合并策略融合；后者保证了变化都会被记录下来，使其可管理。
+其关键字是“分支策略”以及“变化追踪”，前者保证了在不同大小的团队中，代码的变化都可以相对保持独立，并可以通过合并策略融合变化；后者保证了变化都会被记录下来，使变化可管理。
 
 见：[What is version control](https://www.atlassian.com/git/tutorials/what-is-version-control)
 
@@ -100,11 +101,23 @@ git cherry-pick <commit-hash> <commit-hash>
 
 #### 如何关联远程分支？
 
-```js
+```bash
 git branch --set-upstream-to=origin/branch-1 branch-2
 ```
 
-## 常见功能
+## 工程化实践
+
+#### 提交规范有什么用？
+
+业界有许多成熟的 Git Commit Message 规范，主要目的是使“代码提交变得有意义”，这样一来，方便成员协作，有利于工程化实践以及提高美观度。
+
+![方便协作：Inline Git Commit Log](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201127180816.png)
+
+#### 一个简单的提交规范示例？
+
+我的提交规范：[Dorothy](/maps/_devops/git/dorothy)
+
+## Quick Questions
 
 #### 草稿功能应该怎么使用？
 
@@ -251,74 +264,13 @@ git diff > diff.patch
 git apply diff.patch
 ```
 
-## 工程化实践
-
-#### 提交规范有什么用？
-
-业界有许多成熟的 Git Commit Message 规范，主要目的是使“代码提交变得有意义”，这样一来，方便成员协作，有利于工程化实践以及提高美观度。
-
-![方便协作：Inline Git Commit Log](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201127180816.png)
-
-#### 一个简单的提交规范示例？
-
-以下在 LeanCloud CM Guide 的基础上，我们整理了一份尽量简单且能记录代码提交意义的约定。
-
-【主要格式】
-
-```
-提交类型：变动内容，简短描述，50 个字符
-
-提交描述，可选，72 字符内，说明该提交的原因，或是提交的副作用。与第一行之间存在空行
-
-注释及其它，可选
-```
-
-【简单示例】
-
-```
-fix: 更改 VuePress 版本，修复布局错乱问题
-
-https://github.com/vuejs/vuepress/issues/1321
-```
-
-上面这个示例是一种“修复类型（fix）”示例，其描述链接了一个 GitHub Issue。
-
-【类型说明】
-
-类型有多种可能，以下几种是必须遵守的约定：
-* fix：错误修复
-* feat：新功能
-* chore：其它修改，如项目配置变动，构建任务变动
-* doc：注释或文档
-* format：代码改动（仅代码样式变更，如换行、分号）
-* css：前端界面样式变更
-
-此外，还有一些类型可供参考及选用：
-* refactor：代码重构
-* perf：代码重构（仅性能改进）
-* test：与测试相关的改动
-
-原则来说，依据不同项目，CM 规范可以做适当调整。以上只展现了一种通用的基础约定，具体项目可以在此基础上自行增添规则。如我的个人博客项目 CM 中，有一种“blogs”类型专门用作记录博客文字内容的修改。
-
-特殊标记
-
-特殊标记用作标注注意事项，如“BREAKING”、“close”标记的使用。特殊标记通常与项目工程化实践中其它工具配合使用，如用于关闭 GitLab Issues，后续有需要再展开约定。
-
-完整示例
-
-```
-feat: 大盘中国地图增加地图下钻功能
-
-引入中国的省市映射文件，以通过选取的省找到省下所有城市内的店铺。
-
-BREAKING: 下钻功能导致了地图缩放时错位的问题，所以暂时禁用了地图的拖拽能力
-```
-
 #### 如何跳过钩子？
 
 ```bash
 git commit --no-verify -am 'bad commit message'
 ```
+
+## Common Issues
 
 #### 怎么记住 HTTPs 账号密码？
 
@@ -327,13 +279,11 @@ git commit --no-verify -am 'bad commit message'
 git config --global credential.helper store
 ```
 
-## 常见问题
-
 #### SSH 链接超时问题怎么解决？
 
 可以使用以下指令来测试是否是 ssh 连接超时：
 
-```js
+```bash
 ssh -T git@github.com
 ```
 

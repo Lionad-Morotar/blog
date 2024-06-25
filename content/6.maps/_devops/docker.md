@@ -1,18 +1,17 @@
-# Docker
-
-
+---
+title: Docker
+description: Docker 是一种容器管理工具，通过对系统资源的控制与隔离，把软件、软件运行时、系统工具、系统库和配置打包到一个镜像中，运行在有有独立命名空间的容器进程内，可以使软件的所有依赖都标准化。
+---
 
 ## 简介
 
 #### Docker 是什么？
 
-Docker 本身不是容器，而是容器的一种实现以及容器管理工具。
+Docker 本身不是容器，而是容器标准的一种实现及其管理工具。
 
 #### 容器是什么？
 
 容器是一种软件打包的技术。通过对系统资源的控制与隔离，把软件、软件运行时、系统工具、系统库和配置打包到一个镜像中，运行在有有独立命名空间的容器进程内，可以使软件的所有依赖都标准化。所以使用容器技术能方便地将软件打包成标准单元。
-
-TODO
 
 ## 原理
 
@@ -47,17 +46,17 @@ RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
 
 ## 常见指令
 
-- Build：打包镜像，如 docker build -t test . -f Dockerfile；
-- Exec：执行容器指令，如 docker exec -it xxx bash；
-- Run：运行镜像，如 docker run -it test；
-- Ps：列表，如 docker ps；
-- Copy：复制文件到 Docker 中，如 docker cp d://test dockerID:dockerPath
+- `ps`：列表，如 `docker ps`
+- `build`：打包镜像，如 `docker build -t test . -f Dockerfile`
+- `run`：运行镜像，如 `docker run -it test`
+- `exec`：执行容器指令，如 `docker exec -it xxx bash`
+- `copy`：复制文件到 Docker 中，如 `docker cp d://test dockerID:dockerPath`
 
 ## 调试流程
 
-1. 拉远端镜像：docker pull registry.gitlab.baixing.cn/fenlei/midway-fe:75150
-2. 启动容器：docker run -p 8081:7001 -it 5d0c03824600 sleep 999m
-3. 进入并调试：docker exec -it name /bin/bash
+1. 拉远端镜像：`docker pull registry.gitlab.p-ray.cn/moe:75150`
+2. 启动容器：`docker run -p 8081:7001 -it <imageID> sleep 999m`
+3. 进入并调试：`docker exec -it <instanceName> /bin/bash`
 
 `-p 8081:7001`，把本机的 8081 端口绑定到 Container 的 7001 端口。
 
