@@ -3,6 +3,12 @@ title: Machine Learning
 description: machine learning related
 ---
 
+## 数据结构
+
+#### 向量可视化
+
+使用 [projector.tensorflow](https://projector.tensorflow.org/) 在低维度空间查看不同向量的某个特征的分布情况。
+
 ## NLP
 
 #### 将 LLMs 及 NLP 结合
