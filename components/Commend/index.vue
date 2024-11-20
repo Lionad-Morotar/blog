@@ -119,6 +119,9 @@ html.dark {
     background: rgba(0,0,0,0.24);
     color: var(--tw-prose-invert-counters);
   }
+  details, .commend-image-con .commend-image-name {
+    color: rgba(255,255,255,0.6);
+  }
 }
 
 @media (max-width: 419px) {
