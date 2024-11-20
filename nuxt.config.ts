@@ -7,10 +7,13 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => [].includes(tag),
     },
   },
+
   extends: ['@nuxt/ui-pro'],
+
   modules: [
     'nuxt-gtag',
     '@nuxt/content',
+    '@nuxt/image',
     '@nuxt/ui',
     '@nuxthq/studio',
     '@nuxtjs/fontaine',
@@ -20,18 +23,22 @@ export default defineNuxtConfig({
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
   ],
+
   gtag: {
     id: 'G-P6HBJNW6QT'
   },
+
   site: {
     url: 'https://lionad.art',
   },
+
   nitro: {
     prerender: {
       crawlLinks: true,
       routes: ['/', '/sitemap.xml'],
     },
   },
+
   // @ts-ignore see https://github.com/nuxt-community/feed-module
   feed: {
     path: '/rss.xml',
@@ -58,6 +65,7 @@ export default defineNuxtConfig({
       })
     },
   },
+
   hooks: {
     'components:extend': (components) => {
       const globals = components.filter((c) =>
@@ -76,9 +84,11 @@ export default defineNuxtConfig({
       globals.forEach((c) => (c.global = true))
     },
   },
+
   ui: {
     icons: ['heroicons', 'simple-icons'],
   },
+
   content: {
     highlight: {
       theme: {
@@ -88,17 +98,21 @@ export default defineNuxtConfig({
       },
     },
   },
+
   routeRules: {
     '/api/search.json': {
       prerender: true
     },
   },
+
   devtools: {
     enabled: false,
   },
+
   typescript: {
     strict: false,
   },
+
   mdc: {
     highlight: {
       langs: [
@@ -121,4 +135,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: '2024-11-21',
 })
