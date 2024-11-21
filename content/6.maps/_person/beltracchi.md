@@ -1,10 +1,9 @@
-# 贝特拉基
+---
+title: 贝特拉基
+description: 贝特拉基是一个德国画家，曾以伪造画作闻名。
+---
 
-
-
-## 相关
-
-#### [《现代假画之王贝特拉基》](https://www.zhihu.com/xen/market/pdf-view/paid_magazine/1395369078886834176)
+#### 现代假画之王贝特拉基的故事？
 
 贝特拉基 1951 年出生于德国人，原名叫费舍尔，但后来二婚后改妻姓才叫 Beltracchi。Beltracchi 是个意大利的姓氏，所以应该翻译为“贝特拉基”而不是英译“贝特莱奇”。
 
@@ -13,3 +12,5 @@
 贝特拉基被捕后，在监狱度过了六年时光。从监狱获释后，贝特拉基和他的妻子继续以艺术家的身份工作，出版了自传和电影（《伪造的艺术》，2014年），并从画作中赚了数百万美元收入[^income]。
 
 [^income]: [<i>Beltracchi, i due falsari d'arte alla 'Bonnie e Clyde' del XXI secolo</i>](https://www.we-wealth.com/news/pleasure-assets/opere-darte/beltracchi-due-falsari-bonny-clyde-xxi-secolo)
+
+见：[《现代假画之王贝特拉基》](https://www.zhihu.com/xen/market/pdf-view/paid_magazine/1395369078886834176)

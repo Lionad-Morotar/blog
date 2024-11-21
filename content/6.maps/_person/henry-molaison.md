@@ -1,8 +1,9 @@
-# 亨利·莫莱森
+---
+title: 亨利·莫莱森
+description: 医学史上最著名的健忘症患者
+---
 
-
-
-## 健忘症
+## 莫莱森健忘症的来历？
 
 莫莱森是在 7 岁时遭遇了一场自行车事故，又或者是从父亲那继承的疾病，使得他从 10 岁开始癫痫发作，并且越来越严重。
 
@@ -16,7 +17,4 @@
 
 ![H.M.去世后大脑组织尼氏染色切片，方框及箭头所指为海马](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200343.png?w=50)
 
-## 相关链接
-
-* [亨利·莫莱森——科学史上最著名的失忆者](https://www.xianjichina.com/news/details_63183.html)
-* [脑科学史话丨“记不住”的亨利·莫莱森，“被记住”的H.M.病人](https://www.bilibili.com/read/cv7044871/)
+见: [脑科学史话丨“记不住”的亨利·莫莱森，“被记住”的H.M.病人](https://www.bilibili.com/read/cv7044871/)

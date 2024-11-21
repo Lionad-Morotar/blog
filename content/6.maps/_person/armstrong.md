@@ -1,12 +1,9 @@
-# 阿姆斯特朗
+---
+title: 阿姆斯特朗
+description: 阿姆斯特朗关于工程的演讲
+---
 
-
-
-## 演讲
-
-### 阿姆斯特朗关于工程的演讲
-
-#### 来源
+#### 阿姆斯特朗关于工程的演讲?
 
 2000 年 2 月，阿姆斯特朗作为美国国家工程院（NAE）的代表在美国国家记者俱乐部就工程学在上个世纪取得的巨大成就发表了演讲。其中，他以“书呆子”自称，并介绍了由 NAE 排名推选出的二十世纪最具影响力的 20 个工程发明。
 
@@ -15,7 +12,7 @@
 > “任何足够先进的技术，初看都与魔法无异。”
 > <name>亚瑟克拉克</name>
 
-#### 文稿及翻译
+---
 
 Fellow engineers, honored guests, ladies and gentlemen: It is National Engineers Week, and I am honored to be speaking on behalf of the National Academy of Engineering and our nation’s professional engineering societies.
 
