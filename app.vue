@@ -58,13 +58,54 @@ provide('navigation', navigation)
   padding-left: 12px;
   padding-right: 12px;
 }
+@media screen and (max-width: 888px) {
+  #app-page > div:first-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 main aside::-webkit-scrollbar {
   width: 0 !important;
 }
 
-// 不好看
+header, footer {
+  max-width: 100%;
+}
+
+// 移动端的 Header 会被快链撑开，直接隐藏
+@media screen and (max-width: 888px) {
+  header > div > div:last-child a {
+    width: 0;
+    overflow: hidden;
+    display: none;
+  }
+  [data-headlessui-portal] div:has(> button[aria-label="Close Menu"]) a {
+    width: 0;
+    overflow: hidden;
+    display: none;
+  }
+}
+
+// 不好看，隐藏侧边栏滚动条
 // main aside:hover::-webkit-scrollbar {
 //   width: 4px !important;
 // }
+
+// 移动端将 toc 移动到底部并固定
+@media screen and (max-width: 888px) {
+  footer {
+    margin-bottom: 50px;
+  }
+  :not(aside div) div:has(> nav[class^="sticky"]) {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding: 0 12px;
+    z-index: 9;
+    border-color: var(--color-gray-300);
+    border-top-width: 1px;
+  }
+}
 </style>

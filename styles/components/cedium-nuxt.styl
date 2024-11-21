@@ -32,6 +32,43 @@ u {
   text-underline-offset: 0.2em;
 }
 
-@media screen and (max-width: 888px) {
+blockquote {
+  position: relative;
+  margin: 1.5em;
+  padding: 0 4.5em;
+  border: 0;
+  font-family: 'MJXTEX-I','楷体';
+  font-style: normal;
+  font-size: 1.2em;
 
+  & > p:nth-child(1) {
+      position: relative;
+      margin-top: 0;
+      text-align: center;
+      word-break: break-word;
+
+      name {
+          display: block;
+          margin: auto;
+          width: 95%;
+          text-align: right;
+          font-size: 1rem;
+
+          &::before {
+              content: '—— ';
+          }
+      }
+  }
+
+  & + p {
+      margin-top: 0.8em;
+  }
+}
+
+@media screen and (max-width: 888px) {
+  blockquote {
+    margin: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
