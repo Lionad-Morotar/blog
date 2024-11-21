@@ -1,0 +1,37 @@
+& > img, & > p > img, & > figure> img, & > video, & > p > video, & > figure> video {
+    box-sizing: border-box;
+    display: block;
+    margin: 1.5em auto;
+    margin-bottom: 0;
+    max-width: 100%;
+    vertical-align: middle;
+    border: solid 1px;
+
+    & + figcaption {
+        margin-top: 0.3em;
+        margin-bottom: 0.5em;
+        text-align: center;
+        font-size: 12px;
+        overflow: hidden;
+    }
+}
+
+& > img, & > video {
+    margin: 1.95rem auto 1.75em auto;
+    max-width: 100%;
+
+    // 图片链接失效时，若没有 alt 属性，则回退至显示 Emoji
+    &[alt='']::after, &:not([alt])::after {
+        content: '💔';
+    }
+}
+
+u {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 0.2em;
+}
+
+@media screen and (max-width: 888px) {
+
+}
