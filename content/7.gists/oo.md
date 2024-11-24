@@ -29,7 +29,7 @@ description: 面向对象编程
 * 封装变化：找到程序中易变的内容并将其和不变的内容区分开来
 * 面向接口：依赖抽象通常优于依赖具体
 * 优先组合：组合优于继承，因为继承有着挺多保守诟病之处
-* SOLID原则
+* SOLID 原则
 
 ### 组合优于继承
 
@@ -43,8 +43,8 @@ description: 面向对象编程
 
 如果使用继承的思路组织代码，你很可能对得到以下结构：
 
-![[Computor Structure V1](https://www.processon.com/diagraming/614e0c510791290c0c424dc2)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/348faf14-874b-410d-b4b9-ff00b04ab14e.svg)
+![[Computer Structure V1](https://www.processon.com/diagraming/614e0c510791290c0c424dc2)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/348faf14-874b-410d-b4b9-ff00b04ab14e.svg)
 
 使用组合可以方便地把不同的“维度”之间的并行关联拆分出来，降低代码复杂度：
 
-![[Computor Structure V2](https://www.processon.com/diagraming/614e080b637689481b658be2)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg)
+![[Computer Structure V2](https://www.processon.com/diagraming/614e080b637689481b658be2)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg)
