@@ -25,6 +25,7 @@ export default defineNuxtConfig({
   ],
 
   gtag: {
+    // cspell:disable-next-line
     id: 'G-P6HBJNW6QT'
   },
 
