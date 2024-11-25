@@ -101,6 +101,7 @@ header, footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    max-width: 100vw;
     left: 0;
     padding: 0 12px;
     z-index: 9;
