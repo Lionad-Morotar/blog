@@ -69,6 +69,11 @@ main aside::-webkit-scrollbar {
   width: 0 !important;
 }
 
+nav[class^="sticky top-"] > div > ul {
+  max-height: 60vh;
+  overflow: auto;
+}
+
 header, footer {
   max-width: 100%;
 }
