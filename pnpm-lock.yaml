@@ -64,8 +64,8 @@ importers:
         specifier: ^6.1.5
         version: 6.1.5(h3@1.13.0)(magicast@0.3.5)(rollup@4.21.2)(vite@5.4.3(@types/node@20.11.5)(sass@1.81.0)(stylus@0.63.0)(terser@5.27.0))(vue@3.5.13(typescript@5.7.2))(webpack-sources@3.2.3)
       '@vueuse/core':
-        specifier: ^10.11.1
-        version: 10.11.1(vue@3.5.13(typescript@5.7.2))
+        specifier: ^12.0.0
+        version: 12.0.0(typescript@5.7.2)
       eslint:
         specifier: ^9.15.0
         version: 9.15.0(jiti@2.4.0)
@@ -1990,6 +1990,9 @@ packages:
   '@vueuse/core@11.3.0':
     resolution: {integrity: sha512-7OC4Rl1f9G8IT6rUfi9JrKiXy4bfmHhZ5x2Ceojy0jnd3mHNEvV4JaRygH362ror6/NZ+Nl+n13LPzGiPN8cKA==, tarball: https://registry.npmmirror.com/@vueuse/core/-/core-11.3.0.tgz}
 
+  '@vueuse/core@12.0.0':
+    resolution: {integrity: sha512-C12RukhXiJCbx4MGhjmd/gH52TjJsc3G0E0kQj/kb19H3Nt6n1CA4DRWuTdWWcaFRdlTe0npWDS942mvacvNBw==, tarball: https://registry.npmmirror.com/@vueuse/core/-/core-12.0.0.tgz}
+
   '@vueuse/head@2.0.0':
     resolution: {integrity: sha512-ykdOxTGs95xjD4WXE4na/umxZea2Itl0GWBILas+O4oqS7eXIods38INvk3XkJKjqMdWPcpCyLX/DioLQxU1KA==, tarball: https://registry.npmmirror.com/@vueuse/head/-/head-2.0.0.tgz}
     peerDependencies:
@@ -2089,6 +2092,9 @@ packages:
   '@vueuse/metadata@11.3.0':
     resolution: {integrity: sha512-pwDnDspTqtTo2HwfLw4Rp6yywuuBdYnPYDq+mO38ZYKGebCUQC/nVj/PXSiK9HX5otxLz8Fn7ECPbjiRz2CC3g==, tarball: https://registry.npmmirror.com/@vueuse/metadata/-/metadata-11.3.0.tgz}
 
+  '@vueuse/metadata@12.0.0':
+    resolution: {integrity: sha512-Yzimd1D3sjxTDOlF05HekU5aSGdKjxhuhRFHA7gDWLn57PRbBIh+SF5NmjhJ0WRgF3my7T8LBucyxdFJjIfRJQ==, tarball: https://registry.npmmirror.com/@vueuse/metadata/-/metadata-12.0.0.tgz}
+
   '@vueuse/nuxt@10.7.2':
     resolution: {integrity: sha512-yv2hY4AiRoSqg9ELNpN6gOkDWxGuLiKE/bEbuTAAuUBhS5OeEDf5aB/kY0e/V6ZXj5XiU4LX3nE8YV8c+UKfmQ==, tarball: https://registry.npmmirror.com/@vueuse/nuxt/-/nuxt-10.7.2.tgz}
     peerDependencies:
@@ -2107,6 +2113,9 @@ packages:
 
   '@vueuse/shared@11.3.0':
     resolution: {integrity: sha512-P8gSSWQeucH5821ek2mn/ciCk+MS/zoRKqdQIM3bHq6p7GXDAJLmnRRKmF5F65sAVJIfzQlwR3aDzwCn10s8hA==, tarball: https://registry.npmmirror.com/@vueuse/shared/-/shared-11.3.0.tgz}
+
+  '@vueuse/shared@12.0.0':
+    resolution: {integrity: sha512-3i6qtcq2PIio5i/vVYidkkcgvmTjCqrf26u+Fd4LhnbBmIT6FN8y6q/GJERp8lfcB9zVEfjdV0Br0443qZuJpw==, tarball: https://registry.npmmirror.com/@vueuse/shared/-/shared-12.0.0.tgz}
 
   '@webassemblyjs/ast@1.11.6':
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==, tarball: https://registry.npmmirror.com/@webassemblyjs/ast/-/ast-1.11.6.tgz}
@@ -8327,7 +8336,7 @@ snapshots:
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 8.56.12
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
 
   '@types/eslint@8.56.12':
     dependencies:
@@ -9009,6 +9018,15 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
+  '@vueuse/core@12.0.0(typescript@5.7.2)':
+    dependencies:
+      '@types/web-bluetooth': 0.0.20
+      '@vueuse/metadata': 12.0.0
+      '@vueuse/shared': 12.0.0(typescript@5.7.2)
+      vue: 3.5.13(typescript@5.7.2)
+    transitivePeerDependencies:
+      - typescript
+
   '@vueuse/head@2.0.0(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@unhead/dom': 1.11.2
@@ -9056,6 +9074,8 @@ snapshots:
   '@vueuse/metadata@10.7.2': {}
 
   '@vueuse/metadata@11.3.0': {}
+
+  '@vueuse/metadata@12.0.0': {}
 
   '@vueuse/nuxt@10.7.2(magicast@0.3.5)(nuxt@3.13.1(@parcel/watcher@2.4.1)(@types/node@20.11.5)(eslint@9.15.0(jiti@2.4.0))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.3)(rollup@4.21.2)(sass@1.81.0)(stylus@0.63.0)(terser@5.27.0)(typescript@5.7.2)(vite@5.4.3(@types/node@20.11.5)(sass@1.81.0)(stylus@0.63.0)(terser@5.27.0))(vue-tsc@2.1.6(typescript@5.7.2))(webpack-sources@3.2.3))(rollup@4.21.2)(vue@3.5.13(typescript@5.7.2))(webpack-sources@3.2.3)':
     dependencies:
@@ -9109,6 +9129,12 @@ snapshots:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@vueuse/shared@12.0.0(typescript@5.7.2)':
+    dependencies:
+      vue: 3.5.13(typescript@5.7.2)
+    transitivePeerDependencies:
+      - typescript
 
   '@webassemblyjs/ast@1.11.6':
     dependencies:
@@ -14275,7 +14301,7 @@ snapshots:
   webpack@5.89.0:
     dependencies:
       '@types/eslint-scope': 3.7.7
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.11.6
       '@webassemblyjs/wasm-edit': 1.11.6
       '@webassemblyjs/wasm-parser': 1.11.6
