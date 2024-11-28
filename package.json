@@ -36,7 +36,7 @@
     "@nuxt/devtools": "^1.6.1",
     "@nuxt/eslint-config": "^0.3.13",
     "@nuxthq/studio": "^2.2.1",
-    "@nuxtjs/sitemap": "^6.1.5",
+    "@nuxtjs/sitemap": "^7.0.0",
     "@vueuse/core": "^10.11.1",
     "eslint": "^9.15.0",
     "only-allow": "^1.2.1",
