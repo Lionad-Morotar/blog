@@ -82,6 +82,11 @@ mark {
   @apply bg-primary/20;
 }
 
+kbd {
+  margin: 0 .2em;
+  word-break: keep-all;
+}
+
 // 移动端的 Header 会被快链撑开，直接隐藏
 @media screen and (max-width: 888px) {
   header > div > div:last-child a {
