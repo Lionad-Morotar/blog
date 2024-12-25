@@ -54,6 +54,43 @@ provide('navigation', navigation)
 <style lang="stylus">
 @import "./styles/index.styl";
 
+img {
+    &[src*='w=30'] {
+        width: 30%;
+    }
+    &[src*='w=40'] {
+        width: 40%;
+    }
+    &[src*='w=50'] {
+        width: 50%;
+    }
+    &[src*='w=60'] {
+        width: 60%;
+    }
+    &[src*='w=62'] {
+        width: 62%;
+    }
+    &[src*='w=g'] {
+        width: 62%;
+    }
+    &[src*='w=70'] {
+        width: 70%;
+    }
+    &[src*='w=80'] {
+        width: 80%;
+    }
+    &[src*='type=win11'] {
+        border: none !important;
+        border-radius: 8px;
+    }
+    &[src*='type=draw'] {
+        border: none !important;
+    }
+    &[src*='type=win11-square'] {
+        border: none !important;
+    }
+}
+
 #app-page > div:first-child {
   padding-left: 12px;
   padding-right: 12px;
