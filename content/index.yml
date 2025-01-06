@@ -6,5 +6,5 @@ recommends:
     label: '四十二篇系列 · 第二 · 成熟的小孩子'
     to: '/articles/_fourty-two/mature-child'
   - category: 技术
-    label: '本地部署 Qwen 翻译网页'
-    to: '/articles/local-translator'
+    label: '在 tailwind 中使用现代化 CSS Layers'
+    to: '/articles/tailwind-sass-and-css-layer'
