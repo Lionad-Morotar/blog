@@ -4,7 +4,7 @@ title: Budibase
 
 ## [Twitter](https://x.com/budibase?utm_campaign=Onboarding&utm_medium=email&_hsenc=p2ANqtz--6Ynd76E4FehE07-MjjIZWwvuH2B-KMkxdBPT1TJ5Eh4ci9Wy0q_RZYTIRBsGXz_09u4n_C8GiUe9f8mFjiC6Dj9B4sw&_hsmi=66516363&utm_content=66516363&utm_source=hs_automation)
 
-2020 年那会儿 Budibase 从 SlaskHQ 迁移到 Discord，发布了他的第一条推文，尽管点赞数量只有寥寥三个。
+2020 年那会儿 Budibase 从 SlackHQ 迁移到 Discord，发布了他的第一条推文，尽管点赞数量只有寥寥三个。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031913704.png)
 
@@ -44,7 +44,7 @@ Bubibase 推荐了 Martin McKeveney 的 NoSQL 和 DynamoDB 的演讲。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031954506.png)
 
-TechCrunch 的一篇 The No-Code Generation is arriving 文章中，根据“In the distant past, there was a proverbial “digital divide” that bifurcated workers into those who knew how to use computers and those who didn’t.”推演了今后数据分析工程在今后可能作为新的“数字鸿沟”出现以及带来的影响。而这正是过去几年（2017~2020）低代码发力的方向，Airtable 和 Retool 这种年轻的公司分别以 26 亿以及 10 亿美元的估值崛起。文章还提到了“而像 Bildr、Shogun、Bubble、Stacker”等公司，但是我没有用过。
+TechCrunch 的一篇 The No-Code Generation is arriving 文章中，根据“In the distant past, there was a proverbial “digital divide” that bifurcated workers into those who knew how to use computers and those who didn’t.”推演了今后数据分析工程在今后可能作为新的“数字鸿沟”出现以及带来的影响。而这正是过去几年（2017~2020）低代码发力的方向，AirTable 和 Retool 这种年轻的公司分别以 26 亿以及 10 亿美元的估值崛起。文章还提到了“而像 Bildr、Shogun、Bubble、Stacker”等公司，但是我没有用过。
 
 [NocodeList](https://nocodelist.co/)，收集了 300+ 无代码工具，而他本身就是一个很适合无代码建设的网站。
 
