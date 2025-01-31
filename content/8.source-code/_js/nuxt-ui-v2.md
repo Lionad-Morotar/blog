@@ -1,5 +1,5 @@
 ---
-title: @nuxt/ui v2
+title: nuxt-ui v2
 ---
 
 ## 项目结构

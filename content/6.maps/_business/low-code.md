@@ -26,6 +26,17 @@ description: 无代码、低代码、高代码，这是一个围绕人机交互�
 
 可以使用 [KeepAlive](https://mp.weixin.qq.com/s/1fYO__dfUy2MIjHi3IJrmg) 模式解决。在画布的 DOM 结构中用 KeepElement 作为组件的 DOM 包装，而组件本身通过 createPortal 的方式挂载到画布外的地方。这样一来，和拖拽相关的 KeepElement 结构而言组件层级是正确的，对于渲染相关的结构而言，父子结构没有改变，所以不会触发组件的 remount。
 
-## 竞品
+## 相关产品
+
+#### 页面搭建类
 
 * [budibase](/maps/_business/_low-code/budibase)
+
+#### 动作编排类（工作流）
+
+* n8n
+<!-- * [n8n](/maps/_business/_low-code/n8n) -->
+
+#### 逻辑编排类
+
+* [dynamo](/maps/_business/_low-code/dynamo)
