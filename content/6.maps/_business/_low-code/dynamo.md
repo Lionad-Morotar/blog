@@ -1,13 +1,13 @@
 ---
 title: Dynamo
-description: Dynamo 是一个设计类的低码产品，可以帮助你快速构建程序算法。
+description: Dynamo 原本是 Revit 中建筑信息模型 (BIM) 的附加模块，后来发展成熟，成为一个给设计师探索可视化编程、解决问题并自行制作工具的平台。
 ---
 
-## 简介
-
-Dynamo 原本是 Revit 中建筑信息模型 (BIM) 的附加模块，后来发展成熟，成为一个给设计师探索可视化编程、解决问题并自行制作工具的平台。
-
 > 一款可视化编程工具，旨在同时供非编程人员和编程人员使用。它使用户能够直观地查看脚本行为、定义自定义逻辑以及使用各种文本编程语言的脚本。
+
+一个 Dynamo 示例：
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311908636.png)
 
 #### Dynamo Primer
 
