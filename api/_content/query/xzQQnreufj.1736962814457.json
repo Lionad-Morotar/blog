@@ -1,1 +1,0 @@
-[{"_path":"/gists/pinvoke","title":"PInvoke","description":"PInvoke 既 Platform Invocation Services 平台调用服务，允许你使用 C# 之类的语言调用外部函数。比如，许多硬件中，其驱动是用 C/C++ 写的，而用 C# 在外面再套一层壳子来管理界面（WPF/Winform）。这时，可以使用 PInvoke 方法让 C# 去调用动态链接库中的函数。"},{"_path":"/gists/powershell","title":"PowerShell","description":""}]
