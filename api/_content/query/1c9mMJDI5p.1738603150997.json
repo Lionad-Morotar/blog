@@ -1,0 +1,1 @@
+[{"_path":"/maps/_devops/docker","title":"Docker","description":"Docker 是一种容器管理工具，通过对系统资源的控制与隔离，把软件、软件运行时、系统工具、系统库和配置打包到一个镜像中，运行在有有独立命名空间的容器进程内，可以使软件的所有依赖都标准化。"},{"_path":"/maps/_devops/git/gitflow","title":"Gitflow","description":"Gitflow 是一种使用 Git 合作时使用的工作流程。"}]
