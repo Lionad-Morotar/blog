@@ -1,6 +1,7 @@
-# Vue Mind Map
-
-
+---
+title: Vue
+description: Vue 是一套用于构建用户界面的渐进式框架，它的核心库只关注视图层，易于上手，同时也便于与第三方库或既有项目整合。
+---
 
 ## TODO
 
@@ -82,7 +83,7 @@ diff 算法深入一下？https://zhuanlan.zhihu.com/p/401340016
 
 聊聊 Vue 的双端 diff 算法 https://zhuanlan.zhihu.com/p/534903909
 
-diff算法之双端对比 https://zhuanlan.zhihu.com/p/432927438
+diff 算法之双端对比 https://zhuanlan.zhihu.com/p/432927438
 
 ## 组件
 
