@@ -1,6 +1,7 @@
-# 浏览器相关
-
-
+---
+title: 浏览器相关
+description: 浏览器相关问题
+---
 
 ## 组成原理
 
@@ -14,7 +15,7 @@
 
 #### 浏览器的进程线程结构是怎么样的？
 
-一般浏览器由主进程（浏览器进程）、渲染进程（浏览器内核）、插件进程和GPU 进程组成。和页面渲染相关的是渲染进程，一般由网络请求线程、脚本引擎线程、GUI 渲染线程、合成器线程、光栅线程、事件触发线程、定时器线程和 Worker 线程组成。
+一般浏览器由主进程（浏览器进程）、渲染进程（浏览器内核）、插件进程和 GPU 进程组成。和页面渲染相关的是渲染进程，一般由网络请求线程、脚本引擎线程、GUI 渲染线程、合成器线程、光栅线程、事件触发线程、定时器线程和 Worker 线程组成。
 
 #### 每个页面都有一个对应的渲染进程吗？
 
@@ -56,7 +57,7 @@ WebWorker 由当前页面进程管理，它是一个新的线程；SharedWorker 
 
 解析分 HTML、CSS 和 JS。解析 HTML 时是一个从字符流到标记（Tokenizing），再到带属性对象（Lexing），最后组成 DOM Tree 的过程。解析 CSS 类似，最后会组成 CSSOM Tree。如果是普通脚本，解析时会阻塞 DOM Tree 和 CSSOM Tree 的构建。
 
-当 DOM Tree 和 CSSOM Tree 准备好后，依据 CSS 规范构建渲染树。渲染树将会被带入布局处理，计算节点在屏幕上的精确坐标，随后在图层合层过程中分割为磁贴，并交由栅格线程栅格化并储存在显存中。最后，由浏览器主进程通知渲染GPU 进程渲染页面。
+当 DOM Tree 和 CSSOM Tree 准备好后，依据 CSS 规范构建渲染树。渲染树将会被带入布局处理，计算节点在屏幕上的精确坐标，随后在图层合层过程中分割为磁贴，并交由栅格线程栅格化并储存在显存中。最后，由浏览器主进程通知渲染 GPU 进程渲染页面。
 
 #### 为什么解析 HTML 无法使用自上而下或自下而上的解析器？
 
@@ -141,7 +142,7 @@ passive 在 document 绑定 touchmove 或 touchstart 时默认是开启的，但
 
 #### BFCache 是如何运作的？
 
-[BFCache（Back/Forward Cache）](https://www.youtube.com/watch?v=cuPsdRckkF0)是一种缓存策略。浏览器会把当前页面的快照（包括 JS Heap 快照）缓存到内存中，以便用户从当前页面导航到其它页面短暂浏览后又返回原先页面时，迅速地展现页面。
+[BFCache（Back/Forward Cache）](https://www.youtube.com/watch?v=cuPsdRckkF0) 是一种缓存策略。浏览器会把当前页面的快照（包括 JS Heap 快照）缓存到内存中，以便用户从当前页面导航到其它页面短暂浏览后又返回原先页面时，迅速地展现页面。
 
 为了使 BFCache 生效，不能使用 unload、beforeunload 事件，不能指明 window.open，此外，在离开前面前需要连接是关闭状态的（WS、fetch 等）。
 
@@ -176,7 +177,7 @@ EventSource 是一个基于 HTTP 协议，能在浏览器端自动重连的服�
 * [CSS Selectors Level 3](https://www.w3.org/TR/selectors-3/#grammar)
 * [Inside look at modern web browser (part 1)](https://developer.chrome.com/blog/inside-browser-part1/)
 * [图解浏览器的基本工作原理](https://zhuanlan.zhihu.com/p/47407398)，现代浏览器内部原理系列的中文翻译其一。
-* [浏览器地址栏中输入URL到页面显示，浏览器到底发生了什么？](https://www.starryskystar.space/detail/612beeddf1daf402f34f4fa5)，综合笔记。
+* [浏览器地址栏中输入 URL 到页面显示，浏览器到底发生了什么？](https://www.starryskystar.space/detail/612beeddf1daf402f34f4fa5)，综合笔记。
 - [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
 - [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
 - [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
