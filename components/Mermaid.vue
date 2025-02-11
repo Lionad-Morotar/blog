@@ -1,7 +1,7 @@
 <template>
   <!-- Keep this to fetch `default` slot in metadata -->
   <slot v-if="false" />
-  <pre ref="el" :style="{ display: rendered ? 'block' : 'none' }" class="not-prose">
+  <pre ref="el" :style="{ display: rendered ? 'block' : 'none' }" class="not-prose" :class="`is-${size}`">
     {{ mermaidSyntax }}
   </pre>
 </template>
@@ -15,11 +15,14 @@ import { nodeTextContent } from '@nuxtjs/mdc/runtime/utils/node'
 // * source code
 // see https://github.com/nuxt/content/issues/1866
 
+const props = defineProps(['size'])
+const size = props.size || 'full' // 'sm' | 'md' | 'lg' | 'full'
+
 const el = ref(null)
 const rendered = ref(false)
 const rerenderCounter = ref(1)
-const slots = useSlots()
 
+const slots = useSlots()
 const mermaidSyntax = computed(() => {
   // Trick to force re-render when the slot content changes (for preview inside studio)
   rerenderCounter.value
@@ -48,10 +51,7 @@ const mermaidSyntax = computed(() => {
   // New syntax with highlight
   return nodeTextContent(codeChild.children)
 })
-
-// watch(mermaidSyntax, () => {
-//   render()
-// })
+watch(mermaidSyntax, render)
 
 async function render() {
   if (!el.value) {
@@ -80,15 +80,19 @@ async function render() {
   const svg2roughjs = new Svg2Roughjs(el.value)
   svg2roughjs.svg = svg
   svg2roughjs.sketch()
+
+  const roughSVG = el.value.querySelector('svg + svg')
+  const width = roughSVG.getAttribute('width')
+  const height = roughSVG.getAttribute('height')
+  roughSVG.setAttribute('viewBox', `0 0 ${width} ${height}`)
+  roughSVG.setAttribute('width', '100%')
+  roughSVG.setAttribute('height', '100%')
 }
 
 onBeforeUpdate(() => {
   rerenderCounter.value++
 })
-
-onMounted(() => {
-  render()
-})
+onMounted(render)
 </script>
 
 <style>
@@ -98,5 +102,27 @@ onMounted(() => {
 
 html.dark .mermaid svg {
   filter: invert(1);
+}
+
+.mermaid {
+  margin: auto;
+
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &.is-sm {
+    max-width: 30%;
+  }
+  &.is-md {
+    max-width: 50%;
+  }
+  &.is-lg {
+    max-width: 70%;
+  }
+  &.is-full {
+    max-width: 100%;
+  }
 }
 </style>
