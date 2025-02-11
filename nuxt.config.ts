@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
+    '@nuxtjs/mdc',
     // ! weird error, disable for a while
     // "@nuxtjs/feed",
     // ! cant fetch twimoji error, so disable for a while
@@ -79,6 +80,7 @@ export default defineNuxtConfig({
           'UButton',
           'UIcon',
           'AspectRatio',
+          'Mermaid',
         ].includes(c.pascalName)
       )
 
