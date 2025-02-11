@@ -44,7 +44,7 @@ provide('navigation', navigation)
     <Footer id="app-footer" />
 
     <ClientOnly>
-      <LazyUDocsSearch id="app-search" :files="files" :navigation="navigation" />
+      <LazyUContentSearch id="app-search" :files="files" :navigation="navigation" />
     </ClientOnly>
 
     <UNotifications id="app-notification" />
