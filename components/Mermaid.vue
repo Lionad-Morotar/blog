@@ -9,6 +9,12 @@
 <script setup>
 import { nodeTextContent } from '@nuxtjs/mdc/runtime/utils/node'
 
+// * online editor
+// https://mermaid-js.github.io/mermaid-live-editor/
+
+// * source code
+// see https://github.com/nuxt/content/issues/1866
+
 const el = ref(null)
 const rendered = ref(false)
 const rerenderCounter = ref(1)
@@ -62,10 +68,18 @@ async function render() {
       el.value.removeChild(child)
     }
   }
-  const { default: mermaid } = await import("mermaid")
+  const [{ default: mermaid }, { Svg2Roughjs }] = await Promise.all([
+    import("mermaid"),
+    import('svg2roughjs')
+  ])
   el.value.classList.add('mermaid')
   rendered.value = true
   await mermaid.run({ nodes: [el.value] })
+
+  const svg = el.value.querySelector('svg')
+  const svg2roughjs = new Svg2Roughjs(el.value)
+  svg2roughjs.svg = svg
+  svg2roughjs.sketch()
 }
 
 onBeforeUpdate(() => {
@@ -78,33 +92,11 @@ onMounted(() => {
 </script>
 
 <style>
-.mermaid rect {
-  stroke: #6195ff !important;
-  fill: #fff !important;
+.mermaid > svg:has(+ svg) {
+  display: none;
 }
 
-.mermaid .current-doc.node .label {
-  color: #fff !important;
-}
-
-.mermaid line {
-  stroke: #6195ff !important;
-}
-
-[data-theme="dark"] .mermaid .flowchart-link {
-  stroke: #fff !important;
-}
-
-[data-theme="dark"] .mermaid .messageText {
-  fill: #fff !important;
-}
-
-[data-theme="dark"] .mermaid marker {
-  fill: #fff !important;
-  color: #fff !important;
-}
-
-[data-theme="dark"] .mermaid line {
-  stroke: #fff !important;
+html.dark .mermaid svg {
+  filter: invert(1);
 }
 </style>

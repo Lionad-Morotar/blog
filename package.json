@@ -32,7 +32,8 @@
     "nuxt": "^3.14.1592",
     "nuxt-gtag": "^3.0.2",
     "nuxt-og-image": "^4.0.0",
-    "stylus": "^0.64.0"
+    "stylus": "^0.64.0",
+    "svg2roughjs": "^3.2.1"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.6.1",
