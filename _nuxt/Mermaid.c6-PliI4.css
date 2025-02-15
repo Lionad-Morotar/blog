@@ -1,0 +1,1 @@
+.mermaid>svg:has(+svg){display:none}html.dark .mermaid svg{filter:invert(1)}.mermaid{margin:auto}.mermaid svg{height:auto;max-width:100%}.mermaid.is-sm{max-width:30%}.mermaid.is-md{max-width:50%}.mermaid.is-lg{max-width:70%}.mermaid.is-full{max-width:100%}
