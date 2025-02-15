@@ -2,11 +2,11 @@
 title: 💖 逃离虚无，再拥抱它
 ---
 
-<client-only>
+<center>
 <div style="margin-top: 1.5em; text-align: center;">
   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height=86 src="//music.163.com/outchain/player?type=2&id=1391144474&auto=0&height=66"></iframe>
 </div>
-</client-only>
+</center>
 
 ## 虚无蛇环
 

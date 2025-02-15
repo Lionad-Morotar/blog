@@ -31,10 +31,10 @@ title: 追寻自由与满怀希望
 
 最后话又说回来，“好处”并非真的好处，其中含义因人而异，不过好在时间会证明一切，想要追寻什么往往寻而不得，但是想逃脱的一定能逃脱。
 
-<client-only>
+<center>
 <div style="margin-top: 1.5rem; text-align: center;">
   <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" height=86 src="//music.163.com/outchain/player?type=2&id=26092806&auto=0&height=66"></iframe>
 </div>
-</client-only>
+</center>
  
 
