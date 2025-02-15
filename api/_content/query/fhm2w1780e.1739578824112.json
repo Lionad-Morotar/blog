@@ -1,1 +1,0 @@
-[{"_path":"/gists/markdown-nice","title":"Markdown Inline Style","description":"通过 VuePress 可以在 Markdown 文件中嵌套 HTML 和 VueJS 代码，然而贴到掘金之后需要我手动贴图，太麻烦了。"},{"_path":"/gists/minify-html","title":"减小页面快照体积","description":"页面快照，即爬虫将抓取的页面以源码的形式保存下来。"}]
