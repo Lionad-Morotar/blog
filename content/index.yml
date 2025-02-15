@@ -3,8 +3,8 @@ description: 'newest posts'
 navigation: false
 recommends:
   - category: 心流
-    label: '四十二篇系列 · 第二 · 成熟的小孩子'
-    to: '/articles/_fourty-two/mature-child'
+    label: '四十二篇系列 · 第三 · 人之为人'
+    to: '/articles/_fourty-two/as-human'
   - category: 技术
     label: '在 tailwind 中使用现代化 CSS Layers'
     to: '/articles/tailwind-sass-and-css-layer'
