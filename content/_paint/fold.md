@@ -7,9 +7,9 @@ description: 这里会收录几乎不再更新的内容，请注意其时效性
 
 ### 2020-10
 
-- [【P5】Processing](/_archieved/2021-10/processing)
+- [【P5】Processing](/_achieved/2021-10/processing)
 
 ### 2020-04
 
-- [【P5】造型构成](/_archieved/2020-04/p5)
+- [【P5】造型构成](/_achieved/2020-04/p5)
 ˜
