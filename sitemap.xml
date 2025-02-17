@@ -146,36 +146,6 @@
     </url>
     <url>
         <loc>https://lionad.art/_paint/c4d</loc>
-        <video:video>
-            <video:content_loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/video/ball-3000x.mp4</video:content_loc>
-            <video:thumbnail_loc></video:thumbnail_loc>
-            <video:title></video:title>
-            <video:description></video:description>
-        </video:video>
-        <video:video>
-            <video:content_loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/video/break-1921x.mp4</video:content_loc>
-            <video:thumbnail_loc></video:thumbnail_loc>
-            <video:title></video:title>
-            <video:description></video:description>
-        </video:video>
-        <video:video>
-            <video:content_loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/video/timefly-1801x.mp4</video:content_loc>
-            <video:thumbnail_loc></video:thumbnail_loc>
-            <video:title></video:title>
-            <video:description></video:description>
-        </video:video>
-        <video:video>
-            <video:content_loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/video/plane-3001x.mp4</video:content_loc>
-            <video:thumbnail_loc></video:thumbnail_loc>
-            <video:title></video:title>
-            <video:description></video:description>
-        </video:video>
-        <video:video>
-            <video:content_loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/video/school-2000x.mp4</video:content_loc>
-            <video:thumbnail_loc></video:thumbnail_loc>
-            <video:title></video:title>
-            <video:description></video:description>
-        </video:video>
     </url>
     <url>
         <loc>https://lionad.art/_paint/chinese-painting</loc>
@@ -1429,22 +1399,22 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2018-10/noname</loc>
+        <loc>https://lionad.art/_achieved/2018-10/noname</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-05/reactive-in-150loc</loc>
+        <loc>https://lionad.art/_achieved/2019-05/reactive-in-150loc</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-06/messy-in-two-years</loc>
+        <loc>https://lionad.art/_achieved/2019-06/messy-in-two-years</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-06/teditor</loc>
+        <loc>https://lionad.art/_achieved/2019-06/teditor</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/teditor/2019-05-06-01-10-43.png</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-07/chrome-image-lazyload</loc>
+        <loc>https://lionad.art/_achieved/2019-07/chrome-image-lazyload</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-01-30-25.png</image:loc>
         </image:image>
@@ -1459,31 +1429,31 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-09/a-letter-of-silience</loc>
+        <loc>https://lionad.art/_achieved/2019-09/a-letter-of-silience</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/a-letter-of-silience/2019-09-01-13-20-06_1440.jpg</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-09/chaos</loc>
+        <loc>https://lionad.art/_achieved/2019-09/chaos</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-09/free</loc>
+        <loc>https://lionad.art/_achieved/2019-09/free</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/free/1569148020278_1440.jpg</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-09/secret-feelings</loc>
+        <loc>https://lionad.art/_achieved/2019-09/secret-feelings</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2019-11/css-interesting</loc>
+        <loc>https://lionad.art/_achieved/2019-11/css-interesting</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/css-interesting/2019-11-21-02-03-38.gif</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-03/learn-from-an-evening-in-southwold</loc>
+        <loc>https://lionad.art/_achieved/2020-03/learn-from-an-evening-in-southwold</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200319/browser_c5Q2Z8gnR9.jpg</image:loc>
         </image:image>
@@ -1516,10 +1486,10 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-03/misleading-and-assumptions</loc>
+        <loc>https://lionad.art/_achieved/2020-03/misleading-and-assumptions</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-04/9-css-chart</loc>
+        <loc>https://lionad.art/_achieved/2020-04/9-css-chart</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200415/K0L1Ov1rMI.gif</image:loc>
         </image:image>
@@ -1570,19 +1540,19 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-04/p5</loc>
+        <loc>https://lionad.art/_achieved/2020-04/p5</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/p5/2020-04-03-10-48-22_1440.png</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-05/js-module-history</loc>
+        <loc>https://lionad.art/_achieved/2020-05/js-module-history</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-05/type-check</loc>
+        <loc>https://lionad.art/_achieved/2020-05/type-check</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-06/punctuations</loc>
+        <loc>https://lionad.art/_achieved/2020-06/punctuations</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200619/browser_06_20_003.png</image:loc>
         </image:image>
@@ -1597,13 +1567,13 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-06/zebra-puzzle</loc>
+        <loc>https://lionad.art/_achieved/2020-06/zebra-puzzle</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/%pn_06_23_024.gif</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-08/helmet-and-security</loc>
+        <loc>https://lionad.art/_achieved/2020-08/helmet-and-security</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200816000544.png</image:loc>
         </image:image>
@@ -1615,13 +1585,13 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-10/noname</loc>
+        <loc>https://lionad.art/_achieved/2020-10/noname</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2020-12/js-100</loc>
+        <loc>https://lionad.art/_achieved/2020-12/js-100</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2021-01/anysort-1th</loc>
+        <loc>https://lionad.art/_achieved/2021-01/anysort-1th</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210110192313.png?w=30</image:loc>
         </image:image>
@@ -1636,7 +1606,7 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2021-01/escape-from-mysticism</loc>
+        <loc>https://lionad.art/_achieved/2021-01/escape-from-mysticism</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210104021646.png</image:loc>
         </image:image>
@@ -1645,13 +1615,13 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2021-01/the-art-of-mysticism</loc>
+        <loc>https://lionad.art/_achieved/2021-01/the-art-of-mysticism</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2021-10/processing</loc>
+        <loc>https://lionad.art/_achieved/2021-10/processing</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_archieved/2022-10/flex-in-flex</loc>
+        <loc>https://lionad.art/_achieved/2022-10/flex-in-flex</loc>
     </url>
     <url>
         <loc>https://lionad.art/_paint/todo/state-control</loc>
@@ -2081,12 +2051,6 @@
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032343927.png</image:loc>
         </image:image>
-        <video:video>
-            <video:content_loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032256999.mp4</video:content_loc>
-            <video:thumbnail_loc></video:thumbnail_loc>
-            <video:title></video:title>
-            <video:description></video:description>
-        </video:video>
     </url>
     <url>
         <loc>https://lionad.art/maps/_business/_low-code/dynamo</loc>
@@ -2422,4 +2386,4 @@
         <loc>https://lionad.art/maps/_server/nodejs/source/require</loc>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.0.0 at 2025-02-15T00:46:18.009Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.5 at 2025-02-17T07:52:34.989Z -->
