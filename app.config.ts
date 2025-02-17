@@ -58,7 +58,7 @@ export default defineAppConfig({
         {
           icon: 'i-heroicons-book-open',
           label: 'RSS',
-          to: 'todo',
+          to: 'feed.xml',
           target: '_blank',
         }
       ]
