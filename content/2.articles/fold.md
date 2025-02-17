@@ -5,7 +5,7 @@ description: 这里会收录几乎不再更新的内容，请注意其时效性
 
 ## 2022-10
 
-- [Mordern CSS Layout](/_achieved/2022-10/flex-in-flex)
+- [Modern CSS Layout](/_achieved/2022-10/flex-in-flex)
 
 ## 2021-01
 
@@ -42,7 +42,7 @@ description: 这里会收录几乎不再更新的内容，请注意其时效性
 
 ## 2019-07
 
-- [听说你还在手写懒加载?](/_achieved/2019-07/chrome-image-lazyload)
+- [听说你还在手写懒加载？](/_achieved/2019-07/chrome-image-lazyload)
 
 ## 2019-06
 

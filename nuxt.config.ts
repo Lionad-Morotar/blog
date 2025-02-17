@@ -1,4 +1,4 @@
-import rssPosts from './rss.js'
+const baseUrl = 'https://lionad.art'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -19,8 +19,7 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
     '@nuxtjs/mdc',
-    // ! weird error, disable for a while
-    // "@nuxtjs/feed",
+    'nuxt-feedme',
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
   ],
@@ -41,30 +40,48 @@ export default defineNuxtConfig({
     },
   },
 
-  // @ts-ignore see https://github.com/nuxt-community/feed-module
-  feed: {
-    path: '/rss.xml',
-    async create(feed) {
-      feed.options = {
-        title: 'Lionad\'s blog',
-        link: 'https://www.lionad.art/rss.xml',
-        description: 'Feed for Lionad\'s Blog',
-      }
-      rssPosts.forEach((post) => {
-        feed.addItem({
-          title: post.title,
-          id: post.url,
-          link: post.url,
-          description: post.description,
-          content: post.content,
-        })
-      })
-      feed.addCategory('Lionad')
-      feed.addContributor({
-        name: 'Lionad',
-        email: '1806234223@qq.com',
-        link: 'https://www.lionad.art',
-      })
+  /**
+   * Feeds Setting
+   * @see https://nuxt.com/modules/nuxt-feedme
+   */
+  feedme: {
+    feeds: {
+      '/feed.atom': { revisit: '24h', type: 'atom1', content: true },
+      '/feed.xml': { revisit: '24h', type: 'rss2', content: true },
+      '/feed.json': { revisit: '24h', type: 'json1', content: true },
+    },
+    content: {
+      feed: {
+        defaults: {
+          id: baseUrl,
+          title: '仿生狮子的博客',
+          link: baseUrl,
+          author: { email: '1806234223@qq.com', name: 'lionad' },
+          categories: ['lionad','front-end','science','flow'],
+          copyright: 'CC BY-NC-SA 4.0',
+        },
+      },
+      item: {
+        query: {
+          where: [
+            { _path: /^\/(articles|flows)\/([^_]|(_fourty-two))/ },
+          ],
+        },
+        mapping: [
+          // Third item is optional mapping function
+          ['date', 'modified', value => value ? new Date(value) : value],
+          // When mapping function result is undefined - next variant applied
+          ['date', 'created', value => value ? new Date(value) : value],
+          // Until the real one value will be set
+          ['date', '', () => new Date()],
+          // By default mapping is x => x
+          ['link', '_path'],
+        ],
+      },
+      tags: [
+        [/^(?=\/)/, baseUrl],
+      ],
+      revisit: '24h',
     },
   },
 
