@@ -23,6 +23,6 @@ description: 与我联络 & 友链
 * [😀 Renwangyu](https://blog.renwangyu.com/)：保持童心的 80 后程序猿大叔~
 * [📱 Wrath](https://wrath.cc)：wrath 有一部漂亮的索尼手机。
 * [🎉 Raptazure](https://raptazure.github.io)：神秘的佬。
-* [🌻 Cheese（⛓‍💥）](https://chee5e.space/)：有梦想，也有忧伤和理想；芝士就是力量！
+* [🌻 Cheese](https://blog.youmuwhisper.space/)：有梦想，也有忧伤和理想；芝士就是力量！
 * [🕒 Roki（⛓‍💥）](https://blog.weekii.cn/)：曾和 Roki 玩塔科夫一直打到半夜三点。
 * [🍺 Deeruby（⛓‍💥）](https://deeruby.com)：易骏的博客。
