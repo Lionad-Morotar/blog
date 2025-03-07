@@ -1,18 +1,24 @@
 ---
-title: OO
-description: 面向对象编程
+title: 面相对象编程
+description: 面向对象编程是一种编程范式，它将数据和操作封装在对象中，对象之间通过消息传递进行通信。
 ---
+
+## 基础
+
+四个核心概念：封装（Encapsulation）、继承（Inheritance）、多态（Polymorphism）、抽象（Abstraction）。
+
+见：[JavaScript OOP 面向对象编程 @Mosh](https://www.bilibili.com/video/BV1gb411w7eW)，非常基础，适合新手入门
 
 ## UML
 
 类之间的关系总的来说可以包含这几种：
 
-* A依赖B：对类B的修改会影响到类A
-* A关联B：对象A知道对象B，类A依赖于类B
-* A聚合B：对象A由B构成，类A依赖于类B
-* A组合B：对象A由B构成且管理B的生命周期，类A依赖于类B
-* A实现B：对象A可视为对象B，类A定义了接口B声明的方法，类A依赖于类B
-* A继承B：对象A可视为对象B，类A继承类B的接口和实现，还可以对其扩展，类A依赖于类B
+* A 依赖 B：对类 B 的修改会影响到类 A
+* A 关联 B：对象 A 知道对象 B，类 A 依赖于类 B
+* A 聚合 B：对象 A 由 B 构成，类 A 依赖于类 B
+* A 组合 B：对象 A 由 B 构成且管理 B 的生命周期，类 A 依赖于类 B
+* A 实现 B：对象 A 可视为对象 B，类 A 定义了接口 B 声明的方法，类 A 依赖于类 B
+* A 继承 B：对象 A 可视为对象 B，类 A 继承类 B 的接口和实现，还可以对其扩展，类 A 依赖于类 B
 
 ![[Class Relations](https://www.processon.com/diagraming/614de5c01efad403f3727f1c)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/b3612320-5822-48fc-8041-ead5c269f8e5.svg)
 
