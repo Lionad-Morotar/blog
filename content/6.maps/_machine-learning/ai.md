@@ -106,9 +106,9 @@ description: machine learning related
         gpt-4-all
       </td>
       <td style="border: 1px solid rgb(150, 150, 150); padding: 8px">
-        逆向ChatGPT官网版GPT-4
+        逆向 ChatGPT 官网版 GPT-4
         <div style="border-top: 1px solid #ddd; margin: 4px 0"></div>
-        DALL·E 3绘图、联网、GPTs
+        DALL·E 3 绘图、联网、GPTs
       </td>
     </tr>
     <tr>

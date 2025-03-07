@@ -3,6 +3,25 @@ title: 低代码
 description: 无代码、低代码、高代码，这是一个围绕人机交互的有趣话题。
 ---
 
+## 行业
+
+#### 如何给低代码产品分类？
+
+1. Website Builder & Enhancers：wix、webflow、Notion、substack、linktree、Softr、weweb
+2. App Builder（Mobile First）：Universe、Glide、Thunkable
+3. App Builder（Web First）：bubble、Landbot、WorkOS、Stacker
+4. Internal（Tools and App Builder）：Retool、Creatio、Budibase、Flowdash、zaptic
+5. Workflow Automation：n8n、tray、workato、zapier、integromat、paragon
+6. Data & Developer Productivity：CHARTIO、supabase、above
+7. Spreadsheets on Steroids：airtable、rows、grid、actiondesck、Morta
+8. Numbers Finance Modelling：Jirav、silico、causal
+9. Payments & Transactions：MAMBU、swan、Primer、passbase
+10. Checkouts、Subscriptions & Commerce：PICO、OCTAINE、podia
+11. Low-Code Analytics & Dashboards：airSlate、GROW、Oribi、Apteo
+12. Form Builders：Typeform、niro、arengu
+
+![低代码行业产品](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202502201358374.jpg)
+
 ## TODO
 
 * [低代码平台设计的边界问题](https://zhuanlan.zhihu.com/p/361233277)
