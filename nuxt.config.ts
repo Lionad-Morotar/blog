@@ -65,7 +65,7 @@ export default defineNuxtConfig({
       feed: {
         defaults: {
           id: baseUrl,
-          title: '仿生狮子的博客',
+          title: '仿生狮子',
           link: baseUrl,
           author: { email: '1806234223@qq.com', name: 'lionad' },
           categories: ['lionad','front-end','science','flow'],
