@@ -31,9 +31,6 @@
         <loc>https://lionad.art/_books</loc>
     </url>
     <url>
-        <loc>https://lionad.art/_links</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/articles</loc>
     </url>
     <url>
@@ -43,10 +40,16 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/flows</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/gists</loc>
     </url>
     <url>
         <loc>https://lionad.art/hire</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/links</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps</loc>
@@ -62,6 +65,9 @@
     </url>
     <url>
         <loc>https://lionad.art/todo</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/tools</loc>
     </url>
     <url>
         <loc>https://lionad.art/_books/978754476134</loc>
@@ -143,6 +149,9 @@
     </url>
     <url>
         <loc>https://lionad.art/_books/web-security</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/_paint/archive</loc>
     </url>
     <url>
         <loc>https://lionad.art/_paint/c4d</loc>
@@ -325,9 +334,6 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/_paint/fold</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/articles/anysort-2th</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220513170945.png</image:loc>
@@ -362,6 +368,9 @@
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220515170506.png</image:loc>
         </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/articles/archive</loc>
     </url>
     <url>
         <loc>https://lionad.art/articles/crack-the-slider</loc>
@@ -583,12 +592,6 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/articles/fold</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/articles/fourty-two</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/articles/local-translator</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202403280109446.png</image:loc>
@@ -712,6 +715,9 @@
         <loc>https://lionad.art/books/_isbn-9787572610912</loc>
     </url>
     <url>
+        <loc>https://lionad.art/flows/archive</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/flows/books</loc>
         <image:image>
             <image:loc>https://mgear-blog-image.obs.cn-east-3.myhuaweicloud.com/douban/s29636034.jpg</image:loc>
@@ -787,7 +793,7 @@
         <loc>https://lionad.art/flows/expression-and-loneliness</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/fold</loc>
+        <loc>https://lionad.art/flows/fourty-two</loc>
     </url>
     <url>
         <loc>https://lionad.art/flows/long-night-dream</loc>
@@ -850,67 +856,7 @@
         <loc>https://lionad.art/gists/cpp</loc>
     </url>
     <url>
-        <loc>https://lionad.art/gists/data-structure</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/gists/depression</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/gists/design-patterns</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/1bcb390f-a1bf-4cb0-8511-de8cecea11ce.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a67af4bd-c5ff-472b-a6b4-2c4ea05460d4.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bd255980-5c94-4d8a-8a6f-0b7149ade883.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a719383a-7761-4a72-90b9-ac83da7b47d8.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/42fd4a01-5832-4c43-84c7-fda41402f2d4.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/f3a86005-1da5-4233-81e9-c0bddccc6c3c.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/5de62e64-55e2-459b-8cf8-6d5a8914d17c.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/e0de9723-e348-41c9-9461-6ee6e5bd52ef.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/64b2e57c-5315-48f1-a7df-54ae6942b88c.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/05f145a2-7048-4fb3-8fc3-5e5ac63f4f8d.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/04b754e1-4d9c-493f-ac37-86dea28e6316.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/99d55f92-79b8-444f-875b-746f141206be.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/500057cf-a4b6-41b9-b0fb-8941ec0dfaa5.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/753bcbe8-863a-48df-949f-0d1be74bbefc.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/8bf09139-dac6-4bac-9726-43e00873a06a.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/883c48b2-91c4-46b3-a85f-1847dd44dd18.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/723839a8-a6a1-4b46-a66a-e61ead876980.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6481a46f-cf16-4391-869b-8bacefa2ff5f.svg</image:loc>
-        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/gists/developer-experience</loc>
@@ -1090,21 +1036,6 @@
         <loc>https://lionad.art/gists/neuroscience</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211208004256.png?w=30</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/gists/oo</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/b3612320-5822-48fc-8041-ead5c269f8e5.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cff33e77-e9aa-48eb-ae0d-01dd1561abd0.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/348faf14-874b-410d-b4b9-ff00b04ab14e.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg</image:loc>
         </image:image>
     </url>
     <url>
@@ -1346,9 +1277,6 @@
     </url>
     <url>
         <loc>https://lionad.art/music/wu-wei</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/tools/any-to-base64</loc>
     </url>
     <url>
         <loc>https://lionad.art/tools/anysort</loc>
@@ -1627,22 +1555,55 @@
         <loc>https://lionad.art/_paint/todo/state-control</loc>
     </url>
     <url>
-        <loc>https://lionad.art/articles/_fourty-two/_cloud-take</loc>
+        <loc>https://lionad.art/flows/_fourty-two/_cloud-take</loc>
     </url>
     <url>
-        <loc>https://lionad.art/articles/_fourty-two/as-human</loc>
+        <loc>https://lionad.art/flows/_fourty-two/as-human</loc>
     </url>
     <url>
-        <loc>https://lionad.art/articles/_fourty-two/dark-room</loc>
+        <loc>https://lionad.art/flows/_fourty-two/blind-sight</loc>
     </url>
     <url>
-        <loc>https://lionad.art/articles/_fourty-two/mature-child</loc>
+        <loc>https://lionad.art/flows/_fourty-two/dark-room</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_brain/attention</loc>
+        <loc>https://lionad.art/flows/_fourty-two/mature-child</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/ai</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_biology/aging</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_biology/attention</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/business-analysis</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070323832.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/business-examples</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_business/low-code</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202502201358374.jpg</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/operation</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/product</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/product-manager</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/venture-capital</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_cloud-native/cloud-native</loc>
@@ -1655,9 +1616,6 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_company/company</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_computer/algorithm</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_computer/computer</loc>
@@ -1783,10 +1741,22 @@
         <loc>https://lionad.art/maps/_linux/linux</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_machine-learning/ai</loc>
+        <loc>https://lionad.art/maps/_manage/project-management</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_manage/project-management</loc>
+        <loc>https://lionad.art/maps/_oop/oop</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/b3612320-5822-48fc-8041-ead5c269f8e5.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cff33e77-e9aa-48eb-ae0d-01dd1561abd0.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/348faf14-874b-410d-b4b9-ff00b04ab14e.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_person/antonio-egas-moniz</loc>
@@ -1841,6 +1811,69 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_server/nodejs</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/algorithm</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/data-structure</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/design-patterns</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/1bcb390f-a1bf-4cb0-8511-de8cecea11ce.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a67af4bd-c5ff-472b-a6b4-2c4ea05460d4.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bd255980-5c94-4d8a-8a6f-0b7149ade883.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a719383a-7761-4a72-90b9-ac83da7b47d8.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/42fd4a01-5832-4c43-84c7-fda41402f2d4.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/f3a86005-1da5-4233-81e9-c0bddccc6c3c.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/5de62e64-55e2-459b-8cf8-6d5a8914d17c.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/e0de9723-e348-41c9-9461-6ee6e5bd52ef.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/64b2e57c-5315-48f1-a7df-54ae6942b88c.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/05f145a2-7048-4fb3-8fc3-5e5ac63f4f8d.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/04b754e1-4d9c-493f-ac37-86dea28e6316.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/99d55f92-79b8-444f-875b-746f141206be.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/500057cf-a4b6-41b9-b0fb-8941ec0dfaa5.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/753bcbe8-863a-48df-949f-0d1be74bbefc.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/8bf09139-dac6-4bac-9726-43e00873a06a.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/883c48b2-91c4-46b3-a85f-1847dd44dd18.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/723839a8-a6a1-4b46-a66a-e61ead876980.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6481a46f-cf16-4391-869b-8bacefa2ff5f.svg</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_source-code/readme</loc>
@@ -1982,6 +2015,33 @@
     </url>
     <url>
         <loc>https://lionad.art/source-code/_ts/utility-types</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/benchmark/simple</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070241843.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282330132.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282331378.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/image/stable-diffusion</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/prompt/prompt</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/prompt/prompt-collections</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230723155011.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/rag/rag</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_business/_low-code/budibase</loc>
@@ -2203,6 +2263,9 @@
         <loc>https://lionad.art/maps/_frontend/css/sass</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_frontend/css/snapshot-2024</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_frontend/html/emmet</loc>
     </url>
     <url>
@@ -2224,28 +2287,10 @@
         <loc>https://lionad.art/maps/_linux/nginx/config-example</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_machine-learning/benchmark/simple</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282330132.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282331378.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_machine-learning/image/stable-diffusion</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_machine-learning/prompt/prompt</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/maps/_machine-learning/prompt/prompt-collections</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230723155011.png</image:loc>
         </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_machine-learning/rag/rag</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_source-code/javascript/evil</loc>
@@ -2254,7 +2299,10 @@
         <loc>https://lionad.art/maps/_test/tools/playwright</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_web/browser/browser</loc>
+        <loc>https://lionad.art/maps/_web/browser/new</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/browser/principle</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200811234200.png</image:loc>
         </image:image>
@@ -2270,9 +2318,6 @@
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220704211729.png</image:loc>
         </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_web/browser/new</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_web/browser/router</loc>
@@ -2312,9 +2357,6 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_workflow/packer/webpack</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729011803.png?type=draw&amp;amp;w=80</image:loc>
-        </image:image>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729022653.png?type=draw&amp;amp;w=40</image:loc>
         </image:image>
@@ -2386,4 +2428,4 @@
         <loc>https://lionad.art/maps/_server/nodejs/source/require</loc>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.5 at 2025-02-17T14:18:00.954Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.5 at 2025-03-10T11:09:45.637Z -->
