@@ -3,11 +3,10 @@ title: 小程序
 description: 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
 ---
 
-
 ## 技术
 
 * [小程序底层框架](https://developers.weixin.qq.com/ebook?action=get_post_info&volumn=1&lang=zh_CN&book=miniprogram&docid=0000e82f924ca0bb00869a5de5ec0a)
-* [微信小程序技术原理分析 | 框架逆向](https://zhaomenghuan.js.org/blog/wechat-miniprogram-principle-analysis.html)
+* [微信小程序技术原理分析](https://zhaomenghuan.js.org/blog/wechat-miniprogram-principle-analysis.html)
 
 #### 小程序双线程模型是怎样的？
 
@@ -28,3 +27,17 @@ Exparser 是一套小程序的组件框架，它提供了一套类似 Shadow DOM
 指通过 `require.async('sub/xxx')` 引用分包中的代码，达到减小主包体积的目的。同理，还有分包插件异步化这种方法。
 
 见：[分包异步化在货拉拉微信小程序中的实践](https://juejin.cn/post/7205092873326723109)
+
+#### 微信内的小程序在什么时候会更新版本？
+
+小程序更新分为同步和异步更新：
+
+* 打开小程序时异步检查并下载最新版小程序，在下次小程序冷启动时使用新版
+* 微信定期检查小程序版本或小程序长时间未启动再打开时使用同步更新，同步更新会阻塞使用流程
+* 开发者使用 `getUpdateManager.onUpdateReady` 接口提醒用户同步更新最新版本
+
+#### 小程序对 Grid 布局的支持能力如何？
+
+有许多手机不支持 Grid 布局，如果需要写响应式的栅格布局，要安装插件。
+
+见：[小程序对 grid 布局支持的如何？](https://developers.weixin.qq.com/community/develop/doc/000004337c41c074412c471d356000?jumpto=comment&commentid=000e664b2e8f28c4432c782675b0)
