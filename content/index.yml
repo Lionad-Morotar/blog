@@ -4,7 +4,7 @@ navigation: false
 recommends:
   - category: 心流
     label: '四十二篇系列 · 第三 · 人之为人'
-    to: '/flows/_fourty-two/as-human'
+    to: '/flows/_fourty-two'
   - category: 技术
     label: '在 tailwind 中使用现代化 CSS Layers'
     to: '/articles/tailwind-sass-and-css-layer'
