@@ -2,7 +2,7 @@
 title: Emmet
 ---
 
-## Emmet Cheatsheet
+## Emmet CheatSheet
 
 Emmet 的语法分为三组：分组、索引和属性。
 

@@ -1,4 +1,7 @@
-# Monorepo
+---
+title: Monorepo
+description: Monorepo 工程化实践指南，包含项目管理、依赖处理、任务调度等核心概念，以及 Lerna 等工具的使用说明。
+---
 
 ## TODO
 

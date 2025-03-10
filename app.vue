@@ -54,6 +54,12 @@ provide('navigation', navigation)
 <style lang="stylus">
 @import "./styles/index.styl";
 
+// 外链
+a[href^="http"] {
+  color: var(--tw-prose-body) !important;
+  text-decoration: underline !important;
+}
+
 img {
     &[src*='w=30'] {
         width: 30%;

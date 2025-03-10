@@ -18,7 +18,7 @@ Master 节点大体包括：
 - API Server：系统对外接口，比如用于处理外部的命令行交互
 - Scheduler：调度器，用于分配 Pod
 - Controller Manager：控制器，跟踪节点状态，复制 Pod
-- [ETCD](https://zhuanlan.zhihu.com/p/96428375)：分布式数据存储，存集群配置文件；可用于服务发现（保证一个集群中的不同进程可以互相找到并建立链接），并通过 Raft 协议使各个节点的状态保持一致。
+* [ETCD](https://zhuanlan.zhihu.com/p/96428375)：分布式数据存储，存集群配置文件；可用于服务发现（保证一个集群中的不同进程可以互相找到并建立链接），并通过 Raft 协议使各个节点的状态保持一致。
 
 Node 节点由许多的 Pod 组成，每一个 Pod 都是集群中的一个进程。Node 通过以下几个组件管理 Pod：
 

@@ -34,7 +34,7 @@ title: 浏览器
 
 ## 浏览器原理
 
-* [浏览器](/maps/_web/browser/browser)
+* [浏览器原理](/maps/_web/browser/principle)
 
 ## 浏览器相关
 

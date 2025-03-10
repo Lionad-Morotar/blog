@@ -237,9 +237,9 @@ TODO
 
 ## 阅读更多
 
-- [模块开发的价值](https://github.com/seajs/seajs/issues/547)
-- [前端模块的历史沿革](https://www.cyj.me/programming/2018/05/22/about-module-i/)
-- [前端模块的现状](https://www.cyj.me/programming/2018/05/23/about-module-ii/)
-- [JavaScript 模块化入门 Ⅰ：理解模块](https://zhuanlan.zhihu.com/p/22890374)
-- [JavaScript 模块化入门 Ⅱ：模块打包构建](hhttps://zhuanlan.zhihu.com/p/22945985)
-- [前端工程师必备：前端的模块化](https://juejin.im/post/5cb004da5188251b130c773e)
+* [模块开发的价值](https://github.com/seajs/seajs/issues/547)
+* [前端模块的历史沿革](https://www.cyj.me/programming/2018/05/22/about-module-i/)
+* [前端模块的现状](https://www.cyj.me/programming/2018/05/23/about-module-ii/)
+* [JavaScript 模块化入门 Ⅰ：理解模块](https://zhuanlan.zhihu.com/p/22890374)
+* [JavaScript 模块化入门 Ⅱ：模块打包构建](hhttps://zhuanlan.zhihu.com/p/22945985)
+* [前端工程师必备：前端的模块化](https://juejin.im/post/5cb004da5188251b130c773e)

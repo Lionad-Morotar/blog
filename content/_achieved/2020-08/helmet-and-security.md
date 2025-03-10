@@ -320,9 +320,9 @@ response.setHeader('X-DNS-Prefetch-Control', 'on')
 
 如果你想了解更多关于 HTTP Secure Header 的详细内容，可以参考 [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)。当然，MDN 上提供了关于前端安全问题更广泛的思路，有时间阔以深入学习一下：[Web Security](https://infosec.mozilla.org/guidelines/web_security)。以下是一些额外的可供探索的页面：
 
-- [Content Security Policy (CSP) 是什么？](https://www.zhihu.com/question/21979782)
-- [CORS@MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
-- [OWASP Top 10 2017（RC2）](http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf/view)
+* [Content Security Policy (CSP) 是什么？](https://www.zhihu.com/question/21979782)
+* [CORS@MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+* [OWASP Top 10 2017（RC2）](http://www.owasp.org.cn/owasp-project/OWASPTop102017RC2.pdf/view)
 
 [^shp]: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
 [^helmet]: [HELMET](https://helmetjs.github.io/)

@@ -1,5 +1,7 @@
-# 页面性能
-
+---
+title: 页面性能
+description: 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
+---
 
 
 ## 指标与模型
@@ -174,7 +176,7 @@ CSP -> CSP with prerender -> SSR with hydration -> static SSR -> SSR
 
 #### ESR 是什么？
 
-TODO，[边缘计算听说过吗？淘宝用它提升了69%的首屏性能](https://juejin.im/post/5ecf90b7f265da76e7651a96)
+TODO，[边缘计算说过吗？淘宝用它提升了69%的首屏性能](https://juejin.im/post/5ecf90b7f265da76e7651a96)
 
 #### 经典直出方案是什么？
 

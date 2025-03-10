@@ -12,5 +12,5 @@
 
 来源：
 
-- [The Mad Magazine Fold-In Effect in CSS](https://thomaspark.co/2020/06/the-mad-magazine-fold-in-effect-in-css)
-- [CSS folded poster effect](https://codepen.io/lynnandtonic/pen/PoZpjOr)
+* [The Mad Magazine Fold-In Effect in CSS](https://thomaspark.co/2020/06/the-mad-magazine-fold-in-effect-in-css)
+* [CSS folded poster effect](https://codepen.io/lynnandtonic/pen/PoZpjOr)

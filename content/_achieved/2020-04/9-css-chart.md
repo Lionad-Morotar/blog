@@ -914,12 +914,12 @@ title: 🍥 9种CSS图案解析
 
 本文撰写时用到的相关网站或是参考资料
 
-- [CSS Doodle](https://css-doodle.com/) : CSS Patterns 终极解决方案
-- [NIPPON COLORS](https://nipponcolors.com) : 一个好看的日系配色网站
-- [OXXO STUDIO](https://www.oxxostudio.tw/articles/201408/sticky-ball.html) : 质量很高的前端博客，《挤冰淇淋》中的效果就这来的
-- [Code Pen @JiaQianKoh](https://codepen.io/swifty_star4/pen/QPgaxe) : 这个页面有各种渐变特效
-- [Patternify](http://www.patternify.com) : 有意思的像素背景生成网站，终于不用写代码了害...
-- [CSS3 Patterns](https://leaverou.github.io/css3patterns/) : 《CSS Secrets》作者写的 CSS Patterns 网站，不必我多说了吧...
+* [CSS Doodle](https://css-doodle.com/) : CSS Patterns 终极解决方案
+* [NIPPON COLORS](https://nipponcolors.com) : 一个好看的日系配色网站
+* [OXXO STUDIO](https://www.oxxostudio.tw/articles/201408/sticky-ball.html) : 质量很高的前端博客，《挤冰淇淋》中的效果就这来的
+* [Code Pen @JiaQianKoh](https://codepen.io/swifty_star4/pen/QPgaxe) : 这个页面有各种渐变特效
+* [Patternify](http://www.patternify.com) : 有意思的像素背景生成网站，终于不用写代码了害...
+* [CSS3 Patterns](https://leaverou.github.io/css3patterns/) : 《CSS Secrets》作者写的 CSS Patterns 网站，不必我多说了吧...
 
 我的博客有源码 [Lionad's Blog](http://localhost:8080/articles/9张看面试题也写不出来的CSS图案.html)。
 

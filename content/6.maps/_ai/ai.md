@@ -278,17 +278,18 @@ description: machine learning related
 
 见：[GPTAPI](https://www.gptapi.us/)
 
-<!-- [...$('.rate-table').querySelectorAll('tr th:nth-child(3), tr td:nth-child(3)')].forEach(x => x.remove()) -->
+<!-* [...$('.rate-table').querySelectorAll('tr th:nth-child(3), tr td:nth-child(3)')].forEach(x => x.remove()) -->
 
 #### Benchmark
 
-- [simple-benchmark](/maps/_machine-learning/benchmark/simple)
+* [simple-benchmark](/maps/_ai/benchmark/simple)
 
 #### Prompt
 
-- [Prompt Collections](/maps/_machine-learning/prompt/prompt)
-- [Stable Diffusion Prompt](/maps/_machine-learning/image/stable-diffusion)
+* [Prompt](/maps/_ai/prompt/prompt)
+* [Prompt Collections](/maps/_ai/prompt/prompt-collections)
+* [Stable Diffusion Prompt](/maps/_ai/image/stable-diffusion)
 
 #### RAG
 
-- [Retrieval-augmented Generated](/maps/_machine-learning/rag/rag)
+* [Retrieval-augmented Generated](/maps/_ai/rag/rag)

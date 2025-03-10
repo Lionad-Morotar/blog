@@ -12,5 +12,5 @@ JS 中有三种不同的代码，全局代码（Global Code）、函数代码（
 
 ## 阅读更多
 
-- [JS 规范中的 IsValidSimpleAssignmentTarget](https://zhuanlan.zhihu.com/p/27875462)
-- [What is a “primary expression”?](https://stackoverflow.com/questions/15675427/what-is-a-primary-expression)
+* [JS 规范中的 IsValidSimpleAssignmentTarget](https://zhuanlan.zhihu.com/p/27875462)
+* [What is a “primary expression”?](https://stackoverflow.com/questions/15675427/what-is-a-primary-expression)

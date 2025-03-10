@@ -1,4 +1,7 @@
-
+---
+title: Webpack
+description: Webpack 打包工具的配置指南、优化策略和插件开发教程。
+---
 
 <div style="position: relative; padding: 20px; background: #2b3a42;">
   <div class="cube__container splash-viz__cube" style="width:180px;height:180px;padding-left:70.58823529411765px">
@@ -288,17 +291,24 @@
   </svg>
 </div>
 
-## 简介
+## 配置
 
-#### webpack 是什么？
+#### 如何配置 webpack？
 
-webpack 是一个静态模块打包器，它会递归地构建一个模块的依赖关系图，然后将所有这些模块打包成一个或多个 bundle。
+webpack 的配置文件导出一个对象，包含 entry、output、module、plugins 等字段。
 
-#### 打包流程是怎么样的？
+#### 如何配置多入口？
 
-从入口文件（Entry）开始，Webpack 对模块进行分析及编译。模块之间的依赖关系可能是 JS 模块规范下的 Require、Import，也可能是 CSS 文件的  @import。通过分析依赖关系，Webpack 将代码打包成一份或多份代码包（Bundle）。最后，写入到构建目录（比如 dist）。
+使用对象形式的 entry 配置：
 
-![webpack Entry to Output](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729011803.png?type=draw&w=80)
+```js
+module.exports = {
+  entry: {
+    app: './src/app.js',
+    admin: './src/admin.js'
+  }
+}
+```
 
 #### Loader 是什么？
 
@@ -324,8 +334,8 @@ TODO，[webpack HMR 原理解析](https://zhuanlan.zhihu.com/p/30669007)
 
 ## Links
 
-TODO，[Webpack4中的Tree-Shaking](https://zhuanlan.zhihu.com/p/193663299)
+TODO，[Webpack4 中的 Tree-Shaking](https://zhuanlan.zhihu.com/p/193663299)
 
 TODO，[透过分析 webpack 面试题，构建 webpack5.x 知识体系<进阶篇>](https://zhuanlan.zhihu.com/p/454945287)
 
-[^重要概念]: 见[《前端工程化 - 聊聊 webpack v3 到 webpack v5 的核心架构变迁》](https://juejin.im/post/5f1ac4725188252e4839cfe6)
+[^重要概念]: 见 [《前端工程化 - 聊聊 webpack v3 到 webpack v5 的核心架构变迁》](https://juejin.im/post/5f1ac4725188252e4839cfe6)

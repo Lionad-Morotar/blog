@@ -1,10 +1,11 @@
-# Command
-
-
+---
+title: Command
+description: 命令行工具使用指南，包含 PowerShell 常用命令及文件操作示例。
+---
 
 正在学习如何使用 PowerShell 写脚本。
 
-如果碰到 Bash 和 PowerShell 中不兼容的语法部分，可以参考[《Bash 与 PowerShell 命令对照表》](https://www.pstips.net/bash-and-powershell-quick-reference.html)
+如果碰到 Bash 和 PowerShell 中不兼容的语法部分，可以参考 [《Bash 与 PowerShell 命令对照表》](https://www.pstips.net/bash-and-powershell-quick-reference.html)
 
 ## 语法手册
 

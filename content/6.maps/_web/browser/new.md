@@ -1,4 +1,9 @@
-# 新浏览器特性
+---
+title: 浏览器新特性
+description: Web.dev 月刊精选，追踪和总结主流浏览器的最新特性更新与时动态。
+---
+
+## 2023
 
 系列来源：[News to the web platform](https://web.dev/series/new-to-the-web?hl=en)
 

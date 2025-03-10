@@ -1,6 +1,7 @@
-# 面试题题库
-
-
+---
+title: 前端笔试题库
+description: 面向实习生或 B 端 3~5 年经验前端
+---
 
 <style>
   h4 a {
@@ -51,7 +52,7 @@
 
 * 困难-增加星号字符，"*"，可作为单个左括号或单个右括号或空字符串使用，测试用例“(((((())\*)))()))(()((\*()\*(\*)))(\*)()”
 
-#### [中等-数组第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/)
+#### [中等-数组第 K 个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/)
 
 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
 
@@ -300,7 +301,7 @@ instanceof 运算符先通过检测类的 Symbol.hasInstance 来判断对象是�
 
 ## 综合题
 
-#### 简单-统计当前页面用到的所有HTML标签的种类
+#### 简单-统计当前页面用到的所有 HTML 标签的种类
 
 <details>
   <summary>参考实现</summary>

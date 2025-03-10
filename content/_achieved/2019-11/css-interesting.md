@@ -101,9 +101,9 @@ const isView = color === 'rgb(0, 0, 255)'
 
 这里有一个不全的清单：
 
-- [Side-channel Attack](https://github.com/evonide/misc)
-- [Text Reader](https://bugs.chromium.org/p/chromium/issues/detail?id=543078)
-- [Scrollbar Attack](https://github.com/cgvwzq/css-scrollbar-attack)
+* [Side-channel Attack](https://github.com/evonide/misc)
+* [Text Reader](https://bugs.chromium.org/p/chromium/issues/detail?id=543078)
+* [Scrollbar Attack](https://github.com/cgvwzq/css-scrollbar-attack)
 
 欢迎各位在评论区补充（在此先谢过大佬们）
 

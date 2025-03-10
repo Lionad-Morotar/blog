@@ -1,6 +1,7 @@
-# Vite
-
-## 常见问题
+---
+title: Vite
+description: Vite 前端构建工具的核心特性、插件机制和性能优化指南。
+---
 
 #### 如何配置 HTTPs 开发环境？
 

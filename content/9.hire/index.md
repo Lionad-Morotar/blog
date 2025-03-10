@@ -1,6 +1,6 @@
 ---
 title: 📬 技术简历
-description: TODO
+description: WIP
 ---
 
 ## About Me

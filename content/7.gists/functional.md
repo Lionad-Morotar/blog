@@ -296,7 +296,7 @@ console.timeEnd() // >>> default: 428.875ms
 
 ## 阅读更多
 
-- [理解递归、尾调用优化和蹦床函数优化](https://juejin.im/post/6844904029424713735#comment)
-- [JavaScript 中的函数式编程](https://github.ahthw.com/natpagle/book/chapter-fourth.html)
-- [函数式编程入门教程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)
-- [《JS 函数式编程》](https://book.douban.com/subject/26579320/)
+* [理解递归、尾调用优化和蹦床函数优化](https://juejin.im/post/6844904029424713735#comment)
+* [JavaScript 中的函数式编程](https://github.ahthw.com/natpagle/book/chapter-fourth.html)
+* [函数式编程入门教程](http://www.ruanyifeng.com/blog/2017/02/fp-tutorial.html)
+* [《JS 函数式编程》](https://book.douban.com/subject/26579320/)

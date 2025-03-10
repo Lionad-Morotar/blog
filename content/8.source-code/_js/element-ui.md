@@ -297,7 +297,7 @@ require("[libraryName]/lib/[styleLibraryName]/button.css");
 
 相关阅读：
 
-- [《组件库按需加载原理分析》](https://mp.weixin.qq.com/s/ty4IUtLlTgxdc8-7_UGyiQ)
+* [《组件库按需加载原理分析》](https://mp.weixin.qq.com/s/ty4IUtLlTgxdc8-7_UGyiQ)
 
 ## 组件实现
 
@@ -525,4 +525,4 @@ fs.writeFile(
 
 ## 阅读更多
 
-- [Make 基础语法以及在 ElementUI 中的运用](https://juejin.im/post/6844903775912591368)
+* [Make 基础语法以及在 ElementUI 中的运用](https://juejin.im/post/6844903775912591368)

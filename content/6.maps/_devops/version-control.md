@@ -5,8 +5,8 @@ description: 版本管理是一种软件开发过程中的管理方法，它通�
 
 ## 源码管理
 
-- [Git](/maps/_devops/git)
-- [Gitflow](/maps/_devops/git/gitflow)
+* [Git](/maps/_devops/git)
+* [Gitflow](/maps/_devops/git/gitflow)
 
 TODO：[Sapling](https://sapling-scm.com/docs/introduction/differences-git)
 

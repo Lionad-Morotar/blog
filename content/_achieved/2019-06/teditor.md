@@ -303,6 +303,6 @@ describe('LFU测试'，() => {
 
 ## 更多
 
-- [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/5a9923e9518825558251c96a)
-- [Redis 的缓存淘汰策略 LFU 与 LFU](https://www.jianshu.com/p/c8aeb3eee6bc)
-- [LFU 算法四种实现方式介绍](https://blog.csdn.net/elricboa/article/details/78847305)
+* [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/5a9923e9518825558251c96a)
+* [Redis 的缓存淘汰策略 LFU 与 LFU](https://www.jianshu.com/p/c8aeb3eee6bc)
+* [LFU 算法四种实现方式介绍](https://blog.csdn.net/elricboa/article/details/78847305)

@@ -56,5 +56,3 @@ DORA 指标，全称 DevOps 研究与评估指标 (DevOps Research and Assessmen
 > Hey, for whatever reasons, for our go-to market or whatever, maybe we're a regulated industry, that Prem has to push a button to make it happen. Prem pushing that button runs exactly the same step as a continuous deployment pipeline would have.
 
 同样打趣地说，持续推送代码到 main line 何尝不是一种 CID（Continuous Integration Delivery）呢？
-
-

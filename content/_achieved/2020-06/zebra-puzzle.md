@@ -318,5 +318,5 @@ title: 🎃 斑马难题
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
-- [计算机科学精粹](https://book.douban.com/subject/30382590/)
-- [Solving the Zebra Puzzle with Boolean Algebra](https://code.energy/solving-zebra-puzzle/)
+* [计算机科学精粹](https://book.douban.com/subject/30382590/)
+* [Solving the Zebra Puzzle with Boolean Algebra](https://code.energy/solving-zebra-puzzle/)

@@ -46,5 +46,5 @@ signature, watermark, username, blurry, cropped, jpeg artifacts, text, error,
 
 ## Tools
 
-- [Midjourney 提示词生成器](http://www.atoolbox.net/Tool.php?Id=1102)
-- [元素法典](https://docs.qq.com/doc/DWHl3am5Zb05QbGVs)
+* [Midjourney 提示词生成器](http://www.atoolbox.net/Tool.php?Id=1102)
+* [元素法典](https://docs.qq.com/doc/DWHl3am5Zb05QbGVs)

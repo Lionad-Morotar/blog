@@ -3,7 +3,7 @@
 
 ## JavaScript
 
-- [Evil.js](/maps/_source-code/javascript/evil)
+* [Evil.js](/maps/_source-code/javascript/evil)
 
 ## TODO
 

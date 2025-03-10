@@ -1,6 +1,6 @@
 ---
-title: LLM Examples
-description: 示例收集
+title: Simple Benchmark
+description: 日常使用的简单基准测试
 ---
 
 #### 2025-03
@@ -14,3 +14,11 @@ description: 示例收集
 * [如何解读：Business is Business @metaso](https://metaso.cn/s/IpfAIch)
 
 搜索资料选的是“学术”，但是表现出乎意料的差，根本没有把握句子的意思。
+
+#### 全文背诵前赤壁赋
+
+- 闭源模型：gemini-pro、gpt4-turbo
+- 开源模型：llama2、qwen
+
+![llama & qwen](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282330132.png)
+![gemini-pro & gpt4-turbo](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282331378.png)

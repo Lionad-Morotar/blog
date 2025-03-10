@@ -268,8 +268,8 @@ Window.toString()
 
 ## 阅读更多
 
-- [《JavaScript 框架设计》](https://book.douban.com/subject/27133542/)
-- [JavaScript 的 typeof 的用途](https://justjavac.com/javascript/2012/12/23/what-is-javascripts-typeof-operator-used-for.html)
-- [The history of “typeof null”](https://2ality.com/2013/10/typeof-null.html)
-- [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-typeof-operator)
-- [instanceof 和 typeof 原理](https://juejin.im/post/5b0b9b9051882515773ae714)
+* [《JavaScript 框架设计》](https://book.douban.com/subject/27133542/)
+* [JavaScript 的 typeof 的用途](https://justjavac.com/javascript/2012/12/23/what-is-javascripts-typeof-operator-used-for.html)
+* [The history of “typeof null”](https://2ality.com/2013/10/typeof-null.html)
+* [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-typeof-operator)
+* [instanceof 和 typeof 原理](https://juejin.im/post/5b0b9b9051882515773ae714)

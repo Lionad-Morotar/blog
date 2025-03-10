@@ -104,6 +104,6 @@ console.log(window.newFn)
 // -> ???
 ```
 
-- [Understanding delete](http://perfectionkills.com/understanding-delete/)
+* [Understanding delete](http://perfectionkills.com/understanding-delete/)
 
 [^return-value]: 参考 MDN 的 delete 运算符的[描述](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/delete#%E8%BF%94%E5%9B%9E%E5%80%BC)

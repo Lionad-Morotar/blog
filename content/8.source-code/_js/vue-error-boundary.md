@@ -174,6 +174,6 @@ export default defineComponent({
 
 ## 阅读更多
 
-- [vue-error-boundary](https://github.com/dillonchanis/vue-error-boundary#readme)
-- [VueJS 选项/生命周期钩子 errorCaptured](https://cn.vuejs.org/v2/api/#errorCaptured)
-- [5 种处理 Vue 异常的方法](https://juejin.im/post/6844903869428793351)
+* [vue-error-boundary](https://github.com/dillonchanis/vue-error-boundary#readme)
+* [VueJS 选项/生命周期钩子 errorCaptured](https://cn.vuejs.org/v2/api/#errorCaptured)
+* [5 种处理 Vue 异常的方法](https://juejin.im/post/6844903869428793351)

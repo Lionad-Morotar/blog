@@ -1,6 +1,7 @@
-# 类型体操（Type Gymnastics）
-
-
+---
+title: 类型体操（Type Gymnastics）
+description: TypeScript 类型体操指北，包含语法关键字、语句结构、基本运算等内容。
+---
 
 ## 语法关键字
 
@@ -255,16 +256,10 @@ type res = MultipleNum<6, 8> // 48
 
 ## 工具
 
-- 常用类型推导
-- 类型训练
-
-<!-- - [常用类型推导](/articles/source-code/ts/utility-types) -->
-<!-- - [类型训练](/articles/source-code/ts/type-challenges) -->
-
-- [typepark](https://github.com/kgtkr/typepark)
-- [tsafe](https://github.com/garronej/tsafe)
-- [type-fest](https://github.com/sindresorhus/type-fest)
-- [Todash](https://hannq.github.io/todash/)
+* [typepark](https://github.com/kgtkr/typepark)
+* [tsafe](https://github.com/garronej/tsafe)
+* [type-fest](https://github.com/sindresorhus/type-fest)
+* [Todash](https://hannq.github.io/todash/)
 
 ### 阅读更多
 
@@ -277,3 +272,4 @@ type res = MultipleNum<6, 8> // 48
 * [用 TypeScript 类型运算实现一个中国象棋程序](https://zhuanlan.zhihu.com/p/426966480)
 * [TypeScript 类型体操天花板，用类型运算写一个 Lisp 解释器](https://zhuanlan.zhihu.com/p/427309936)
 * [TypeScript 类型体操通关秘籍](https://juejin.cn/book/7047524421182947366)
+* [Types DOOM](https://www.youtube.com/watch?v=0mCsluv5FXA)

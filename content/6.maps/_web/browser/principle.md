@@ -178,8 +178,8 @@ EventSource 是一个基于 HTTP 协议，能在浏览器端自动重连的服�
 * [Inside look at modern web browser (part 1)](https://developer.chrome.com/blog/inside-browser-part1/)
 * [图解浏览器的基本工作原理](https://zhuanlan.zhihu.com/p/47407398)，现代浏览器内部原理系列的中文翻译其一。
 * [浏览器地址栏中输入 URL 到页面显示，浏览器到底发生了什么？](https://www.starryskystar.space/detail/612beeddf1daf402f34f4fa5)，综合笔记。
-- [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
-- [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
-- [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
-- [Concurrent marking in V8](https://v8.dev/blog/concurrent-marking)
-- [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)
+* [这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)
+* [构造函数与 new 命令](https://javascript.ruanyifeng.com/oop/basic.html)
+* [V8 之旅：垃圾回收器](http://newhtml.net/v8-garbage-collection/)
+* [Concurrent marking in V8](https://v8.dev/blog/concurrent-marking)
+* [内存分析与内存泄漏定位](https://juejin.im/post/59fbdb46f265da4321536565)

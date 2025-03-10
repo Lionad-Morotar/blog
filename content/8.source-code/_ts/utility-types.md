@@ -1,6 +1,7 @@
-# Utility Types
-
-
+---
+title: Utility Types
+description: TypeScript 内置的工具类型和高级类型，包括 Partial、Required、Readonly、Record、Pick、Omit、Exclude、Extract、NonNullable、Parameters、ReturnType 等。
+---
 
 ## 内置工具类型
 

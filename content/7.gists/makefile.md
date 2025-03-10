@@ -1,5 +1,7 @@
-# Makefile
-
+---
+title: Makefile
+description: Makefile 构建工具基础教程，结合 ElementUI 和 C++ 项目实践的深入解析。
+---
 
 
 之前看 ElementUI 的时候有了解一点 Makefile 的语法，现在正在看 C++，恰好是更细致学习一下的好机会。
@@ -52,6 +54,6 @@ compile: $(ofiles)
 
 ## 相关
 
-- [跟我一起写 Makefile](https://github.com/seisman/how-to-write-makefile)，陈皓老师在 2004 年写的博客。非常易读，适合入门学习。
-- [Makefile 中的 wildcard 用法](https://blog.csdn.net/qq_31811537/article/details/82892128)
-- [如何调试 MAKEFILE 变量](https://coolshell.cn/articles/3790.html)
+* [跟我一起写 Makefile](https://github.com/seisman/how-to-write-makefile)，陈皓老师在 2004 年写的博客。非常易读，适合入门学习。
+* [Makefile 中的 wildcard 用法](https://blog.csdn.net/qq_31811537/article/details/82892128)
+* [如何调试 MAKEFILE 变量](https://coolshell.cn/articles/3790.html)

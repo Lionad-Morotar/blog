@@ -1,6 +1,7 @@
-# Security Mind Map
-
-
+---
+title: Security Mind Map
+description: 网络安全知识导图，包含 XSS、CSRF、CSS Exfiltration 等常见攻击手段的原理分析和防范措施。
+---
 
 ## 浏览器
 
@@ -22,7 +23,7 @@ CSRF（Cross Site Request Forgery）跨站请求伪造，主要原理是黑客�
 
 ## 三剑客
 
-#### CSS Exfil 攻击原理是什么？
+#### CSS Exfiltration 攻击原理是什么？
 
 ```css
 input[value^=a]{

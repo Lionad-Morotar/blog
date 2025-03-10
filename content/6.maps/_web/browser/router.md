@@ -1,4 +1,9 @@
-# 路由技术
+---
+title: 路由技术
+description: Web 前端路由技术详解，包含 Hash 路由、History 路由的实现原理与最佳实践。
+---
+
+## 基础概念
 
 
 
@@ -18,15 +23,15 @@ pathname 解析为 params 以及对应的页面名，页面名连同哈希参数
 
 ## 路由
 
-#### 嵌套路由是什么？
+#### 嵌routine 路由是什么？
 
-嵌套路由体现在页面分割为不同的模块，每个模块嵌套在另一个模块。
+嵌routine 体现在页面分割为不同的模块，每个模块嵌套在另一个模块。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/Kapture-2022-09-21-at-07.41.46.gif)
 
-#### 嵌套路由的代码实现？
+#### 嵌routine 路由的代码实现？
 
-在 React 中，Context.Consumer 总是消费最近的 Context.Provider 提供的值，所以只要 Context.Provider 每次只解析并提供一层由斜线分割的 pathname 就很容易写出递归写法的嵌套路由。
+在 React 中，Context.Consumer 总是消费最近的 Context.Provider 提供的值，所以只要 Context.Provider 每次只解析并提供一层由斜线分割的 pathname 就很容易写出递归写法的嵌routine 路由。
 
 见：[微前端架构中的路由设计#可嵌套的Provider](https://www.tangshuang.net/8594.html#title-3-1)、[VueRouter Nested@CodeSandBox](https://codesandbox.io/s/nested-views-vue-router-4-examples-hl326)
 
