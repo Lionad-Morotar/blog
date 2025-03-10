@@ -217,3 +217,7 @@ PC 时代，百度凭借搜索引擎技术成为中国互联网用户获取信�
 #### [wegic.ai](https://wegic.ai/app/1879174774756683778)
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070323832.png)
+
+## 文章
+
+* [对话拼多多黄峥：他们建帝国、争地盘，我要错位竞争](https://mp.weixin.qq.com/s?__biz=MzA3NDI0ODMzMw==&mid=2651302602&idx=1&sn=289c94defd746da35307085fb03be4fa&chksm=84f1b328b3863a3efdf32e07433335f1643f2e44f3d0b6f0d56d1e3d5633c5672570eae4dcc8&scene=21#wechat_redirect)
