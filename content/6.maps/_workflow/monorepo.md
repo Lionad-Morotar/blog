@@ -1,7 +1,5 @@
 # Monorepo
 
-
-
 ## TODO
 
 * [现代 Monorepo 工程技术选型，聊聊我的思考](https://juejin.cn/post/7102452341210611720)
@@ -12,7 +10,7 @@
 
 #### monorepo 是什么？
 
-monorepo 对应 multirepo，是“把多个仓库放到一个仓库中来管理”这种技术的统称，它可以给不同项目带来一致的工作流，使团队协作更加容易，减小项目的开发和维护成本。
+monorepo 对应 multi-repo，是“把多个仓库放到一个仓库中来管理”这种技术的统称，它可以给不同项目带来一致的工作流，使团队协作更加容易，减小项目的开发和维护成本。
 
 #### 使用 monorepo 能解决什么问题？
 
@@ -28,7 +26,7 @@ monorepo 对应 multirepo，是“把多个仓库放到一个仓库中来管理�
 
 ## Lerna
 
-见：[Lerna Documention](https://lerna.js.org/docs/introduction)
+见：[Lerna Doc](https://lerna.js.org/docs/introduction)
 
 #### lerna 如何管理项目间的依赖？
 
