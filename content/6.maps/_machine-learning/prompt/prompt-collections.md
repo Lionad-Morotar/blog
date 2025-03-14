@@ -78,3 +78,12 @@ caption="《莫泊桑短篇小说精选》"
 * [Midjourney Prompt 提示词秘籍](https://zhuanlan.zhihu.com/p/615010380)
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230723155011.png)
+
+## Segments
+
+CogView4 提到使用中文提示词的时候可以用脚本进行优化。
+
+```bash
+cd inference
+python prompt_optimize.py --api_key "智谱 AI API Key" --prompt {你的提示词} --base_url "https://open.bigmodel.cn/api/paas/v4" --model "glm-4-plus" --cogview_version "cogview4"
+```
