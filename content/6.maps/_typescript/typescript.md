@@ -3,7 +3,7 @@ title: TypeScript
 description: TypeScript 的核心概念、高级类型、应用实践和工程化经验，包含类型体操、项目配置等内容的完整指南。
 ---
 
-## 简介
+## 基本
 
 #### 如何理解 Interface 和 Type 的异同？
 
@@ -23,6 +23,10 @@ type Foo = WrapNaked<string | number | boolean>
 type Bar = WrapUnNaked<string | number | boolean>
 // { o: string | number | boolean }
 ```
+
+#### Enums VS Literal Unions
+
+* Georges Haidar 提到枚举相比字面量联合 [支持 TSDoc 的 Deprecated 声明](https://blog.disintegrator.dev/posts/ode-to-typescript-enums/)
 
 ## 高级类型
 
