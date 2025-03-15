@@ -2,6 +2,11 @@ const baseUrl = 'https://lionad.art'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
+  experimental: {
+    payloadExtraction: true
+  },
+
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => [].includes(tag),

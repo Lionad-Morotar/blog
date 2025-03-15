@@ -15,24 +15,8 @@ description: 前端框架是在前端开发不同阶段，用以简化开发的�
 
 ## 元框架
 
-* [Nuxt](https://dev.to/jacobandrewsky/improving-performance-of-nuxt-with-fontaine-5dim)
+* [Nuxt](/maps/_framework/nuxt/nuxt)
 
-## 源码
+## 插件和库
 
-<!-- * [Source Codes](/maps/_source-code) -->
-
-## 常见问题
-
-#### 如何比对同种类型的不同框架？
-
-可以从框架本身和生态两个角度考虑：
-
-* 框架自身：
-  * 原理实现，是否支持复杂需求
-  * 学习曲线，能否简单上手，精通是否非常困难，总体而言曲线是否平缓
-  * 灵活性，权衡改造和扩展的难易程度，两者很难兼得
-  * 性能表现，理论性能和真实世界应用性能
-* 框架生态：
-  * 维护力度，影响问题反馈响应的及时性及新功能的迭代速度
-  * 使用人数，是否有人提前踩好了坑
-  * 知名度，流行趋势会给框架自身及框架生态的发展带来倾向
+* [Zod](/maps/_framework/schema/zod)
