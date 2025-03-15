@@ -1,1 +1,0 @@
-[{"_path":"/maps/_framework/micro-fe","title":"微前端","description":"微前端是一种架构风格，是一种将前端应用拆分成更小、更独立的部分，然后将这些部分组合在一起的技术方案。微前端的目标是将单体应用拆分成多个小型应用，每个小型应用都可以独立开发、独立部署。"},{"_path":"/maps/_framework/schema/zod","title":"Zod","description":"Zod 是一个 TypeScript-first 的验证库。"}]
