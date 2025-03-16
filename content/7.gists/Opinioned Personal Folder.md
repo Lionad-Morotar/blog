@@ -1,1 +1,0 @@
-https://stefanzweifel.dev/posts/2023/09/16/an-opinionated-personal-folder-structure

@@ -2,6 +2,23 @@
 title: ECMAScript Standard
 ---
 
+## 其他
+
+## 执行上下文
+
+JS 中有三种不同的代码，全局代码（Global Code）、函数代码（Function Code）和求值代码（Eval Code）。
+
+无论哪一种类型的代码的执行，引擎总是提供了一个执行上下文（Execution Context）用来保存代码执行时相关的信息。
+
+执行上下文由以下几个部分组成：
+
+- 变量对象（Variable Object）：用来保存变量声明，比如通过 var a 声明的 a 变量，就会作为变量对象上的一个 a 属性保存下来。
+
+## 阅读更多
+
+* [JS 规范中的 IsValidSimpleAssignmentTarget](https://zhuanlan.zhihu.com/p/27875462)
+* [What is a “primary expression”?](https://stackoverflow.com/questions/15675427/what-is-a-primary-expression)
+
 ## 资料
 
 一些极其有用的前置参考资料，有助于甄别与理解规范里各种概念，不至于被绕晕。
@@ -40,7 +57,7 @@ title: ECMAScript Standard
 
 ![[对象的本质](https://timothygu.me/es-howto/)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/timothygu.me_es-howto_object-uml.svg.png)
 
-ECMAScript 是一种基于对象的基本语言，其基础设置主要依赖宿主提供的对象。基于此概念，可以把 ECMAScript 程序看作一组相互通讯的对象集合。按照规范，对象的精确描述其实应该是：“一个具有零或多个被属性描述符决定的属性的集合[^object-definition]”。对象的属性能持有其它值，包括规范定义的原始值：Undefined、Null、Boolean、Number、BigInt、String、Symbol 和 Object。这里说的 Object 还包括可执行对象，callable object，也就是函数。而由对象内属性持有的函数，叫做方法。
+ECMAScript 是一种基于对象的基本语言，其基础设置主要依赖宿主提供的对象。基于此概念，可以把 ECMAScript 程序看作一组相互通讯的对象集合。按照规范，对象的精确描述其实应该是：“一个具有零或多个被属性描述符决定的属性的集合 [^object-definition]”。对象的属性能持有其它值，包括规范定义的原始值：Undefined、Null、Boolean、Number、BigInt、String、Symbol 和 Object。这里说的 Object 还包括可执行对象，callable object，也就是函数。而由对象内属性持有的函数，叫做方法。
 
 [^object-definition]: 定义见 [ Terms and Definitions - object](https://262.ecma-international.org/12.0/#sec-terms-and-definitions-object)
 
@@ -64,20 +81,20 @@ ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一
 
 脚本语言是设计给包括非职业开发人员使用的语言，没有必要拥有主程序入口。所以脚本语言通常寄生于特定系统，依赖宿主提供的设施以完善语言功能，使用终端进行操作，以便人员操控程序或自动化流程。规范原本想设计一款 Web 脚本语言，用于客户端以响应用户在界面上的操作，使 Web 页面能够执行逻辑。但随着越来越广泛的使用，功能逐渐完善，ECMAScript 演变成为了通用程序语言。
 
-每一个支持 ECMAScript 的浏览器或者服务器端都拥有一个对应的宿主系统用于执行脚本。宿主系统的实现需要按照规范，不过规范对某些特征只描述了特定行为而没有给出具体算法。这些具体算法通常会由其它规范来实现，比如说 HTML 规范中定义的宏任务和微任务或 Math.exp 这种特定算法。总而言之，只要宿主系统和规范是一致的（见[一致性](#一致性)）并实现了特定的行为如 Host Hooks、Host-defined Fileds、Host-defined Objects、Running Jobs、Internal Methods of Exotic Objects 和 Built-in Objects and Methods，就算是一个完整的 ECMAScript 宿主系统，就能正确地和规范进行交互。
+每一个支持 ECMAScript 的浏览器或者服务器端都拥有一个对应的宿主系统用于执行脚本。宿主系统的实现需要按照规范，不过规范对某些特征只描述了特定行为而没有给出具体算法。这些具体算法通常会由其它规范来实现，比如说 HTML 规范中定义的宏任务和微任务或 Math.exp 这种特定算法。总而言之，只要宿主系统和规范是一致的（见 [一致性](#一致性）)并实现了特定的行为如 Host Hooks、Host-defined Fileds、Host-defined Objects、Running Jobs、Internal Methods of Exotic Objects 和 Built-in Objects and Methods，就算是一个完整的 ECMAScript 宿主系统，就能正确地和规范进行交互。
 
 ### 一致性
 
 一致性是指，实现了 ECMAScript 规范（以下简称规范）的语言必须满足以下标准：
 
-* 规范描述：类型系统、值、对象、属性、函数、语法、语义、严格模式[^strict-mode]。
+* 规范描述：类型系统、值、对象、属性、函数、语法、语义、严格模式 [^strict-mode]。
 * 编码标准：最新的 Unicode 标准以及 USC 标准。
 * ECMA-402：ECMAScript 的国际化接口标准，即 Intl 相关规范。
 * 可选规范：可选规范要么全部不实现，要么全部都实现。目前在文档中只找到相关 WeakRef.prototype.constructor 初始值必须为 %WeakRef% 的可选规范。
 
 [^strict-mode]: 必须支持严格模式和非严格模式，并且能在一个符合程序中同时运行严格模式和非严格模式的代码，见 [The Strict Variant of ECMAScript](https://262.ecma-international.org/12.0/#sec-strict-variant-of-ecmascript)。
 
-规范允许某些实现了规范的具体语言可以提供超出规范描述的内容，包括类型、值、对象...语法或是保留字的实现。
+规范允许某些实现了规范的具体语言可以提供超出规范描述的内容，包括类型、值、对象。.. 语法或是保留字的实现。
 
 另外，以下规范和 ECMAScript 相关，但不要求 ECMAScript 的宿主系统实现：
 
@@ -102,7 +119,7 @@ ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一
 | built-in function | 内置对象 | 作为函数的内置对象 |
 | built-in method | 内置方法 | 作为方法的内置函数 |
 | built-in object | 内置对象 | 由规范定义（定义了具体实现）的对象 |
-| conformance | 一致性 | 见[一致性](#一致性) |
+| conformance | 一致性 | 见 [一致性](#一致性) |
 | constructor | 构造函数 | 用于创建和初始化对象用的函数 |
 | general-purpose programming language | 通用编程语言 | 被设计为可在各个应用领域使用的语言，见 [General-purpose programming language](https://en.wikipedia.org/wiki/Special:Search/General-purpose_programming_language) |
 | host-defined | 宿主实现 | 同 implementation-defined |
@@ -118,6 +135,6 @@ ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一
 | own property | 自有属性 | 作为该对象拥有的而不是通过原型继承获得的属性就叫该对象的自有属性 |
 | primitive value | 原始值 | 不可再分的数据，Undefined, Null, Boolean, Number, BigInt, Symbol, String 中的一种 |
 | property | 属性 | 组成对象的基本部分，包含键和对应的值 |
-| prototype | 原型 | 见[语言风格](#语言风格) |
+| prototype | 原型 | 见 [语言风格](#语言风格) |
 | standard object | 标准对象 | 行为（语义）和规范一致的对象 |
 | undefined value | 未定义值 | 表示变量初始化成功但未赋值 |

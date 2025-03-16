@@ -25,8 +25,8 @@ export default defineAppConfig({
         to: '/articles',
       },
       {
-        label: 'Gists',
-        to: '/gists',
+        label: 'Maps',
+        to: '/maps',
       },
       {
         label: 'Links',

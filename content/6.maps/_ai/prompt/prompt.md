@@ -24,7 +24,7 @@ Provide a comprehensive analysis of the network request, focusing on areas cruci
 ## Example session
 
 Explain this network request
-Request: https://api.example.com/products/search?q=laptop&category=electronics
+Request: https://api.example.com/_products/search?q=laptop&category=electronics
 Response Headers:
     Content-Type: application/json
     Cache-Control: max-age=300

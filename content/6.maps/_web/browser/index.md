@@ -19,7 +19,7 @@ title: 浏览器
 
 从 2023-12 月开始，在 caniuse 网站上能看到 Baseline 标志了，见：[Baseline 2023](https://web.dev/blog/baseline2023)
 
-##### [A definition update for Baseline](https://web.dev/blog/baseline-definition-update?hl=en)
+#### [A definition update for Baseline](https://web.dev/blog/baseline-definition-update?hl=en)
 
 新更新的 Baseline 包含两个关键时间点：
 

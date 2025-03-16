@@ -177,6 +177,6 @@ magick -version
 
 TODO review
 
-##### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/The%20History%20of%20Pandemics%2C%20by%20Death%20Toll%20-%20%E5%A4%A7%E6%B5%81%E8%A1%8C%E7%97%85%E5%8E%86%E5%8F%B2.html' source='https://github.com/nodejs/node-v0.x-archive/issues/2479' >《EMFILE error when using fs.watch on many items》</Link>
+#### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/The%20History%20of%20Pandemics%2C%20by%20Death%20Toll%20-%20%E5%A4%A7%E6%B5%81%E8%A1%8C%E7%97%85%E5%8E%86%E5%8F%B2.html' source='https://github.com/nodejs/node-v0.x-archive/issues/2479' >《EMFILE error when using fs.watch on many items》</Link>
 
 Linux 单个进程只能操作有限个文件数量。可以使用 ulimit -n xxxx 突破这个限制。

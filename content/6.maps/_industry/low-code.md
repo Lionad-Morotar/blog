@@ -47,15 +47,19 @@ description: 无代码、低代码、高代码，这是一个围绕人机交互�
 
 ## 相关产品
 
+#### 代码仓库类
+
+* [bit](/maps/_products/bit)
+
 #### 页面搭建类
 
-* [budibase](/maps/_business/_low-code/budibase)
+* [budibase](/maps/_products/budibase)
 
 #### 动作编排类（工作流）
 
 * n8n
-<!-- * [n8n](/maps/_business/_low-code/n8n) -->
+<!-- * [n8n](/maps/_products/n8n) -->
 
 #### 逻辑编排类
 
-* [dynamo](/maps/_business/_low-code/dynamo)
+* [dynamo](/maps/_products/dynamo)

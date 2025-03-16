@@ -5,6 +5,8 @@ date: 2024-02-08
 tags: ["vscode"]
 ---
 
+## 常见问题
+
 记录一些配置 VSCode 时碰到的问题。
 
 #### 如何使大纲视图默认只显示一级？
@@ -28,3 +30,7 @@ tags: ["vscode"]
 虽然打开了 `autoReveal` 选项，但是还是不能自动聚焦到当前文件了，不清楚是不是 bug。不过文件树视图右上角有个小刷新按钮，点下刷新就好了。
 
 ![refresh button on files view](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20240208194710.png)
+
+## 插件开发
+
+* [插件开发](/maps/_ide/vscode/vscode-plugin-development)

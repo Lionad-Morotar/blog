@@ -14,7 +14,7 @@ TODO：[Sapling](https://sapling-scm.com/docs/introduction/differences-git)
 
 #### 语义化版本是什么？
 
-语义化版本（Semantic Version）是一种版本号码标记方法，它要求版本号由“主版本号.次版本号.修订号”组成，分别代表不兼容的 API 改动、向下兼容的功能性改动或新增、向下兼容的问题修正。
+语义化版本（Semantic Version）是一种版本号码标记方法，它要求版本号由“主版本号。次版本号。修订号”组成，分别代表不兼容的 API 改动、向下兼容的功能性改动或新增、向下兼容的问题修正。
 
 见：[语义化版本 @semver.org](https://semver.org/lang/zh-CN/)
 

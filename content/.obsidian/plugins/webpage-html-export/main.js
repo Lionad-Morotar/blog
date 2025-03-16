@@ -4744,7 +4744,7 @@ class GraphAssembly
     static averageRadius = 0;
     static minRadius = 0;
 
-    /**  
+    /**
      * @param {{nodeCount: number, linkCount:number, radii: number[], labels: string[], paths: string[], linkSources: number[], linkTargets: number[], linkCounts: number[]}} nodes
     */
     static init(nodes)
@@ -4778,17 +4778,17 @@ class GraphAssembly
         Module.HEAP32.set(new Int32Array(GraphAssembly.linkTargets.buffer), GraphAssembly.#linkTargetsPtr / GraphAssembly.linkTargets.BYTES_PER_ELEMENT);
 
         Module._Init(
-            GraphAssembly.#positionsPtr, 
-            GraphAssembly.#radiiPtr, 
-            GraphAssembly.#linkSourcesPtr, 
-            GraphAssembly.#linkTargetsPtr, 
-            GraphAssembly.nodeCount, 
-            GraphAssembly.linkCount, 
-            batchFraction, 
-            dt, 
-            attractionForce, 
-            linkLength, 
-            repulsionForce, 
+            GraphAssembly.#positionsPtr,
+            GraphAssembly.#radiiPtr,
+            GraphAssembly.#linkSourcesPtr,
+            GraphAssembly.#linkTargetsPtr,
+            GraphAssembly.nodeCount,
+            GraphAssembly.linkCount,
+            batchFraction,
+            dt,
+            attractionForce,
+            linkLength,
+            repulsionForce,
             centralForce
         );
     }
@@ -4803,7 +4803,7 @@ class GraphAssembly
 
     /**
      * @param {GraphRenderWorker} renderWorker
-     * */ 
+     * */
     static saveState(renderWorker)
     {
         localStorage.setItem("positions", JSON.stringify(new Float32Array(GraphAssembly.positions)));
@@ -4823,7 +4823,7 @@ class GraphAssembly
         {
             positions = new Float32Array(GraphAssembly.nodeCount * 2);
             let spawnRadius = (GraphAssembly.averageRadius * Math.sqrt(GraphAssembly.nodeCount)) * 2;
-            for (let i = 0; i < GraphAssembly.nodeCount; i++) 
+            for (let i = 0; i < GraphAssembly.nodeCount; i++)
             {
                 let distance = (1 - GraphAssembly.radii[i] / GraphAssembly.maxRadius) * spawnRadius;
                 positions[i * 2] = Math.cos(i/GraphAssembly.nodeCount * 7.41 * 2 * Math.PI) * distance;
@@ -4862,7 +4862,7 @@ class GraphAssembly
     {
         Module._SetBatchFractionSize(value);
     }
-    
+
     /**
      * @param {number} value
      */
@@ -4927,7 +4927,7 @@ class GraphRenderWorker
         this.#cameraScale = 1;
         this.#hoveredNode = -1;
         this.#grabbedNode = -1;
-        this.#colors = 
+        this.#colors =
         {
             background: 0x000000,
             link: 0x000000,
@@ -4984,7 +4984,7 @@ class GraphRenderWorker
 
     resampleColors()
     {
-        function sampleColor(variable) 
+        function sampleColor(variable)
         {
             let testEl = document.createElement('div');
             testEl.style.setProperty('display', 'none');
@@ -5062,8 +5062,8 @@ class GraphRenderWorker
     }
 
     #pixiSetInteraction(hoveredNodeIndex, grabbedNodeIndex)
-    {   
-        let obj = 
+    {
+        let obj =
         {
             type: "update_interaction",
             hoveredNode: hoveredNodeIndex,
@@ -5346,7 +5346,7 @@ function updateGraph()
 
 function initializeGraphEvents()
 {
-    window.addEventListener('beforeunload', () => 
+    window.addEventListener('beforeunload', () =>
     {
         running = false;
         GraphAssembly.free();
@@ -5418,9 +5418,9 @@ function initializeGraphEvents()
     renderWorker.canvas.addEventListener("mouseenter", () => mouseInside = true);
     renderWorker.canvas.addEventListener("mouseleave", () => mouseInside = false);
 
-    document.querySelectorAll("body").forEach(element => 
+    document.querySelectorAll("body").forEach(element =>
     {
-        element.addEventListener("mousemove", event => 
+        element.addEventListener("mousemove", event =>
         {
             event.stopPropagation();
 
@@ -5432,7 +5432,7 @@ function initializeGraphEvents()
         });
     });
 
-    document.getElementById("graph-canvas").addEventListener("mousemove", event => 
+    document.getElementById("graph-canvas").addEventListener("mousemove", event =>
     {
         handleMouseMove(event);
     });
@@ -5441,7 +5441,7 @@ function initializeGraphEvents()
     document.getElementById("graph-canvas").addEventListener("mousedown", event =>
     {
         event.stopPropagation();
-            
+
         if (event.button == 0) leftButtonDown = true;
         if (event.button == 1) middleButtonDown = true;
         if (event.button == 2) rightButtonDown = true;
@@ -5486,7 +5486,7 @@ function initializeGraphEvents()
         }
     });
 
-    document.getElementById("graph-canvas").addEventListener("wheel", function(e) 
+    document.getElementById("graph-canvas").addEventListener("wheel", function(e)
     {
         e.preventDefault();
         e.stopPropagation();
@@ -5621,7 +5621,7 @@ var Module=typeof Module!="undefined"?Module:{};var moduleOverrides=Object.assig
 
 // assets/graph-render-worker.txt.js
 var graph_render_worker_txt_default = `// Import Pixi.js library
-if( 'function' === typeof importScripts) 
+if( 'function' === typeof importScripts)
 {
     importScripts('https://d157l7jdn8e5sf.cloudfront.net/v7.2.0/webworker.js', './tinycolor.js');
 
@@ -5644,7 +5644,7 @@ if( 'function' === typeof importScripts)
     let positions = new Float32Array(0);
     let linkLength = 0;
     let edgePruning = 0;
-    let colors = 
+    let colors =
     {
         background: 0x232323,
         link: 0xAAAAAA,
@@ -5733,7 +5733,7 @@ if( 'function' === typeof importScripts)
         return tinycolor(hexColor.toString(16)).lighten(factor).toHexNumber();
     }
 
-    function invertColor(hex, bw) 
+    function invertColor(hex, bw)
     {
         hex = hex.toString(16); // force conversion
 
@@ -5772,7 +5772,7 @@ if( 'function' === typeof importScripts)
         graphics.clear();
 
         let topLines = [];
-        if (updateAttached) 
+        if (updateAttached)
         {
             attachedToGrabbed = [];
             // hoverFade = 0;
@@ -5794,12 +5794,12 @@ if( 'function' === typeof importScripts)
             let target = linkTargets[i];
             let source = linkSources[i];
 
-            if (hoveredNode == source || hoveredNode == target || ((lastHoveredNode == source || lastHoveredNode == target) && hoverFade != 0)) 
+            if (hoveredNode == source || hoveredNode == target || ((lastHoveredNode == source || lastHoveredNode == target) && hoverFade != 0))
             {
-                if (updateAttached && hoveredNode == source) 
+                if (updateAttached && hoveredNode == source)
                     attachedToGrabbed.push(target);
 
-                else if (updateAttached && hoveredNode == target) 
+                else if (updateAttached && hoveredNode == target)
                     attachedToGrabbed.push(source);
 
                 topLines.push(i);
@@ -5807,7 +5807,7 @@ if( 'function' === typeof importScripts)
 
             let startWorld = getPosition(source);
             let endWorld = getPosition(target);
-            
+
             let start = vecToScreenSpace(startWorld);
             let end = vecToScreenSpace(endWorld);
 
@@ -5847,7 +5847,7 @@ if( 'function' === typeof importScripts)
             let start = vecToScreenSpace(getPosition(source));
             let end = vecToScreenSpace(getPosition(target));
 
-            
+
             graphics.moveTo(start.x, start.y);
             graphics.lineTo(end.x, end.y);
         }
@@ -5881,7 +5881,7 @@ if( 'function' === typeof importScripts)
         }
 
         updateAttached = false;
-        
+
         if (hoveredNode == -1)
         {
             labelText.text = "";
@@ -5917,10 +5917,10 @@ if( 'function' === typeof importScripts)
         {
             if(hoveredNode != event.data.hoveredNode && event.data.hoveredNode != -1) updateAttached = true;
             if(grabbedNode != event.data.grabbedNode && event.data.hoveredNode != -1) updateAttached = true;
-            
+
             if(event.data.hoveredNode == -1) lastHoveredNode = hoveredNode;
             else lastHoveredNode = -1;
-            
+
             hoveredNode = event.data.hoveredNode;
             grabbedNode = event.data.grabbedNode;
         }
@@ -5936,7 +5936,7 @@ if( 'function' === typeof importScripts)
         {
             colors = event.data.colors;
 
-            if(labelText) 
+            if(labelText)
             {
                 labelText.style.fill = invertColor(colors.background, true);
             }
@@ -7899,7 +7899,7 @@ async function setTreeCollapsed(element, collapsed, animate = true)
 async function setTreeCollapsedAll(elements, collapsed, animate = true)
 {
 	let childrenList = [];
-	elements.forEach(async element => 
+	elements.forEach(async element =>
 	{
 		if (!element || !element.classList.contains("mod-collapsible")) return;
 
@@ -7983,7 +7983,7 @@ function setHeaderOpen(headerDiv, open, openParents = true)
 	}
 
 	// let selector = getHeadingContentsSelector(header);
-	if (open) 
+	if (open)
 	{
 		headerDiv.classList.remove("is-collapsed");
 		headerDiv.style.display = "";
@@ -8034,7 +8034,7 @@ function setHeaderOpen(headerDiv, open, openParents = true)
 		if (openParents)
 		{
 			let previousHeader = getPreviousHeader(headerDiv);
-			
+
 			while (previousHeader != null)
 			{
 				let previousHeaderEl = getHeaderEl(previousHeader);
@@ -8045,7 +8045,7 @@ function setHeaderOpen(headerDiv, open, openParents = true)
 					setHeaderOpen(previousHeader, true);
 					break;
 				}
-				
+
 				previousHeader = getPreviousHeader(previousHeader);
 			}
 		}
@@ -8195,7 +8195,7 @@ var slideToggleAll = (targets, duration = 500) => {
 async function loadDocument(url, pushHistory = true, scrollTo = true)
 {
 	console.log("Loading document: " + url);
-	
+
 	// change the active file
 	setActiveDocument(url, scrollTo, pushHistory);
 
@@ -8229,7 +8229,7 @@ async function loadDocument(url, pushHistory = true, scrollTo = true)
 		// copy document content and outline tree
 		document.querySelector(".document-container").innerHTML = doc.querySelector(".document-container").innerHTML;
 		document.querySelector(".outline-tree").innerHTML = doc.querySelector(".outline-tree").innerHTML;
-	
+
 		// if the url has a heading, scroll to it
 		let splitURL = url.split("#");
 		let pathnameTarget = splitURL[0] ?? url;
@@ -8248,7 +8248,7 @@ async function loadDocument(url, pushHistory = true, scrollTo = true)
 	else
 	{
 		// if the page is not able to load instead add a header saying the page doesn't exist
-		document.querySelector(".markdown-preview-view").innerHTML = 
+		document.querySelector(".markdown-preview-view").innerHTML =
 		\`
 		<div>
 			<center style='position: relative; transform: translateY(20vh); width: 100%; text-align: center;'>
@@ -8278,7 +8278,7 @@ function setActiveDocument(url, scrollTo = true, pushHistory = true)
 	document.querySelector(".tree-item.mod-active")?.classList.remove("mod-active");
 	let treeItems = Array.from(document.querySelectorAll(".tree-item > .tree-item-contents > .tree-item-link"));
 	let treeItem = undefined;
-	for (let item of treeItems) 
+	for (let item of treeItems)
 	{
 		if (item.getAttribute("href") == url)
 		{
@@ -8286,7 +8286,7 @@ function setActiveDocument(url, scrollTo = true, pushHistory = true)
 
 			parent.classList.add("mod-active");
 			treeItem = parent;
-			
+
 			while (parent.hasAttribute("data-depth"))
 			{
 				setTreeCollapsed(parent, false, false);
@@ -8303,8 +8303,8 @@ function setActiveDocument(url, scrollTo = true, pushHistory = true)
 	if(typeof nodes != 'undefined' && window.renderWorker)
 	{
 		let activeNode = nodes?.paths.findIndex(function(item) { return item.endsWith(pathnameTarget); }) ?? -1;
-		
-		if(activeNode >= 0) 
+
+		if(activeNode >= 0)
 		{
 			window.renderWorker.activeNode = activeNode;
 		}
@@ -8350,8 +8350,8 @@ function setupThemeToggle(setupOnNode)
 
 		toggle.checked = state;
 
-		if (instant) 
-		{	
+		if (instant)
+		{
 			var oldTransition = document.body.style.transition;
 			document.body.style.transition = "none";
 		}
@@ -8407,7 +8407,7 @@ function setupThemeToggle(setupOnNode)
 		setThemeToggle(!(localStorage.getItem("theme_toggle") == "true"));
 	});
 
-    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => 
+    // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event =>
 	// {
 	// 	// return if we are printing
 	// 	if (window.matchMedia('print').matches)
@@ -8438,9 +8438,9 @@ function setupThemeToggle(setupOnNode)
 function setupHeaders(setupOnNode)
 {
     // MAKE HEADERS COLLAPSIBLE
-	setupOnNode.querySelectorAll(".heading-collapse-indicator").forEach(function (element) 
+	setupOnNode.querySelectorAll(".heading-collapse-indicator").forEach(function (element)
 	{
-		element.addEventListener("click", function () 
+		element.addEventListener("click", function ()
 		{
 			var isOpen = !this.parentElement.parentElement.classList.contains("is-collapsed");
 			setHeaderOpen(this.parentElement.parentElement, !isOpen);
@@ -8448,15 +8448,15 @@ function setupHeaders(setupOnNode)
 	});
 
 	// unfold header when an internal link that points to that header is clicked
-	setupOnNode.querySelectorAll("a.internal-link, a.tree-item-link").forEach(function (element) 
+	setupOnNode.querySelectorAll("a.internal-link, a.tree-item-link").forEach(function (element)
 	{
-		element.addEventListener("click", function (event) 
+		element.addEventListener("click", function (event)
 		{
 			event.preventDefault();
 			let target = this.getAttribute("href");
 
 			// if the target is a header uncollapse it
-			if (target.startsWith("#")) 
+			if (target.startsWith("#"))
 			{
 				console.log("Uncollapsing header: " + target);
 				let header = document.getElementById(target.substring(1));
@@ -8466,7 +8466,7 @@ function setupHeaders(setupOnNode)
 	});
 }
 
-function setupTrees(setupOnNode) 
+function setupTrees(setupOnNode)
 {
 	const fileTreeItems = Array.from(setupOnNode.querySelectorAll(".tree-container.file-tree .tree-item"));
 
@@ -8482,7 +8482,7 @@ function setupTrees(setupOnNode)
 	if (fileTreeCollapse) fileTreeCollapse.addEventListener("click", async function()
 	{
 		let fileTreeIsCollapsed = fileTreeCollapse.classList.contains("is-collapsed");
-		
+
 		setTreeCollapsedAll(fileTreeItems, !fileTreeIsCollapsed, fileTreeItems.length < 100);
 
 		fileTreeCollapse.classList.toggle("is-collapsed");
@@ -8501,7 +8501,7 @@ function setupTrees(setupOnNode)
 		outlineTreeCollapse.classList.toggle("is-collapsed");
 		outlineTreeCollapse.querySelector("iconify-icon").setAttribute("icon", outlineTreeIsCollapsed ? "ph:arrows-out-line-horizontal-bold" : "ph:arrows-in-line-horizontal-bold");
 	});
-	
+
 	// start with all closed
 	setupOnNode.querySelectorAll(".tree-container .tree-item").forEach(function(item)
 	{
@@ -8526,9 +8526,9 @@ function setupCallouts(setupOnNode)
 {
 	// MAKE CALLOUTS COLLAPSIBLE
     // if the callout title is clicked, toggle the display of .callout-content
-	setupOnNode.querySelectorAll(".callout.is-collapsible .callout-title").forEach(function (element) 
+	setupOnNode.querySelectorAll(".callout.is-collapsible .callout-title").forEach(function (element)
 	{
-		element.addEventListener("click", function () 
+		element.addEventListener("click", function ()
 		{
 			var parent = this.parentElement;
 			var isCollapsed = parent.classList.contains("is-collapsed");
@@ -8545,9 +8545,9 @@ function setupCallouts(setupOnNode)
 function setupCheckboxes(setupOnNode)
 {
 	// Fix checkboxed toggling .is-checked
-	setupOnNode.querySelectorAll(".task-list-item-checkbox").forEach(function (element) 
+	setupOnNode.querySelectorAll(".task-list-item-checkbox").forEach(function (element)
 	{
-		element.addEventListener("click", function () 
+		element.addEventListener("click", function ()
 		{
 			var parent = this.parentElement;
 			parent.classList.toggle("is-checked");
@@ -8571,15 +8571,15 @@ function setupCanvas(setupOnNode)
 	let focusedNode = null;
 
 	// make canvas nodes selectable
-	setupOnNode.querySelectorAll(".canvas-node-content-blocker").forEach(function (element) 
+	setupOnNode.querySelectorAll(".canvas-node-content-blocker").forEach(function (element)
 	{
-		element.addEventListener("click", function () 
+		element.addEventListener("click", function ()
 		{
 			var parent = this.parentElement.parentElement;
 			parent.classList.toggle("is-focused");
 			this.style.display = "none";
 
-			if (focusedNode) 
+			if (focusedNode)
 			{
 				focusedNode.classList.remove("is-focused");
 				focusedNode.querySelector(".canvas-node-content-blocker").style.display = "";
@@ -8590,11 +8590,11 @@ function setupCanvas(setupOnNode)
 	});
 
 	// make canvas node deselect when clicking outside
-	// document.addEventListener("click", function (event) 
+	// document.addEventListener("click", function (event)
 	// {
-	// 	if (!event.target.closest(".canvas-node")) 
+	// 	if (!event.target.closest(".canvas-node"))
 	// 	{
-	// 		document.querySelectorAll(".canvas-node").forEach(function (node) 
+	// 		document.querySelectorAll(".canvas-node").forEach(function (node)
 	// 		{
 	// 			node.classList.remove("is-focused");
 	// 			node.querySelector(".canvas-node-content-blocker").style.display = "";
@@ -8607,17 +8607,17 @@ function setupCanvas(setupOnNode)
 function setupCodeblocks(setupOnNode)
 {
 	// make code snippet block copy button copy the code to the clipboard
-	setupOnNode.querySelectorAll(".copy-code-button").forEach(function (element) 
+	setupOnNode.querySelectorAll(".copy-code-button").forEach(function (element)
 	{
-		element.addEventListener("click", function () 
+		element.addEventListener("click", function ()
 		{
 			var code = this.parentElement.querySelector("code").textContent;
 			navigator.clipboard.writeText(code);
 			this.textContent = "Copied!";
 			// set a timeout to change the text back
-			setTimeout(function () 
+			setTimeout(function ()
 			{
-				setupOnNode.querySelectorAll(".copy-code-button").forEach(function (button) 
+				setupOnNode.querySelectorAll(".copy-code-button").forEach(function (button)
 				{
 					button.textContent = "Copy";
 				});
@@ -8753,7 +8753,7 @@ function initializePage(setupOnNode)
 		});
 	});
 
-	if(setupOnNode == document) 
+	if(setupOnNode == document)
 	{
 		document.body.addEventListener("touchmove", function(event)
 		{
@@ -8791,10 +8791,10 @@ var obsidian_styles_txt_default = `.callout
 	mix-blend-mode: normal !important;
 }
 
-@media print 
+@media print
 {
-    
-    html body> :not(.print) 
+
+    html body> :not(.print)
     {
         display: unset !important;
     }
@@ -9049,8 +9049,8 @@ var obsidian_styles_txt_default = `.callout
     src: url('https://publish.obsidian.md/public/fonts/853ff76f08786ae44ca0.woff');
 }
 
-.collapse-icon::before 
-{ 
+.collapse-icon::before
+{
     /* content: "\u200B" !important;  */
     content: "" !important;
     visibility: hidden !important;
@@ -9105,7 +9105,7 @@ var plugin_styles_txt_default = `/*#region Code Copy */
 
 }
 
-.canvas-node-connection-point 
+.canvas-node-connection-point
 {
 	display: none;
 	cursor: default !important;
@@ -9194,7 +9194,7 @@ var plugin_styles_txt_default = `/*#region Code Copy */
     flex-direction: row;
 }
 
-@media print 
+@media print
 {
     .sidebar, .outline-container, .theme-toggle-container, .theme-toggle-container-inline, .toggle-background, .theme-toggle-input
     {
@@ -9279,7 +9279,7 @@ var plugin_styles_txt_default = `/*#region Code Copy */
 /*#region Tree */
 
 /* Base tree */
-.tree-container 
+.tree-container
 {
 	/* padding-bottom: 12px; */
 	/* margin: 12px; */
@@ -9294,7 +9294,7 @@ var plugin_styles_txt_default = `/*#region Code Copy */
     margin-bottom: 0;
 }
 
-.tree-container .tree-header 
+.tree-container .tree-header
 {
 	display: flex;
 	flex-direction: row;
@@ -9309,12 +9309,12 @@ var plugin_styles_txt_default = `/*#region Code Copy */
     margin-left: 0;
 }
 
-.tree-container:has(.tree-scroll-area:empty) 
+.tree-container:has(.tree-scroll-area:empty)
 {
     display: none;
 }
 
-.tree-container .tree-scroll-area 
+.tree-container .tree-scroll-area
 {
 	width: 100%;
 	height: 100%;
@@ -9327,7 +9327,7 @@ var plugin_styles_txt_default = `/*#region Code Copy */
 	position: absolute;
 }
 
-.tree-container .tree-item 
+.tree-container .tree-item
 {
     display: flex;
     flex-direction: column;
@@ -9359,12 +9359,12 @@ var plugin_styles_txt_default = `/*#region Code Copy */
     margin-left: var(--tree-horizontal-spacing);
 }
 
-.tree-container .tree-item-contents:active 
+.tree-container .tree-item-contents:active
 {
     color: var(--nav-item-color-active);
 }
 
-.tree-container a.tree-item-link 
+.tree-container a.tree-item-link
 {
     width: 100%;
     height: 100%;
@@ -9396,12 +9396,12 @@ var plugin_styles_txt_default = `/*#region Code Copy */
     color: unset !important;
 }
 
-.collapse-icon:hover 
+.collapse-icon:hover
 {
     color: var(--nav-item-color-hover);
 }
 
-.tree-container a.tree-item-link:hover 
+.tree-container a.tree-item-link:hover
 {
     cursor: pointer;
     color: var(--nav-item-color-hover);
@@ -9490,7 +9490,7 @@ a {
     overflow-wrap: anywhere;
 }
 
-* 
+*
 {
     overflow-wrap: break-word;
 }
@@ -9630,7 +9630,7 @@ a {
 }
 
 /* Handle default */
-.toggle-background::before 
+.toggle-background::before
 {
     content: "";
     position: absolute;
@@ -9638,7 +9638,7 @@ a {
     top: var(--handle-margin);
     height: var(--handle-width);
     width: var(--handle-width);
-    
+
     border-radius: var(--handle-radius);
     background-color: var(--text-normal);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -9648,12 +9648,12 @@ a {
 }
 
 /* handle light*/
-.theme-toggle-input:checked ~ .toggle-background::before 
+.theme-toggle-input:checked ~ .toggle-background::before
 {
     animation: toggle-slide-right 0.2s ease-in-out normal both;
 }
 
-.theme-toggle-input:active ~ .toggle-background::before 
+.theme-toggle-input:active ~ .toggle-background::before
 {
     animation: toggle-expand-right 0.2s ease-in-out normal both;
 }
@@ -9707,7 +9707,7 @@ a {
     z-index: 1000;
 }
 
-.graph-view-container 
+.graph-view-container
 {
     position: relative;
     width: 100%;
@@ -9715,7 +9715,7 @@ a {
     display: flex;
 }
 
-.graph-icon 
+.graph-icon
 {
     cursor: pointer;
     color: var(--text-muted);
@@ -9735,7 +9735,7 @@ a {
     margin: 10px;
 }
 
-.graph-view-placeholder 
+.graph-view-placeholder
 {
     padding: 0;
     width: auto;
@@ -9751,19 +9751,19 @@ a {
     border: 1px solid var(--modal-border-color);
 }
 
-.scale-down 
+.scale-down
 {
     transition: transform 0.2s ease-in-out;
     transform: scale(0.9);
 }
 
-.scale-up 
+.scale-up
 {
     transition: transform 0.2s ease-in-out;
     transform: scale(1);
 }
 
-.graph-expand 
+.graph-expand
 {
     position: absolute;
     top: 5px;
@@ -9968,8 +9968,8 @@ var _AssetHandler = class {
     let snippetsList = await this.getStyleSnippetsContent();
     let snippets = "\n";
     for (let i = 0; i < snippetsList.length; i++) {
-      snippets += `/* --- ${snippetNames[i]}.css --- */  
- ${snippetsList[i]}  
+      snippets += `/* --- ${snippetNames[i]}.css --- */
+ ${snippetsList[i]}
 
 
 `;
@@ -10247,7 +10247,7 @@ var MarkdownRenderer;
       this.renderLeaf.view.containerEl.win.resizeTo(900, 500);
     }
     messageTitle = (fatal ? "[Fatal Error] " : "[Error] ") + messageTitle;
-    MarkdownRenderer2.problemLog += "\n\n##### " + messageTitle + "\n```\n" + message + "\n```";
+    MarkdownRenderer2.problemLog += "\n\n#### " + messageTitle + "\n```\n" + message + "\n```";
     MarkdownRenderer2.errorInBatch = true;
     let found = await Utils.waitUntil(() => MarkdownRenderer2.renderLeaf && MarkdownRenderer2.renderLeaf.parent && MarkdownRenderer2.renderLeaf.parent.parent, 100, 10);
     if (!found)
@@ -10280,7 +10280,7 @@ var MarkdownRenderer;
       this.renderLeaf.view.containerEl.win.resizeTo(900, 300);
     }
     messageTitle = "[Warning] " + messageTitle;
-    MarkdownRenderer2.problemLog += "\n\n##### " + messageTitle + "\n```\n" + message + "\n```";
+    MarkdownRenderer2.problemLog += "\n\n#### " + messageTitle + "\n```\n" + message + "\n```";
     if (!ExportSettings.settings.showWarningsInExportLog)
       return;
     let found = await Utils.waitUntil(() => MarkdownRenderer2.renderLeaf && MarkdownRenderer2.renderLeaf.parent && MarkdownRenderer2.renderLeaf.parent.parent, 100, 10);
@@ -10302,7 +10302,7 @@ var MarkdownRenderer;
       this.renderLeaf.view.containerEl.win.resizeTo(900, 300);
     }
     messageTitle = "[Info] " + messageTitle;
-    MarkdownRenderer2.problemLog += "\n\n##### " + messageTitle + "\n```\n" + message + "\n```";
+    MarkdownRenderer2.problemLog += "\n\n#### " + messageTitle + "\n```\n" + message + "\n```";
     if (!ExportSettings.settings.showWarningsInExportLog)
       return;
     let found = await Utils.waitUntil(() => MarkdownRenderer2.renderLeaf && MarkdownRenderer2.renderLeaf.parent && MarkdownRenderer2.renderLeaf.parent.parent, 100, 10);
@@ -11419,7 +11419,7 @@ ${AssetHandler.webpageJS}
       pluginCSS += thirdPartyPluginStyles;
       var header = `
 			${meta}
-			
+
 			<!-- Obsidian App Styles / Other Built-in Styles -->
 			<style> ${AssetHandler.appStyles} </style>
 			<style> ${cssSettings} </style>
@@ -11432,7 +11432,7 @@ ${AssetHandler.webpageJS}
 
 			<!-- Snippets -->
 			<style> ${AssetHandler.snippetStyles} </style>
-		
+
 			${scripts}
 			`;
     } else {

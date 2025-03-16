@@ -93,7 +93,7 @@ ObjectDefineProperty(Module, 'wrapper', {
 
 #### 数据缓存
 
-##### module.parent
+#### module.parent
 
 module.parent 属性用来表示第一次引入某模块的模块。比如，当 parent 为 null 时，就说明此模块不被其它模块引入，所以是执行程序的入口。我们来看看它的实现。
 
@@ -122,7 +122,7 @@ ObjectDefineProperty(Module.prototype, 'parent', {
 })
 ```
 
-##### 内置对象
+#### 内置对象
 
 内置对象即 http、path 等模块。
 

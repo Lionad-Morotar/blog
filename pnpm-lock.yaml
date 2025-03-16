@@ -78,6 +78,9 @@ importers:
       eslint:
         specifier: ^9.20.1
         version: 9.20.1(jiti@2.4.2)
+      nuxt-content-git:
+        specifier: ^4.0.1
+        version: 4.0.1(magicast@0.3.5)
       nuxt-feedme:
         specifier: ^1.0.1
         version: 1.0.1(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.0)(@types/node@22.10.1)(db0@0.2.1)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.4)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(typescript@5.7.2)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue-tsc@2.2.2(typescript@5.7.2))(yaml@2.7.0))(rollup@4.27.4)(vue@3.5.13(typescript@5.7.2))
@@ -318,6 +321,16 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       postcss-selector-parser: ^7.0.0
+
+  '@dword-design/dedent@0.7.0':
+    resolution: {integrity: sha512-OFmAmzKiDUh9m7WRMYcoEOPI7b5tS5hdqQmtKDwF+ZssVJv8a+GHo9VOtFsmlw3h8Roh/9QzFWIsjSFZyQUMdg==, tarball: https://registry.npmmirror.com/@dword-design/dedent/-/dedent-0.7.0.tgz}
+
+  '@dword-design/endent@1.4.1':
+    resolution: {integrity: sha512-e2sCTzth5kyRdM0o+yEb5wBVzUdJL8Y6HblRGRV0Bif0knf1ZjRLhUjdCrqM+Muirb68X/xJzgdRDJVmLqgXGA==, tarball: https://registry.npmmirror.com/@dword-design/endent/-/endent-1.4.1.tgz}
+
+  '@dword-design/functions@6.0.1':
+    resolution: {integrity: sha512-iK2fRD2+9vD6ps8OHYeSJCKCMy9H8A2yjTmVuhxqaVKMYZI1pw0hdWWTfB27czmXn7Lgk/B4ftE5zSYvrYmXZg==, tarball: https://registry.npmmirror.com/@dword-design/functions/-/functions-6.0.1.tgz}
+    engines: {node: '>=18'}
 
   '@es-joy/jsdoccomment@0.49.0':
     resolution: {integrity: sha512-xjZTSFgECpb9Ohuk5yMX5RhUEbfeQcuOp8IF60e+wyzWEF0M5xeSgqsfLtvPEX8BIyOX9saZqzuGPmZ8oWc+5Q==, tarball: https://registry.npmmirror.com/@es-joy/jsdoccomment/-/jsdoccomment-0.49.0.tgz}
@@ -1996,6 +2009,9 @@ packages:
   b4a@1.6.7:
     resolution: {integrity: sha512-OnAYlL5b7LEkALw87fUVafQw5rVR9RjwGd4KUwNQ6DrrNmaVaUCgLipfVlzrPQ4tWOR9P0IXGNOx50jYCCdSJg==, tarball: https://registry.npmmirror.com/b4a/-/b4a-1.6.7.tgz}
 
+  babel-plugin-add-module-exports@1.0.4:
+    resolution: {integrity: sha512-g+8yxHUZ60RcyaUpfNzy56OtWW+x9cyEe9j+CranqLiqbju2yf/Cy6ZtYK40EZxtrdHllzlVZgLmcOUCTlJ7Jg==, tarball: https://registry.npmmirror.com/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-1.0.4.tgz}
+
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==, tarball: https://registry.npmmirror.com/bail/-/bail-2.0.2.tgz}
 
@@ -2686,6 +2702,10 @@ packages:
   delaunator@5.0.1:
     resolution: {integrity: sha512-8nvh+XBe96aCESrGOqMp/84b13H9cdKbG5P2ejQCh4d4sK9RL4371qou9drQjMhvnPmhWl5hnmqbEE0fXr9Xnw==, tarball: https://registry.npmmirror.com/delaunator/-/delaunator-5.0.1.tgz}
 
+  delay@6.0.0:
+    resolution: {integrity: sha512-2NJozoOHQ4NuZuVIr5CWd0iiLVIRSDepakaovIN+9eIDHEhdCAEvSy2cuf1DCrPPQLvHmbqTHODlhHg8UCy4zw==, tarball: https://registry.npmmirror.com/delay/-/delay-6.0.0.tgz}
+    engines: {node: '>=16'}
+
   delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==, tarball: https://registry.npmmirror.com/delayed-stream/-/delayed-stream-1.0.0.tgz}
     engines: {node: '>=0.4.0'}
@@ -3027,6 +3047,9 @@ packages:
   fast-glob@3.3.3:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==, tarball: https://registry.npmmirror.com/fast-glob/-/fast-glob-3.3.3.tgz}
     engines: {node: '>=8.6.0'}
+
+  fast-json-parse@1.0.3:
+    resolution: {integrity: sha512-FRWsaZRWEJ1ESVNbDWmsAlqDk96gPQezzLghafp5J4GUKjbCz3OkAHuZs5TuPEtkbVQERysLp9xv6c24fBm8Aw==, tarball: https://registry.npmmirror.com/fast-json-parse/-/fast-json-parse-1.0.3.tgz}
 
   fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==, tarball: https://registry.npmmirror.com/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz}
@@ -4272,6 +4295,10 @@ packages:
     resolution: {integrity: sha512-Zmuw/PxAeJkIu7EPZEFg0lIwnfpeiDsHog9i1g5d4Z3O5+00R1Vbuk+NC6K7kgpdLsdU2/XBvzc7oQ6BsXuQPg==, tarball: https://registry.npmmirror.com/nuxt-component-meta/-/nuxt-component-meta-0.9.0.tgz}
     hasBin: true
 
+  nuxt-content-git@4.0.1:
+    resolution: {integrity: sha512-1xwAlVnKmpQ2jdPSac0O9PRjCFS70eaA/Yuws8XfFgQcDqhNqcA0bQ6kFCQpuW5qQJMnW2wUm7GxeQ+uBrjBFg==, tarball: https://registry.npmmirror.com/nuxt-content-git/-/nuxt-content-git-4.0.1.tgz}
+    engines: {node: '>=18'}
+
   nuxt-feedme@1.0.1:
     resolution: {integrity: sha512-jxuGG0ZkVaEkUNbGb4uHVQDvvbvlwXzrK+pyHRQ+rVZa9CyQGRQDwpqDVias510FStxR1Z04ZvQudKvkeZh+6g==, tarball: https://registry.npmmirror.com/nuxt-feedme/-/nuxt-feedme-1.0.1.tgz}
 
@@ -4323,6 +4350,9 @@ packages:
   object-hash@3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==, tarball: https://registry.npmmirror.com/object-hash/-/object-hash-3.0.0.tgz}
     engines: {node: '>= 6'}
+
+  objectorarray@1.0.5:
+    resolution: {integrity: sha512-eJJDYkhJFFbBBAxeh8xW+weHlkI28n2ZdQV/J/DNfWfSKlGEf2xcfAbZTv3riEXHAhL9SVOTs2pRmXiSTf78xg==, tarball: https://registry.npmmirror.com/objectorarray/-/objectorarray-1.0.5.tgz}
 
   ofetch@1.4.1:
     resolution: {integrity: sha512-QZj2DfGplQAr2oj9KzceK9Hwz6Whxazmn85yYeVuS3u9XTMOGMRx0kO95MQ+vLsj/S/NwBDMMLU5hpxvI6Tklw==, tarball: https://registry.npmmirror.com/ofetch/-/ofetch-1.4.1.tgz}
@@ -6425,6 +6455,23 @@ snapshots:
   '@csstools/selector-specificity@5.0.0(postcss-selector-parser@7.0.0)':
     dependencies:
       postcss-selector-parser: 7.0.0
+
+  '@dword-design/dedent@0.7.0':
+    dependencies:
+      babel-plugin-add-module-exports: 1.0.4
+
+  '@dword-design/endent@1.4.1':
+    dependencies:
+      '@dword-design/dedent': 0.7.0
+      fast-json-parse: 1.0.3
+      objectorarray: 1.0.5
+
+  '@dword-design/functions@6.0.1':
+    dependencies:
+      '@dword-design/endent': 1.4.1
+      delay: 6.0.0
+      lodash: 4.17.21
+      tinycolor2: 1.6.0
 
   '@es-joy/jsdoccomment@0.49.0':
     dependencies:
@@ -8705,6 +8752,8 @@ snapshots:
 
   b4a@1.6.7: {}
 
+  babel-plugin-add-module-exports@1.0.4: {}
+
   bail@2.0.2: {}
 
   balanced-match@1.0.2: {}
@@ -9402,6 +9451,8 @@ snapshots:
     dependencies:
       robust-predicates: 3.0.2
 
+  delay@6.0.0: {}
+
   delayed-stream@1.0.0: {}
 
   delegates@1.0.0: {}
@@ -9843,6 +9894,8 @@ snapshots:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.8
+
+  fast-json-parse@1.0.3: {}
 
   fast-json-stable-stringify@2.1.0: {}
 
@@ -11499,6 +11552,15 @@ snapshots:
       - rollup
       - supports-color
 
+  nuxt-content-git@4.0.1(magicast@0.3.5):
+    dependencies:
+      '@dword-design/functions': 6.0.1
+      '@nuxt/kit': 3.15.4(magicast@0.3.5)
+      simple-git: 3.27.0
+    transitivePeerDependencies:
+      - magicast
+      - supports-color
+
   nuxt-feedme@1.0.1(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.0)(@types/node@22.10.1)(db0@0.2.1)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.4)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(typescript@5.7.2)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue-tsc@2.2.2(typescript@5.7.2))(yaml@2.7.0))(rollup@4.27.4)(vue@3.5.13(typescript@5.7.2)):
     dependencies:
       '@nuxt/content': 2.13.4(ioredis@5.4.1)(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.0)(@types/node@22.10.1)(db0@0.2.1)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.4)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(typescript@5.7.2)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue-tsc@2.2.2(typescript@5.7.2))(yaml@2.7.0))(rollup@4.27.4)(vue@3.5.13(typescript@5.7.2))
@@ -11761,6 +11823,8 @@ snapshots:
   object-assign@4.1.1: {}
 
   object-hash@3.0.0: {}
+
+  objectorarray@1.0.5: {}
 
   ofetch@1.4.1:
     dependencies:

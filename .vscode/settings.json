@@ -72,10 +72,12 @@
         "qwen"
     ],
     "cSpell.words": [
+      "Aluminium",
       "ASIC",
       "autoplay",
       "beforeunload",
       "BIMORPH",
+      "bitline",
       "codeva",
       "Deeruby",
       "Dodgeball",
@@ -87,17 +89,20 @@
       "Lazzaro",
       "monokai",
       "Mordern",
+      "Murmurhash",
       "nuxthq",
       "nuxtjs",
       "practieces",
       "Raptazure",
       "Reichheld",
       "Renwangyu",
+      "teambit",
       "Templating",
       "touchmove",
       "touchstart",
       "twimoji",
-      "typecheck"
+      "typecheck",
+      "UHMWPE"
     ],
     "explorer.excludeGitIgnore": true
 }

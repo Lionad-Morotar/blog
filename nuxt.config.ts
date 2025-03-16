@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-gtag',
     '@nuxt/content',
+    // 'nuxt-content-git',
     '@nuxt/image',
     '@nuxt/ui',
     '@nuxthq/studio',
@@ -49,7 +50,6 @@ export default defineNuxtConfig({
         '/music',
         '/paint',
         '/books',
-        '/gists',
         '/links',
         '/sitemap.xml',
       ],

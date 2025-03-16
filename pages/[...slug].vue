@@ -24,8 +24,10 @@ useSeoMeta({
   title: page.value.title,
   ogTitle: `${page.value.title} - ${seo?.siteName}`,
   description: page.value.description,
-  ogDescription: page.value.description
+  ogDescription: page.value.description,
 })
+
+// console.log('[info] Page:', page.value.title, page.value)
 
 // remove og-image
 // defineOgImage({
@@ -50,9 +52,7 @@ const links = computed(() => [toc?.bottom?.edit && {
 
     <UPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
-
       <hr v-if="surround?.length">
-
       <UContentSurround :surround="surround" />
     </UPageBody>
 
@@ -61,7 +61,6 @@ const links = computed(() => [toc?.bottom?.edit && {
         <template v-if="toc?.bottom" #bottom>
           <div class="hidden lg:block space-y-6" :class="{ '!mt-6': page.body?.toc?.links?.length }">
             <UDivider v-if="page.body?.toc?.links?.length" type="dashed" />
-
             <UPageLinks :title="toc.bottom.title" :links="links" />
           </div>
         </template>
