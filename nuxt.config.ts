@@ -48,7 +48,6 @@ export default defineNuxtConfig({
         '/articles',
         '/tools',
         '/music',
-        '/paint',
         '/books',
         '/links',
         '/sitemap.xml',
