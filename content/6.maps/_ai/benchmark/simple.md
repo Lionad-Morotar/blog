@@ -5,6 +5,10 @@ description: 日常使用的简单基准测试
 
 #### 2025-03
 
+![billion 翻译问题](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503182351515.png)
+
+GPT-4o（MaxAI）的这个翻译犯了很明显的错误。
+
 * [找到一个中文单词，和某个英文单词读音相近，但是意思完全相反 @QwQ-32B](https://chat.qwen.ai/s/2efd38e7-c682-493b-a479-8c1f31e0a2f5)
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070241843.png)
