@@ -3,11 +3,17 @@ title: 面相对象编程
 description: 面向对象编程是一种编程范式，它将数据和操作封装在对象中，对象之间通过消息传递进行通信。
 ---
 
-## 基础
+#### 面向对象主要关注哪些方面？
 
 四个核心概念：封装（Encapsulation）、继承（Inheritance）、多态（Polymorphism）、抽象（Abstraction）。
 
 见：[JavaScript OOP 面向对象编程 @Mosh](https://www.bilibili.com/video/BV1gb411w7eW)，非常基础，适合新手入门
+
+#### 面相对象和设计模式的关系？
+
+一般意义上的设计模式指的是在 OOP 编程范式的实践下总结出来的一些用来解决特定问题的代码设计经验。
+
+见：[设计模式](/maps/_software/design-patterns)
 
 ## UML
 

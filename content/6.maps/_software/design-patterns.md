@@ -3,6 +3,10 @@ title: 设计模式
 description: 设计模式是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。
 ---
 
+相关：[OOP](/maps/_oop/oop)
+
+#### 设计模式怎么划分类别？
+
 按照使用方式可以把设计模式划分为：创建型模式、结构型模式和行为模式。
 
 * 创建型模式：提供创建对象的机制，增加已有代码的灵活性和可复用性
@@ -19,22 +23,28 @@ description: 设计模式是一套被反复使用、多数人知晓的、经过�
 
 一般来说，由于其复杂性低，工厂函数适合快速设计时使用，随后可以转化为抽象工厂、原型或者生成器模式。
 
+见：[工厂方法模式 @RefactoringGuru](https://refactoringguru.cn/design-patterns/factory-method)
+
 #### 抽象工厂
 
 抽象工厂可以创建一系列相关的对象，而无需指定其具体类，可以将代码和具体创建者（业务逻辑）解耦。
 
 ![[抽象工厂结构](https://www.processon.com/diagraming/614ec5dd1efad403f372ff29)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a67af4bd-c5ff-472b-a6b4-2c4ea05460d4.svg)
 
-抽象工厂专注于生产一系列对象，举个例子，Weex 和 Web 版本的 ElementUI（假设有的话）就需要根据不同平台去初始化不同的具体工厂实例，再使用具体工厂实例去生成不同的组件。
+举个例子，家具工厂（抽象工厂）可以生产椅子和桌子（抽象产品），每一个家具厂（具体工厂）都可以生产不同风格的椅子和桌子（具体产品）。
+
+见：[抽象工厂模式 @RefactoringGuru](https://refactoringguru.cn/design-patterns/abstract-factory)
 
 #### 生成器
 
-生成器模式允许使用相同的代码生成不同类型、不同形式的复杂对象，这些复杂对象的构造函数本需要非常多的参数来控制其构造细节，使用生成器模式可以避免这些无止尽的构造函数重载。由于生成器还解耦了构造的步骤，你也许需要一个主管类（Director）来封装这些构造步骤，使其与客户端解耦。
+生成器模式允许使用相同的代码生成不同类型、不同形式的复杂对象，这些复杂对象的构造函数本需要非常多的函数参数来控制其构造细节，使用生成器模式可以避免这些无止尽的构造函数重载。
 
 <!-- ProcessOn 生成的 SVG 格式有些问题 -->
 ![[生成器结构](https://www.processon.com/diagraming/614ed017637689481b66191e)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bd255980-5c94-4d8a-8a6f-0b7149ade883.svg)
 
-从图中可以看到当前的主管结构和具体生成器是解耦的，也就是说客户端依赖具体生成器来获取生成结果，这在可能有产品不遵循通用生成器接口的时候有用。
+由于生成器还解耦了构造的步骤，你也许需要一个主管类（Director）来封装这些构造步骤，使其与客户端解耦。举例来说，汽车生产导演可以控制汽车的生产流程，选择生产 SUV 或是跑车，而汽车生产者（Builder）则负责生产汽车的各个部分，如 GPS、引擎、轮子等。
+
+见：[生成器模式 @RefactoringGuru](https://refactoringguru.cn/design-patterns/builder)
 
 #### 原型
 
@@ -44,11 +54,15 @@ description: 设计模式是一套被反复使用、多数人知晓的、经过�
 
 原型模式有一个显著的缺陷便是，克隆包含循环引用的对象会变得非常麻烦。
 
+见：[原型模式 @RefactoringGuru](https://refactoringguru.cn/design-patterns/prototype)
+
 #### 单例
 
 单例模式保证了一个类只有一个对象实例或为访问某实例提供了一个全局节点。使用单例能够方便的控制资源的调度。
 
 ![[单例结构](https://www.processon.com/diagraming/614ee4e7637689481b664044)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/42fd4a01-5832-4c43-84c7-fda41402f2d4.svg)
+
+见：[单例模式 @RefactoringGuru](https://refactoringguru.cn/design-patterns/singleton)
 
 ## 结构型模式
 
@@ -148,6 +162,7 @@ description: 设计模式是一套被反复使用、多数人知晓的、经过�
 
 观察者模式中有一个不方便实现的地方就是订阅者的通知顺序该如何确定。
 
-## 相关
+## 阅读
 
-* [《🍲 设计模式与 JS 魔法锅》](/articles/design-patterns-and-js-magic-pot)（⭐⭐⭐⭐）
+* [设计模式与 JS 魔法锅](/articles/design-patterns-and-js-magic-pot)
+* [Vue Patterns](https://www.patterns.dev/vue/)

@@ -134,6 +134,12 @@ Comfy UI 在跑流程时，节点上会有个进度条显示，暗示当前的�
 
 实际上，在 Dynamo 的“代码块”可以声明“函数”。声明后，其他代码块可以直接调用函数而无需连线。在这里，节点的操作和代码创建函数共享了一整个空间，不过事情似乎会变得更难以理解。
 
+最后，一个节点的示例文档，介绍了输入输出、分类、使用案例，以及进阶使用方法。
+
+![https://dictionary.dynamobim.com/#/Core/Color/Create/Add](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200342002.png)
+
+* [节点文档](https://dictionary.dynamobim.com)
+
 ## 扩展
 
 关于 Dynamo 的自定义节点，找到几个有用的库：

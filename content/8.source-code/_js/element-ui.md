@@ -26,7 +26,7 @@ element
 
 ### 如何创建新组件
 
-**可以使用 `make new [component]` 创建新组件[^make]。创建组件会调用脚本自动创建模板文件并维护组件编译时相关配置。**
+**可以使用 `make new [component]` 创建新组件 [^make]。创建组件会调用脚本自动创建模板文件并维护组件编译时相关配置。**
 
 [^make]: 可以把 Make 理解为一种类似 Gulp 的项目工程化工具，用于编写一些供命令行调用执行的任务。运行 Make 指令需要安装特定软件。
 
@@ -90,7 +90,7 @@ export default Alert;
 {
   "pagination": "./packages/pagination/index.js",
   "dialog": "./packages/dialog/index.js",
-  // ... 省略80行组件路径信息
+  // ... 省略 80 行组件路径信息
   "popconfirm": "./packages/popconfirm/index.js"
 }
 ```
@@ -253,7 +253,7 @@ exports.build = series(compile, copyfont);
 
 最后使用 cp-cli 指令将中间目录（package/theme-chalk/lib）拷贝到编译结果目录（lib/theme-chalk/lib），所有关于样式的工程化处理就结束了。
 
-### 如何按需载入组件
+### 如何按需载入组件？
 
 按照官网的介绍，**想要按需载入组件以减小项目打包体积，可以使用 [babel-plugin-component](https://www.npmjs.com/package/babel-plugin-component)**[^babel-plugin-component]。使用方法很简单，仿照以下代码写就可以：
 
@@ -458,7 +458,7 @@ function createDocumentHandler(el, binding, vnode) {
 
 ### 图标样式处理
 
-从以上流程还可以发现，图标样式并没有在 build:theme 时被处理。通过分析 package.json，可以发现，图表样式的处理放在了 build:file，也就是打包代码示例的任务中。可以把这个任务理解为打包 ElementUI 官网展示的[文档](https://element.eleme.cn/#/zh-CN/component/installation)。
+从以上流程还可以发现，图标样式并没有在 build:theme 时被处理。通过分析 package.json，可以发现，图表样式的处理放在了 build:file，也就是打包代码示例的任务中。可以把这个任务理解为打包 ElementUI 官网展示的 [文档](https://element.eleme.cn/#/zh-CN/component/installation)。
 
 ```js
 {
@@ -475,7 +475,7 @@ function createDocumentHandler(el, binding, vnode) {
     `
 ```
 
-由于项目入口依赖了 `icon.json`，挂载到了 Vue 原型属性 $icon 上，供[图标列表页面](https://element.eleme.cn/#/zh-CN/component/icon)调用，所以生成图表信息这一步必须放在入口文件之前。
+由于项目入口依赖了 `icon.json`，挂载到了 Vue 原型属性 $icon 上，供 [图标列表页面](https://element.eleme.cn/#/zh-CN/component/icon) 调用，所以生成图表信息这一步必须放在入口文件之前。
 
 由于主题中的图标 CSS 格式比较固定，所以 iconInit.js 直接可以通过正则匹配出用到的图标名称：
 

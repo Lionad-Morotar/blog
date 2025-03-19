@@ -5,9 +5,13 @@ description: 日常使用的简单基准测试
 
 #### 2025-03
 
-![billion 翻译问题](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503182351515.png)
+* SVD 的全称
 
-GPT-4o（MaxAI）的这个翻译犯了很明显的错误。
+在一个关于“教材”的变量名隐喻中，如果 SVD 中 D 的解释是 Director，那么全称可能是什么？正确答案是什么？4o、QwQ 和 Kimi 把答案导向了数学，但经过追问，话题相关低代码、组件、编译原理之类的，和数学没有关系。那么 SVD 是什么？4o 说是 Structure View Director，即数据结构视图导演。我觉得这个回答接近正确答案，而其他两个乱答。
+
+![翻译问题](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503182351515.png)
+
+GPT-4o（MaxAI）关于“billion”的翻译犯了很明显的错误。
 
 * [找到一个中文单词，和某个英文单词读音相近，但是意思完全相反 @QwQ-32B](https://chat.qwen.ai/s/2efd38e7-c682-493b-a479-8c1f31e0a2f5)
 
@@ -19,7 +23,9 @@ GPT-4o（MaxAI）的这个翻译犯了很明显的错误。
 
 搜索资料选的是“学术”，但是表现出乎意料的差，根本没有把握句子的意思。
 
-#### 全文背诵前赤壁赋
+#### 2024-11
+
+* 全文背诵前赤壁赋
 
 - 闭源模型：gemini-pro、gpt4-turbo
 - 开源模型：llama2、qwen

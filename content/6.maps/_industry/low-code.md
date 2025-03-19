@@ -3,63 +3,69 @@ title: 低代码
 description: 无代码、低代码、高代码，这是一个围绕人机交互的有趣话题。
 ---
 
-## 行业
-
-#### 如何给低代码产品分类？
-
-1. Website Builder & Enhancers：wix、webflow、Notion、substack、linktree、Softr、weweb
-2. App Builder（Mobile First）：Universe、Glide、Thunkable
-3. App Builder（Web First）：bubble、Landbot、WorkOS、Stacker
-4. Internal（Tools and App Builder）：Retool、Creatio、Budibase、Flowdash、zaptic
-5. Workflow Automation：n8n、tray、workato、zapier、integromat、paragon
-6. Data & Developer Productivity：CHARTIO、supabase、above
-7. Spreadsheets on Steroids：airtable、rows、grid、actiondesck、Morta
-8. Numbers Finance Modelling：Jirav、silico、causal
-9. Payments & Transactions：MAMBU、swan、Primer、passbase
-10. Checkouts、Subscriptions & Commerce：PICO、OCTAINE、podia
-11. Low-Code Analytics & Dashboards：airSlate、GROW、Oribi、Apteo
-12. Form Builders：Typeform、niro、arengu
-
-![低代码行业产品](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202502201358374.jpg)
-
-## TODO
-
-* [低代码平台设计的边界问题](https://zhuanlan.zhihu.com/p/361233277)
-* [可视化拖拽组件库一些技术要点原理分析](https://juejin.cn/post/6918881497264947207)
-
-## 项目参考
-
-#### 使用 MyBricks 搭建计算器
-
-<!-- ![[使用 MyBricks 搭建一个计算器。png]] -->
-
-## 简介
+## 基础概念
 
 #### 什么是低码？
 
-低代码是指使用可视化技术来创建应用的平台，特点是应用中的代码量要比传统开发少得多。低码是一种理念，许多商业产品在十几甚至几十年前就开始尝试用 GUI 的方式来开发应用了，只是在今年来才改名叫低码平台。
+低码是指使用可视化技术来创建应用的平台，特点是应用中的代码量要比传统开发少得多。低码是一种理念，许多商业产品在十几甚至几十年前就开始尝试用 GUI 的方式来开发应用了，只是在今年来才改名叫低码平台。
 
-## 模式
+#### 低码行业的发展历程？
+
+早期低码工具多集中在特定领域或功能（如网站搭建、轻量数据管理、原型设计）。这类工具通常面向中小企业或初创团队，帮助他们快速验证想法、搭建简单的业务原型。随着数字化概念及相关技术的普及，低码向更深和更广的领域延伸，并分化出关注“技术平权”的零代码（Wix）以及高扩展性的低码产品（ERP）。而产品在规模化之后，通过积累数据、插件、模版等资源逐渐形成平台，并通过集成 AI、云等技术，形成系统化的解决方案。不过，随着业务场景变得复杂，低码产品关注的范围变得更广，包括行业模版、数据安全、政策合规等内容，而延伸出的各类子领域概念也走向融合。最终会伴随产业数字化概念，作为工具，成为企业数字化的基础设施，在概念、技术栈、工具链上形成广泛共识。
+
+#### 如何给低码产品分类？
+
+按照不同的分类维度：
+
+* 开发方式：无代码（No Code）、低代码、高代码（Pro Code）、Codeless
+* 数据模型：模型驱动（ORM）、表单驱动、流程驱动、BI 分析类型（等垂直类型）
+* 输出形态：Web、App、API、Workflow、Form、Dashboard、Chatbot 等
+* 面向角色：专业开发、业务技术员、非技术人员
+
+![低码行业产品](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202502201358374.jpg)
+
+#### 低码平台的通用能力？
+
+其中，部分功能可能会产生冲突
+
+* 数据建模与管理
+* 流程编排与工作流引擎
+* 可视化设计与拖拽式开发
+* UI 组件库与模板
+* 集成与接口管理能力：集成和被集成，APIs、Webhooks 等
+* 可扩展性：脚本或代码插槽
+* 安全性
+* 多端部署和响应式
+* 版本控制
+* 监控与运维管理
+* 协同开发
+
+## 行业调研
+
+#### 产品体验
+
+* [bit](/maps/_products/bit)
+* [budibase](/maps/_products/budibase)
+* n8n
+* [dynamo](/maps/_products/dynamo)
+
+#### 艾瑞 2022 年低码行研？
+
+企业数字化一般指将云计算、物联网、大数据、人工智能、区块链等技术应用到企业的组织与业务运营中，做到企业与数据相互融合，进而为资产与客户管理提供更高效决策的过程。
+
+低码行业的供给侧动力的形成主要来源于云市场形成的较稳固的格局，云为大数据、AI 等其他技术的发展奠定基础。加之 AI 行业的进步使 API 标准化成为可预见的流行趋势。不过现在看来 AI 时代的 API 标准化目前有了新的见解（如 MCP 等新型协议的出现）。
+
+## 技术问题
+
+#### 架构案例？
+
+* [Awade](/source-code/_architecture/awade)
 
 #### React 框架下改变组件父级会导致组件 remount 怎么解决？
 
 可以使用 [KeepAlive](https://mp.weixin.qq.com/s/1fYO__dfUy2MIjHi3IJrmg) 模式解决。在画布的 DOM 结构中用 KeepElement 作为组件的 DOM 包装，而组件本身通过 createPortal 的方式挂载到画布外的地方。这样一来，和拖拽相关的 KeepElement 结构而言组件层级是正确的，对于渲染相关的结构而言，父子结构没有改变，所以不会触发组件的 remount。
 
-## 相关产品
+## 阅读
 
-#### 代码仓库类
-
-* [bit](/maps/_products/bit)
-
-#### 页面搭建类
-
-* [budibase](/maps/_products/budibase)
-
-#### 动作编排类（工作流）
-
-* n8n
-<!-- * [n8n](/maps/_products/n8n) -->
-
-#### 逻辑编排类
-
-* [dynamo](/maps/_products/dynamo)
+* [低码平台设计的边界问题](https://zhuanlan.zhihu.com/p/361233277)
+* [可视化拖拽组件库一些技术要点原理分析](https://juejin.cn/post/6918881497264947207)

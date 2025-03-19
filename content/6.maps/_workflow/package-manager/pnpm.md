@@ -214,3 +214,9 @@ symlink=false
 2024 年初 pnpm 实现了 Dev Driver 上的 Copy on Write 功能，但可能会碰到变慢的问题。
 
 见：[pnpm lately slow and pnpx stuck at installing deps using executable package](https://github.com/pnpm/pnpm/issues/7547)
+
+#### 下载多份二进制代码的问题？
+
+目前应该是所有包管理器都有这种问题，但是不知道怎么解决。
+
+![sass-embedded 下载了多份二进制代码](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200412724.png)
