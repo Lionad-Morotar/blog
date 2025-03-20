@@ -85,6 +85,10 @@ img {
     &[src*='w=80'] {
         width: 80%;
     }
+    &[src*='type=mac'] {
+      border: none !important;
+      border-radius: 0;
+    }
     &[src*='type=win11'] {
         border: none !important;
         border-radius: 8px;
