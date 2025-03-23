@@ -112,4 +112,10 @@ description: 正则表达式是一种用来匹配字符串的强有力的工具�
 
 ## 正则工具
 
-* [正则可视化](https://jex.im/regulex/)
+* [正则可视化 @regexr](https://regexr.com/)
+
+![regexr](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503232355279.png)
+
+* [正则可视化 @regulex](https://jex.im/regulex/)
+
+![regulex](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503232356127.png)
