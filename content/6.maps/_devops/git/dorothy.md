@@ -5,6 +5,8 @@ description: Dorothy 是我的 Git Commit Message 的约定。
 
 以下在 LeanCloud CM Guide 的基础上，我们整理了一份尽量简单且能记录代码提交意义的约定。
 
+* [Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
+
 #### 主要格式
 
 ```

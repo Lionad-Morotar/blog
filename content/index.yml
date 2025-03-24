@@ -6,5 +6,5 @@ recommends:
     label: '盲视'
     to: '/flows/_fourty-two/blind-sight'
   - category: 技术
-    label: '在 tailwind 中使用现代化 CSS Layers'
-    to: '/articles/tailwind-sass-and-css-layer'
+    label: 'tailwind4 如何兼容预处理器'
+    to: '/articles/tailwind4-with-sass'
