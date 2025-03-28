@@ -18,3 +18,8 @@ description: VPN 是一种通过公共网络建立私人网络的技术。
 |  `\`  |     正则开始（正则结束）     |      \\[\w+].baidu.com\\      |
 | `@@`  | 规则过滤（满足则不使用代理） |          @@baidu.com          |
 |  `!`  |             注释             |             !#//              |
+
+## 一些开放平台
+
+* [Glados](https://glados.rocks/console)
+* [PaofuCloud](https://paofu.cloud/user)
