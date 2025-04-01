@@ -3,11 +3,10 @@ title: 前端框架
 description: 前端框架是在前端开发不同阶段，用以简化开发的工具集合。它们提供了一种组织代码的方式，使得开发者可以专注于业务逻辑，而不是底层的技术细节。
 ---
 
-## UI 框架
-
 * [Vue](/maps/_fe-framework/ui/vue)
 * [React](/maps/_fe-framework/ui/react)
 * [Angular](/maps/_fe-framework/ui/angular)
+* [Nuxt](/maps/_fe-framework/nuxt/nuxt)
 
 ## 隔离方案
 
@@ -26,9 +25,9 @@ MAXI FERREIRA 阐述的在岛模式组件中管理状态的思路也可以用于
 
 新的状态管理办法结合了事件通知和统一的状态管理库。一种替代的版本是使用回调函数。
 
-## 元框架
+## 小型框架
 
-* [Nuxt](/maps/_fe-framework/nuxt/nuxt)
+* [Iconify](/maps/_fe-framework/assets/iconify)
 
 ## 插件和库
 
