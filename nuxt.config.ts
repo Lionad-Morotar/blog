@@ -136,7 +136,7 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/api/search.json': {
-      prerender: true
+      prerender: true,
     },
   },
 
