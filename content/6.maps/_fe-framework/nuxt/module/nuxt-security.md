@@ -6,7 +6,7 @@ meta:
     content: www.lionad.art/maps/_fe-framework/nuxt/module/nuxt-security
 ---
 
-文章使用 AI 辅助创作，原文地址见 [Read Nuxt Security](www.lionad.art/maps/_fe-framework/nuxt/module/nuxt-security)。
+文章使用 AI 辅助创作，原文地址见 [Read Nuxt Security](https://www.lionad.art/maps/_fe-framework/nuxt/module/nuxt-security)。
 
 ## 简介
 
