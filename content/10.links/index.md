@@ -17,7 +17,7 @@ description: 与我联络 & 友链
 
 <del>🚧 WIP 随机排列</del>
 
-* [🧔🏻‍♂️ 涛叔](https://taoshu.in)：乐在其中。
+* [🧔🏻‍♂️ 涛叔](https://tao.zz.ac)：乐在其中。
 * [☀️ 於清樂](https://thiscute.world/)：有很多的绝望，但也有美的时刻，只不过在美的时刻，时间是不同于以往的。
 * [🌐 Kicoe](https://www.kicoe.com/)：Kicoe 就连在撸猫时也在背单词。
 * [😀 Renwangyu](https://blog.renwangyu.com/)：保持童心的 80 后程序猿大叔~

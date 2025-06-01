@@ -30,5 +30,5 @@ Emoji 就更好玩了，出现了一些特殊的用法：
 
 ## TODO
 
-* [《UTF-8 往事》](https://taoshu.in/utf-8.html)
-* [《Emoji 的奥秘》](https://taoshu.in/emoji.html)
+* [《UTF-8 往事》](https://tao.zz.ac/utf-8.html)
+* [《Emoji 的奥秘》](https://tao.zz.ac/emoji.html)
