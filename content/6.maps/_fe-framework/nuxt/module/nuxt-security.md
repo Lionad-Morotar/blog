@@ -2,8 +2,6 @@
 title: Nuxt Security
 description: 自动通过使用 HTTP 头和中间件配置您的应用程序遵循 OWASP 安全模式和原则
 meta: 
-  - name: ai
-    content: true
   - name: source
     content: www.lionad.art/maps/_fe-framework/nuxt/module/nuxt-security
 ---
