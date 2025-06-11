@@ -41,7 +41,6 @@ function Module(id = '') {
 模块引入本质上是调用 Require 函数去加载一段代码，并引入 exports 的结果。模块并不能直接引入，在初始化的时候，会通过 Wrapper 进行包装，也就是：
 
 ```js
-// 传入了 exports、require、module、__filename、__dirname 这几个参数
 (function(exports, require, module, __filename, __dirname) {
     /* 模块源码 */
 })

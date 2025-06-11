@@ -76,6 +76,7 @@
       "ASIC",
       "autoplay",
       "Awade",
+      "Beej's",
       "beforeunload",
       "BIMORPH",
       "bitline",
@@ -107,7 +108,8 @@
       "touchstart",
       "twimoji",
       "typecheck",
-      "UHMWPE"
+      "UHMWPE",
+      "webstatus"
     ],
     "explorer.excludeGitIgnore": true
 }

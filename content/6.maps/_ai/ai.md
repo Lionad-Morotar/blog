@@ -15,7 +15,12 @@ description: machine learning related
 
 将传统 NLP 方法如聚类分类、主题识别和 LLMs 结合，以获得 LLMs 的高注意力跨度和记忆力。
 
-### LLMs
+### LLM
+
+#### 面试题
+
+* [《图解大模型》配套阅读——大模型面试题 200 问](https://zhuanlan.zhihu.com/p/1899948583878394136)
+* [About LLMs interview notes and answers](https://github.com/naginoa/LLMs_interview_notes)
 
 #### 如何下载模型？
 
