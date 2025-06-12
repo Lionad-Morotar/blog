@@ -3,13 +3,13 @@ title: Blockies Animation
 description: Designed for performance, ease of use, and seamless integration into any modern project.
 ---
 
-看到一个有意思的动画库，Blockies Animate（下文简称“BA”）。使用起来比较方便，网页也比较好看，再加上近期它在 Product Hunt 上比较热门，简单介绍一下这个库，以及顺便推荐一些在我收藏夹里吃灰的网站。
+最近发现一个有意思的动画库，[Blockies Animate](https://animate.blockiesui.com/)（下文简称“BA”）。这个库使用方便，界面美观，最近还在 Product Hunt 上很受欢迎。下面简单介绍一下这个库，并顺便推荐一些我收藏夹里比较有意思的网站。
 
 ![Blockies Animate](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111802921.png)
 
 ## 使用方法
 
-使用方法比较简单，其中一些动画基于 Tailwind CSS 的自定义工具类，另一些需要 JS 控制的部分则是组件化的。
+BA 支持配置变量，使用方法非常简单。其中有些动画基于 Tailwind CSS 的自定义工具类，另一些则通过 JS 控制实现组件化。
 
 比如，`hover-glow` 效果就是 copy-and-go 类型的工具类：
 
@@ -46,7 +46,7 @@ description: Designed for performance, ease of use, and seamless integration int
 
 ## 效果实现
 
-目前有以下几种动画效果，来看看它的动画列表。有免费动画和付费动画，花20美金一次性购买后可获得永久更新。
+目前，BA 提供了多种动画效果，具体可以在动画列表中查看。它包含免费动画和付费动画，付费版一次性购买 20 美元后可享受永久更新。
 
 ![动画效果](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111811235.png)
 
@@ -54,23 +54,23 @@ description: Designed for performance, ease of use, and seamless integration int
 
 ![hover glow](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111812717.png)
 
-悬浮发光效果在网页设计里挺常见的，实现也简单，BA 就是使用了 CSS 的 `::before` 伪元素来实现的，并通过控制透明度来响应鼠标悬浮交互。
+悬浮发光效果是网页设计中很常见的动画，BA 利用 CSS 的 ::before 伪元素实现，通过调整透明度来响应鼠标悬停。
 
 ```css
 background: linear-gradient(45deg, #3b82f6, #8b5cf6);
 ```
 
-使用渐变的一个弊端可能是在特定的设计稿中，设计师想要的效果和开发实现的结果有差别。在日常的网页里，我们经常看到这种“有差别”的生硬的渐变效果，见 larsenwork 的博客：[Easing Gradients](https://larsenwork.com/easing-gradients/)，介绍了为什么 CSS 阴影会有瑕疵，以及如何通过添加 stops 来创造自然阴影（Nature Gradients）。
+使用渐变的一个问题是，在某些设计稿中，设计师期望的效果和最终实现可能存在差异。在实际项目中，我们经常会遇到“生硬”的渐变。推荐阅读 larsenwork 的博客：[Easing Gradients](https://larsenwork.com/easing-gradients/)，介绍了为什么 CSS 阴影会有瑕疵，以及如何通过添加 stops 来创造自然阴影（Nature Gradients）。
 
 ![linear gradients VS nature gradients](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111826445.png)
 
-Larsenwork 的内容很久没更新了，CSS 色彩空间在近几年更多地应用到代码实践，而且也对渐变效果有影响，这一点需要注意。
+近年来，CSS 色彩空间的实践应用越来越多，对渐变效果也有不小影响，这一点值得关注。
 
 ### Morphing（变形）
 
 ![变形动画](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111834466.gif)
 
-使用了 border-radius 动画。
+其实现是通过 border-radius 动画。
 
 ![变形动画实现](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111851993.png)
 
@@ -80,11 +80,11 @@ Larsenwork 的内容很久没更新了，CSS 色彩空间在近几年更多地�
 
 ![闪卡动画](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111933546.gif)
 
-BA 的闪卡效果结合了一像素侧光和光影动画，光影动画是一个斜45度的盒子，通过 background 渐变设置高光颜色以及 background-position 动画控制高光位移实现的。
+BA 的闪卡效果结合了一像素侧光和光影动画。光影部分是一个倾斜 45 度的盒子，通过 background 的渐变设置高光颜色，并用 background-position 的动画来控制高光的移动。
 
 ![闪卡动画实现](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121559670.png)
 
-列表里另一种效果 Text Shimmer 也是通过 background-position 动画实现的，效果部分则借助了 background 渐变以及 background-clip: text 实现。
+列表里的另一种效果 —— Text Shimmer，也是通过 background-position 动画实现。具体做法是结合 background 渐变和 background-clip: text，让文字看起来有流动的光泽。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121636419.gif)
 
@@ -108,11 +108,11 @@ BA 的文字打乱效果使用了 JS 实现，这样能轻松设置更多参数�
 </TextScrambleHover>
 ```
 
-可能会出乎意料的是，文字打乱效果也早就能通过纯 CSS 实现，比如下图从特定字符“CSS”变化到特定字符“YES”。
+可能让人意外的是，文字打乱的效果其实早就可以用纯 CSS 实现，比如下图展示了从“CSS”变换到“YES”的过程。
 
 ![文字变化效果](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121624129.gif)
 
-也许这种实现的好处在于，因为能用上 transition 动画曲线等特性，所以能复用 CSS 主题无需通过 JS 传参。实现原理也简单，使用了 counter 函数的第二个参数，将自定义的带动画效果的数值转化为字符显示就行。见下图，将“1”转化为字符后得到了“a”。详细介绍参考：[Animating Number Counters](https://css-tricks.com/animating-number-counters)。
+这种实现的好处在于，可以利用 transition 动画曲线等 CSS 特性，实现主题复用，无需用 JS 传递参数。原理也很简单，就是用 counter 函数的第二个参数，将带有动画效果的数字转为字符显示。例如，下图中“1”被转化为字母“a”。详细介绍参考：[Animating Number Counters](https://css-tricks.com/animating-number-counters)。
 
 ![counter 函数第二个参数](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121620640.png)
 
@@ -122,10 +122,10 @@ BA 的文字打乱效果使用了 JS 实现，这样能轻松设置更多参数�
 
 ![放大效果](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121639073.png)
 
-其实现是一个双层的 DOM 结构，内层是一个完整复制了待放大内容的节点，外层是一个设置了 overflow hidden 的圆。通过计算鼠标在待放大内容的距离偏移量，来设置内外层容器的位置，就可以在鼠标悬浮时显示某个特定区域的放大内容。
+这种放大镜效果的实现，是采用了一个双层 DOM 结构：内层是完整复制的内容节点，外层是一个设置了 overflow: hidden 的圆形容器。通过计算鼠标在内容上的偏移量，动态设置内外层容器的位置，就能在鼠标悬浮时显示对应区域的放大效果。
 
 ![双层节点结构](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121646084.png)
 
-距离偏移量的计算可以画个草图模拟一下。外层圆因为有 overflow hidden，他的 x、y 坐标区间是 `[0 - 圆半径， 待放大内容宽高 - 圆半径]`。内层容器的偏移量只需根据放大倍率乘上鼠标在待放大内容的 x、y 坐标偏移相对其宽高的比例即可，比如当鼠标移到右上角时，内层容器位移如图：
+距离偏移量的计算可以画个草图帮助理解。外层圆因为溢出隐藏，只允许内容在 `[0 - 圆半径，待放大内容宽高 - 圆半径]` 这个范围内移动。内层容器的偏移量，只需根据放大倍数，乘以鼠标在内容区的 x、y 比例坐标即可。比如，当鼠标移到右上角时，对应的位移如下图所示：
 
 ![内层容器位移](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121655370.png)

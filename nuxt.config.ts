@@ -61,9 +61,9 @@ export default defineNuxtConfig({
    */
   feedme: {
     feeds: {
-      '/feed.atom': { revisit: '24h', type: 'atom1', content: true },
-      '/feed.xml': { revisit: '24h', type: 'rss2', content: true },
-      '/feed.json': { revisit: '24h', type: 'json1', content: true },
+      '/feed.atom': { revisit: '8h', type: 'atom1', content: true },
+      '/feed.xml': { revisit: '8h', type: 'rss2', content: true },
+      '/feed.json': { revisit: '8h', type: 'json1', content: true },
     },
     content: {
       feed: {
@@ -72,7 +72,7 @@ export default defineNuxtConfig({
           title: '仿生狮子',
           link: baseUrl,
           author: { email: '1806234223@qq.com', name: 'lionad' },
-          categories: ['lionad','front-end','science','flow'],
+          categories: ['lionad','front-end','science','flow','notes'],
           copyright: 'CC BY-NC-SA 4.0',
         },
       },
