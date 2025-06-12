@@ -25,10 +25,8 @@ MAXI FERREIRA 阐述的在岛模式组件中管理状态的思路也可以用于
 
 新的状态管理办法结合了事件通知和统一的状态管理库。一种替代的版本是使用回调函数。
 
-## 小型框架
+## 框架类库
 
 * [Iconify](/maps/_fe-framework/assets/iconify)
-
-## 插件和库
-
 * [Zod](/maps/_fe-framework/schema/zod)
+* [Blockies Animate](/maps/_fe-framework/motion/blockies-animation)
