@@ -19,6 +19,15 @@ Git 有工作区、索引、本地仓库和远端仓库几个概念。在各个�
 
 ## 配置相关
 
+
+#### 如何解决下载超时问题？
+
+```bash
+# 仅当20秒内下载速度低于 1000 字节时，才会中断下载
+git config --global http.lowSpeedLimit 1000
+git config --global http.lowSpeedTime 20
+```
+
 #### 如何配置用户名和邮箱？
 
 去掉 --global 参数可以给单个项目进行配置，对某些项目有用。
@@ -42,6 +51,7 @@ git config --global core.editor Code
 
 ```bash
 git config --global http.proxy <your-proxy-url>
+git config --global https.proxy <your-proxy-url>
 ```
 
 ## 分支操作
