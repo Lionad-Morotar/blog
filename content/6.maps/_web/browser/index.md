@@ -37,7 +37,8 @@ title: 浏览器
 ## 浏览器原理
 
 * [浏览器原理](/maps/_web/browser/principle)
-
-## 浏览器相关
-
 * [路由技术](/maps/_web/browser/router)
+
+## 浏览器插件
+
+* [Chrome Extensions API](https://developer.chrome.com/docs/extensions/reference/api?hl=zh-cn)
