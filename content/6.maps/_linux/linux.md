@@ -3,6 +3,10 @@ title: Linux
 description: Linux 系统基础指南，涵盖系统原理、系统编程、脚本使用、权限管理以及常用软件安装配置等实用内容。
 ---
 
+## 操作手册
+
+* [DashDash Linux Manual](https://dashdash.io/)
+
 
 ## 系统原理
 
