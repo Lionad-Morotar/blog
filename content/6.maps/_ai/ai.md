@@ -3,6 +3,10 @@ title: Machine Learning
 description: machine learning related
 ---
 
+## 阅读更多
+
+* [通往 AGI 之路](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)
+
 ## 数据结构
 
 #### 向量可视化

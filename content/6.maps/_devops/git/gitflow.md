@@ -45,7 +45,7 @@ Gitflow Workflow 最早在 Vincent Driessen 2010 年写的一篇博客中被提�
 
 ![Gitflow](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220627173845.png?w=40)
 
-见：[Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)、[A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
+见：[Gitflow Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)、[A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)，在 2020 年的补充中，作者提及类似 Web 应用这种不需要经常回滚的应用，使用更简单的 GitHub Flow 可能会更合适。
 
 ## 评价
 

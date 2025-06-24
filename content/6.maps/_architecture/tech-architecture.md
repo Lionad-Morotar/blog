@@ -7,7 +7,9 @@ description: 技术架构是指软件系统的整体结构，包括软件组件�
 
 * [System Design 101](https://bytebytego.com/guides/)
 
-## 问题整理
+## 认证过程
+
+### 用户密码
 
 #### 如何储存用户密码？
 
@@ -38,3 +40,8 @@ description: 技术架构是指软件系统的整体结构，包括软件组件�
 此外，Dropbox 表示也在关注 Argon2 等竞赛新秀。
 
 见：[How Dropbox securely stores your passwords](https://dropbox.tech/security/how-dropbox-securely-stores-your-passwords)
+
+### OAuth
+
+* [OAuth 2.0 Standards](https://oauth.net/2/)
+
