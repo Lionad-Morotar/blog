@@ -1,4 +1,7 @@
-# Canvas Blocker
+---
+title: Canvas Blocker
+description: Canvas Blocker 是一个浏览器扩展，能够拦截多种类型的指纹追踪。
+---
 
 ## 前言
 
@@ -44,7 +47,7 @@ Blocker 篡改了 Window 的两个属性，window.name 和 window.opener。这�
 * [Firefox 88 combats window.name privacy abuses](https://blog.mozilla.org/security/2021/04/19/firefox-88-combats-window-name-privacy-abuses/)
 * [clear-window-name@web-platform-tests](https://wpt.fyi/results/html/browsers/windows/clear-window-name.https.html?label=master&label=experimental&aligned)
 
-在使用 JS 设置 window.name 时，Blcoker 会记录下设置的值。original.call 调用原有的 window.name setter；windowNames 只做记录，稍后会用到。
+在使用 JS 设置 window.name 时，Blocker 会记录下设置的值。original.call 调用原有的 window.name setter；windowNames 只做记录，稍后会用到。
 
 ```js
 {
