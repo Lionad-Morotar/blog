@@ -1,4 +1,9 @@
-# Linter
+---
+title: Linter
+description: Linter 是代码质量检查工具，帮助开发者保持代码风格一致性和减少错误。
+---
+
+## ESLint
 
 * [ESLint](/maps/_workflow/linter/eslint)
 
@@ -8,6 +13,6 @@
 
 #### 为什么 antfu 不使用 Prettier ？
 
-Prettier 的自动换行策略使代码 diff 变得难以阅读，并且没有选项可以用来关闭 print-width 配置的换行策略。尽管可以通过 ESLint 来纠正 Prettier 的行为，但是这更加麻烦，且降低了性能。所以 antfu 的策略是使用自己配置的整套 ESLint 规则共享包。
+Prettier 的自动换行策略使代码 diff 变得难以阅读，并且没有选项可以用来关闭 print-width 配置的换行策略。尽管可以通过 ESLint 来纠正 Prettier 的行为，但是这麻烦且降低了性能。所以 antfu 的策略是使用自己配置的整套 ESLint 规则共享包。
 
 见：[为什么我不使用 Prettier | antfu](https://antfu.me/posts/why-not-prettier-zh)

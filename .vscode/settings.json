@@ -113,7 +113,8 @@
       "twimoji",
       "typecheck",
       "UHMWPE",
-      "webstatus"
+      "webstatus",
+      "zdiff"
     ],
     "explorer.excludeGitIgnore": true
 }

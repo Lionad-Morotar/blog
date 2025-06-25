@@ -115,6 +115,14 @@ git cherry-pick <commit-hash> <commit-hash>
 git branch --set-upstream-to=origin/branch-1 branch-2
 ```
 
+#### 如何切换至 zdiff3？
+
+```bash
+git config --global merge.conflictStyle zdiff3
+```
+
+zdiff3 即 zealous 3-way-diff，见：[Better Git Conflicts with zdiff3](https://www.ductile.systems/zdiff3/)
+
 ## 工程化实践
 
 #### 提交规范有什么用？
