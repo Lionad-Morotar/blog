@@ -1,0 +1,1 @@
+[{"_path":"/maps/_ai/prompt/prompt-engineering","title":"提示工程","description":"指的是根据所需的任务目标，有意识地设计、优化和调整输入语言（即“提示”）的过程，以引导AI模型输出更高质量、符合期望和语境的内容，包含上下文设置、提示设计、提示调优、多模型适配等核心过程。"},{"_path":"/maps/_ai/tools/copilot","title":"GitHub Copilot","description":"GitHub Copilot 是一款由 GitHub 和 OpenAI 合作开发的人工智能代码提示工具，它可以根据上下文和注释生成代码片段，提高开发效率。"}]
