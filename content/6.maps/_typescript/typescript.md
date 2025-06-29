@@ -3,6 +3,45 @@ title: TypeScript
 description: TypeScript 的核心概念、高级类型、应用实践和工程化经验，包含类型体操、项目配置等内容的完整指南。
 ---
 
+## Roadmap
+
+#### GPT 4.1 眼中的 TypeScript 路线图？
+
+<!-- https://www.maxai.co/share?id=c5897b7769097a529e65e0085012b90f6de188431ff8cda8ecfb1a1a -->
+
+**入门阶段**
+
+* TypeScript 与 JavaScript 的区别与优势
+* tsconfig.json 基本配置
+* 基础类型（number、string、boolean、array、tuple、enum、any、unknown、void、null、undefined、never等）
+* 接口（interface）与类型别名（type）
+* 函数类型、可选参数、默认参数、剩余参数
+* 类（class）与继承
+* 模块化与 import/export
+* 基本类型推断与断言
+
+**进阶阶段**
+
+* 高级类型（联合类型、交叉类型、字面量类型、映射类型）
+* 泛型（泛型函数、泛型接口、泛型类、泛型约束、默认泛型参数）
+* 条件类型与 infer 用法
+* 类型守卫、类型收窄、用户自定义类型保护
+* 内置工具类型（Partial、Pick、Record、ReturnType、Parameters、Awaited等）
+* 模块声明与第三方库类型声明（DefinitelyTyped @types/*, d.ts 文件）
+* 类型兼容性/协变与逆变
+* 装饰器（Decorator）
+
+**高级阶段**
+
+* 类型体操（复杂条件类型、多层 infer、类型递归、模板字面量类型）
+* 自定义类型工具（封装复用型工具类型、类型运算优化）
+* 项目架构层面的类型设计（如事件系统、插件系统、依赖注入等的类型安全实现方式）
+* 利用类型系统实现 DSL（领域特定语言）
+* 大型团队/库的 tsconfig 管理与类型隔离
+* 与 Babel、Webpack、ESLint 等构建工具联动，类型在工具链中的协作
+* 与前端框架深度结合（如 React 的高级类型、Vue 的类型推导、Svelte）
+* 参与和贡献 TypeScript 生态（如 PR DefinitelyTyped、参与类型相关 RFC）
+
 ## 模块系统
 
 #### 模块解析如何工作？
@@ -216,7 +255,7 @@ void process<int>(int val) { /* 针对 int 的高效实现 */ }
 
 #### 内部工具类型推导？
 
-* [内部工具类型](/source-code/_ts/utility-types)
+* [工具类型](/source-code/_ts/utility-types)
 
 #### 什么是类型体操？
 

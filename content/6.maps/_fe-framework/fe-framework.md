@@ -27,7 +27,8 @@ MAXI FERREIRA 阐述的在岛模式组件中管理状态的思路也可以用于
 
 ## 框架类库
 
-* [Iconify](/maps/_fe-framework/assets/iconify)
-* [Zod](/maps/_fe-framework/schema/zod)
 * [Blockies Animate](/maps/_fe-framework/motion/blockies-animation)
 * [Canvas Blocker](/source-code/_js/browser-extension/canvas-blocker)
+* [Iconify](/maps/_fe-framework/assets/iconify)
+* [Utility Types](/maps/_fe-framework/types/utility-types)
+* [Zod](/maps/_fe-framework/schema/zod)
