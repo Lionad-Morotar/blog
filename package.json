@@ -40,7 +40,7 @@
     "@nuxt/eslint-config": "^0.7.6",
     "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/sitemap": "^7.2.5",
-    "@vueuse/core": "^12.7.0",
+    "@vueuse/core": "^13.5.0",
     "eslint": "^9.20.1",
     "nuxt-content-git": "^4.0.1",
     "nuxt-feedme": "^1.0.1",
