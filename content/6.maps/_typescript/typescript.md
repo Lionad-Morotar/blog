@@ -319,13 +319,29 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 ## 项目配置
 
-#### [isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
+#### [compilerOptions.isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
 
 许多编译工具如 Babel 不支持在“一个系统层面”角度理解类型。所以需要开启 isolatedModules。开启后，TS 会将每一个 TS 文件都视为独立的 Module，这需要项目使用 ES Module 语法，但同时，TS 会带来更严格的类型检测支持。
 
 在 vite-based 项目中，这个选项应该且默认打开。
 
-#### 最后，一个编译配置示例？
+#### [reference](https://www.typescriptlang.org/docs/handbook/project-references.html)
+
+项目引用允许将 TypeScript 程序构建成更小的部分，以缩短构建时间，在组件之间实施逻辑分离，并以新的、更好的方式组织您的代码。
+
+```json
+{
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "./dist"
+  },
+  "references": [
+    { "path": "../other-project" }
+  ]
+}
+```
+
+#### 编译配置示例？
 
 完整的编译配置文档见：[TypeScript Compiler Options](https://www.typescriptlang.org/tsconfig)
 

@@ -1,6 +1,6 @@
 ---
 title: Monorepo
-description: Monorepo 工程化实践指南，包含项目管理、依赖处理、任务调度等核心概念，以及 Lerna 等工具的使用说明。
+description: Monorepo 是一种将多个项目放在同一个代码仓库中的管理方式，旨在提高团队协作和代码复用效率
 ---
 
 ## TODO

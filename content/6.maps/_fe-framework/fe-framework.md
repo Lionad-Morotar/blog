@@ -3,15 +3,29 @@ title: 前端框架
 description: 前端框架是在前端开发不同阶段，用以简化开发的工具集合。它们提供了一种组织代码的方式，使得开发者可以专注于业务逻辑，而不是底层的技术细节。
 ---
 
+## 应用框架
+
 * [Vue](/maps/_fe-framework/ui/vue)
 * [React](/maps/_fe-framework/ui/react)
 * [Angular](/maps/_fe-framework/ui/angular)
 * [Nuxt](/maps/_fe-framework/nuxt/nuxt)
 
+## 组件类库
+
+* [Blockies Animate](/maps/_fe-framework/motion/blockies-animation)
+* [Canvas Blocker](/source-code/_js/browser-extension/canvas-blocker)
+* [Element Plus](/source-code/_js/element-plus)
+* [Element UI](/source-code/_js/element-ui)
+* [Iconify](/maps/_fe-framework/assets/iconify)
+* [Utility Types](/maps/_fe-framework/types/utility-types)
+* [Zod](/maps/_fe-framework/schema/zod)
+
 ## 隔离方案
 
 * [Micro FrontEnd](/maps/_fe-framework/micro-fe)
 * [Web Components](/maps/_fe-framework/web-components)
+
+## 评论
 
 #### [Sharing State with Islands Architecture](https://frontendatscale.com/blog/islands-architecture-state/)
 
@@ -24,11 +38,3 @@ MAXI FERREIRA 阐述的在岛模式组件中管理状态的思路也可以用于
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231010125234.png)
 
 新的状态管理办法结合了事件通知和统一的状态管理库。一种替代的版本是使用回调函数。
-
-## 框架类库
-
-* [Blockies Animate](/maps/_fe-framework/motion/blockies-animation)
-* [Canvas Blocker](/source-code/_js/browser-extension/canvas-blocker)
-* [Iconify](/maps/_fe-framework/assets/iconify)
-* [Utility Types](/maps/_fe-framework/types/utility-types)
-* [Zod](/maps/_fe-framework/schema/zod)

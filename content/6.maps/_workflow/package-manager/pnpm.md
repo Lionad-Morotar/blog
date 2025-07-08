@@ -48,6 +48,10 @@ element-plus 2.2.20
 2. 更快的安装速度（相比 pnpm install -r）
 3. 修改的文件总数更少，利于 Code Review
 
+#### shell-emulator
+
+解析 package.json 中的 scripts 时，是否使用内置的 JS 实现的解析器，已支持跨平台语法。默认关闭。
+
 #### .pnpmfile.cjs
 
 使用 `.pnpmfile.cjs` 文件提供的 readPackage 和 afterAllResolved 钩子函数可以分别介入依赖元信息解析（minifest）和依赖安装完准备输出 lock 文件的过程。

@@ -1,5 +1,6 @@
 ---
-title: ElementUI
+title: Element UI
+description: Element，一套为开发者、设计师和产品经理准备的基于Vue 2.0 的桌面端组件库.
 ---
 
 ## 项目结构
@@ -26,7 +27,7 @@ element
 
 ### 如何创建新组件
 
-**可以使用 `make new [component]` 创建新组件 [^make]。创建组件会调用脚本自动创建模板文件并维护组件编译时相关配置。**
+可以使用 `make new [component]` 创建新组件 [^make]。创建组件会调用脚本自动创建模板文件并维护组件编译时相关配置。
 
 [^make]: 可以把 Make 理解为一种类似 Gulp 的项目工程化工具，用于编写一些供命令行调用执行的任务。运行 Make 指令需要安装特定软件。
 

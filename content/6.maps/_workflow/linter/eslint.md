@@ -29,7 +29,6 @@ description: ESLint 是 JavaScript 和 TypeScript 的代码质量检查工具，
 * 共享设置（settings）：所有规则都可以访问的共享设置项，如给 [import-x/resolver](https://github.com/element-plus/element-plus/blob/49e1d594fa7cbabdbf3958591d44c9e456563005/internal/eslint-config/index.js#L21) 配置需要解析的文件类型。
 * 插件配置（plugins）：扩展 ESLint 的功能，包含插件和规则。
 
-
 #### ESLint 配置的优先级和覆盖规则是怎样的？
 
 * 文件内联配置：`/* eslint-disabled */`、`/* global */`、`/* eslint xxx: "off" */`、`/* eslint-env node */`
