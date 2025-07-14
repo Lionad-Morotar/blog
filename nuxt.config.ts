@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     'nuxt-feedme',
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
+    '@nuxt-dev/medium-zoom',
   ],
 
   gtag: {
@@ -169,6 +170,13 @@ export default defineNuxtConfig({
         'csharp',
       ],
     },
+  },
+
+  mediumZoom: {
+    // custom options
+    selector: '#__nuxt :not(a) > img, [data-zoomable]',
+    margin: 24,
+    scrollOffset: 10,
   },
 
   compatibilityDate: '2024-11-21',

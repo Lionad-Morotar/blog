@@ -117,7 +117,8 @@
       "typecheck",
       "UHMWPE",
       "webstatus",
-      "zdiff"
+      "zdiff",
+      "zoomable"
     ],
     "explorer.excludeGitIgnore": true
 }

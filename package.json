@@ -36,12 +36,14 @@
     "svg2roughjs": "^3.2.1"
   },
   "devDependencies": {
+    "@nuxt-dev/medium-zoom": "^0.1.0",
     "@nuxt/devtools": "^1.7.0",
     "@nuxt/eslint-config": "^0.7.6",
     "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/sitemap": "^7.2.5",
     "@vueuse/core": "^12.7.0",
     "eslint": "^9.20.1",
+    "medium-zoom": "^1.1.0",
     "nuxt-content-git": "^4.0.1",
     "nuxt-feedme": "^1.0.1",
     "only-allow": "^1.2.1",
