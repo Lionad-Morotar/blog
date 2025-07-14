@@ -46,3 +46,7 @@ node:vm 模块允许在 V8 虚拟机上下文中编译和运行代码，上下�
 ## 源码解析
 
 [NodeJS | require](/maps/_server/nodejs/source/require)
+
+## 调试
+
+* [使用火焰图优化 NodeJS CPU 爆涨](https://juejin.cn/post/6844903904728236045)

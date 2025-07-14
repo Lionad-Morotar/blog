@@ -145,3 +145,7 @@ const n = ref<number>()
 ”Without type annotation, the `event` argument will implicitly have a type of `any`. This will also result in a TS error if `"strict": true` or `"noImplicitAny": true` are used in `tsconfig.json`.“
 
 因为 noImplicitAny 需要打开，不然没法推断 options api 函数中 this 的类型，所以在组件中，接受事件的函数面对 Event 参数必须显式指定类型，不然就会报错。
+
+## Source
+
+* [Vue2 Source](/source-code/_js/vue2-source)

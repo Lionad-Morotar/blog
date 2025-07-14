@@ -270,6 +270,10 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 见：[什么是图灵完备](https://www.bilibili.com/video/BV18L4y15786/)，[什么是图灵完备](https://www.zhihu.com/question/20115374)
 
+## 编译器
+
+* [TypeScript Compiler](/source-code/_ts/typescript-compiler)
+
 ## 经验
 
 #### [大规模采用 TypeScript 之后的 10 个见解](https://blog.csdn.net/yeluoxiang/article/details/111602386)
@@ -414,6 +418,8 @@ DefinitelyTyped 是一个社区驱动的 TypeScript 类型定义仓库，提供�
 ```bash
 npm install --save-dev @types/lodash
 ```
+
+相关：[How Microsoft manage the Definitely Typed Repo](https://www.youtube.com/watch?v=vTKYdEZ6UQI&list=PLYUbsZda9oHu-EiIdekbAzNO0-pUM5Iqj&index=5)
 
 #### 省略参数结合 Rest 参数的一个误用？
 

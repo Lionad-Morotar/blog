@@ -5,7 +5,9 @@ description: 前端框架是在前端开发不同阶段，用以简化开发的�
 
 ## 应用框架
 
+* [Awade](/source-code/_architecture/awade)
 * [Vue](/maps/_fe-framework/ui/vue)
+* [vue-error-boundary](/source-code/_js/vue-error-boundary)
 * [React](/maps/_fe-framework/ui/react)
 * [Angular](/maps/_fe-framework/ui/angular)
 * [Nuxt](/maps/_fe-framework/nuxt/nuxt)
@@ -16,14 +18,31 @@ description: 前端框架是在前端开发不同阶段，用以简化开发的�
 * [Canvas Blocker](/source-code/_js/browser-extension/canvas-blocker)
 * [Element Plus](/source-code/_js/element-plus)
 * [Element UI](/source-code/_js/element-ui)
+* [Helmet](/_achieved/2020-08/helmet-and-security)
 * [Iconify](/maps/_fe-framework/assets/iconify)
+* [jQuery](/source-code/_js/jquery)
+* [Lodash](/source-code/_js/lodash)
+* [Micro Templating](/articles/micro-templating)
+* [Mini CSS Parser](/articles/mini-css-parser)
+* [node-watch](/source-code/_node/node-watch)
+* [nuxt-ui v2](/source-code/_js/nuxt-ui-v2)
+* [nuxt-ui v3](/source-code/_js/nuxt-ui-v3)
+* [Reka UI](/source-code/_js/reka-ui)
+* [TS Internal Utility Types](/source-code/_ts/utility-types)
+* [TS Type Challenges](/source-code/_ts/type-challenges)
 * [Utility Types](/maps/_fe-framework/types/utility-types)
 * [Zod](/maps/_fe-framework/schema/zod)
 
-## 隔离方案
+## 组件方案
 
 * [Micro FrontEnd](/maps/_fe-framework/micro-fe)
 * [Web Components](/maps/_fe-framework/web-components)
+
+## 编程语言
+
+* [Array.prototype.slice](/source-code/_es/array-slice)
+* [Object.prototype.assign](/source-code/_es/object-assign)
+* [TypeScript Compiler](/source-code/_ts/typescript-compiler)
 
 ## 评论
 
@@ -38,3 +57,22 @@ MAXI FERREIRA 阐述的在岛模式组件中管理状态的思路也可以用于
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231010125234.png)
 
 新的状态管理办法结合了事件通知和统一的状态管理库。一种替代的版本是使用回调函数。
+
+---
+
+🚧 WIP 施工中，正逐渐迁移至 Nuxt
+
+* internet-available
+<!-- /source-code/_js/module/is-online -->
+* html5shiv
+<!-- /source-code/_js/module/html5shiv -->
+* CommonJS Loader
+<!-- /source-code/_js/nodejs/require -->
+* fast-deep-equal
+<!-- /source-code/_js/module/fast-deep-equal -->
+* KingDB
+<!-- /source-code/_es/cpp/kingdb -->
+
+暂存一些感兴趣的玩意儿。
+
+* https://github.com/davidmarkclements/rfdc
