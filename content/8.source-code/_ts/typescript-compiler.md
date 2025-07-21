@@ -1,25 +1,27 @@
 ---
 title: TypeScript 编译器
-description: TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder建立符号体系并理顺作用域，Program汇集全局视角，TypeChecker完成类型推断和诊断，最终由Emitter生成输出文件。
+description: TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder 建立符号体系并理顺作用域，Program 汇集全局视角，TypeChecker 完成类型推断和诊断，最终由 Emitter 生成输出文件。
 ---
 
-本文以 TypeScript v5.9.0 版本为准，部分内容由 AI 辅助生成，请注意核对。
+本文以 TypeScript v5.9.0 版本为准。
 
-## 工具
+## 概览
+
+#### 如何阅读 TypeScript 源码？
+
+先从小型实现 [centi-typescript](https://github.com/sandersn/mini-typescript/tree/centi-typescript) 入手，理解 TypeScript 代码结构，再过渡到真实的 TS 仓库。
+
+无论源码解析文章内容多详实，放在项目庞大体量的代码面前都像个小导游。理解源码的最好方式还是要动手实践，比如从调试入手。下载仓库源码后，使用带 SourceMap 选项编译 TypeScript，就可以用 VSCode 本地调试其代码。此时用 Debugger 配合一些微型代码片段，可以快速了解编译器的工作原理。
+
+阅读源码时大量依赖了 Copilot：在发挥上下文翻译、解释代码、寻找模式等领域，AI 助手可以极大地提升阅读效率。同时，火焰图和 Call Tree 也能帮助理解代码的执行流程，它们仍然是 Copilot 时代不可缺少的工具。
+
+在有一定理解后，可阅读 [TypeScript 编译器术语表](https://github.com/microsoft/TypeScript-Compiler-Notes/blob/main/GLOSSARY.md)加深概念。此外，调试入门见[《我读 Typescript 源码的秘诀都在这里了》](https://zhuanlan.zhihu.com/p/417298212)，或参考更完整的入门资料[《TypeScript 语言实现》](https://www.zhihu.com/column/c_1643269342841327616)，或官方资料：[TypeScript Compiler Notes](https://github.com/microsoft/TypeScript-Compiler-Notes)。
+
+#### 趁手的工具
 
 * [TypeScript AST Viewer](https://ts-ast-viewer.com)
 * [SpeedScope FlameGraph Analyzer](https://www.speedscope.app/)
 * [TypeScript Playground](https://www.typescriptlang.org/play)
-
-## 编译器概览
-
-#### 如何调试 TypeScript 源码？
-
-下载仓库源码后，使用带 SourceMap 选项编译 TypeScript，就可以用 VSCode 本地调试其代码。
-
-快速入门见：[我读 Typescript 源码的秘诀都在这里了](https://zhuanlan.zhihu.com/p/417298212)，或参考更完整的：[TypeScript Compiler Notes](https://github.com/microsoft/TypeScript-Compiler-Notes)。
-
-阅读源码时大量依赖了 Copilot：在发挥上下文翻译、解释代码、寻找模式等领域，AI 助手可以极大地提升阅读效率。同时，火焰图和 Call Tree 也能帮助理解代码的执行流程，它们仍然是 Copilot 时代不可缺少的工具。
 
 #### TypeScript 编译器的一些关键概念？
 
@@ -74,6 +76,42 @@ Emitter 按需输出这些文件，为运行时环境或类型消费方（如编
 
 #### 常用概念
 
+SyntaxKind，TS 将文本转换为 AST 时，根据不同的语法结构生成对应的节点类型，用于标识 AST 中每个节点的具体类型。还有一些类型是 SyntaxKind 的集合，聚合特定类型的节点，如 LiteralSyntaxKind（字面量类型节点）、KeywordSyntaxKind（关键字节点）等。
+
+```ts
+export const enum SyntaxKind {
+  Unknown,
+  EndOfFileToken,
+  SingleLineCommentTrivia,
+  MultiLineCommentTrivia,
+  //...
+}
+```
+
+NodeFlags，节点标记，用于表示各种抽象语法树（AST）节点附加信息的位掩码的集合，辅助编译器做后续处理，比如类型推断等。
+
+```ts
+export const enum NodeFlags {
+  None      = 0,
+  Let       = 1 << 0,
+  Const     = 1 << 1,
+  Using     = 1 << 2,
+  //...
+}
+```
+
+真实的 AST 节点是由 Node SyntaxKind、NodeFlags 和额外的标记组合而成的。
+
+```ts
+// ReadonlyTextRange 通过开始和结束位置记录了节点在源代码中的位置信息。
+export interface Node extends ReadonlyTextRange {
+    readonly kind: SyntaxKind;
+    readonly flags: NodeFlags;
+    readonly parent: Node;
+    //...
+}
+```
+
 * 内建类型（IntrinsicType）：用于内部实现的、基础的类型，例如 string、number、boolean、void、any、unknown 等。
 * 可刷新类型（FreshableType）：用于描述那些可以“重置”的类型。这个概念常出现在对象字面量或数组字面量等类型推断时，编译器需要将其标记为“新鲜”的，以便后续类型收窄和属性检查。
 
@@ -83,7 +121,60 @@ unknown 相比 any 类型更严格，早期暴露错误，防止隐式 any 引�
 
 ```ts
 function getDefaultTypeArgumentType(isInJavaScriptFile: boolean): Type {
-  return isInJavaScriptFile ? anyType : unknownType;
+  return isInJavaScriptFile ? anyType : unknownType
+}
+```
+
+解析
+
+## Binder
+
+#### Symbol 的数据结构？
+
+在 TS 编译器中，Symbol 用于表示程序中的命名实体，如变量、函数、类、接口等，并记录了它们的相关信息，以便辅助类型推断。
+
+```ts
+export interface Symbol {
+  // 标记符号的类型（变量、函数、类、接口、模块等），可组合
+  flags: SymbolFlags                   
+  // 转义后的唯一符号名
+  escapedName: __String             
+  // 该符号所有声明节点（如接口合并、类声明等）     
+  declarations?: Declaration[]           
+  // 该符号的第一个“值声明”，即运行时有值的声明
+  valueDeclaration?: Declaration      
+  // 成员符号表（如类、接口、对象字面量的属性/方法）   
+  members?: SymbolTable       
+  // 模块的导出成员符号表           
+  exports?: SymbolTable          
+  // UMD 条件性全局导出符号表        
+  globalExports?: SymbolTable            
+  // 唯一 id，内部用于查找符号链接
+  id: SymbolId          
+  // 合并 id，内部用于合并符号
+  mergeId: number       
+  // 父符号（如成员的所属类/接口/模块）
+  parent?: Symbol       
+  // 关联的导出符号（如 export default 的导出符号）
+  exportSymbol?: Symbol 
+  // 是否为仅包含 const enum 的模块
+  constEnumOnlyModule: boolean | undefined 
+  // 是否被引用，及引用的意义（如类型参数/参数）
+  isReferenced?: SymbolFlags 
+  // 最后一次赋值的源码位置
+  lastAssignmentPos?: number 
+  // JS 类属性是否可被方法符号替换
+  isReplaceableByMethod?: boolean 
+  // 动态赋值声明与符号的映射（如 late-bound 属性）
+  assignmentDeclarationMembers?: Map<number, Declaration> 
+}
+```
+
+比如，在 TS 中有值声明和类型声明两种声明信息（ValueDeclarations、TypeDeclarations），都需要记录到 symbol.declarations 中。由于值声明通常是唯一的，所以值声明允许绑定到 symbol.valueDeclaration，而类型声明非唯一，只能通过 isTypeAliasDeclaration 等函数根据节点的类型做判断。
+
+```ts
+function isTypeAliasDeclaration(node: Node): node is TypeAliasDeclaration {
+  return node.kind === SyntaxKind.TypeAliasDeclaration
 }
 ```
 
@@ -121,7 +212,7 @@ const x1 = fn(1)
 
 以下是详细的调用过程说明。
 
-每一个 Program 都有自己的 TypeChecker 实例，其中提供了 getTypeOfLocation API，用来获取某个位置的节点类型。
+每一个 Program 都有自己的 TypeChecker 实例，其中提供了 getTypeOfLocation API，用来获取某个位置的节点标记。
 
 ```ts
 function createTypeChecker(program: Program): TypeChecker {
@@ -173,7 +264,7 @@ function getTypeOfSymbol(symbol: Symbol): Type {
     return getTypeOfVariableOrParameterOrProperty(symbol)
   }
   //...
-  return errorType;
+  return errorType
 }
 ```
 
@@ -198,14 +289,14 @@ function getTypeOfVariableOrParameterOrPropertyWorker(symbol: Symbol): Type {
     || isBindingElement(declaration)
     || isJSDocPropertyLikeTag(declaration)
   ) {
-    type = getWidenedTypeForVariableLikeDeclaration(declaration, /*reportErrors*/ true);
+    type = getWidenedTypeForVariableLikeDeclaration(declaration, /*reportErrors*/ true)
   }
 }
 ```
 
 这里涉及一个 TS 类型推断的核心概念：widened type。在某些情况下，如返回值、参数赋值的类型计算中，需要从字面量类型中推导出更宽泛的类型，例如：`const x = '123'` 中的 x 的类型是 string 而不是字面量 '123'，除非指定 const。把字面量扩宽为 string 的逻辑，就是在以下代码 widenTypeInferredFromInitializer 中处理的。简便起见，这里忽略 widened type 的细节继续看。
 
-JS 中，除了不带值初始化的变量声明，常见的变量声明有两种形式：一种如我们举例代码使用的 `const x1 = f1(1)`，另一种是包含类型注解的 `let x2: string = 'hello'`。后者可以直接从类型注解中拿到实际类型，在 declaredType 取得值后直接返回对应类型 ，而前者需要处理声明的初始化器（DeclarationInitializer）。
+JS 中，除了不带值初始化的变量声明，常见的变量声明有两种形式：一种如我们举例代码使用的 `const x1 = f1(1)`，另一种是包含类型注解的 `let x2: string = 'hello'`。后者可以直接从类型注解中拿到实际类型，在 declaredType 取得值后直接返回对应类型（tryGetTypeFromEffectiveTypeNode），而前者需要处理声明的初始化器（DeclarationInitializer）。
 
 ```ts
 function getTypeForVariableLikeDeclaration(
@@ -215,9 +306,10 @@ function getTypeForVariableLikeDeclaration(
 ): Type | undefined {
   const declaredType = tryGetTypeFromEffectiveTypeNode(declaration)
   if (declaredType) {
-    //...
+    return //...
   }
-  if (hasOnlyExpressionInitializer(declaration) && !!declaration.initializer) {
+  // 有初始化表达式，且是简单赋值（比如函数参数默认值就不算）
+  if (!!declaration.initializer && hasOnlyExpressionInitializer(declaration)) {
     const type = widenTypeInferredFromInitializer(declaration, checkDeclarationInitializer(declaration, checkMode))
     return addOptionality(type, isProperty, isOptional)
   }
@@ -233,14 +325,14 @@ function getQuickTypeOfExpression(node: Expression): Type | undefined {
   // signature where we can just fetch the return type without checking the arguments.
   if (isCallExpression(expr) && expr.expression.kind !== SyntaxKind.SuperKeyword && !isRequireCall(expr, /*requireStringLiteralLikeArgument*/ true) && !isSymbolOrSymbolForCall(expr) && !isImportCall(expr)) {
       return isCallChain(expr) ? getReturnTypeOfSingleNonGenericSignatureOfCallChain(expr) :
-          getReturnTypeOfSingleNonGenericCallSignature(checkNonNullExpression(expr.expression));
+          getReturnTypeOfSingleNonGenericCallSignature(checkNonNullExpression(expr.expression))
   }
   //...
-  return undefined;
+  return undefined
 }
 ```
 
-checkExpression 是 TypeScript 类型检查的核心函数。也由此引入 TypeScript 中关于类型的重要概念：类型实例化。可以把实例化过程理解为给泛型填空，即在用到泛型类型或泛型函数时，把类型参数替换为实际给定的类型，从而生成具有特定结构和行为的“具体类型”。
+checkExpression 是 TypeScript 类型检查的一个关键节点。也由此引入 TypeScript 中关于类型的重要概念：类型实例化。可以把实例化过程理解为给泛型填空，即在用到泛型类型或泛型函数时，把类型参数替换为实际给定的类型，从而生成具有特定结构和行为的“具体类型”。
 
 checkExpression 从表达式析取出一个可能带泛型的类型，并交给后续过程进行实例化。
 
@@ -252,7 +344,7 @@ function checkExpression(node: Expression, checkMode?: CheckMode): Type {
 }
 ```
 
-checkExpressionWorker 字面意义即检查表达式节点的类型，它根据节点类型调用不同的具体类型实例化逻辑，比如，`f1()` 节点包含 f1 标识符，f1 标识符节点的类型的实例化会交由 checkIdentifier 处理。
+checkExpressionWorker 字面意义即检查表达式节点的类型，它根据节点标记调用不同的具体类型实例化逻辑，比如，`f1()` 节点包含 f1 标识符，f1 标识符节点的类型的实例化会交由 checkIdentifier 处理。
 
 ```ts
 function checkExpressionWorker(node: Expression | QualifiedName, checkMode: CheckMode | undefined, forceTuple?: boolean): Type {
@@ -308,21 +400,21 @@ function resolveStructuredTypeMembers(type: StructuredType): ResolvedType {
   if (!(type as ResolvedType).members) {
     if (type.flags & TypeFlags.Object) {
         if ((type as ObjectType).objectFlags & ObjectFlags.Reference) {
-            resolveTypeReferenceMembers(type as TypeReference);
+            resolveTypeReferenceMembers(type as TypeReference)
         } else if ((type as ObjectType).objectFlags & ObjectFlags.Anonymous) {
-            resolveAnonymousTypeMembers(type as AnonymousType);
+            resolveAnonymousTypeMembers(type as AnonymousType)
         }
         //...
     }
     else if (type.flags & TypeFlags.Union) {
-        resolveUnionTypeMembers(type as UnionType);
+        resolveUnionTypeMembers(type as UnionType)
     }
     else if (type.flags & TypeFlags.Intersection) {
-        resolveIntersectionTypeMembers(type as IntersectionType);
+        resolveIntersectionTypeMembers(type as IntersectionType)
     }
     //...
   }
-  return type as ResolvedType;
+  return type as ResolvedType
 }
 ```
 
@@ -357,7 +449,7 @@ function getReturnTypeOfSignature(signature: Signature): Type {
 }
 ```
 
-getReturnTypeFromAnnotation 的过程则非常简单。我们已经知道 f1 的类型标注是 `fn(x: number): string`，可以直接根据此类型节点，根据类型节点类型拿到字符串字面量 string。此过程相关 getTypeFromTypeNode 函数。
+getReturnTypeFromAnnotation 的过程则非常简单。我们已经知道 f1 的类型标注是 `fn(x: number): string`，可以直接根据此类型节点，根据类型节点标记拿到字符串字面量 string。此过程相关 getTypeFromTypeNode 函数。
 
 ```ts
 function getTypeFromTypeNodeWorker(node: TypeNode): Type {
@@ -411,7 +503,9 @@ function checkDeclarationInitializer() {
 
 为什么不是调用 checkExpressionWithContextualType 呢？我们是从变量声明这个场景获取标识符的类型，假设有 `let x: {a: number} = { a: 1 }` 代码，`{ a: 1 }` 的类型推断需要根据上下文处理，所以适用 checkExpressionWithContextualType。而 f2 的情况不需要所以 contextualType 为空。
 
-这之后的路上见到了熟悉的 checkCallExpression、getResolvedSignature、resolveSignature、resolveCallExpression、resolveCall，大致指从检查调用表达式、获取签名、解析签名、解析调用表达式一直到解析调用。
+之前已经介绍了 checkExpressionWorker 会根据节点标记调用检测函数，如果在 switch 中记录这些被检测的节点，就会发现，由于 checkDeclarationInitializer 中这个分叉的出现，从 f1 仅需检测一个节点（Identifier），变成了到 f2 这边需要检测多个节点（Identifier、CallExpression、Identifier、FirstLiteralToken，即 f2 函数标识符、调用表达式、参数标识符和参数字面量）。
+
+在分叉出现的这一路上，以检测函数调用节点为例，见到了熟悉的 checkCallExpression、getResolvedSignature、resolveSignature、resolveCallExpression、resolveCall，大致指从检查调用表达式、获取签名、解析签名、解析调用表达式一直到解析调用。
 
 这些函数中只有 resolveCall 是较复杂的函数，后续会着重介绍。它主要从可能存在的多个函数重载中匹配一个合适的签名供后续流程使用。
 
@@ -439,12 +533,12 @@ chooseOverload 顾名思义，从多个重载中选择一个合适的重载签�
 ```ts
 function chooseOverload(candidates: Signature[]) {
   for (let candidateIndex = 0; candidateIndex < candidates.length; candidateIndex++) {
-    const candidate = candidates[candidateIndex];
+    const candidate = candidates[candidateIndex]
     if (candidate.typeParameters) {
-        let typeArgumentTypes: Type[] | undefined;
-        inferenceContext = createInferenceContext(candidate.typeParameters, candidate, /*flags*/ isInJSFile(node) ? InferenceFlags.AnyDefault : InferenceFlags.None);
-        typeArgumentTypes = inferTypeArguments(node, candidate, args, argCheckMode | CheckMode.SkipGenericFunctions, inferenceContext);
-        argCheckMode |= inferenceContext.flags & InferenceFlags.SkippedGenericFunction ? CheckMode.SkipGenericFunctions : CheckMode.Normal;
+        let typeArgumentTypes: Type[] | undefined
+        inferenceContext = createInferenceContext(candidate.typeParameters, candidate, /*flags*/ isInJSFile(node) ? InferenceFlags.AnyDefault : InferenceFlags.None)
+        typeArgumentTypes = inferTypeArguments(node, candidate, args, argCheckMode | CheckMode.SkipGenericFunctions, inferenceContext)
+        argCheckMode |= inferenceContext.flags & InferenceFlags.SkippedGenericFunction ? CheckMode.SkipGenericFunctions : CheckMode.Normal
     }
   }
 }
@@ -501,8 +595,8 @@ const x3 = f3(3)
 
 ```ts
 if (couldContainTypeVariables(paramType)) {
-  const argType = checkExpressionWithContextualType(arg, paramType, context, checkMode);
-  inferTypes(context.inferences, argType, paramType);
+  const argType = checkExpressionWithContextualType(arg, paramType, context, checkMode)
+  inferTypes(context.inferences, argType, paramType)
 }
 ```
 
