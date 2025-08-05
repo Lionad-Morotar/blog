@@ -72,6 +72,83 @@ Emitter 按需输出这些文件，为运行时环境或类型消费方（如编
 
 见：[TypeScript Compiler Notes](https://github.com/microsoft/TypeScript-Compiler-Notes)、[TypeScript Deep Dive](https://jkchao.github.io/typescript-book-chinese/compiler/overview.html)。
 
+#### 编译器的模块结构和数据流过程？
+
+编译器前端负责：
+1. 把 `.ts/.tsx` 文本变成抽象语法树（AST）。  
+2. 建立符号表 & 类型系统，生成完整的类型信息与诊断。  
+
+具体步骤与源码位置：  
+
+1. 词法分析（Lexical Scan）  
+   • 模块：`scanner.ts`  
+   • 流程：读字符流 → 产生 token 流（关键字、标识符、字面量等）。  
+   • 结果：`Token<T>`（枚举 + 位置信息）。  
+
+2. 语法分析（Parse）  
+   • 模块：`parser.ts`  
+   • 流程：把 token 流递归下降为 AST 节点（Node）。  
+   • 生成：`SourceFile` 根节点，里边嵌套所有语句/表达式/类型节点。  
+
+3. 绑定（Bind）  
+   • 模块：`binder.ts`  
+   • 作用：  
+     a) 为每个声明创建 `Symbol`，挂到对应作用域。  
+     b) 处理导入/导出、作用域链、捕获变量等。  
+   • 产物：`SymbolTable`、`FlowNode`（控制流图入口）。  
+
+4. 语义 & 类型检查（Check）  
+   • 模块：`checker.ts` + `flow.ts`  
+   • 任务：  
+     a) 根据 AST + SymbolTable 推断/验证每个表达式的 `Type`.  
+     b) 构造/遍历控制流图（`FlowStart`、`FlowLoop` …）做类型收窄、 definite-assignment 检查。  
+   • 结果：  
+     – 把 `type` 缓存到每个 `Node`.  
+     – 收集 `Diagnostic`（类型错误、语义错误）。  
+
+5. 前端输出  
+   • 一个“带类型的 AST”+“符号表”+“控制流图”+ 诊断集合。  
+   • 这正是后端进行代码降级（down-level）和 Emit 的依据。  
+
+编译器后端负责：  
+1. 根据编译目标（`--target`、`--module` 等）把 AST 转成 JS。  
+2. 生成 `.d.ts`、source map、build info 等附加产物。  
+
+主要阶段：  
+
+1. Transform 阶段（AST → AST）  
+   • 模块：`transformers/*`  
+   • 典型变换  
+     – `es2015.ts`：展开 `class`、`for-of`、`async/await` 到 ES5/ES3。  
+     – `decoratorsLegacy.ts` / `decorators.ts`：插入装饰器辅助函数。  
+     – `jsx.ts`：把 JSX → `React.createElement` 或自定义 pragma。  
+   • 机制：  
+     `transform(node, [transformerFactory1, transformerFactory2, …])`  
+     采用访客模式深拷贝/修改子树。  
+
+2. Emit 阶段（AST → 文本）  
+   • 模块：`emitter.ts`  
+   • 任务：  
+     a) 深度遍历最终 AST，把节点写成 JS 字符串。  
+     b) 记录位置信息，生成 source map。  
+     c) 若 `declaration:true`，并行跑 `declarationEmitter.ts` 生成 `.d.ts`。  
+
+3. 额外产物  
+   • Build Info (`.tsbuildinfo`)：`builder.ts` 输出的增量编译元数据。  
+   • Diagnostics：后端也可能追加（如装饰器语义限制）。  
+
+4. 后端输出  
+   • `*.js`、`*.d.ts`、`*.map`、`*.tsbuildinfo` 文件写入磁盘或返回给 Language Service。  
+
+见：[编译器的设计思路：以TypeScript Compiler为例](https://zhuanlan.zhihu.com/p/636256231)
+
+#### 什么是控制流分析（Control Flow Analysis）？
+
+“控制流”（flow analysis）是服务于类型系统的隐形于编译器的流程图，以便在类型检查时一旦多条路径在某点汇合，编译器将取这些路径上类型的并集（而非交集），以回到最保守但安全的类型。  
+
+1. 绑定阶段，编译器把每条语句、分支、循环等转换成一系列 FlowNode（例如 FlowStart、FlowCondition、FlowAssignment、FlowLoop 等），再用有向边将它们连接，保证图的拓扑与源码的执行顺序一致。  
+2. 类型检查阶段，检查器沿图前进或回溯，动态收窄并合并变量类型——在 if 判断处分叉两条路径，各自携带不同的类型假设；在 FlowLoop 节点既记录循环入口又建立回边，使循环体中的赋值能够影响下一次迭代的类型推断。  
+
 ## 类型概览
 
 #### 常用概念
@@ -112,7 +189,7 @@ export interface Node extends ReadonlyTextRange {
 }
 ```
 
-* 内建类型（IntrinsicType）：用于内部实现的、基础的类型，例如 string、number、boolean、void、any、unknown 等。
+* 内建类型（IntrinsicType）：用于内部实现的、基础的类型，例如 string、number、boolean、void、any、unknown 等。在类型检查中，简单的类型可直接对比得出结果，只有符合类型才需要初始化，以减少性能消耗。
 * 可刷新类型（FreshableType）：用于描述那些可以“重置”的类型。这个概念常出现在对象字面量或数组字面量等类型推断时，编译器需要将其标记为“新鲜”的，以便后续类型收窄和属性检查。
 
 #### any 和 unknown 的区别？

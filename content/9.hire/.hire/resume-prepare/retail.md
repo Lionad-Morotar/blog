@@ -1,12 +1,12 @@
-# 乘云新零售
+---
+title: 乘云新零售
+---
 
 <style>
     body.h1_content_乘云新零售 .marvel-device {
         margin: 0 auto;
     }
 </style> 
-
-
 
 ## 新零售B端小程序
 
