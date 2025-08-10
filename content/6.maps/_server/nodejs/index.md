@@ -17,6 +17,18 @@ NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
 
 TODO，类似但稍有区别。
 
+#### 《2025 年现代 Node.js 模式》
+
+1. Embrace Web Standards: Use `node:` prefixes, fetch API, AbortController, and Web Streams for better compatibility and reduced dependencies
+2. Built-in Tools: The test runner, watch mode, and environment file support reduce external dependencies and configuration complexity
+3. Modern Async Patterns: Top-level await, structured error handling, and async iterators make code more readable and maintainable
+4. Worker Threads for CPU-intensive tasks: worker threads provide true parallelism without blocking the main thread
+5. Robust Application: Use permission models, diagnostics channels, and performance monitoring to build robust, observable applications
+6. Developer Experience: Watch mode, built-in testing, and import maps create a more pleasant development workflow
+7. Distribution: Single executable applications and modern packaging make deployment simpler
+
+见：[Modern Node.js Patterns for 2025](https://kashw1n.com/blog/nodejs-2025/)
+
 ## V8
 
 #### 引擎的垃圾回收机制有了解吗？
