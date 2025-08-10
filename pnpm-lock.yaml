@@ -51,8 +51,8 @@ importers:
         specifier: ^3.0.2
         version: 3.0.2(magicast@0.3.5)(rollup@4.27.4)
       nuxt-og-image:
-        specifier: ^4.1.2
-        version: 4.1.2(magicast@0.3.5)(rollup@4.27.4)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.2))
+        specifier: ^5.1.9
+        version: 5.1.9(@unhead/vue@1.11.19(vue@3.5.13(typescript@5.7.2)))(magicast@0.3.5)(unstorage@1.14.4(db0@0.2.1)(ioredis@5.4.1))(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.2))
       stylus:
         specifier: ^0.64.0
         version: 0.64.0
@@ -337,6 +337,7 @@ packages:
   '@dword-design/functions@6.0.1':
     resolution: {integrity: sha512-iK2fRD2+9vD6ps8OHYeSJCKCMy9H8A2yjTmVuhxqaVKMYZI1pw0hdWWTfB27czmXn7Lgk/B4ftE5zSYvrYmXZg==, tarball: https://registry.npmmirror.com/@dword-design/functions/-/functions-6.0.1.tgz}
     engines: {node: '>=18'}
+    deprecated: Use lodash and dedent
 
   '@es-joy/jsdoccomment@0.49.0':
     resolution: {integrity: sha512-xjZTSFgECpb9Ohuk5yMX5RhUEbfeQcuOp8IF60e+wyzWEF0M5xeSgqsfLtvPEX8BIyOX9saZqzuGPmZ8oWc+5Q==, tarball: https://registry.npmmirror.com/@es-joy/jsdoccomment/-/jsdoccomment-0.49.0.tgz}
@@ -694,13 +695,13 @@ packages:
     peerDependencies:
       vite: '*'
 
-  '@nuxt/devtools-kit@2.0.0-beta.3':
-    resolution: {integrity: sha512-VeMfxhwUk1InAca9C8HouIn0+4ON11B0MxL/Mv7m/FcgdyADH5nTp6P3+GoCe8TsHgyKSJ688ZVFFxXKDDDGcg==, tarball: https://registry.npmmirror.com/@nuxt/devtools-kit/-/devtools-kit-2.0.0-beta.3.tgz}
+  '@nuxt/devtools-kit@2.1.0':
+    resolution: {integrity: sha512-1fhwU7dDq/vIpjpNRwjEmTllRT1O0nzyBEhY187bQ8xBpoCC93t3zG3iTKcl8XkpT1aK9SqcgmXOnj5fNIAaYA==, tarball: https://registry.npmmirror.com/@nuxt/devtools-kit/-/devtools-kit-2.1.0.tgz}
     peerDependencies:
       vite: '>=6.0'
 
-  '@nuxt/devtools-kit@2.1.0':
-    resolution: {integrity: sha512-1fhwU7dDq/vIpjpNRwjEmTllRT1O0nzyBEhY187bQ8xBpoCC93t3zG3iTKcl8XkpT1aK9SqcgmXOnj5fNIAaYA==, tarball: https://registry.npmmirror.com/@nuxt/devtools-kit/-/devtools-kit-2.1.0.tgz}
+  '@nuxt/devtools-kit@2.6.2':
+    resolution: {integrity: sha512-esErdMQ0u3wXXogKQ3IE2m0fxv52w6CzPsfsXF4o5ZVrUQrQaH58ygupDAQTYdlGTgtqmEA6KkHTGG5cM6yxeg==, tarball: https://registry.npmmirror.com/@nuxt/devtools-kit/-/devtools-kit-2.6.2.tgz}
     peerDependencies:
       vite: '>=6.0'
 
@@ -1665,20 +1666,20 @@ packages:
     peerDependencies:
       vue: '>=2.7 || >=3'
 
-  '@unocss/core@65.5.0':
-    resolution: {integrity: sha512-XYWdS09M2XOjZNDotGhI2TIW/6duLNiyssopwjCbv4AlPklF0bZI86SKI55syYDBt6GRadoQbuvUkhSiTV/hzQ==, tarball: https://registry.npmmirror.com/@unocss/core/-/core-65.5.0.tgz}
+  '@unocss/core@66.4.2':
+    resolution: {integrity: sha512-cYgMQrLhB9nRekv5c+yPDDa+5dzlMkA2UMQRil0s5D9Lb5n7NsCMcr6+nfxkcSYVLy92SbwDV45c6T7vIxFTOA==, tarball: https://registry.npmmirror.com/@unocss/core/-/core-66.4.2.tgz}
 
-  '@unocss/extractor-arbitrary-variants@65.5.0':
-    resolution: {integrity: sha512-7K3gftOdkv9jbWvbkExTcx6/FDP2Xk/NSsOYTvR9oITLnLjmdQvp+9276WSnNfKF3frBl8ZcqpkC2EsuL2Yutw==, tarball: https://registry.npmmirror.com/@unocss/extractor-arbitrary-variants/-/extractor-arbitrary-variants-65.5.0.tgz}
+  '@unocss/extractor-arbitrary-variants@66.4.2':
+    resolution: {integrity: sha512-T/eSeodfAp7HaWnQGqVLOsW4PbKUAvuybNRyvFWThMneM2qo+dOo3kFnA5my9ULAmRSFsAlyB1DnupD3qv5Klg==, tarball: https://registry.npmmirror.com/@unocss/extractor-arbitrary-variants/-/extractor-arbitrary-variants-66.4.2.tgz}
 
-  '@unocss/preset-mini@65.5.0':
-    resolution: {integrity: sha512-oD2INmEgTOxmFsVceflv4Zs67vz9PRbpg3+CMsJLWgfX4UdQ1H4jZms72+g3N1hhXBvOFwvGvqGaMnrVMRk54g==, tarball: https://registry.npmmirror.com/@unocss/preset-mini/-/preset-mini-65.5.0.tgz}
+  '@unocss/preset-mini@66.4.2':
+    resolution: {integrity: sha512-Ry+5hM+XLmT8HrEb182mUfcZuyrZ8xR+TBe72DBcliJ1DhOV3K67TCxwQucfb0zHbGV71HNWdPmHsLKxPDgweQ==, tarball: https://registry.npmmirror.com/@unocss/preset-mini/-/preset-mini-66.4.2.tgz}
 
-  '@unocss/preset-wind@65.5.0':
-    resolution: {integrity: sha512-3krOUZ5qC2J3JGheZsTDNbzqr9qYJw9GP1yEcfeE6K3qVcZnf+3DyJ0i1PuaM5SusOA0MBsHmCU49rLKurdyoA==, tarball: https://registry.npmmirror.com/@unocss/preset-wind/-/preset-wind-65.5.0.tgz}
+  '@unocss/preset-wind3@66.4.2':
+    resolution: {integrity: sha512-0Aye/PaT08M/cQhPnGKn93iEVoRJbym0/1eomMvXoL+8oc7DVry35ws06r5CLu5h1sXI6UmS6sejoePFlSkLJQ==, tarball: https://registry.npmmirror.com/@unocss/preset-wind3/-/preset-wind3-66.4.2.tgz}
 
-  '@unocss/rule-utils@65.5.0':
-    resolution: {integrity: sha512-xT4N0EY1dl1mqY5gTKD0H/Fg6xApe7xbfNTUwctOu02DMeJhqv9BTqfoAihH/hzGSI69+FtzVtz7hUxTypfehA==, tarball: https://registry.npmmirror.com/@unocss/rule-utils/-/rule-utils-65.5.0.tgz}
+  '@unocss/rule-utils@66.4.2':
+    resolution: {integrity: sha512-7z3IuajwXhy2cx3E0IGOFXIiuKC79/jzm4Tt56TC68nXLh/etlH0fKhxVwkZ/HbcQRpVwWyDRNcbh29pmA3DwQ==, tarball: https://registry.npmmirror.com/@unocss/rule-utils/-/rule-utils-66.4.2.tgz}
     engines: {node: '>=14'}
 
   '@vercel/nft@0.27.6':
@@ -2214,8 +2215,8 @@ packages:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==, tarball: https://registry.npmmirror.com/chownr/-/chownr-2.0.0.tgz}
     engines: {node: '>=10'}
 
-  chrome-launcher@1.1.2:
-    resolution: {integrity: sha512-YclTJey34KUm5jB1aEJCq807bSievi7Nb/TU4Gu504fUYi3jw3KCIaH6L7nFWQhdEgH3V+wCh+kKD1P5cXnfxw==, tarball: https://registry.npmmirror.com/chrome-launcher/-/chrome-launcher-1.1.2.tgz}
+  chrome-launcher@1.2.0:
+    resolution: {integrity: sha512-JbuGuBNss258bvGil7FT4HKdC3SC2K7UAEUqiPy3ACS3Yxo3hAW6bvFpCu2HsIJLgTqxgEX6BkujvzZfLpUD0Q==, tarball: https://registry.npmmirror.com/chrome-launcher/-/chrome-launcher-1.2.0.tgz}
     engines: {node: '>=12.13.0'}
     hasBin: true
 
@@ -2854,8 +2855,9 @@ packages:
   emoji-regex-xs@1.0.0:
     resolution: {integrity: sha512-LRlerrMYoIDrT6jgpeZ2YYl/L8EulRTt5hQcYjy5AInh7HWXKimpqx68aknBFpGL2+/IcogTcaydJEgaTmOpDg==, tarball: https://registry.npmmirror.com/emoji-regex-xs/-/emoji-regex-xs-1.0.0.tgz}
 
-  emoji-regex@10.4.0:
-    resolution: {integrity: sha512-EC+0oUMY1Rqm4O6LLrgjtYDvcVYTy7chDnM4Q7030tP4Kwj3u/pR6gP9ygnp2CJMK5Gq+9Q2oqmrFJAz01DXjw==, tarball: https://registry.npmmirror.com/emoji-regex/-/emoji-regex-10.4.0.tgz}
+  emoji-regex-xs@2.0.1:
+    resolution: {integrity: sha512-1QFuh8l7LqUcKe24LsPUNzjrzJQ7pgRwp1QMcZ5MX6mFplk2zQ08NVCM84++1cveaUUYtcCYHmeFEuNg16sU4g==, tarball: https://registry.npmmirror.com/emoji-regex-xs/-/emoji-regex-xs-2.0.1.tgz}
+    engines: {node: '>=10.0.0'}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==, tarball: https://registry.npmmirror.com/emoji-regex/-/emoji-regex-8.0.0.tgz}
@@ -3062,6 +3064,10 @@ packages:
 
   execa@9.5.2:
     resolution: {integrity: sha512-EHlpxMCpHWSAh1dgS6bVeoLAXGnJNdR93aabr4QCGbzOM73o5XmRfM/e5FUqsw3aagP8S8XEWUWFAxnRBnAF0Q==, tarball: https://registry.npmmirror.com/execa/-/execa-9.5.2.tgz}
+    engines: {node: ^18.19.0 || >=20.5.0}
+
+  execa@9.6.0:
+    resolution: {integrity: sha512-jpWzZ1ZhwUmeWRhS7Qv3mhpOhLfwI+uAX4e5fOcXqwMR7EcJ0pj2kV1CVzHVMX/LphnKWD3LObjZCoJ71lKpHw==, tarball: https://registry.npmmirror.com/execa/-/execa-9.6.0.tgz}
     engines: {node: ^18.19.0 || >=20.5.0}
 
   expand-template@2.0.3:
@@ -3509,6 +3515,10 @@ packages:
     resolution: {integrity: sha512-/1/GPCpDUCCYwlERiYjxoczfP0zfvZMU/OWgQPMya9AbAE24vseigFdhAMObpc8Q4lc/kjutPfUddDYyAmejnA==, tarball: https://registry.npmmirror.com/human-signals/-/human-signals-8.0.0.tgz}
     engines: {node: '>=18.18.0'}
 
+  human-signals@8.0.1:
+    resolution: {integrity: sha512-eKCa6bwnJhvxj14kZk5NCPc6Hb6BdsU9DZcOnmQKSnO1VKrfV0zCvtttPZUsBvjmNDn8rpcJfpwSYnHBjc95MQ==, tarball: https://registry.npmmirror.com/human-signals/-/human-signals-8.0.1.tgz}
+    engines: {node: '>=18.18.0'}
+
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==, tarball: https://registry.npmmirror.com/iconv-lite/-/iconv-lite-0.6.3.tgz}
     engines: {node: '>=0.10.0'}
@@ -3535,8 +3545,8 @@ packages:
   image-meta@0.2.1:
     resolution: {integrity: sha512-K6acvFaelNxx8wc2VjbIzXKDVB0Khs0QT35U6NkGfTdCmjLNcO2945m7RFNR9/RPVFm48hq7QPzK8uGH18HCGw==, tarball: https://registry.npmmirror.com/image-meta/-/image-meta-0.2.1.tgz}
 
-  image-size@1.2.0:
-    resolution: {integrity: sha512-4S8fwbO6w3GeCVN6OPtA9I5IGKkcDMPcKndtUlpJuCwu7JLjtj7JZpwqLuyY2nrmQT3AWsCJLSKPsc2mPBSl3w==, tarball: https://registry.npmmirror.com/image-size/-/image-size-1.2.0.tgz}
+  image-size@2.0.2:
+    resolution: {integrity: sha512-IRqXKlaXwgSMAMtpNzZa1ZAe8m+Sa1770Dhk8VkSsP9LS+iHD62Zd8FQKs8fbPiagBE7BzoFX23cxFnwshpV6w==, tarball: https://registry.npmmirror.com/image-size/-/image-size-2.0.2.tgz}
     engines: {node: '>=16.x'}
     hasBin: true
 
@@ -4223,6 +4233,9 @@ packages:
   mlly@1.7.4:
     resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==, tarball: https://registry.npmmirror.com/mlly/-/mlly-1.7.4.tgz}
 
+  mocked-exports@0.1.1:
+    resolution: {integrity: sha512-aF7yRQr/Q0O2/4pIXm6PZ5G+jAd7QS4Yu8m+WEeEHGnbo+7mE36CbLSDQiXYV8bVL3NfmdeqPJct0tUlnjVSnA==, tarball: https://registry.npmmirror.com/mocked-exports/-/mocked-exports-0.1.1.tgz}
+
   modern-css-reset@1.4.0:
     resolution: {integrity: sha512-0crZmSFmrxkI7159rvQWjpDhy0u4+Awg/iOycJdlVn0RSeft/a+6BrQHR3IqvmdK25sqt0o6Z5Ap7cWgUee2rw==, tarball: https://registry.npmmirror.com/modern-css-reset/-/modern-css-reset-1.4.0.tgz}
 
@@ -4371,15 +4384,24 @@ packages:
   nuxt-gtag@3.0.2:
     resolution: {integrity: sha512-0Spu/rffPxW7REebkjE22qQOuVZIQuyIuvd61InDdJU+d+gRIqWhrUuKBWdk43N/J1elj+cTK2kEdk5FQX7vdQ==, tarball: https://registry.npmmirror.com/nuxt-gtag/-/nuxt-gtag-3.0.2.tgz}
 
-  nuxt-og-image@4.1.2:
-    resolution: {integrity: sha512-TeBsI9Ic/ETD4fTpycKW9lYp5Q2hd5ozE5Bt22opTsIuqzSx20ZKzonj0yiHRgShMhGE+YMZhFzk7YvDaNNWGA==, tarball: https://registry.npmmirror.com/nuxt-og-image/-/nuxt-og-image-4.1.2.tgz}
+  nuxt-og-image@5.1.9:
+    resolution: {integrity: sha512-VsGpaV/Q9mhr6YhTTXsxiPbE5rucrW0dNmfssxaWEF4rKhnpKBh8U2C1QK8iddo7Gg2lqD2L9zcBe4GsHl8X8w==, tarball: https://registry.npmmirror.com/nuxt-og-image/-/nuxt-og-image-5.1.9.tgz}
     engines: {node: '>=18.0.0'}
+    peerDependencies:
+      '@unhead/vue': ^2.0.5
+      unstorage: ^1.15.0
 
   nuxt-site-config-kit@3.0.6:
     resolution: {integrity: sha512-QBOFzAIo+D02avFQQ7gNlRyA372/PQlgW2IjL2nttvjfHapqYbvP6tIP55soL+1+D8YvF/bGZgS+vJtfQhroUg==, tarball: https://registry.npmmirror.com/nuxt-site-config-kit/-/nuxt-site-config-kit-3.0.6.tgz}
 
+  nuxt-site-config-kit@3.2.2:
+    resolution: {integrity: sha512-SmTBVm6JQd5zHBy04/qn0gWo3rg1HTRGT/H91hxk/o+mDB3ll+TkzpZekD46RUBO/AD02ArLG5n2ndu6zhWsHA==, tarball: https://registry.npmmirror.com/nuxt-site-config-kit/-/nuxt-site-config-kit-3.2.2.tgz}
+
   nuxt-site-config@3.0.6:
     resolution: {integrity: sha512-Mkyen81br21/nA2sxlLCOtJZ2L8sGL+YzxHlsVhLhEnC355CP2SwKVtYqJNJ4aYFbxeusqZXJFiD4KbveHhk0w==, tarball: https://registry.npmmirror.com/nuxt-site-config/-/nuxt-site-config-3.0.6.tgz}
+
+  nuxt-site-config@3.2.2:
+    resolution: {integrity: sha512-0zCo8nZKk11F4oEWvioTPpxYesJtiwWGfanh1coOfPmvGdYuCcJ/pusy8zdPb6xQkvAYqpTZUy7KKfjXjrE8rA==, tarball: https://registry.npmmirror.com/nuxt-site-config/-/nuxt-site-config-3.2.2.tgz}
 
   nuxt@3.15.4:
     resolution: {integrity: sha512-hSbZO4mR0uAMJtZPNTnCfiAtgleoOu28gvJcBNU7KQHgWnNXPjlWgwMczko2O4Tmnv9zIe/CQged+2HsPwl2ZA==, tarball: https://registry.npmmirror.com/nuxt/-/nuxt-3.15.4.tgz}
@@ -4638,8 +4660,8 @@ packages:
   pkg-types@2.2.0:
     resolution: {integrity: sha512-2SM/GZGAEkPp3KWORxQZns4M+WSeXbC2HEvmOIJe3Cmiv6ieAJvdVhDldtHqM5J1Y7MrR1XhkBT/rMlhh9FdqQ==, tarball: https://registry.npmmirror.com/pkg-types/-/pkg-types-2.2.0.tgz}
 
-  playwright-core@1.50.1:
-    resolution: {integrity: sha512-ra9fsNWayuYumt+NiM069M6OkcRb1FZSK8bgi66AtpFoWkg2+y0bJSNmkFrWhMbEBbVKC/EruAHH3g0zmtwGmQ==, tarball: https://registry.npmmirror.com/playwright-core/-/playwright-core-1.50.1.tgz}
+  playwright-core@1.54.2:
+    resolution: {integrity: sha512-n5r4HFbMmWsB4twG7tJLDN9gmBUeSPcsBZiWSE4DnYz9mJMAFqr2ID7+eGC9kpEnxExJ1epttwR59LEWCk8mtA==, tarball: https://registry.npmmirror.com/playwright-core/-/playwright-core-1.54.2.tgz}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4934,9 +4956,6 @@ packages:
   queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==, tarball: https://registry.npmmirror.com/queue-tick/-/queue-tick-1.0.1.tgz}
 
-  queue@6.0.2:
-    resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==, tarball: https://registry.npmmirror.com/queue/-/queue-6.0.2.tgz}
-
   radix3@1.1.2:
     resolution: {integrity: sha512-b484I/7b8rDEdSDKckSSBA8knMpcdsXudlE/LNL639wFoHKwLbEkQFZHWEYwDC0wa0FKUcCY+GAF73Z7wxNVFA==, tarball: https://registry.npmmirror.com/radix3/-/radix3-1.1.2.tgz}
 
@@ -5182,8 +5201,8 @@ packages:
   satori-html@0.3.2:
     resolution: {integrity: sha512-wjTh14iqADFKDK80e51/98MplTGfxz2RmIzh0GqShlf4a67+BooLywF17TvJPD6phO0Hxm7Mf1N5LtRYvdkYRA==, tarball: https://registry.npmmirror.com/satori-html/-/satori-html-0.3.2.tgz}
 
-  satori@0.12.1:
-    resolution: {integrity: sha512-0SbjchvDrDbeXeQgxWVtSWxww7qcFgk3DtSE2/blHOSlLsSHwIqO2fCrtVa/EudJ7Eqno8A33QNx56rUyGbLuw==, tarball: https://registry.npmmirror.com/satori/-/satori-0.12.1.tgz}
+  satori@0.15.2:
+    resolution: {integrity: sha512-vu/49vdc8MzV5jUchs3TIRDCOkOvMc1iJ11MrZvhg9tE4ziKIEIBjBZvies6a9sfM2vQ2gc3dXeu6rCK7AztHA==, tarball: https://registry.npmmirror.com/satori/-/satori-0.15.2.tgz}
     engines: {node: '>=16'}
 
   sax@1.4.1:
@@ -5287,11 +5306,20 @@ packages:
     resolution: {integrity: sha512-BPwJGUeDaDCHihkORDchNyyTvWFhcusy1XMmhEVTQTwGeybFbp8YEmB+njbPnth1FibULBSBVwCQni25XlCUDg==, tarball: https://registry.npmmirror.com/sirv/-/sirv-3.0.0.tgz}
     engines: {node: '>=18'}
 
+  sirv@3.0.1:
+    resolution: {integrity: sha512-FoqMu0NCGBLCcAkS1qA+XJIQTR6/JHfQXl+uGteNCQ76T91DMUjPa9xfmeqMY3z80nLSg9yQmNjK0Px6RWsH/A==, tarball: https://registry.npmmirror.com/sirv/-/sirv-3.0.1.tgz}
+    engines: {node: '>=18'}
+
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==, tarball: https://registry.npmmirror.com/sisteransi/-/sisteransi-1.0.5.tgz}
 
   site-config-stack@3.0.6:
     resolution: {integrity: sha512-lqNI6Xvbwf4NBFqGJ1gNUIe12SOYw8YOuhrbl52JTVwBgtZZzXYh/ZQAwBHwXC7pxULvfIPUd8AJA35WtqU5YA==, tarball: https://registry.npmmirror.com/site-config-stack/-/site-config-stack-3.0.6.tgz}
+    peerDependencies:
+      vue: ^3
+
+  site-config-stack@3.2.2:
+    resolution: {integrity: sha512-T1NphPh1sWlsIXbD1q1HDgHbX40miTyi++cDqXkVOuHQ/eQnGp6w8cwB8u9XmgSZsnmZpsQJgPUTNH7SX173AA==, tarball: https://registry.npmmirror.com/site-config-stack/-/site-config-stack-3.2.2.tgz}
     peerDependencies:
       vue: ^3
 
@@ -6992,16 +7020,6 @@ snapshots:
       - magicast
       - supports-color
 
-  '@nuxt/devtools-kit@2.0.0-beta.3(magicast@0.3.5)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))':
-    dependencies:
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)
-      '@nuxt/schema': 3.15.4
-      execa: 7.2.0
-      vite: 6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0)
-    transitivePeerDependencies:
-      - magicast
-      - supports-color
-
   '@nuxt/devtools-kit@2.1.0(magicast@0.3.5)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))':
     dependencies:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)
@@ -7011,6 +7029,14 @@ snapshots:
     transitivePeerDependencies:
       - magicast
       - supports-color
+
+  '@nuxt/devtools-kit@2.6.2(magicast@0.3.5)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))':
+    dependencies:
+      '@nuxt/kit': 3.17.7(magicast@0.3.5)
+      execa: 8.0.1
+      vite: 6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0)
+    transitivePeerDependencies:
+      - magicast
 
   '@nuxt/devtools-wizard@1.7.0':
     dependencies:
@@ -8426,27 +8452,27 @@ snapshots:
       unhead: 1.11.19
       vue: 3.5.13(typescript@5.7.2)
 
-  '@unocss/core@65.5.0': {}
+  '@unocss/core@66.4.2': {}
 
-  '@unocss/extractor-arbitrary-variants@65.5.0':
+  '@unocss/extractor-arbitrary-variants@66.4.2':
     dependencies:
-      '@unocss/core': 65.5.0
+      '@unocss/core': 66.4.2
 
-  '@unocss/preset-mini@65.5.0':
+  '@unocss/preset-mini@66.4.2':
     dependencies:
-      '@unocss/core': 65.5.0
-      '@unocss/extractor-arbitrary-variants': 65.5.0
-      '@unocss/rule-utils': 65.5.0
+      '@unocss/core': 66.4.2
+      '@unocss/extractor-arbitrary-variants': 66.4.2
+      '@unocss/rule-utils': 66.4.2
 
-  '@unocss/preset-wind@65.5.0':
+  '@unocss/preset-wind3@66.4.2':
     dependencies:
-      '@unocss/core': 65.5.0
-      '@unocss/preset-mini': 65.5.0
-      '@unocss/rule-utils': 65.5.0
+      '@unocss/core': 66.4.2
+      '@unocss/preset-mini': 66.4.2
+      '@unocss/rule-utils': 66.4.2
 
-  '@unocss/rule-utils@65.5.0':
+  '@unocss/rule-utils@66.4.2':
     dependencies:
-      '@unocss/core': 65.5.0
+      '@unocss/core': 66.4.2
       magic-string: 0.30.17
 
   '@vercel/nft@0.27.6':
@@ -8847,7 +8873,7 @@ snapshots:
   ast-kit@1.4.0:
     dependencies:
       '@babel/parser': 7.26.9
-      pathe: 2.0.2
+      pathe: 2.0.3
 
   ast-walker-scope@0.6.2:
     dependencies:
@@ -9113,7 +9139,7 @@ snapshots:
 
   chownr@2.0.0: {}
 
-  chrome-launcher@1.1.2:
+  chrome-launcher@1.2.0:
     dependencies:
       '@types/node': 22.10.1
       escape-string-regexp: 4.0.0
@@ -9706,7 +9732,7 @@ snapshots:
 
   emoji-regex-xs@1.0.0: {}
 
-  emoji-regex@10.4.0: {}
+  emoji-regex-xs@2.0.1: {}
 
   emoji-regex@8.0.0: {}
 
@@ -10028,6 +10054,21 @@ snapshots:
       figures: 6.1.0
       get-stream: 9.0.1
       human-signals: 8.0.0
+      is-plain-obj: 4.1.0
+      is-stream: 4.0.1
+      npm-run-path: 6.0.0
+      pretty-ms: 9.2.0
+      signal-exit: 4.1.0
+      strip-final-newline: 4.0.0
+      yoctocolors: 2.1.1
+
+  execa@9.6.0:
+    dependencies:
+      '@sindresorhus/merge-streams': 4.0.0
+      cross-spawn: 7.0.6
+      figures: 6.1.0
+      get-stream: 9.0.1
+      human-signals: 8.0.1
       is-plain-obj: 4.1.0
       is-stream: 4.0.1
       npm-run-path: 6.0.0
@@ -10624,6 +10665,8 @@ snapshots:
 
   human-signals@8.0.0: {}
 
+  human-signals@8.0.1: {}
+
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
@@ -10640,9 +10683,7 @@ snapshots:
 
   image-meta@0.2.1: {}
 
-  image-size@1.2.0:
-    dependencies:
-      queue: 6.0.2
+  image-size@2.0.2: {}
 
   immutable@5.0.3: {}
 
@@ -11537,6 +11578,8 @@ snapshots:
       pkg-types: 1.3.1
       ufo: 1.5.4
 
+  mocked-exports@0.1.1: {}
+
   modern-css-reset@1.4.0: {}
 
   mri@1.2.0: {}
@@ -11800,40 +11843,42 @@ snapshots:
       - rollup
       - supports-color
 
-  nuxt-og-image@4.1.2(magicast@0.3.5)(rollup@4.27.4)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.2)):
+  nuxt-og-image@5.1.9(@unhead/vue@1.11.19(vue@3.5.13(typescript@5.7.2)))(magicast@0.3.5)(unstorage@1.14.4(db0@0.2.1)(ioredis@5.4.1))(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.2)):
     dependencies:
-      '@nuxt/devtools-kit': 2.0.0-beta.3(magicast@0.3.5)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))
-      '@nuxt/kit': 3.15.4(magicast@0.3.5)
+      '@nuxt/devtools-kit': 2.6.2(magicast@0.3.5)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))
+      '@nuxt/kit': 3.17.7(magicast@0.3.5)
       '@resvg/resvg-js': 2.6.2
       '@resvg/resvg-wasm': 2.6.2
-      '@unocss/core': 65.5.0
-      '@unocss/preset-wind': 65.5.0
-      chrome-launcher: 1.1.2
-      consola: 3.4.0
+      '@unhead/vue': 1.11.19(vue@3.5.13(typescript@5.7.2))
+      '@unocss/core': 66.4.2
+      '@unocss/preset-wind3': 66.4.2
+      chrome-launcher: 1.2.0
+      consola: 3.4.2
       defu: 6.1.4
-      execa: 9.5.2
-      image-size: 1.2.0
+      execa: 9.6.0
+      image-size: 2.0.2
       magic-string: 0.30.17
-      nuxt-site-config: 3.0.6(magicast@0.3.5)(rollup@4.27.4)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.2))
-      nypm: 0.5.2
+      mocked-exports: 0.1.1
+      nuxt-site-config: 3.2.2(magicast@0.3.5)(vue@3.5.13(typescript@5.7.2))
+      nypm: 0.6.0
       ofetch: 1.4.1
-      ohash: 1.1.4
-      pathe: 2.0.2
-      pkg-types: 1.3.1
-      playwright-core: 1.50.1
+      ohash: 2.0.11
+      pathe: 2.0.3
+      pkg-types: 2.2.0
+      playwright-core: 1.54.2
       radix3: 1.1.2
-      satori: 0.12.1
+      satori: 0.15.2
       satori-html: 0.3.2
-      sirv: 3.0.0
-      std-env: 3.8.0
+      sirv: 3.0.1
+      std-env: 3.9.0
       strip-literal: 3.0.0
-      ufo: 1.5.4
-      unplugin: 2.1.2
+      ufo: 1.6.1
+      unplugin: 2.3.5
+      unstorage: 1.14.4(db0@0.2.1)(ioredis@5.4.1)
       unwasm: 0.3.9
       yoga-wasm-web: 0.3.3
     transitivePeerDependencies:
       - magicast
-      - rollup
       - supports-color
       - vite
       - vue
@@ -11852,6 +11897,17 @@ snapshots:
       - supports-color
       - vue
 
+  nuxt-site-config-kit@3.2.2(magicast@0.3.5)(vue@3.5.13(typescript@5.7.2)):
+    dependencies:
+      '@nuxt/kit': 3.17.7(magicast@0.3.5)
+      pkg-types: 2.2.0
+      site-config-stack: 3.2.2(vue@3.5.13(typescript@5.7.2))
+      std-env: 3.9.0
+      ufo: 1.6.1
+    transitivePeerDependencies:
+      - magicast
+      - vue
+
   nuxt-site-config@3.0.6(magicast@0.3.5)(rollup@4.27.4)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.7.2)):
     dependencies:
       '@nuxt/devtools-kit': 1.6.1(magicast@0.3.5)(rollup@4.27.4)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))
@@ -11868,6 +11924,19 @@ snapshots:
       - rollup
       - supports-color
       - vite
+      - vue
+
+  nuxt-site-config@3.2.2(magicast@0.3.5)(vue@3.5.13(typescript@5.7.2)):
+    dependencies:
+      '@nuxt/kit': 3.17.7(magicast@0.3.5)
+      nuxt-site-config-kit: 3.2.2(magicast@0.3.5)(vue@3.5.13(typescript@5.7.2))
+      pathe: 2.0.3
+      pkg-types: 2.2.0
+      sirv: 3.0.1
+      site-config-stack: 3.2.2(vue@3.5.13(typescript@5.7.2))
+      ufo: 1.6.1
+    transitivePeerDependencies:
+      - magicast
       - vue
 
   nuxt@3.15.4(@parcel/watcher@2.5.0)(@types/node@22.10.1)(db0@0.2.1)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.27.4)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(typescript@5.7.2)(vite@6.1.0(@types/node@22.10.1)(jiti@2.4.2)(sass@1.85.0)(stylus@0.64.0)(terser@5.36.0)(yaml@2.7.0))(vue-tsc@2.2.2(typescript@5.7.2))(yaml@2.7.0):
@@ -11994,11 +12063,11 @@ snapshots:
   nypm@0.3.12:
     dependencies:
       citty: 0.1.6
-      consola: 3.2.3
+      consola: 3.4.2
       execa: 8.0.1
       pathe: 1.1.2
-      pkg-types: 1.2.1
-      ufo: 1.5.4
+      pkg-types: 1.3.1
+      ufo: 1.6.1
 
   nypm@0.4.1:
     dependencies:
@@ -12262,7 +12331,7 @@ snapshots:
       exsolve: 1.0.7
       pathe: 2.0.3
 
-  playwright-core@1.50.1: {}
+  playwright-core@1.54.2: {}
 
   pluralize@8.0.0: {}
 
@@ -12544,10 +12613,6 @@ snapshots:
   queue-microtask@1.2.3: {}
 
   queue-tick@1.0.1: {}
-
-  queue@6.0.2:
-    dependencies:
-      inherits: 2.0.4
 
   radix3@1.1.2: {}
 
@@ -12935,14 +13000,14 @@ snapshots:
     dependencies:
       ultrahtml: 1.5.3
 
-  satori@0.12.1:
+  satori@0.15.2:
     dependencies:
       '@shuding/opentype.js': 1.4.0-beta.0
       css-background-parser: 0.1.0
       css-box-shadow: 1.0.0-3
       css-gradient-parser: 0.0.16
       css-to-react-native: 3.2.0
-      emoji-regex: 10.4.0
+      emoji-regex-xs: 2.0.1
       escape-html: 1.0.3
       linebreak: 1.1.0
       parse-css-color: 0.2.1
@@ -13083,11 +13148,22 @@ snapshots:
       mrmime: 2.0.0
       totalist: 3.0.1
 
+  sirv@3.0.1:
+    dependencies:
+      '@polka/url': 1.0.0-next.28
+      mrmime: 2.0.0
+      totalist: 3.0.1
+
   sisteransi@1.0.5: {}
 
   site-config-stack@3.0.6(vue@3.5.13(typescript@5.7.2)):
     dependencies:
       ufo: 1.5.4
+      vue: 3.5.13(typescript@5.7.2)
+
+  site-config-stack@3.2.2(vue@3.5.13(typescript@5.7.2)):
+    dependencies:
+      ufo: 1.6.1
       vue: 3.5.13(typescript@5.7.2)
 
   skin-tone@2.0.0:
@@ -13388,7 +13464,7 @@ snapshots:
   terser@5.36.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.14.0
+      acorn: 8.15.0
       commander: 2.20.3
       source-map-support: 0.5.21
 
