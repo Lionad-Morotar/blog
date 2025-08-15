@@ -1,0 +1,1 @@
+[{"_path":"/articles/crack-the-slider","title":"🕷️ 滑动验证码破解思路","description":"如何破解滑块验证码？本文介绍使用Puppeteer操作浏览器进行图片对比、图片识别及优化鼠标轨迹以模仿真是用户等几种简单爬虫验证码破解思路，适用多种场景。"},{"_path":"/articles/design-patterns-and-js-magic-pot","title":"🍲 设计模式与 JS 魔法锅","description":"排除人的因素，设计模式的本质只是相关代码复用。本文通过使用JS仿制并简化了几种OOL中经典设计模式，以探讨经典设计模式和代码模板的区别主要在于代码复用的层次不同，以及粗浅聊了聊设计模式与语言特征之间此强彼弱的关系。"}]
