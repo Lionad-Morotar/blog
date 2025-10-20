@@ -40,11 +40,9 @@ description: 无代码、低代码、高代码，这是一个围绕人机交互�
 * 监控与运维管理
 * 协同开发
 
-#### 低代码作为平台应用的软件形态？
+## 博客
 
-文章探讨了 SaaS 团队协作工具在功能冗余与缺失上的问题，并提出以定制化和集成化优先的可插拔、可定制数据模型与共享功能框架作为理想解决方案。
-
-见：[<i>Solving the software puzzle</i>](https://herbcaudill.com/words/20180315-solving-the-software-puzzle)
+* [Herb Caudill](/maps/_blogs/herb-caudill)
 
 ## 行业调研
 
