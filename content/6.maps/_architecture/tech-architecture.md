@@ -31,7 +31,9 @@ description: 技术架构是指软件系统的整体结构，包括软件组件�
 
 见：[用户密码加密存储十问十答，一文说透密码安全存储](https://www.cnblogs.com/xinzhao/p/6035847.html)
 
-#### Dropbox 的密码存储策略是什么？
+#### [How Dropbox securely stores your passwords](https://dropbox.tech/security/how-dropbox-securely-stores-your-passwords)
+
+Dropbox 的密码存储策略是什么
 
 1. 将用户密码使用 sha256 归一化，因为 bcrypt 的结果对长度敏感
 2. 使用 bcrypt 每用户加盐加密
@@ -39,9 +41,8 @@ description: 技术架构是指软件系统的整体结构，包括软件组件�
 
 此外，Dropbox 表示也在关注 Argon2 等竞赛新秀。
 
-见：[How Dropbox securely stores your passwords](https://dropbox.tech/security/how-dropbox-securely-stores-your-passwords)
+#### [How Instagram scaled to 14 million users with only 3 engineers](https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million)
 
 ### OAuth
 
 * [OAuth 2.0 Standards](https://oauth.net/2/)
-

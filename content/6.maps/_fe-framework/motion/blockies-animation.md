@@ -88,9 +88,11 @@ BA 的闪卡效果结合了一像素侧光和光影动画。光影部分是一�
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506121636419.gif)
 
-回到闪卡效果，结合 transform、blend-mode、filters 实现带视差效果的全息箔卡片视觉上要完整很多，见[宝可梦闪卡](https://github.com/simeydotme/pokemon-cards-css)。
+回到闪卡效果，结合 transform、blend-mode、filters 实现带视差效果的全息箔卡片视觉上要完整很多，见 [宝可梦闪卡](https://github.com/simeydotme/pokemon-cards-css)。
 
 ![宝可梦闪卡](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506111927299.png)
+
+另一种用于实现闪卡的技术见：[mask-composite](https://x.com/jh3yy/status/1734369933558010226)
 
 ### Text Scramble（文字打乱）
 

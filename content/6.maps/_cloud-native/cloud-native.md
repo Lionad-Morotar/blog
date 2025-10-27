@@ -3,13 +3,18 @@ title: CloudNative
 description: 云原生技术概论
 ---
 
+## Overview
+
+* [CNCF CloudNative Landscapes](https://landscape.cncf.io/?group=projects-and-products)
+<!-- too big ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/landscape.png) -->
+
 ## Components
 
 * [Kubernetes](/maps/_cloud-native/kubernetes)
 
 ## 云原生技术概论
 
-● 云原生技术概览：https://www.thebyte.com.cn/architecture/summary.html
+- 云原生技术概览：https://www.thebyte.com.cn/architecture/summary.html
 
 ## Quick Question
 
@@ -37,6 +42,8 @@ description: 云原生技术概论
 > 这些技术能够构建容错性好、易于管理和便于观察的松耦合系统。结合可靠的自动化手段，云原生技术使工程师能够轻松地对系统作出频繁和可预测的重大变更。
 > 云原生计算基金会（CNCF）致力于培育和维护一个厂商中立的开源生态系统，来推广云原生技术。我们通过将最前沿的模式民主化，让这些创新为大众所用。
 
+见：[CNCF DEFINITION](https://github.com/cncf/toc/blob/main/DEFINITION.md#%E4%B8%AD%E6%96%87%E7%89%88%E6%9C%AC)
+
 #### 云原生架构相关哪些技术？
 
 1. 容器和镜像：Docker、Containerd、CRI-O、Kata Containers
@@ -57,15 +64,15 @@ description: 云原生技术概论
 
 #### 有哪些亿级 DAU 规模的移动应用？
 
-POE Assistant：以下是一些拥有亿级日活跃用户（DAU）规模的知名移动应用的例子（截至2021年）
+POE Assistant：以下是一些拥有亿级日活跃用户（DAU）规模的知名移动应用的例子（截至 2021 年）
 
-1. Facebook：Facebook是全球最大的社交媒体平台，拥有超过20亿月活跃用户，其中大部分用户通过移动应用进行访问。
-2. WhatsApp：WhatsApp是一款全球领先的即时通讯应用程序，每天有超过20亿用户使用该应用进行消息传递和语音通话。
-3. WeChat（微信）：WeChat是中国最流行的社交媒体和消息应用之一，拥有超过10亿活跃用户。它提供了聊天、社交、支付、游戏和其他功能。
-4. TikTok（抖音）：TikTok是一款全球流行的短视频社交平台，拥有超过10亿用户。它提供了用户生成的短视频内容，吸引了大量的年轻用户。
-5. Instagram：Instagram是一款图片和视频分享社交平台，拥有超过10亿用户。它提供了用户上传和编辑照片、视频以及与其他用户互动的功能。
-6. Snapchat：Snapchat是一款以瞬间分享和自动消失的照片和视频为特点的移动应用，拥有超过5亿用户。
-7. Twitter：Twitter是一款全球知名的社交媒体平台，用户可以发布和阅读短消息（推文）。它拥有超过3亿的活跃用户。
+1. Facebook：Facebook 是全球最大的社交媒体平台，拥有超过 20 亿月活跃用户，其中大部分用户通过移动应用进行访问。
+2. WhatsApp：WhatsApp 是一款全球领先的即时通讯应用程序，每天有超过 20 亿用户使用该应用进行消息传递和语音通话。
+3. WeChat（微信）：WeChat 是中国最流行的社交媒体和消息应用之一，拥有超过 10 亿活跃用户。它提供了聊天、社交、支付、游戏和其他功能。
+4. TikTok（抖音）：TikTok 是一款全球流行的短视频社交平台，拥有超过 10 亿用户。它提供了用户生成的短视频内容，吸引了大量的年轻用户。
+5. Instagram：Instagram 是一款图片和视频分享社交平台，拥有超过 10 亿用户。它提供了用户上传和编辑照片、视频以及与其他用户互动的功能。
+6. Snapchat：Snapchat 是一款以瞬间分享和自动消失的照片和视频为特点的移动应用，拥有超过 5 亿用户。
+7. Twitter：Twitter 是一款全球知名的社交媒体平台，用户可以发布和阅读短消息（推文）。它拥有超过 3 亿的活跃用户。
 
 #### 如何按照规模和变更速度将软件企业划分为四个象限？
 

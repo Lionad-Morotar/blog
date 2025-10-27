@@ -5,6 +5,7 @@ description: 微信小程序开发指南，包含双线程模型、Exparser 组�
 
 ## 技术
 
+* [这【五篇】文章将带你深入了解「微信小程序」](https://github.com/phodal/articles/issues/32)
 * [小程序底层框架](https://developers.weixin.qq.com/ebook?action=get_post_info&volumn=1&lang=zh_CN&book=miniprogram&docid=0000e82f924ca0bb00869a5de5ec0a)
 * [微信小程序技术原理分析](https://zhaomenghuan.js.org/blog/wechat-miniprogram-principle-analysis.html)
 

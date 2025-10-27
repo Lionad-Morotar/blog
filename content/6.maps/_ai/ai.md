@@ -3,6 +3,12 @@ title: Machine Learning
 description: machine learning related
 ---
 
+## 评论
+
+Anthony Bonkoski 将 GPT 类比为“人类知识的极大似然估计器”，即其知识面广泛覆盖但缺乏深度，能给人提供平均化的标准答案。
+
+见：[ChatGPT: A Mental Model](https://xorvoid.com/chatgpt_a_mental_model.html)，[ChatGPT: A Mental Model @MaxAI](https://www.maxai.co/share?id=a9d5c747a70c3c1a40b43ba6128b22e90a114e588de17c84fc4abba9)
+
 ## 阅读更多
 
 * [通往 AGI 之路](https://waytoagi.feishu.cn/wiki/QPe5w5g7UisbEkkow8XcDmOpn8e)
