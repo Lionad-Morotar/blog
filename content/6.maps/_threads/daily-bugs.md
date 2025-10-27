@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2025-10-27
+
+MacOS 15 的计算器的问题，能稳定复现。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202510272328599.mp4)
+
 #### 2025-10-22
 
 ```
