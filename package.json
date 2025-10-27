@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@nuxt-dev/medium-zoom": "^0.1.0",
-    "@nuxt/devtools": "^1.7.0",
+    "@nuxt/devtools": "^2.7.0",
     "@nuxt/eslint-config": "^0.7.6",
     "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/sitemap": "^7.2.5",
