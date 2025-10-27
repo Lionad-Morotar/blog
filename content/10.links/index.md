@@ -5,9 +5,9 @@ description: 与我联络 & 友链
 
 我不喜欢微信和其他即时通讯工具，与我通讯的最佳方式是个人邮箱：1806234223@qq.com。
 
-目前我对前端、商业、认知等话题感兴趣，注意力主要集中在低代码行业。此外，常活跃于以下网站：
+目前我对前端、商业、认知等话题感兴趣，注意力主要集中在低码领域。此外，常活跃于以下网站：
 
-* 📕 微信读书：今年开始在微信读书活跃，计划逐渐[去豆瓣化](https://book.douban.com/mine?status=collect)。
+* 📕 微信读书：24年开始使用微信读书，此外计划逐渐[去豆瓣化](https://book.douban.com/mine?status=collect)。
 * [💻 Github](https://github.com/Lionad-Morotar)：存有本博客源码及其它一些也许有意思的东西，喜欢看 Feeds。
 * [🌐 Steam](https://steamcommunity.com/id/Lionad_Guirotar/)：花了大量时间在独立游戏及[逃离塔科夫](https://escapefromtarkov.com/)。
 * [🍟 bilibili](https://space.bilibili.com/6626299)：上班时会逛 B 站下饭。偶尔追番，没时间看剧。

@@ -308,3 +308,7 @@ Anthony Bonkoski 将 GPT 类比为“人类知识的极大似然估计器”，�
 #### RAG
 
 * [Retrieval-augmented Generated](/maps/_ai/rag/rag)
+
+## 案例
+
+* [AI辅助游戏开发极简案例：一个解谜卡牌对战小游戏](https://indienova.com/indie-game-development/ai-assisted-game-development-minimal-case-study/)

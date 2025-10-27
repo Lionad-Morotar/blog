@@ -253,6 +253,10 @@ template<>
 void process<int>(int val) { /* 针对 int 的高效实现 */ }
 ```
 
+#### HKT（type level functions）
+
+见：[hkt-core：类型安全的 type-level programming](https://zhuanlan.zhihu.com/p/21259597058)
+
 #### 内部工具类型推导？
 
 * [工具类型](/source-code/_ts/utility-types)
