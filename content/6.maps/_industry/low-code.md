@@ -48,7 +48,7 @@ description: 无代码、低代码、高代码，这是一个围绕人机交互�
 
 #### 产品体验
 
-* [Zapier](/maps/products/zapier) 
+* [Zapier](/maps/_products/zapier) 
 * [bit](/maps/_products/bit)
 * [budibase](/maps/_products/budibase)
 * [dynamo](/maps/_products/dynamo)
