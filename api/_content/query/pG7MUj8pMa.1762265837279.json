@@ -1,0 +1,1 @@
+[{"_path":"/source-code/_ts/typescript-compiler","title":"TypeScript 编译器","description":"TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder 建立符号体系并理顺作用域，Program 汇集全局视角，TypeChecker 完成类型推断和诊断，最终由 Emitter 生成输出文件。"},{"_path":"/source-code","title":"🚄 代码笔记","description":"正将本页面内容往“知识地图”中搬迁"}]
