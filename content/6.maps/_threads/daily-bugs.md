@@ -5,6 +5,10 @@ description: 追踪一些日常碰到的软件缺陷
 
 #### 2025-11-05
 
+* [Qwen3-embedding 的维度设置问题](https://github.com/coze-dev/coze-studio/issues/838)
+
+#### 2025-11-05
+
 Coze Studio 的提示也会出现鼠标交互问题。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511051626902.mov)
