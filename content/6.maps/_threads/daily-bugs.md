@@ -5,6 +5,12 @@ description: 追踪一些日常碰到的软件缺陷
 
 #### 2025-11-05
 
+Coze Studio 的提示也会出现鼠标交互问题。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511051626902.mov)
+
+#### 2025-11-05
+
 在 Mac Edge 中，搜狗拼音输入不了中文，发现输入框在屏幕上一个奇怪的位置。切换到 VSCode 后能正常输入，再重新切换回 Edge 就好了。
 
 #### 2025-10-27
