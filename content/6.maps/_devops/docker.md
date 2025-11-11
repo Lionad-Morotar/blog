@@ -66,6 +66,6 @@ RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
 
 #### 镜像元数据解析失败
 
-碰到一个 docker build 失败，但是如果先 docker pull image 再 docker build，流程就能成功的问题。
+碰到一个 docker build 失败，但是如果先 docker pull image 再 docker build，流程就能成功的问题，是 HTTPS_PROXY 设置的问题。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511060958386.png)

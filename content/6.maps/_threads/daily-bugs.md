@@ -3,6 +3,18 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2025-11-10
+
+在类型文件 import 外部类型后找不到命名空间问题。
+
+参考这个解决：[TS 解决找不到命名空间“Courses”](https://juejin.cn/post/7077760247359602718)
+
+#### 2025-11-06
+
+碰到一个奇怪的问题。发现是错误的 template 导致的。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511061805391.png)
+
 #### 2025-11-05
 
 * [Qwen3-embedding 的维度设置问题](https://github.com/coze-dev/coze-studio/issues/838)
