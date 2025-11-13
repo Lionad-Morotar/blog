@@ -27,6 +27,10 @@ monorepo 对应 multi-repo，是“把多个仓库放到一个仓库中来管理
 * 按需构建：需要手动使用 yarn lerna:changed 找出变化的项目进行按需构建
 * 提交记录混乱：需要使用更规范的分支管理及提交信息管理
 
+## Rush
+
+* [Rush 工具详解：概念、使用场景与优势分析](https://blog.csdn.net/i042416/article/details/145900916)
+
 ## Lerna
 
 见：[Lerna Doc](https://lerna.js.org/docs/introduction)

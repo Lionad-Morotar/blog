@@ -19,6 +19,11 @@ Anthony Bonkoski 将 GPT 类比为“人类知识的极大似然估计器”，�
 
 使用 [projector.tensorflow](https://projector.tensorflow.org/) 在低维度空间查看不同向量的某个特征的分布情况。
 
+## 模型搜索
+
+* [Ollama Search](https://ollama.com/library/qwen3-embedding)
+* [mteb Leaderboard](https://huggingface.co/spaces/mteb/leaderboard)：多语言文本嵌入基准测试排行榜，用于比较各模型在不同任务上的嵌入效果。
+
 ## NLP
 
 #### 将 LLMs 及 NLP 结合
