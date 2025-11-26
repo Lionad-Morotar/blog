@@ -7,7 +7,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "nuxt build",
-    "dev": "nuxt dev --port 4995 --host",
+    "dev": "nuxt dev --port 5995 --host",
     "serve": "pnpm dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
