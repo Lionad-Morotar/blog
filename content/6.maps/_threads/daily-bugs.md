@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2025-11-26
+
+Go 的中文文档 typo。以后所有文档自动拷贝成 i18n 站多好。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511261601627.png)
+
 #### 2025-11-10
 
 在类型文件 import 外部类型后找不到命名空间问题。
