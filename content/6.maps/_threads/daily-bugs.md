@@ -3,11 +3,18 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+
 #### 2025-11-26
 
 Go 的中文文档 typo。以后所有文档自动拷贝成 i18n 站多好。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511261601627.png)
+
+---
+
+YouMind 搜索资料被 403 了。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511262317741.png)
 
 #### 2025-11-10
 
