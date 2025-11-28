@@ -3,6 +3,11 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2025-11-28
+
+Nuxt 多打一个引号，页面直接炸了，报错找不到任何有用的信息。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511281109208.png)
 
 #### 2025-11-26
 
