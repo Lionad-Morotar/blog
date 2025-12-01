@@ -1,3 +1,5 @@
+fix mathjax
+
   display: block;
   margin: auto;
   width: 95%;

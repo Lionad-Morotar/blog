@@ -47,6 +47,7 @@
     "nuxt-content-git": "^4.0.1",
     "nuxt-feedme": "^1.0.1",
     "only-allow": "^1.2.1",
+    "rehype-mathjax": "^7.1.0",
     "sass": "^1.85.0",
     "vue-tsc": "^2.2.2"
   },

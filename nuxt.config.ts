@@ -168,7 +168,19 @@ export default defineNuxtConfig({
         'makefile',
         'mermaid',
         'csharp',
+        'java'
       ],
+    },
+    rehypePlugins: {
+      'rehype-mathjax': {
+        src: 'rehype-mathjax',
+        options: {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          },
+        },
+      },
     },
   },
 
