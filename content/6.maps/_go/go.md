@@ -21,3 +21,7 @@ description: Go（又称 Golang）是 Google 开发的一种静态强类型、�
 
 * [Go Concurrency Patterns](https://www.youtube.com/watch?v=f6kdp27TYZs)
 * [Go Advanced Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)
+
+## Dev
+
+* [g](https://github.com/voidint/g)：Version manager for Go
