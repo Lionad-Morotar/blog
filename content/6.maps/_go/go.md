@@ -7,6 +7,7 @@ description: Go（又称 Golang）是 Google 开发的一种静态强类型、�
 
 * [A Tour of Go](https://tour.go-zh.org/list)
 * [Go for JavaScript Developers](https://chenjinya.com/go-for-javascript-developers/pages/internals/)
+* [深入 Go 语言之旅](https://go.cyub.vip)
 
 ## Specification
 
@@ -22,6 +23,7 @@ description: Go（又称 Golang）是 Google 开发的一种静态强类型、�
 * [Go Concurrency Patterns](https://www.youtube.com/watch?v=f6kdp27TYZs)
 * [Go Advanced Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)
 
-## Dev
+## Dev Tools
 
+* [Go Playground](https://go.dev/play/)：在线编写、运行和分享 Go 代码的工具
 * [g](https://github.com/voidint/g)：Version manager for Go
