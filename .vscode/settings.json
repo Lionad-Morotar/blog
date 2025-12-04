@@ -67,9 +67,13 @@
 
     /* cspells */
     "cSpell.ignoreWords": [
-        "ESRGAN",
-        "LDSR",
-        "qwen"
+      "Andrej",
+      "ESRGAN",
+      "Ilya",
+      "Karpathy",
+      "LDSR",
+      "Sutskever",
+      "qwen"
     ],
     "cSpell.words": [
       "Aluminium",
