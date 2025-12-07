@@ -302,6 +302,7 @@ Anthony Bonkoski 将 GPT 类比为“人类知识的极大似然估计器”，�
 
 #### Benchmark
 
+* [LLM Benchmark](/maps/_ai/benchmark/benchmark)
 * [simple-benchmark](/maps/_ai/benchmark/simple)
 
 #### Prompt
