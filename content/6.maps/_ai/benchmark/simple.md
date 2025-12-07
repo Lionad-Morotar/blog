@@ -3,6 +3,14 @@ title: Simple Benchmark
 description: 日常使用的简单基准测试
 ---
 
+#### 2025-12
+
+使用老朋友测 Kimi K2 Thinking、GPT-5 和 DeepSeek V3.2：
+
+- [Kimi K2 Thinking](https://www.kimi.com/share/19af7152-2b22-8e9f-8000-000016cfd092)：没有展示抽象能力，但通过少量枚举，意外地找到了几组不错的答案。
+- [DeepSeek V3.2](https://chat.deepseek.com/share/bpg5qaiwq5fuk7addd)：通过数万token的枚举，找到了几组不错的答案，此外衍生出了关于“含义对立”的思路。
+- [GPT-5](https://www.maxai.co/share?id=a5222cc57cbc97e4830bf86724d1b1b8851ebc3d0614f2112961e160)：第一轮就找到了不错的答案，此外思路绝佳。
+
 #### 2025-03
 
 * SVD 的全称
