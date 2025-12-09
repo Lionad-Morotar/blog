@@ -3,6 +3,18 @@ title: Developer Experience（DX）
 description: 开发者体验（Developer Experience，DX）是指开发者在使用产品、工具、框架等过程中的感受和体验。它是用户体验（User Experience，UX）的一个子集，专注于开发者的需求和体验。
 ---
 
+## Domain
+
+- [GenAI for legacy codebases](/maps/_programming/dx/genai-for-legacy-codebases)
+- [GenAI for forward engineering](/maps/_programming/dx/genai-for-forward-engineering)
+
+## Cross Domain
+
+- [Team based Instructions](/maps/_ai/prompt/team-based-instructions)
+- [agents.md](/maps/_ai/vibe/agents)
+
+## Gists
+
 #### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/Developer%20Exception%20Engineering.html' source='https://www.swyx.io/developer-exception/' >《Developer Exception Engineering》</Link>
 
 SWYX 认为社区在过去讨论 Developer Experience 的角度稍稍狭隘了。

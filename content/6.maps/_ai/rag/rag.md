@@ -27,3 +27,7 @@ RAG 技术意味着在生成数据前将检索到的高质量数据作为上下�
 - 收益：利用图的逻辑推理能力，给出准确回答。
 
 见：[知识库（Knowledge Base）与知识图谱（Knowledge Graph）到底该怎么选？ @tataqiuqiu](https://mp.weixin.qq.com/s/qugyc6WlsbrCmG2wTAXzGg)
+
+## Domain
+
+* [设备端信息检索](/maps/_ai/rag/on-device-info-retrieval)

@@ -1,0 +1,3 @@
+[submodule "local-llm-toolset"]
+	path = packages/local-llm-toolset
+	url = git@github.com:Lionad-Morotar/simple-local-llm-server.git

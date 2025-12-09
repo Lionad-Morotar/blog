@@ -5,19 +5,12 @@ description: DevOps 是一种开发理论，它致力于将大量自动化操作
 
 ![DevOps](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220627182016.png?w=60)
 
-## Sub Topics
-
-### CI/CD
+## Domain
 
 * [CI/CD](/maps/_devops/cicd)
-
-### GitLab
-
 * [GitLab](/maps/_devops/gitlab)
-
-## Pack & Build
-
 * [Docker](/maps/_devops/docker)
+- [Continues Compliance 持续合规](/maps/_devops/continuous-compliance)
 
 <!-- ## Monitor -->
 <!-- todo not find -->

@@ -145,3 +145,8 @@ Istio 未来的发展方向就是完善 Ambient Mesh（一种无边车模式的�
 #### 不可变基础设施能解决什么问题？
 
 以解决传统运维时代需要大量手工操作带来的构建难以自动化，以及环境变量改变等问题。其最大的优势是“一致性”，使基础设施管理简单、可部署、可规模化、可恢复，也提高了安全性。
+
+## Domain
+
+* [Sidecar](/maps/_architecture/cloud-native/sidecar/sidecar)
+* [Arm on Cloud Native](/maps/_cloud-native/hardware/arm-on-cloud-native)

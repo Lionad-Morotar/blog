@@ -13,3 +13,8 @@ title: 软件测试
 ## 资格
 
 * [计算机软件测试员](/maps/_test/software-testing-engineer)
+
+## TDD
+
+* [AI 驱动测试](/maps/_test/ai/ai-driven-testing)
+* [TCR（Test && Commit || Revert）](/maps/_test/methods/tcr)

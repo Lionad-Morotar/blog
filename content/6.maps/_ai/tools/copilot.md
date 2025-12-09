@@ -1,7 +1,16 @@
 ---
-title: GitHub Copilot
-description: GitHub Copilot 是一款由 GitHub 和 OpenAI 合作开发的人工智能代码提示工具，它可以根据上下文和注释生成代码片段，提高开发效率。
+title: Copilot
+description: Copilot 是一种新型人机协作工具。
 ---
+
+## Domain
+
+- [Team based Instructions](/maps/_ai/prompt/team-based-instructions)
+- [Context Engineering](/maps/_ai/prompt/context-engineering)
+
+## Cross Domain
+
+- [GenAI for Legacy Codebases](/maps/_programming/dx/genai-for-legacy-codebases)
 
 ## Gists
 

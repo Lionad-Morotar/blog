@@ -69,9 +69,12 @@
     "cSpell.ignoreWords": [
       "Andrej",
       "ESRGAN",
+      "GPTAPI",
       "Ilya",
       "Karpathy",
       "LDSR",
+      "SWYX",
+      "Smol",
       "Sutskever",
       "qwen"
     ],
@@ -116,13 +119,16 @@
       "Navigations",
       "nuxthq",
       "nuxtjs",
+      "OSCAL",
       "practieces",
       "Raptazure",
       "RDMA",
       "regexr",
+      "Rego",
       "regulex",
       "Reichheld",
       "Renwangyu",
+      "SLSA",
       "Stallman",
       "Sveltekit",
       "tataqiuqiu",
@@ -135,7 +141,8 @@
       "UHMWPE",
       "webstatus",
       "zdiff",
-      "zoomable"
+      "zoomable",
+      "ztunnel"
     ],
     "explorer.excludeGitIgnore": true
 }

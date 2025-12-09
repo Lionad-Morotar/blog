@@ -31,3 +31,6 @@ description: 用户界面（UI）设计是指设计师设计的用户界面，�
 - 如果页面需要更温和的视觉效果，可用 **Light Vibrant + Light Muted** 做柔和渐变。  
 - 深色风格界面中，可用 **Dark Vibrant + Dark Muted** 来保持整体稳重，又不失层次。  
 
+## Domain
+
+* [GenAI for UI Prototyping](/maps/_ui/gen/genai-for-ui-prototyping)
