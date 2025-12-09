@@ -11,6 +11,10 @@ description: 日常使用的简单基准测试
 - [DeepSeek V3.2](https://chat.deepseek.com/share/bpg5qaiwq5fuk7addd)：通过数万token的枚举，找到了几组不错的答案，此外衍生出了关于“含义对立”的思路。
 - [GPT-5](https://www.maxai.co/share?id=a5222cc57cbc97e4830bf86724d1b1b8851ebc3d0614f2112961e160)：第一轮就找到了不错的答案，此外思路绝佳。
 
+无论我的系统提示词是什么，本地 Qwen3 Next 直接拒绝了我的任务，除非我把 GPT-5 的思路拔下来告诉他要怎么找答案。本地的 Qwen3 Next Thinking 则是花了四分钟烧掉 1w token，找到两个错误答案和一个“诺/no”。
+
+![Local Qwen3 Next](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20251208131758762.png)
+
 #### 2025-03
 
 * SVD 的全称
