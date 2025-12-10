@@ -11,7 +11,7 @@ description: 开发者体验（Developer Experience，DX）是指开发者在使
 ## Cross Domain
 
 - [Team based Instructions](/maps/_ai/prompt/team-based-instructions)
-- [agents.md](/maps/_ai/vibe/agents)
+- [agents.md](/maps/_ai/vibe/agents-md)
 
 ## Gists
 

@@ -148,5 +148,5 @@ Istio 未来的发展方向就是完善 Ambient Mesh（一种无边车模式的�
 
 ## Domain
 
-* [Sidecar](/maps/_architecture/cloud-native/sidecar/sidecar)
+* [Sidecar](/maps/_cloud-native/sidecar/sidecar)
 * [Arm on Cloud Native](/maps/_cloud-native/hardware/arm-on-cloud-native)

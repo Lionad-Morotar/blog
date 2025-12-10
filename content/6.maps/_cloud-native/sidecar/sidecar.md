@@ -8,4 +8,4 @@ Sidecar 模式是一种设计模式，通常用于微服务架构中。它涉及
 
 ## Domain
 
-* [Service Mesh without Sidecar](/maps/_architecture/cloud-native/sidecar/service-mesh-without-sidecar)
+* [Service Mesh without Sidecar](/maps/_cloud-native/sidecar/service-mesh-without-sidecar)
