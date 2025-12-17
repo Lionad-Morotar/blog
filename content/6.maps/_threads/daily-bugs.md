@@ -3,6 +3,20 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2025-12-15
+
+Yarn 安装碰到 TLS 问题。
+
+https://github.com/yarnpkg/yarn/issues/892
+
+<Link type="h5" to="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20251215133211580.txt" />
+
+#### 2025-12-10
+
+不能用 DOM 节点改 input.value 的问题，参考了：https://blog.csdn.net/l198738655/article/details/107026783
+
+应该是 React 版本对不上，还是不能更改，最后问 Copilot 直接调用 fiber 里面的 onChange 方法才有用。
+
 #### 2025-11-30
 
 不听话的 Github Copilot
