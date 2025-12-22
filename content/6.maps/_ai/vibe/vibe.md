@@ -31,3 +31,4 @@ description: Vibe 是一个基于 AI 的代码生成和协作平台，旨在通�
 
 - [Anchoring coding agents to a ref application](/maps/_ai/vibe/anchoring)
 - [Complacency in AI-assisted coding](/maps/_ai/vibe/complacency)
+
