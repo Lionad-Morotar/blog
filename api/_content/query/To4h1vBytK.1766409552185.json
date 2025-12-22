@@ -1,0 +1,1 @@
+[{"_path":"/maps/_database/graphql","title":"GraphQL","description":"一种用于 API 的查询语言和运行时环境，允许客户端精确地请求所需的数据，从而提高数据获取的效率和灵活性。"},{"_path":"/maps/_database/lakehouse/delta-sharing","title":"Delta Sharing：跨平台安全数据共享的开放协议（Trial）","description":"以开放协议在多云与本地间共享“在线数据”，集中治理与审计，避免复制；但须管控跨云外网成本。"}]
