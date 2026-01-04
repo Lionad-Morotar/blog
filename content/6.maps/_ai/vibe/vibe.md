@@ -32,3 +32,9 @@ description: Vibe 是一个基于 AI 的代码生成和协作平台，旨在通�
 - [Anchoring coding agents to a ref application](/maps/_ai/vibe/anchoring)
 - [Complacency in AI-assisted coding](/maps/_ai/vibe/complacency)
 
+## Links
+
+#### 余额查询
+
+* [Copilot](https://github.com/settings/billing/budgets)
+* [Trae](https://www.trae.ai/account-setting?user_id=7473336841417851912&username=Lionad-Morotar#usage)
