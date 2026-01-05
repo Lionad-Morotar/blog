@@ -1,1 +1,0 @@
-[{"_path":"/maps/_ai/llm/datadog/datadog-llm","title":"Datadog LLM Observability","description":"为 LLM 与 Agent 工作流提供端到端追踪、监控与诊断，融入 Datadog APM 体系；对已用 Datadog 的团队较友好，但埋点与协同要求高。"},{"_path":"/maps/_ai/llm/llm-as-a-judge","title":"LLM 作为评审者（LLM as a judge）","description":"讨论用 LLM 自动评估生成式系统输出的现状、问题与建议."}]
