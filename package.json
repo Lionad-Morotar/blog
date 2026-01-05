@@ -49,7 +49,7 @@
     "only-allow": "^1.2.1",
     "rehype-mathjax": "^7.1.0",
     "sass": "^1.85.0",
-    "vue-tsc": "^2.2.2"
+    "vue-tsc": "^3.2.2"
   },
   "overrides": {
     "nuxt": {
