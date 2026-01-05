@@ -1,1 +1,0 @@
-[{"_path":"/maps/_database/datalake/paimon","title":"Apache Paimon：湖仓一体中的可变数据与实时更新","description":"将数据湖格式与 LSM 融合，面向高吞吐更新与低延迟读的实时湖仓存储与管理。"},{"_path":"/maps/_database/delta-lake/liquid-clustering","title":"Delta Lake Liquid Clustering","description":"Delta Lake 液体聚类是一种动态数据布局优化技术，通过增量调整数据分布以提升查询性能，适应多变的查询模式，降低维护成本"}]

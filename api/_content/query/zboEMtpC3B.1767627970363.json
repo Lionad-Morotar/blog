@@ -1,0 +1,1 @@
+[{"_path":"/maps/_cloud-native/kubernetes","title":"Kubernetes","description":"K8s，是一个基于容器的集群管理平台，主要用于控制容器"},{"_path":"/maps/_cloud-native/sidecar/service-mesh-without-sidecar","title":"无边车的服务网格","description":"随着基于 sidecar 的服务网格在成本和运维复杂度上的问题持续存在，我们很高兴看到出现了另一种不依赖 sidecar 的服务网格选项：Istio Ambient 模式。"}]

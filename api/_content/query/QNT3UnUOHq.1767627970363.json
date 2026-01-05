@@ -1,0 +1,1 @@
+[{"_path":"/maps/_database/delta-lake/delta-lake","title":"Delta Lake","description":"一个开源的存储层，旨在为数据湖提供 ACID 事务支持、可扩展的元数据处理和统一的批处理与流处理能力。"},{"_path":"/maps/_database/graphql","title":"GraphQL","description":"一种用于 API 的查询语言和运行时环境，允许客户端精确地请求所需的数据，从而提高数据获取的效率和灵活性。"}]
