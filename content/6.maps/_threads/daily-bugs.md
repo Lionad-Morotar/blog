@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-01-08
+
+神特喵微软翻译（Edge 浏览器自带）笑死了
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260108113659388.png)
+
 #### 2025-12-15
 
 Yarn 安装碰到 TLS 问题。
