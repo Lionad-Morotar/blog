@@ -19,7 +19,7 @@ description: pnpm 是一个快速、省空间的包管理器
 
 使用 `pnpm why` 可以列出项目内依赖了某个依赖的依赖，比如说找到项目内使用了 lodash 的包。
 
-```text
+```plaintext
 dependencies:
 element-plus 2.2.20
 ├── lodash 4.17.21
@@ -110,7 +110,7 @@ module.exports = {
 
 当同级依赖的深度增加时，层级结构也随之变得复杂。如果某个依赖 A 依赖了同一个 B，但是 B 子依赖 C 的版本不同（C@1.0 和 C@1.1），这样就创造出了指数级增长的软链数量。为了保证 B 能分别访问两个 C，B 的符号链接的被链接地址会有 `.pnpm/B_C@1.0/node_modules/B` 和 `.pnpm/B_C@1.1/node_modules/B`，而为此，A 的被链接地址也会有两个，`.pnpm/A_C@1.0/node_modules/A` 和 `.pnpm/A_C@1.0/node_modules/A`。从不同的 A 的被链接地址的上级目录 `node_modules` 可以读取到不同的 B 的被链目录，从不同的 B 可以读取到不同的 C。
 
-```text
+```plaintext
 node_modules
 └── .pnpm
     ├── a@1.0.0_c@1.0.0

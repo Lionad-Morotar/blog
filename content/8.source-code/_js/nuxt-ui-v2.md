@@ -6,7 +6,7 @@ title: nuxt-ui v2
 
 #### nuxt-ui 的项目结构是怎样的？
 
-```text
+```plaintext
 src/
 ├── runtime/
 │   ├── composables/            # 组件用到的钩子函数

@@ -9,7 +9,7 @@ description: Element，一套为开发者、设计师和产品经理准备的基
 
 ElementUI 的项目结构按照功能划分，把源文件、主题样式、文档文件夹存放在项目一级目录下。
 
-```text
+```plaintext
 element
 ├── /.github        // GitHub 流程相关，包括贡献者列表、缺陷模板、PR 模板文件
 ├── /build          // 项目打包和部署相关脚本、Webpack 配置

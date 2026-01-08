@@ -1,6 +1,6 @@
 # Nginx Config Example
 
-```txt
+```plaintext
 user lionad;
 worker_processes auto;
 error_log /var/log/nginx/error.log;
