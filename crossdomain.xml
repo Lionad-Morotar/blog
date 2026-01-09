@@ -1,0 +1,6 @@
+<cross-domain-policy>
+  <allow-access-from domain="*.lionad.art" />
+  <allow-access-from domain="lionad.art" />
+  <allow-access-from domain="localhost" />
+  <allow-access-from domain="127.0.0.1" />
+</cross-domain-policy>

@@ -1,0 +1,1 @@
+[{"_path":"/maps/_database/delta-lake/liquid-clustering","title":"Delta Lake Liquid Clustering","description":"Delta Lake 液体聚类是一种动态数据布局优化技术，通过增量调整数据分布以提升查询性能，适应多变的查询模式，降低维护成本"},{"_path":"/maps/_database/graphql/ai/graphql-for-llm","title":"GraphQL for LLM","description":"将 GraphQL 作为大型语言模型（LLM）数据访问模式的实践"}]
