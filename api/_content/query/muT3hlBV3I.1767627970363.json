@@ -1,1 +1,0 @@
-[{"_path":"/maps/_database/datalake/datalake","title":"Data Lake","description":"一种用于存储大量原始数据的系统，支持多种数据格式和类型，适用于大数据分析和处理。"},{"_path":"/maps/_database/delta-lake/delta-lake","title":"Delta Lake","description":"一个开源的存储层，旨在为数据湖提供 ACID 事务支持、可扩展的元数据处理和统一的批处理与流处理能力。"}]
