@@ -1,7 +1,9 @@
 ---
-title Goose Prompts
+title: Goose Prompts
 description: xxx
 ---
+
+extract from goose diagnostics
 
 **Chat Title**
 
