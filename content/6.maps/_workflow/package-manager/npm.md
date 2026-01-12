@@ -3,7 +3,6 @@ title: NPM
 description: NPM 包管理器完整指南，包含 package.json 配置、镜像源管理、依赖安装等核心功能的详细说明。
 ---
 
-
 ## package.json
 
 参阅：
@@ -72,3 +71,9 @@ npx nrm test
 * 安装包时指定 registry（如 npm install vue --registry=xxx） 
 
 见：[pnpm 不能安装不同来源的包](https://github.com/pnpm/pnpm/issues/5581)
+
+## 发布
+
+#### 发布时不会跟踪符号链接？
+
+今天碰到个问题，我在单仓根目录创建了 readme.md 文件，然后在包里用符号链接。MD文件链接到单仓根目录下。 但是 npm publish 时没有带上包的 readme。
