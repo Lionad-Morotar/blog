@@ -3,6 +3,10 @@ title: LLM Benchmark
 description: 各类大语言模型的基准测试结果
 ---
 
+* [Repo Prompt](https://repoprompt.com/bench)
+
+长上下文推理、文件编辑精度和指令遵循能力 Benchmark
+
 * [Artificial Analysis AI Trends](https://artificialanalysis.ai/trends)
 
 在你当前浏览的 **Artificial Analysis AI Trends** 页面里，比较维度非常丰富，主要围绕不同角度来衡量和对比 AI 模型的发展。总结下来有以下几个核心维度：
