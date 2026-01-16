@@ -3,6 +3,14 @@ title: LLM Benchmark
 description: 各类大语言模型的基准测试结果
 ---
 
+* [ZigScan](https://raw.githubusercontent.com/gnusec/AI-PK/refs/heads/main/results/REPORT_ZH.html)
+
+真实世界 AI 编码代理性能基准
+
+* [Agentic、Safety、Frontier、Legacy LBs](https://scale.com/leaderboard/mcp_atlas)
+
+* [各数据集榜单](https://llm-stats.com/benchmarks)
+
 * [Repo Prompt](https://repoprompt.com/bench)
 
 长上下文推理、文件编辑精度和指令遵循能力 Benchmark
