@@ -3,9 +3,21 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-01-19
+
+这对吗？
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260119015504669.png)
+
+#### 2026-01-18
+
+在 Trae 里的浏览器一不小心点了部署，没办法撤销，特喵的傻逼交互。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260119010435785.png)
+
 #### 2026-01-08
 
-神特喵微软翻译（Edge 浏览器自带）笑死了
+快被微软翻译（Edge 浏览器自带）笑死了
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260108113659388.png)
 
