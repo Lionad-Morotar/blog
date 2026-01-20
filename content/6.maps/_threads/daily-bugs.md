@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-01-20
+
+碰到了目录不可读问题，删依赖清缓存都没用，甚至删完之后重新 pnpm install 都会报错，实在搞不懂。
+
+见：https://github.com/nuxt/devtools/issues/79
+
 #### 2026-01-19
 
 这对吗？
