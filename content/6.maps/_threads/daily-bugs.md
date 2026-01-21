@@ -3,9 +3,19 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-01-21
+
+这两行实际有内容，但是 VSCode 不显示，除非鼠标点击。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260121094919435.png)
+
 #### 2026-01-20
 
 碰到了目录不可读问题，删依赖清缓存都没用，甚至删完之后重新 pnpm install 都会报错，实在搞不懂。
+
+```plaintext
+postinstall$ nuxt prepare │ ERROR EISDIR: illegal operation on a directory
+```
 
 见：https://github.com/nuxt/devtools/issues/79
 
