@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-01-22
+
+MiniMax 客户端第一个任务就碰到了 bug。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260122204450537.png)
+
 #### 2026-01-21
 
 这两行实际有内容，但是 VSCode 不显示，除非鼠标点击。
