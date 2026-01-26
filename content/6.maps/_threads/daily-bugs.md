@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-01-24
+
+好像很有道理...
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260126022817353.png)
+
 #### 2026-01-22
 
 MiniMax 客户端第一个任务就碰到了 bug。
