@@ -1,6 +1,6 @@
 ---
 title: Agent Skills
-description: AI 代理技能相关资料
+description: Skill 是一种能力，作为 Agent 和工具之间的胶水层，帮助 Agent 理解工具以及有控制上下文等优点。
 ---
 
 ## Tour
