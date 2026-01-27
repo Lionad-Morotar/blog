@@ -1,13 +1,18 @@
 ---
-title: VSCode
-description: Visual Studio Code
-date: 2024-02-08
-tags: ["vscode"]
+title: 集成开发环境（IDE）
+description: 集成开发环境（IDE）是一种软件应用程序，用于提供开发人员在一个环境中编写、测试和调试代码的功能。它通常包括代码编辑器、调试器、构建工具和其他辅助功能。
+tags: ["vscode", "trae"]
 ---
 
-## 常见问题
+## Trae
 
-记录一些配置 VSCode 时碰到的问题。
+部分插件迁移后不能正常创建配置文件，手动迁移后能正常使用，比如 `fredjeck.fav` 插件。
+
+```bash
+cp "/Users/username/Library/Application Support/Code - Insiders/User/globalStorage/fredjeck.fav/favorites.json" "/Users/username/Library/Application Support/Trae/User/globalStorage/fredjeck.fav/favorites.json"
+```
+
+## VSCode
 
 #### 如何使大纲视图默认只显示一级？
 
