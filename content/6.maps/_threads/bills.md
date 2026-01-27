@@ -8,3 +8,4 @@ description: 记录一些账单和开销
 * [DeepSeek 账单](https://platform.deepseek.com/usage)
 * [Moonshot 账单](https://platform.moonshot.cn/console/account)
 * [GLM 账单](https://www.bigmodel.cn/usercenter/glm-coding/usage)
+* [MiniMax 账单](https://platform.minimaxi.com/user-center/payment/coding-plan)
