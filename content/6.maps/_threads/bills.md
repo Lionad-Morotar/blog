@@ -10,3 +10,4 @@ description: 记录一些账单和开销
 * [LongCat](https://longcat.chat/platform/usage)
 * [Moonshot](https://platform.moonshot.cn/console/account)
 * [MiniMax](https://platform.minimaxi.com/user-center/payment/coding-plan)
+* [Kimi](https://www.kimi.com/code/console)
