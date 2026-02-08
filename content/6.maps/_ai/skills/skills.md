@@ -7,6 +7,10 @@ description: Skill 是一种能力，作为 Agent 和工具之间的胶水层，
 
 * [Claude Skills](https://code.claude.com/docs/zh-CN/skills)
 
+## Domain
+
+* [如何编写 Skills](/maps/_ai/skills/create-a-skill.md)
+
 ## Gists
 
 VSCode 有 Skill 的校验。
