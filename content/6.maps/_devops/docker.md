@@ -52,6 +52,21 @@ RunC：Containerd 提供的容器管理等 API 的执行者是 RunC。
 - `exec`：执行容器指令，如 `docker exec -it xxx bash`
 - `copy`：复制文件到 Docker 中，如 `docker cp d://test dockerID:dockerPath`
 
+## 构建与发布
+
+#### 多平台构建
+
+```bash
+# 1. 开启模拟（一次即可）
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
+# 2. 创建构建器（一次即可）
+docker buildx create --use --name multiarch --platform "linux/arm64,linux/amd64"
+
+# 3. 构建并推送
+docker buildx build --platform linux/arm64,linux/amd64 -t your/app --push .
+```
+
 ## 调试流程
 
 1. 拉远端镜像：`docker pull registry.gitlab.p-ray.cn/moe:75150`
