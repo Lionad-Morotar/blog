@@ -80,7 +80,7 @@ title: 💖 逃离虚无，再拥抱它
 * [《🍲 设计模式与 JS 魔法锅》](/articles/design-patterns-and-js-magic-pot)（⭐⭐⭐⭐）
 * [《🎉 JavaScript Mind Map》](/maps/_frontend/javascript/javascript-mind-map)（⭐⭐⭐）
 * [《👑 Helmet & Security》](/_achieved/2020-08/helmet-and-security)（⭐⭐⭐）
-* [《📕 四十二篇 | 有关新项目的方法论》](/flows/_fourty-two/dark-room)（⭐⭐⭐⭐）
+* [《📕 四十二篇 | 有关新项目的方法论》](/flows/_forty-two/dark-room)（⭐⭐⭐⭐）
 * [《🏆 学习 JS，从忍者到杀手》](/_achieved/2020-12/js-100)（⭐⭐⭐⭐⭐）
 * [《🥛 新工作，喝新饮料》](/flows/drinking-while-thinking)（⭐⭐⭐⭐）
 

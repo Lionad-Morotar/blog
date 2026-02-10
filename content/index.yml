@@ -4,7 +4,7 @@ navigation: false
 recommends:
   - category: 心流
     label: '盲视'
-    to: '/flows/_fourty-two/blind-sight'
+    to: '/flows/_forty-two/blind-sight'
   - category: 技术
     label: 'tailwind4 如何兼容预处理器'
     to: '/articles/tailwind4-with-sass'

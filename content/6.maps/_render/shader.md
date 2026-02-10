@@ -3,6 +3,12 @@ title: Shader Art
 description: Shader Art 是一种使用 Shader 语言进行创作的艺术形式，它可以用来制作动画、图像、音乐等。
 ---
 
+## Tour
+
+* [Code Animated Rick](https://danielchasehooper.com/posts/code-animated-rick/)
+
+## Example
+
 #### An introduction to Shader Art Coding
 
 最简单的 Shader：

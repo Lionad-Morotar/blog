@@ -80,7 +80,7 @@ export default defineNuxtConfig({
       item: {
         query: {
           where: [
-            { _path: /^\/(articles|flows)\/([^_]|(_fourty-two))/ },
+            { _path: /^\/(articles|flows)\/([^_]|(_forty-two))/ },
           ],
         },
         mapping: [
@@ -168,7 +168,8 @@ export default defineNuxtConfig({
         'makefile',
         'mermaid',
         'csharp',
-        'java'
+        'java',
+        'nginx'
       ],
     },
     rehypePlugins: {
