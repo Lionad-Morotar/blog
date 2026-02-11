@@ -50,7 +50,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 9
+          version: 10.29.3
 
       - uses: actions/setup-node@v4
         with:
