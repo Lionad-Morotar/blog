@@ -10,6 +10,7 @@ description: DevOps 是一种开发理论，它致力于将大量自动化操作
 * [CI/CD](/maps/_devops/cicd)
 * [GitLab](/maps/_devops/gitlab)
 * [Docker](/maps/_devops/docker)
+* [rotatelogs](/maps/_devops/rotatelogs)
 - [Continues Compliance 持续合规](/maps/_devops/continuous-compliance)
 
 <!-- ## Monitor -->
