@@ -11,19 +11,31 @@ defineProps<{
   error: NuxtError
 }>()
 
+const route = useRoute()
+const htmlLang = computed(() => (route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'zh-cn'))
+
 useHead({
   htmlAttrs: {
-    lang: 'en'
+    lang: htmlLang
   }
 })
 
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
+const filteredNavigation = computed(() => {
+  const filter = (items: any[] | undefined): any[] => {
+    if (!items?.length) return []
+    return items
+      .filter((item) => !(item?._path === '/en' || item?._path?.startsWith('/en/')))
+      .map((item) => ({ ...item, children: filter(item.children) }))
+  }
+  return filter(navigation.value as any[] | undefined)
+})
 const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', {
   default: () => [],
   server: false,
 })
 
-provide('navigation', navigation)
+provide('navigation', filteredNavigation)
 </script>
 
 <template>
@@ -41,7 +53,7 @@ provide('navigation', navigation)
     <Footer />
 
     <ClientOnly>
-      <LazyUContentSearch :files="files" :navigation="navigation" />
+      <LazyUContentSearch :files="files" :navigation="filteredNavigation" />
     </ClientOnly>
 
     <UNotifications />

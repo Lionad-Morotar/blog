@@ -43,10 +43,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      failOnError: false,
       routes: [
         '/',
         '/flows',
         '/articles',
+        '/en/articles',
         '/tools',
         '/music',
         '/books',
@@ -121,9 +123,7 @@ export default defineNuxtConfig({
     },
   },
 
-  ui: {
-    icons: ['heroicons', 'simple-icons'],
-  },
+  ui: ({ icons: ['heroicons', 'simple-icons'] } as any),
 
   content: {
     highlight: {

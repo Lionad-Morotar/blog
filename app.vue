@@ -5,10 +5,21 @@ const { seo } = useAppConfig()
 const route = useRoute()
 
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
+const filteredNavigation = computed(() => {
+  const filter = (items: any[] | undefined): any[] => {
+    if (!items?.length) return []
+    return items
+      .filter((item) => !(item?._path === '/en' || item?._path?.startsWith('/en/')))
+      .map((item) => ({ ...item, children: filter(item.children) }))
+  }
+  return filter(navigation.value as any[] | undefined)
+})
 const { data: files } = useLazyFetch<ParsedContent[]>('/api/search.json', {
   default: () => [],
   server: false
 })
+
+const htmlLang = computed(() => (route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'zh-cn'))
 
 useHead({
   meta: [
@@ -19,7 +30,7 @@ useHead({
     { rel: 'icon', href: '/favicon.ico' }
   ],
   htmlAttrs: {
-    lang: 'zh-cn'
+    lang: htmlLang
   }
 })
 
@@ -28,7 +39,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-provide('navigation', navigation)
+provide('navigation', filteredNavigation)
 </script>
 
 <template>
@@ -44,7 +55,7 @@ provide('navigation', navigation)
     <Footer id="app-footer" />
 
     <ClientOnly>
-      <LazyUContentSearch id="app-search" :files="files" :navigation="navigation" />
+      <LazyUContentSearch id="app-search" :files="files" :navigation="filteredNavigation" />
     </ClientOnly>
 
     <UNotifications id="app-notification" />
