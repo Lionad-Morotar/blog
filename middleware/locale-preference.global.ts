@@ -5,8 +5,21 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const basePath = stripEnPrefix(to.path)
   const enPath = withLocalePath('en', basePath)
 
-  const zhCandidate = await queryContent(basePath).only(['_path']).findOne()
-  const enCandidate = await queryContent(enPath).only(['_path']).findOne()
+  // Use try-catch to handle 404 errors when content doesn't exist
+  let zhCandidate: any = null
+  let enCandidate: any = null
+
+  try {
+    zhCandidate = await queryContent(basePath).only(['_path']).findOne()
+  } catch {
+    zhCandidate = null
+  }
+
+  try {
+    enCandidate = await queryContent(enPath).only(['_path']).findOne()
+  } catch {
+    enCandidate = null
+  }
 
   if (currentLocale === 'en' && !enCandidate && zhCandidate) {
     return navigateTo({ path: basePath, query: to.query, hash: to.hash }, { redirectCode: 302 })

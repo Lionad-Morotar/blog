@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
-import type { DropdownMenuItem } from '@nuxt/ui'
 import { getLocaleFromPath, stripEnPrefix, withLocalePath, type PreferredLocale } from '~/utils/locale'
 
 definePageMeta({
@@ -25,26 +24,16 @@ const { data: enCandidate } = await useAsyncData(`en-candidate:${enPath.value}`,
 )
 const hasEnglish = computed(() => Boolean(enCandidate.value))
 
-const localeItems = computed<DropdownMenuItem[]>(() => [
+const localeItems = computed(() => [[
   {
     label: '中文',
-    type: 'checkbox',
-    checked: preferredLocale.value === 'zh',
-    onUpdateChecked: async (checked) => {
-      if (!checked) return
-      await setPreferredLocale('zh')
-    }
+    click: () => setPreferredLocale('zh')
   },
   {
     label: 'English',
-    type: 'checkbox',
-    checked: preferredLocale.value === 'en',
-    onUpdateChecked: async (checked) => {
-      if (!checked) return
-      await setPreferredLocale('en')
-    }
+    click: () => setPreferredLocale('en')
   }
-])
+]])
 
 async function setPreferredLocale(locale: PreferredLocale) {
   preferredLocale.value = locale
@@ -102,23 +91,22 @@ const links = computed(() => [toc?.bottom?.edit && {
             v-for="(link, index) in (page.links || [])"
             :key="index"
             v-bind="link"
-            :color="link.color || 'neutral'"
+            :color="link.color || 'gray'"
             :variant="link.variant || 'outline'"
           />
 
-          <UDropdownMenu
+          <UDropdown
             v-if="hasEnglish"
             :items="localeItems"
-            :content="{ align: 'end', side: 'bottom', sideOffset: 8 }"
-            :ui="{ content: 'w-44' }"
+            :popper="{ placement: 'bottom-end' }"
           >
             <UButton
-              color="neutral"
+              color="gray"
               variant="outline"
               icon="i-heroicons-language"
               :label="preferredLocale === 'en' ? 'EN' : '中文'"
             />
-          </UDropdownMenu>
+          </UDropdown>
         </div>
       </template>
     </UPageHeader>
