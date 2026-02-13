@@ -3,6 +3,10 @@ title: LLM Benchmark
 description: 各类大语言模型的基准测试结果
 ---
 
+* [Arena.ai](https://arena.ai/zh/leaderboard/code)：经典大模型竞技场
+
+* [SanityHarness](https://sanityboard.lr7.dev/)：Agentic 基准
+
 * [ZigScan](https://raw.githubusercontent.com/gnusec/AI-PK/refs/heads/main/results/REPORT_ZH.html)
 
 真实世界 AI 编码代理性能基准
