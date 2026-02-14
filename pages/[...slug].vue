@@ -74,12 +74,7 @@ useSeoMeta({
 
 const headline = computed(() => findPageHeadline(page.value))
 
-const links = computed(() => [toc?.bottom?.edit && {
-  icon: 'i-heroicons-pencil-square',
-  label: 'Edit this page',
-  to: `${toc.bottom.edit}/${page?.value?._file}`,
-  target: '_blank',
-}, ...(toc?.bottom?.links || [])].filter(Boolean))
+const links = computed(() => (toc?.bottom?.links || []).filter(Boolean))
 </script>
 
 <template>
@@ -104,7 +99,7 @@ const links = computed(() => [toc?.bottom?.edit && {
               color="gray"
               variant="outline"
               icon="i-heroicons-language"
-              :label="preferredLocale === 'en' ? 'EN' : '中文'"
+              :label="preferredLocale === 'en' ? 'EN（机翻）' : '中文'"
             />
           </UDropdown>
         </div>
