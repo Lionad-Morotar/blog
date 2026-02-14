@@ -1,6 +1,9 @@
 import { getLocaleFromPath, stripEnPrefix, withLocalePath } from '~/utils/locale'
 
 export default defineNuxtRouteMiddleware(async (to) => {
+  // Skip internal Nuxt routes and API routes
+  if (to.path.startsWith('/_') || to.path.startsWith('/api/')) return
+
   const currentLocale = getLocaleFromPath(to.path)
   const basePath = stripEnPrefix(to.path)
   const enPath = withLocalePath('en', basePath)

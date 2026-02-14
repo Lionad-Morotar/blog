@@ -61,7 +61,23 @@ useSeoMeta({
   ogTitle: `${page.value.title} - ${seo?.siteName}`,
   description: page.value.description,
   ogDescription: page.value.description,
+  // Mark English pages as machine-translated
+  ogLocale: currentLocale.value === 'en' ? 'en_US' : 'zh_CN',
 })
+
+// hreflang for multilingual SEO (only if English version exists)
+const baseUrl = 'https://lionad.art'
+useHead(computed(() => {
+  if (!hasEnglish.value) return {}
+
+  const links = [
+    { rel: 'alternate', hreflang: 'zh', href: `${baseUrl}${basePath.value}` },
+    { rel: 'alternate', hreflang: 'en', href: `${baseUrl}${enPath.value}` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${baseUrl}${basePath.value}` },
+  ]
+
+  return { link: links }
+}))
 
 // console.log('[info] Page:', page.value.title, page.value)
 
@@ -74,7 +90,12 @@ useSeoMeta({
 
 const headline = computed(() => findPageHeadline(page.value))
 
-const links = computed(() => (toc?.bottom?.links || []).filter(Boolean))
+const links = computed(() => [toc?.bottom?.edit && {
+  icon: 'i-heroicons-pencil-square',
+  label: 'Edit this page',
+  to: `${toc.bottom.edit}/${page?.value?._file}`,
+  target: '_blank',
+}, ...(toc?.bottom?.links || [])].filter(Boolean))
 </script>
 
 <template>
@@ -99,7 +120,7 @@ const links = computed(() => (toc?.bottom?.links || []).filter(Boolean))
               color="gray"
               variant="outline"
               icon="i-heroicons-language"
-              :label="preferredLocale === 'en' ? 'EN（机翻）' : '中文'"
+              :label="preferredLocale === 'en' ? 'EN*' : '中文'"
             />
           </UDropdown>
         </div>
