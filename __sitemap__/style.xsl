@@ -53,12 +53,12 @@
           }
 
           .expl a {
-            color: #398465
+            color: #398465;
             font-weight: 600;
           }
 
           .expl a:visited {
-            color: #398465
+            color: #398465;
           }
 
           a {

@@ -32,6 +32,9 @@
     </url>
     <url>
         <loc>https://lionad.art/articles</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://lionad.art/articles" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://lionad.art/en/articles" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lionad.art/articles" />
     </url>
     <url>
         <loc>https://lionad.art/books</loc>
@@ -730,6 +733,12 @@
         <loc>https://lionad.art/books/_isbn-9787572610912</loc>
     </url>
     <url>
+        <loc>https://lionad.art/en/articles</loc>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://lionad.art/articles" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://lionad.art/en/articles" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lionad.art/articles" />
+    </url>
+    <url>
         <loc>https://lionad.art/flows/archive</loc>
     </url>
     <url>
@@ -808,7 +817,7 @@
         <loc>https://lionad.art/flows/expression-and-loneliness</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/fourty-two</loc>
+        <loc>https://lionad.art/flows/forty-two</loc>
     </url>
     <url>
         <loc>https://lionad.art/flows/long-night-dream</loc>
@@ -947,6 +956,9 @@
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-01-31-00.png</image:loc>
         </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/_achieved/2019-07/welcome</loc>
     </url>
     <url>
         <loc>https://lionad.art/_achieved/2019-09/a-letter-of-silience</loc>
@@ -1147,22 +1159,22 @@
         <loc>https://lionad.art/_paint/todo/state-control</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/_fourty-two/_cloud-take</loc>
+        <loc>https://lionad.art/flows/_forty-two/_cloud-take</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/_fourty-two/as-human</loc>
+        <loc>https://lionad.art/flows/_forty-two/as-human</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/_fourty-two/black-sun</loc>
+        <loc>https://lionad.art/flows/_forty-two/black-sun</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/_fourty-two/blind-sight</loc>
+        <loc>https://lionad.art/flows/_forty-two/blind-sight</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/_fourty-two/dark-room</loc>
+        <loc>https://lionad.art/flows/_forty-two/dark-room</loc>
     </url>
     <url>
-        <loc>https://lionad.art/flows/_fourty-two/mature-child</loc>
+        <loc>https://lionad.art/flows/_forty-two/mature-child</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/ai</loc>
@@ -1429,6 +1441,9 @@
         <loc>https://lionad.art/maps/_devops/gitlab</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_devops/rotatelogs</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_devops/version-control</loc>
     </url>
     <url>
@@ -1510,7 +1525,7 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_ide/vscode</loc>
+        <loc>https://lionad.art/maps/_ide/ide</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20240208183255.png</image:loc>
         </image:image>
@@ -1934,6 +1949,9 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_system/command</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260121210413194.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_system/os</loc>
@@ -1949,6 +1967,24 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_threads/daily-bugs</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260214025215035.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260126022817353.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260122204450537.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260121094919435.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260119015504669.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260119010435785.png</image:loc>
+        </image:image>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260108113659388.png</image:loc>
         </image:image>
@@ -1976,6 +2012,9 @@
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/3db30da9c32753c926d793c16203391e.png</image:loc>
         </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_threads/timeline</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_typescript/type-gymnastics</loc>
@@ -2036,6 +2075,9 @@
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260107094811489.png</image:loc>
         </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web-pages/bookmarks</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_web-pages/web-pages</loc>
@@ -2344,6 +2386,21 @@
         <loc>https://lionad.art/maps/_ai/rag/rag</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/recommendation/recommendation-system</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/skills/create-a-skill</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/skills/skills</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260124134051380.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/tools/claude-code</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/tools/copilot</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20251204113817450.png</image:loc>
@@ -2623,6 +2680,9 @@
         <loc>https://lionad.art/maps/_frontend/html/emmet</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_frontend/html/href-value-possibilities</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_frontend/html/html-mind-map</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220618194223.png</image:loc>
@@ -2797,6 +2857,9 @@
         <loc>https://lionad.art/source-code/_js/vue2-source/utils</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/agents/docs/i18n</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/agents/goose/goose-brief</loc>
     </url>
     <url>
@@ -2854,4 +2917,4 @@
         <loc>https://lionad.art/maps/_server/nodejs/source/require</loc>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.2.5 at 2026-01-09T09:10:08.215Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.5.2 at 2026-02-14T12:21:43.444Z -->
