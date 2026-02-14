@@ -537,6 +537,10 @@ getUserPosts(userId)      // OK
 getUserPosts(productId)   // Type Error! 不能传 ProductId
 ```
 
+这种技巧被称为 **Brand 类型**，通过在类型层面添加"品牌"标记，让 TypeScript 编译器能够区分这些值，防止在编码时将用户 ID 误传入订单 ID 的参数。这是一种**零运行时开销**的类型安全增强技术。
+
+> #周刊摘录 见：[科技周刊第385期](https://www.ruanyifeng.com/blog/2026/02/weekly-issue-385.html)
+
 ## 推荐阅读
 
 * [TypeScript Deep Dive](https://jkchao.github.io/typescript-book-chinese/)
