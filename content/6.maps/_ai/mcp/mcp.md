@@ -12,6 +12,16 @@ description: MCP（Model Context Protocol）是一种用于管理和优化大型
 * [ESLint MCP](https://github.com/eslint/rewrite/blob/main/packages/mcp/src/mcp-server.js)：ESLint MCP Server，Server 端直接调用 `eslint ...` 来修复代码。
 * [PortKey MCP](https://github.com/Lionad-Morotar/port-key/tree/main/packages/mcp)：根据项目名找一个端口号，功能简单，包含 Stdio、Streamable HTTP Server 及 Resource。
 
+## 工具
+
+#### MCP Inspector
+
+[MCP Inspector](https://github.com/modelcontextprotocol/inspector) 是用于测试和调试 MCP 服务器的开发者工具。
+
+```bash
+npx @modelcontextprotocol/inspector node build/index.js
+```
+
 ## Domain
 
 * [Native API to MCP](/maps/_ai/mcp/native-api-to-mcp)
