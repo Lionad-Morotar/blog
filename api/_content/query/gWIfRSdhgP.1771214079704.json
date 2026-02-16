@@ -1,1 +1,0 @@
-[{"_path":"/maps/_database/redis","title":"Redis","description":"About Redis"},{"_path":"/maps/_database/sql/text-to-sql","title":"Text to SQL：为何被标记为 Hold，以及应该如何安全使用","description":"解析 Text to SQL 在实际生产中的风险点与可接受的使用边界，为数据与平台团队提供治理思路。"}]

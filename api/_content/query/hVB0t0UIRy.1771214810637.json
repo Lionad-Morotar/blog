@@ -1,0 +1,1 @@
+[{"_path":"/maps/_system/os","title":"操作系统","description":"应用程序与计算机硬件之间的中介，管理计算机的软硬件资源，提供用户与计算机之间的接口。"},{"_path":"/maps/_test/methods/tcr","title":"TCR（Test && Commit || Revert）","description":"TCR（Test && Commit || Revert）是一种软件开发实践，强调在代码更改后立即运行测试，并根据测试结果决定是提交更改还是回滚到先前的状态，从而确保代码库始终处于可运行状态。"}]

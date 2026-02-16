@@ -1,0 +1,1 @@
+[{"_path":"/maps/_cloud-native/hardware/arm-on-cloud-native","title":"Arm 云计算实例 — 建议默认采用","description":"将 Arm 视为云端计算实例的默认选择，除非存在明确的 x86 架构依赖。"},{"_path":"/maps/_cloud-native/serverless","title":"Serverless","description":"无服务器计算，是一种云计算架构模式，其中云提供商负责执行代码，并动态分配计算资源"}]
