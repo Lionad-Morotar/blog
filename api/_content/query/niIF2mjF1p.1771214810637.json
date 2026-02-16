@@ -1,1 +1,0 @@
-[{"_path":"/maps/_ai/mcp/native-api-to-mcp","title":"反对「直接把内部 API 暴露成 MCP」的天真做法","description":"原文反对将现有内部 API 直接转换为 MCP，建议为代理场景专门设计安全的 MCP 服务层。"},{"_path":"/maps/_ai/prompt/prompt","title":"Prompt","description":"Prompt 是与 AI 模型交互的指令或问题，旨在引导模型生成特定的响应或执行特定的任务。它们可以是简单的查询，也可以是复杂的任务描述。"}]
