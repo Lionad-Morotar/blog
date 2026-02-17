@@ -162,6 +162,40 @@ performance.measure('myTask', 'myTask:start', 'myTask:end')
 
 ## SSR 及混合应用优化
 
+#### Speculation Rules API 是什么？
+
+Chrome 推出的推测规则 API，允许开发者在用户实际导航到网页之前就开始加载网页。目前支持两种推测类型：
+
+- **预提取 (prefetch)**：仅获取 HTML 文档，不加载子资源
+- **预渲染 (prerender)**：获取子资源并执行渲染，几乎像在隐藏标签页中打开网页
+
+见：[Speculation Rules API](https://developer.chrome.com/docs/web-platform/prerender-pages)
+
+#### Prerender Until Script 是什么？
+
+完全预渲染虽然性能提升显著，但存在实现复杂度和副作用风险（如分析脚本提前触发、状态管理复杂等）。**Prerender Until Script** 是介于预提取和预渲染之间的中间方案：
+
+- 预提取 HTML 文档 + 渲染页面 + 获取子资源
+- **关键区别**：遇到 `<script>` 元素时暂停解析，等待用户导航后再继续
+- 无脚本的页面将完全预渲染，有阻塞脚本的页面至少能提前开始渲染和资源预加载
+
+使用方法：
+
+```json
+{
+  "prerender_until_script": [{
+    "where": { "href_matches": "/*" }
+  }],
+  "prefetch": [{
+    "where": { "href_matches": "/*" }
+  }]
+}
+```
+
+**降级策略**：同时配置 `prefetch` 可实现对不支持浏览器的优雅降级。
+
+见：[推测规则预渲染直到脚本源试用](https://developer.chrome.com/blog/prerender-until-script-origin-trial?hl=zh-cn)
+
 #### CSR 是什么？
 
 Client Side Rendering，和 SSR 相对应，指页面渲染、逻辑、路由、请求都是在浏览器发生的。想要提高 CSR 项目的用户体验，可以考虑在编译时通过预渲染首屏、骨架屏等形式对性能指标进行优化，或者，上 SSR。
