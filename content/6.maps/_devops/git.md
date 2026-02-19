@@ -291,6 +291,64 @@ git apply diff.patch
 git commit --no-verify -am 'bad commit message'
 ```
 
+## Git Worktree
+
+#### 什么是 Git Worktree？
+
+想象你正在家里厨房做饭（当前分支 `feature/login`），突然有人敲门说"外面水管爆了需要紧急修理"（紧急 bug）。
+
+**传统做法**：把锅里的菜随便盖起来（stash），关掉燃气（停服务器），去修水管（切换分支到 `fix/pipe`）。修完回来，菜的火候忘了、锅要重新热、心情也乱了。
+
+**Worktree 做法**：你有一个分身，他在隔壁房间修水管，你在厨房继续做饭。两个房间完全独立，互不打扰。
+
+Git Worktree 让你在同一仓库中同时检出多个分支到不同目录，每个目录都是完整独立的工作区。
+
+#### Worktree 的核心用法
+
+```bash
+# 创建新 worktree（基于当前分支创建新分支）
+git worktree add ../project-bugfix -b fix/payment-bug
+
+# 或基于已有分支创建 worktree
+git worktree add ../project-feature feature/auth
+
+# 查看所有 worktree
+git worktree list
+
+# 删除 worktree
+git worktree remove ../project-bugfix
+```
+
+#### 为什么需要 Worktree？
+
+**场景 1：并行开发**
+- 主 worktree：开发新功能（feature/auth）
+- 第二个 worktree：修复线上 bug（fix/payment-bug）
+- 第三个 worktree：代码审查（review/team-pr）
+
+**场景 2：长生命周期任务**
+- 有一个需要跑几小时的测试/脚本
+- 不想在这个目录里干等，可以去另一个 worktree 做其他事
+
+**场景 3：上下文隔离**
+- 每个 worktree 有独立的 IDE 窗口、终端、环境变量
+- 切换任务不需要重建开发环境
+
+#### 和 stash 的区别
+
+| 方式 | 优点 | 缺点 |
+|------|------|------|
+| Stash | 简单、快速 | 容易忘记 stash 了什么、切换后环境要重建 |
+| Worktree | 完全隔离、状态持久 | 占用更多磁盘空间 |
+
+#### 注意事项
+
+- 同一个分支不能同时在多个 worktree 中检出
+- Worktree 之间共享 `.git` 目录（节省空间）
+- 删除 worktree 不会删除对应分支
+
+见：[Git Worktree 官方文档](https://git-scm.com/docs/git-worktree)
+
 ## Common Issues
 
 #### Git 为什么不会被文件重命名愚弄？
