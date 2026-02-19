@@ -11,6 +11,7 @@ title: JavaScript
 ## Concepts
 
 * [Task Slice](/maps/_frontend/javascript/task-slice)
+* [Text Highlight](/maps/_frontend/text-highlight)
 
 ## Tool Chain
 
