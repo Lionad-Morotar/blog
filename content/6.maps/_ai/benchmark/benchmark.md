@@ -21,6 +21,18 @@ description: 各类大语言模型的基准测试结果
 
 * [Artificial Analysis AI Trends](https://artificialanalysis.ai/trends)
 
+#### LMSYS Chatbot Arena
+
+[LMSYS Chatbot Arena](https://lmarena.ai/) 是基于人类对比的模型排行榜。人类对模型输出进行盲测评判，计算 Elo 排名。这是目前最受信任的模型评估方式之一，但近期可能存在被"刷榜"的情况，建议作为参考而非唯一标准。
+
+见：[LMSYS Chatbot Arena](https://lmarena.ai/)
+
+#### AI News 简报
+
+[AI News](https://buttondown.com/ainews/) 是由 Swyx 等人维护的综合性 AI 资讯简报，几乎每两天更新一次。内容包含人工精选和 LLM 自动整理的 AI 领域最新动态，涵盖论文、产品、社区讨论等，是跟踪 AI 快速发展的有效渠道。
+
+见：[AI News 归档](https://buttondown.com/ainews/archive/)
+
 在你当前浏览的 **Artificial Analysis AI Trends** 页面里，比较维度非常丰富，主要围绕不同角度来衡量和对比 AI 模型的发展。总结下来有以下几个核心维度：
 
 **📊 模型能力与智能指数**
