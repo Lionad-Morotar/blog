@@ -11,6 +11,7 @@ description: Skill 是一种能力，作为 Agent 和工具之间的胶水层，
 ## Domain
 
 * [如何编写 Skills](/maps/_ai/skills/create-a-skill.md)
+* [D2C 实践](/maps/_ai/skills/d2c)：基于 AWS Kiro + MCP + Skills 的智能 Design-to-Code 架构
 
 ## Ecosystem
 
