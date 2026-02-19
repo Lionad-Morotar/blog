@@ -45,3 +45,32 @@ AutoGPT 是首个引发广泛关注的自主 Agent 项目，展示了 LLM 独立
 LangChain 适合复杂 LLM 应用，学习曲线中等；LlamaIndex 适合 RAG 和知识库，学习曲线平缓；CrewAI 适合多角色协作场景，学习曲线平缓；AutoGPT 适合探索性任务，学习曲线陡峭。实际项目中常组合使用，如 LlamaIndex 负责数据检索，LangChain 负责工具编排，CrewAI 负责多 Agent 协作。
 
 见：[2025 主流 AI Agent 框架调研](https://damodev.csdn.net/69671cabea53844658f6afed.html) | [LangChain vs LlamaIndex vs CrewAI 对比](https://draftnrun.com/en/blog/250915-ai-agent-frameworks-comparison/)
+
+## 多 Agent 架构模式
+
+#### 通用智能体 + 业务领域 Agent
+
+一种适用于企业级多业务系统的分层架构模式：
+
+**角色划分：**
+- **通用主 Agent**：负责意图识别、对话管理、任务分发
+- **业务领域 Agent**：专注特定业务领域（如订单、库存、客服）
+- **后端服务**：通过 OpenAPI 提供业务逻辑，经 FunctionAI Toolset 接入
+
+**优势：**
+- **业务解耦**：各业务线独立开发部署自己的 Agent
+- **协议标准化**：通过 A2A 等协议实现跨系统协作
+- **低摩擦集成**：现有 REST API 可快速转化为 Agent 工具
+
+**典型案例：**
+- [希希咖啡店](/maps/_ai/agents/a2a) - 基于 Google ADK + A2A 协议的咖啡点单与配送协同
+
+#### Agent 协议选择
+
+| 协议 | 适用场景 | 代表案例 |
+|------|----------|----------|
+| A2A | Agent 与 Agent 之间的协作 | 希希咖啡店的多 Agent 协同 |
+| A2UI | Agent 驱动 UI 界面渲染 | 声明式 UI 协议 |
+| MCP | Agent 与工具/资源的连接 | Claude Desktop 的工具调用 |
+
+见：[A2A 协议详解](/maps/_ai/agents/a2a) | [MCP 规范](https://modelcontextprotocol.io/)
