@@ -194,4 +194,18 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-11-21',
+
+  /**
+   * Nuxt Icon - 客户端打包配置
+   * 避免静态托管时 API 路由 404 导致 hydration 失败
+   */
+  icon: {
+    clientBundle: {
+      // 显式指定 UColorModeButton 使用的图标
+      icons: [
+        'heroicons:sun-20-solid',
+        'heroicons:moon-20-solid',
+      ],
+    },
+  },
 })
