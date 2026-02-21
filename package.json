@@ -45,7 +45,7 @@
     "eslint": "^9.39.2",
     "medium-zoom": "^1.1.0",
     "nuxt-content-git": "^4.0.1",
-    "nuxt-feedme": "^1.0.1",
+    "nuxt-feedme": "^2.1.0",
     "only-allow": "^1.2.2",
     "rehype-mathjax": "^7.1.0",
     "sass": "^1.97.3",
