@@ -8,35 +8,50 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const basePath = stripEnPrefix(to.path)
   const enPath = withLocalePath('en', basePath)
 
-  // Use try-catch to handle 404 errors when content doesn't exist
-  let zhCandidate: any = null
-  let enCandidate: any = null
+  // Use state to share server query result with client
+  const contentExistsState = useState<{
+    zh: boolean
+    en: boolean
+  }>(`locale-content:${basePath}`, () => ({
+    zh: false,
+    en: false,
+  }))
 
-  try {
-    zhCandidate = await queryContent(basePath).only(['_path']).findOne()
-  } catch {
-    zhCandidate = null
+  // Only query on server to avoid client-side API calls
+  if (process.server) {
+    try {
+      await queryContent(basePath).only(['_path']).findOne()
+      contentExistsState.value.zh = true
+    } catch {
+      contentExistsState.value.zh = false
+    }
+
+    try {
+      await queryContent(enPath).only(['_path']).findOne()
+      contentExistsState.value.en = true
+    } catch {
+      contentExistsState.value.en = false
+    }
   }
 
-  try {
-    enCandidate = await queryContent(enPath).only(['_path']).findOne()
-  } catch {
-    enCandidate = null
-  }
+  const hasZh = contentExistsState.value.zh
+  const hasEn = contentExistsState.value.en
 
-  if (currentLocale === 'en' && !enCandidate && zhCandidate) {
+  // Server-side: redirect to correct locale if content doesn't exist in current locale
+  if (currentLocale === 'en' && !hasEn && hasZh) {
     return navigateTo({ path: basePath, query: to.query, hash: to.hash }, { redirectCode: 302 })
   }
 
   if (process.server) return
 
+  // Client-side: respect user preference
   const preferredLocale = usePreferredLocale()
 
-  if (preferredLocale.value === 'en' && currentLocale === 'zh' && enCandidate) {
+  if (preferredLocale.value === 'en' && currentLocale === 'zh' && hasEn) {
     return navigateTo({ path: enPath, query: to.query, hash: to.hash })
   }
 
-  if (preferredLocale.value === 'zh' && currentLocale === 'en' && zhCandidate) {
+  if (preferredLocale.value === 'zh' && currentLocale === 'en' && hasZh) {
     return navigateTo({ path: basePath, query: to.query, hash: to.hash })
   }
 })
