@@ -50,7 +50,11 @@ async function setPreferredLocale(locale: PreferredLocale) {
 }
 
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent()
-  .where({ _extension: 'md', navigation: { $ne: false } })
+  .where({
+    _extension: 'md',
+    navigation: { $ne: false },
+    _path: { $not: { $regex: /\/_\./ } }, // 过滤 Nuxt 约定的隐藏文件/目录（以"."开头）
+  })
   .only(['title', 'description', '_path'])
   .findSurround(withoutTrailingSlash(route.path))
 )
