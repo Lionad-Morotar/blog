@@ -23,3 +23,7 @@ TensorBoard 是 TensorFlow 配套的可视化工具，也支持 PyTorch（通过
 LLM 带来独特挑战：模型文件巨大（7B 模型 14GB，版本管理困难）、训练周期长（需要断点续训和容错）、评估复杂（多维度基准测试）、对齐流程多阶段（SFT → DPO → RLHF）。解决方案包括模型注册表（MLflow Model Registry、W&B Artifacts）、分布式跟踪（Ray Train + W&B 集成）、评估集成（lm-eval-harness 结果自动记录）、Prompt 版本管理（W&B Prompts）。
 
 见：[LLMOps 工具集](https://github.com/tensorchord/Awesome-LLMOps) | [2025 MLOps 工具榜单](https://www.datacamp.com/blog/top-mlops-tools)
+
+## 可重复性与实验管理
+
+可重复性是 ML 系统的核心支柱，涉及随机种子固定、数据版本控制、环境容器化等关键实践。详见 [ML 可重复性](./reproducibility.md)。
