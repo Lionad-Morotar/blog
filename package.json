@@ -42,7 +42,7 @@
     "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/sitemap": "^7.5.2",
     "@vueuse/core": "^12.8.2",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.1",
     "medium-zoom": "^1.1.0",
     "nuxt-content-git": "^4.0.1",
     "nuxt-feedme": "^1.0.1",
