@@ -8,6 +8,7 @@ description: Go（又称 Golang）是 Google 开发的一种静态强类型、�
 * [A Tour of Go](https://tour.go-zh.org/list)
 * [Go for JavaScript Developers](https://chenjinya.com/go-for-javascript-developers/pages/internals/)
 * [深入 Go 语言之旅](https://go.cyub.vip)
+* [Understanding Escape Analysis in Go](https://medium.com/@pranoy1998k/understanding-escape-analysis-in-go-b2db76be58f0): Go 逃逸分析原理与性能优化
 
 ## Specification
 
