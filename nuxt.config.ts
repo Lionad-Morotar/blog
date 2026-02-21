@@ -169,7 +169,8 @@ export default defineNuxtConfig({
         'mermaid',
         'csharp',
         'java',
-        'nginx'
+        'nginx',
+        'python'
       ],
     },
     rehypePlugins: {
