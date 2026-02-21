@@ -196,6 +196,15 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-21',
 
   /**
+   * Color Mode - 避免 hydration mismatch
+   * 强制使用 light 模式作为 SSR 默认值，客户端再检测偏好
+   */
+  colorMode: {
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode',
+  },
+
+  /**
    * Nuxt Icon - 客户端打包配置
    * 避免静态托管时 API 路由 404 导致 hydration 失败
    */

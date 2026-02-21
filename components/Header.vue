@@ -9,12 +9,14 @@ const { header } = useAppConfig()
 <template>
   <UHeader>
     <template #logo>
-      <template v-if="header?.logo?.dark || header?.logo?.light">
-        <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
-      </template>
-      <template v-else>
-        LIONAD'S BLOG
-      </template>
+      <ClientOnly>
+        <template v-if="header?.logo?.dark || header?.logo?.light">
+          <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
+        </template>
+        <template v-else>
+          LIONAD'S BLOG
+        </template>
+      </ClientOnly>
     </template>
 
     <template v-if="header?.search" #center>
@@ -24,7 +26,9 @@ const { header } = useAppConfig()
     <template #right>
       <UContentSearchButton v-if="header?.search" :label="null" class="lg:hidden" />
 
-      <UColorModeButton v-if="header?.colorMode" />
+      <ClientOnly>
+        <UColorModeButton v-if="header?.colorMode" />
+      </ClientOnly>
 
       <template v-if="header?.links">
         <UButton
