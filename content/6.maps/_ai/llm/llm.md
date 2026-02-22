@@ -3,6 +3,10 @@ title: Large Language Models
 description: large language models related
 ---
 
+## Tour
+
+* [Embeddings 入门指南](/maps/_ai/llm/embeddings)
+
 ## Domain
 
 * [结构化输出](/maps/_ai/llm/structured-output)
