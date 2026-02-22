@@ -14,3 +14,9 @@ Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 p
 > A high prompt cache hit rate decreases costs and helps us create more generous rate limits for our subscription plans, so we run alerts on our prompt cache hit rate and declare SEVs if they're too low.
 
 见：[A quote from Thariq Shihipar](https://simonwillison.net/2026/Feb/20/thariq-shihipar/)
+
+## 从零实现 Claude Code
+
+通过 11 个渐进式会话构建类 Claude Code 的 Agent，从简单的 bash 循环到完整的自主团队系统。涵盖 Tools、TodoWrite、Subagents、Skills、Compact、Tasks、Background Tasks、Agent Teams 等核心机制。
+
+* [Learn Claude Code](https://github.com/shareAI-lab/learn-claude-code)：从零构建 AI Agent 的 11 个渐进式教程，从简单循环到自主团队系统
