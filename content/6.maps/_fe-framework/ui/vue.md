@@ -57,6 +57,37 @@ React 引入 Fiber 架构，将 DOM Tree 变成链表，使得有能力随时启
 
 ref 是在基础值的外面封装了一层对象，使用对象的 value setting、value getter 函数拦截并操作 value 属性，达到响应式的效果。
 
+#### Vue 3 的自动脱 ref 机制？
+
+自动脱 ref（Auto Unwrapping）是 Vue 3 响应式系统的特性，在特定场景下 ref 会被自动解包，无需手动写 `.value`。
+
+**触发场景：**
+
+1. **reactive 对象中的 ref**：将 ref 放入 reactive 对象时，访问属性会自动解包
+   ```js
+   const count = ref(0)
+   const state = reactive({ count })
+   state.count  // 0，自动脱 ref
+   state.count = 10  // 直接赋值，自动解包
+   ```
+
+2. **模板中**：模板渲染时自动解包 ref
+   ```vue
+   <template>
+     <div>{{ count }}</div>  <!-- 不需要 .value -->
+   </template>
+   ```
+
+3. **watch 监听**：直接监听 ref 时，回调参数是解包后的值
+
+**注意事项：**
+
+* 数组中的 ref 不会自动脱 ref，仍需 `.value` 访问
+* 替换整个 ref（如 `state.count = ref(20)`）会导致属性指向新 ref 对象，原 ref 未被修改
+* 自动脱 ref 只解包一层，嵌套对象内的 ref 仍然是 ref 对象
+
+Vue 的设计初衷是减少模板中的 `.value` 繁琐写法，但这也带来常见陷阱：在 script 中需要 `.value`，在 reactive 对象里却不需要，新手容易混淆。
+
 ## 模板
 
 #### Vue3 双向绑定的原理？
