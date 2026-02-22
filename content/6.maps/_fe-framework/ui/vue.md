@@ -53,6 +53,8 @@ React 引入 Fiber 架构，将 DOM Tree 变成链表，使得有能力随时启
 
 ## 响应式
 
+更多详细 API 见：[Vue Reactivity API](./vue/reactive.md)
+
 #### ref 的原理？
 
 ref 是在基础值的外面封装了一层对象，使用对象的 value setting、value getter 函数拦截并操作 value 属性，达到响应式的效果。
