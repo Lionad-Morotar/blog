@@ -33,6 +33,7 @@ title: 浏览器
 ## 浏览器插件
 
 * [Chrome Extensions API](https://developer.chrome.com/docs/extensions/reference/api?hl=zh-cn)
+* [Shepherd](https://shepherdtime.com/)：浏览器生产力扩展，自动追踪浏览习惯并生成每日健康评分，无需账号、100% 免费
 
 ## 架构
 
