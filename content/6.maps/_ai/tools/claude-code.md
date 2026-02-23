@@ -20,3 +20,7 @@ Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 p
 通过 11 个渐进式会话构建类 Claude Code 的 Agent，从简单的 bash 循环到完整的自主团队系统。涵盖 Tools、TodoWrite、Subagents、Skills、Compact、Tasks、Background Tasks、Agent Teams 等核心机制。
 
 * [Learn Claude Code](https://github.com/shareAI-lab/learn-claude-code)：从零构建 AI Agent 的 11 个渐进式教程，从简单循环到自主团队系统
+
+## 相关工具
+
+* [Straion](https://straion.com/?ref=producthunt)：AI Coding Agent 规则管理工具，统一管理编码规范，支持 Claude Code、Cursor 和 GitHub Copilot
