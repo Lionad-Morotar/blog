@@ -15,7 +15,9 @@ description: 各类大语言模型的基准测试结果
 
 * [各数据集榜单](https://llm-stats.com/benchmarks)
 
-* [Repo Prompt](https://repoprompt.com/bench)
+* [Repo Prompt](https://repoprompt.com/bench)：长上下文推理、文件编辑精度和指令遵循能力 Benchmark
+
+* [Web Frameworks Token Efficiency](https://martinalderson.com/posts/which-web-frameworks-are-most-token-efficient-for-ai-agents/)：19 个 Web 框架的 AI Agent token 效率对比，Minimal API 框架（如 ASP.NET Minimal）效率最高，全功能框架中 SvelteKit 和 Django 表现最佳
 
 长上下文推理、文件编辑精度和指令遵循能力 Benchmark
 
