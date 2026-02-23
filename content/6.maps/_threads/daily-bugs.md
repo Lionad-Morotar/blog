@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-02-23
+
+qwen/qwen3-coder-next 作为本地翻译模型虽然好用但是很多翻译错误。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260223135849664.png)
+
 #### 2025-02-14
 
 总是给我新惊喜的一直都是 GPT。
