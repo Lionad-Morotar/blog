@@ -349,6 +349,17 @@ git worktree remove ../project-bugfix
 
 见：[Git Worktree 官方文档](https://git-scm.com/docs/git-worktree)
 
+#### Git 平台生态的碎片化陷阱
+
+各 Git 平台通过仓库根目录下的点文件夹（.github/、.gitlab/ 等）扩展功能，
+但这种"平台特定配置"机制导致跨平台可移植性成为幻觉。
+
+**回退链的不对称性**：Gitea/Forgejo 可读取 .github/ 作为 fallback，
+但 GitLab 和 Bitbucket 仅识别自身文件夹——这种"单向兼容"制造了
+"配置可移植"的假象，实际多平台部署时需要重复配置。
+
+见：[Forge-Specific Repository Folders - Andrew Nesbitt](https://nesbitt.io/2026/02/22/forge-specific-repository-folders.html)
+
 ## Common Issues
 
 #### Git 为什么不会被文件重命名愚弄？
