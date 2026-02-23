@@ -158,7 +158,14 @@ performance.measure('myTask', 'myTask:start', 'myTask:end')
 
 #### 做性能优化的基本法则是什么？
 
-编译层参见 webpack 优化；网络层减少请求；客户端预加载、预渲染、预执行。以及两句名言：“空间换时间”、“串行改并行”。
+编译层参见 webpack 优化；网络层减少请求；客户端预加载、预渲染、预执行。以及两句名言：”空间换时间”、”串行改并行”。
+
+#### 如何优化复杂动画的性能？
+
+复杂的 DOM 动画（如多个独立元素同时运动）在低端设备上可能造成性能瓶颈。
+CSS Sprite 动画是一种高性能替代方案，通过 `object-position` 切换单张 Sprite 图的不同区域来实现帧动画，相比多元素方案大幅减少了渲染开销。
+
+见：[CSS Sprite Animation](/maps/_frontend/css/sprite-animation)
 
 ## SSR 及混合应用优化
 
