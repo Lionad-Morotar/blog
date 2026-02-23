@@ -63,3 +63,36 @@ description: 各类大语言模型的基准测试结果
 - 训练规模：训练 tokens 数量（以万亿计）。
 - 训练规模 vs 智能指数：训练数据量与模型智能的关系。
 
+#### 各维度最强 LLM 推荐（2025）
+
+数字生命卡兹克基于构建 970 道题评测集的实战经验（18 个大维度、近 100 个小维度），
+通过让顶级模型互相出题审查迭代 Skill，总结出各维度的最强模型体感推荐：
+
+**Coding 能力**
+* 软件工程与代码生成：GPT-5.3 codex
+* 代码理解、推理与质量：GPT-5.3 codex
+* 调试、测试与维护：GPT-5.3 codex
+* 数据工程与后端服务：Claude Opus 4.6
+* 前端与产品工程：Claude Opus 4.6
+
+**Agent 能力**
+* Agent 工具调用：Claude Opus 4.6
+* Web 与桌面自动化（静态）：Claude Opus 4.6
+* 研究与知识工作 Agent（静态）：GPT-5.2 Pro
+
+**推理与知识**
+* 数学与形式推理：Gemini 3.1 Pro
+* 逻辑与规划：Gemini 3.1 Pro
+* 知识广度与事实核验：Gemini DeepThink
+* 阅读理解与信息抽取：GPT-5.2 Thinking
+* 长上下文记忆与多轮一致性：GPT-5.2 Thinking
+
+**多模态与交互**
+* 多模态理解与视觉推理：GPT-5.2 Thinking
+* 情商与协作沟通：GPT-4.5
+* 创作表达与审美：Claude Opus 4.6
+* 指令遵循与对齐：Claude Opus 4.6
+
+**额外提示**：搜索 AI 最新信息（如 OpenClaw 玩法等），使用 Grok 4.2 有奇效。
+
+见：[春节6天，我找到了各个领域最强的大模型](https://mp.weixin.qq.com/s/cVn-1MXQnhlFmhiMtVWi9A)
