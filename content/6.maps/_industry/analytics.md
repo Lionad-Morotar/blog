@@ -40,3 +40,15 @@ USDA 对 32,719 户家庭的调查显示（2022-2024 年数据），美国各州
 **退出市场：** 2022 年麦当劳全面退出俄罗斯（850 家门店），2024 年出售斯里兰卡全部 12 家门店。
 
 见：[Mapped: The Countries With the Most McDonald's Per Person](https://www.visualcapitalist.com/mapped-how-many-mcdonalds-each-country-has-per-person/)
+
+#### 北极冰层流失可视化（1980-2025）
+
+NASA 数据显示，自 1980 年以来北极夏季海冰以每十年 12.2% 的速度缩小。
+1980 年至 2025 年间，北极最小冰范围减少了 110 万平方英里（约 280 万平方公里），相当于阿根廷的国土面积。
+
+按当前趋势，北极可能在 2050 年夏季出现"几乎无冰"状态。
+这一变化正在打开新的全球航运路线——北方海路可比苏伊士运河缩短近 20 天航程（约 40%）。
+
+**地缘政治影响：** 北极估计拥有 4120 亿桶未发现石油和大量稀土资源（格陵兰储量全球第八）。中国、俄罗斯、美国、欧盟均已制定北极国家战略，该地区正成为新的地缘政治竞争焦点。
+
+见：[Visualizing Arctic Ice Loss Since 1980, Compared to Countries](https://www.visualcapitalist.com/arctic-ice-loss-compared-to-the-size-of-countries/)
