@@ -2,13 +2,19 @@
 title: 浏览器
 ---
 
-## Statics
+## 浏览器引擎
 
+* [浏览器引擎](/maps/_web/browser/browser-engine) - Ladybird 等独立引擎项目
+
+## 浏览器原理
+
+* [浏览器原理](/maps/_web/browser/principle)
+* [路由技术](/maps/_web/browser/router)
+
+## 浏览器新特性
+
+* [Web.dev 月刊](/maps/_web/browser/new)
 * [主流浏览器的新特性支持率](https://wpt.fyi/interop-2023)
-
-## News
-
-* [Web.dev 月刊（新浏览器特性）](/maps/_web/browser/new)
 * [CSS 2023](https://developer.chrome.com/blog/css-wrapped-2023?hl=en)
 
 ## BaseLine
@@ -34,13 +40,7 @@ title: 浏览器
 
 * [Chrome Extensions API](https://developer.chrome.com/docs/extensions/reference/api?hl=zh-cn)
 
-## 架构
-
-* [浏览器原理](/maps/_web/browser/principle)
-* [路由技术](/maps/_web/browser/router)
-* [Ladybird](/maps/_web/browser/ladybird) - 从零构建的全新浏览器引擎
-
-## 开发
+## 浏览器开发
 
 #### 事件捕获机制？
 

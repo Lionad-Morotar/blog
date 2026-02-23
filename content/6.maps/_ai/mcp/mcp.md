@@ -46,3 +46,4 @@ npx @modelcontextprotocol/inspector node build/index.js
 ## Domain
 
 * [Native API to MCP](/maps/_ai/mcp/native-api-to-mcp)
+* [WebMCP](https://github.com/webmachinelearning/webmcp) - W3C 提案，允许网页向 AI 代理注册客户端工具（Google & Microsoft 联合推动）

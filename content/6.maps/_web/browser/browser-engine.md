@@ -1,6 +1,6 @@
 ---
-title: Ladybird
-description: 从零构建的全新浏览器引擎，非任何现有浏览器的分支，由非营利组织支持
+title: 浏览器引擎
+description: Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
 ---
 
 #### Ladybird 是什么？
