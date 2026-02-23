@@ -27,3 +27,16 @@ USDA 对 32,719 户家庭的调查显示（2022-2024 年数据），美国各州
 食品不安全与低收入、高贫困率、农村人口多、依赖公共援助等结构性经济因素密切相关。
 
 见：[Where Food Insecurity Is Highest, State by State](https://www.visualcapitalist.com/food-security-is-highest-state-by-state/)
+
+#### 各国麦当劳人均拥有量地图
+
+麦当劳在全球近 100 个市场拥有超过 40,000 家门店。
+按人均计算，澳门（56.8 家/百万人）和圣马丁（43.2 家/百万人）领先，美国以 38.6 家/百万人位居大型国家之首。
+
+**亚洲差异显著：** 尽管中印人口都超过 14 亿，但中国人均拥有量（约 5 家/百万人）是印度（0.5 家）的 10 倍；日本（24.1 家）与巴基斯坦（0.3 家，全球最低）差距更大。
+
+**市场潜力：** 非洲仅有埃及、摩洛哥、南非三个国家设有麦当劳门店；中东地区卡塔尔（27.6 家）和以色列（23.1 家）密度较高。
+
+**退出市场：** 2022 年麦当劳全面退出俄罗斯（850 家门店），2024 年出售斯里兰卡全部 12 家门店。
+
+见：[Mapped: The Countries With the Most McDonald's Per Person](https://www.visualcapitalist.com/mapped-how-many-mcdonalds-each-country-has-per-person/)
