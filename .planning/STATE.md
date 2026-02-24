@@ -22,7 +22,7 @@
 | # | Phase | Status | Progress |
 |---|-------|--------|----------|
 | 1 | Foundation & Planning | **Complete** ✅ | 4/4 |
-| 2 | Simple Batch 1 | **In Progress** | 3/5 |
+| 2 | Simple Batch 1 | **In Progress** | 4/5 |
 | 3 | Simple Batch 2 | Pending | 0/5 |
 | 4 | Simple Batch 3 | Pending | 0/4 |
 | 5 | Simple Batch 4 | Pending | 0/7 |
@@ -129,7 +129,7 @@ Execute remaining plans in Phase 2 (02-04 and beyond) or `/gsd:execute-phase 2` 
 | Metric | Target | Current |
 |--------|--------|---------|
 | Requirements completed | 56 | 6 |
-| Domains migrated | 62 | 3 |
+| Domains migrated | 62 | 7 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -143,5 +143,6 @@ Execute remaining plans in Phase 2 (02-04 and beyond) or `/gsd:execute-phase 2` 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 02-01 P01 | 7 minutes | 2 tasks | 2 files |
+| Phase 02-02 P02 | 16 minutes | 4 tasks | 4 files |
 | Phase 02-03 P03 | 14 minutes | 4 tasks | 4 files |
 
