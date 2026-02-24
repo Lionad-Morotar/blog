@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 11-complex-database
-**Current Plan:** 11-P02 complete ✅
-**Status:** Phase 11 in progress — 2/2 plans complete, directories renamed and files migrated
+**Current Plan:** 11-P03 complete ✅
+**Status:** Phase 11 in progress — 3/3 plans complete, all subdomain entries finalized and cross-domain links updated
 
 ### Progress Bar
 
@@ -31,7 +31,7 @@
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
 | 10 | Medium Batch 5 | **In Progress** | 2/17 |
-| 11 | Complex: Database | **In Progress** | 2/2 |
+| 11 | Complex: Database | **In Progress** | 3/3 |
 | 12 | Complex: DevOps | Pending | 0/1 |
 | 13 | Complex: FE Framework | Pending | 0/1 |
 | 14 | Complex: Workflow | Pending | 0/1 |
@@ -87,6 +87,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-24 | Cross-domain link update pattern | Update links in 0.index.md to nested paths during validation |
 | 2026-02-24 | Asymmetric file naming | Keep original filenames when migrating (e.g., project-management.md) |
 | 2026-02-24 | New subdomain entry creation | Create new subdomain entry files when relocating content without existing entry (e.g., user-research.md for dovetail) |
+- [Phase 11-complex-database]: Standardized subdomain entry pattern with ## 主题 section for all _database subdomains
 
 ### Open Questions
 
@@ -105,16 +106,16 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 11-P02 Complete** ✅ — Directories renamed and files migrated:
-- Renamed delta-lake/ to deltalake/ (hyphen removed from directory name)
-- Migrated delta-lake.md to deltalake/deltalake.md with original_path metadata
-- Migrated liquid-clustering.md to deltalake/ with original_path metadata
-- Migrated postgres/index.md to sql/postgres.md with original_path metadata
-- Updated internal links in sql/sql.md and datalake/datalake.md
-- Removed empty delta-lake/ and postgres/ directories
+**Phase 11-P03 Complete** ✅ — Finalized subdomain entries and updated cross-domain links:
+- Created nosql/nosql.md as new subdomain entry with ## 主题 navigation
+- Updated sql/sql.md with ## 主题 section and descriptive topic links
+- Updated datalake/datalake.md with ## 主题 section and ## 概述
+- Updated deltalake/deltalake.md with ## 主题 section and ## 概述
+- Updated lakehouse/lakehouse.md with ## 主题 section using relative paths
+- Updated 0.index.md ## 数据库 section with 6 new cross-domain links
 
 ### Next Action
-Continue with Phase 11-P03 (if exists) or move to Phase 12 (Complex: DevOps).
+Continue with Phase 11-P04 (if exists) or move to Phase 12 (Complex: DevOps).
 
 ### Execution History (Phase 11)
 
@@ -122,6 +123,7 @@ Continue with Phase 11-P03 (if exists) or move to Phase 12 (Complex: DevOps).
 |------|----------|-------|-------|
 | 11-P01 (_database) | 3m | 3 tasks | 4 files |
 | 11-P02 (rename/migrate) | 1m 38s | 3 tasks | 5 files |
+| 11-P03 (subdomain entries) | 1m 12s | 6 tasks | 6 files |
 
 ### Execution History (Phase 10)
 
@@ -183,6 +185,7 @@ Continue with Phase 11-P03 (if exists) or move to Phase 12 (Complex: DevOps).
 
 *State initialized: 2026-02-24*
 *Last updated: 2026-02-24*
+| Phase 11-complex-database P03 | 72 | 6 tasks | 6 files |
 
 ### Execution History
 

@@ -290,6 +290,12 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 **Requirements Mapped:**
 - COMP-01: 重构 _database 领域（12 文件）
 
+**Plans:**
+
+- [ ] 11-P01-PLAN.md — Create domain entry and migrate root files (redis.md, graphql.md)
+- [ ] 11-P02-PLAN.md — Rename directories (delta-lake → deltalake) and migrate postgres
+- [ ] 11-P03-PLAN.md — Finalize subdomain entries and update cross-domain links
+
 **Success Criteria:**
 
 1. **_database domain restructured** — All 12 files organized into proper 4-layer hierarchy.
