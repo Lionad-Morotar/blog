@@ -31,7 +31,14 @@ description: large language models related
 
 #### Price
 
+常用的官方定价入口（随时可能更新，以官网为准）：
 
+* [OpenAI API Pricing](https://platform.openai.com/docs/pricing)
+* [Anthropic Claude API Pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+* [Gemini Developer API pricing](https://ai.google.dev/gemini-api/docs/pricing)
+* [Azure OpenAI Service - Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai/)
+* [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/)
+* [OpenAI Tokenizer（估算 token / 成本）](https://platform.openai.com/tokenizer)
 
 #### Benchmark
 
