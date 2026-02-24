@@ -8,13 +8,13 @@
 ## Current Position
 
 **Current Phase:** 03-simple-batch-2
-**Current Plan:** 03 complete ✅
-**Status:** Plan 03-03 complete — _manage and _games domains migrated to 4-layer structure
+**Current Plan:** 04 complete ✅
+**Status:** Plan 03-04 complete — All 5 domains validated, links updated, patterns documented
 
 ### Progress Bar
 
 ```
-[██░░░░░░░░░░░░░░░░░░] 12% (7/56 requirements)
+[██░░░░░░░░░░░░░░░░░░] 14% (8/56 requirements)
 ```
 
 ### Phase Status
@@ -23,7 +23,7 @@
 |---|-------|--------|----------|
 | 1 | Foundation & Planning | **Complete** ✅ | 4/4 |
 | 2 | Simple Batch 1 | **Complete** ✅ | 5/5 |
-| 3 | Simple Batch 2 | **In Progress** | 3/5 |
+| 3 | Simple Batch 2 | **Complete** ✅ | 5/5 |
 | 4 | Simple Batch 3 | Pending | 0/4 |
 | 5 | Simple Batch 4 | Pending | 0/7 |
 | 6 | Medium Batch 1 | Pending | 0/4 |
@@ -84,6 +84,8 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-24 | _ai 子领域拆分方案 | 按现有 18 个子目录重组为 8 个子领域 |
 | 2026-02-24 | _person 人物分组 | 建议按领域分组（tech/science/philosophy/others）|
 | 2026-02-24 | Simple domain migration pattern | Domain entry + subdomain directory + original_path preservation |
+| 2026-02-24 | Cross-domain link update pattern | Update links in 0.index.md to nested paths during validation |
+| 2026-02-24 | Asymmetric file naming | Keep original filenames when migrating (e.g., project-management.md) |
 
 ### Open Questions
 
@@ -102,14 +104,14 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Plan 03-03 Complete** ✅ — Migrated _manage and _games domains to 4-layer structure:
-- Created domain entries: manage.md, games.md
-- Created subdomains: manage/, games/
-- Migrated content with original_path preservation
-- Updated 2 internal links in 0.index.md
+**Plan 03-04 Complete** ✅ — Validated all 5 domains from Simple Batch 2:
+- Updated cross-domain links in 0.index.md (2 links)
+- Validated all 5 domain migrations (_react-native, _oop, _medicine, _manage, _games)
+- Cleaned up 2 old files after migration
+- Updated taxonomy-criteria.md with Phase 3 examples
 
 ### Next Action
-Continue with Plan 03-04 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` to migrate next simple domains.
+Phase 3 (Simple Batch 2) is complete. Run `/gsd:execute-phase 4` to start Phase 4 (Simple Batch 3).
 
 ### Working Context
 - 62 domains to reorganize (21 simple + 33 medium + 7 complex + 1 empty)
@@ -127,7 +129,7 @@ Continue with Plan 03-04 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` t
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 10 |
+| Requirements completed | 56 | 12 |
 | Domains migrated | 62 | 10 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
@@ -148,4 +150,5 @@ Continue with Plan 03-04 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` t
 | Phase 03-01 P01 | 5 minutes | 2 tasks | 3 files |
 | Phase 03-02 P02 | 4 minutes | 4 tasks | 4 files |
 | Phase 03-03 P03 | 3 minutes | 4 tasks | 5 files |
+| Phase 03-04 P04 | 2 minutes | 3 tasks | 2 files |
 
