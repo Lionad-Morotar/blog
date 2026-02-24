@@ -1,6 +1,7 @@
 ---
 title: 商业思维案例笔记@曹雄峰
 description: 理解商业世界，破解决策难题
+original_path: content/6.maps/_business/business-examples.md
 ---
 
 ## 笔记
