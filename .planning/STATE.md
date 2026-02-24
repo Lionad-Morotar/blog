@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 05-simple-batch-4
-**Current Plan:** 03 complete ✅
-**Status:** Plan 05-03 complete — _refactor domain migrated to 4-layer structure
+**Current Plan:** 05 complete ✅
+**Status:** Phase 5 complete — all 5 plans finished, all cross-domain links updated
 
 ### Progress Bar
 
@@ -25,7 +25,7 @@
 | 2 | Simple Batch 1 | **Complete** ✅ | 5/5 |
 | 3 | Simple Batch 2 | **Complete** ✅ | 5/5 |
 | 4 | Simple Batch 3 | **Complete** ✅ | 5/5 |
-| 5 | Simple Batch 4 | **In Progress** | 3/5 |
+| 5 | Simple Batch 4 | **Complete** ✅ | 5/5 |
 | 6 | Medium Batch 1 | Pending | 0/4 |
 | 7 | Medium Batch 2 | Pending | 0/4 |
 | 8 | Medium Batch 3 | Pending | 0/4 |
@@ -104,14 +104,14 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Plan 05-03 Complete** ✅ — _refactor domain migrated to 4-layer structure:
-- Created content/6.maps/_refactor/refactoring.md domain entry with frontmatter
-- Created refactoring/ subdirectory and migrated original refactor.md content
-- Added original_path frontmatter to preserve migration history
-- Preserved all cross-domain links and project references
+**Plan 05-05 Complete** ✅ — All cross-domain links updated in 0.index.md:
+- Updated VPN link to /maps/_apps/networking/vpn
+- Updated 重构 link to /maps/_refactor/refactoring/refactor
+- Updated 摄影 link to /maps/_photography/techniques/techniques
+- Phase 5 (Simple Batch 4) now complete with all 5 plans finished
 
 ### Next Action
-Run `/gsd:execute-plan 05-P04` to execute Plan 05-04 — next domain migration
+Phase 05-simple-batch-4 is complete. Ready to start Phase 06 (Medium Batch 1).
 
 ### Working Context
 - 62 domains to reorganize (21 simple + 33 medium + 7 complex + 1 empty)
@@ -129,8 +129,8 @@ Run `/gsd:execute-plan 05-P04` to execute Plan 05-04 — next domain migration
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 22 |
-| Domains migrated | 62 | 18 |
+| Requirements completed | 56 | 23 |
+| Domains migrated | 62 | 21 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -160,3 +160,4 @@ Run `/gsd:execute-plan 05-P04` to execute Plan 05-04 — next domain migration
 | Phase 04-04 P04 | 2 minutes | 3 tasks | 3 files |
 | Phase 04-05 P05 | 3 minutes | 3 tasks | 4 files |
 | Phase 05-simple-batch-4 P05-P04 | 21s | 1 task | 1 file |
+| Phase 05-simple-batch-4 P05-P05 | 39s | 1 task | 1 file |
