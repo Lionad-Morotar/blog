@@ -1,6 +1,7 @@
 ---
 title: Google C++ Standard
 description: Google C++ 编程规范
+original_path: content/6.maps/_cpp/google-cpp-standard.md
 ---
 
 [https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/](https://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/)
