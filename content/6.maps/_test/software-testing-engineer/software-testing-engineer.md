@@ -1,6 +1,7 @@
 ---
 title: 计算机软件测试员
 description: 计算机软件测试员的职责、技能要求和职业发展路径。
+original_path: content/6.maps/_test/software-testing-engineer.md
 ---
 
 ## 相关资料
