@@ -1,17 +1,18 @@
 ---
 title: Redis
 description: About Redis
+original_path: content/6.maps/_database/redis.md
 ---
 
 ## 数据结构及其操作
 
 #### `NX`和`XX`如何记忆？
 
-设置字符串的值时，`NX`是当值不存在才能设置，`XX`是存在才能设置（更新），所以可以分别理解为“Not Exist”和“Exist”。
+设置字符串的值时，`NX`是当值不存在才能设置，`XX`是存在才能设置（更新），所以可以分别理解为"Not Exist"和"Exist"。
 
 #### 常见的键名风格？
 
-有“::”、“->”和“.”等，如键名“article::id::code”
+有"::"、"->"和"."等，如键名"article::id::code"
 
 #### 字符串 `GETRANGE` 和 JavaScript 的 `slice` 对比？
 
