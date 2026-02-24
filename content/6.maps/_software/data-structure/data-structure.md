@@ -1,6 +1,7 @@
 ---
 title: Data Structure
 description: 数据结构基础知识，包含二叉树遍历、B 树和 B+树原理等核心概念的详细解析。
+original_path: content/6.maps/_software/data-structure.md
 ---
 
 ## 树
