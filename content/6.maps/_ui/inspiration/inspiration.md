@@ -1,7 +1,10 @@
 ---
-title: Awwwards
-description: Awwwards 是全球知名的每日网页设计灵感平台，提供网站评选、设计灵感、学习资源和行业目录。
+title: 灵感资源
+description: 设计灵感平台、设计资源与参考网站
+original_path: content/6.maps/_ui/awwwards.md
 ---
+
+## 设计灵感
 
 ## Awards
 
