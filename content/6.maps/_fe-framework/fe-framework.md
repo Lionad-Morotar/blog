@@ -79,6 +79,20 @@ MAXI FERREIRA 阐述的在岛模式组件中管理状态的思路也可以用于
 
 见：[Get in Zoomer, We're Saving React](https://acko.net/blog/get-in-zoomer-we-re-saving-react/)
 
+#### 编译型框架的崛起是否推翻了模板语言批评？
+
+2022 年的批评认为 React 替代方案"只适合网站"。但 2025-2026 年的数据显示：
+Svelte 开发者满意度达 92%，SolidJS 达 90%，均超越 React 的 78%。
+SolidJS 已进入 NASA JPL 等高性能场景，SvelteKit 支撑起复杂全栈应用。
+
+编译时优化与细粒度响应式的组合证明：模板/编译方案可以在保持开发体验的同时，
+达到甚至超越虚拟 DOM 方案的灵活性。Vue 3.6 的 Vapor 模式（绕过虚拟 DOM）
+进一步模糊了"模板 vs JSX"的界限。
+
+**修正结论**：模板语言 vs JSX 之争未分胜负，取决于场景——
+内容型网站倾向模板（Astro、Svelte），高度交互应用倾向 JSX（React、Solid）。
+2022 年对编译型框架的悲观预测已被证伪。
+
 ---
 
 🚧 WIP 施工中，正逐渐迁移至 Nuxt

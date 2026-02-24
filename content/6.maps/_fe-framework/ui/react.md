@@ -85,6 +85,11 @@ React 经历了多次架构变革。早期使用 mixins 实现代码复用，ES6
 并催生了自定义 Hook 的爆发式发展。第三方库也经历了类似轨迹：Redux 等方案兴起后被抛弃，
 因为开发者意识到样板代码的成本得不偿失。
 
+**2026 年回看**：React 18/19 的 Concurrent Mode 与 Server Components 延续了"减少样板代码"的承诺，
+却意外引发了社区对"复杂性爆炸"的广泛批评。2025 年 Redux 作者 Mark Erikson 承认 React 生态
+"支离破碎"，RSC 的落地困难与 Vercel 影响力争议印证了 2022 年对 React 方向的担忧。
+不过 React 仍占约 48.7% 市场份额，其成熟度在企业级场景难以被撼动。
+
 见：[Get in Zoomer, We're Saving React](https://acko.net/blog/get-in-zoomer-we-re-saving-react/)
 
 ## Hooks
