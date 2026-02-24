@@ -1,6 +1,7 @@
 ---
 title: VPN（Virtual Private Network）
 description: VPN 是一种通过公共网络建立私人网络的技术。
+original_path: content/6.maps/_apps/vpn.md
 ---
 
 在家里有时要连公司内网查点资料，这时会用到 VPN。这里记录一些 VPN 的使用方法和相关知识。
