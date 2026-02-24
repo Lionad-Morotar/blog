@@ -7,14 +7,14 @@
 
 ## Current Position
 
-**Current Phase:** 11-complex-database
-**Current Plan:** 11-P03 complete ✅
-**Status:** Phase 11 in progress — 3/3 plans complete, all subdomain entries finalized and cross-domain links updated
+**Current Phase:** 12-complex-devops
+**Current Plan:** 12-P01 complete ✅
+**Status:** Phase 12 in progress — 1/1 plan complete, _devops domain entry and version-control subdomain created
 
 ### Progress Bar
 
 ```
-[████████░░░░░░░░░░░░] 38% (21/56 requirements)
+[█████████░░░░░░░░░░░] 39% (22/56 requirements)
 ```
 
 ### Phase Status
@@ -31,8 +31,8 @@
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
 | 10 | Medium Batch 5 | **In Progress** | 2/17 |
-| 11 | Complex: Database | **In Progress** | 3/3 |
-| 12 | Complex: DevOps | Pending | 0/1 |
+| 11 | Complex: Database | **Complete** ✅ | 3/3 |
+| 12 | Complex: DevOps | **In Progress** | 1/1 |
 | 13 | Complex: FE Framework | Pending | 0/1 |
 | 14 | Complex: Workflow | Pending | 0/1 |
 | 15 | Complex: Person | Pending | 0/1 |
@@ -87,7 +87,8 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-24 | Cross-domain link update pattern | Update links in 0.index.md to nested paths during validation |
 | 2026-02-24 | Asymmetric file naming | Keep original filenames when migrating (e.g., project-management.md) |
 | 2026-02-24 | New subdomain entry creation | Create new subdomain entry files when relocating content without existing entry (e.g., user-research.md for dovetail) |
-- [Phase 11-complex-database]: Standardized subdomain entry pattern with ## 主题 section for all _database subdomains
+| 2026-02-25 | [Phase 11-complex-database]: Standardized subdomain entry pattern with ## 主题 section for all _database subdomains |
+| 2026-02-25 | [Phase 12-complex-devops]: Merged git.md + version-control.md into single subdomain entry with original_path documenting both sources |
 
 ### Open Questions
 
@@ -106,16 +107,22 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 11-P03 Complete** ✅ — Finalized subdomain entries and updated cross-domain links:
-- Created nosql/nosql.md as new subdomain entry with ## 主题 navigation
-- Updated sql/sql.md with ## 主题 section and descriptive topic links
-- Updated datalake/datalake.md with ## 主题 section and ## 概述
-- Updated deltalake/deltalake.md with ## 主题 section and ## 概述
-- Updated lakehouse/lakehouse.md with ## 主题 section using relative paths
-- Updated 0.index.md ## 数据库 section with 6 new cross-domain links
+**Phase 12-P01 Complete** ✅ — Created _devops domain entry and reorganized version-control subdomain:
+- Updated devops.md with ## 子领域 section linking to all 4 subdomains
+- Created version-control/ subdirectory with merged version-control.md
+- Merged git.md and version-control.md content with original_path metadata
+- Migrated git/dorothy.md, git/gitflow.md, git/pre-commit-hook.md to version-control/
+- Added original_path metadata to all migrated files
+- Removed original git.md, version-control.md, and git/ directory
 
 ### Next Action
-Continue with Phase 11-P04 (if exists) or move to Phase 12 (Complex: DevOps).
+Continue with Phase 12-P02 (if exists) or move to Phase 13 (Complex: FE Framework).
+
+### Execution History (Phase 12)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 12-P01 (_devops domain + version-control) | 2m 48s | 3 tasks | 7 files |
 
 ### Execution History (Phase 11)
 
@@ -176,15 +183,15 @@ Continue with Phase 11-P04 (if exists) or move to Phase 12 (Complex: DevOps).
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 37 |
-| Domains migrated | 62 | 34 |
+| Requirements completed | 56 | 38 |
+| Domains migrated | 62 | 35 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
 ---
 
 *State initialized: 2026-02-24*
-*Last updated: 2026-02-24*
+*Last updated: 2026-02-25*
 | Phase 11-complex-database P03 | 72 | 6 tasks | 6 files |
 
 ### Execution History
