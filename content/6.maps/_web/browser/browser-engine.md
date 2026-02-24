@@ -3,6 +3,14 @@ title: 浏览器引擎
 description: Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
 ---
 
+#### Chrome 早期团队回忆录
+
+Evan Martin（Ninja 构建系统作者）回忆 2007-2012 年在 Chrome 团队的经历：
+Google 做 Chrome 的动机是"让 Web 成功"，早期成功源于罕见的 alignment 和人才密度。
+Old Google 比今天的 Google 更尊重员工。
+
+见：[Chrome, 10 years later](https://neugierig.org/software/blog/2022/12/chrome.html)
+
 #### Ladybird 是什么？
 
 Ladybird 是一个从零构建的全新浏览器引擎，**非任何现有浏览器的分支**（Not a fork）。
