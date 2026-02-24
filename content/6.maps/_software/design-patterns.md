@@ -3,7 +3,7 @@ title: 设计模式
 description: 设计模式是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。
 ---
 
-相关：[OOP](/maps/_oop/oop)
+相关：[OOP](/maps/_oop/oop/oop)
 
 #### 设计模式怎么划分类别？
 
