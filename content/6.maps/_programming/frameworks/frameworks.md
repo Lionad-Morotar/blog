@@ -1,7 +1,10 @@
 ---
-title: Rezi
-description: 高性能 TypeScript TUI 框架，底层使用 C 引擎渲染，性能接近原生
+title: 框架与工具
+description: 开发框架、工具库与 TUI 框架
+original_path: content/6.maps/_programming/rezi.md
 ---
+
+## TUI 框架
 
 #### Rezi 是什么？
 
@@ -16,3 +19,7 @@ Rezi 是一个高性能的 TypeScript 终端 UI（TUI）框架。开发者使用
 - **确定性渲染**：相同状态 + 相同事件 = 相同帧，支持录制和回放
 
 见：[Rezi 文档](https://rtlzeromemory.github.io/Rezi)
+
+---
+
+*注：此子领域未来可扩展更多开发框架与工具库内容。*
