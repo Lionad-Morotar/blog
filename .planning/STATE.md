@@ -7,9 +7,9 @@
 
 ## Current Position
 
-**Current Phase:** 03-simple-batch-2
-**Current Plan:** 04 complete ✅
-**Status:** Plan 03-04 complete — All 5 domains validated, links updated, patterns documented
+**Current Phase:** 04-simple-batch-3
+**Current Plan:** 01 complete ✅
+**Status:** Plan 04-03 complete — _communication domain migrated to 4-layer structure
 
 ### Progress Bar
 
@@ -24,7 +24,7 @@
 | 1 | Foundation & Planning | **Complete** ✅ | 4/4 |
 | 2 | Simple Batch 1 | **Complete** ✅ | 5/5 |
 | 3 | Simple Batch 2 | **Complete** ✅ | 5/5 |
-| 4 | Simple Batch 3 | Pending | 0/4 |
+| 4 | Simple Batch 3 | In Progress | 2/4 |
 | 5 | Simple Batch 4 | Pending | 0/7 |
 | 6 | Medium Batch 1 | Pending | 0/4 |
 | 7 | Medium Batch 2 | Pending | 0/4 |
@@ -104,14 +104,13 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Plan 03-04 Complete** ✅ — Validated all 5 domains from Simple Batch 2:
-- Updated cross-domain links in 0.index.md (2 links)
-- Validated all 5 domain migrations (_react-native, _oop, _medicine, _manage, _games)
-- Cleaned up 2 old files after migration
-- Updated taxonomy-criteria.md with Phase 3 examples
+**Plan 04-03 Complete** ✅ — Migrated _communication domain to 4-layer structure:
+- Created domain entry file at content/6.maps/_communication/communication.md
+- Migrated original content to content/6.maps/_communication/communication/communication.md
+- Preserved original_path in frontmatter for history tracking
 
 ### Next Action
-Phase 3 (Simple Batch 2) is complete. Run `/gsd:execute-phase 4` to start Phase 4 (Simple Batch 3).
+Continue with remaining Phase 4 domains: _hardware, _law, _mac, _marketing
 
 ### Working Context
 - 62 domains to reorganize (21 simple + 33 medium + 7 complex + 1 empty)
@@ -129,8 +128,8 @@ Phase 3 (Simple Batch 2) is complete. Run `/gsd:execute-phase 4` to start Phase 
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 12 |
-| Domains migrated | 62 | 10 |
+| Requirements completed | 56 | 13 |
+| Domains migrated | 62 | 11 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -152,3 +151,5 @@ Phase 3 (Simple Batch 2) is complete. Run `/gsd:execute-phase 4` to start Phase 
 | Phase 03-03 P03 | 3 minutes | 4 tasks | 5 files |
 | Phase 03-04 P04 | 2 minutes | 3 tasks | 2 files |
 
+| Phase 04-01 P01 | 1 minute | 2 tasks | 2 files |
+| Phase 04-03 P03 | 1m20s | 2 tasks | 2 files |
