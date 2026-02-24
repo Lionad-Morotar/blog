@@ -7,14 +7,14 @@
 
 ## Current Position
 
-**Current Phase:** 09-medium-batch-4
-**Current Plan:** 09-P03 complete ✅
-**Status:** Phase 9 in progress — 4/4 plans complete, _product domain migrated with 6 subdomains
+**Current Phase:** 10-medium-batch-5
+**Current Plan:** 10-P02 complete ✅
+**Status:** Phase 10 in progress — 1/17 plans complete, _programming domain migrated with 5 subdomains
 
 ### Progress Bar
 
 ```
-[███████░░░░░░░░░░░░░] 32% (18/56 requirements)
+[███████░░░░░░░░░░░░░] 34% (19/56 requirements)
 ```
 
 ### Phase Status
@@ -30,7 +30,7 @@
 | 7 | Medium Batch 2 | **Complete** ✅ | 4/4 |
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
-| 10 | Medium Batch 5 | Pending | 0/17 |
+| 10 | Medium Batch 5 | **In Progress** | 1/17 |
 | 11 | Complex: Database | Pending | 0/1 |
 | 12 | Complex: DevOps | Pending | 0/1 |
 | 13 | Complex: FE Framework | Pending | 0/1 |
@@ -105,18 +105,25 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 09-P03 Complete** ✅ — _product domain migrated with 6 subdomains:
-- Updated product.md domain entry with ## 子领域 navigation section
-- Migrated gamification.md to gamification/gamification.md
-- Migrated growth.md to growth/growth.md
-- Migrated operation.md to operation/operation.md
-- Migrated product-hunt.md to product-hunt/product-hunt.md (1011 lines preserved)
-- Migrated product-manager.md to product-manager/product-manager.md
-- Created user-research.md subdomain entry and relocated docs/dovetail.md
-- Updated cross-domain links in 0.index.md
+**Phase 10-P02 Complete** ✅ — _programming domain migrated with 5 subdomains:
+- Created programming.md domain entry with ## 子领域 navigation
+- Merged tech-bias.md content into domain entry
+- Migrated functional.md to paradigms/paradigms.md
+- Migrated dx.md to dx/dx.md (with nested genai files preserved)
+- Migrated debug.md to debugging/debugging.md
+- Migrated programming-language.md to languages/languages.md
+- Migrated rezi.md to frameworks/frameworks.md
+- Updated 5 cross-domain links in 0.index.md
 
 ### Next Action
-Phase 9 complete. Ready for Phase 10 planning.
+Continue with Phase 10 remaining plans.
+
+### Execution History (Phase 10)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 10-P01 (_ui) | 5m | 7 tasks | 8 files |
+| 10-P02 (_programming) | 4m | 7 tasks | 9 files |
 
 ### Execution History (Phase 09)
 
@@ -161,15 +168,15 @@ Phase 9 complete. Ready for Phase 10 planning.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 34 |
-| Domains migrated | 62 | 31 |
+| Requirements completed | 56 | 35 |
+| Domains migrated | 62 | 32 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
 ---
 
 *State initialized: 2026-02-24*
-*Last updated: 2026-02-24*
+*Last updated: 2026-02-25*
 
 ### Execution History
 
