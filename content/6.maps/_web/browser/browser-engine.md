@@ -1,6 +1,7 @@
 ---
 title: 浏览器引擎
 description: Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
+original_path: content/6.maps/_web/browser/browser-engine.md
 ---
 
 #### Chrome 早期团队回忆录

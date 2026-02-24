@@ -1,6 +1,7 @@
 ---
 title: 路由技术
 description: Web 前端路由技术详解，包含 Hash 路由、History 路由的实现原理与最佳实践。
+original_path: content/6.maps/_web/browser/router.md
 ---
 
 ## 基础概念

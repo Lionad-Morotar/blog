@@ -1,19 +1,21 @@
 ---
 title: 浏览器
+description: 浏览器引擎、原理、新特性与开发技术
+original_path: content/6.maps/_web/browser/index.md
 ---
 
 ## 浏览器引擎
 
-* [浏览器引擎](/maps/_web/browser/browser-engine) - Ladybird 等独立引擎项目
+* [浏览器引擎](./browser-engine) - Ladybird 等独立引擎项目
 
 ## 浏览器原理
 
-* [浏览器原理](/maps/_web/browser/principle)
-* [路由技术](/maps/_web/browser/router)
+* [浏览器原理](./principle)
+* [路由技术](./router)
 
 ## 浏览器新特性
 
-* [Web.dev 月刊](/maps/_web/browser/new)
+* [Web.dev 月刊](./new)
 * [主流浏览器的新特性支持率](https://wpt.fyi/interop-2023)
 * [CSS 2023](https://developer.chrome.com/blog/css-wrapped-2023?hl=en)
 

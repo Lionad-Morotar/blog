@@ -1,6 +1,7 @@
 ---
 title: 浏览器新特性
 description: Web.dev 月刊精选，追踪和总结主流浏览器的最新特性更新与时动态。
+original_path: content/6.maps/_web/browser/new.md
 ---
 
 ## 2023

@@ -1,6 +1,7 @@
 ---
 title: 浏览器相关
 description: 浏览器相关问题
+original_path: content/6.maps/_web/browser/principle.md
 ---
 
 ## 经典问题
