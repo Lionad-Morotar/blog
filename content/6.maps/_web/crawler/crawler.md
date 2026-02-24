@@ -1,6 +1,7 @@
 ---
 title: 爬虫与反爬虫
 description: 网络爬虫技术指南，包含常见反爬虫策略分析、多线程爬虫设计、增量爬取实现以及性能优化等实践经验。
+original_path: content/6.maps/_web/crawler.md
 ---
 
 
