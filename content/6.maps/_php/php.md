@@ -1,12 +1,13 @@
 ---
 title: PHP
-description: PHP 是一种广泛使用的开源服务器端脚本语言，特别适用于Web开发并可以嵌入HTML中。
+description: PHP 服务器端脚本语言学习资源与工具集合
+nav_order: 1
 ---
 
-## 版本管理
+# PHP 领域
 
-```
-brew install php@8.2
-brew install brew-php-switcher
-brew-php-switcher 8.2
-```
+PHP 是一种广泛使用的开源服务器端脚本语言，特别适用于Web开发并可以嵌入HTML中。
+
+## 子领域导航
+
+- [PHP 语言](./php/php.md) - PHP 版本管理与开发工具
