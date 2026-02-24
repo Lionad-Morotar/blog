@@ -1,6 +1,7 @@
 ---
 title: Standalone Data Engineering Teams（独立数据工程团队）
 description: 为什么将数据工程从业务领域团队中剥离出来是一种组织反模式，以及应该如何用平台 + 领域团队协作来取代它。
+original_path: content/6.maps/_management/slice/standalone-data-engineering-team.md
 ---
 
 ## Brief
