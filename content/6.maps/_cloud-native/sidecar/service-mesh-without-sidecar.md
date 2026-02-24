@@ -1,6 +1,7 @@
 ---
 title: 无边车的服务网格
 description: 随着基于 sidecar 的服务网格在成本和运维复杂度上的问题持续存在，我们很高兴看到出现了另一种不依赖 sidecar 的服务网格选项：Istio Ambient 模式。
+original_path: content/6.maps/_cloud-native/sidecar/service-mesh-without-sidecar.md
 ---
 
 ## Brief
