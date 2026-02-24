@@ -1,6 +1,7 @@
 ---
 title: Shape Up
 description: 适合中小团队的一种工作方式。
+original_path: content/6.maps/_management/shape-up.md
 ---
 
 #### [《「Shape Up」适合中小团队的一种工作方式》](https://rebornix.com/work/2019/10/18/Shape-Up/)
