@@ -3,9 +3,9 @@ title: Lakehouse
 description: 一种新型的数据管理架构，它结合了数据湖（Data Lake）和数据仓库（Data Warehouse）的优点，为现代数据分析和管理提供了一个统一的平台。
 ---
 
-## Domain
+## 主题
 
-* [Delta Sharing](/maps/_database/lakehouse/delta-sharing)
+* [Delta Sharing](./delta-sharing) - 跨平台安全数据共享的开放协议
 
 ## Arch
 
