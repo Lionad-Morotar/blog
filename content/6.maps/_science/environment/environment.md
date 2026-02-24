@@ -1,6 +1,7 @@
 ---
 title: 环保
 description: 低碳 Web 实践指南
+original_path: content/6.maps/_science/environment.md
 ---
 
 #### 表征网站碳排放的指标是什么？
