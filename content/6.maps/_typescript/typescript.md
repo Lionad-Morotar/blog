@@ -1,7 +1,17 @@
 ---
 title: TypeScript
-description: TypeScript 的核心概念、高级类型、应用实践和工程化经验，包含类型体操、项目配置等内容的完整指南。
+description: TypeScript 的核心概念、高级类型、应用实践和工程化经验
 ---
+
+## 子领域
+
+* [类型体操](/maps/_typescript/type-gymnastics/type-gymnastics)
+
+## 概述
+
+TypeScript 是 JavaScript 的超集，它添加了可选的静态类型系统和基于类的面向对象编程。作为一门编译到 JavaScript 的语言，TypeScript 在开发时提供类型检查，帮助捕获潜在的错误，提高代码质量和可维护性。
+
+本领域涵盖 TypeScript 的核心概念，包括类型系统、泛型、高级类型等基础知识，以及类型体操等高级类型级编程技术。
 
 ## Roadmap
 
@@ -121,7 +131,7 @@ interface Window { bar: string; }
 
 #### 枚举类型是怎么编译的？
 
-一个简单的编译示例，两段代码分别是枚举类型源码和编译结果。这种值和字面量双向映射的特性，也意味着很好地通过运行时实现了类型和值的统一。但如果声明枚举时指定了字面量（如下代码中的“Unknown”），则编译结果会变成名字到值的单向映射。
+一个简单的编译示例，两段代码分别是枚举类型源码和编译结果。这种值和字面量双向映射的特性，也意味着很好地通过运行时实现了类型和值的统一。但如果声明枚举时指定了字面量（如下代码中的"Unknown"），则编译结果会变成名字到值的单向映射。
 
 ```ts
 enum Tristate {
@@ -263,9 +273,9 @@ void process<int>(int val) { /* 针对 int 的高效实现 */ }
 
 #### 什么是类型体操？
 
-TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种“实现”的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，或是把它看作某种脑力运动。充满技巧，有乐趣，复杂，又花里胡哨，所以是体操咯。
+TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种"实现"的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，或是把它看作某种脑力运动。充满技巧，有乐趣，复杂，又花里胡哨，所以是体操咯。
 
-* [类型体操](/maps/_typescript/type-gymnastics)
+* [类型体操](/maps/_typescript/type-gymnastics/type-gymnastics)
 * [体操训练](/source-code/_ts/type-challenges)
 
 #### 什么是图灵完备？
@@ -294,7 +304,7 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 <q>Ambient Modules 特别之处在于，TypeScript 在发表声明时保持对修饰符的引用，从而避免将它们转化为相对路径。</q>
 
-<q>我们的平台会确保在运行时中每个包只有一个版本的存在。我们希望对类型提供一种 “精确且唯一” 的定义，更好的反应运行时环境。</q>
+<q>我们的平台会确保在运行时中每个包只有一个版本的存在。我们希望对类型提供一种 "精确且唯一" 的定义，更好的反应运行时环境。</q>
 
 不可能实现。
 
@@ -311,7 +321,7 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 <q>Type Shaking 有时会效果极为显著。我们曾经遇到过一些包中超过 90% 文件中有超过 90% 的类型定义行是可以去掉的。</q>
 
-#### [“TypeScript 不值得！”前端框架 Svelte 作者宣布重构代码，反向迁移到 JavaScript 引争议](https://mp.weixin.qq.com/s?src=11&timestamp=1685334730&ver=4557&signature=YHLVy3Pb0b4pKL4-x5Qn7MHu71CQCnJfE04W3iJTm1pQ0X-LgQ6kLfW9TMnfXmTHvmM1YN-xRsFsuAlSKCePE-Goat-MdhOzQqvIVcMl6kPLpJ10vTrrRmwQRZljDCoD&new=1)
+#### ["TypeScript 不值得！"前端框架 Svelte 作者宣布重构代码，反向迁移到 JavaScript 引争议](https://mp.weixin.qq.com/s?src=11&timestamp=1685334730&ver=4557&signature=YHLVy3Pb0b4pKL4-x5Qn7MHu71CQCnJfE04W3iJTm1pQ0X-LgQ6kLfW9TMnfXmTHvmM1YN-xRsFsuAlSKCePE-Goat-MdhOzQqvIVcMl6kPLpJ10vTrrRmwQRZljDCoD&new=1)
 
 2023 年 5 月 9 日，Svelte 团队发布 TS to JSDoc Conversion 的 PR，讨论点在 JSDoc 对类型开发的友好程度不如 TS。作者 Rich Harris 表示原因比较复杂。
 
@@ -329,7 +339,7 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 #### [compilerOptions.isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
 
-许多编译工具如 Babel 不支持在“一个系统层面”角度理解类型。所以需要开启 isolatedModules。开启后，TS 会将每一个 TS 文件都视为独立的 Module，这需要项目使用 ES Module 语法，但同时，TS 会带来更严格的类型检测支持。
+许多编译工具如 Babel 不支持在"一个系统层面"角度理解类型。所以需要开启 isolatedModules。开启后，TS 会将每一个 TS 文件都视为独立的 Module，这需要项目使用 ES Module 语法，但同时，TS 会带来更严格的类型检测支持。
 
 在 vite-based 项目中，这个选项应该且默认打开。
 
@@ -498,7 +508,7 @@ type Foo = {
 never 是一种底层类型，表示永远不会有值的类型。它通常用于函数永远不会返回的情况，比如抛出异常或无限循环。具体代码中，常使用 never 手动收缩类型，来达到类型保护的效果。
 
 ```ts
-type Shape = 
+type Shape =
   | { kind: 'circle'; radius: number }
   | { kind: 'square'; side: number }
 // 当新增一种 Shape 时，由于 getArea 中没有处理这种情况，
