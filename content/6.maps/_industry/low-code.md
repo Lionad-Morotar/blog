@@ -1,6 +1,7 @@
 ---
 title: 低代码
 description: 无代码、低代码、高代码，这是一个围绕人机交互的有趣话题。
+original_path: content/6.maps/_industry/low-code.md
 ---
 
 ## 基础概念

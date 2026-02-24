@@ -1,6 +1,7 @@
 ---
 title: 行业报告
 description: 行业研究、分析、报告等
+original_path: content/6.maps/_industry/analytics.md
 ---
 
 * [IDC Analyst Insights](https://www.idc.com/resource-center)
