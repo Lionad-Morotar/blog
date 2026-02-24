@@ -1,6 +1,7 @@
 ---
-title: 字体
-description: 字体是文字的视觉表现形式，是视觉设计的基础。字体的选择、排版、字重、字体大小、行高等都是影响视觉效果的重要因素。
+title: 字体排版
+description: 字体设计、排版规范与可变字体技术
+original_path: content/6.maps/_ui/font.md
 ---
 
 #### <Link type='h5' to='https://mgear-file.oss-cn-shanghai.aliyuncs.com/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%20line-height%E3%80%81vertical-align%20-%20%E5%A4%A7%E6%AD%A5%E5%BE%80%E5%89%8D%E8%B5%B0_%E4%B8%8D%E5%9B%9E%E5%A4%B4%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD.html' source='https://www.cnblogs.com/wfeicherish/p/8884903.html' >《深入理解：line-height、vertical-align》</Link>
