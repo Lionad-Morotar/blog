@@ -1,11 +1,12 @@
 ---
 title: 组织
 description: 团队组织架构、管理方法、沟通方式等。
+original_path: content/6.maps/_management/organization.md
 ---
 
 ## 组织方法
 
-* [Shape Up](/maps/_management/shape-up)
+* [Shape Up](/maps/_management/shape-up/shape-up)
 
 ## 目标管理
 
@@ -36,4 +37,4 @@ description: 团队组织架构、管理方法、沟通方式等。
 ## Domain
 
 * [AI-accelerated Shadow IT](/maps/_management/shadow-it/ai-accelerated-shadow-it)
-* [产能驱动开发](/maps/_management/capacity-driven-development)
+* [产能驱动开发](/maps/_management/capacity-driven-development/capacity-driven-development)
