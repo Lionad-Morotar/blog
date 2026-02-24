@@ -1,6 +1,7 @@
 ---
 title: Whale Fall
 description: 大型开源项目死亡后的生态演替，类比海洋中的鲸落现象
+original_path: content/6.maps/_software/whale-fall.md
 ---
 
 #### 开源项目的鲸落三阶段
