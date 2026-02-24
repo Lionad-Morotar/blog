@@ -1,6 +1,7 @@
 ---
 title: ffmpeg & imagemagick
 description: 最常使用的视频和图片处理工具。
+original_path: content/6.maps/_cli/ffmpeg.md
 ---
 
 ## FFMPEG
