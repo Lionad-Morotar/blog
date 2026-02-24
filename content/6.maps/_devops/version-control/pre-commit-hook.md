@@ -1,6 +1,8 @@
-
+---
 title: 预提交钩子（Pre-commit hooks）
 description: Git 的 pre-commit hook 用来在提交代码前执行一些检查或操作
+original_path: content/6.maps/_devops/git/pre-commit-hook.md
+---
 
 ## Brief 
 

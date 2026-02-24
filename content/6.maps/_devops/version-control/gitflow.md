@@ -1,6 +1,7 @@
 ---
 title: Gitflow
 description: Gitflow 是一种使用 Git 合作时使用的工作流程。
+original_path: content/6.maps/_devops/git/gitflow.md
 ---
 
 ## Quick Questions
