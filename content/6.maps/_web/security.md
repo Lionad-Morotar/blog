@@ -5,7 +5,7 @@ description: 网络安全知识导图，包含 XSS、CSRF、CSS Exfiltration 等
 
 ## 领域
 
-* [Web Crypto API](/maps/_web/browser-api/crypto)
+* [Web Crypto API](/maps/_web/browser/crypto)
 * [OAuth](/maps/_web/oauth) - 第三方授权协议的设计原理与安全机制
 
 ## 概念

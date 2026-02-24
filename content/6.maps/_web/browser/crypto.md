@@ -1,6 +1,7 @@
 ---
 title: Web Crypto API
 description: Web Crypto API 是一个 JavaScript 接口，用于在浏览器中执行加密操作。
+original_path: content/6.maps/_web/browser-api/crypto.md
 ---
 
 TODO
