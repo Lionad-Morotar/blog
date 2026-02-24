@@ -1,6 +1,7 @@
 ---
 title: 产品经理
 description: 产品经理是指负责产品规划、设计、开发、推广、运营等全生命周期管理的专业人员。
+original_path: content/6.maps/_product/product-manager.md
 ---
 
 #### 工作的主要职责是什么？
