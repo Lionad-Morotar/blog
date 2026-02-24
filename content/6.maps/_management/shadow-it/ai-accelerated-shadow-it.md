@@ -1,6 +1,7 @@
 ---
 title: AI 加速的影子 IT
 description: 讨论生成式 AI 和无代码平台如何催生新一轮影子 IT 现象，其风险与治理建议。
+original_path: content/6.maps/_management/shadow-it/ai-accelerated-shadow-it.md
 ---
 
 ## Brief
