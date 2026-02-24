@@ -24,6 +24,8 @@ original_path: content/6.maps/_software/software-engineering.md
 
 这是关于软件演化的深层认知：代码的价值不在于其当下的优雅，而在于它所承载的历史智慧和验证过的正确性。
 
+不过，在 Coding Agent 已经强大的 2026 年来看，这些过往的软件工程经验正在急速演变。
+
 见：[Things You Should Never Do, Part I](https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/)
 
 ####  Martin Fowler深度访谈：软件工程正迎来 40 年来最猛烈的一次地震
