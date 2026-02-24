@@ -1,6 +1,7 @@
 ---
 title: Makefile
-description: Makefile 构建工具基础教程。
+description: Makefile 构建工具基础教程
+original_path: content/6.maps/_cpp/makefile.md
 ---
 
 之前看 ElementUI 的时候有了解一点 Makefile 的语法，现在正在看 C++，恰好是更细致学习一下的好机会。
