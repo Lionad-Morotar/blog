@@ -1,6 +1,7 @@
 ---
 title: 规格驱动开发（SDD）
 description: 规格驱动开发是一种新兴的 AI 辅助编码工作流方法
+original_path: content/6.maps/_docs/doc-manage/sdd.md
 ---
 
 ## Brief
