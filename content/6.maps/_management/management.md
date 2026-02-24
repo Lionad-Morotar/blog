@@ -5,6 +5,7 @@ description: 团队管理、组织架构、开发方法和工程文化
 
 ## 子领域
 
+* [领导力](/maps/_management/leadership) - 领导力原则与团队管理智慧
 * [组织](/maps/_management/organization/organization) - 团队组织架构与管理方法
 * [Shape Up](/maps/_management/shape-up/shape-up) - 适合中小团队的工作方式
 * [团队切片](/maps/_management/slice/slice) - 独立数据工程团队等组织模式

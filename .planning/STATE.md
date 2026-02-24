@@ -8,13 +8,13 @@
 ## Current Position
 
 **Current Phase:** 09-medium-batch-4
-**Current Plan:** 09-P01 complete ✅
-**Status:** Phase 9 in progress — 3/4 plans complete, _science domain migrated with 6 subdomains
+**Current Plan:** 09-P03 complete ✅
+**Status:** Phase 9 in progress — 4/4 plans complete, _product domain migrated with 6 subdomains
 
 ### Progress Bar
 
 ```
-[██████░░░░░░░░░░░░░░] 29% (16/56 requirements)
+[███████░░░░░░░░░░░░░] 32% (18/56 requirements)
 ```
 
 ### Phase Status
@@ -29,7 +29,7 @@
 | 6 | Medium Batch 1 | **Complete** ✅ | 4/4 |
 | 7 | Medium Batch 2 | **Complete** ✅ | 4/4 |
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
-| 9 | Medium Batch 4 | **In Progress** | 3/4 |
+| 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
 | 10 | Medium Batch 5 | Pending | 0/17 |
 | 11 | Complex: Database | Pending | 0/1 |
 | 12 | Complex: DevOps | Pending | 0/1 |
@@ -86,6 +86,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-24 | Simple domain migration pattern | Domain entry + subdomain directory + original_path preservation |
 | 2026-02-24 | Cross-domain link update pattern | Update links in 0.index.md to nested paths during validation |
 | 2026-02-24 | Asymmetric file naming | Keep original filenames when migrating (e.g., project-management.md) |
+| 2026-02-24 | New subdomain entry creation | Create new subdomain entry files when relocating content without existing entry (e.g., user-research.md for dovetail) |
 
 ### Open Questions
 
@@ -104,18 +105,18 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 09-P01 Complete** ✅ — _science domain migrated with 6 subdomains:
-- Created science.md domain entry with ## 子领域 navigation section
-- Migrated complex-science.md to complex-science/complex-science.md with nested systems-theory.md
-- Migrated cosmos.md to cosmos/cosmos.md
-- Migrated entropy.md to entropy/entropy.md
-- Migrated environment.md to environment/environment.md
-- Migrated neuroscience.md to neuroscience/neuroscience.md
-- Migrated quantum.md to quantum/quantum.md
+**Phase 09-P03 Complete** ✅ — _product domain migrated with 6 subdomains:
+- Updated product.md domain entry with ## 子领域 navigation section
+- Migrated gamification.md to gamification/gamification.md
+- Migrated growth.md to growth/growth.md
+- Migrated operation.md to operation/operation.md
+- Migrated product-hunt.md to product-hunt/product-hunt.md (1011 lines preserved)
+- Migrated product-manager.md to product-manager/product-manager.md
+- Created user-research.md subdomain entry and relocated docs/dovetail.md
 - Updated cross-domain links in 0.index.md
 
 ### Next Action
-Continue with Phase 9 remaining plans (P03).
+Phase 9 complete. Ready for Phase 10 planning.
 
 ### Execution History (Phase 09)
 
@@ -123,6 +124,7 @@ Continue with Phase 9 remaining plans (P03).
 |------|----------|-------|-------|
 | 09-P01 (_science) | 5m 5s | 8 tasks | 9 files |
 | 09-P02 (_cloud-native) | 4m | 6 tasks | 7 files |
+| 09-P03 (_product) | 12m | 8 tasks | 9 files |
 | 09-P04 (_computer) | 4m | 5 tasks | 7 files |
 
 ### Execution History (Phase 08)
@@ -159,8 +161,8 @@ Continue with Phase 9 remaining plans (P03).
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 32 |
-| Domains migrated | 62 | 30 |
+| Requirements completed | 56 | 34 |
+| Domains migrated | 62 | 31 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -174,6 +176,7 @@ Continue with Phase 9 remaining plans (P03).
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 09-medium-batch-4 P01 | 5m 5s | 8 tasks | 9 files |
+| Phase 09-medium-batch-4 P03 | 12m | 8 tasks | 9 files |
 
 ### Execution History
 
