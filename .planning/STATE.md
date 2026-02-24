@@ -7,14 +7,14 @@
 
 ## Current Position
 
-**Current Phase:** 10-medium-batch-5
-**Current Plan:** 10-P03 complete ✅
-**Status:** Phase 10 in progress — 2/17 plans complete, _web domain migrated with 5 subdomains
+**Current Phase:** 11-complex-database
+**Current Plan:** 11-P01 complete ✅
+**Status:** Phase 11 complete — 1/1 plan complete, _database domain migrated with 2 subdomains
 
 ### Progress Bar
 
 ```
-[████████░░░░░░░░░░░░] 36% (20/56 requirements)
+[████████░░░░░░░░░░░░] 38% (21/56 requirements)
 ```
 
 ### Phase Status
@@ -31,7 +31,7 @@
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
 | 10 | Medium Batch 5 | **In Progress** | 2/17 |
-| 11 | Complex: Database | Pending | 0/1 |
+| 11 | Complex: Database | **Complete** ✅ | 1/1 |
 | 12 | Complex: DevOps | Pending | 0/1 |
 | 13 | Complex: FE Framework | Pending | 0/1 |
 | 14 | Complex: Workflow | Pending | 0/1 |
@@ -105,18 +105,22 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 10-P03 Complete** ✅ — _web domain migrated with 5 subdomains:
-- Created web.md domain entry with ## 子领域 navigation
-- Formalized browser/ directory with browser.md entry (moved from index.md)
-- Merged browser-api/crypto.md into browser/crypto.md
-- Migrated performance.md to performance/performance.md
-- Merged security.md and oauth.md into security/security.md
-- Migrated crawler.md to crawler/crawler.md
-- Migrated miniapp.md to miniapp/miniapp.md
-- Updated 5 cross-domain links in 0.index.md
+**Phase 11-P01 Complete** ✅ — _database domain migrated with 2 subdomains:
+- Created database.md domain entry with ## 子领域 navigation for all 6 subdomains
+- Created nosql/ subdirectory and migrated redis.md with original_path metadata
+- Created graphql/ subdirectory and migrated graphql.md with original_path metadata
+- Flattened graphql-for-llm.md from graphql/ai/ to graphql/ directory
+- Updated internal link in graphql.md to use relative path
+- Removed original root files and empty ai/ directory
 
 ### Next Action
-Continue with Phase 10 remaining plans.
+Continue with Phase 12 (Complex: DevOps) or return to Phase 10 remaining plans.
+
+### Execution History (Phase 11)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 11-P01 (_database) | 3m | 3 tasks | 4 files |
 
 ### Execution History (Phase 10)
 
@@ -169,21 +173,22 @@ Continue with Phase 10 remaining plans.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 36 |
-| Domains migrated | 62 | 33 |
+| Requirements completed | 56 | 37 |
+| Domains migrated | 62 | 34 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
 ---
 
 *State initialized: 2026-02-24*
-*Last updated: 2026-02-25*
+*Last updated: 2026-02-24*
 
 ### Execution History
 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | Phase 10-medium-batch-5 P03 | 6m | 8 tasks | 11 files |
+| Phase 11-complex-database P01 | 3m | 3 tasks | 4 files |
 
 ### Execution History
 
