@@ -1,6 +1,7 @@
 ---
 title: King Database
 description: A simple key-value store database
+original_path: content/6.maps/_cpp/king-db.md
 ---
 
 ## [<i>IKVS Series</i>](https://codecapsule.com/2012/11/07/ikvs-implementing-a-key-value-store-table-of-contents/)
