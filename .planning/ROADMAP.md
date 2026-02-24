@@ -263,9 +263,15 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 **Dependencies:** Phase 9 (Medium Batch 4)
 
 **Requirements Mapped:**
-- MED-17: 重构 _ui 领域（7 文件）
-- MED-18: 重构 _programming 领域（8 文件）
-- MED-19: 重构 _web 领域（10 文件）
+- MED-17: 重构 _ui 领域（7 文件 → 5 subdomains）
+- MED-18: 重构 _programming 领域（8 文件 → 5 subdomains）
+- MED-19: 重构 _web 领域（10 文件 → 5 subdomains）
+
+**Plans:**
+
+- [ ] 10-P01-PLAN.md — Migrate _ui domain (design/, accessibility/, typography/, inspiration/, ai-assisted/)
+- [ ] 10-P02-PLAN.md — Migrate _programming domain (paradigms/, dx/, debugging/, languages/, frameworks/)
+- [ ] 10-P03-PLAN.md — Migrate _web domain (browser/, performance/, security/, crawler/, miniapp/)
 
 **Success Criteria:**
 
@@ -433,7 +439,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 7 - Medium Batch 2 | **Complete** ✅ | 4/4 | _typescript, _visual, _cpp, _docs migrated |
 | 8 - Medium Batch 3 | **Complete** ✅ | 4/4 | _products, _management, _software, _test migrated |
 | 9 - Medium Batch 4 | **Complete** ✅ | 4/4 | _cloud-native, _computer, _product, _science migrated |
-| 10 - Medium Batch 5 | Pending | 0/3 | Blocked on Phase 9 |
+| 10 - Medium Batch 5 | **Planned** | 0/3 | Ready for execution |
 | 11 - Complex: Database | Pending | 0/1 | Blocked on Phase 10 |
 | 12 - Complex: DevOps | Pending | 0/1 | Blocked on Phase 11 |
 | 13 - Complex: FE Framework | Pending | 0/1 | Blocked on Phase 12 |
@@ -444,6 +450,12 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 18 - Validation & Integration | Pending | 0/5 | Blocked on Phase 17 |
 
 **Overall Progress:** 35/56 requirements complete (62%)
+
+---
+
+## Next Action
+
+Execute `/gsd:execute-phase 10` to plan Medium Batch 5 (3 medium domains: _ui, _programming, _web).
 
 ---
 
