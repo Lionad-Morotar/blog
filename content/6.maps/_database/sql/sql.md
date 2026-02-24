@@ -6,4 +6,4 @@ description: SQL（Structured Query Language，结构化查询语言）是一种
 ## Domain
 
 * [Text to SQL](/maps/_database/sql/text-to-sql)
-* [Postgres](/maps/_database/postgres)
+* [Postgres](./postgres)
