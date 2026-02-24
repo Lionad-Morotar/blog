@@ -1,6 +1,7 @@
 ---
-title: Debug
-description: 系统化 Bug 修复方法
+title: 调试技术
+description: 系统化 Bug 修复方法与调试技术
+original_path: content/6.maps/_programming/debug.md
 ---
 
 #### 系统化 Bug 修复方法
