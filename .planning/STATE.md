@@ -7,9 +7,9 @@
 
 ## Current Position
 
-**Current Phase:** 07-medium-batch-2
-**Current Plan:** 07 complete ✅
-**Status:** Phase 7 complete — all 4 plans finished, 4 medium domains migrated
+**Current Phase:** 08-medium-batch-3
+**Current Plan:** 08-P04 complete ✅
+**Status:** Phase 8 in progress — 4/4 plans complete, _test domain migrated with 4 subdomains
 
 ### Progress Bar
 
@@ -28,9 +28,7 @@
 | 5 | Simple Batch 4 | **Complete** ✅ | 5/5 |
 | 6 | Medium Batch 1 | **Complete** ✅ | 4/4 |
 | 7 | Medium Batch 2 | **Complete** ✅ | 4/4 |
-| 8 | Medium Batch 3 | Pending | 0/4 |
-| 9 | Medium Batch 4 | Pending | 0/4 |
-| 10 | Medium Batch 5 | Pending | 0/17 |
+| 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | Pending | 0/4 |
 | 10 | Medium Batch 5 | Pending | 0/17 |
 | 11 | Complex: Database | Pending | 0/1 |
@@ -106,14 +104,25 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 07 Complete** ✅ — All 4 plans finished, 4 medium domains migrated:
-- **07-P01**: _typescript domain with type-gymnastics/ subdomain (3 tasks, 3 commits)
-- **07-P02**: _visual domain with 3 subdomains (info-design/, visualization/, gis/) (5 tasks, 5 commits)
-- **07-P03**: _cpp domain with flat 4-topic structure (5 tasks, 4 commits)
-- **07-P04**: _docs domain with 2 formalized subdomains (doc-manage/, tech-docs/) (4 tasks, 3 commits)
+**Phase 08-P04 Complete** ✅ — _test domain migrated with 4 subdomains:
+- Updated test.md domain entry with ## 子领域 navigation section
+- Migrated software-testing-engineer.md to software-testing-engineer/ subdirectory
+- Formalized tools/ subdirectory with tools.md entry and nested playwright/
+- Formalized methods/ subdirectory with methods.md entry and nested tcr/
+- Formalized ai/ subdirectory with ai.md entry and nested ai-driven-testing/
+- Verified cross-domain links in 0.index.md (no changes needed)
 
 ### Next Action
-Phase 07 complete. Ready for Phase 8 planning.
+Phase 8 complete. Ready for Phase 9 planning.
+
+### Execution History (Phase 08)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 08-P01 (_products) | 5m 22s | 6 tasks | 5 files |
+| 08-P02 (_management) | 4 minutes | 7 tasks | 9 files |
+| 08-P03 (_software) | 6m | 7 tasks | 7 files |
+| 08-P04 (_test) | 9m | 6 tasks | 8 files |
 
 ### Execution History (Phase 07)
 
@@ -140,8 +149,8 @@ Phase 07 complete. Ready for Phase 8 planning.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 27 |
-| Domains migrated | 62 | 25 |
+| Requirements completed | 56 | 29 |
+| Domains migrated | 62 | 27 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -153,6 +162,7 @@ Phase 07 complete. Ready for Phase 8 planning.
 | Phase 05-simple-batch-4 P05-P02 | 2 minutes | 2 tasks | 2 files |
 | Phase 05-simple-batch-4 P03 | 2 minutes | 2 tasks | 2 files |
 | Phase 06-medium-batch-1 P06-P02 | 2 minutes | 3 tasks | 4 files |
+| Phase 08-medium-batch-3 P08-P04 | 9m | 6 tasks | 8 files |
 
 ### Execution History
 
@@ -180,3 +190,4 @@ Phase 07 complete. Ready for Phase 8 planning.
 | Phase 07-medium-batch-2 P01 | 3m | 3 tasks | 3 files |
 | Phase 07-medium-batch-2 P02 | 2m | 5 tasks | 5 files |
 | Phase 07-medium-batch-2 P04 | 53s | 4 tasks | 5 files |
+| Phase 08-medium-batch-3 P03 | 6m | 7 tasks | 7 files |
