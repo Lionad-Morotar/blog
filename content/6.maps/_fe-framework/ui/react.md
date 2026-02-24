@@ -78,6 +78,15 @@ static getDerivedStateFromProps(nextProps, prevState) {
 
 不同的地方在于 Vue 的数据和视图是双向绑定的，React 推崇不可变数据，并且需要手动优化，所以 Vue 模板有利于静态优化。
 
+#### React 的演进历程是什么？
+
+React 经历了多次架构变革。早期使用 mixins 实现代码复用，ES6 类组件出现后转为 class-based，
+直到 React 16.8 引入 Hooks 才真正改变了开发范式。Hooks 将必要样板代码减少了一个数量级，
+并催生了自定义 Hook 的爆发式发展。第三方库也经历了类似轨迹：Redux 等方案兴起后被抛弃，
+因为开发者意识到样板代码的成本得不偿失。
+
+见：[Get in Zoomer, We're Saving React](https://acko.net/blog/get-in-zoomer-we-re-saving-react/)
+
 ## Hooks
 
 * [useHooks(🐠)](https://usehooks.com/)
