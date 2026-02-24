@@ -1,52 +1,19 @@
 ---
 title: 用户界面（UI）
 description: 用户界面（UI）设计是指设计师设计的用户界面，是用户与产品之间的桥梁。用户界面设计是一个复杂的过程，其中包括设计、测试和改进。设计师必须考虑用户的需求、产品的功能和用户界面的外观。用户界面设计是一个交叉学科，涉及心理学、设计、计算机科学和其他领域。
+original_path: content/6.maps/_ui/ui.md
 ---
 
-## 用户界面
+## 子领域
 
-#### 设计哲学
+* [设计](/maps/_ui/design/design) - UI 设计原则、设计哲学、视觉风格
+* [可访问性](/maps/_ui/accessibility/accessibility) - 无障碍设计与 WAI-ARIA
+* [字体排版](/maps/_ui/typography/typography) - 字体设计与排版规范
+* [灵感资源](/maps/_ui/inspiration/inspiration) - 设计灵感与参考资源
+* [AI 辅助设计](/maps/_ui/ai-assisted/ai-assisted) - 生成式 AI 在 UI 设计中的应用
 
-* [设计哲学思考](/maps/_ui/design-philosophy) - 从 Winamp 到现代 AI 界面，设计范式背后的价值观与文化变迁
+## 概述
 
-#### 设计规范
+用户界面设计是一个交叉学科领域，连接着技术实现与人类体验。它不仅关乎视觉美学，更涉及认知心理学、交互设计、信息架构等多个维度。一个优秀的 UI 设计需要在功能性、可用性和审美性之间找到平衡，同时考虑不同用户群体的需求——从普通用户到残障人士，从桌面端到移动端。
 
-* [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)：Apple 官方人机界面指南，涵盖 macOS、iOS、watchOS 等平台的设计原则与最佳实践
-
-#### 设计风格
-
-* [玻璃拟态（Glassmorphism）](/maps/_ui/glassmorphism) - 半透明背景、模糊效果与玻璃质感的现代视觉风格
-
-#### 用户交互控件分类？
-
-见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary)
-
-## 可访问性
-
-* [可访问性的一些小问题](/maps/_ui/accessibility)
-
-## 色彩变体
-
-#### `node-vibrant` 的色彩变体说明（GPT5）
-
-| 类型 | 色彩特征 | 适用场景 |
-|------|----------|----------|
-| **Vibrant** | 图片中最鲜艳、饱和度高的主要颜色 | 适合用于 **高亮元素**，如按钮、呼吁性 Banner、标题背景，增强视觉吸引力 |
-| **Dark Vibrant** | 主色调的较暗版本，饱和度仍较高 | 适用于 **深色背景**、强调区块、悬浮层底色或需要与浅色文字形成强对比的区域 |
-| **Light Vibrant** | 主色调的浅亮版本，柔和且明快 | 可用于 **提示性背景**、卡片顶部、渐变高光、引导用户注意的轻量元素 |
-| **Muted** | 主色调的低饱和版本，色彩更柔和 | 适合做 **低调背景**、辅助色块，适用于不希望颜色抢占内容注意力的设计 |
-| **Dark Muted** | 较暗且低饱和，沉稳不张扬 | 用于 **内容底色**、边栏背景、深色主题中需要柔和感的部分，制造沉静氛围 |
-| **Light Muted** | 浅色、低饱和，非常柔和 | 适合用于 **淡背景**、分隔区域、弱提示信息，不会打扰主要内容的呈现 |
-
-💡 **设计建议**  
-- 在渐变背景中，**主色可选 Vibrant**，然后搭配 **Muted / Dark Vibrant** 来形成层次感。  
-- 如果页面需要更温和的视觉效果，可用 **Light Vibrant + Light Muted** 做柔和渐变。  
-- 深色风格界面中，可用 **Dark Vibrant + Dark Muted** 来保持整体稳重，又不失层次。  
-
-## 灵感资源
-
-* [Awwwards 网页设计灵感平台](/maps/_ui/awwwards) - Awards、Category、Tag、Technology、Country、Collections、Elements 七大分类体系
-
-## Domain
-
-* [GenAI for UI Prototyping](/maps/_ui/gen/genai-for-ui-prototyping)
+随着技术的发展，UI 设计也在不断演进：从早期的拟物化设计到扁平化，再到如今的玻璃拟态和空间设计；从手动绘制像素到借助生成式 AI 快速原型。无论工具如何变化，UI 设计的核心始终不变——创造让人愉悦、高效且无障碍的数字体验。
