@@ -1,6 +1,7 @@
 ---
 title: 小程序
 description: 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
+original_path: content/6.maps/_web/miniapp.md
 ---
 
 ## 技术
