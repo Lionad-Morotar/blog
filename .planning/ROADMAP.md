@@ -431,7 +431,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 5 - Simple Batch 4 | **Complete** ✅ | 4/4 | _apps, _cross-domain, _refactor, _photography |
 | 6 - Medium Batch 1 | **Complete** ✅ | 4/4 | _business, _industry, _policy, _server |
 | 7 - Medium Batch 2 | **Complete** ✅ | 4/4 | _typescript, _visual, _cpp, _docs migrated |
-| 8 - Medium Batch 3 | **Planned** | 0/4 | Ready for execution |
+| 8 - Medium Batch 3 | **Complete** ✅ | 4/4 | _products, _management, _software, _test migrated |
 | 9 - Medium Batch 4 | Pending | 0/4 | Blocked on Phase 8 |
 | 10 - Medium Batch 5 | Pending | 0/3 | Blocked on Phase 9 |
 | 11 - Complex: Database | Pending | 0/1 | Blocked on Phase 10 |
@@ -443,7 +443,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 17 - Complex: AI | Pending | 0/1 | Blocked on Phase 16 |
 | 18 - Validation & Integration | Pending | 0/5 | Blocked on Phase 17 |
 
-**Overall Progress:** 27/56 requirements complete (48%)
+**Overall Progress:** 31/56 requirements complete (55%)
 
 ---
 
@@ -463,7 +463,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 
 ## Next Action
 
-Execute `/gsd:plan-phase 08` to plan Medium Batch 3 (4 medium domains: _products, _management, _software, _test).
+Execute `/gsd:plan-phase 09` to plan Medium Batch 4 (4 medium domains: _cloud-native, _computer, _product, _science).
 
 ---
 
