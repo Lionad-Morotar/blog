@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 11-complex-database
-**Current Plan:** 11-P01 complete ✅
-**Status:** Phase 11 complete — 1/1 plan complete, _database domain migrated with 2 subdomains
+**Current Plan:** 11-P02 complete ✅
+**Status:** Phase 11 in progress — 2/2 plans complete, directories renamed and files migrated
 
 ### Progress Bar
 
@@ -31,7 +31,7 @@
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
 | 10 | Medium Batch 5 | **In Progress** | 2/17 |
-| 11 | Complex: Database | **Complete** ✅ | 1/1 |
+| 11 | Complex: Database | **In Progress** | 2/2 |
 | 12 | Complex: DevOps | Pending | 0/1 |
 | 13 | Complex: FE Framework | Pending | 0/1 |
 | 14 | Complex: Workflow | Pending | 0/1 |
@@ -105,22 +105,23 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 11-P01 Complete** ✅ — _database domain migrated with 2 subdomains:
-- Created database.md domain entry with ## 子领域 navigation for all 6 subdomains
-- Created nosql/ subdirectory and migrated redis.md with original_path metadata
-- Created graphql/ subdirectory and migrated graphql.md with original_path metadata
-- Flattened graphql-for-llm.md from graphql/ai/ to graphql/ directory
-- Updated internal link in graphql.md to use relative path
-- Removed original root files and empty ai/ directory
+**Phase 11-P02 Complete** ✅ — Directories renamed and files migrated:
+- Renamed delta-lake/ to deltalake/ (hyphen removed from directory name)
+- Migrated delta-lake.md to deltalake/deltalake.md with original_path metadata
+- Migrated liquid-clustering.md to deltalake/ with original_path metadata
+- Migrated postgres/index.md to sql/postgres.md with original_path metadata
+- Updated internal links in sql/sql.md and datalake/datalake.md
+- Removed empty delta-lake/ and postgres/ directories
 
 ### Next Action
-Continue with Phase 12 (Complex: DevOps) or return to Phase 10 remaining plans.
+Continue with Phase 11-P03 (if exists) or move to Phase 12 (Complex: DevOps).
 
 ### Execution History (Phase 11)
 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | 11-P01 (_database) | 3m | 3 tasks | 4 files |
+| 11-P02 (rename/migrate) | 1m 38s | 3 tasks | 5 files |
 
 ### Execution History (Phase 10)
 
