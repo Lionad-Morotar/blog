@@ -1,6 +1,7 @@
 ---
 title: GIS（地理信息系统）
 description: 地理信息系统（Geographic Information System，简称 GIS）是一种用于捕获、存储、管理、分析和展示地理空间数据的计算机系统。
+original_path: content/6.maps/_visual/gis/gis.md
 ---
 
 ## Tour
