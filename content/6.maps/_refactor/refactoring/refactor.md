@@ -1,5 +1,6 @@
 ---
 title: 重构
+original_path: content/6.maps/_refactor/refactor.md
 ---
 
 ## Domain
