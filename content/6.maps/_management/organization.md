@@ -23,6 +23,16 @@ description: 团队组织架构、管理方法、沟通方式等。
 
 > #周刊摘录 见：[科技周刊第385期](https://www.ruanyifeng.com/blog/2026/02/weekly-issue-385.html)
 
+## Agent Teams 与组织架构
+
+#### Agentic Swarm 的组织架构陷阱
+
+企业将 AI Agent 简单替换组织底层的"机器人版组织架构图"模式存在根本性缺陷。这种做法本质上是将现有企业层级中的底层替换为一群 AI Agent,保留人类作为监督者——这看似熟悉且令人安心,但恰恰是最大的危险信号。真正的问题在于:当 Agent 能够自主协调和执行时,中层管理的"信息路由"价值被抽空,组织需要从根本上重新思考结构,而非简单替换。
+
+我的看法是,Agent Teams 本身就不是为了构建人类组织的数字化复刻,那是对生产技术理解不够深刻的人的自嗨,实际上 Agent Teams 主要是解决工程问题,和上下文管理相关。
+
+见：[Agentic Swarms Are an Org-Chart Delusion - Joan Westenberg](https://www.joanwestenberg.com/agentic-swarms-are-an-org-chart-delusion/)
+
 ## Domain
 
 * [AI-accelerated Shadow IT](/maps/_management/shadow-it/ai-accelerated-shadow-it)
