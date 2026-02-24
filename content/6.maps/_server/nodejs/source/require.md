@@ -1,6 +1,7 @@
 ---
 title: NodeJS Require
 description: NodeJS 模块导入的源码解析
+original_path: content/6.maps/_server/nodejs/source/require.md
 ---
 
 相关源码对应：
