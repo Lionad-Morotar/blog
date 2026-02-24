@@ -1,6 +1,7 @@
 ---
 title: 五年规划
 description: 对未来五年内的发展目标、发展方向、发展重点、发展任务等进行系统安排和部署的规划。
+original_path: content/6.maps/_policy/five-years-plan-14.md
 ---
 
 #### [《中华人民共和国国民经济和社会发展第十四个五年规划和 2035 年远景目标纲要》](https://www.gov.cn/xinwen/2021-03/13/content_5592681.htm)
