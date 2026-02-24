@@ -1,6 +1,7 @@
 ---
 title: 知识流优于知识库存
 description: Knowledge flow is better than knowledge stocks
+original_path: content/6.maps/_docs/tech-docs/knowledge-flow.md
 ---
 
 ## Brief
