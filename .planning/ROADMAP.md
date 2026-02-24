@@ -195,16 +195,24 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 **Dependencies:** Phase 6 (Medium Batch 1)
 
 **Requirements Mapped:**
-- MED-05: 重构 _typescript 领域（4 文件）
-- MED-06: 重构 _visual 领域（4 文件）
+- MED-05: 重构 _typescript 领域（2 文件）
+- MED-06: 重构 _visual 领域（3 文件 + 1 subdir）
 - MED-07: 重构 _cpp 领域（4 文件）
-- MED-08: 重构 _docs 领域（4 文件）
+- MED-08: 重构 _docs 领域（2 subdirs, 4 文件）
+
+**Plans:**
+
+- [ ] 07-P01-PLAN.md — Migrate _typescript domain (type-gymnastics/ subdomain)
+- [ ] 07-P02-PLAN.md — Migrate _visual domain (3 subdomains: info-design/, visualization/, gis/)
+- [ ] 07-P03-PLAN.md — Migrate _cpp domain (flat structure: 4 topic files)
+- [ ] 07-P04-PLAN.md — Migrate _docs domain (formalize doc-manage/ and tech-docs/ subdomains)
 
 **Success Criteria:**
 
-1. **All 4 domains restructured**
-2. **Pattern consistency** — Same decision criteria as Phase 6
-3. **No fragmentation issues** — Knowledge points remain as H4 headings
+1. **All 4 domains restructured** — _typescript with type-gymnastics subdomain, _visual with 3 subdomains, _cpp flat with 4 topics, _docs with 2 formalized subdomains.
+2. **Pattern consistency** — Same decision criteria as Phase 6: 1-2 topics = file, 3+ topics = directory.
+3. **No fragmentation issues** — Knowledge points remain as H4 headings.
+4. **Cross-domain links updated** — 0.index.md and internal domain links point to new paths.
 
 ---
 
@@ -421,9 +429,9 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 3 - Simple Batch 2 | **Complete** ✅ | 5/5 | _react-native, _oop, _medicine, _manage, _games |
 | 4 - Simple Batch 3 | **Complete** ✅ | 5/5 | _game, _company, _communication, _cli, _blogs |
 | 5 - Simple Batch 4 | **Complete** ✅ | 4/4 | _apps, _cross-domain, _refactor, _photography |
-| 6 - Medium Batch 1 | **Planned** | 0/4 | Ready to execute |
-| 7 - Medium Batch 2 | Pending | 0/4 | Blocked on Phase 6 |
-| 8 - Medium Batch 3 | Pending | 0/4 | Blocked on Phase 7 |
+| 6 - Medium Batch 1 | **Complete** ✅ | 4/4 | _business, _industry, _policy, _server |
+| 7 - Medium Batch 2 | **Complete** ✅ | 4/4 | _typescript, _visual, _cpp, _docs migrated |
+| 8 - Medium Batch 3 | **Planned** | 0/4 | Ready for execution |
 | 9 - Medium Batch 4 | Pending | 0/4 | Blocked on Phase 8 |
 | 10 - Medium Batch 5 | Pending | 0/3 | Blocked on Phase 9 |
 | 11 - Complex: Database | Pending | 0/1 | Blocked on Phase 10 |
@@ -435,7 +443,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 17 - Complex: AI | Pending | 0/1 | Blocked on Phase 16 |
 | 18 - Validation & Integration | Pending | 0/5 | Blocked on Phase 17 |
 
-**Overall Progress:** 23/56 requirements complete (41%)
+**Overall Progress:** 27/56 requirements complete (48%)
 
 ---
 
@@ -455,7 +463,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 
 ## Next Action
 
-Execute `/gsd:execute-phase 06-medium-batch-1` to begin Medium Batch 1 (4 medium domains: _business, _industry, _policy, _server).
+Execute `/gsd:plan-phase 08` to plan Medium Batch 3 (4 medium domains: _products, _management, _software, _test).
 
 ---
 
