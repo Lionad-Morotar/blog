@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-02-24
+
+让人感叹。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260224233617400.png)
+
 #### 2026-02-23
 
 qwen/qwen3-coder-next 作为本地翻译模型虽然好用但是很多翻译错误。
