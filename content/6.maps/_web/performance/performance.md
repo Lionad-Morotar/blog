@@ -1,6 +1,7 @@
 ---
 title: 页面性能
 description: 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
+original_path: content/6.maps/_web/performance.md
 ---
 
 
@@ -73,7 +74,7 @@ Performance Timing 被弃用了，取而代之的是 Performance Navigation Timi
 
 #### PerformanceObserver 是什么？
 
-“有效的性能测量的第一条规则是确保性能测量技术本身不会导致性能问题”，使用 Performance Observer 可以获取某个具体类型的指标的同时不会干扰或影响页面性能，因为它会在浏览器空闲时期执行。
+"有效的性能测量的第一条规则是确保性能测量技术本身不会导致性能问题"，使用 Performance Observer 可以获取某个具体类型的指标的同时不会干扰或影响页面性能，因为它会在浏览器空闲时期执行。
 
 ```js
 try {
@@ -93,7 +94,7 @@ try {
       })
 	})
 } catch {
-	// nothing	
+	// nothing
 }
 ```
 
@@ -158,7 +159,7 @@ performance.measure('myTask', 'myTask:start', 'myTask:end')
 
 #### 做性能优化的基本法则是什么？
 
-编译层参见 webpack 优化；网络层减少请求；客户端预加载、预渲染、预执行。以及两句名言：”空间换时间”、”串行改并行”。
+编译层参见 webpack 优化；网络层减少请求；客户端预加载、预渲染、预执行。以及两句名言："空间换时间"、"串行改并行"。
 
 #### 如何优化复杂动画的性能？
 
@@ -255,7 +256,7 @@ PWA 能够通过 Service Worker 对缓存进行精细化控制，在客户端使
 
 #### NSR 是什么？
 
-Native Side Render，GMTC 2019 UC 团队提到的一种“前端 SSR”方案，它借助浏览器启动一个额外的 JS Runtime，将提前下载好的 HTML 模板和数据预渲染出来。这种方案的瓶颈在于他会带来额外的流量和性能开销，所以如何预测用户行为，提高命中率是非常重要的事。
+Native Side Render，GMTC 2019 UC 团队提到的一种"前端 SSR"方案，它借助浏览器启动一个额外的 JS Runtime，将提前下载好的 HTML 模板和数据预渲染出来。这种方案的瓶颈在于他会带来额外的流量和性能开销，所以如何预测用户行为，提高命中率是非常重要的事。
 
 ### Links
 
