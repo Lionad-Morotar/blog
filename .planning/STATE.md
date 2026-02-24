@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 03-simple-batch-2
-**Current Plan:** 01 complete ✅
-**Status:** Plan 03-01 complete — _react-native domain migrated to 4-layer structure
+**Current Plan:** 03 complete ✅
+**Status:** Plan 03-03 complete — _manage and _games domains migrated to 4-layer structure
 
 ### Progress Bar
 
@@ -23,7 +23,7 @@
 |---|-------|--------|----------|
 | 1 | Foundation & Planning | **Complete** ✅ | 4/4 |
 | 2 | Simple Batch 1 | **Complete** ✅ | 5/5 |
-| 3 | Simple Batch 2 | **In Progress** | 1/5 |
+| 3 | Simple Batch 2 | **In Progress** | 3/5 |
 | 4 | Simple Batch 3 | Pending | 0/4 |
 | 5 | Simple Batch 4 | Pending | 0/7 |
 | 6 | Medium Batch 1 | Pending | 0/4 |
@@ -102,14 +102,14 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Plan 03-01 Complete** ✅ — Migrated _react-native domain to 4-layer structure:
-- Created domain entry: content/6.maps/_react-native/react-native.md
-- Created subdomain: content/6.maps/_react-native/react-native/react-native.md
-- Preserved original_path in frontmatter
-- Updated internal link in 0.index.md
+**Plan 03-03 Complete** ✅ — Migrated _manage and _games domains to 4-layer structure:
+- Created domain entries: manage.md, games.md
+- Created subdomains: manage/, games/
+- Migrated content with original_path preservation
+- Updated 2 internal links in 0.index.md
 
 ### Next Action
-Continue with Plan 03-02 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` to migrate next simple domain.
+Continue with Plan 03-04 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` to migrate next simple domains.
 
 ### Working Context
 - 62 domains to reorganize (21 simple + 33 medium + 7 complex + 1 empty)
@@ -127,8 +127,8 @@ Continue with Plan 03-02 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` t
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 8 |
-| Domains migrated | 62 | 8 |
+| Requirements completed | 56 | 10 |
+| Domains migrated | 62 | 10 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -146,4 +146,6 @@ Continue with Plan 03-02 in Phase 3 (Simple Batch 2) or `/gsd:execute-phase 3` t
 | Phase 02-03 P03 | 14 minutes | 4 tasks | 4 files |
 | Phase 02-04 P04 | 5 minutes | 3 tasks | 3 files |
 | Phase 03-01 P01 | 5 minutes | 2 tasks | 3 files |
+| Phase 03-02 P02 | 4 minutes | 4 tasks | 4 files |
+| Phase 03-03 P03 | 3 minutes | 4 tasks | 5 files |
 
