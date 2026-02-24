@@ -1,30 +1,13 @@
 ---
 title: Go
-description: Go（又称 Golang）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。Go 被誉为是未来的服务器端编程语言。
+description: Go 编程语言学习资源与工具集合
+nav_order: 1
 ---
 
-## Tour
+# Go 领域
 
-* [A Tour of Go](https://tour.go-zh.org/list)
-* [Go for JavaScript Developers](https://chenjinya.com/go-for-javascript-developers/pages/internals/)
-* [深入 Go 语言之旅](https://go.cyub.vip)
-* [Understanding Escape Analysis in Go](https://medium.com/@pranoy1998k/understanding-escape-analysis-in-go-b2db76be58f0): Go 逃逸分析原理与性能优化
+Go（又称 Golang）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。Go 被誉为是未来的服务器端编程语言。
 
-## Specification
+## 子领域导航
 
-* [Golang Specification](https://go-zh.org/ref/spec)
-
-## Packages
-
-* [Go Internal Packages](https://go-zh.org/pkg/): 标准库、子代码库等
-* [Go Packages](https://pkg.go.dev/): 包索引与搜索引擎。
-
-## Patterns
-
-* [Go Concurrency Patterns](https://www.youtube.com/watch?v=f6kdp27TYZs)
-* [Go Advanced Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)
-
-## Dev Tools
-
-* [Go Playground](https://go.dev/play/)：在线编写、运行和分享 Go 代码的工具
-* [g](https://github.com/voidint/g)：Version manager for Go
+- [Go 语言](./go/go.md) - Go 语言学习资源、规范、包管理与开发工具
