@@ -1,6 +1,7 @@
 ---
 title: AI 驱动测试
 description: AI 驱动的 UI 测试正在通过与主流测试框架的深度集成，解决早期非确定性带来的不稳定性问题，提升测试自动化的可靠性和效率。
+original_path: content/6.maps/_test/ai/ai-driven-testing.md
 ---
 
 ## Brief  
