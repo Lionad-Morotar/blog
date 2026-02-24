@@ -7,9 +7,9 @@
 
 ## Current Position
 
-**Current Phase:** 06-medium-batch-1
-**Current Plan:** 04 complete ✅
-**Status:** Phase 6 in progress — 2 of 4 plans complete (_policy and _server domains migrated)
+**Current Phase:** 07-medium-batch-2
+**Current Plan:** 04
+**Status:** In Progress — migrating _docs domain
 
 ### Progress Bar
 
@@ -26,8 +26,8 @@
 | 3 | Simple Batch 2 | **Complete** ✅ | 5/5 |
 | 4 | Simple Batch 3 | **Complete** ✅ | 5/5 |
 | 5 | Simple Batch 4 | **Complete** ✅ | 5/5 |
-| 6 | Medium Batch 1 | In Progress | 2/4 |
-| 7 | Medium Batch 2 | Pending | 0/4 |
+| 6 | Medium Batch 1 | **Complete** ✅ | 4/4 |
+| 7 | Medium Batch 2 | In Progress | 1/4 |
 | 8 | Medium Batch 3 | Pending | 0/4 |
 | 9 | Medium Batch 4 | Pending | 0/4 |
 | 10 | Medium Batch 5 | Pending | 0/17 |
@@ -104,14 +104,15 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Plan 06-04 Complete** ✅ — Migrated _server domain to 4-layer structure:
-- Created server.md domain entry with subdomain navigation
-- Renamed nodejs/index.md to nodejs/nodejs.md with original_path
-- Added original_path to source/require.md frontmatter
-- Updated NodeJS link in 0.index.md to new path
+**Plan 07-02 Complete** ✅ — Migrated _visual domain to 4-layer structure:
+- Created visual.md domain entry with subdomain navigation
+- Migrated info-design.md to info-design/ subdirectory
+- Migrated visualization.md to visualization/ subdirectory
+- Formalized gis/ subdirectory with original_path metadata
+- Updated cross-domain links in 0.index.md
 
 ### Next Action
-Phase 06-medium-batch-1 plan 04 complete. Ready for next plan in Phase 6.
+Phase 07-medium-batch-2 plan 02 complete. Ready for next plan in Phase 7.
 
 ### Working Context
 - 62 domains to reorganize (21 simple + 33 medium + 7 complex + 1 empty)
@@ -129,8 +130,8 @@ Phase 06-medium-batch-1 plan 04 complete. Ready for next plan in Phase 6.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 24 |
-| Domains migrated | 62 | 22 |
+| Requirements completed | 56 | 26 |
+| Domains migrated | 62 | 24 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -163,5 +164,8 @@ Phase 06-medium-batch-1 plan 04 complete. Ready for next plan in Phase 6.
 | Phase 05-simple-batch-4 P05-P04 | 21s | 1 task | 1 file |
 | Phase 05-simple-batch-4 P05-P05 | 39s | 1 task | 1 file |
 
+| Phase 06-medium-batch-1 P01 | 3 minutes | 4 tasks | 5 files |
 | Phase 06-medium-batch-1 P03 | 32s | 3 tasks | 2 files |
 | Phase 06-medium-batch-1 P04 | 5m | 3 tasks | 4 files |
+| Phase 07-medium-batch-2 P02 | 2m | 5 tasks | 5 files |
+| Phase 07-medium-batch-2 P04 | 53s | 4 tasks | 5 files |
