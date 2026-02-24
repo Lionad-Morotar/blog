@@ -1,6 +1,7 @@
 ---
 title: GenAI for Legacy Codebases
 description: 借助生成式 AI 来理解遗留系统，现在已经是一个实用的默认选择
+original_path: content/6.maps/_programming/dx/genai-for-legacy-codebases.md
 ---
 
 ## Brief

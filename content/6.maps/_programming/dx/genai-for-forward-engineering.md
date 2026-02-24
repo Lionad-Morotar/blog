@@ -1,6 +1,7 @@
 ---
 title: GenAI for Forward Engineering
 description: GenAI用于前向工程是一种新兴技术，通过AI生成的遗留代码库描述来实现系统现代化。它引入了一个显式步骤，专注于遗留代码的功能（其规范），同时刻意隐藏当前实现方式。这与规范驱动开发相关，但专门应用于遗留系统现代化。
+original_path: content/6.maps/_programming/dx/genai-for-forward-engineering.md
 ---
 
 ## Brief
