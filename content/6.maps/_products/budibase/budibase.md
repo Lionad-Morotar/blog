@@ -1,5 +1,6 @@
 ---
 title: Budibase
+original_path: content/6.maps/_products/budibase.md
 ---
 
 ## [Twitter](https://x.com/budibase?utm_campaign=Onboarding&utm_medium=email&_hsenc=p2ANqtz--6Ynd76E4FehE07-MjjIZWwvuH2B-KMkxdBPT1TJ5Eh4ci9Wy0q_RZYTIRBsGXz_09u4n_C8GiUe9f8mFjiC6Dj9B4sw&_hsmi=66516363&utm_content=66516363&utm_source=hs_automation)
@@ -8,15 +9,15 @@ title: Budibase
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031913704.png)
 
-推崇 Sarah Drasner 的空盒子概念，即“也许我们可以从一个空盒子开始，这个盒子只包含正在解决的问题的核心用例或问题”，而不是看到周围完整的网站或应用而感到自卑。Budibase 认为它是一个空盒子，为用户抽象了构建 Web 应用的复杂性。PRay 也是如此，并且应当在多用户交互上大有改进。
+推崇 Sarah Drasner 的空盒子概念，即"也许我们可以从一个空盒子开始，这个盒子只包含正在解决的问题的核心用例或问题"，而不是看到周围完整的网站或应用而感到自卑。Budibase 认为它是一个空盒子，为用户抽象了构建 Web 应用的复杂性。PRay 也是如此，并且应当在多用户交互上大有改进。
 
-Joe Johnston（应该是 budibase 成员）在 2020 年发表了 What is custom software development in 2025，讨论了“定制化软件开发”需求的广阔场景。
+Joe Johnston（应该是 budibase 成员）在 2020 年发表了 What is custom software development in 2025，讨论了"定制化软件开发"需求的广阔场景。
 
 > 定制软件开发是指为特定问题、用户或人群设计、开发、部署、维护和提供软件支持的过程。理解定制软件开发的关键在于认识到正在开发的解决方案是为单一、特定的目的/问题量身定制的——通常无法通过现有的解决方案来解决。
 
 SaaS 软件（COTS 商业现货软件）单价比定制低，但远没有定制乃至自建来得灵活。
 
-“when COTS software did not solve the problem for SMEs, tools like Excel and Access were drafted in and a solution glued together”，Excel 作为从业者的信息交换工具，类似 Python、Lua 在游戏引擎中的胶水作用。
+"when COTS software did not solve the problem for SMEs, tools like Excel and Access were drafted in and a solution glued together"，Excel 作为从业者的信息交换工具，类似 Python、Lua 在游戏引擎中的胶水作用。
 
 今天正好是 2025 年 1 月，我认为 budibase 对软件开发的认识很有前瞻性。其观点也符合我的两点认识：第一，软件开发应该面向更广阔的 C 端，在知识爆炸并有势形成超级个体的时代，代码技能（实际上是指通过人机界面制定规则并实现需求）是全民必备的技能；第二，新时代的消费包含了新时代的创造，消费时间不仅仅通过娱乐，也可以包含创造性的方式，如同我的世界、乐高等。
 
@@ -40,11 +41,11 @@ Bubibase 推荐了 Martin McKeveney 的 NoSQL 和 DynamoDB 的演讲。
 
 2020-10-22 发布了不推荐生产环境使用的公共测试版本。
 
-在什么是你建 Web App 时最喜欢的工作内容时，没有人投票给“测试”。不过，反向思考，能辅助用户做测试的工具可能也是很有市场的。
+在什么是你建 Web App 时最喜欢的工作内容时，没有人投票给"测试"。不过，反向思考，能辅助用户做测试的工具可能也是很有市场的。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031954506.png)
 
-TechCrunch 的一篇 The No-Code Generation is arriving 文章中，根据“In the distant past, there was a proverbial “digital divide” that bifurcated workers into those who knew how to use computers and those who didn’t.”推演了今后数据分析工程在今后可能作为新的“数字鸿沟”出现以及带来的影响。而这正是过去几年（2017~2020）低代码发力的方向，AirTable 和 Retool 这种年轻的公司分别以 26 亿以及 10 亿美元的估值崛起。文章还提到了“而像 Bildr、Shogun、Bubble、Stacker”等公司，但是我没有用过。
+TechCrunch 的一篇 The No-Code Generation is arriving 文章中，根据"In the distant past, there was a proverbial "digital divide" that bifurcated workers into those who knew how to use computers and those who didn't."推演了今后数据分析工程在今后可能作为新的"数字鸿沟"出现以及带来的影响。而这正是过去几年（2017~2020）低代码发力的方向，AirTable 和 Retool 这种年轻的公司分别以 26 亿以及 10 亿美元的估值崛起。文章还提到了"而像 Bildr、Shogun、Bubble、Stacker"等公司，但是我没有用过。
 
 [NocodeList](https://nocodelist.co/)，收集了 300+ 无代码工具，而他本身就是一个很适合无代码建设的网站。
 
@@ -62,24 +63,24 @@ TechCrunch 的一篇 The No-Code Generation is arriving 文章中，根据“In 
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032011651.png)
 
-2020-12-20 称自己是“open organization”，可以在 Github 上看到他们的项目路线图，甚至是参与讨论。这种事情（类似完成度的产品）在国内就算放到 2025 年也很难想象。
+2020-12-20 称自己是"open organization"，可以在 Github 上看到他们的项目路线图，甚至是参与讨论。这种事情（类似完成度的产品）在国内就算放到 2025 年也很难想象。
 
 2020-12-09 在 budibase，15 分钟就能创造一个 Winamp 风格的界面。也许包括功能？链接打不开了，无法验证。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032144479.png)
 
-“将 Star 数量视为开源社区的货币”这一信念让 Joe Johnston 开始 budibase 的 Github 星星之旅。在 11~12 月间，其数量从 83 个增长到了接近 500，在图上来看这就是指数级别的增长！在博客中分享了其做法。时间来到次年 2 月，Star 数量超过 2000，两倍超越了他们的去年的既定目标。
+"将 Star 数量视为开源社区的货币"这一信念让 Joe Johnston 开始 budibase 的 Github 星星之旅。在 11~12 月间，其数量从 83 个增长到了接近 500，在图上来看这就是指数级别的增长！在博客中分享了其做法。时间来到次年 2 月，Star 数量超过 2000，两倍超越了他们的去年的既定目标。
 
 * Twitter
 * 邮件引导指向 Github 并告知路线图、代码都在 Github
 * budibase 制作的项目支持 Github 调用
 * 更新 Readme
 
-而他们新的 Readme 也确实很有吸引力（“Build business apps 50x faster”）：
+而他们新的 Readme 也确实很有吸引力（"Build business apps 50x faster"）：
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032149799.png)
 
-“As companies, we often look outwards for growth, but looking inwards can provide opportunities. Optimizing processes, analyzing data, & equipping staff with the right tools is often an easier win for many companies; this is where low-code platforms will continue to succeed.”，最有意思的配图。包括上文提到的 2025 软件定制需求前瞻一文中的配图，都是相同类型的矢量图，很有意思。
+"As companies, we often look outwards for growth, but looking inwards can provide opportunities. Optimizing processes, analyzing data, & equipping staff with the right tools is often an easier win for many companies; this is where low-code platforms will continue to succeed."，最有意思的配图。包括上文提到的 2025 软件定制需求前瞻一文中的配图，都是相同类型的矢量图，很有意思。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032152157.png)
 
@@ -109,11 +110,11 @@ Tech Nation 的 Rising Stars 3 奖项包含了 bb。
 
 <video src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032256999.mp4" controls="controls" width="100%">Your browser does not support the video tag.</video>
 
-不过 bb 的界面很总是看起来很“Notion”。
+不过 bb 的界面很总是看起来很"Notion"。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032308303.png)
 
-2021-11-16 日，“经过两年的开发，我们激动的宣布正式在 product hunt 上进行官方宣传”。而他们的商业化也确实非常成功。2022-10-03 甚至创办了 5000 刀的低代码马拉松。
+2021-11-16 日，"经过两年的开发，我们激动的宣布正式在 product hunt 上进行官方宣传"。而他们的商业化也确实非常成功。2022-10-03 甚至创办了 5000 刀的低代码马拉松。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032310378.png)
 
@@ -139,7 +140,7 @@ Joe Johnston 解释了为何要从 nocode 转型 lowcode。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032336236.png)
 
-最近一年更新了许多教程，这段时间他们对外宣称自己是“表单创建工具”，并且在博客上也两次拿其他表单创建工具做对比。期间放出不少有意思的应用展示，比如 GPT 克隆（2024-03-11）：
+最近一年更新了许多教程，这段时间他们对外宣称自己是"表单创建工具"，并且在博客上也两次拿其他表单创建工具做对比。期间放出不少有意思的应用展示，比如 GPT 克隆（2024-03-11）：
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032340672.png)
 
