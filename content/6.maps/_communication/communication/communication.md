@@ -1,6 +1,7 @@
 ---
 title: Communication
 description: Communication is the process of exchanging information, ideas, thoughts, and feelings.
+original_path: content/6.maps/_communication/index.md
 ---
 
 ## Traps
