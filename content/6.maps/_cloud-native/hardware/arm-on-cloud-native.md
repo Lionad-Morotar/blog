@@ -1,6 +1,7 @@
 ---
 title: Arm 云计算实例 — 建议默认采用
 description: 将 Arm 视为云端计算实例的默认选择，除非存在明确的 x86 架构依赖。
+original_path: content/6.maps/_cloud-native/hardware/arm-on-cloud-native.md
 ---
 
 ## Brief
