@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 09-medium-batch-4
-**Current Plan:** 09-P04 complete ✅
-**Status:** Phase 9 in progress — 2/4 plans complete, _computer domain migrated with 3 subdomains
+**Current Plan:** 09-P01 complete ✅
+**Status:** Phase 9 in progress — 3/4 plans complete, _science domain migrated with 6 subdomains
 
 ### Progress Bar
 
@@ -29,7 +29,7 @@
 | 6 | Medium Batch 1 | **Complete** ✅ | 4/4 |
 | 7 | Medium Batch 2 | **Complete** ✅ | 4/4 |
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
-| 9 | Medium Batch 4 | **In Progress** | 2/4 |
+| 9 | Medium Batch 4 | **In Progress** | 3/4 |
 | 10 | Medium Batch 5 | Pending | 0/17 |
 | 11 | Complex: Database | Pending | 0/1 |
 | 12 | Complex: DevOps | Pending | 0/1 |
@@ -104,20 +104,24 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 09-P04 Complete** ✅ — _computer domain migrated with 3 subdomains:
-- Created computer.md domain entry with ## 子领域 navigation section
-- Migrated original computer.md to fundamentals/fundamentals.md
-- Formalized encoding/ subdirectory with encoding.md entry
-- Migrated network.md to network/ with nested segments/ directory
+**Phase 09-P01 Complete** ✅ — _science domain migrated with 6 subdomains:
+- Created science.md domain entry with ## 子领域 navigation section
+- Migrated complex-science.md to complex-science/complex-science.md with nested systems-theory.md
+- Migrated cosmos.md to cosmos/cosmos.md
+- Migrated entropy.md to entropy/entropy.md
+- Migrated environment.md to environment/environment.md
+- Migrated neuroscience.md to neuroscience/neuroscience.md
+- Migrated quantum.md to quantum/quantum.md
 - Updated cross-domain links in 0.index.md
 
 ### Next Action
-Continue with Phase 9 remaining plans.
+Continue with Phase 9 remaining plans (P03).
 
 ### Execution History (Phase 09)
 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
+| 09-P01 (_science) | 5m 5s | 8 tasks | 9 files |
 | 09-P02 (_cloud-native) | 4m | 6 tasks | 7 files |
 | 09-P04 (_computer) | 4m | 5 tasks | 7 files |
 
@@ -155,8 +159,8 @@ Continue with Phase 9 remaining plans.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 31 |
-| Domains migrated | 62 | 29 |
+| Requirements completed | 56 | 32 |
+| Domains migrated | 62 | 30 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -164,6 +168,12 @@ Continue with Phase 9 remaining plans.
 
 *State initialized: 2026-02-24*
 *Last updated: 2026-02-24*
+
+### Execution History
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| Phase 09-medium-batch-4 P01 | 5m 5s | 8 tasks | 9 files |
 
 ### Execution History
 
