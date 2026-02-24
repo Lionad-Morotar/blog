@@ -1,10 +1,15 @@
 ---
 title: 政策
+description: 政策研究、五年规划及政策分析
 ---
 
-## Domain
+## 概述
 
-* [十四五](/maps/_policy/five-years-plan-14)
+本领域收录政策研究相关内容，重点关注国家五年规划、政策分析方法及政策对技术产业的影响。目前主要包含十四五规划全文引用及解读。
+
+## 主题
+
+* [十四五规划](/maps/_policy/five-years-plan-14)
 
 ## Cross Domain
 
