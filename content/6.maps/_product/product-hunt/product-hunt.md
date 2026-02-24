@@ -1,6 +1,7 @@
 ---
 title: Product Hunt 产品集
 description: 从 Product Hunt 发现的有趣产品工具，按官方分类整理
+original_path: content/6.maps/_product/product-hunt.md
 ---
 
 ## Productivity

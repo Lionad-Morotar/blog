@@ -7,9 +7,9 @@
 
 ## Current Position
 
-**Current Phase:** 08-medium-batch-3
-**Current Plan:** 08-P04 complete ✅
-**Status:** Phase 8 in progress — 4/4 plans complete, _test domain migrated with 4 subdomains
+**Current Phase:** 09-medium-batch-4
+**Current Plan:** 09-P04 complete ✅
+**Status:** Phase 9 in progress — 2/4 plans complete, _computer domain migrated with 3 subdomains
 
 ### Progress Bar
 
@@ -29,7 +29,7 @@
 | 6 | Medium Batch 1 | **Complete** ✅ | 4/4 |
 | 7 | Medium Batch 2 | **Complete** ✅ | 4/4 |
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
-| 9 | Medium Batch 4 | Pending | 0/4 |
+| 9 | Medium Batch 4 | **In Progress** | 2/4 |
 | 10 | Medium Batch 5 | Pending | 0/17 |
 | 11 | Complex: Database | Pending | 0/1 |
 | 12 | Complex: DevOps | Pending | 0/1 |
@@ -104,16 +104,22 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 08-P04 Complete** ✅ — _test domain migrated with 4 subdomains:
-- Updated test.md domain entry with ## 子领域 navigation section
-- Migrated software-testing-engineer.md to software-testing-engineer/ subdirectory
-- Formalized tools/ subdirectory with tools.md entry and nested playwright/
-- Formalized methods/ subdirectory with methods.md entry and nested tcr/
-- Formalized ai/ subdirectory with ai.md entry and nested ai-driven-testing/
-- Verified cross-domain links in 0.index.md (no changes needed)
+**Phase 09-P04 Complete** ✅ — _computer domain migrated with 3 subdomains:
+- Created computer.md domain entry with ## 子领域 navigation section
+- Migrated original computer.md to fundamentals/fundamentals.md
+- Formalized encoding/ subdirectory with encoding.md entry
+- Migrated network.md to network/ with nested segments/ directory
+- Updated cross-domain links in 0.index.md
 
 ### Next Action
-Phase 8 complete. Ready for Phase 9 planning.
+Continue with Phase 9 remaining plans.
+
+### Execution History (Phase 09)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 09-P02 (_cloud-native) | 4m | 6 tasks | 7 files |
+| 09-P04 (_computer) | 4m | 5 tasks | 7 files |
 
 ### Execution History (Phase 08)
 
@@ -149,8 +155,8 @@ Phase 8 complete. Ready for Phase 9 planning.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 29 |
-| Domains migrated | 62 | 27 |
+| Requirements completed | 56 | 31 |
+| Domains migrated | 62 | 29 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -158,6 +164,13 @@ Phase 8 complete. Ready for Phase 9 planning.
 
 *State initialized: 2026-02-24*
 *Last updated: 2026-02-24*
+
+### Execution History
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| Phase 09-medium-batch-4 P02 | 4m | 6 tasks | 7 files |
+| Phase 09-medium-batch-4 P04 | 4m | 5 tasks | 7 files |
 | Phase 04-simple-batch-3 P04-04 | 2 minutes | 3 tasks | 3 files |
 | Phase 05-simple-batch-4 P05-P02 | 2 minutes | 2 tasks | 2 files |
 | Phase 05-simple-batch-4 P03 | 2 minutes | 2 tasks | 2 files |
