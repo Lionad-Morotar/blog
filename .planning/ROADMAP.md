@@ -456,7 +456,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 11 - Complex: Database | Pending | 0/1 | Blocked on Phase 10 |
 | 12 - Complex: DevOps | Pending | 0/1 | Blocked on Phase 11 |
 | 13 - Complex: FE Framework | **Complete** ✅ | 4/4 | 6 subdomains restructured |
-| 14 - Complex: Workflow | Ready | 0/1 | Ready for execution |
+| 14 - Complex: Workflow | **Complete** ✅ | 4/4 | 6 subdomains restructured |
 | 15 - Complex: Person | Pending | 0/1 | Blocked on Phase 14 |
 | 16 - Complex: Frontend | Pending | 0/1 | Blocked on Phase 15 |
 | 17 - Complex: AI | Pending | 0/1 | Blocked on Phase 16 |
