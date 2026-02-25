@@ -10,6 +10,7 @@ Web 动画技术让界面更具活力和表现力。
 ## 子领域导航
 
 - [Blockies Animation](blockies-animation) - 区块链头像动画
+- [GSAP](gsap) - GreenSock Animation Platform 专业动画库
 - [Lottie](lottie) - 跨平台动画解决方案
 
 ## 核心概念
