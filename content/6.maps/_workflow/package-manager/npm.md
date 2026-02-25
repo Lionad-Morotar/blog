@@ -1,6 +1,7 @@
 ---
 title: NPM
 description: NPM 包管理器完整指南，包含 package.json 配置、镜像源管理、依赖安装等核心功能的详细说明。
+original_path: "/_workflow/package-manager/npm.md"
 ---
 
 ## package.json

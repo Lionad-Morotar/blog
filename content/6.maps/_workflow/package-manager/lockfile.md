@@ -1,6 +1,7 @@
 ---
 title: lockfile
 description: lockfile 是一种用于记录依赖的版本信息的文件
+original_path: "/_workflow/package-manager/lockfile.md"
 ---
 
 #### 为什么用了 lockfile 还是不能保证环境统一？

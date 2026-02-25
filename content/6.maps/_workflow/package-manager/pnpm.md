@@ -1,6 +1,7 @@
 ---
 title: pnpm
 description: pnpm 是一个快速、省空间的包管理器
+original_path: "/_workflow/package-manager/pnpm.md"
 ---
 
 ## API 细节和配置项
