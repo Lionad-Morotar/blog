@@ -51,7 +51,7 @@ Windows 环境的评估要么缺失，要么通过 Docker/WSL 间接实现，掩
 - 语法混淆（混用 Bash 语法写 PowerShell）
 - 工具链误用（假设存在 Unix 工具）
 
-这一现象揭示了当前 LLM 训练数据对Windows 生态的系统性 under-representation，
+这一现象揭示了当前 LLM 训练数据对 Windows 生态的系统性 under-representation，
 也意味着在 Windows 原生环境部署 Coding Agent 时，需预期更高的容错成本或优先考虑 WSL 方案。
 
 见：[Execution-Based Evaluation of Natural Language to Bash and PowerShell](https://arxiv.org/html/2405.06807v2)、
