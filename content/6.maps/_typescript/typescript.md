@@ -269,14 +269,14 @@ void process<int>(int val) { /* 针对 int 的高效实现 */ }
 
 #### 内部工具类型推导？
 
-* [工具类型](/source-code/_ts/utility-types)
+* [工具类型](/source-code/_ts/utility-types) - 内置工具类型实现解析
 
 #### 什么是类型体操？
 
 TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种"实现"的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，或是把它看作某种脑力运动。充满技巧，有乐趣，复杂，又花里胡哨，所以是体操咯。
 
 * [类型体操](/maps/_typescript/type-gymnastics/type-gymnastics)
-* [体操训练](/source-code/_ts/type-challenges)
+* [体操训练](/source-code/_ts/type-challenges) - TypeScript 类型挑战练习
 
 #### 什么是图灵完备？
 
@@ -286,7 +286,7 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 ## 编译器
 
-* [TypeScript Compiler](/source-code/_ts/typescript-compiler)
+* [TypeScript Compiler](/source-code/_ts/typescript-compiler) - TS 编译器源码解析
 
 ## 经验
 

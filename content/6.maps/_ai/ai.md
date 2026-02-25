@@ -11,36 +11,36 @@ Machine learning, large language models, AI agents, and AI engineering practices
 ## Subdomains
 
 ### Foundations & Architecture
-- [Foundations](foundations/) — Core concepts, architectures, industry dynamics
-- [Models](models/) — Model internals, inference, optimization, interpretability
+- [Foundations](foundations/foundations.md) — Core concepts, architectures, industry dynamics
+- [Models](models/models.md) — Model internals, inference, optimization, interpretability
 
 ### Development & Training
-- [Training](training/) — Training, fine-tuning, post-training
-- [Operations](operations/) — MLOps, infrastructure, data processing
-- [Evaluation](evaluation/) — Benchmarking, observability, reproducibility
+- [Training](training/training.md) — Training, fine-tuning, post-training
+- [Operations](operations/operations.md) — MLOps, infrastructure, data processing
+- [Evaluation](evaluation/evaluation.md) — Benchmarking, observability, reproducibility
 
 ### LLM & Agents
-- [LLM](llm/) — Large language models, embeddings, SLM
-- [Agents](agents/) — AI agents, multi-agent systems, protocols
-- [Prompt](prompt/) — Prompt engineering and design patterns
+- [LLM](llm/llm.md) — Large language models, embeddings, SLM
+- [Agents](agents/agents.md) — AI agents, multi-agent systems, protocols
+- [Prompt](prompt/prompt.md) — Prompt engineering and design patterns
 
 ### Specialized Topics
-- [RAG](rag/) — Retrieval-augmented generation
-- [MCP](mcp/) — Model Context Protocol
-- [Safety](safety/) — AI safety and alignment
-- [Skills](skills/) — AI skill development
+- [RAG](rag/rag.md) — Retrieval-augmented generation
+- [MCP](mcp/mcp.md) — Model Context Protocol
+- [Safety](safety/safety.md) — AI safety and alignment
+- [Skills](skills/skills.md) — AI skill development
 
 ### Applications & Tools
-- [Applications](applications/) — Practical AI applications
-- [Tools](tools/) — AI development tools
-- [Vibe](vibe/) — Vibe coding practices
-- [Workflow](workflow/) — AI-assisted workflows
+- [Applications](applications/applications.md) — Practical AI applications
+- [Tools](tools/tools.md) — AI development tools
+- [Vibe](vibe/vibe.md) — Vibe coding practices
+- [Workflow](workflow/0.index.md) — AI-assisted workflows
 
 ### Other Topics
-- [Benchmark](benchmark/) — AI benchmarks
-- [Framework](framework/) — AI frameworks
-- [Image](image/) — AI image generation
-- [Recommendation](recommendation/) — Recommendation systems
+- [Benchmark](benchmark/benchmark.md) — AI benchmarks
+- [Framework](framework/framework.md) — AI frameworks
+- [Image](image/image.md) — AI image generation
+- [Recommendation](recommendation/recommendation.md) — Recommendation systems
 
 ## Tour
 
