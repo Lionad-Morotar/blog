@@ -1,5 +1,6 @@
 ---
 title: Promise
+original_path: /maps/_frontend/javascript/promise
 ---
 
 ## TODO

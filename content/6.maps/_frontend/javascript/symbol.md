@@ -1,6 +1,7 @@
 ---
 title: Symbol
 description: Symbol 是 ES6 新增的一种基本数据类型，它是一种原始值，不是对象，不能使用 new 操作符创建。Symbol 的值是唯一的，可以用作对象属性的键。
+original_path: /maps/_frontend/javascript/symbol
 ---
 
 Symbol.toStringTag 会影响 Object.prototype.toString。
