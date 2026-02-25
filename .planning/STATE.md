@@ -7,14 +7,14 @@
 
 ## Current Position
 
-**Current Phase:** 15-complex-person
-**Current Plan:** 15-P01 complete ✅
-**Status:** Phase 15 In Progress — technology/ subdomain created with 7 migrated person files
+**Current Phase:** 15
+**Current Plan:** Not started
+**Status:** Milestone complete
 
 ### Progress Bar
 
 ```
-[████████████████░░░░] 48/56 requirements complete (86%)
+[██████████████████░░] 53/56 requirements complete (95%)
 ```
 
 ### Phase Status
@@ -35,7 +35,7 @@
 | 12 | Complex: DevOps | **Complete** ✅ | 2/2 |
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
 | 14 | Complex: Workflow | **Complete** ✅ | 3/3 | All plans complete |
-| 15 | Complex: Person | **In Progress** | 1/4 |
+| 15 | Complex: Person | **Complete** ✅ | 4/4 | All plans complete |
 | 16 | Complex: Frontend | Pending | 0/1 |
 | 17 | Complex: AI | Pending | 0/1 |
 | 18 | Validation & Integration | Pending | 0/5 |
@@ -101,6 +101,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 - [Phase 15-complex-person]: Grouped scientists by field (astronomy, medicine, mathematics, physics) for clearer navigation in science subdomain
 - [Phase 15]: Grouped historical figures by activity domain (exploration/art/military/society)
 - [Phase 15]: Placed Armstrong in historical (not science) based on content focus (engineering speech)
+- [Phase 15]: [Phase 15-complex-person]: Created person.md domain entry with 4-subdomain navigation (technology, science, philosophy, historical) and updated cross-domain links in cosmos.md
 
 ### Open Questions
 
@@ -119,20 +120,21 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 15-P01 Complete** ✅ — Created technology subdomain for _person domain:
-- Created technology/ subdirectory with technology.md subdomain entry
-- Organized 7 tech figures into 3 categories: AI研究员、软件工程师、开源活动家
-- Migrated 7 person files with original_path frontmatter preserved
-- All content and H4 knowledge points intact
+**Phase 15-P04 Complete** ✅ — Created person.md domain entry with 4-subdomain navigation:
+- Created person.md domain entry linking to all 4 subdomains (technology, science, philosophy, historical)
+- Updated _person/0.index.md with new subdomain paths for all 19 person files
+- Updated root 0.index.md to link to person.md domain entry
+- Fixed cross-domain links in cosmos.md to use new science/ subdomain paths
 
 ### Next Action
-Proceed to Phase 15-P02 or next plan in roadmap.
+Proceed to Phase 16-complex-frontend or next plan in roadmap.
 
 ### Execution History (Phase 15)
 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | 15-P01 (technology subdomain) | 3m | 2 tasks | 8 files |
+| 15-P04 (domain entry + cross-domain links) | 3m 57s | 4 tasks | 4 files |
 
 ### Execution History (Phase 14)
 
@@ -236,6 +238,7 @@ Proceed to Phase 15-P02 or next plan in roadmap.
 | Phase 15-complex-person P02 | 220 | 2 tasks | 8 files |
 | Phase 15-complex-person P01 | 3m | 2 tasks | 8 files |
 | Phase 15-complex-person P03 | 6m 47s | 3 tasks | 7 files |
+| Phase 15-complex-person P04 | 237 | 4 tasks | 4 files |
 
 ### Execution History
 
