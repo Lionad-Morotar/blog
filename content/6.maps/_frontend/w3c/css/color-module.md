@@ -1,5 +1,6 @@
 ---
 title: CSS Color Module
+original_path: /maps/_frontend/w3c/css/color-module
 ---
 
 ## 说明

@@ -1,6 +1,7 @@
 ---
 title: proposal-regexp-v-flag
 description: 正则的 v 模式兼容 u 模式并带来了 emoji 多码匹配等改进
+original_path: /maps/_frontend/w3c/es/proposal-regexp-v-flag
 ---
 
 [proposal-regexp-v-flag](https://github.com/tc39/proposal-regexp-v-flag)

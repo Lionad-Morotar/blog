@@ -1,6 +1,7 @@
 ---
 title: AI & Web：理解与管理机器学习模型对Web的影响
 description: W3C 对 Web-AI 交叉领域进展的共同理解及标准化路线图
+original_path: /maps/_frontend/w3c/reports/ai-web-impact
 ---
 
 #### AI 与 Web 的系统性影响？

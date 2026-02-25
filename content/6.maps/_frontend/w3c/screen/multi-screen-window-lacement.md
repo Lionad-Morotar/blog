@@ -1,5 +1,6 @@
 ---
 title: Multi-Screen Window Placement
+original_path: /maps/_frontend/w3c/screen/multi-screen-window-lacement
 ---
 
 ## Cheatsheet

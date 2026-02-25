@@ -1,6 +1,7 @@
 ---
 title: proposal-defer-import-eval
 description: 延迟导入执行提案允许导入的模块等到使用时才执行
+original_path: /maps/_frontend/w3c/es/proposal-defer-import-eval
 ---
 
 [proposal-defer-import-eval](https://github.com/tc39/proposal-defer-import-eval)

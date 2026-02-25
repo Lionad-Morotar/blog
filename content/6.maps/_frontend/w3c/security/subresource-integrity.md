@@ -1,6 +1,7 @@
 ---
 title: Subresource Integrity
 description: 子资源完整性协议允许浏览器通过检查哈希值来判断资源是否经过篡改。
+original_path: /maps/_frontend/w3c/security/subresource-integrity
 ---
 
 ## 相关链接
