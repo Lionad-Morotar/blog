@@ -1,5 +1,6 @@
 ---
 title: Emmet
+original_path: /maps/_frontend/html/emmet
 ---
 
 ## Emmet CheatSheet

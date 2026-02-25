@@ -10,6 +10,7 @@ tags:
   - text-fragment
   - browser-behavior
 original: https://blog.jim-nielsen.com/2025/href-value-possibilities/
+original_path: /maps/_frontend/html/href-value-possibilities
 ---
 
 ## 摘要
