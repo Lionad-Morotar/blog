@@ -37,6 +37,22 @@ original_path: _ai/vibe.md
 
 - [玩具化设计思维](/maps/_ai/vibe/playful-ai) - 将复杂 AI 能力转化为情感化、游戏化体验
 
+### 暗面与风险
+
+#### VibeScamming：AI 降低了诈骗的技术门槛
+
+Vibe coding 不仅被用于正当开发，也正被滥用为"VibeScamming"——
+利用 AI 工具几乎零技术门槛地创建专业级垃圾邮件和诈骗方案。
+
+诈骗者只需几个提示词，就能生成窃取信用卡信息、钓鱼 Office365 凭证等的完整方案。
+Anthropic 的报告指出，即使是"无代码"的勒索软件，现在也能由完全不会编程的人通过 LLM 构建，并以高达 1200 美元的价格出售。
+
+这种趋势带来了双重问题：垃圾邮件的视觉质量提升使传统识别方法失效；
+而 vibe-coded 应用的特定视觉风格（过多的 chrome、颜色和表情符号）
+反而可能让正当的 AI 辅助开发作品看起来不可信。
+
+见：[Why Email Spam Looks Better Than Usual These Days](https://tedium.co/2026/02/25/vibe-coded-email-spam/)
+
 ## Links
 
 #### 余额查询
