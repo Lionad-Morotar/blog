@@ -32,7 +32,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 13 | Complex: FE Framework | Restructure _fe-framework domain (14 files) | _fe-framework | 3 |
 | 14 | Complex: Workflow | Restructure _workflow domain (14 files) | _workflow | 3 |
 | 15 | 4/4 | Complete    | 2026-02-25 | 3 |
-| 16 | 4/5 | In Progress|  | 3 |
+| 16 | 5/5 | Complete   | 2026-02-25 | 3 |
 | 17 | Complex: AI | Restructure _ai domain (70 files) | _ai | 3 |
 | 18 | Validation & Integration | Verify all links, update navigation, regenerate feeds | — | 5 |
 

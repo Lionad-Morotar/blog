@@ -18,7 +18,7 @@ description: 前端开发技术领域，涵盖 CSS、HTML、JavaScript 和 W3C �
 * [Tailwind CSS](/maps/_frontend/css/tailwind) - Utility-first CSS 框架
 * [CSS Sprite 动画](/maps/_frontend/css/sprite-animation) - 高性能帧动画实现方案
 * [CSS Snapshot 2024](/maps/_frontend/css/snapshot-2024) - CSS 规范状态快照
-* [CSS Mind Map](/maps/_frontend/css/css-mind-map) - CSS 知识体系思维导图
+* [CSS Mind Map](/maps/_frontend/css/0.css-mind-map) - CSS 知识体系思维导图
 
 ### HTML (html/)
 
@@ -26,7 +26,7 @@ description: 前端开发技术领域，涵盖 CSS、HTML、JavaScript 和 W3C �
 
 * [HTML](/maps/_frontend/html/html) - 子领域入口
 * [Emmet](/maps/_frontend/html/emmet) - HTML/CSS 快速编写语法
-* [HTML Mind Map](/maps/_frontend/html/html-mind-map) - HTML 知识思维导图
+* [HTML Mind Map](/maps/_frontend/html/0.html-mind-map) - HTML 知识思维导图
 * [Href 属性值](/maps/_frontend/html/href-value-possibilities) - Anchor 元素 href 的多种取值
 
 ### JavaScript (javascript/)
@@ -34,7 +34,7 @@ description: 前端开发技术领域，涵盖 CSS、HTML、JavaScript 和 W3C �
 5 文件涵盖核心概念：
 
 * [JavaScript](/maps/_frontend/javascript/javascript) - 子领域入口
-* [JavaScript Mind Map](/maps/_frontend/javascript/javascript-mind-map) - JS 知识体系
+* [JavaScript Mind Map](/maps/_frontend/javascript/0.javascript-mind-map) - JS 知识体系
 * [Promise](/maps/_frontend/javascript/promise) - Promise 异步编程
 * [Symbol](/maps/_frontend/javascript/symbol) - Symbol 数据类型
 * [Task Slice](/maps/_frontend/javascript/task-slice) - 任务切片技术

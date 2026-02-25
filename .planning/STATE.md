@@ -8,7 +8,7 @@
 ## Current Position
 
 **Current Phase:** 16
-**Current Plan:** 03 Complete
+**Current Plan:** 05 Complete
 **Status:** In Progress
 
 ### Progress Bar
@@ -36,7 +36,7 @@
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
 | 14 | Complex: Workflow | **Complete** ✅ | 3/3 | All plans complete |
 | 15 | Complex: Person | **Complete** ✅ | 4/4 | All plans complete |
-| 16 | Complex: Frontend | **In Progress** | 2/2 |
+| 16 | Complex: Frontend | **In Progress** | 3/3 |
 | 17 | Complex: AI | Pending | 0/1 |
 | 18 | Validation & Integration | Pending | 0/5 |
 
@@ -105,6 +105,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 - [Phase 16-complex-frontend]: Grouped HTML topics into Tools (emmet) and Reference (html-mind-map, href-value-possibilities) sections for clear navigation
 - [Phase 16-complex-frontend]: JavaScript subdomain migration with dual entry pattern - kept javascript.md in root as domain entry, created javascript/javascript.md as subdomain entry, and added A-Z index (0.index.md)
 - [Phase 16-complex-frontend]: Organized W3C content into 5 clear categories: CSS Modules, ECMAScript Proposals, Reports, Screen API, Security — Existing nested structure was well-organized; categorizing by topic area provides clearer navigation than flat listing
+- [Phase 16-complex-frontend]: Created frontend.md domain entry with 4-subdomain navigation (CSS, HTML, JavaScript, W3C) and independent topic section for text-highlight.md
 
 ### Open Questions
 
@@ -130,7 +131,7 @@ None at project start.
 - Added original_path frontmatter to all 4 JS topic files (promise, symbol, task-slice, mind-map)
 
 ### Next Action
-Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan in roadmap.
+Phase 16-05 complete. Phase 16-complex-frontend has 3 plans complete (CSS, JavaScript, W3C, and domain entry). Proceed to Phase 17-complex-ai or next plan in roadmap.
 
 ### Execution History (Phase 16)
 
@@ -138,6 +139,7 @@ Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan 
 |------|----------|-------|-------|
 | 16-01 (CSS subdomain migration) | 15m | 4 tasks | 11 files |
 | 16-03 (JavaScript subdomain migration) | 2m | 4 tasks | 7 files |
+| 16-05 (Domain entry + cross-domain links) | 1m 38s | 5 tasks | 3 files |
 
 ### Execution History (Phase 15)
 
