@@ -14,7 +14,7 @@
 ### Progress Bar
 
 ```
-[███████████████████░] 54/56 requirements complete (96%)
+[███████████████████░] 55/56 requirements complete (98%)
 ```
 
 ### Phase Status
@@ -36,7 +36,7 @@
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
 | 14 | Complex: Workflow | **Complete** ✅ | 3/3 | All plans complete |
 | 15 | Complex: Person | **Complete** ✅ | 4/4 | All plans complete |
-| 16 | Complex: Frontend | **In Progress** | 1/1 |
+| 16 | Complex: Frontend | **In Progress** | 2/2 |
 | 17 | Complex: AI | Pending | 0/1 |
 | 18 | Validation & Integration | Pending | 0/5 |
 
@@ -103,6 +103,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 - [Phase 15]: Placed Armstrong in historical (not science) based on content focus (engineering speech)
 - [Phase 15]: [Phase 15-complex-person]: Created person.md domain entry with 4-subdomain navigation (technology, science, philosophy, historical) and updated cross-domain links in cosmos.md
 - [Phase 16-complex-frontend]: Grouped HTML topics into Tools (emmet) and Reference (html-mind-map, href-value-possibilities) sections for clear navigation
+- [Phase 16-complex-frontend]: JavaScript subdomain migration with dual entry pattern - kept javascript.md in root as domain entry, created javascript/javascript.md as subdomain entry, and added A-Z index (0.index.md)
 
 ### Open Questions
 
@@ -121,11 +122,11 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 16-01 Complete** ✅ — CSS 子领域迁移完成:
-- Created css.md subdomain entry with 5-category navigation (Architecture, Features, Tools, Techniques, Reference)
-- Updated 0.index.md with subdomain navigation section
-- Added original_path frontmatter to all 9 CSS topic files
-- Verified all internal links and tailwind/index.md accessibility
+**Phase 16-03 Complete** ✅ — JavaScript 子领域迁移完成:
+- Added frontmatter with original_path to javascript.md (root domain entry)
+- Created javascript/javascript.md subdomain entry with ## 主题导航 section
+- Created javascript/0.index.md A-Z index for topic navigation
+- Added original_path frontmatter to all 4 JS topic files (promise, symbol, task-slice, mind-map)
 
 ### Next Action
 Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan in roadmap.
@@ -135,6 +136,7 @@ Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan 
 | Plan | Duration | Tasks | Files |
 |------|----------|-------|-------|
 | 16-01 (CSS subdomain migration) | 15m | 4 tasks | 11 files |
+| 16-03 (JavaScript subdomain migration) | 2m | 4 tasks | 7 files |
 
 ### Execution History (Phase 15)
 
@@ -227,7 +229,7 @@ Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan 
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 54 |
+| Requirements completed | 56 | 55 |
 | Domains migrated | 62 | 40 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
