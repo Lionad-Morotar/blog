@@ -97,6 +97,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-25 | [Phase 14-complex-workflow]: Created build-tools/ subdomain by renaming packer/ directory and linter/ subdomain entry, both with original_path preservation and ## 主题 navigation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Created monorepo/ subdomain with turborepo.md (new file for 2026 toolchain), compiler/ subdomain with expanded content, and workflow.md domain entry with 6-subdomain navigation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Updated cross-domain links in 0.index.md to point to new _workflow subdomain paths; verified internal _workflow links and cross-domain references from _software and _devops |
+- [Phase 15-complex-person]: Grouped scientists by field (astronomy, medicine, mathematics, physics) for clearer navigation in science subdomain
 
 ### Open Questions
 
@@ -223,6 +224,7 @@ Proceed to Phase 15-complex-person or next phase in roadmap.
 | Phase 13 P01 | 2m 18s | 6 tasks | 5 files |
 | Phase 13 P02 | 2m 48s | 8 tasks | 6 files |
 | Phase 13 PP03 | 118 | 6 tasks | 5 files |
+| Phase 15-complex-person P02 | 220 | 2 tasks | 8 files |
 
 ### Execution History
 
