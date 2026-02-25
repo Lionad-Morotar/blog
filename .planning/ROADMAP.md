@@ -34,7 +34,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 15 | Complex: Person | **Complete** ✅ | 4/4 | 2026-02-25 | 3 |
 | 16 | Complex: Frontend | **Complete** ✅ | 4/4 | 2026-02-25 | 3 |
 | 17 | Complex: AI | Restructure _ai domain (70 files) | _ai | 3 |
-| 18 | 3/5 | In Progress|  | 5 |
+| 18 | Validation & Integration | **In Progress** | 3/5 |
 
 **Coverage:** 56/56 v1 requirements mapped ✓
 
