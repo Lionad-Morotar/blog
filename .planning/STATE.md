@@ -8,7 +8,7 @@
 ## Current Position
 
 **Current Phase:** 18
-**Current Plan:** 18-P04 Complete
+**Current Plan:** 18-P05 Complete
 **Status:** In Progress
 
 ### Progress Bar
@@ -38,7 +38,7 @@
 | 15 | Complex: Person | **Complete** ✅ | 4/4 | All plans complete |
 | 16 | Complex: Frontend | **Complete** ✅ | 3/3 |
 | 17 | Complex: AI | Pending | 0/1 |
-| 18 | Validation & Integration | **In Progress** | 3/5 |
+| 18 | Validation & Integration | **In Progress** | 4/5 |
 
 ---
 
@@ -109,6 +109,8 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 - [Phase 18]: Use automatic route detection for sitemap generation instead of custom API endpoint - simpler and more maintainable
 - [Phase 18-P04]: Only include domains with entry files in navigation; remove broken links to non-migrated domains
 - [Phase 18-P04]: Consolidate multiple related links under single domain entries for cleaner navigation
+- [Phase 18-P05]: Fixed 22 broken navigation links discovered during E2E testing; directory-style links must use explicit .md file paths
+- [Phase 18-P05]: Cross-domain links to source-code section are valid but use absolute paths (/source-code/)
 
 ### Open Questions
 
@@ -127,15 +129,15 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 18-P04 Complete** ✅ — Update Domain Navigation in 0.index.md:
-- Inventoried 62 domains, identified 46 with entry files
-- Updated navigation to link to all valid domain entries
-- Fixed broken container and logging links
-- Added new domain links (SEO, Communication, Games, Blogs, etc.)
-- Verified all 80+ navigation links resolve correctly
+**Phase 18-P05 Complete** ✅ — End-to-End Navigation Testing:
+- Tested 100 root→domain navigation links (all valid)
+- Tested 50 domains with 139 subdomains
+- Fixed 22 broken navigation links across _ai, _frontend, _policy, _typescript
+- Verified 285 topic files are accessible
+- Created comprehensive E2E test report
 
 ### Next Action
-Phase 18-P05: Final Integration Test - Run production build and verify all navigation works.
+Phase 18 remaining: Complete final plan (if any) or close Phase 18.
 
 ### Execution History (Phase 18)
 
@@ -144,6 +146,7 @@ Phase 18-P05: Final Integration Test - Run production build and verify all navig
 | 18-P01 (Validate Internal Links) | 5m | 4 tasks | 1 report |
 | 18-P02 (Validate RSS Feed Configuration) | 5m | 3 tasks | 0 files |
 | 18-P04 (Update Domain Navigation) | 7m | 4 tasks | 1 file |
+| 18-P05 (End-to-End Navigation Testing) | 15m | 4 tasks | 5 files |
 
 ### Execution History (Phase 16)
 
