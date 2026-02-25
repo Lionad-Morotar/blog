@@ -1,6 +1,7 @@
 ---
 title: 姜子牙
 description: 周朝的开国功臣，周武王谋士，太公望，武圣
+original_path: content/6.maps/_person/jiang-zi-ya.md
 ---
 
 #### 枯骨死草，何知凶吉？

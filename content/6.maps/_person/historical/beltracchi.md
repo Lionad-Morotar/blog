@@ -1,6 +1,7 @@
 ---
 title: 贝特拉基
 description: 贝特拉基是一个德国画家，曾以伪造画作闻名。
+original_path: content/6.maps/_person/beltracchi.md
 ---
 
 #### 现代假画之王贝特拉基的故事？
