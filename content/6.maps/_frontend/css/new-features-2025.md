@@ -1,6 +1,7 @@
 ---
 title: CSS 新特性 2025
 description: Adam Argyle 分享的 25+ 个 CSS 新特性，涵盖视图过渡、容器查询、滚动驱动动画、颜色系统等
+original_path: /maps/_frontend/css/new-features-2025
 ---
 
 #### View Transitions 视图过渡

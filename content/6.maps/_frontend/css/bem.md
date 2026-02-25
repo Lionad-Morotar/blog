@@ -1,6 +1,7 @@
 ---
 title: BEM
 description: Block__Element–-Modifier
+original_path: /maps/_frontend/css/bem
 ---
 
 #### BEM in JS 的方案？

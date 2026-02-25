@@ -1,5 +1,6 @@
 ---
 title: ITCSS（Inverted Triangle CSS）
+original_path: /maps/_frontend/css/inverted-triangle-css
 ---
 
 ## 简介

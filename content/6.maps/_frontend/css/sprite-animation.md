@@ -1,6 +1,7 @@
 ---
 title: CSS Sprite 动画
 description: 使用 CSS object-fit 和 object-position 实现高性能 Sprite 动画的技术方案
+original_path: /maps/_frontend/css/sprite-animation
 ---
 
 #### CSS Sprite 动画如何实现？

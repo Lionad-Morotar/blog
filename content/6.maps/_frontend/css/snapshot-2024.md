@@ -1,6 +1,7 @@
 ---
 title: CSS Snapshot 2024
 description: 截止 2024 年底，CSS 规范的状态
+original_path: /maps/_frontend/css/snapshot-2024
 ---
 
 #### 什么是 CSS Snapshot？

@@ -1,5 +1,6 @@
 ---
 title: sass
+original_path: /maps/_frontend/css/sass
 ---
 
 #### 为什么弃用 node-sass？

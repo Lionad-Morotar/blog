@@ -1,5 +1,6 @@
 ---
 title: CSS Layers
+original_path: /maps/_frontend/css/layers
 ---
 
 ## Cheatsheet

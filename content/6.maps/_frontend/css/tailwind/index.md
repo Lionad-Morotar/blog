@@ -1,6 +1,7 @@
 ---
 title: Tailwind CSS
 description: Tailwind CSS 是一个 utility-first 的 CSS 框架，提供大量小而可组合的类名，用于在标记层面直接控制样式。它关注可定制性（`theme`）、按需构建（content 扫描）与插件生态。
+original_path: /maps/_frontend/css/tailwind/
 ---
 
 ## Gists
