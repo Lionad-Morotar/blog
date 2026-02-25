@@ -1,6 +1,7 @@
 ---
 title: Gary Marcus
 description: 认知科学家、AI 研究者、作家，以批判性视角关注人工智能发展
+original_path: content/6.maps/_person/gary-marcus.md
 ---
 
 #### 简介？

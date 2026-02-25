@@ -1,6 +1,7 @@
 ---
 title: Andrej Karpathy
 description: AI 研究员、教育家，OpenAI 创始成员，前 Tesla AI 高级总监
+original_path: content/6.maps/_person/andrej-karpathy.md
 ---
 
 #### 简介？

@@ -1,6 +1,7 @@
 ---
 title: 姚顺雨 (Shunyu Yao)
 description: OpenAI 前研究员、AI Agent 方向核心探索者，现任腾讯首席 AI 科学家
+original_path: content/6.maps/_person/shunyu-yao.md
 ---
 
 #### 简介？

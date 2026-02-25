@@ -1,6 +1,7 @@
 ---
 title: Evan Martin
 description: Chrome 早期开发者（2007-2012），Linux Chrome 负责人，版本控制发烧友
+original_path: content/6.maps/_person/evan-martin.md
 ---
 
 #### 简介？

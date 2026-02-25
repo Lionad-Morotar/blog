@@ -1,6 +1,7 @@
 ---
 title: Evan Schwartz
 description: Rust / TypeScript 工程师，信息策展人
+original_path: content/6.maps/_person/evan-schwartz.md
 ---
 
 #### 简介？

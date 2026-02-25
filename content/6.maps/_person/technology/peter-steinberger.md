@@ -1,6 +1,7 @@
 ---
 title: Peter Steinberger
 description: PSPDFKit 创始人、Claudebot 创建者，Agentic Engineering 倡导者
+original_path: content/6.maps/_person/peter-steinberger.md
 ---
 
 #### 简介？
