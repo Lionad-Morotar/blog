@@ -104,6 +104,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 - [Phase 15]: [Phase 15-complex-person]: Created person.md domain entry with 4-subdomain navigation (technology, science, philosophy, historical) and updated cross-domain links in cosmos.md
 - [Phase 16-complex-frontend]: Grouped HTML topics into Tools (emmet) and Reference (html-mind-map, href-value-possibilities) sections for clear navigation
 - [Phase 16-complex-frontend]: JavaScript subdomain migration with dual entry pattern - kept javascript.md in root as domain entry, created javascript/javascript.md as subdomain entry, and added A-Z index (0.index.md)
+- [Phase 16-complex-frontend]: Organized W3C content into 5 clear categories: CSS Modules, ECMAScript Proposals, Reports, Screen API, Security — Existing nested structure was well-organized; categorizing by topic area provides clearer navigation than flat listing
 
 ### Open Questions
 
@@ -249,6 +250,7 @@ Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan 
 | Phase 15-complex-person P03 | 6m 47s | 3 tasks | 7 files |
 | Phase 15-complex-person P04 | 237 | 4 tasks | 4 files |
 | Phase 16-complex-frontend P02 | 1min | 4 tasks | 4 files |
+| Phase 16-complex-frontend P04 | 2min | 4 tasks | 10 files |
 
 ### Execution History
 
