@@ -14,7 +14,8 @@
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
     "post": "npm run build && npm run upload",
-    "lint": "eslint . --fix && npx case-police \"**/*.md\" --fix"
+    "lint": "eslint . --fix && npx case-police \"**/*.md\" --fix",
+    "toc": "node scripts/extract-toc.js"
   },
   "dependencies": {
     "@iconify-json/heroicons": "^1.2.3",
