@@ -1,6 +1,7 @@
 ---
 title: 亨利·莫莱森
 description: 医学史上最著名的健忘症患者
+original_path: content/6.maps/_person/henry-molaison.md
 ---
 
 ## 莫莱森健忘症的来历？
@@ -17,4 +18,4 @@ description: 医学史上最著名的健忘症患者
 
 ![H.M.去世后大脑组织尼氏染色切片，方框及箭头所指为海马](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200343.png?w=50)
 
-见: [脑科学史话丨“记不住”的亨利·莫莱森，“被记住”的H.M.病人](https://www.bilibili.com/read/cv7044871/)
+见: [脑科学史话丨"记不住"的亨利·莫莱森，"被记住"的H.M.病人](https://www.bilibili.com/read/cv7044871/)

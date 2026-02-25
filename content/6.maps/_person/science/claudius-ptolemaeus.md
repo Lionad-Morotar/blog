@@ -1,6 +1,7 @@
 ---
 title: 克罗狄斯·托勒密
 description: 地心说
+original_path: content/6.maps/_person/claudius-ptolemaeus.md
 ---
 
 托勒密是希腊数学家，天文学家，地理学家和占星家，重要著作有四本，《天文学大成》（又称为：数学论文、伟大论文）、《地理学指南》、《天文集》、《光学》。
@@ -12,4 +13,4 @@ description: 地心说
 ## References
 
 * [托勒密的模型给了后世人怎样的启示？它曾是人们解读天空的工具！](https://www.bilibili.com/video/BV1Qp4y1q7kY)
-* [行星逆行，行星的“折返运动”，地球的弯道“超车”](https://www.bilibili.com/video/BV1ZA411M7qG)
+* [行星逆行，行星的"折返运动"，地球的弯道"超车"](https://www.bilibili.com/video/BV1ZA411M7qG)

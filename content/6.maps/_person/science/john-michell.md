@@ -1,6 +1,7 @@
 ---
 title: 约翰·米歇尔
 description: 有史以来最伟大的无名科学家之一，是已知的第一个提出黑洞存在的人，也是第一个提出地震以波传播的人。
+original_path: content/6.maps/_person/john-michell.md
 ---
 
 ## 提出了黑洞，但不被理解
