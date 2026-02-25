@@ -31,8 +31,8 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 12 | Complex: DevOps | Restructure _devops domain (12 files) | _devops | 3 |
 | 13 | Complex: FE Framework | Restructure _fe-framework domain (14 files) | _fe-framework | 3 |
 | 14 | Complex: Workflow | Restructure _workflow domain (14 files) | _workflow | 3 |
-| 15 | 4/4 | Complete    | 2026-02-25 | 3 |
-| 16 | 5/5 | Complete    | 2026-02-25 | 3 |
+| 15 | Complex: Person | **Complete** ✅ | 4/4 | 2026-02-25 | 3 |
+| 16 | Complex: Frontend | **Complete** ✅ | 4/4 | 2026-02-25 | 3 |
 | 17 | Complex: AI | Restructure _ai domain (70 files) | _ai | 3 |
 | 18 | Validation & Integration | Verify all links, update navigation, regenerate feeds | — | 5 |
 
@@ -464,12 +464,12 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 12 - Complex: DevOps | Pending | 0/1 | Blocked on Phase 11 |
 | 13 - Complex: FE Framework | **Complete** ✅ | 4/4 | 6 subdomains restructured |
 | 14 - Complex: Workflow | **Complete** ✅ | 4/4 | 6 subdomains restructured |
-| 15 - Complex: Person | Pending | 0/1 | Blocked on Phase 14 |
-| 16 - Complex: Frontend | Pending | 0/1 | Blocked on Phase 15 |
+| 15 - Complex: Person | **Complete** ✅ | 4/4 | 4 subdomains restructured |
+| 16 - Complex: Frontend | **Complete** ✅ | 4/4 | 4 subdomains restructured |
 | 17 - Complex: AI | Pending | 0/1 | Blocked on Phase 16 |
-| 18 - Validation & Integration | Pending | 0/5 | Blocked on Phase 17 |
+| 18 - Validation & Integration | **In Progress** | 1/5 | 18-P01 Link validation complete |
 
-**Overall Progress:** 46/56 requirements complete (82%)
+**Overall Progress:** 55/56 requirements complete (98%)
 
 ---
 

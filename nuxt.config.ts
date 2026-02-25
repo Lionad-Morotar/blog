@@ -45,11 +45,8 @@ export default defineNuxtConfig({
    * @see https://nuxtseo.com/sitemap/getting-started/how-it-works
    */
   sitemap: {
-    // Include all content paths from the maps directory
-    sources: [
-      '/api/__sitemap__/urls',
-    ],
-    // Exclude hidden/utility paths
+    // Auto-generate from prerendered routes
+    // Nuxt Content pages are automatically included via prerendering
     exclude: [
       '/_dir',
       '/_/**',
@@ -57,6 +54,7 @@ export default defineNuxtConfig({
       '/**/_dir',
       '/**/_.*',
       '/api/**',
+      '/__sitemap/**',
     ],
   },
 
