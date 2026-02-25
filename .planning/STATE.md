@@ -7,14 +7,14 @@
 
 ## Current Position
 
-**Current Phase:** 15
-**Current Plan:** Not started
-**Status:** Milestone complete
+**Current Phase:** 16
+**Current Plan:** 03 Complete
+**Status:** In Progress
 
 ### Progress Bar
 
 ```
-[██████████████████░░] 53/56 requirements complete (95%)
+[███████████████████░] 54/56 requirements complete (96%)
 ```
 
 ### Phase Status
@@ -36,7 +36,7 @@
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
 | 14 | Complex: Workflow | **Complete** ✅ | 3/3 | All plans complete |
 | 15 | Complex: Person | **Complete** ✅ | 4/4 | All plans complete |
-| 16 | Complex: Frontend | Pending | 0/1 |
+| 16 | Complex: Frontend | **In Progress** | 1/1 |
 | 17 | Complex: AI | Pending | 0/1 |
 | 18 | Validation & Integration | Pending | 0/5 |
 
@@ -102,6 +102,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 - [Phase 15]: Grouped historical figures by activity domain (exploration/art/military/society)
 - [Phase 15]: Placed Armstrong in historical (not science) based on content focus (engineering speech)
 - [Phase 15]: [Phase 15-complex-person]: Created person.md domain entry with 4-subdomain navigation (technology, science, philosophy, historical) and updated cross-domain links in cosmos.md
+- [Phase 16-complex-frontend]: Grouped HTML topics into Tools (emmet) and Reference (html-mind-map, href-value-possibilities) sections for clear navigation
 
 ### Open Questions
 
@@ -120,14 +121,20 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 15-P04 Complete** ✅ — Created person.md domain entry with 4-subdomain navigation:
-- Created person.md domain entry linking to all 4 subdomains (technology, science, philosophy, historical)
-- Updated _person/0.index.md with new subdomain paths for all 19 person files
-- Updated root 0.index.md to link to person.md domain entry
-- Fixed cross-domain links in cosmos.md to use new science/ subdomain paths
+**Phase 16-01 Complete** ✅ — CSS 子领域迁移完成:
+- Created css.md subdomain entry with 5-category navigation (Architecture, Features, Tools, Techniques, Reference)
+- Updated 0.index.md with subdomain navigation section
+- Added original_path frontmatter to all 9 CSS topic files
+- Verified all internal links and tailwind/index.md accessibility
 
 ### Next Action
-Proceed to Phase 16-complex-frontend or next plan in roadmap.
+Phase 16-complex-frontend complete. Proceed to Phase 17-complex-ai or next plan in roadmap.
+
+### Execution History (Phase 16)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 16-01 (CSS subdomain migration) | 15m | 4 tasks | 11 files |
 
 ### Execution History (Phase 15)
 
@@ -220,8 +227,8 @@ Proceed to Phase 16-complex-frontend or next plan in roadmap.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 53 |
-| Domains migrated | 62 | 39 |
+| Requirements completed | 56 | 54 |
+| Domains migrated | 62 | 40 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
@@ -239,6 +246,7 @@ Proceed to Phase 16-complex-frontend or next plan in roadmap.
 | Phase 15-complex-person P01 | 3m | 2 tasks | 8 files |
 | Phase 15-complex-person P03 | 6m 47s | 3 tasks | 7 files |
 | Phase 15-complex-person P04 | 237 | 4 tasks | 4 files |
+| Phase 16-complex-frontend P02 | 1min | 4 tasks | 4 files |
 
 ### Execution History
 
