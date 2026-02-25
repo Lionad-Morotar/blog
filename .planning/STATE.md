@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 14-complex-workflow
-**Current Plan:** 14-P03 complete ✅
-**Status:** Phase 14 Complete — 6 subdomains created (engineering/, package-manager/, build-tools/, linter/, monorepo/, compiler/), domain entry created
+**Current Plan:** 14-P04 complete ✅
+**Status:** Phase 14 Complete — 6 subdomains created (engineering/, package-manager/, build-tools/, linter/, monorepo/, compiler/), domain entry created, cross-domain links updated
 
 ### Progress Bar
 
@@ -96,6 +96,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-25 | [Phase 14-complex-workflow]: Created engineering/ and package-manager/ subdomains with entry files and migrated content with original_path preservation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Created build-tools/ subdomain by renaming packer/ directory and linter/ subdomain entry, both with original_path preservation and ## 主题 navigation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Created monorepo/ subdomain with turborepo.md (new file for 2026 toolchain), compiler/ subdomain with expanded content, and workflow.md domain entry with 6-subdomain navigation |
+| 2026-02-25 | [Phase 14-complex-workflow]: Updated cross-domain links in 0.index.md to point to new _workflow subdomain paths; verified internal _workflow links and cross-domain references from _software and _devops |
 
 ### Open Questions
 
@@ -114,13 +115,10 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 14-P03 Complete** ✅ — Created monorepo/, compiler/ subdomains and workflow.md domain entry:
-- Created monorepo/monorepo.md with original_path and ## 主题 navigation to turborepo.md
-- Created monorepo/turborepo.md NEW file covering Pipeline, caching, and pnpm integration
-- Created compiler/compiler.md with original_path and ## 现代编译工具 section (SWC, esbuild, Babel)
-- Created workflow.md domain entry with 6-subdomain navigation and 2026 toolchain knowledge points
-- Created _dir.yml with Nuxt Content directory configuration
-- Cleaned up root monorepo.md and compiler.md after migration
+**Phase 14-P04 Complete** ✅ — Updated cross-domain links to new _workflow paths:
+- Updated 0.index.md navigation links to use new subdomain paths (engineering/, monorepo/, package-manager/, build-tools/, compiler/, linter/)
+- Verified all internal _workflow links already use correct new paths
+- Verified no cross-domain links from _software or _devops to _workflow exist
 - All 7 verification checks passed
 
 ### Next Action
@@ -133,6 +131,7 @@ Proceed to Phase 15-complex-person or next phase in roadmap.
 | 14-P01 (engineering + package-manager subdomains) | 3m 5s | 2 tasks | 6 files |
 | 14-P02 (build-tools + linter subdomains) | 2m 29s | 2 tasks | 7 files |
 | 14-P03 (monorepo + compiler subdomains + domain entry) | 5m | 3 tasks | 5 files |
+| 14-P04 (cross-domain link updates) | 1m 44s | 3 tasks | 1 file |
 
 ### Execution History (Phase 13)
 
