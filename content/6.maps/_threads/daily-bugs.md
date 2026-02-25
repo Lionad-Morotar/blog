@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-02-25
+
+好慢！慢死了！
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260225152729795.png)
+
 #### 2026-02-24
 
 让人感叹。
