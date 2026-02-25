@@ -7,9 +7,9 @@
 
 ## Current Position
 
-**Current Phase:** 14-complex-workflow
-**Current Plan:** 14-P04 complete ✅
-**Status:** Phase 14 Complete — 6 subdomains created (engineering/, package-manager/, build-tools/, linter/, monorepo/, compiler/), domain entry created, cross-domain links updated
+**Current Phase:** 15-complex-person
+**Current Plan:** 15-P01 complete ✅
+**Status:** Phase 15 In Progress — technology/ subdomain created with 7 migrated person files
 
 ### Progress Bar
 
@@ -35,7 +35,7 @@
 | 12 | Complex: DevOps | **Complete** ✅ | 2/2 |
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
 | 14 | Complex: Workflow | **Complete** ✅ | 3/3 | All plans complete |
-| 15 | Complex: Person | Pending | 0/1 |
+| 15 | Complex: Person | **In Progress** | 1/4 |
 | 16 | Complex: Frontend | Pending | 0/1 |
 | 17 | Complex: AI | Pending | 0/1 |
 | 18 | Validation & Integration | Pending | 0/5 |
@@ -97,7 +97,10 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-25 | [Phase 14-complex-workflow]: Created build-tools/ subdomain by renaming packer/ directory and linter/ subdomain entry, both with original_path preservation and ## 主题 navigation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Created monorepo/ subdomain with turborepo.md (new file for 2026 toolchain), compiler/ subdomain with expanded content, and workflow.md domain entry with 6-subdomain navigation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Updated cross-domain links in 0.index.md to point to new _workflow subdomain paths; verified internal _workflow links and cross-domain references from _software and _devops |
+| 2026-02-25 | [Phase 15-complex-person]: Created technology/ subdomain with entry file and migrated 7 tech person files (andrej-karpathy, evan-martin, evan-schwartz, gary-marcus, peter-steinberger, richard-stallman, shunyu-yao) with original_path preservation |
 - [Phase 15-complex-person]: Grouped scientists by field (astronomy, medicine, mathematics, physics) for clearer navigation in science subdomain
+- [Phase 15]: Grouped historical figures by activity domain (exploration/art/military/society)
+- [Phase 15]: Placed Armstrong in historical (not science) based on content focus (engineering speech)
 
 ### Open Questions
 
@@ -116,14 +119,20 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 14-P04 Complete** ✅ — Updated cross-domain links to new _workflow paths:
-- Updated 0.index.md navigation links to use new subdomain paths (engineering/, monorepo/, package-manager/, build-tools/, compiler/, linter/)
-- Verified all internal _workflow links already use correct new paths
-- Verified no cross-domain links from _software or _devops to _workflow exist
-- All 7 verification checks passed
+**Phase 15-P01 Complete** ✅ — Created technology subdomain for _person domain:
+- Created technology/ subdirectory with technology.md subdomain entry
+- Organized 7 tech figures into 3 categories: AI研究员、软件工程师、开源活动家
+- Migrated 7 person files with original_path frontmatter preserved
+- All content and H4 knowledge points intact
 
 ### Next Action
-Proceed to Phase 15-complex-person or next phase in roadmap.
+Proceed to Phase 15-P02 or next plan in roadmap.
+
+### Execution History (Phase 15)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 15-P01 (technology subdomain) | 3m | 2 tasks | 8 files |
 
 ### Execution History (Phase 14)
 
@@ -225,6 +234,8 @@ Proceed to Phase 15-complex-person or next phase in roadmap.
 | Phase 13 P02 | 2m 48s | 8 tasks | 6 files |
 | Phase 13 PP03 | 118 | 6 tasks | 5 files |
 | Phase 15-complex-person P02 | 220 | 2 tasks | 8 files |
+| Phase 15-complex-person P01 | 3m | 2 tasks | 8 files |
+| Phase 15-complex-person P03 | 6m 47s | 3 tasks | 7 files |
 
 ### Execution History
 

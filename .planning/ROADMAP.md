@@ -31,7 +31,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 12 | Complex: DevOps | Restructure _devops domain (12 files) | _devops | 3 |
 | 13 | Complex: FE Framework | Restructure _fe-framework domain (14 files) | _fe-framework | 3 |
 | 14 | Complex: Workflow | Restructure _workflow domain (14 files) | _workflow | 3 |
-| 15 | 1/4 | In Progress|  | 3 |
+| 15 | 3/4 | In Progress|  | 3 |
 | 16 | Complex: Frontend | Restructure _frontend domain (29 files) | _frontend | 3 |
 | 17 | Complex: AI | Restructure _ai domain (70 files) | _ai | 3 |
 | 18 | Validation & Integration | Verify all links, update navigation, regenerate feeds | — | 5 |
@@ -373,7 +373,7 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 
 **Plans:**
 
-1/4 plans executed
+3/4 plans executed
 - [ ] 15-02-PLAN.md — Create science/ subdomain with 7 scientists
 - [ ] 15-03-PLAN.md — Create philosophy/ and historical/ subdomains (5 files)
 - [ ] 15-04-PLAN.md — Create person.md domain entry and update navigation links
