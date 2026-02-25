@@ -1,6 +1,7 @@
 ---
 title: ESLint
 description: ESLint 是 JavaScript 和 TypeScript 的代码质量检查工具，帮助开发者保持代码风格一致性和减少错误。
+original_path: /_workflow/linter/eslint.md
 ---
 
 ## 版本

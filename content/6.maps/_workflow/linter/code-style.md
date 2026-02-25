@@ -1,6 +1,7 @@
 ---
 title: Code Style
 description: 代码风格与格式规范的最佳实践
+original_path: /_workflow/linter/code-style.md
 ---
 
 #### 软换行无法正确处理结构化文本
