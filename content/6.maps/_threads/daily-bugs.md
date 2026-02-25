@@ -9,6 +9,10 @@ description: 追踪一些日常碰到的软件缺陷
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260225152729795.png)
 
+是不是最近翻译太多东西了，对这种错误敏感。Chrome 博客的机器翻译很可靠，只是对于某些名词，不如不翻译。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260225221245729.png)
+
 #### 2026-02-24
 
 让人感叹。
