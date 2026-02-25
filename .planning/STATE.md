@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 14-complex-workflow
-**Current Plan:** 14-P02 complete ✅
-**Status:** Phase 14 In Progress — 4 subdomains created (engineering/, package-manager/, build-tools/, linter/)
+**Current Plan:** 14-P03 complete ✅
+**Status:** Phase 14 Complete — 6 subdomains created (engineering/, package-manager/, build-tools/, linter/, monorepo/, compiler/), domain entry created
 
 ### Progress Bar
 
@@ -34,7 +34,7 @@
 | 11 | Complex: Database | **Complete** ✅ | 3/3 |
 | 12 | Complex: DevOps | **Complete** ✅ | 2/2 |
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
-| 14 | Complex: Workflow | **In Progress** | 2/2 | 14-P02 complete |
+| 14 | Complex: Workflow | **Complete** ✅ | 3/3 | All plans complete |
 | 15 | Complex: Person | Pending | 0/1 |
 | 16 | Complex: Frontend | Pending | 0/1 |
 | 17 | Complex: AI | Pending | 0/1 |
@@ -95,6 +95,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-25 | [Phase 13-complex-fe-framework]: Refactored fe-framework.md as clean domain entry with 6-subdomain navigation and preserved knowledge points as H4 headings |
 | 2026-02-25 | [Phase 14-complex-workflow]: Created engineering/ and package-manager/ subdomains with entry files and migrated content with original_path preservation |
 | 2026-02-25 | [Phase 14-complex-workflow]: Created build-tools/ subdomain by renaming packer/ directory and linter/ subdomain entry, both with original_path preservation and ## 主题 navigation |
+| 2026-02-25 | [Phase 14-complex-workflow]: Created monorepo/ subdomain with turborepo.md (new file for 2026 toolchain), compiler/ subdomain with expanded content, and workflow.md domain entry with 6-subdomain navigation |
 
 ### Open Questions
 
@@ -113,15 +114,17 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 14-P02 Complete** ✅ — Created build-tools/ and linter/ subdomains:
-- Renamed packer/ to build-tools/ for clearer semantics matching industry terminology
-- Created build-tools.md entry file with ## 主题 navigation and knowledge points
-- Created linter.md entry file replacing index.md pattern
-- Added original_path to all migrated files (vite.md, webpack.md, rspack.md, eslint.md, code-style.md)
-- All 8 verification checks passed
+**Phase 14-P03 Complete** ✅ — Created monorepo/, compiler/ subdomains and workflow.md domain entry:
+- Created monorepo/monorepo.md with original_path and ## 主题 navigation to turborepo.md
+- Created monorepo/turborepo.md NEW file covering Pipeline, caching, and pnpm integration
+- Created compiler/compiler.md with original_path and ## 现代编译工具 section (SWC, esbuild, Babel)
+- Created workflow.md domain entry with 6-subdomain navigation and 2026 toolchain knowledge points
+- Created _dir.yml with Nuxt Content directory configuration
+- Cleaned up root monorepo.md and compiler.md after migration
+- All 7 verification checks passed
 
 ### Next Action
-Proceed to Phase 14-P03 (workflow domain entry) or next plan in complex-workflow phase.
+Proceed to Phase 15-complex-person or next phase in roadmap.
 
 ### Execution History (Phase 14)
 
@@ -129,6 +132,7 @@ Proceed to Phase 14-P03 (workflow domain entry) or next plan in complex-workflow
 |------|----------|-------|-------|
 | 14-P01 (engineering + package-manager subdomains) | 3m 5s | 2 tasks | 6 files |
 | 14-P02 (build-tools + linter subdomains) | 2m 29s | 2 tasks | 7 files |
+| 14-P03 (monorepo + compiler subdomains + domain entry) | 5m | 3 tasks | 5 files |
 
 ### Execution History (Phase 13)
 
@@ -205,8 +209,8 @@ Proceed to Phase 14-P03 (workflow domain entry) or next plan in complex-workflow
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 50 |
-| Domains migrated | 62 | 38 |
+| Requirements completed | 56 | 53 |
+| Domains migrated | 62 | 39 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
