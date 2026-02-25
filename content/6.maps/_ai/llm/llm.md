@@ -1,6 +1,7 @@
 ---
 title: Large Language Models
-description: large language models related
+description: 大语言模型（LLM）相关技术与实践，包括 Embeddings、结构化输出、评估等。
+original_path: _ai/llm.md
 ---
 
 ## Tour

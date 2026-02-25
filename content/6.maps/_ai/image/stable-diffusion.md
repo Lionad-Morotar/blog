@@ -1,5 +1,7 @@
 ---
 title: Image Generator
+description: Stable Diffusion 图像生成提示词与风格指南。
+original_path: _ai/image/stable-diffusion.md
 ---
 
 ## Dev

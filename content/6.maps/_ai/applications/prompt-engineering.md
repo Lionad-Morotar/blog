@@ -1,3 +1,9 @@
+---
+title: 提示工程
+description: 提示工程框架与工具，包括 DSPy、Instructor、Guidance、Outlines 等声明式提示编程方案。
+original_path: _ai/prompt-engineering.md
+---
+
 # 提示工程 (Prompt Engineering)
 
 ## DSPy：声明式提示编程框架

@@ -1,6 +1,7 @@
 ---
 title: Agentic Engineering
 description: 超越 Vibe Coding 的 AI 辅助工程方法论
+original_path: _ai/workflow/agentic-engineering.md
 ---
 
 #### 是什么？

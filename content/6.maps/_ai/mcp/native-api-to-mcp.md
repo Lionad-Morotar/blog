@@ -1,6 +1,7 @@
 ---
 title: 反对「直接把内部 API 暴露成 MCP」的天真做法
-description: 原文反对将现有内部 API 直接转换为 MCP，建议为代理场景专门设计安全的 MCP 服务层。
+description: 原文反对将现有内部 API 直接转换为 MCP，建议为代理场景专门设计安全的 MCP 服务层
+original_path: _ai/mcp/native-api-to-mcp.md
 ---
 
 ## Brief

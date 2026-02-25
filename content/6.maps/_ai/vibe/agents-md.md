@@ -1,6 +1,7 @@
 ---
 title: agents.md
 description: AGENTS.md 是一种用于向 AI 编码代理提供说明的常用格式
+original_path: _ai/vibe/agents-md.md
 ---
 
 ## Brief

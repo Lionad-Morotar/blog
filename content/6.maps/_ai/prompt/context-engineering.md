@@ -1,6 +1,7 @@
 ---
 title: Context Engineering
 description: Context Engineering 是一种优化与大型语言模型（LLM）交互的技术，旨在通过提供结构化和相关的上下文信息，提高模型生成内容的准确性和相关性。
+original_path: _ai/prompt/context-engineering.md
 ---
 
 ## Brief

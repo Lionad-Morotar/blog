@@ -1,6 +1,7 @@
 ---
 title: 如何编写 Agent Skills
 description: 如何编写 Agent Skills - 完整指南
+original_path: _ai/skills/create-a-skill.md
 ---
 
 

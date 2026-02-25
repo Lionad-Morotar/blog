@@ -1,6 +1,7 @@
 ---
-title: 对 AI 生成代码“惰性依赖”的警惕与治理
-description: AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲“惰性依赖”风险。
+title: 对 AI 生成代码”惰性依赖”的警惕与治理
+description: AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲”惰性依赖”风险
+original_path: _ai/vibe/complacency.md
 ---
 
 ## Brief

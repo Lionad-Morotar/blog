@@ -1,6 +1,7 @@
 ---
 title: Spec-Driven Development (SDD)
 description: 规格驱动开发方法论与工具对比
+original_path: _ai/workflow/sdd.md
 ---
 
 #### SDD 是什么？

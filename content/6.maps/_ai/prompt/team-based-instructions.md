@@ -1,6 +1,7 @@
 ---
 title: Team based Instructions
 description: 为软件团队策划和共享指令（Curated shared instructions for software teams）
+original_path: _ai/prompt/team-based-instructions.md
 ---
 
 ## Brief

@@ -1,6 +1,7 @@
 ---
 title: SAIF
-description: 安全人工智能框架
+description: Google 安全人工智能框架（Secure AI Framework），管理 AI 安全风险的实用指南。
+original_path: _ai/framework/saif.md
 ---
 
 ## Brief

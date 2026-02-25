@@ -1,6 +1,7 @@
 ---
 title: 玩具化设计思维
 description: 将复杂 AI 能力转化为情感化、游戏化体验的包装策略
+original_path: _ai/vibe/playful-ai.md
 ---
 
 #### 什么是玩具化设计？

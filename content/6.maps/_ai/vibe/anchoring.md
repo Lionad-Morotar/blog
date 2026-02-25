@@ -1,6 +1,7 @@
 ---
 title: Anchoring coding agents to a ref application
 description: 在编码代理时代，通过将其锚定至实时可编译的参考应用，有效应对代码漂移问题
+original_path: _ai/vibe/anchoring.md
 ---
 
 ## Brief  

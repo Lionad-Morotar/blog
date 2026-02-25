@@ -1,6 +1,7 @@
 ---
 title: Vibe Coding
 description: Vibe 是一种基于 AI 的代码生成和协作方式，旨在通过自然语言提示帮助开发者快速生成代码片段、自动化任务和提升编程效率。
+original_path: _ai/vibe.md
 ---
 
 ## Domain

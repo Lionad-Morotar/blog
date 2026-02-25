@@ -1,6 +1,7 @@
 ---
 title: LLM 作为评审者（LLM as a judge）
-description: 讨论用 LLM 自动评估生成式系统输出的现状、问题与建议.
+description: 讨论用 LLM 自动评估生成式系统输出的现状、问题与建议
+original_path: _ai/llm/llm-as-a-judge.md
 ---
 
 ## Brief

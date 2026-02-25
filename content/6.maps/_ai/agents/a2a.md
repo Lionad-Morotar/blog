@@ -1,6 +1,7 @@
 ---
 title: A2A Protocol
 description: Agent-to-Agent 协议，Google 推出的多智能体协同开放标准
+original_path: _ai/agents/a2a.md
 ---
 
 ## 概述

@@ -1,6 +1,7 @@
 ---
 title: 设备端信息检索
-description: 在用户设备上进行信息检索以保障隐私和提升效率。
+description: 在用户设备上进行信息检索以保障隐私和提升效率
+original_path: _ai/rag/on-device-info-retrieval.md
 ---
 
 ## Brief

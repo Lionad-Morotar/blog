@@ -1,6 +1,7 @@
 ---
 title: Browser AI Automation
 description: AI 驱动的浏览器自动化工具对比
+original_path: _ai/tools/browser-automation.md
 ---
 
 浏览器 AI 自动化工具让 AI 能够控制浏览器、执行网页操作、提取数据。以下是主流开源工具的对比。

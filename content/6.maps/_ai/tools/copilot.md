@@ -1,6 +1,7 @@
 ---
 title: Copilot
-description: Copilot 是一种新型人机协作工具。
+description: Copilot 是一种新型人机协作工具
+original_path: _ai/tools/copilot.md
 ---
 
 ## Domain

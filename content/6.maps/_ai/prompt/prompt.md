@@ -1,6 +1,7 @@
 ---
 title: Prompt
-description: Prompt 是与 AI 模型交互的指令或问题，旨在引导模型生成特定的响应或执行特定的任务。它们可以是简单的查询，也可以是复杂的任务描述。
+description: Prompt 是与 AI 模型交互的指令或问题，旨在引导模型生成特定的响应或执行特定的任务。
+original_path: _ai/prompt.md
 ---
 
 ## Docs

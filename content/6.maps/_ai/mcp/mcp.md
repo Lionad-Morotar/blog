@@ -1,6 +1,7 @@
 ---
 title: Model Context Protocol
 description: MCP（Model Context Protocol）是 Anthropic 开源的标准协议，用于连接 AI 应用与外部系统，被誉为 AI 应用的 USB-C 接口。
+original_path: _ai/mcp.md
 ---
 
 #### MCP 是什么？

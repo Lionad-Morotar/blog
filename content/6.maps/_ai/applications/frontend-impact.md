@@ -1,6 +1,12 @@
 ---
 title: AI 对泛前端领域的影响
 description: 滴滴技术团队关于 AI 浪潮下泛前端变革的思考与实践
+original_path: _ai/frontend-impact.md
+---
+
+---
+title: AI 对泛前端领域的影响
+description: 滴滴技术团队关于 AI 浪潮下泛前端变革的思考与实践
 ---
 
 #### 用户界面正从 GUI 向 LUI 迁移

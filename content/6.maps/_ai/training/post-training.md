@@ -1,3 +1,9 @@
+---
+title: Post-training
+description: Post-training optimization and model alignment
+original_path: _ai/post-training.md
+---
+
 # 后训练 (Post-Training)
 
 ## DPO：直接偏好优化的对齐革命

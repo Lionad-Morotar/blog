@@ -1,3 +1,9 @@
+---
+title: Multimodal Models
+description: Vision, language, and multimodal AI systems
+original_path: _ai/multimodal.md
+---
+
 # 多模态 (Multimodal)
 
 ## GPT-4o：端到端多模态标杆

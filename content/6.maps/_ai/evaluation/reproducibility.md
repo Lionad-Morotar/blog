@@ -1,4 +1,10 @@
 ---
+title: Reproducibility
+description: 机器学习可重复性（Reproducibility）的核心价值与实践方法，包括随机种子固定、数据版本控制等关键实践。
+original_path: _ai/reproducibility.md
+---
+
+---
 title: ML 可重复性
 description: 机器学习可重复性（Reproducibility）的核心价值与实践方法
 ---

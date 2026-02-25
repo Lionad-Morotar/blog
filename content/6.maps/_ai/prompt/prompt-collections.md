@@ -1,6 +1,7 @@
 ---
 title: Prompt Collections
 description: Prompt collections for AI models
+original_path: _ai/prompt/prompt-collections.md
 ---
 
 ## Code

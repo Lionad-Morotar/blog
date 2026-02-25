@@ -1,3 +1,9 @@
+---
+title: Inference
+description: Model inference and serving techniques
+original_path: _ai/inference.md
+---
+
 # 推理 (Inference)
 
 ## vLLM：PagedAttention 高吞吐服务框架

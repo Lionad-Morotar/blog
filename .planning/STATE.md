@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 16
-**Current Plan:** 05 Complete
-**Status:** In Progress
+**Current Plan:** Not started
+**Status:** Milestone complete
 
 ### Progress Bar
 

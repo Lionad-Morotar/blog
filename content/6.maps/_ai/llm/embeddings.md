@@ -1,6 +1,7 @@
 ---
 title: Embeddings 入门指南
 description: LLM Embeddings 的核心概念、演进历史与实践
+original_path: _ai/llm/embeddings.md
 ---
 
 ## 核心概念

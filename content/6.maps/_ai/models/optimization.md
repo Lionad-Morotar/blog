@@ -1,3 +1,9 @@
+---
+title: Optimization
+description: Model optimization techniques
+original_path: _ai/optimization.md
+---
+
 # 优化 (Optimization)
 
 ## Flash Attention：内存高效的注意力计算

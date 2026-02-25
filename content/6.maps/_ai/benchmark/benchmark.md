@@ -1,6 +1,7 @@
 ---
 title: LLM Benchmark
-description: 各类大语言模型的基准测试结果
+description: 各类大语言模型的基准测试结果与排行榜资源。
+original_path: _ai/benchmark.md
 ---
 
 * [Arena.ai](https://arena.ai/zh/leaderboard/code)：经典大模型竞技场

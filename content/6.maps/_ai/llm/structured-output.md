@@ -1,5 +1,7 @@
 ---
 title: 结构化输出
+description: LLM 结构化输出技术，约束模型生成预定义格式的响应。
+original_path: _ai/llm/structured-output.md
 ---
 
 ## Brief

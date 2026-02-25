@@ -1,6 +1,7 @@
 ---
 title: RAG
-description: 检索增强生成模型
+description: 检索增强生成（Retrieval-Augmented Generation）模型与技术
+original_path: _ai/rag.md
 ---
 
 ## 简介

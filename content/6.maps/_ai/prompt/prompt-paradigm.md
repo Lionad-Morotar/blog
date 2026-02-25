@@ -1,6 +1,7 @@
 ---
 title: 提示词分化：描述性 vs 指令性
 description: 图像生成提示词的两种范式及其适用场景
+original_path: _ai/prompt/prompt-paradigm.md
 ---
 
 #### 描述性提示词：精确控制美学

@@ -1,6 +1,7 @@
 ---
 title: 推荐系统演进：从零到上瘾算法
-description: https://www.bilibili.com/video/BV1eqagzSECT/
+description: 推荐系统演进历程：从流行度排序、协同过滤、矩阵分解到双塔模型与深度学习的完整指南。
+original_path: _ai/recommendation/recommendation-system.md
 date: 2026-02-13
 tags: [推荐系统, 机器学习, 算法, 协同过滤, 矩阵分解, 双塔模型]
 ---

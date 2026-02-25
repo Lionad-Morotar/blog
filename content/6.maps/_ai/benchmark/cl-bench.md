@@ -1,6 +1,7 @@
 ---
 title: CL-Bench
 description: LLM 智能体持续学习基准测试框架
+original_path: _ai/benchmark/cl-bench.md
 ---
 
 #### CL-Bench：LLM 智能体持续学习基准

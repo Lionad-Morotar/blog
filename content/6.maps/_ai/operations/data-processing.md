@@ -1,3 +1,9 @@
+---
+title: Data Processing
+description: AI 数据处理技术与最佳实践，包括 NeMo Curator、Ray Data、MinHash + LSH 等工具和方法。
+original_path: _ai/data-processing.md
+---
+
 # 数据处理 (Data Processing)
 
 ## NeMo Curator：GPU 加速的企业级数据整理

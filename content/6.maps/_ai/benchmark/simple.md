@@ -1,6 +1,7 @@
 ---
 title: Simple Benchmark
 description: 日常使用的简单基准测试
+original_path: _ai/benchmark/simple.md
 ---
 
 #### 2025-12

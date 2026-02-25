@@ -1,6 +1,7 @@
 ---
 title: Claude Code
-description: Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务。
+description: Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务
+original_path: _ai/tools/claude-code.md
 ---
 
 ## 官方文档

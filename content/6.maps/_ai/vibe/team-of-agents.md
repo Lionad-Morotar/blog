@@ -1,6 +1,7 @@
 ---
 title: 编码智能体团队
 description: 通过协作的多个 AI 编码智能体来完成开发任务
+original_path: _ai/vibe/team-of-agents.md
 ---
 
 ## Brief

@@ -1,3 +1,9 @@
+---
+title: Mechanistic Interpretability
+description: Understanding model internals and interpretability methods
+original_path: _ai/mechanistic-interpretability.md
+---
+
 # 机制可解释性 (Mechanistic Interpretability)
 
 ## TransformerLens：逆向工程 GPT 风格模型的标准工具

@@ -1,6 +1,7 @@
 ---
 title: A2UI
 description: Google 推出的声明式 UI 协议，让 AI Agent 能生成富交互界面
+original_path: _ai/agents/a2ui.md
 ---
 
 #### A2UI 是什么？

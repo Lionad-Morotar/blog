@@ -1,3 +1,9 @@
+---
+title: MLOps
+description: 机器学习运维平台与工具，包括 Weights & Biases、MLflow、TensorBoard 等实验跟踪和模型管理方案。
+original_path: _ai/mlops.md
+---
+
 # MLOps
 
 ## Weights & Biases：商业 MLOps 平台事实标准

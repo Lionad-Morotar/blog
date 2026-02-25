@@ -1,3 +1,9 @@
+---
+title: Emerging AI Technologies
+description: Emerging technologies and research directions in AI
+original_path: _ai/emerging.md
+---
+
 # 新兴技术 (Emerging Technologies)
 
 ## MoE：稀疏激活的参数扩展

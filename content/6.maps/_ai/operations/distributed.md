@@ -1,3 +1,9 @@
+---
+title: Distributed Training
+description: 分布式训练技术与框架，包括 DeepSpeed、FSDP、Megatron-Core 等大规模模型训练方案。
+original_path: _ai/distributed.md
+---
+
 # 分布式 (Distributed Training)
 
 ## DeepSpeed：ZeRO 优化器的显存革命

@@ -1,6 +1,7 @@
 ---
 title: D2C
 description: 智能 Design-to-Code 架构实践
+original_path: _ai/skills/d2c.md
 ---
 
 #### 智能 D2C 架构：基于 AWS Kiro + MCP + Skills

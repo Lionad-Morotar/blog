@@ -1,6 +1,7 @@
 ---
 title: 小型语言模型（SLM）
-description: small language models related
+description: 小型语言模型（SLM）相关技术与应用场景
+original_path: _ai/llm/slm.md
 ---
 
 ## Brief

@@ -1,3 +1,9 @@
+---
+title: Tokenization
+description: Text tokenization and encoding
+original_path: _ai/tokenization.md
+---
+
 # 分词 (Tokenization)
 
 ## HuggingFace Tokenizers：Rust 实现的高性能分词

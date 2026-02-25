@@ -1,6 +1,7 @@
 ---
 title: 有毒数据流分析
 description: 在多代理系统中识别和缓解敏感数据泄露风险的技术
+original_path: _ai/agents/toxic-flow-analysis.md
 ---
 
 ## Brief

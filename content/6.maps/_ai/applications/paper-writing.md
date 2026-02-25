@@ -1,3 +1,9 @@
+---
+title: ML 论文写作
+description: 机器学习学术论文写作指南，包括 LaTeX 工具、文献管理与可复现性实践。
+original_path: _ai/paper-writing.md
+---
+
 # ML 论文写作 (ML Paper Writing)
 
 ## LaTeX 与学术写作工具

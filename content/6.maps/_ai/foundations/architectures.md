@@ -1,3 +1,9 @@
+---
+title: AI Architectures
+description: System architectures and design patterns for AI systems
+original_path: _ai/architectures.md
+---
+
 # 模型架构 (Model Architectures)
 
 ## LitGPT：PyTorch Lightning 原生的 LLM 工具包

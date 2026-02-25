@@ -1,3 +1,9 @@
+---
+title: Evaluation Framework
+description: 大语言模型评估框架与基准测试，包括 lm-evaluation-harness、BigCode 等统一评估工具。
+original_path: _ai/evaluation.md
+---
+
 # 评估 (Evaluation)
 
 ## lm-evaluation-harness：统一评估框架

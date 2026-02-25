@@ -1,6 +1,7 @@
 ---
-title: AI 行业动态
-description: AI 行业重要事件、商业动态与趋势观察
+title: AI Industry Dynamics
+description: Market trends and industry analysis in AI
+original_path: _ai/industry-dynamics.md
 ---
 
 ## 投资与商业

@@ -1,3 +1,9 @@
+---
+title: Infrastructure
+description: AI 基础设施与云平台，包括 Modal、Lambda Labs、SkyPilot 等 Serverless GPU 和多云编排方案。
+original_path: _ai/infrastructure.md
+---
+
 # 基础设施 (Infrastructure)
 
 ## Modal：Python 原生的 Serverless GPU 平台

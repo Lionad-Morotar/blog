@@ -1,3 +1,9 @@
+---
+title: Fine-tuning
+description: Model fine-tuning techniques and best practices
+original_path: _ai/fine-tuning.md
+---
+
 # 微调 (Fine-tuning)
 
 ## Axolotl：YAML 配置驱动的微调框架

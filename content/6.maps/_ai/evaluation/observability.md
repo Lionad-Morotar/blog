@@ -1,3 +1,9 @@
+---
+title: Observability
+description: LLM 可观测性平台与工具，包括 LangSmith、Phoenix、Langfuse 等追踪、评估和监控方案。
+original_path: _ai/observability.md
+---
+
 # 可观测性 (Observability)
 
 ## LangSmith：LangChain 生态追踪平台
