@@ -40,6 +40,26 @@ export default defineNuxtConfig({
     url: 'https://lionad.art',
   },
 
+  /**
+   * Sitemap Configuration
+   * @see https://nuxtseo.com/sitemap/getting-started/how-it-works
+   */
+  sitemap: {
+    // Include all content paths from the maps directory
+    sources: [
+      '/api/__sitemap__/urls',
+    ],
+    // Exclude hidden/utility paths
+    exclude: [
+      '/_dir',
+      '/_/**',
+      '/en/_dir',
+      '/**/_dir',
+      '/**/_.*',
+      '/api/**',
+    ],
+  },
+
   nitro: {
     prerender: {
       crawlLinks: true,
