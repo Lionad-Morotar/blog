@@ -347,9 +347,16 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 **Requirements Mapped:**
 - COMP-04: 重构 _workflow 领域（14 文件）
 
+**Plans:**
+
+- [ ] 14-P01-PLAN.md — Create engineering/ and package-manager/ subdomains
+- [ ] 14-P02-PLAN.md — Create build-tools/ and linter/ subdomains (rename packer/)
+- [ ] 14-P03-PLAN.md — Create monorepo/, compiler/ subdomains and workflow.md entry
+- [ ] 14-P04-PLAN.md — Update cross-domain links in 0.index.md and related domains
+
 **Success Criteria:**
 
-1. **_workflow domain restructured**
+1. **_workflow domain restructured** — 6 subdomains with proper entry files
 2. **Engineering patterns established** — May share patterns with _devops
 3. **Cross-references updated** — Links between workflow, devops, and software domains
 
@@ -448,20 +455,20 @@ This roadmap delivers a complete reorganization of the 6.maps/ knowledge base fr
 | 10 - Medium Batch 5 | **Planned** | 0/3 | Ready for execution |
 | 11 - Complex: Database | Pending | 0/1 | Blocked on Phase 10 |
 | 12 - Complex: DevOps | Pending | 0/1 | Blocked on Phase 11 |
-| 13 - Complex: FE Framework | Pending | 0/1 | Blocked on Phase 12 |
-| 14 - Complex: Workflow | Pending | 0/1 | Blocked on Phase 13 |
+| 13 - Complex: FE Framework | **Complete** ✅ | 4/4 | 6 subdomains restructured |
+| 14 - Complex: Workflow | Ready | 0/1 | Ready for execution |
 | 15 - Complex: Person | Pending | 0/1 | Blocked on Phase 14 |
 | 16 - Complex: Frontend | Pending | 0/1 | Blocked on Phase 15 |
 | 17 - Complex: AI | Pending | 0/1 | Blocked on Phase 16 |
 | 18 - Validation & Integration | Pending | 0/5 | Blocked on Phase 17 |
 
-**Overall Progress:** 35/56 requirements complete (62%)
+**Overall Progress:** 46/56 requirements complete (82%)
 
 ---
 
 ## Next Action
 
-Execute `/gsd:execute-phase 10` to plan Medium Batch 5 (3 medium domains: _ui, _programming, _web).
+Execute `/gsd:plan-phase 14` to plan Complex: Workflow domain restructuring.
 
 ---
 

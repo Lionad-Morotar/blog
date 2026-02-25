@@ -8,8 +8,8 @@
 ## Current Position
 
 **Current Phase:** 13-complex-fe-framework
-**Current Plan:** 13-P03 complete ✅
-**Status:** Phase 13 In Progress — motion, type-system, and assets subdomains created
+**Current Plan:** 13-P04 complete ✅
+**Status:** Phase 13 Complete — domain entry refactored, navigation updated, all subdomains organized
 
 ### Progress Bar
 
@@ -33,7 +33,7 @@
 | 10 | Medium Batch 5 | **In Progress** | 2/17 |
 | 11 | Complex: Database | **Complete** ✅ | 3/3 |
 | 12 | Complex: DevOps | **Complete** ✅ | 2/2 |
-| 13 | Complex: FE Framework | **In Progress** | 3/4 |
+| 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
 | 14 | Complex: Workflow | Pending | 0/1 |
 | 15 | Complex: Person | Pending | 0/1 |
 | 16 | Complex: Frontend | Pending | 0/1 |
@@ -92,6 +92,7 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-25 | [Phase 12-complex-devops]: Created 3 remaining subdomains (cicd/, container/, logging/) with 6 migrated files and updated cross-domain links |
 | 2026-02-25 | [Phase 13-complex-fe-framework]: Created component-solutions/ (Web Components + Micro Frontend) and meta-frameworks/ (Nuxt + Nuxt Security) subdomains with flattened structure |
 | 2026-02-25 | [Phase 13-complex-fe-framework]: Merged schema/ and types/ into unified type-system/ subdomain; created motion/ and assets/ subdomain entries |
+| 2026-02-25 | [Phase 13-complex-fe-framework]: Refactored fe-framework.md as clean domain entry with 6-subdomain navigation and preserved knowledge points as H4 headings |
 
 ### Open Questions
 
@@ -110,15 +111,14 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 13-P03 Complete** ✅ — Created motion, type-system, and assets subdomains:
-- Created motion/index.md entry with blockies-animation and lottie navigation
-- Created type-system/ directory merging schema/ and types/ content
-- Migrated zod.md and utility-types.md with original_path metadata
-- Created assets/index.md entry with iconify navigation
-- Deleted old schema/ and types/ directories
+**Phase 13-P04 Complete** ✅ — Refactored domain entry and updated cross-domain links:
+- Refactored fe-framework.md as clean domain entry with 6-subdomain navigation
+- Preserved 3 knowledge points as H4 headings
+- Fixed nuxt-security.md URL references to new path
+- Created _dir.yml for directory-level metadata
 
 ### Next Action
-Continue Phase 13 with remaining plan P04.
+Proceed to Phase 14-complex-workflow.
 
 ### Execution History (Phase 13)
 
@@ -127,6 +127,7 @@ Continue Phase 13 with remaining plan P04.
 | 13-P01 (ui-frameworks subdomain) | 2m 18s | 6 tasks | 5 files |
 | 13-P02 (component-solutions + meta-frameworks) | 2m 48s | 8 tasks | 6 files |
 | 13-P03 (motion + type-system + assets) | 1m 58s | 6 tasks | 5 files |
+| 13-P04 (domain entry + cross-domain links) | 1m 42s | 6 tasks | 3 files |
 
 ### Execution History (Phase 12)
 
