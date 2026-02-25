@@ -23,6 +23,7 @@ Machine learning, large language models, AI agents, and AI engineering practices
 - [LLM](llm/llm.md) — Large language models, embeddings, SLM
 - [Agents](agents/agents.md) — AI agents, multi-agent systems, protocols
 - [Prompt](prompt/prompt.md) — Prompt engineering and design patterns
+- [Coding Agent Shell Bias](coding-agent-shell-bias.md) — PowerShell vs Bash performance disparity
 
 ### Specialized Topics
 - [RAG](rag/rag.md) — Retrieval-augmented generation
