@@ -100,7 +100,7 @@ export default defineNuxtConfig({
       item: {
         query: {
           where: [
-            { _path: /^\/(articles|flows)\/([^_]|(_forty-two))/ },
+            { _path: /^\/(2\.articles|1\.flows)\/([^_]|(_forty-two))/ },
           ],
         },
         mapping: [
