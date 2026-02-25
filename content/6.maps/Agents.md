@@ -3,9 +3,25 @@ title: Agents
 description: 笔记系统智能体档案，记录知识管理规范与系统结构
 ---
 
+## 四层认知结构
+
+本笔记系统采用 **Domain → Subdomain → Topic → Knowledge Point** 的四层认知结构：
+
+| 层级 | 定义 | 物理形式 | 判断标准 |
+|------|------|----------|----------|
+| **领域 (Domain)** | 最高层级的知识边界 | `_domain/` 目录 | 存在于 `0.index.md` 导航中，目录以 `_` 开头 |
+| **子领域 (Subdomain)** | 领域内的专业分支 | `subdomain/` 子目录或文件 | 构成独立学习单元，有明确知识边界 |
+| **主题 (Topic)** | 具体的技术点或概念 | `.md` 文件 | 文件内使用 H1 (`#`) 作为标题 |
+| **知识点 (Knowledge Point)** | 原子化的思考性内容 | `####` 四级标题 | 观点、案例、洞见，保持阅读连续性 |
+
+**决策原则：**
+- 子领域统一使用目录形式，不按内容量区分
+- 主题超过 150 行或有扩展潜力时拆分为独立文件
+- 知识点不得拆分为独立文件，保持为四级标题
+
 ## 笔记系统结构
 
-本笔记系统采用三级分类结构，核心内容位于 `content/6.maps/` 目录，工具收集位于 `content/7.tools/`：
+核心内容位于 `content/6.maps/` 目录，工具收集位于 `content/7.tools/`：
 
 ```
 content/
@@ -110,8 +126,16 @@ description: [身份/职业]
 
 本文件供 distill-and-archive 技能引用，用于指导知识点归档的目录选择和格式规范。
 
-- **知识地图路径**：`content/6.maps/_<category>/<topic>.md`
+- **知识地图路径**：`content/6.maps/_<domain>/<subdomain>/<topic>.md`
 - **工具收集路径**：`content/7.tools/<name>.md`
 - **索引文件**：`index.md` 或 `0.index.md`
-- **新增分类**：新建 `_<category>` 目录并在 Agents.md 中更新
+- **新增分类**：新建 `_<domain>` 目录并在 Agents.md 中更新
 - **新增工具**：直接归档到 `content/7.tools/`，并在 `7.tools/0.index.md` 中添加索引
+
+## 规划文档
+
+详细的分类标准和重构规范：
+
+- `.planning/taxonomy-criteria.md` - 四层认知结构判断标准
+- `.planning/PROJECT.md` - Maps 知识库重构项目概述
+- `.planning/codebase/STRUCTURE.md` - 项目结构文档
