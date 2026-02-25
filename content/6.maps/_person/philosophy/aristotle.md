@@ -1,6 +1,7 @@
 ---
 title: 亚里士多德（BC384~BC322）
 description: 古希腊哲学家，亚历山大大帝的老师，西方哲学的集大成者。
+original_path: content/6.maps/_person/aristotle.md
 ---
 
 #### 亚里士多德的生平?
