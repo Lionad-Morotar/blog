@@ -1,6 +1,7 @@
 ---
 title: 浏览器文本高亮标注
 description: 使用 Selection API 和 Range API 实现类似笔记软件的文本马克笔标注功能
+original_path: /maps/_frontend/text-highlight
 ---
 
 #### 浏览器如何实现文本高亮标注？
