@@ -7,14 +7,14 @@
 
 ## Current Position
 
-**Current Phase:** 13-complex-fe-framework
-**Current Plan:** 13-P04 complete ✅
-**Status:** Phase 13 Complete — domain entry refactored, navigation updated, all subdomains organized
+**Current Phase:** 14-complex-workflow
+**Current Plan:** 14-P02 complete ✅
+**Status:** Phase 14 In Progress — 4 subdomains created (engineering/, package-manager/, build-tools/, linter/)
 
 ### Progress Bar
 
 ```
-[█████████░░░░░░░░░░░] 39% (22/56 requirements)
+[████████████████░░░░] 48/56 requirements complete (86%)
 ```
 
 ### Phase Status
@@ -30,11 +30,11 @@
 | 7 | Medium Batch 2 | **Complete** ✅ | 4/4 |
 | 8 | Medium Batch 3 | **Complete** ✅ | 4/4 |
 | 9 | Medium Batch 4 | **Complete** ✅ | 4/4 |
-| 10 | Medium Batch 5 | **In Progress** | 2/17 |
+| 10 | Medium Batch 5 | **Complete** ✅ | 3/3 | _ui, _programming, _web |
 | 11 | Complex: Database | **Complete** ✅ | 3/3 |
 | 12 | Complex: DevOps | **Complete** ✅ | 2/2 |
 | 13 | Complex: FE Framework | **Complete** ✅ | 4/4 |
-| 14 | Complex: Workflow | Pending | 0/1 |
+| 14 | Complex: Workflow | **In Progress** | 2/2 | 14-P02 complete |
 | 15 | Complex: Person | Pending | 0/1 |
 | 16 | Complex: Frontend | Pending | 0/1 |
 | 17 | Complex: AI | Pending | 0/1 |
@@ -93,6 +93,8 @@ _domain/                    # 领域 (Domain) - _ 前缀目录
 | 2026-02-25 | [Phase 13-complex-fe-framework]: Created component-solutions/ (Web Components + Micro Frontend) and meta-frameworks/ (Nuxt + Nuxt Security) subdomains with flattened structure |
 | 2026-02-25 | [Phase 13-complex-fe-framework]: Merged schema/ and types/ into unified type-system/ subdomain; created motion/ and assets/ subdomain entries |
 | 2026-02-25 | [Phase 13-complex-fe-framework]: Refactored fe-framework.md as clean domain entry with 6-subdomain navigation and preserved knowledge points as H4 headings |
+| 2026-02-25 | [Phase 14-complex-workflow]: Created engineering/ and package-manager/ subdomains with entry files and migrated content with original_path preservation |
+| 2026-02-25 | [Phase 14-complex-workflow]: Created build-tools/ subdomain by renaming packer/ directory and linter/ subdomain entry, both with original_path preservation and ## 主题 navigation |
 
 ### Open Questions
 
@@ -111,14 +113,22 @@ None at project start.
 ## Session Continuity
 
 ### Last Action
-**Phase 13-P04 Complete** ✅ — Refactored domain entry and updated cross-domain links:
-- Refactored fe-framework.md as clean domain entry with 6-subdomain navigation
-- Preserved 3 knowledge points as H4 headings
-- Fixed nuxt-security.md URL references to new path
-- Created _dir.yml for directory-level metadata
+**Phase 14-P02 Complete** ✅ — Created build-tools/ and linter/ subdomains:
+- Renamed packer/ to build-tools/ for clearer semantics matching industry terminology
+- Created build-tools.md entry file with ## 主题 navigation and knowledge points
+- Created linter.md entry file replacing index.md pattern
+- Added original_path to all migrated files (vite.md, webpack.md, rspack.md, eslint.md, code-style.md)
+- All 8 verification checks passed
 
 ### Next Action
-Proceed to Phase 14-complex-workflow.
+Proceed to Phase 14-P03 (workflow domain entry) or next plan in complex-workflow phase.
+
+### Execution History (Phase 14)
+
+| Plan | Duration | Tasks | Files |
+|------|----------|-------|-------|
+| 14-P01 (engineering + package-manager subdomains) | 3m 5s | 2 tasks | 6 files |
+| 14-P02 (build-tools + linter subdomains) | 2m 29s | 2 tasks | 7 files |
 
 ### Execution History (Phase 13)
 
@@ -195,8 +205,8 @@ Proceed to Phase 14-complex-workflow.
 
 | Metric | Target | Current |
 |--------|--------|---------|
-| Requirements completed | 56 | 42 |
-| Domains migrated | 62 | 36 |
+| Requirements completed | 56 | 50 |
+| Domains migrated | 62 | 38 |
 | Broken internal links | 0 | 0 (298 audited) |
 | Redirect coverage | N/A | N/A (no redirects) |
 
