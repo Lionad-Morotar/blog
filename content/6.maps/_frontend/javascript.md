@@ -1,5 +1,7 @@
 ---
 title: JavaScript
+description: JavaScript 子领域入口，包含 Promise、Symbol、任务切片等核心主题
+original_path: /maps/_frontend/javascript
 ---
 
 ## Basics
