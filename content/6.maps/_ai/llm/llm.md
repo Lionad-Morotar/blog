@@ -40,6 +40,7 @@ original_path: _ai/llm.md
 * [Azure OpenAI Service - Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai/)
 * [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/)
 * [OpenAI Tokenizer（估算 token / 成本）](https://platform.openai.com/tokenizer)
+* [火山引擎 Ark 控制台](https://console.volcengine.com/ark/region:ark+cn-beijing/openManagement)：国内 LLM API 用量与订阅管理
 
 #### Benchmark
 
