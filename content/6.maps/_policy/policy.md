@@ -10,6 +10,7 @@ description: 政策研究、五年规划及政策分析
 ## 主题
 
 * [十四五规划](/maps/_policy/five-years-plan-14)
+* [工业园区高质量发展指引](/maps/_policy/industrial-parks-guide)
 
 ## Cross Domain
 

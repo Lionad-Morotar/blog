@@ -8,6 +8,7 @@ description: 数字化转型、低代码平台及行业分析
 * [数字化](/maps/_industry/digital)
 * [低代码](/maps/_industry/low-code)
 * [行业报告](/maps/_industry/analytics)
+* [工业园区](/maps/_policy/industrial-parks-guide) - 产业政策与园区发展
 
 ## 概述
 
