@@ -13,15 +13,25 @@
 
 **选择模块**：`verify-sources` + `find-contradictions`（如有多份）
 
+**搜索增强版本**（用户说"验证一下"）：`verify-sources`（含外部验证搜索）
+
 **工作重心分配**：
 | 模块 | 时间占比 | 输出深度 | 说明 |
 |-----|---------|---------|------|
 | verify-sources | 60% | 简要 | 快速评估来源可靠性 |
 | find-contradictions | 40% | 简要 | 只标核心矛盾 |
 
+**搜索增强分配**：
+| 模块 | 时间占比 | 说明 |
+|-----|---------|------|
+| 内部验证 | 40% | 资料本身分析 |
+| 外部搜索验证 | 40% | 3-5个关键论断交叉验证 |
+| 整合输出 | 20% | 综合内部和外部验证结果 |
+
 **执行要点**：
 - 不追求全面，快速给出"可/不可信"判断
 - 矛盾分析聚焦关键数据冲突
+- 外部验证使用并行搜索代理（3-5个同时）
 - 最终给出明确采信建议
 
 **检查点**：无，直接输出
@@ -64,6 +74,8 @@
 
 **选择模块**：`find-contradictions` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-questions`
 
+**搜索增强版本**（用户说"搜索最新进展"）：`search-context` → `find-contradictions` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-questions`
+
 **工作重心分配**：
 | 模块 | 时间占比 | 输出深度 | 说明 |
 |-----|---------|---------|------|
@@ -73,12 +85,23 @@
 | construct-framework | 30% | 深度 | 构建技术分类框架 |
 | expert-questions | 10% | 简要 | 指出研究空白 |
 
+**搜索增强分配**：
+| 模块 | 时间占比 | 说明 |
+|-----|---------|------|
+| search-context | 20% | 搜索领域最新进展和主流观点 |
+| find-contradictions | 10% | 结合搜索结果对比 |
+| expert-insights | 25% | 搜索对比领域主流认知 |
+| construct-framework | 25% | 整合资料与搜索发现 |
+
 **执行要点**：
 - 理解组是核心，投入60%精力
 - 专家洞见体现学术价值（挑战了什么范式）
 - 框架便于同行理解
+- **搜索增强**：搜索最新进展补充资料时效性
 
-**并行执行**：`build-timeline` + `expert-insights` 可同时执行
+**并行执行**：
+- `build-timeline` + `expert-insights` 可同时执行
+- `search-context` 的5个搜索代理同时执行
 
 ---
 
