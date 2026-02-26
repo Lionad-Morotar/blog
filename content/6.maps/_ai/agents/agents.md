@@ -20,3 +20,7 @@ original_path: _ai/agents.md
 ## Goose
 
 * [Goose Prompts](/maps/_ai/agents/goose/prompts)
+
+## 多智能体框架
+
+* [AutoGen vs DeepAgents vs CrewAI 对比](/maps/_ai/agents/multi-agent-frameworks)
