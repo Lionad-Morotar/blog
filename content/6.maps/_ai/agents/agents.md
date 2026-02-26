@@ -8,6 +8,10 @@ original_path: _ai/agents.md
 
 * [有毒数据流分析](/maps/_ai/agents/toxic-flow-analysis)
 
+## Deep Research
+
+* [大模型MaaS低价Coding Plan商业逻辑](https://dr.unifuncs.com/?sid=252a69b5-d259-42fc-a6ce-d315f89dde52)：低价策略背后的生态战略与商业模式转型（Deep Research 案例）
+
 ## Protocol
 
 * [A2A - Agent-to-Agent 多智能体协同协议](/maps/_ai/agents/a2a)
