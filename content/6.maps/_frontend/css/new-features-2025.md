@@ -18,7 +18,6 @@ original_path: /maps/_frontend/css/new-features-2025
 
 见：[Chrome for Developers - View Transitions](https://developer.chrome.com/docs/web-platform/view-transitions)
 
----
 
 #### Media Query Range Syntax 范围语法
 
@@ -33,7 +32,6 @@ original_path: /maps/_frontend/css/new-features-2025
 
 见：[MDN - CSS media feature range syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Range_syntax)
 
----
 
 #### Container Queries 容器查询
 
@@ -53,7 +51,6 @@ original_path: /maps/_frontend/css/new-features-2025
 
 见：[MDN - Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries)
 
----
 
 #### Quantity Queries 数量查询
 
@@ -67,7 +64,6 @@ original_path: /maps/_frontend/css/new-features-2025
 
 见：[Quantity Queries](https://alistapart.com/article/quantity-queries-for-css/)
 
----
 
 #### Cascade Layers 级联层
 
@@ -85,7 +81,6 @@ original_path: /maps/_frontend/css/new-features-2025
 
 见：[MDN - @layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
 
----
 
 #### @property 类型安全变量
 
@@ -107,7 +102,6 @@ original_path: /maps/_frontend/css/new-features-2025
 
 见：[MDN - @property](https://developer.mozilla.org/en-US/docs/Web/CSS/@property)
 
----
 
 #### Field Sizing 字段自适应
 
@@ -124,7 +118,6 @@ input, select {
 
 见：[Chrome for Developers - field-sizing](https://developer.chrome.com/docs/css-ui/css-field-sizing)
 
----
 
 #### User Valid/Invalid 用户验证伪类
 
@@ -140,7 +133,6 @@ input:user-invalid {
 
 见：[MDN - :user-valid](https://developer.mozilla.org/en-US/docs/Web/CSS/:user-valid)
 
----
 
 #### Exclusive Accordion 互斥手风琴
 
@@ -161,7 +153,6 @@ input:user-invalid {
 
 见：[MDN - details](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details)
 
----
 
 #### Search Element 搜索元素
 
@@ -178,7 +169,6 @@ input:user-invalid {
 
 见：[MDN - search](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)
 
----
 
 #### Color Scheme 颜色方案
 
@@ -194,7 +184,6 @@ input:user-invalid {
 
 见：[MDN - color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)
 
----
 
 #### Light-dark() 函数
 
@@ -213,7 +202,6 @@ input:user-invalid {
 
 见：[MDN - light-dark()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark)
 
----
 
 #### HDR 颜色空间
 
@@ -229,7 +217,6 @@ input:user-invalid {
 
 见：[Chrome for Developers - CSS color spaces](https://developer.chrome.com/docs/css-ui/high-definition-css-color-guide)
 
----
 
 #### Relative Color 相对颜色
 
@@ -249,7 +236,6 @@ input:user-invalid {
 
 见：[MDN - Relative color](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors)
 
----
 
 #### Color Mix 颜色混合
 
@@ -265,7 +251,6 @@ input:user-invalid {
 
 见：[MDN - color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix)
 
----
 
 #### Accent Color 强调色
 
@@ -281,7 +266,6 @@ input:user-invalid {
 
 见：[MDN - accent-color](https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color)
 
----
 
 #### Scroll-driven Animations 滚动驱动动画
 
@@ -303,7 +287,6 @@ input:user-invalid {
 
 见：[Chrome for Developers - Scroll-driven animations](https://developer.chrome.com/docs/css-ui/scroll-driven-animations)
 
----
 
 #### View Timeline 视图时间线
 
@@ -321,7 +304,6 @@ input:user-invalid {
 
 见：[MDN - animation-timeline: view()](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline/view)
 
----
 
 #### Linear Easing 线性缓动进阶
 
@@ -337,7 +319,6 @@ input:user-invalid {
 
 见：[Chrome for Developers - linear() easing](https://developer.chrome.com/docs/css-ui/css-linear-easing-function)
 
----
 
 #### Text Wrap 文本换行优化
 
@@ -357,7 +338,6 @@ p {
 
 见：[MDN - text-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)
 
----
 
 #### Anchor Positioning 锚点定位
 
@@ -379,7 +359,6 @@ Tooltip 可跟随滑块 thumb 移动，无需 JavaScript 计算位置。
 
 见：[Chrome for Developers - Anchor positioning](https://developer.chrome.com/docs/css-ui/anchor-positioning-api)
 
----
 
 #### Textbox Trim 文本框修剪
 
@@ -396,7 +375,6 @@ Tooltip 可跟随滑块 thumb 移动，无需 JavaScript 计算位置。
 
 见：[Chrome for Developers - text-box-trim](https://developer.chrome.com/docs/css-ui/css-text-box-trim)
 
----
 
 #### Math Functions 数学函数
 
@@ -414,7 +392,6 @@ Tooltip 可跟随滑块 thumb 移动，无需 JavaScript 计算位置。
 
 见：[MDN - CSS math functions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_math_functions)
 
----
 
 #### Popover API 弹出层
 
@@ -429,7 +406,6 @@ Tooltip 可跟随滑块 thumb 移动，无需 JavaScript 计算位置。
 
 见：[MDN - Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API)
 
----
 
 #### Starting Style 初始样式
 
@@ -449,7 +425,6 @@ Tooltip 可跟随滑块 thumb 移动，无需 JavaScript 计算位置。
 
 见：[MDN - @starting-style](https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style)
 
----
 
 #### Dialog 对话框
 

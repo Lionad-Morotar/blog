@@ -64,13 +64,11 @@ _getStorage();
 
 说前端是魔法，也就是说，你正在写的这些稀奇古怪的好用的东西居然是通过插件完成的，一但其中某个插件设计思路发生了变动，你就只能死熬过痛苦的应变期。
 
----
 
 ##### [小程序多端框架全面测评](https://developers.weixin.qq.com/community/develop/article/doc/000eaadb944de06374485c3ed51813)
 
 <Frame src="/gists/multy-end-app.html" />
 
----
 
 <q>最开始小程序就是为了微型创新型业务打造的一个框架，最多只能运行 1m 的包。可是后来发现很多厂商把越来越多的业务搬到了小程序上，小程序的能力也在不断地开放，变得越来越强大。于是后来打包限制上升到了 2m，然后引入了分包，现在已经已经可以上传 8m 的小程序。其实这个体积已经可以实现非常巨型非常复杂的业务了。就从 Taro 的用户来看，例如京东购物小程序和 58 同城小程序不管从代码的数量还是复杂度都不亚于 PC 端业务，所以我们可以说前端开发的复杂度正在向小程序端转移。</q>
 
@@ -130,7 +128,6 @@ function useState<S> (initialState: S | (() => S)): [S, Dispatch<SetStateAction<
 
 前端是魔法的第二证据。
 
----
 
 ##### [小程序跨框架开发的探索与实践](https://taro-docs.jd.com/taro/blog/2020-01-02-gmtc)
 
@@ -178,7 +175,6 @@ Taro 架构划分为：编译时、运行时两个步骤。早期 Taro（v1.3）
 
 ![Data Flow in mini-program & Taro Next](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616185201.png)
 
----
 
 <q>Taro 2.0 的 CLI 将会变得非常轻量，只会做区分编译平台、处理不同平台编译入参等操作，随后再调用对应平台的 runner 编译器 做代码编译操作，而原来大量的 AST 语法操作将会改造成 webpack Plugin 以及 Loader，交给 webpack 来处理。</q>
 
@@ -192,7 +188,6 @@ Taro 架构划分为：编译时、运行时两个步骤。早期 Taro（v1.3）
 
 这是说先渲染一次模板，再 setData，要比直接渲染带 Data 的模板要快？
 
----
 
 ##### [Taro Next H5 跨框架组件库实践](https://taro-docs.jd.com/taro/blog/2020-04-13-taro-components)
 
@@ -200,7 +195,6 @@ TODO
 
 <q>当我们希望创建一些不拘泥于框架的组件时，Web Components 会是一个不错的选择。文章简单介绍了 Taro Next、Web Components、Stencil 以及基于 Stencil 的组件库改造历程。</q>
 
----
 
 Taro 对小程序的性能优化体现在：
 
@@ -210,7 +204,6 @@ Taro 对小程序的性能优化体现在：
 
 <q>Taro 性能真的优于原生吗？其实并不然，针对每个场景，我们都可以用原生写出性能最佳的代码。但是这样做工作量太大，实际项目开发中需要掌握效率与优化之间的平衡。</q>
 
----
 
 #### [Taro 版本升级权威指南](https://taro-docs.jd.com/taro/blog/2020-09-01-taro-versions)
 
