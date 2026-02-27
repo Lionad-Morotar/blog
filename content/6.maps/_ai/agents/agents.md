@@ -28,6 +28,7 @@ original_path: _ai/agents.md
 ## Agent SDK
 
 * [Claude Agent SDK (TypeScript) 发布记录](/maps/_ai/agents/claude-agent-sdk-releases)
+* [OpenAI Agents SDK (JavaScript) 发布记录](/maps/_ai/agents/openai-agents-js-releases)
 
 ## Agent 架构第一性原理
 
