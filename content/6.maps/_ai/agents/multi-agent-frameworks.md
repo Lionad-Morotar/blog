@@ -187,6 +187,39 @@ AgentScope 是阿里巴巴开源的生产级多智能体框架，GitHub 16.5K+ S
 - 需要强化学习优化 Agent 行为的场景
 - 实时语音交互应用
 
+## LangGraph
+
+见：[LangGraph - GitHub](https://github.com/langchain-ai/langgraph)
+
+#### 低级别智能体编排框架
+
+LangGraph 是 LangChain 团队开发的低级别编排框架，用于构建、管理和部署长期运行、有状态的智能体（Agents）。它以图（Graph）的形式组织 Agent 工作流，支持循环、条件分支和持久化状态管理。被 Klarna、Replit、Elastic 等公司采用。
+
+#### 核心优势
+
+- **持久化执行（Durable Execution）**：Agent 能在故障后自动恢复，从断点继续执行
+- **人机协作（Human-in-the-loop）**：可在执行过程中随时检查和修改 Agent 状态
+- **全面记忆（Comprehensive Memory）**：支持短期工作记忆和长期跨会话持久化记忆
+- **调试与可观测性**：通过 LangSmith 可视化执行路径、状态转换和运行时指标
+- **生产级部署**：支持长周期、有状态工作流的规模化部署
+
+#### 与 LangChain 生态系统的关系
+
+- **LangSmith**：Agent 评估和可观测性工具
+- **LangSmith Deployment**：专门的 Agent 部署平台，支持 LangGraph Studio 可视化原型设计
+- **LangChain**：提供集成和可组合组件
+
+#### 设计哲学
+
+LangGraph 不抽象提示词或架构，而是提供底层基础设施支持**任何**长周期、有状态的工作流或 Agent。它受 Pregel 和 Apache Beam 启发，API 设计参考 NetworkX。
+
+#### 适用场景
+
+- 需要持久化状态和错误恢复的长周期任务
+- 复杂的多步骤工作流，需要循环和条件分支
+- 需要人机协作介入的 Agent 系统
+- 企业级生产环境中的 Agent 部署
+
 ## 单智能体 vs 多智能体架构选择
 
 #### 决策原点：单智能体优先
