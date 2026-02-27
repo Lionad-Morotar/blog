@@ -100,3 +100,54 @@ Peter 对 MCP（Model Context Protocol）持怀疑态度：
 - **玩这个游戏**：把学习 AI 辅助开发当作乐器或游戏，越练越上瘾
 
 见：[The Pragmatic Engineer Podcast - Peter Steinberger Interview](https://podcasts.apple.com/us/podcast/the-pragmatic-engineer/id1457313865)
+
+#### Agent-First 工程方法论
+
+OpenAI 团队在 5 个月内用**0 行手写代码**构建了一个内部产品，所有代码（应用逻辑、测试、CI 配置、文档、可观测性工具）均由 Codex 生成。核心原则是"**人类掌舵，Agents 执行**"。
+
+团队从 3 名工程师扩展到 7 名，累计提交约 1500 个 PR，平均每人每天 3.5 个 PR，且吞吐量随团队规模增长而提升。产品已有数百名内部用户，包括日常重度使用者。
+
+关键转变是工程师角色从"写代码"转向"**设计环境、明确意图、构建反馈循环**"，让 Codex agents 能可靠地完成工作。
+
+见：[Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
+
+#### 知识的渐进式披露原则
+
+OpenAI 团队发现将大量指令塞入 `AGENTS.md` 会产生反效果：
+- **上下文是稀缺资源** - 巨大的指令文件会挤占任务、代码和文档的空间
+- **过度指导等于无指导** - 当一切都"重要"，agents 会局部模式匹配而非全局导航
+- **文档快速腐烂** - 单体手册变成陈旧规则的坟场，难以验证和维护
+
+解决方案是将 `AGENTS.md` 视为**目录而非百科全书**（约 100 行），真正的知识库存储在结构化的 `docs/` 目录中，作为系统的真实数据源。
+
+这实现了**渐进式披露**：agents 从小型稳定的入口点开始，学习下一步去哪里查找，而非一开始就被淹没。
+
+见：[Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
+
+#### 架构约束优于实现细节
+
+在 agent-first 环境中，架构规则通过**机械执行的不变量**来保证一致性，而非微管理实现。
+
+OpenAI 采用刚性架构模型：
+- 每个业务域分为固定层次（Types → Config → Repo → Service → Runtime → UI）
+- 依赖方向严格验证，跨域关注点（认证、连接器、遥测）通过单一接口进入
+- 使用自定义 linter 和结构化测试强制执行
+
+这类架构通常在数百名工程师规模时才引入，但在 coding agents 环境中是**早期前提条件** - 约束是速度无衰减或架构腐化的保障。
+
+错误信息也设计为将**补救指令注入 agent 上下文**，人类品味通过审查评论、重构 PR 和 bug 报告持续反馈到系统中。
+
+见：[Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
+
+#### 自动化品味编码
+
+完全自主的 agents 会复制仓库中的现有模式，即使是次优模式，导致熵增。
+
+OpenAI 初期每周五花 20% 时间清理"AI 垃圾"，但这不可扩展。解决方案是：
+1. 将"**黄金原则**"（如优先共享工具包而非手写 helpers、验证边界而非 YOLO 式探测）编码到仓库
+2. 建立定期清理流程 - 后台 Codex 任务扫描偏差、更新质量等级、开立重构 PR
+3. 大多数重构 PR 可在 1 分钟内审查并自动合并
+
+这类似**垃圾回收**：技术债务像高息贷款，持续小额偿还有助于避免复利累积。人类品味一次性捕获，然后在每行代码上持续执行。
+
+见：[Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
