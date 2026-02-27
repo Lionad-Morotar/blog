@@ -57,10 +57,6 @@ MCP 服务器通过 Token Introspection（RFC 7662）验证访问令牌的有效
 TypeScript 实现使用 `@modelcontextprotocol/sdk/server/auth/router.js` 提供元数据端点，通过 `requireBearerAuth` 中间件保护 MCP 端点。
 需要实现 `verifyAccessToken` 函数进行令牌验证，包括调用授权服务器的 introspection 端点、验证令牌激活状态和受众匹配。
 
-Python 实现使用 FastMCP 框架简化授权集成，通过 `AuthSettings` 配置授权服务器元数据，令牌验证委托给 `IntrospectionTokenVerifier` 类。
-
-C# 实现利用 ASP.NET Core 的 JWT Bearer 认证中间件，使用 `AddMcp` 配置 Protected Resource Metadata，通过 `AudienceValidator` 自定义受众验证逻辑。
-
 见：[MCP Authorization Tutorial](https://modelcontextprotocol.io/docs/tutorials/security/authorization)
 
 ## Domain

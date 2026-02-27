@@ -59,6 +59,27 @@ function parseFrontmatter(content) {
   return result;
 }
 
+// TOON 格式辅助函数
+function needsQuote(str) {
+  if (!str) return false;
+  // 根据 TOON 规范需要引号的情况
+  if (str === '' || str === 'true' || str === 'false' || str === 'null') return true;
+  if (/^\d+$/.test(str)) return true; // 看起来像数字
+  if (/^\s|\s$/.test(str)) return true; // 前后有空格
+  if (/[,:"\[\]{}\n\t\r]/.test(str)) return true; // 包含特殊字符
+  if (str.startsWith('-')) return true; // 以 - 开头
+  return false;
+}
+
+function escapeStr(str) {
+  return str
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, '\\n')
+    .replace(/\r/g, '\\r')
+    .replace(/\t/g, '\\t');
+}
+
 // 提取标题
 function extractTOC(content) {
   const headingRegex = /^(#{1,6})\s+(.+)$/gm;
@@ -89,16 +110,37 @@ function extractTOC(content) {
 const frontmatter = parseFrontmatter(content);
 const toc = extractTOC(content);
 
-// 输出 JSON 结果
-const result = {
-  file: path.basename(absolutePath),
-  path: absolutePath,
-  frontmatter,
-  toc,
-  stats: {
-    totalHeadings: toc.length,
-    hasFrontmatter: !!(frontmatter.title || frontmatter.description)
-  }
-};
+// 输出 TOON 格式
+const lines = [];
 
-console.log(JSON.stringify(result, null, 2));
+// 文件信息
+lines.push(`file: ${path.basename(absolutePath)}`);
+lines.push(`hasFrontmatter: ${frontmatter.title || frontmatter.description ? 'true' : 'false'}`);
+
+// Frontmatter（如果有）
+if (frontmatter.title) {
+  lines.push(`title: ${frontmatter.title}`);
+}
+if (frontmatter.description) {
+  // 描述截断到100字符，避免过长
+  const desc = frontmatter.description.length > 100
+    ? frontmatter.description.substring(0, 100) + '...'
+    : frontmatter.description;
+  lines.push(`description: ${desc}`);
+}
+
+// TOC 使用表格数组格式
+if (toc.length > 0) {
+  lines.push(`toc[${toc.length}]{level,text,anchor}:`);
+  toc.forEach(h => {
+    // 转义包含逗号或需要引号的文本
+    const text = needsQuote(h.text) ? `"${escapeStr(h.text)}"` : h.text;
+    const anchor = needsQuote(h.anchor) ? `"${escapeStr(h.anchor)}"` : h.anchor;
+    lines.push(`  ${h.level},${text},${anchor}`);
+  });
+}
+
+// 统计
+lines.push(`totalHeadings: ${toc.length}`);
+
+console.log(lines.join('\n'));
