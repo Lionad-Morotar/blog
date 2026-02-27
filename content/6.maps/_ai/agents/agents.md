@@ -148,6 +148,62 @@ Agent 容易"未经充分测试就标记功能完成"。显式提示使用浏览
 
 见：[Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)（Anthropic Engineering）
 
+#### Claude Agent SDK 的核心设计原则？
+
+Claude Agent SDK（原 Claude Code SDK）的设计哲学是**给 Claude 一台计算机**——让它能够使用程序员日常使用的工具（终端、文件系统、代码执行），从而像人类一样工作。
+
+这不仅让 Claude 擅长编码，还能处理各种非编码任务：读取 CSV、搜索网页、构建可视化、解释指标等。核心反馈循环是：**收集上下文 → 采取行动 → 验证工作 → 重复**。
+
+#### Agent 如何有效收集上下文？
+
+**Agentic Search（代理式搜索）**
+文件系统代表"可能被拉入上下文"的信息。Agent 使用 `grep`、`tail` 等 bash 脚本自主决定如何加载大文件（如日志）。文件夹结构本身成为一种上下文工程。
+
+**Semantic Search（语义搜索）**
+通常比代理式搜索更快，但准确性较低、维护更困难、透明度更低。建议先使用代理式搜索，仅在需要更快结果或更多变体时添加语义搜索。
+
+**Subagents（子代理）**
+SDK 默认支持子代理，有两个主要用途：
+- **并行化**：同时启动多个子代理处理不同任务
+- **上下文管理**：子代理使用独立的上下文窗口，只返回相关信息给编排器
+
+**Compaction（上下文压缩）**
+当 Agent 长时间运行时，自动总结之前的消息以避免上下文耗尽。这是 Claude Code `/compact` 命令的底层能力。
+
+#### Agent 采取行动的关键方式？
+
+**Tools（工具）**
+工具是 Agent 执行的主要构建块，在 Claude 的上下文窗口中非常突出。设计工具时要考虑上下文效率，将最频繁的操作定义为工具。
+
+**Bash & Scripts**
+Bash 作为通用工具，让 Agent 能够灵活地使用计算机完成各种任务。例如：下载 PDF、转换为文本、搜索内容。
+
+**Code Generation（代码生成）**
+代码精确、可组合、无限复用，是 Agent 执行复杂操作的理想输出。Claude.AI 的文件创建功能完全依赖代码生成——用 Python 脚本创建 Excel、PPT、Word 文档。
+
+**MCPs（Model Context Protocol）**
+提供与外部服务的标准化集成，自动处理认证和 API 调用。可快速连接 Slack、GitHub、Google Drive、Asana 等，无需编写自定义集成代码。
+
+#### Agent 如何验证工作质量？
+
+**Defining Rules（定义规则）**
+最佳反馈形式是提供清晰的输出规则，然后解释哪些规则失败及原因。代码 linting 是优秀的规则反馈——生成 TypeScript 比纯 JavaScript 更好，因为提供了额外的反馈层。
+
+**Visual Feedback（视觉反馈）**
+对于 UI 生成或测试等视觉任务，截图或渲染可以提供有价值的验证。检查布局、样式、内容层次、响应式表现等。使用 Playwright MCP 可以自动化此反馈循环。
+
+**LLM as a Judge**
+让另一个语言模型基于模糊规则评判输出。这不是非常稳健的方法，且有较高的延迟代价，但在追求性能提升的应用中可能有帮助。
+
+#### 测试和改进 Agent 的关键问题？
+
+- 如果 Agent 误解任务，是否缺少关键信息？能否调整搜索 API 结构？
+- 如果 Agent 反复失败，能否在工具调用中添加正式规则来识别和修复？
+- 如果 Agent 无法修复错误，能否提供更有用或更有创意的工具？
+- 如果性能随功能增加而变化，能否基于客户使用构建代表性的测试集进行程序化评估？
+
+见：[Building agents with the Claude Agent SDK](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)（Claude 官方博客）
+
 ## 参考
 
 * [Building effective agents @Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
