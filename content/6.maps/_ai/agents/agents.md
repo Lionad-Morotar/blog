@@ -23,7 +23,9 @@ original_path: _ai/agents.md
 
 ## 多智能体框架
 
-* [AutoGen vs DeepAgents vs CrewAI 对比](/maps/_ai/agents/multi-agent-frameworks)
+* [框架对比：AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph](/maps/_ai/agents/multi-agent-frameworks)
+* [架构决策与工程实践](/maps/_ai/agents/multi-agent-architecture)
+* [构建模式与实践指南](/maps/_ai/agents/multi-agent-patterns)
 
 ## Agent SDK
 
