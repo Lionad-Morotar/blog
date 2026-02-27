@@ -59,6 +59,54 @@ TypeScript 实现使用 `@modelcontextprotocol/sdk/server/auth/router.js` 提供
 
 见：[MCP Authorization Tutorial](https://modelcontextprotocol.io/docs/tutorials/security/authorization)
 
+## Tool 设计模式
+
+#### MCP Tool 设计的三维分类框架
+
+每个 MCP Tool 都可以用三个维度来定位，从而确定适用的设计模式：
+
+- **成熟度（Maturity）**：原子工具（单一操作）→ 编排工具（跨调用状态管理）
+- **集成类型（Integration）**：API、数据库、文件系统、系统操作
+- **访问模式（Access）**：同步、异步、流式、事件驱动
+
+这三个维度的组合决定了工具需要哪些设计模式。例如，数据库工具需要幂等操作模式，因为 Agent 会在超时后重试。
+
+#### Agent 优先的设计原则
+
+"能工作"不等于"Agent 能用"。Tool 设计必须面向 LLM 优化：
+
+- **描述清晰**：Tool 描述和参数名要便于 Agent 理解
+- **参数强制转换（Parameter Coercion）**：接受 `"2024-01-15"`、`"January 15"`、`"yesterday"` 等多种格式，内部统一归一化
+- **错误引导恢复**：不要只返回 429，而是告诉 Agent "速率受限，30 秒后重试或把批次大小减到 50"
+
+#### 安全边界：Prompt 表达意图，代码强制执行规则
+
+永远不要信任 Agent 来执行安全控制。授权和密钥必须通过服务端上下文传递（Context Injection 模式），绝不能经过 LLM。
+
+#### Tool 组合原则
+
+Tool 应该像 Unix 管道一样良好组合，而非像命令链一样互相依赖。这意味着：
+- 一致的响应格式，便于一个 Tool 的输出作为另一个的输入
+- 支持批处理，避免 Agent 逐个循环
+- 提供多层次的抽象，让 Agent 根据任务选择合适的粒度
+
+#### 54 个设计模式的 10 个分类
+
+| 分类 | 核心问题 |
+|------|----------|
+| Tool Types | Query、Command 还是 Discovery？ |
+| Tool Interface | Agent 如何理解和调用？ |
+| Tool Discovery | Agent 如何找到合适的 Tool？ |
+| Tool Composition | 是否应该捆绑多个操作？ |
+| Tool Execution | 同步、异步还是事务性？ |
+| Tool Response | 结果应该是什么样？ |
+| Tool Context | 身份和状态如何管理？ |
+| Tool Resilience | 如何从失败中恢复？ |
+| Tool Security | 如何控制访问？ |
+| Integration | 如何连接外部系统？ |
+
+见：[54 Patterns for Building Better MCP Tools](https://www.arcade.dev/blog/mcp-tool-patterns)：Arcade 团队基于 8000+ 工具实践总结的设计模式
+
 ## Domain
 
 * [Native API to MCP](/maps/_ai/mcp/native-api-to-mcp)
