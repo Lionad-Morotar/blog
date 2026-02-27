@@ -1,1 +1,0 @@
-[{"_path":"/maps/_ai/tools/claude-code","title":"Claude Code","description":"Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务。"},{"_path":"/maps/_ai/training/topology-aware-scheduling","title":"拓扑感知调度","description":"拓扑感知调度是一种在分布式计算环境中，根据硬件拓扑结构和网络性能来优化任务调度和资源分配的方法，以提高整体系统的效率和性能。"}]

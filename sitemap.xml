@@ -832,22 +832,7 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_communication</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/maps/_person</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_photography</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411090118055.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411090127871.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411090128878.png</image:loc>
-        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/agents</loc>
@@ -1177,76 +1162,13 @@
         <loc>https://lionad.art/flows/_forty-two/mature-child</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_ai/agents</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/maps/_ai/ai</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/architectures</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/data-processing</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/distributed</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/emerging</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/evaluation</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/fine-tuning</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/frontend-impact</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/inference</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/infrastructure</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/mechanistic-interpretability</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/mlops</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/multimodal</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/observability</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/optimization</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/paper-writing</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/post-training</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/prompt-engineering</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/rag</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/safety</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ai/tokenization</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/workflow</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_apps/vpn</loc>
+        <loc>https://lionad.art/maps/_apps/apps</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_architecture/ddd</loc>
@@ -1273,25 +1195,13 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_blogs/herb-caudill</loc>
+        <loc>https://lionad.art/maps/_blogs/blogs</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_business/business-analysis</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503140420447.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070323832.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_business/business</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_business/business-examples</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_business/venture-capital</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_cli/ffmpeg</loc>
+        <loc>https://lionad.art/maps/_cli/cli</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_cloud-native/cloud-native</loc>
@@ -1300,10 +1210,7 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_cloud-native/kubernetes</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_cloud-native/serverless</loc>
+        <loc>https://lionad.art/maps/_communication/communication</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_company/company</loc>
@@ -1312,49 +1219,7 @@
         <loc>https://lionad.art/maps/_computer/computer</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_computer/encoding</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210920022854.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_computer/network</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620033400.png?type=win11&amp;amp;w=60</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731153510.png?type=win11&amp;amp;w=60</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731162450.png?type=win11&amp;amp;w=40</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807054219.png?type=win11&amp;amp;w=80</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731165331.png?type=win11&amp;amp;w=40</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630205606.png?type=win11&amp;amp;w=60</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220621003527.png?type=draw&amp;amp;w=80</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807082140.png?w=70</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807082812.png?w=70</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807090034.png?w=70</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807081140.png?w=70</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620024738.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_computer/system-performance</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_cpp/cpp</loc>
@@ -1391,6 +1256,12 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_cpp/makefile</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_cross-domain/cross-domain</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_cross-platform/cross-platform</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_cross-platform/device-metrics</loc>
@@ -1465,22 +1336,7 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_database/graphql</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_database/postgres</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_database/redis</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_devops/cicd</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_devops/continuous-compliance</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_devops/deploy</loc>
+        <loc>https://lionad.art/maps/_database/database</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_devops/devops</loc>
@@ -1489,31 +1345,13 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_devops/docker</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511060958386.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_docs/docs</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_devops/git</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615024010.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201127180816.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615022038.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_fe-framework/assets</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_devops/gitlab</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_devops/rotatelogs</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_devops/version-control</loc>
+        <loc>https://lionad.art/maps/_fe-framework/component-solutions</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_fe-framework/fe-framework</loc>
@@ -1522,16 +1360,22 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/micro-fe</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20221023230253.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_fe-framework/meta-frameworks</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/web-components</loc>
+        <loc>https://lionad.art/maps/_fe-framework/motion</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_fe-framework/type-system</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_fe-framework/ui-frameworks</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_frontend/css</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_frontend/frontend</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_frontend/html</loc>
@@ -1549,7 +1393,7 @@
         <loc>https://lionad.art/maps/_game/game</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_games/escape-from-tarkov</loc>
+        <loc>https://lionad.art/maps/_games/games</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_go/go</loc>
@@ -1588,6 +1432,9 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_hire/hire</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_hire/intern</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220812013637.png</image:loc>
@@ -1618,10 +1465,16 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_industry/industry</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_industry/low-code</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202502201358374.jpg</image:loc>
         </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_interview/interview</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_interview/interview-wrong-notes</loc>
@@ -1633,16 +1486,13 @@
         <loc>https://lionad.art/maps/_linux/linux</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_manage/project-management</loc>
+        <loc>https://lionad.art/maps/_manage/manage</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_management/capacity-driven-development</loc>
+        <loc>https://lionad.art/maps/_management/leadership</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_management/organization</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_management/shape-up</loc>
+        <loc>https://lionad.art/maps/_management/management</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_markdown/markdown</loc>
@@ -1652,84 +1502,12 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_oop/oop</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/b3612320-5822-48fc-8041-ead5c269f8e5.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cff33e77-e9aa-48eb-ae0d-01dd1561abd0.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/348faf14-874b-410d-b4b9-ff00b04ab14e.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg</image:loc>
-        </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_person/andrej-karpathy</loc>
+        <loc>https://lionad.art/maps/_person/person</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_person/antonio-egas-moniz</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_8PgywHk5gc.png?w=30</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/aristotle</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/armstrong</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/beltracchi</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/claudius-ptolemaeus</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/eratosthenes</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220117233422.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/evan-schwartz</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/gary-marcus</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/henry-molaison</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200233.png?w=50</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200304.png?w=50</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200343.png?w=50</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/hippocrates</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/jiang-zi-ya</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/jim-jones</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/john-michell</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/mikolaj-kopernik</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/richard-stallman</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_person/shunyu-yao</loc>
+        <loc>https://lionad.art/maps/_photography/photography</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_php/php</loc>
@@ -1747,223 +1525,46 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_policy/industrial-parks-guide</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_policy/policy</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_product/gamification</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_product/growth</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_product/operation</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_product/product</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_product/product-manager</loc>
+        <loc>https://lionad.art/maps/_product/product-hunt</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_products/bit</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506020937784.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_products/products</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_products/budibase</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031913704.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031950748.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031954506.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032006061.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032011651.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032144479.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032149799.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032152157.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032154794.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032156394.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032244873.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032251644.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032308303.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032310378.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032318431.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032320756.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032316070.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032326207.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032329318.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032336236.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032340672.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032343927.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_products/dynamo</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311908636.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270238695.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270249685.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270257741.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270309333.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311703670.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270327205.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270345013.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270349782.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270420841.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270423147.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270450836.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311638043.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311643375.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200342002.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_products/zapier</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_programming/debug</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_programming/dx</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210917170405.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_programming/functional</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200905004514.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_programming/programming-language</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_programming/rezi</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_programming/tech-bias</loc>
+        <loc>https://lionad.art/maps/_programming/programming</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_react-native/react-native</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_refactor/refactor</loc>
+        <loc>https://lionad.art/maps/_refactor/refactoring</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_regex/regex</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503232355279.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503232356127.png</image:loc>
-        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_render/c4d</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_render/render</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_render/shader</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_science/complex-science</loc>
+        <loc>https://lionad.art/maps/_render/webgl</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_science/cosmos</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_science/entropy</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211101174858.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_science/environment</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230813222748.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_science/neuroscience</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211208004256.png?w=30</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_science/quantum</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_science/systems-theory</loc>
+        <loc>https://lionad.art/maps/_science/science</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_seo/seo</loc>
@@ -1972,73 +1573,10 @@
         <loc>https://lionad.art/maps/_server/nodejs</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_software/algorithm</loc>
+        <loc>https://lionad.art/maps/_server/server</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_software/data-structure</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_software/design-patterns</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/1bcb390f-a1bf-4cb0-8511-de8cecea11ce.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a67af4bd-c5ff-472b-a6b4-2c4ea05460d4.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bd255980-5c94-4d8a-8a6f-0b7149ade883.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a719383a-7761-4a72-90b9-ac83da7b47d8.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/42fd4a01-5832-4c43-84c7-fda41402f2d4.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/f3a86005-1da5-4233-81e9-c0bddccc6c3c.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/5de62e64-55e2-459b-8cf8-6d5a8914d17c.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/e0de9723-e348-41c9-9461-6ee6e5bd52ef.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/64b2e57c-5315-48f1-a7df-54ae6942b88c.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/05f145a2-7048-4fb3-8fc3-5e5ac63f4f8d.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/04b754e1-4d9c-493f-ac37-86dea28e6316.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/99d55f92-79b8-444f-875b-746f141206be.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/500057cf-a4b6-41b9-b0fb-8941ec0dfaa5.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/753bcbe8-863a-48df-949f-0d1be74bbefc.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/8bf09139-dac6-4bac-9726-43e00873a06a.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/883c48b2-91c4-46b3-a85f-1847dd44dd18.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/723839a8-a6a1-4b46-a66a-e61ead876980.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6481a46f-cf16-4391-869b-8bacefa2ff5f.svg</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_software/software-engineering</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_software/whale-fall</loc>
+        <loc>https://lionad.art/maps/_software/software</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_source-code/readme</loc>
@@ -2053,9 +1591,6 @@
         <loc>https://lionad.art/maps/_system/os</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_test/software-testing-engineer</loc>
-    </url>
-    <url>
         <loc>https://lionad.art/maps/_test/test</loc>
     </url>
     <url>
@@ -2063,6 +1598,18 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_threads/daily-bugs</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260225152729795.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260225221245729.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260224233617400.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260223135849664.png</image:loc>
+        </image:image>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260214025215035.png</image:loc>
         </image:image>
@@ -2110,10 +1657,10 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_threads/timeline</loc>
+        <loc>https://lionad.art/maps/_threads/threads</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_typescript/type-gymnastics</loc>
+        <loc>https://lionad.art/maps/_threads/timeline</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_typescript/typescript</loc>
@@ -2122,55 +1669,10 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_ui/accessibility</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718183201.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718180918.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718185203.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718190935.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718182207.png?w=70</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ui/awwwards</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ui/design-philosophy</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_ui/font</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210924175812.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210924172252.png</image:loc>
-        </image:image>
-    </url>
-    <url>
         <loc>https://lionad.art/maps/_ui/ui</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_visual/info-design</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202412240922088.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202412240931983.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231029164117.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_visual/visualization</loc>
+        <loc>https://lionad.art/maps/_visual/visual</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_web-app/github</loc>
@@ -2185,64 +1687,7 @@
         <loc>https://lionad.art/maps/_web-pages/web-pages</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_web/browser</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231227012228.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/event-capture.svg?w=60</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220704211729.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_web/crawler</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_web/miniapp</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616033744.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616030210.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_web/performance</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/progressive-rendering.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/lcp_ux.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/fid_ux.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cls_ux.svg</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://github.com/Lionad-Morotar/webpack-lighthouse-plugin/blob/main/assets/example.gif?raw=true</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630135906.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628165411.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220629020645.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628233615.png</image:loc>
-        </image:image>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628235637.png?w=30</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_web/security</loc>
+        <loc>https://lionad.art/maps/_web/web</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_windows/windows</loc>
@@ -2260,28 +1705,13 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_workflow/compiler</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_workflow/fe-engineering</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_workflow/linter</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_workflow/monorepo</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20221005225436.png</image:loc>
-        </image:image>
-    </url>
-    <url>
         <loc>https://lionad.art/maps/_workflow/package-manager</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220318001222.png</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_workflow/packer</loc>
+        <loc>https://lionad.art/maps/_workflow/workflow</loc>
     </url>
     <url>
         <loc>https://lionad.art/source-code/_architecture/awade</loc>
@@ -2407,10 +1837,46 @@
         <loc>https://lionad.art/maps/_ai/agents/a2ui</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/agents/agent-ecosystem</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/agents/agents</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/agents/agentscope</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/agents/claude-agent-sdk-releases</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/agents/coding-agent-shell-bias</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/agents/multi-agent-architecture</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/agents/multi-agent-frameworks</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/agents/multi-agent-patterns</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/agents/openai-agents-js-releases</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/agents/toxic-flow-analysis</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/applications/applications</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/applications/frontend-impact</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/applications/paper-writing</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/applications/prompt-engineering</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/benchmark/benchmark</loc>
@@ -2437,6 +1903,33 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/evaluation/evaluation</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/evaluation/evaluation-framework</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/evaluation/observability</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/evaluation/reproducibility</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/foundations/architectures</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/foundations/emerging</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/foundations/foundations</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/foundations/industry-dynamics</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/framework/framework</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/framework/saif</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20251208194125543.png</image:loc>
@@ -2455,7 +1948,13 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/image/image</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/image/stable-diffusion</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/llm/embeddings</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/llm/llm</loc>
@@ -2476,6 +1975,39 @@
         <loc>https://lionad.art/maps/_ai/mcp/native-api-to-mcp</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/models/inference</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/models/mechanistic-interpretability</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/models/models</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/models/multimodal</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/models/optimization</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/models/tokenization</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/operations/data-processing</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/operations/distributed</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/operations/infrastructure</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/operations/mlops</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/operations/operations</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/prompt/context-engineering</loc>
     </url>
     <url>
@@ -2491,6 +2023,9 @@
         <loc>https://lionad.art/maps/_ai/prompt/prompt-engineering</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/prompt/prompt-paradigm</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/prompt/team-based-instructions</loc>
     </url>
     <url>
@@ -2498,6 +2033,9 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/rag/rag</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/recommendation/recommendation</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/recommendation/recommendation-system</loc>
@@ -2542,6 +2080,15 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/tools/tools</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/training/fine-tuning</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ai/training/post-training</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/training/topology-aware-scheduling</loc>
     </url>
     <url>
@@ -2557,16 +2104,58 @@
         <loc>https://lionad.art/maps/_ai/vibe/complacency</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/vibe/playful-ai</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/vibe/team-of-agents</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ai/vibe/vibe</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_ai/workflow/agentic-engineering</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_ai/workflow/sdd</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_apps/mac/mac</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_apps/networking/vpn</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_blogs/software-engineering/herb-caudill</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/analysis/business-analysis</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503140420447.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070323832.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/analysis/business-examples</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_business/venture-capital/venture-capital</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_cli/tools/ffmpeg</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_cloud-native/hardware/arm-on-cloud-native</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_cloud-native/hardware/hardware</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_cloud-native/kubernetes/kubernetes</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_cloud-native/serverless/serverless</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_cloud-native/sidecar/service-mesh-without-sidecar</loc>
@@ -2575,7 +2164,19 @@
         <loc>https://lionad.art/maps/_cloud-native/sidecar/sidecar</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_communication/communication/communication</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_company/business/company</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_computer/encoding/emoji</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_computer/encoding/encoding</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210920022854.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_computer/encoding/hash-collision</loc>
@@ -2587,10 +2188,46 @@
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_computer/segments/http-request-example</loc>
+        <loc>https://lionad.art/maps/_computer/fundamentals/fundamentals</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_computer/segments/http-response-example</loc>
+        <loc>https://lionad.art/maps/_computer/network/network</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620033400.png?type=win11&amp;amp;w=60</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731153510.png?type=win11&amp;amp;w=60</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731162450.png?type=win11&amp;amp;w=40</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807054219.png?type=win11&amp;amp;w=80</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200731165331.png?type=win11&amp;amp;w=40</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630205606.png?type=win11&amp;amp;w=60</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220621003527.png?type=draw&amp;amp;w=80</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807082140.png?w=70</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807082812.png?w=70</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807090034.png?w=70</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200807081140.png?w=70</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220620024738.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_database/datalake/datalake</loc>
@@ -2599,10 +2236,16 @@
         <loc>https://lionad.art/maps/_database/datalake/paimon</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_database/delta-lake/delta-lake</loc>
+        <loc>https://lionad.art/maps/_database/deltalake/deltalake</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_database/delta-lake/liquid-clustering</loc>
+        <loc>https://lionad.art/maps/_database/deltalake/liquid-clustering</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_database/graphql/graphql</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_database/graphql/graphql-for-llm</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_database/lakehouse/delta-sharing</loc>
@@ -2611,28 +2254,67 @@
         <loc>https://lionad.art/maps/_database/lakehouse/lakehouse</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_database/nosql/nosql</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_database/nosql/redis</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_database/sql/postgres</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_database/sql/sql</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_database/sql/text-to-sql</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_devops/git/dorothy</loc>
+        <loc>https://lionad.art/maps/_devops/cicd/cicd</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_devops/git/gitflow</loc>
+        <loc>https://lionad.art/maps/_devops/cicd/continuous-compliance</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/cicd/deploy</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/cicd/gitlab</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/container/docker</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202511060958386.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/logging/rotatelogs</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/version-control/dorothy</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/version-control/gitflow</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220627173845.png?w=40</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_devops/git/pre-commit-hook</loc>
+        <loc>https://lionad.art/maps/_devops/version-control/pre-commit-hook</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_devops/version-control/version-control</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615024010.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201127180816.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210615022038.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_docs/doc-manage/doc-manage</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_docs/doc-manage/sdd</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_docs/tech-docs/knowledge-flow</loc>
@@ -2644,6 +2326,24 @@
         <loc>https://lionad.art/maps/_fe-framework/assets/iconify</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202504010251952.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_fe-framework/component-solutions/micro-frontend</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20221023230253.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_fe-framework/component-solutions/web-components</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_fe-framework/meta-frameworks/nuxt</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_fe-framework/meta-frameworks/nuxt-security</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202504040521520.png</image:loc>
         </image:image>
     </url>
     <url>
@@ -2698,34 +2398,40 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_fe-framework/motion/gsap</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_fe-framework/motion/lottie</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/nuxt/nuxt</loc>
+        <loc>https://lionad.art/maps/_fe-framework/type-system/utility-types</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/schema/zod</loc>
+        <loc>https://lionad.art/maps/_fe-framework/type-system/zod</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/types/utility-types</loc>
+        <loc>https://lionad.art/maps/_fe-framework/ui-frameworks/angular</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/ui/angular</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_fe-framework/ui/react</loc>
+        <loc>https://lionad.art/maps/_fe-framework/ui-frameworks/react</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220627111627.png</image:loc>
         </image:image>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/ui/vue</loc>
+        <loc>https://lionad.art/maps/_fe-framework/ui-frameworks/vue</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628022452.png</image:loc>
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_fe-framework/ui-frameworks/vue-reactive</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_frontend/css/bem</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_frontend/css/css</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_frontend/css/css-mind-map</loc>
@@ -2806,6 +2512,9 @@
         <loc>https://lionad.art/maps/_frontend/css/snapshot-2024</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_frontend/css/sprite-animation</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_frontend/css/tailwind</loc>
     </url>
     <url>
@@ -2815,10 +2524,16 @@
         <loc>https://lionad.art/maps/_frontend/html/href-value-possibilities</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_frontend/html/html</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_frontend/html/html-mind-map</loc>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220618194223.png</image:loc>
         </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_frontend/javascript/javascript</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_frontend/javascript/javascript-mind-map</loc>
@@ -2834,6 +2549,18 @@
     </url>
     <url>
         <loc>https://lionad.art/maps/_frontend/javascript/task-slice</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_frontend/w3c/w3c</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_game/game/game</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_games/games/escape-from-tarkov</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_go/go/go</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_ide/vscode/vscode-plugin-development</loc>
@@ -2863,13 +2590,307 @@
         <loc>https://lionad.art/maps/_machine-learning/prompt/seo</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_manage/manage/project-management</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_management/capacity-driven-development/capacity-driven-development</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_management/organization/organization</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_management/shadow-it/ai-accelerated-shadow-it</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_management/shadow-it/shadow-it</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_management/shape-up/shape-up</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_management/slice/slice</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_management/slice/standalone-data-engineering-team</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_product/docs/dovetail</loc>
+        <loc>https://lionad.art/maps/_markdown/markdown/markdown</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_medicine/medicine/medicine</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_oop/oop/oop</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/b3612320-5822-48fc-8041-ead5c269f8e5.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cff33e77-e9aa-48eb-ae0d-01dd1561abd0.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/348faf14-874b-410d-b4b9-ff00b04ab14e.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/historical/armstrong</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/historical/beltracchi</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/historical/historical</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/historical/jiang-zi-ya</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/historical/jim-jones</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/philosophy/aristotle</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/philosophy/philosophy</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/antonio-egas-moniz</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/msedge_8PgywHk5gc.png?w=30</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/claudius-ptolemaeus</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/eratosthenes</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220117233422.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/henry-molaison</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200233.png?w=50</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200304.png?w=50</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211206200343.png?w=50</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/hippocrates</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/john-michell</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/mikolaj-kopernik</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/science/science</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/andrej-karpathy</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/evan-martin</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/evan-schwartz</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/gary-marcus</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/peter-steinberger</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/richard-stallman</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/shunyu-yao</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/steve-blank</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_person/technology/technology</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_photography/techniques/techniques</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411090118055.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411090127871.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411090128878.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_php/php/php</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/gamification/gamification</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/growth/growth</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/operation/operation</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/product-hunt/product-hunt</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/product-manager/product-manager</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/user-research/dovetail</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_product/user-research/user-research</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_products/bit/bit</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202506020937784.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_products/budibase/budibase</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031913704.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031950748.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501031954506.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032006061.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032011651.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032144479.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032149799.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032152157.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032154794.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032156394.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032244873.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032251644.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032308303.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032310378.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032318431.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032320756.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032316070.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032326207.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032329318.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032336236.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032340672.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501032343927.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_products/dynamo/dynamo</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311908636.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270238695.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270249685.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270257741.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270309333.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311703670.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270327205.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270345013.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270349782.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270420841.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270423147.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501270450836.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311638043.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202501311643375.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200342002.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_products/zapier/zapier</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_programming/debugging/debugging</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_programming/dx/dx</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210917170405.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_programming/dx/genai-for-forward-engineering</loc>
@@ -2878,28 +2899,232 @@
         <loc>https://lionad.art/maps/_programming/dx/genai-for-legacy-codebases</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_programming/frameworks/frameworks</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_programming/languages/languages</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_programming/paradigms/paradigms</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200905004514.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_react-native/react-native/react-native</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_refactor/refactoring/refactor</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_regex/regex/regex</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503232355279.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503232356127.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/complex-science/complex-science</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/complex-science/systems-theory</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/cosmos/cosmos</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/entropy/entropy</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211101174858.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/environment/environment</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230813222748.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/neuroscience/neuroscience</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20211208004256.png?w=30</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_science/quantum/quantum</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_seo/seo/seo</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_server/nodejs/nodejs</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/algorithm/algorithm</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/data-structure/data-structure</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/design-patterns/design-patterns</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/1bcb390f-a1bf-4cb0-8511-de8cecea11ce.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a67af4bd-c5ff-472b-a6b4-2c4ea05460d4.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bd255980-5c94-4d8a-8a6f-0b7149ade883.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a719383a-7761-4a72-90b9-ac83da7b47d8.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/42fd4a01-5832-4c43-84c7-fda41402f2d4.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/f3a86005-1da5-4233-81e9-c0bddccc6c3c.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/5de62e64-55e2-459b-8cf8-6d5a8914d17c.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/e0de9723-e348-41c9-9461-6ee6e5bd52ef.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/64b2e57c-5315-48f1-a7df-54ae6942b88c.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/05f145a2-7048-4fb3-8fc3-5e5ac63f4f8d.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/04b754e1-4d9c-493f-ac37-86dea28e6316.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/99d55f92-79b8-444f-875b-746f141206be.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/500057cf-a4b6-41b9-b0fb-8941ec0dfaa5.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/753bcbe8-863a-48df-949f-0d1be74bbefc.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/8bf09139-dac6-4bac-9726-43e00873a06a.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/883c48b2-91c4-46b3-a85f-1847dd44dd18.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/723839a8-a6a1-4b46-a66a-e61ead876980.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6481a46f-cf16-4391-869b-8bacefa2ff5f.svg</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/software-engineering/software-engineering</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_software/whale-fall/whale-fall</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_source-code/javascript/evil</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_system/concurrency/concurrency</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_test/ai/ai-driven-testing</loc>
+        <loc>https://lionad.art/maps/_test/ai/ai</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_test/methods/tcr</loc>
+        <loc>https://lionad.art/maps/_test/methods/methods</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_test/tools/playwright</loc>
+        <loc>https://lionad.art/maps/_test/software-testing-engineer/software-testing-engineer</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_ui/gen/genai-for-ui-prototyping</loc>
+        <loc>https://lionad.art/maps/_test/tools/tools</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_typescript/type-gymnastics/type-gymnastics</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ui/accessibility/accessibility</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718183201.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718180918.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718185203.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718190935.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718182207.png?w=70</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ui/ai-assisted/ai-assisted</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ui/ai-assisted/genai-for-ui-prototyping</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ui/design/design</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ui/inspiration/inspiration</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_ui/typography/typography</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210924175812.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210924172252.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_visual/gis/gis</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_web/browser-api/crypto</loc>
+        <loc>https://lionad.art/maps/_visual/info-design/info-design</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202412240922088.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202412240931983.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231029164117.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_visual/visualization/visualization</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/browser/browser</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231227012228.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/event-capture.svg?w=60</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220704211729.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/browser/browser-engine</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/browser/crypto</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_web/browser/new</loc>
@@ -2926,16 +3151,106 @@
         </image:image>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_web/crawler/crawler</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/miniapp/miniapp</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616033744.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616030210.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/performance/performance</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/progressive-rendering.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/lcp_ux.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/fid_ux.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/cls_ux.svg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://github.com/Lionad-Morotar/webpack-lighthouse-plugin/blob/main/assets/example.gif?raw=true</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220630135906.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628165411.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220629020645.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628233615.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220628235637.png?w=30</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_web/security/security</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/build-tools/build-tools</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/build-tools/rspack</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/build-tools/vite</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/build-tools/webpack</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729022653.png?type=draw&amp;amp;w=40</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/compiler/compiler</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/engineering/engineering</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/engineering/fe-engineering</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_workflow/linter/code-style</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_workflow/linter/eslint</loc>
     </url>
     <url>
+        <loc>https://lionad.art/maps/_workflow/linter/linter</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/monorepo/monorepo</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20221005225436.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/monorepo/turborepo</loc>
+    </url>
+    <url>
         <loc>https://lionad.art/maps/_workflow/package-manager/lockfile</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_workflow/package-manager/npm</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_workflow/package-manager/package-manager</loc>
+        <image:image>
+            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220318001222.png</image:loc>
+        </image:image>
     </url>
     <url>
         <loc>https://lionad.art/maps/_workflow/package-manager/pnpm</loc>
@@ -2947,18 +3262,6 @@
         </image:image>
         <image:image>
             <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200412724.png</image:loc>
-        </image:image>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_workflow/packer/rspack</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_workflow/packer/vite</loc>
-    </url>
-    <url>
-        <loc>https://lionad.art/maps/_workflow/packer/webpack</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729022653.png?type=draw&amp;amp;w=40</image:loc>
         </image:image>
     </url>
     <url>
@@ -3007,13 +3310,10 @@
         <loc>https://lionad.art/maps/_ai/llm/datadog/datadog-llm</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_database/graphql/ai/graphql-for-llm</loc>
+        <loc>https://lionad.art/maps/_computer/network/segments/http-request-example</loc>
     </url>
     <url>
-        <loc>https://lionad.art/maps/_fe-framework/nuxt/module/nuxt-security</loc>
-        <image:image>
-            <image:loc>https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202504040521520.png</image:loc>
-        </image:image>
+        <loc>https://lionad.art/maps/_computer/network/segments/http-response-example</loc>
     </url>
     <url>
         <loc>https://lionad.art/maps/_frontend/w3c/css/color-module</loc>
@@ -3054,5 +3354,14 @@
     <url>
         <loc>https://lionad.art/maps/_server/nodejs/source/require</loc>
     </url>
+    <url>
+        <loc>https://lionad.art/maps/_test/ai/ai-driven-testing/ai-driven-testing</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_test/methods/tcr/tcr</loc>
+    </url>
+    <url>
+        <loc>https://lionad.art/maps/_test/tools/playwright/playwright</loc>
+    </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.5.2 at 2026-02-21T17:59:17.183Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.6.0 at 2026-02-27T09:45:29.108Z -->

@@ -1,1 +1,0 @@
-[{"_path":"/maps/_programming/functional","title":"函数式","description":"函数式编程是一种编程范式，它将计算机运算视为数学函数的计算，并且避免使用程序状态以及易变对象。"},{"_path":"/maps/_programming/rezi","title":"Rezi","description":"高性能 TypeScript TUI 框架，底层使用 C 引擎渲染，性能接近原生"}]

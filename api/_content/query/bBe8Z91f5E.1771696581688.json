@@ -1,1 +1,0 @@
-[{"_path":"/maps/_devops/git/pre-commit-hook","title":"Pre Commit Hook","description":"title: 预提交钩子（Pre-commit hooks）\ndescription: Git 的 pre-commit hook 用来在提交代码前执行一些检查或操作"},{"_path":"/maps/_devops/rotatelogs","title":"rotatelogs","description":"Apache 内置的日志轮转工具，通过管道机制实现按时间或大小切割日志文件。"}]
