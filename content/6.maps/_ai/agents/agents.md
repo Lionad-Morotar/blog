@@ -23,6 +23,7 @@ original_path: _ai/agents.md
 
 ## 多智能体框架
 
+* [Agent 生态系统全景](/maps/_ai/agents/agent-ecosystem)：框架、平台、协议和基础设施全面调研
 * [AgentScope - 阿里开源多智能体框架](/maps/_ai/agents/agentscope)
 * [框架对比：AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph](/maps/_ai/agents/multi-agent-frameworks)
 * [架构决策与工程实践](/maps/_ai/agents/multi-agent-architecture)
