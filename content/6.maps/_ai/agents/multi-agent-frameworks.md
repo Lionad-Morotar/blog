@@ -1,6 +1,6 @@
 ---
 title: 多智能体协作框架对比
-description: AutoGen、DeepAgents、CrewAI 三大主流多智能体框架的核心设计、适用场景与选择建议
+description: AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm 等多智能体框架的核心设计、适用场景与选择建议
 ---
 
 ## 为什么需要多智能体系统？
@@ -94,6 +94,71 @@ AutoGen 模拟人类圆桌会议，智能体之间自由对话达成共识。对
 #### 新手入门建议
 
 新手想快速体验多智能体协作，建议从 CrewAI 入手（简单、文档友好）。复杂生产环境需权衡 AutoGen 的灵活性与 DeepAgents 的工程化稳健性。
+
+## ElizaOS
+
+见：[ElizaOS - GitHub](https://github.com/elizaOS/eliza)
+
+#### Web3 原生多智能体操作系统
+
+ElizaOS 是 100% TypeScript 实现的多智能体框架，GitHub 14.7K+ Stars，定位为 "Web3 友好的 AI Agent 操作系统"。它采用模块化架构，支持 250+ 模型（OpenAI、Anthropic、Llama、Grok 等），专为社交代理、交易机器人和区块链应用设计。
+
+#### 五大核心组件
+
+- **Agents（代理）**：处理自主交互的数字助手，拥有记忆和性格
+- **Character Files（角色文件）**：定义智能体身份、个性、可用模型和操作的"人设"
+- **Providers（提供者）**：提供市场数据、钱包详情、情绪分析等实时信息的"感知系统"
+- **Actions（行动）**：从简单买卖到复杂 NFT 生成的"技能库"，每个动作都是独立事件
+- **Evaluators（评估器）**：评估对话内容、提取关键信息、建立长期记忆的"决策系统"
+
+#### 适用场景
+
+- Web3 和区块链应用（智能合约交互、代币交易）
+- 社交媒体代理（Discord、Telegram、Farcaster 等去中心化社交协议）
+- 需要多模型支持的复杂 Agent 系统
+- 社区驱动的插件生态系统
+
+## OpenAI Swarm / Agents SDK
+
+见：[OpenAI Swarm - GitHub](https://github.com/openai/swarm)、[OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)
+
+#### 极简多智能体编排框架
+
+OpenAI Swarm 是实验性、教育性框架，核心代码仅约 300 行，通过两个基本抽象实现功能：Agent（智能体）和 Handoffs（交接）。2025 年 3 月，OpenAI 发布了 Swarm 的生产级继任者——OpenAI Agents SDK。
+
+#### 核心原语
+
+- **Agent**：封装 `instructions`（指令）和 `tools`（工具），可在任何时候将对话交接给另一个 Agent
+- **Handoffs**：通过函数返回另一个 Agent 对象实现对话交接，支持动态任务分配
+- **Guardrails**：输入输出校验机制
+- **Sessions**：客户端状态管理（对话历史）
+- **Tracing**：内置调试和追踪系统
+
+#### 与 Claude Agent SDK 对比
+
+| 维度 | OpenAI Agents SDK | Claude Agent SDK |
+|------|-------------------|------------------|
+| 发布时间 | 2025 年 3 月 | 2025 年 9 月 |
+| 语言支持 | Python 优先 | TypeScript + Python |
+| 核心哲学 | 快速上手、生产可用 | 少抽象、多授权 |
+| MCP 支持 | 支持 | 原生支持（协议创建者） |
+| 上下文管理 | 客户端 Sessions | 自动上下文压缩 |
+| 长任务支持 | 有限 | 超过 30 小时自主编码 |
+| 适用场景 | 快速原型、多智能体协作 | 复杂长周期任务、代码操作 |
+
+#### 适用场景
+
+- 快速原型设计和实验
+- 教育目的，学习多智能体编排概念
+- 处理大量独立能力和复杂指令的场景
+- 需要高度可控和可测试性的场景
+
+#### 局限性
+
+- Swarm 明确声明为"实验性、教育性"框架，不建议用于生产环境
+- 仅支持 OpenAI API，生态相对封闭
+- 无状态设计，缺乏持久化状态管理能力
+- 无官方 TypeScript 版本（Python 实现为主）
 
 ## 单智能体 vs 多智能体架构选择
 
