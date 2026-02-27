@@ -25,6 +25,10 @@ original_path: _ai/agents.md
 
 * [AutoGen vs DeepAgents vs CrewAI 对比](/maps/_ai/agents/multi-agent-frameworks)
 
+## Agent SDK
+
+* [Claude Agent SDK (TypeScript) 发布记录](/maps/_ai/agents/claude-agent-sdk-releases)
+
 ## Agent 架构第一性原理
 
 #### 工作流与智能体的核心区别？
