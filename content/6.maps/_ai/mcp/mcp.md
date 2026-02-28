@@ -107,7 +107,55 @@ Tool 应该像 Unix 管道一样良好组合，而非像命令链一样互相依
 
 见：[54 Patterns for Building Better MCP Tools](https://www.arcade.dev/blog/mcp-tool-patterns)：Arcade 团队基于 8000+ 工具实践总结的设计模式
 
+## WebMCP
+
+#### WebMCP 是什么？
+
+WebMCP 是 W3C Web Machine Learning 工作组的一个提案，由 Google 和 Microsoft 联合推动。
+它允许网页通过 JavaScript API 向 AI Agent 注册客户端工具（Tools），让网页成为"在客户端实现工具的 MCP Server"。
+
+与后端 MCP Server 不同，WebMCP 的工具在浏览器中执行，使 Agent 能够通过应用控制的 UI 与网页交互，
+提供共享上下文给应用、Agent 和用户三方。
+
+见：[WebMCP Proposal](https://github.com/webmachinelearning/webmcp)
+
+#### WebMCP 的核心价值
+
+- **复用现有业务逻辑**：企业无需重构产品来适配特定 Agent 的 API，可直接复用前端代码
+- **人机协作（Human-in-the-loop）**：用户和 Agent 在同一界面协作，共享上下文
+- **统一服务入口**：人类使用的 Web 界面和 Agent 访问的工具来自同一源头，避免服务碎片化
+- **提升可访问性**：为辅助技术提供标准化的功能访问方式，超越传统无障碍树
+
+#### WebMCP 与 MCP 的关系
+
+| 维度 | MCP（后端集成） | WebMCP（客户端集成） |
+|------|----------------|---------------------|
+| 执行位置 | 服务器 | 浏览器 |
+| 交互方式 | 直接 API 调用 | 通过应用控制的 UI |
+| 用户参与 | 完全委托给 Agent | 人机协作 |
+| 适用场景 | 完全自主的 Agent | 有人在环的本地浏览器工作流 |
+
+WebMCP 不是 MCP 的替代品，而是互补方案。它特别适合需要用户参与的场景，如购物、创意设计、代码审查等。
+
+#### WebMCP 的使用场景示例
+
+- **创意设计**：用户在图形设计平台与 Agent 协作，Agent 帮助筛选模板、修改设计、批量生成变体
+- **购物助手**：Agent 帮助筛选商品、比较选项，但用户保持最终决策权
+- **代码审查**：Agent 通过专用工具获取构建状态、添加建议修改，用户审查后接受或拒绝
+
+#### WebMCP 的目标与非目标
+
+**目标**：
+- 支持人机协作工作流
+- 通过定义良好的 JavaScript 工具简化 Agent 集成
+- 最小化开发者负担（复用现有代码）
+- 改善可访问性
+
+**非目标**：
+- 无头浏览场景（Headless browsing）
+- 完全自主的 Agent 工作流（更适合 A2A 协议）
+- 取代后端集成（与 MCP 共存）
+
 ## Domain
 
-* [Native API to MCP](/maps/_ai/mcp/native-api-to-mcp)
-* [WebMCP](https://github.com/webmachinelearning/webmcp) - W3C 提案，允许网页向 AI 代理注册客户端工具（Google & Microsoft 联合推动）
+* [Native API to MCP](/maps/_ai/mcp/native-api-to-mcp)：将现有 API 快速转换为 MCP Server 的指南
