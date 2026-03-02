@@ -102,3 +102,7 @@ OAuth 的每一处复杂性都对应一个安全威胁：
 - **State 参数**：防止 CSRF 攻击（跨站请求伪造）
 
 见：[An Illustrated Guide to OAuth](https://www.ducktyped.org/p/an-illustrated-guide-to-oauth)
+
+## 供应链安全
+
+* [软件供应链安全](/maps/_web/security/supply-chain)：开源软件生态中的传递性信任问题与供应链攻击防范
