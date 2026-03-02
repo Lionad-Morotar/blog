@@ -99,3 +99,19 @@ original_path: _ai/benchmark.md
 **额外提示**：搜索 AI 最新信息（如 OpenClaw 玩法等），使用 Grok 4.2 有奇效。
 
 见：[春节6天，我找到了各个领域最强的大模型](https://mp.weixin.qq.com/s/cVn-1MXQnhlFmhiMtVWi9A)
+
+#### SWE-bench Verified 的两大核心问题
+
+OpenAI 的分析表明，SWE-bench Verified 已不适合衡量前沿模型的编程能力，主要存在两个问题：
+
+1. **测试用例设计缺陷（约 59.4% 的失败题目）**：
+   - **过窄测试（35.5%）**：测试强行限定具体实现细节，导致功能正确的解法被判错
+   - **过宽测试（18.8%）**：测试检查问题描述中未提及的额外功能
+   - 例如：测试直接导入函数名 `get_annotation`，但该名称从未在问题描述中出现
+
+2. **数据污染（训练数据泄露）**：
+   - 前沿模型能逐字复现"金标准补丁"（gold patch）
+   - 模型甚至能背出任务的具体描述
+   - 接触原题的模型在信息不完整的测试中表现更好，因为它们从训练中获取了额外信息
+
+见：[为何 SWE-bench Verified 已无法衡量前沿编程能力](https://openai.com/zh-Hans-CN/index/why-we-no-longer-evaluate-swe-bench-verified/)
