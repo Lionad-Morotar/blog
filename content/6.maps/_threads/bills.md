@@ -19,3 +19,8 @@ description: 记录一些账单和开销
 * [Moonshot](https://platform.moonshot.cn/console/account)
 * [MiniMax](https://platform.minimaxi.com/user-center/payment/coding-plan)
 * [Kimi](https://www.kimi.com/code/console)
+* [Alicloud](https://bailian.console.aliyun.com/cn-beijing/?tab=model#/efm/coding_plan)
+
+## MCP Usage
+
+* [Tavily](https://app.tavily.com/home)
