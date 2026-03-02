@@ -112,3 +112,23 @@ MLP（多层感知机）在自注意力之后增强模型的表示能力：
 - **Layer Normalization（层归一化）**：稳定训练、加速收敛，在每个 Transformer Block 中应用两次（注意力前和 MLP 前）
 - **Dropout（随机失活）**：训练时随机将部分权重设为零，防止过拟合；推理时关闭
 - **Residual Connections（残差连接）**：绕过一层或多层的快捷连接，缓解梯度消失问题，使深层网络训练成为可能。GPT-2 在每个 Transformer Block 中使用两次
+
+---
+
+## 端侧 AI 限制
+
+#### 端侧 Agent 的物理瓶颈
+
+端侧 AI 面临严峻的物理限制：新设备通常仅 8-16GB RAM，扣除系统占用后仅剩 4-8GB 给 AI。
+7B 参数模型需 5GB+，而 Agent 任务需要 32K+ 上下文，KV Cache 可能使 AI 部分占用超过 16GB RAM。
+
+更棘手的是速度问题：端侧 token 生成随上下文增长急剧下降，16K 上下文时从 100 tok/s 跌至 <10 tok/s。
+长时间运行还导致过热降频。
+
+#### 供应链与规模困境
+
+HBM（数据中心）与 DDR5（消费端）竞争产能，RAM 价格上涨 300%。
+即使云端卸载，数十亿设备的计算需求也是巨大挑战——仅 5% 的 iOS 用户（约 1 亿）使用轻量级 Agent，
+就可能消耗相当于 Anthropic 全部的计算资源。
+
+见：[Why On-Device Agentic AI Can't Keep Up](https://martinalderson.com/posts/why-on-device-agentic-ai-cant-keep-up/)
