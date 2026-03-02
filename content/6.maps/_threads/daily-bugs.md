@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-03-02
+
+QQ 开放平台的图标颜色问题。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260302191731885.png)
+
 #### 2026-02-27
 
 Mac 显示 Trae 在用我的麦克风，但是强退也没有用。最后一个一个应用强退，发现是 Edge（？），我也不知道是哪个页面。
