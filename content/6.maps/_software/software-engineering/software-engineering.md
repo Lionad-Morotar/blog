@@ -4,6 +4,10 @@ description: 软件工程（Software Engineering）是指应用工程化的方�
 original_path: content/6.maps/_software/software-engineering.md
 ---
 
+## Tour
+
+* [Awesome Engineering Articles](https://github.com/ashishps1/awesome-engineering-articles)：精选的软件工程领域高质量技术文章合集，涵盖系统设计、架构、性能优化等主题
+
 ## Gists
 
 #### 渐进演进的战略智慧：为何"丑陋"的代码比"干净"的重写更有价值
