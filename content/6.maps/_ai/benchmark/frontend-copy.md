@@ -71,7 +71,7 @@ description: 前端抄代码能力测试
 
 #### glm-5
 
-IDE 使用 on-my-opencode Sisyphus
+IDE 使用 on-my-opencode，Agent Sisyphus
 
 👍：顺手实现了简单的点击反馈
 
@@ -81,7 +81,7 @@ IDE 使用 on-my-opencode Sisyphus
 
 #### minimax-m2.5
 
-IDE 使用 on-my-opencode Sisyphus，模型是 opencode 的免费模型
+IDE 使用 on-my-opencode，Agent Sisyphus，模型是 opencode 的免费模型
 
 👍：无情干活机器
 
