@@ -1,1 +1,0 @@
-[{"_path":"/maps/_ai/operations/distributed","title":"Distributed Training","description":"分布式训练技术与框架，包括 DeepSpeed、FSDP、Megatron-Core 等大规模模型训练方案。"},{"_path":"/maps/_ai/operations/mlops","title":"MLOps","description":"机器学习运维平台与工具，包括 Weights & Biases、MLflow、TensorBoard 等实验跟踪和模型管理方案。"}]

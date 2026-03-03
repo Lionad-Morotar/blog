@@ -1,1 +1,0 @@
-[{"_path":"/maps/_devops/version-control/dorothy","title":"Dorothy","description":"Dorothy 是我的 Git Commit Message 的约定。"},{"_path":"/maps/_devops/version-control/pre-commit-hook","title":"预提交钩子（Pre-commit hooks）","description":"Git 的 pre-commit hook 用来在提交代码前执行一些检查或操作"}]

@@ -1,1 +1,0 @@
-[{"_path":"/maps/_workflow/package-manager/lockfile","title":"lockfile","description":"lockfile 是一种用于记录依赖的版本信息的文件"},{"_path":"/maps/_workflow/package-manager/package-manager","title":"包管理器","description":"用于管理项目依赖的工具，涵盖 npm、pnpm、yarn 的核心特性和最佳实践"}]

@@ -1,0 +1,1 @@
+[{"_path":"/maps/_database/sql/postgres","title":"Postgres","description":"PostgreSQL 是一个强大的开源关系型数据库，通过丰富的插件生态可以覆盖多种数据场景。"},{"_path":"/maps/_database/sql/text-to-sql","title":"Text to SQL：为何被标记为 Hold，以及应该如何安全使用","description":"解析 Text to SQL 在实际生产中的风险点与可接受的使用边界，为数据与平台团队提供治理思路。"}]

@@ -1,0 +1,1 @@
+[{"_path":"/maps/_workflow/package-manager/package-manager","title":"包管理器","description":"用于管理项目依赖的工具，涵盖 npm、pnpm、yarn 的核心特性和最佳实践"},{"_path":"/maps/_workflow/workflow","title":"前端工程化","description":"前端工程化工作流的核心工具链，包括包管理器、构建工具、代码规范、Monorepo 管理等"}]
