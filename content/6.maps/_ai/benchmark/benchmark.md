@@ -4,6 +4,8 @@ description: 各类大语言模型的基准测试结果与排行榜资源。
 original_path: _ai/benchmark.md
 ---
 
+## 基准测试
+
 * [Arena.ai](https://arena.ai/zh/leaderboard/code)：经典大模型竞技场
 
 * [SanityHarness](https://sanityboard.lr7.dev/)：Agentic 基准
@@ -115,3 +117,7 @@ OpenAI 的分析表明，SWE-bench Verified 已不适合衡量前沿模型的编
    - 接触原题的模型在信息不完整的测试中表现更好，因为它们从训练中获取了额外信息
 
 见：[为何 SWE-bench Verified 已无法衡量前沿编程能力](https://openai.com/zh-Hans-CN/index/why-we-no-longer-evaluate-swe-bench-verified/)
+
+## Vibe Coding 测试
+
+* [2026 年了，谁画页面更强一些](./frontend-copy.md)
