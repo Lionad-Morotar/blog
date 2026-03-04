@@ -37,7 +37,7 @@ LLM 智能体面对的环境通常具备四个鲜明特点：
 
 #### 完整案例分析
 
-[智能健身教练：PEAS 模型完整案例分析](/maps/_ai/agents/peas-examples)
+[智能健身教练：PEAS 模型完整案例分析](/maps/_ai/agents/peas-coach-example)
 
 ## 工作流与智能体的核心区别？
 
