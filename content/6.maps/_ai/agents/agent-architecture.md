@@ -35,6 +35,10 @@ LLM 智能体面对的环境通常具备四个鲜明特点：
 
 见：[智能体(Agent)核心技术解析：从PEAS模型到主流框架实战](https://zhuanlan.zhihu.com/p/1982412289576546663)、[一文搞懂大模型智能体工作原理](https://blog.csdn.net/Trb701012/article/details/156984467)
 
+#### 完整案例分析
+
+[智能健身教练：PEAS 模型完整案例分析](/maps/_ai/agents/peas-examples)
+
 ## 工作流与智能体的核心区别？
 
 决策权归属是区分二者的关键。
