@@ -46,6 +46,7 @@
     "eslint": "^9.39.3",
     "medium-zoom": "^1.1.0",
     "nuxt-content-git": "^4.0.1",
+    "nuxt-excalidraw": "1.0.0-beta.7",
     "nuxt-feedme": "^1.0.1",
     "only-allow": "^1.2.2",
     "rehype-mathjax": "^7.1.0",
