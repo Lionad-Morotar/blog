@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     // 'nuxt-content-git',
     '@nuxt/image',
     '@nuxt/ui',
+    'nuxt-excalidraw',
     '@nuxthq/studio',
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
