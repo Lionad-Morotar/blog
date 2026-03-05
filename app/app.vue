@@ -48,9 +48,20 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
   ]
 })
 const filteredNavigation = computed(() => {
-  const filter = (items: ContentNavigationItem[] | undefined): ContentNavigationItem[] => {
+  const filter = (items: ContentNavigationItem[] | undefined, parentPath?: string): ContentNavigationItem[] => {
     if (!items?.length) return []
-    return items
+
+    // 去重：基于 path 去重，保留第一个出现的项
+    const seen = new Set<string>()
+    const uniqueItems = items.filter((item) => {
+      // 排除与父项 path 相同的项（防止子导航重复显示当前页面）
+      if (parentPath && item.path === parentPath) return false
+      if (seen.has(item.path)) return false
+      seen.add(item.path)
+      return true
+    })
+
+    return uniqueItems
       .filter((item) => {
         // 排除英文内容
         if (item?.path === '/en' || item?.path?.startsWith('/en/')) return false
@@ -58,7 +69,7 @@ const filteredNavigation = computed(() => {
         if (item?.path?.includes('/_')) return false
         return true
       })
-      .map((item) => ({ ...item, children: filter(item.children) }))
+      .map((item) => ({ ...item, children: filter(item.children, item.path) }))
   }
   return filter(navigation.value)
 })
@@ -110,60 +121,59 @@ provide('navigation', filteredNavigation)
   </UApp>
 </template>
 
-<style lang="stylus">
-@import "../styles/index.styl";
-
-// 外链
+<style>
+/* 外链样式 */
 a[href^="http"] {
   color: var(--tw-prose-body) !important;
   text-decoration: underline !important;
 }
 
-img {
-    &[src*='w=30'] {
-        width: 30%;
-    }
-    &[src*='w=40'] {
-        width: 40%;
-    }
-    &[src*='w=50'] {
-        width: 50%;
-    }
-    &[src*='w=60'] {
-        width: 60%;
-    }
-    &[src*='w=62'] {
-        width: 62%;
-    }
-    &[src*='w=g'] {
-        width: 62%;
-    }
-    &[src*='w=70'] {
-        width: 70%;
-    }
-    &[src*='w=80'] {
-        width: 80%;
-    }
-    &[src*='type=mac'] {
-      border: none !important;
-      border-radius: 0;
-    }
-    &[src*='type=win11'] {
-        border: none !important;
-        border-radius: 8px;
-    }
-    &[src*='type=draw'] {
-        border: none !important;
-    }
-    &[src*='type=win11-square'] {
-        border: none !important;
-    }
+/* 图片宽度控制 */
+img[src*='w=30'] {
+  width: 30%;
+}
+img[src*='w=40'] {
+  width: 40%;
+}
+img[src*='w=50'] {
+  width: 50%;
+}
+img[src*='w=60'] {
+  width: 60%;
+}
+img[src*='w=62'] {
+  width: 62%;
+}
+img[src*='w=g'] {
+  width: 62%;
+}
+img[src*='w=70'] {
+  width: 70%;
+}
+img[src*='w=80'] {
+  width: 80%;
+}
+img[src*='type=mac'] {
+  border: none !important;
+  border-radius: 0;
+}
+img[src*='type=win11'] {
+  border: none !important;
+  border-radius: 8px;
+}
+img[src*='type=draw'] {
+  border: none !important;
+}
+img[src*='type=win11-square'] {
+  border: none !important;
 }
 
+/* 页面布局 */
 #app-page > div:first-child {
   padding-left: 12px;
   padding-right: 12px;
 }
+
 @media screen and (max-width: 888px) {
   #app-page > div:first-child {
     padding-left: 0;
@@ -171,10 +181,12 @@ img {
   }
 }
 
+/* 侧边栏滚动条隐藏 */
 main aside::-webkit-scrollbar {
   width: 0 !important;
 }
 
+/* 导航菜单 */
 nav[class^="sticky top-"] > div > ul {
   max-height: 60vh;
   overflow: auto;
@@ -184,16 +196,18 @@ header, footer {
   max-width: 100%;
 }
 
+/* 标记样式 - 使用 color-mix 替代 @apply */
 mark {
-  @apply bg-primary/20;
+  background-color: color-mix(in oklch, var(--ui-primary) 20%, transparent);
 }
 
+/* 键盘按键样式 */
 kbd {
-  margin: 0 .2em;
+  margin: 0 0.2em;
   word-break: keep-all;
 }
 
-// 移动端的 Header 会被快链撑开，直接隐藏
+/* 移动端 Header 快链隐藏 */
 @media screen and (max-width: 888px) {
   header > div > div:last-child a {
     width: 0;
@@ -207,12 +221,7 @@ kbd {
   }
 }
 
-// 不好看，隐藏侧边栏滚动条
-// main aside:hover::-webkit-scrollbar {
-//   width: 4px !important;
-// }
-
-// 移动端将 toc 移动到底部并固定
+/* 移动端 TOC 固定底部 */
 @media screen and (max-width: 888px) {
   footer {
     margin-bottom: 50px;

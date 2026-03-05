@@ -1,0 +1,25 @@
+/* ============================================
+   页面通用样式
+   ============================================ */
+
+/* Checkbox */
+input[type='checkbox'] {
+  cursor: pointer;
+}
+
+/* CodePen 嵌入块 */
+.cp_embed_wrapper {
+  margin-top: 1em;
+}
+
+/* 标签索引 */
+.label-idx {
+  display: inline-block;
+  padding: 0.2em;
+  margin-right: 0.2em;
+  min-width: 1.1em;
+  line-height: 1em;
+  background: #262626;
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,25 @@
+/* ============================================
+   页面特效
+   ============================================ */
+
+/* Yeah~ 特效 - 点击页面时显示 */
+body::after {
+  content: 'Yeah~';
+  display: block;
+  position: fixed;
+  left: var(--pagex, 0);
+  top: var(--pagey, 0);
+  font-size: 12px;
+  font-weight: 100;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity var(--timing-slow, 0.5s);
+  transition-timing-function: cubic-bezier(0, 1, 0, 1);
+  pointer-events: none;
+}
+
+body:active::after {
+  opacity: 1;
+  transition: 0;
+  transition-timing-function: cubic-bezier(1, 0, 1, -1.3);
+}

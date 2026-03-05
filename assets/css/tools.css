@@ -1,0 +1,56 @@
+/* ============================================
+   动画工具
+   ============================================ */
+
+/**
+ * 动画时长封装 - 便于调整页面的可访问性
+ * 使用 CSS 自定义属性和 min() 函数实现
+ */
+@property --animation-duration {
+  syntax: '<time>';
+  inherits: false;
+  initial-value: 0s;
+}
+
+/**
+ * 动画时长工具类
+ * 使用方式：在元素上添加 .animate-duration-slow 等类
+ * 或使用 style="--animation-duration: 0.5s" 自定义
+ */
+.animate-duration-slow {
+  --animation-duration: var(--timing-slow, 0.5s);
+  animation-duration: min(var(--animation-duration), var(--timing-reduce, 999s));
+}
+
+.animate-duration-norm {
+  --animation-duration: var(--timing-norm, 0.3s);
+  animation-duration: min(var(--animation-duration), var(--timing-reduce, 999s));
+}
+
+.animate-duration-quick {
+  --animation-duration: var(--timing-quick, 0.2s);
+  animation-duration: min(var(--animation-duration), var(--timing-reduce, 999s));
+}
+
+.animate-duration-light {
+  --animation-duration: var(--timing-light, 0.1s);
+  animation-duration: min(var(--animation-duration), var(--timing-reduce, 999s));
+}
+
+/* 通用动画时长类 - 可以配合任意动画使用 */
+.animate-accessible {
+  animation-duration: min(var(--animation-duration, 0.3s), var(--timing-reduce, 999s));
+}
+
+/* 减少动画偏好支持 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-duration-slow,
+  .animate-duration-norm,
+  .animate-duration-quick,
+  .animate-duration-light,
+  .animate-accessible {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

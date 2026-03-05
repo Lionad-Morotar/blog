@@ -1,0 +1,725 @@
+/* ============================================
+   文章内容样式 (Cedium)
+   ============================================ */
+
+::selection {
+  background-color: rgba(230, 230, 250, 0.5);
+}
+
+/* 标题样式 */
+h1 m,
+h2 m,
+h3 m,
+h4 m,
+h5 m {
+  color: #fefefe;
+}
+
+/* 相邻标题间距调整 */
+h1 + h1,
+h1 + h2,
+h1 + h3,
+h1 + h4,
+h1 + h5,
+h2 + h1,
+h2 + h2,
+h2 + h3,
+h2 + h4,
+h2 + h5,
+h3 + h1,
+h3 + h2,
+h3 + h3,
+h3 + h4,
+h3 + h5,
+h4 + h1,
+h4 + h2,
+h4 + h3,
+h4 + h4,
+h4 + h5,
+h5 + h1,
+h5 + h2,
+h5 + h3,
+h5 + h4,
+h5 + h5 {
+  display: block;
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 0;
+  border: none;
+  text-align: left;
+  color: var(--text-black);
+  font-family: var(--font-text--bold);
+}
+
+/* H2-H6 通用样式 */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin: 2em 0 1em 0;
+  padding: 3px 0.5em;
+  line-height: 1.5em;
+  background: var(--dark-black);
+  color: transparent;
+  text-transform: uppercase;
+  border-radius: 1px;
+  font-weight: bolder;
+}
+
+/* 标题锚点动画 */
+h2:target,
+h3:target,
+h4:target,
+h5:target,
+h6:target {
+  animation: showTarget 1.5s 1 linear;
+  outline-offset: 0.2em;
+}
+
+@keyframes showTarget {
+  from {
+    outline: dashed 3px var(--theme-black);
+  }
+  to {
+    outline: dashed 3px rgba(0, 0, 0, 0);
+  }
+}
+
+/* 标题伪元素效果 */
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  content: attr(id);
+  position: absolute;
+  height: 100%;
+  max-width: 100%;
+  top: 0;
+  left: 0;
+  color: transparent;
+  letter-spacing: 2em;
+  z-index: 0;
+}
+
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  content: attr(id);
+  position: absolute;
+  height: 100%;
+  width: auto;
+  top: 0;
+  left: 0.5em;
+  color: #fefefe;
+}
+
+/* 标题锚点链接 */
+h2 .header-anchor,
+h3 .header-anchor,
+h4 .header-anchor,
+h5 .header-anchor,
+h6 .header-anchor {
+  margin-left: -2.7em;
+  padding-right: 1em;
+}
+
+/* H1 特殊样式 */
+h1 {
+  position: relative;
+  margin-top: 1.25rem !important;
+  margin-bottom: 3rem !important;
+  font-size: 3rem;
+}
+
+/* H2 特殊样式 */
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.62) 18%, transparent 68%);
+}
+
+h2::before {
+  background: linear-gradient(45deg, black 0%, rgba(0, 0, 0, 0) 68%);
+}
+
+h2::after {
+  line-height: 1.6em;
+}
+
+/* H3 特殊样式 */
+h3 {
+  margin-top: 1.75em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: linear-gradient(45deg, #4a1227, rgba(76, 18, 39, 0.62) 18%, transparent 64%);
+}
+
+h3::before {
+  background: linear-gradient(45deg, rgba(76, 18, 39, 0.62) 0%, transparent 65%);
+}
+
+h3::after {
+  line-height: 1.65em;
+}
+
+/* H4-H6 特殊样式 */
+h4,
+h5,
+h6 {
+  display: block;
+  margin-top: 1.75em;
+  padding: 0;
+  color: inherit;
+  background: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: unset;
+}
+
+h4::before,
+h4::after,
+h5::before,
+h5::after,
+h6::before,
+h6::after {
+  content: unset;
+}
+
+/* 图片和视频样式 */
+#app-content > img,
+#app-content > p > img,
+#app-content > figure > img,
+#app-content > video,
+#app-content > p > video,
+#app-content > figure > video,
+[data-content-id] > img,
+[data-content-id] > p > img,
+[data-content-id] > figure > img,
+[data-content-id] > video,
+[data-content-id] > p > video,
+[data-content-id] > figure > video {
+  box-sizing: border-box;
+  display: block;
+  margin: 1.5em auto;
+  margin-bottom: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  border: solid 1px;
+}
+
+#app-content > img + figcaption,
+#app-content > p > img + figcaption,
+#app-content > figure > img + figcaption,
+#app-content > video + figcaption,
+#app-content > p > video + figcaption,
+#app-content > figure > video + figcaption,
+[data-content-id] > img + figcaption,
+[data-content-id] > p > img + figcaption,
+[data-content-id] > figure > img + figcaption,
+[data-content-id] > video + figcaption,
+[data-content-id] > p > video + figcaption,
+[data-content-id] > figure > video + figcaption {
+  margin-top: 0.3em;
+  margin-bottom: 0.5em;
+  text-align: center;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+#app-content > img,
+#app-content > video,
+[data-content-id] > img,
+[data-content-id] > video {
+  margin: 1.95rem auto 1.75em auto;
+  max-width: 100%;
+}
+
+/* 图片链接失效时显示 Emoji */
+#app-content > img[alt='']::after,
+#app-content > img:not([alt])::after,
+#app-content > video[alt='']::after,
+#app-content > video:not([alt])::after,
+[data-content-id] > img[alt='']::after,
+[data-content-id] > img:not([alt])::after,
+[data-content-id] > video[alt='']::after,
+[data-content-id] > video:not([alt])::after {
+  content: '💔';
+}
+
+/* 段落和表单样式 */
+p,
+details,
+form {
+  margin-top: 1.3rem;
+  margin-bottom: 0;
+  font-size: 1.3125rem;
+  color: var(--text-black);
+  line-height: 2;
+  text-rendering: optimizeLegibility;
+  text-align: justify;
+  font-style: normal;
+  word-break: break-all;
+  outline: none;
+}
+
+p input[type='text'],
+details input[type='text'],
+form input[type='text'] {
+  padding: 3px 5px;
+  height: 1.3125rem;
+  font-size: 1.3125rem;
+}
+
+/* 波浪下划线 */
+u {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 0.2em;
+}
+
+/* 输入框样式 */
+input {
+  cursor: pointer;
+}
+
+/* 按钮样式 */
+button {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  font-size: 1.3125rem;
+  border: solid 2px var(--theme-black);
+  background: var(--color-background);
+  box-shadow: 2px 2px 1px 0 var(--theme-black);
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+}
+
+button:active {
+  left: 2px;
+  top: 0;
+  background: var(--light-gray);
+  box-shadow: none;
+}
+
+/* Details/Summary 样式 */
+details summary {
+  font-family: var(--font-text--bold);
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+}
+
+details summary:active {
+  outline: 1px solid;
+  outline-offset: 5px;
+}
+
+/* 段落间距 */
+p + p {
+  margin-top: 1em;
+}
+
+/* 自定义块 */
+.custom-block {
+  border-radius: 0px;
+}
+
+.custom-block .custom-block-title {
+  display: none;
+}
+
+.custom-block p + p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* 段落后的 div */
+p + div {
+  margin-top: 1.5rem;
+}
+
+/* 标题文字阴影 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 3px 0 1px #fff, -3px 0 1px #fff, 0px -3px 1px #fff, 0px 3px 1px #fff,
+    2px 2px 1px #fff, -2px 2px 1px #fff, 2px -2px 1px #fff, -2px -2px 1px #fff,
+    3px 2px 1px #fff, -3px 2px 1px #fff, 3px -2px 1px #fff, -3px -2px 1px #fff,
+    1px 3px 1px #fff, -1px 3px 1px #fff, 1px -3px 1px #fff, -1px -3px 1px #fff,
+    -1px -1px 1px #fff, -1px 1px 1px #fff, 1px -1px 1px #fff, 1px 1px 1px #fff;
+}
+
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0;
+}
+
+/* 分割线 */
+hr {
+  width: 70%;
+  height: 3rem;
+  background: url('https://mgear-image.oss-cn-shanghai.aliyuncs.com/assets/hr.svg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  margin: 5rem auto;
+  border: none;
+}
+
+/* 列表项样式 */
+li {
+  margin-top: 1em;
+  font-size: 1.3125rem;
+  letter-spacing: 0.28px;
+  line-height: 2;
+}
+
+li > * {
+  text-align: unset;
+}
+
+li > details:only-child summary::marker {
+  display: none;
+}
+
+li > details:only-child summary:hover {
+  outline: 1px solid var(--light-gray);
+  outline-offset: 6px;
+}
+
+li > details:only-child summary:active {
+  outline: 1px solid;
+  outline-offset: 5px;
+}
+
+/* 链接样式 */
+a {
+  display: inline;
+}
+
+a:not(.header-anchor) {
+  color: var(--text-black);
+  text-decoration: underline;
+  text-decoration-color: var(--text-gray--lighter);
+  text-underline-position: under;
+  transition: text-decoration-color var(--timing-quick);
+  cursor: pointer;
+}
+
+a:not(.header-anchor):visited,
+a:not(.header-anchor):active {
+  color: var(--text-black);
+  opacity: 0.8;
+}
+
+a:not(.header-anchor):hover {
+  text-decoration-color: #c62222;
+}
+
+a.header-anchor {
+  position: relative;
+  top: -0.05em;
+  float: unset;
+  margin-top: 0;
+  margin-left: -1.7em;
+  padding-right: 0;
+  text-decoration: none !important;
+  transition: var(--timing-norm);
+}
+
+a > svg {
+  margin-right: 2px;
+}
+
+/* 标题中的链接 */
+h1 a.header-anchor,
+h1 a:not(.header-anchor),
+h2 a.header-anchor,
+h2 a:not(.header-anchor),
+h3 a.header-anchor,
+h3 a:not(.header-anchor),
+h4 a.header-anchor,
+h4 a:not(.header-anchor),
+h5 a.header-anchor,
+h5 a:not(.header-anchor) {
+  text-decoration-color: #fefefe;
+}
+
+/* 脚注引用 */
+sup.footnote-ref {
+  margin-left: 0.3em;
+}
+
+/* 引用块 */
+blockquote {
+  position: relative;
+  margin: 1.5em;
+  padding: 0 4.5em;
+  border: 0;
+  font-family: 'MJXTEX-I', '楷体', fantasy, 'Fang Song', 'Kai', serif;
+  color: var(--text-gray);
+}
+
+blockquote > p:nth-child(1) {
+  position: relative;
+  margin-top: 0;
+  text-align: center;
+  word-break: break-word;
+}
+
+blockquote > p:nth-child(1) name {
+  display: block;
+  margin: auto;
+  width: 95%;
+  text-align: right;
+  font-weight: bold;
+}
+
+blockquote > p:nth-child(1) name::before {
+  content: '—— ';
+}
+
+blockquote + p {
+  margin-top: 0.8em;
+}
+
+hr + blockquote,
+blockquote + blockquote {
+  margin-top: 2.3em;
+}
+
+h1 + blockquote,
+h2 + blockquote,
+h3 + blockquote {
+  margin-top: 2em;
+}
+
+/* 行内引用 */
+q {
+  display: block;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+q::before,
+q::after {
+  padding: 0.2em;
+  font-weight: bold;
+}
+
+q::after {
+  padding: 0.3em;
+}
+
+/* 列表样式 */
+ol,
+ul {
+  padding-inline-start: 3.25em;
+  padding-inline-end: 3.25em;
+}
+
+ul:not(ol) {
+  list-style: square outside;
+}
+
+/* 删除线 */
+del {
+  color: hsla(0, 0%, 0%, 0.32);
+}
+
+h2 > del {
+  color: transparent;
+}
+
+/* 高亮 */
+mark,
+.highlighted {
+  background: #7dffb3;
+}
+
+/* 代码样式 */
+code {
+  background: var(--medium-gray);
+  border-radius: 3px;
+  padding: 3px 0.3em;
+  font-size: 1.25rem;
+  font-family: var(--font-code);
+  color: #5a3858;
+}
+
+li code {
+  font-size: 1.125rem;
+}
+
+/* 强调 */
+em,
+strong,
+b,
+bold {
+  font-family: var(--font-text--bold);
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* 额外类 */
+.extra-class {
+  border-radius: 0;
+}
+
+/* 代码块 */
+pre {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1rem;
+}
+
+pre + p {
+  margin-top: 1.8em;
+}
+
+/* 连续换行隐藏 */
+#app-content > br + br,
+[data-content-id] > br + br {
+  display: none;
+}
+
+/* 表格 */
+table {
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+  width: 100%;
+}
+
+/* 首字母样式 */
+.first-letter {
+  overflow-wrap: break-word;
+  font-size: 3.25rem;
+  font-weight: 500;
+  line-height: 5.25rem;
+  display: block;
+  position: relative;
+  float: left;
+  margin: 0px 0.75rem 0 0px;
+}
+
+/* 副标题 */
+.subtitle {
+  margin: 0.5em 0 1.2em 0;
+  color: var(--text-gray);
+}
+
+/* ============================================
+   移动端适配
+   ============================================ */
+@media screen and (max-width: 888px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+
+  h2 {
+    font-size: 1.625rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p,
+  li,
+  blockquote,
+  code {
+    font-size: 1.125rem;
+  }
+
+  blockquote {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  pre {
+    font-size: 1rem;
+  }
+
+  li code {
+    font-size: 0.9375rem;
+  }
+
+  ol,
+  ul {
+    padding-inline-start: 2.2em;
+    padding-inline-end: 1em;
+    font-size: 1rem;
+  }
+
+  ol li,
+  ul li {
+    margin-top: 0.5em;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  h2,
+  h3 {
+    box-sizing: border-box;
+    position: relative;
+    padding: 3px 1.5rem !important;
+    width: 100vw;
+    left: -1.5rem;
+    border-radius: 0;
+  }
+
+  h2::after,
+  h3::after {
+    left: 1.5rem !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    word-break: break-word;
+  }
+
+  hr {
+    width: 100%;
+    height: 1rem;
+    margin: 3rem 0 0 0;
+    border: none;
+  }
+
+  #app-content > p > img,
+  #app-content > figure > img,
+  #app-content > p > video,
+  #app-content > figure > video,
+  [data-content-id] > p > img,
+  [data-content-id] > figure > img,
+  [data-content-id] > p > video,
+  [data-content-id] > figure > video {
+    margin: 0 auto;
+  }
+}
