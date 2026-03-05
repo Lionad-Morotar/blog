@@ -8,6 +8,10 @@ description: 文档管理与技术写作
 * [文档管理](/maps/_docs/doc-manage/doc-manage)
 * [技术文档](/maps/_docs/tech-docs/tech-docs)
 
+## 工具指南
+
+* [Excalidraw 图表使用指南](/maps/_docs/excalidraw-guide)：在博客中创建和嵌入手绘风格图表的完整指南
+
 ## 概述
 
 本文档领域涵盖文档管理与技术写作相关的知识体系，包括：
