@@ -44,7 +44,6 @@
     "@nuxt-dev/medium-zoom": "^0.1.0",
     "@nuxt/devtools": "^1.7.0",
     "@nuxt/eslint-config": "^0.7.6",
-    "@nuxthq/studio": "^2.2.1",
     "@nuxtjs/sitemap": "^7.6.0",
     "@vueuse/core": "^12.8.2",
     "eslint": "^9.39.3",

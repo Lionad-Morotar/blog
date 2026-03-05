@@ -84,9 +84,6 @@ importers:
       '@nuxt/eslint-config':
         specifier: ^0.7.6
         version: 0.7.6(@typescript-eslint/utils@8.56.1(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.29)(eslint@9.39.3(jiti@2.6.1))(typescript@5.9.3)
-      '@nuxthq/studio':
-        specifier: ^2.2.1
-        version: 2.2.1(magicast@0.5.2)
       '@nuxtjs/sitemap':
         specifier: ^7.6.0
         version: 7.6.0(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2))(vue@3.5.29(typescript@5.9.3))(zod@3.25.76)
@@ -282,10 +279,6 @@ packages:
 
   '@babel/runtime@7.28.6':
     resolution: {integrity: sha512-05WQkdpL9COIMz4LjTxGpPNCdlpyimKppYNoJ5Di5EUObifl8t4tuLuUBBZEpoLYOmfvIWrsp9fCl0HoPRVTdA==, tarball: https://registry.npmmirror.com/@babel/runtime/-/runtime-7.28.6.tgz}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/standalone@7.29.1':
-    resolution: {integrity: sha512-z42abD0C6fiHfgLyCWw8PYv6FCJ0IGVtSCxXk/NPykWO5LNIEGfdLDJ3HdYqlPcAhwtQ3oKH1PvNj2JGpTxQKg==, tarball: https://registry.npmmirror.com/@babel/standalone/-/standalone-7.29.1.tgz}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.28.6':
@@ -919,9 +912,6 @@ packages:
     peerDependenciesMeta:
       rolldown:
         optional: true
-
-  '@nuxthq/studio@2.2.1':
-    resolution: {integrity: sha512-FiKaC2NBnoKbV5opW8+bXt75R9b7XQ/xtr2bCSLRUca2H7lYypfUAdpYltJasKMgJsUWMNHME92iW5Fi9gb+IA==, tarball: https://registry.npmmirror.com/@nuxthq/studio/-/studio-2.2.1.tgz}
 
   '@nuxtjs/color-mode@3.5.2':
     resolution: {integrity: sha512-cC6RfgZh3guHBMLLjrBB2Uti5eUoGM9KyauOaYS9ETmxNWBMTvpgjvSiSJp1OFljIXPIqVTJ3xtJpSNZiO3ZaA==, tarball: https://registry.npmmirror.com/@nuxtjs/color-mode/-/color-mode-3.5.2.tgz}
@@ -4602,18 +4592,8 @@ packages:
     resolution: {integrity: sha512-T2qUpKBHeUTwHcIhydgnJzhL0Hj785ms+JkxaaWQH9SDM/llXeewnOkfJcFShAHjWI+26hOChwUfCoupaXLm8g==, tarball: https://registry.npmmirror.com/giget/-/giget-3.1.2.tgz}
     hasBin: true
 
-  git-config-path@2.0.0:
-    resolution: {integrity: sha512-qc8h1KIQbJpp+241id3GuAtkdyJ+IK+LIVtkiFTRKRrmddDzs3SI9CvP1QYmWBFvm1I/PWRwj//of8bgAc0ltA==, tarball: https://registry.npmmirror.com/git-config-path/-/git-config-path-2.0.0.tgz}
-    engines: {node: '>=4'}
-
-  git-up@7.0.0:
-    resolution: {integrity: sha512-ONdIrbBCFusq1Oy0sC71F5azx8bVkvtZtMJAsv+a6lz5YAmbNnLD6HAB4gptHZVLPR8S2/kVN6Gab7lryq5+lQ==, tarball: https://registry.npmmirror.com/git-up/-/git-up-7.0.0.tgz}
-
   git-up@8.1.1:
     resolution: {integrity: sha512-FDenSF3fVqBYSaJoYy1KSc2wosx0gCvKP+c+PRBht7cAaiCeQlBtfBDX9vgnNOHmdePlSFITVcn4pFfcgNvx3g==, tarball: https://registry.npmmirror.com/git-up/-/git-up-8.1.1.tgz}
-
-  git-url-parse@15.0.0:
-    resolution: {integrity: sha512-5reeBufLi+i4QD3ZFftcJs9jC26aULFLBU23FeKM/b1rI0K6ofIeAblmDVO7Ht22zTDE9+CkJ3ZVb0CgJmz3UQ==, tarball: https://registry.npmmirror.com/git-url-parse/-/git-url-parse-15.0.0.tgz}
 
   git-url-parse@16.1.0:
     resolution: {integrity: sha512-cPLz4HuK86wClEW7iDdeAKcCVlWXmrLpb2L+G9goW0Z1dtpNS6BXXSOckUTlJT/LDQViE1QZKstNORzHsLnobw==, tarball: https://registry.npmmirror.com/git-url-parse/-/git-url-parse-16.1.0.tgz}
@@ -5826,10 +5806,6 @@ packages:
     resolution: {integrity: sha512-2/mSSqutOX8t+r8cAX1yUYwAPBqicPO5Rfum3XaHVszxKCF4tXEXBiPGfJY9Zn69x/CIeOdw+aM9wmHzQ5Q+lA==, tarball: https://registry.npmmirror.com/nuxt-component-meta/-/nuxt-component-meta-0.17.2.tgz}
     hasBin: true
 
-  nuxt-component-meta@0.9.0:
-    resolution: {integrity: sha512-Zmuw/PxAeJkIu7EPZEFg0lIwnfpeiDsHog9i1g5d4Z3O5+00R1Vbuk+NC6K7kgpdLsdU2/XBvzc7oQ6BsXuQPg==, tarball: https://registry.npmmirror.com/nuxt-component-meta/-/nuxt-component-meta-0.9.0.tgz}
-    hasBin: true
-
   nuxt-content-git@7.0.0:
     resolution: {integrity: sha512-imQnWDfiB0WONrEBSrc/0H+Em2FCnyiHfhXNc1yzr8nHw02ePSZTl+SOqa4oCFCopWzPLB9l3MNQCUKK1OBKqw==, tarball: https://registry.npmmirror.com/nuxt-content-git/-/nuxt-content-git-7.0.0.tgz}
     engines: {node: '>=22'}
@@ -6010,10 +5986,6 @@ packages:
   parse-entities@4.0.2:
     resolution: {integrity: sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw==, tarball: https://registry.npmmirror.com/parse-entities/-/parse-entities-4.0.2.tgz}
 
-  parse-git-config@3.0.0:
-    resolution: {integrity: sha512-wXoQGL1D+2COYWCD35/xbiKma1Z15xvZL8cI25wvxzled58V51SJM04Urt/uznS900iQor7QO04SgdfT/XlbuA==, tarball: https://registry.npmmirror.com/parse-git-config/-/parse-git-config-3.0.0.tgz}
-    engines: {node: '>=8'}
-
   parse-imports-exports@0.2.4:
     resolution: {integrity: sha512-4s6vd6dx1AotCx/RCI2m7t7GCh5bDRUtGNvRfHSP2wbBQdMi67pPe7mtzmgwcaQ8VKK/6IB7Glfyu3qdZJPybQ==, tarball: https://registry.npmmirror.com/parse-imports-exports/-/parse-imports-exports-0.2.4.tgz}
 
@@ -6030,9 +6002,6 @@ packages:
 
   parse-statements@1.0.11:
     resolution: {integrity: sha512-HlsyYdMBnbPQ9Jr/VgJ1YF4scnldvJpJxCVx6KgqPL4dxppsWrJHCIIxQXMJrqGnsRkNPATbeMJ8Yxu7JMsYcA==, tarball: https://registry.npmmirror.com/parse-statements/-/parse-statements-1.0.11.tgz}
-
-  parse-url@8.1.0:
-    resolution: {integrity: sha512-xDvOoLU5XRrcOZvnI6b8zA6n9O9ejNk/GExuz1yBuWUGn9KA97GI6HTs6u02wKara1CeVmZhH+0TZFdWScR89w==, tarball: https://registry.npmmirror.com/parse-url/-/parse-url-8.1.0.tgz}
 
   parse-url@9.2.0:
     resolution: {integrity: sha512-bCgsFI+GeGWPAvAiUv63ZorMeif3/U0zaXABGJbOWt5OH2KCaPHF6S+0ok4aqM9RuIPGyZdx9tR9l13PsW4AYQ==, tarball: https://registry.npmmirror.com/parse-url/-/parse-url-9.2.0.tgz}
@@ -7406,10 +7375,6 @@ packages:
     resolution: {integrity: sha512-4luGP9LMYszMRZwsvyUd9MrxgEGZdZuZgpVQHEEX0lCYFESasVRvZd0EYpCkOIbJKHMuv0LskpXc/8Un+MJzEQ==, tarball: https://registry.npmmirror.com/untun/-/untun-0.1.3.tgz}
     hasBin: true
 
-  untyped@1.5.2:
-    resolution: {integrity: sha512-eL/8PlhLcMmlMDtNPKhyyz9kEBDS3Uk4yMu/ewlkT2WFbtzScjHWPJLdQLmaGPUKjXzwe9MumOtOgc4Fro96Kg==, tarball: https://registry.npmmirror.com/untyped/-/untyped-1.5.2.tgz}
-    hasBin: true
-
   untyped@2.0.0:
     resolution: {integrity: sha512-nwNCjxJTjNuLCgFr42fEak5OcLuB3ecca+9ksPFNvtfYSLpjf+iJqSIaSnIile6ZPbKYxI5k2AfXqeopGudK/g==, tarball: https://registry.npmmirror.com/untyped/-/untyped-2.0.0.tgz}
     hasBin: true
@@ -7642,14 +7607,6 @@ packages:
   vue-bundle-renderer@2.2.0:
     resolution: {integrity: sha512-sz/0WEdYH1KfaOm0XaBmRZOWgYTEvUDt6yPYaUzl4E52qzgWLlknaPPTTZmp6benaPTlQAI/hN1x3tAzZygycg==, tarball: https://registry.npmmirror.com/vue-bundle-renderer/-/vue-bundle-renderer-2.2.0.tgz}
 
-  vue-component-meta@2.2.12:
-    resolution: {integrity: sha512-dQU6/obNSNbennJ1xd+rhDid4g3vQro+9qUBBIg8HMZH2Zs1jTpkFNxuQ3z77bOlU+ew08Qck9sbYkdSePr0Pw==, tarball: https://registry.npmmirror.com/vue-component-meta/-/vue-component-meta-2.2.12.tgz}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   vue-component-meta@3.2.5:
     resolution: {integrity: sha512-i7v7S6atD9aZZPouwceJoqcmBzjI4uRIxOj5dDcBPiIhFoY+U5kmy7PnEaAOh/iilJQI7I8F3lKdyZmRdplUpA==, tarball: https://registry.npmmirror.com/vue-component-meta/-/vue-component-meta-3.2.5.tgz}
     peerDependencies:
@@ -7657,9 +7614,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  vue-component-type-helpers@2.2.12:
-    resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==, tarball: https://registry.npmmirror.com/vue-component-type-helpers/-/vue-component-type-helpers-2.2.12.tgz}
 
   vue-component-type-helpers@3.2.5:
     resolution: {integrity: sha512-tkvNr+bU8+xD/onAThIe7CHFvOJ/BO6XCOrxMzeytJq40nTfpGDJuVjyCM8ccGZKfAbGk2YfuZyDMXM56qheZQ==, tarball: https://registry.npmmirror.com/vue-component-type-helpers/-/vue-component-type-helpers-3.2.5.tgz}
@@ -8099,8 +8053,6 @@ snapshots:
       - supports-color
 
   '@babel/runtime@7.28.6': {}
-
-  '@babel/standalone@7.29.1': {}
 
   '@babel/template@7.28.6':
     dependencies:
@@ -9363,23 +9315,6 @@ snapshots:
       - vti
       - vue-tsc
       - yaml
-
-  '@nuxthq/studio@2.2.1(magicast@0.5.2)':
-    dependencies:
-      '@nuxt/kit': 3.21.1(magicast@0.5.2)
-      defu: 6.1.4
-      git-url-parse: 15.0.0
-      nuxt-component-meta: 0.9.0(magicast@0.5.2)
-      parse-git-config: 3.0.0
-      pkg-types: 1.3.1
-      socket.io-client: 4.8.3
-      ufo: 1.6.3
-      untyped: 1.5.2
-    transitivePeerDependencies:
-      - bufferutil
-      - magicast
-      - supports-color
-      - utf-8-validate
 
   '@nuxtjs/color-mode@3.5.2(magicast@0.5.2)':
     dependencies:
@@ -13084,21 +13019,10 @@ snapshots:
 
   giget@3.1.2: {}
 
-  git-config-path@2.0.0: {}
-
-  git-up@7.0.0:
-    dependencies:
-      is-ssh: 1.4.1
-      parse-url: 8.1.0
-
   git-up@8.1.1:
     dependencies:
       is-ssh: 1.4.1
       parse-url: 9.2.0
-
-  git-url-parse@15.0.0:
-    dependencies:
-      git-up: 7.0.0
 
   git-url-parse@16.1.0:
     dependencies:
@@ -14757,18 +14681,6 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  nuxt-component-meta@0.9.0(magicast@0.5.2):
-    dependencies:
-      '@nuxt/kit': 3.21.1(magicast@0.5.2)
-      citty: 0.1.6
-      mlly: 1.8.1
-      scule: 1.3.0
-      typescript: 5.9.3
-      ufo: 1.6.3
-      vue-component-meta: 2.2.12(typescript@5.9.3)
-    transitivePeerDependencies:
-      - magicast
-
   nuxt-content-git@7.0.0(magicast@0.5.2):
     dependencies:
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
@@ -15238,11 +15150,6 @@ snapshots:
       is-decimal: 2.0.1
       is-hexadecimal: 2.0.1
 
-  parse-git-config@3.0.0:
-    dependencies:
-      git-config-path: 2.0.0
-      ini: 1.3.8
-
   parse-imports-exports@0.2.4:
     dependencies:
       parse-statements: 1.0.11
@@ -15261,10 +15168,6 @@ snapshots:
       protocols: 2.0.2
 
   parse-statements@1.0.11: {}
-
-  parse-url@8.1.0:
-    dependencies:
-      parse-path: 7.1.0
 
   parse-url@9.2.0:
     dependencies:
@@ -16910,19 +16813,6 @@ snapshots:
       consola: 3.4.2
       pathe: 1.1.2
 
-  untyped@1.5.2:
-    dependencies:
-      '@babel/core': 7.29.0
-      '@babel/standalone': 7.29.1
-      '@babel/types': 7.29.0
-      citty: 0.1.6
-      defu: 6.1.4
-      jiti: 2.6.1
-      knitwork: 1.3.0
-      scule: 1.3.0
-    transitivePeerDependencies:
-      - supports-color
-
   untyped@2.0.0:
     dependencies:
       citty: 0.1.6
@@ -17167,15 +17057,6 @@ snapshots:
     dependencies:
       ufo: 1.6.3
 
-  vue-component-meta@2.2.12(typescript@5.9.3):
-    dependencies:
-      '@volar/typescript': 2.4.15
-      '@vue/language-core': 2.2.12(typescript@5.9.3)
-      path-browserify: 1.0.1
-      vue-component-type-helpers: 2.2.12
-    optionalDependencies:
-      typescript: 5.9.3
-
   vue-component-meta@3.2.5(typescript@5.9.3):
     dependencies:
       '@volar/typescript': 2.4.28
@@ -17183,8 +17064,6 @@ snapshots:
       path-browserify: 1.0.1
     optionalDependencies:
       typescript: 5.9.3
-
-  vue-component-type-helpers@2.2.12: {}
 
   vue-component-type-helpers@3.2.5: {}
 

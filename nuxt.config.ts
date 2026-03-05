@@ -22,7 +22,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     // './modules/excalidraw', // 不兼容 Nuxt 4，暂时禁用
     '@nuxt/content',
-    // '@nuxthq/studio', // 暂时禁用，与 Nuxt Content v3 不兼容
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
     '@nuxtjs/mdc',
