@@ -253,4 +253,11 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  /**
+   * Nuxt UI - 使用本地字体，避免 bunny.net 网络请求失败
+   */
+  ui: {
+    fonts: false,
+  },
 })
