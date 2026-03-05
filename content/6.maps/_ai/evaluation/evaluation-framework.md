@@ -3,9 +3,6 @@ title: Evaluation Framework
 description: 大语言模型评估框架与基准测试，包括 lm-evaluation-harness、BigCode 等统一评估工具。
 original_path: _ai/evaluation.md
 ---
-
-# 评估 (Evaluation)
-
 ## lm-evaluation-harness：统一评估框架
 
 lm-evaluation-harness 由 EleutherAI 开发，提供统一的接口测试生成式语言模型在 60+ 学术基准上的表现，解决了各基准实现不一致、结果不可比的问题。支持 MMLU（多学科知识，15,908 题）、GSM8K（数学推理，1,319 题）、HellaSwag（常识推理）、HumanEval（代码生成）、BBH（复杂推理）、TruthfulQA（事实性）等核心基准。

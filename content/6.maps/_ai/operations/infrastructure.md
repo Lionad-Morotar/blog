@@ -3,9 +3,6 @@ title: Infrastructure
 description: AI 基础设施与云平台，包括 Modal、Lambda Labs、SkyPilot 等 Serverless GPU 和多云编排方案。
 original_path: _ai/infrastructure.md
 ---
-
-# 基础设施 (Infrastructure)
-
 ## Modal：Python 原生的 Serverless GPU 平台
 
 Modal 是面向 AI/ML 工程师的 Serverless 计算平台，核心卖点是"Python-native"——用纯 Python 代码定义计算任务，自动处理容器化、调度、扩缩容。支持从 0 到数百 GPU 的秒级扩容，按秒计费，用后即焚。内置高性能分布式文件系统，大模型权重秒级加载。适合快速原型验证和推理服务部署。

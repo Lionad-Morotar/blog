@@ -3,9 +3,6 @@ title: Data Processing
 description: AI 数据处理技术与最佳实践，包括 NeMo Curator、Ray Data、MinHash + LSH 等工具和方法。
 original_path: _ai/data-processing.md
 ---
-
-# 数据处理 (Data Processing)
-
 ## NeMo Curator：GPU 加速的企业级数据整理
 
 NeMo Curator 是 NVIDIA 推出的企业级数据整理工具包，专为大规模生成式 AI 训练设计。它利用 RAPIDS 库（cuDF、cuML、cuGraph）实现 GPU 加速，配合 Ray 支持多节点分布式扩展。在 DGX 系统上可在数小时内处理 TB 级语料，比传统 CPU 方案快 10-100 倍。支持文档提取、文本清洗、精确/模糊去重、质量评分和 PII 检测等模块化管道。

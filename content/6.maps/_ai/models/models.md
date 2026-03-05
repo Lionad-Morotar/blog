@@ -2,9 +2,6 @@
 title: AI Models
 description: Model internals, inference, optimization, and interpretability
 ---
-
-# AI Models
-
 Model internals, inference mechanisms, optimization techniques, and interpretability methods.
 
 ## Topics

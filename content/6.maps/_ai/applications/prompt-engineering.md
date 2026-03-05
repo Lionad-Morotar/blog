@@ -3,9 +3,6 @@ title: 提示工程
 description: 提示工程框架与工具，包括 DSPy、Instructor、Guidance、Outlines 等声明式提示编程方案。
 original_path: _ai/prompt-engineering.md
 ---
-
-# 提示工程 (Prompt Engineering)
-
 ## DSPy：声明式提示编程框架
 
 DSPy 是斯坦福 NLP 团队开源的框架，将提示工程从"手工调优"转变为"编程优化"。核心抽象包括 Signature（声明输入输出语义）、Module（可组合的计算单元）、Optimizer（自动优化提示和权重）、Teleprompter（少样本示例编译器）。开发者只需描述任务逻辑，DSPy 自动优化提示词、选择示例、微调小模型，在多跳问答等任务上超越手工提示。

@@ -2,9 +2,6 @@
 title: AI Core Concepts
 description: 20个AI核心概念一句话速查
 ---
-
-# AI Core Concepts
-
 20个AI核心概念的一句话总结，涵盖神经网络基础、LLM机制、推理技巧和应用模式。
 
 见：[20 AI Concepts Explained Simply](https://blog.algomaster.io/p/20-ai-concepts-explained-simply)

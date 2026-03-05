@@ -3,9 +3,6 @@ title: Artificial Intelligence
 description: Machine learning, large language models, AI agents, and AI engineering
 tags: [AI, ML, LLM, Agents]
 ---
-
-# Artificial Intelligence
-
 Machine learning, large language models, AI agents, and AI engineering practices.
 
 ## Subdomains

@@ -2,9 +2,6 @@
 title: 类型系统
 description: TypeScript 类型工具和 Schema 验证方案。
 ---
-
-# 类型系统
-
 类型系统为 JavaScript 提供编译时类型检查，提升代码质量和开发体验。
 
 ## 子领域导航

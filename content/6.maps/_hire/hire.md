@@ -2,9 +2,6 @@
 title: 招聘与求职
 original_path: content/6.maps/_hire/
 ---
-
-# 招聘与求职
-
 前端面试、招聘相关问题与经验总结。
 
 ## 主题

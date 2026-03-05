@@ -2,9 +2,6 @@
 title: 元框架
 description: 基于 UI 框架的全栈开发框架，提供 SSR、SSG、路由等开箱即用功能。
 ---
-
-# 元框架
-
 元框架（Meta Frameworks）在 UI 框架之上构建，提供全栈开发能力。
 
 ## 子领域导航

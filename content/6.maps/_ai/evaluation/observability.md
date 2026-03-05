@@ -3,9 +3,6 @@ title: Observability
 description: LLM 可观测性平台与工具，包括 LangSmith、Phoenix、Langfuse 等追踪、评估和监控方案。
 original_path: _ai/observability.md
 ---
-
-# 可观测性 (Observability)
-
 ## LangSmith：LangChain 生态追踪平台
 
 LangSmith 是 LangChain 官方的可观测性平台，与 LangChain 生态深度集成。提供调用链可视化、错误定位与重放、批量测试评估、生产指标仪表盘。2025 年推出 LangSmith Fetch CLI 工具，可直接在终端和 IDE 中调试 Agent 追踪数据。适合已使用 LangChain 构建应用的团队，但部分功能需付费，不支持自托管。

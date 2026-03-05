@@ -2,9 +2,6 @@
 title: 渲染技术
 original_path: content/6.maps/_render/
 ---
-
-# 渲染技术
-
 3D 渲染、着色器与图形编程相关技术。
 
 ## 主题

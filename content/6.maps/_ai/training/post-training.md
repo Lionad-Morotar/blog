@@ -3,9 +3,6 @@ title: Post-training
 description: Post-training optimization and model alignment
 original_path: _ai/post-training.md
 ---
-
-# 后训练 (Post-Training)
-
 ## DPO：直接偏好优化的对齐革命
 
 DPO（Direct Preference Optimization）将 RLHF 的两阶段流程（训练 Reward Model + PPO 优化）压缩为单阶段。它直接在偏好数据上优化策略，数学上等价于带 KL 约束的 RL，但实现更简单、训练更稳定。无需强化学习，只需监督学习即可完成对齐，大大降低了后训练门槛。

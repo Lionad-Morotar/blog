@@ -3,9 +3,6 @@ title: AI Training
 description: Model training, fine-tuning, and post-training techniques
 original_path: _ai/training/training.md
 ---
-
-# AI Training
-
 Model training paradigms, fine-tuning strategies, and post-training optimization.
 
 ## Topics

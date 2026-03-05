@@ -3,9 +3,6 @@ title: Multimodal Models
 description: Vision, language, and multimodal AI systems
 original_path: _ai/multimodal.md
 ---
-
-# 多模态 (Multimodal)
-
 ## GPT-4o：端到端多模态标杆
 
 GPT-4o 是 OpenAI 的端到端多模态模型，"o"代表 Omni（全能）。不同于传统的拼接式架构，它在单一神经网络中统一处理文本、图像、音频，实现真正的跨模态理解和生成。在视觉理解、数学推理、语言理解等基准上全面领先，是 2025 年商业多模态模型的事实标准。

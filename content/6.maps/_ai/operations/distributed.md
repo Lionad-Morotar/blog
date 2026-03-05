@@ -3,9 +3,6 @@ title: Distributed Training
 description: 分布式训练技术与框架，包括 DeepSpeed、FSDP、Megatron-Core 等大规模模型训练方案。
 original_path: _ai/distributed.md
 ---
-
-# 分布式 (Distributed Training)
-
 ## DeepSpeed：ZeRO 优化器的显存革命
 
 DeepSpeed 是微软开源的深度学习优化库，核心是 ZeRO（Zero Redundancy Optimizer）技术。通过三个阶段逐步释放显存压力：ZeRO-1 优化器状态分片节省 4x 显存，ZeRO-2 梯度分片再节省 2x，ZeRO-3 参数分片再节省 2x 并支持单卡加载超大模型。它是训练 100B+ 参数模型的首选方案，支持流水线并行、张量并行与 ZeRO 的组合。

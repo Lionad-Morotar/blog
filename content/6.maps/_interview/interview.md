@@ -2,9 +2,6 @@
 title: 面试技巧
 original_path: content/6.maps/_interview/
 ---
-
-# 面试技巧
-
 面试准备、技巧与反思记录。
 
 ## 主题

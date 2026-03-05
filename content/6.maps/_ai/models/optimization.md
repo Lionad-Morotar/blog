@@ -3,9 +3,6 @@ title: Optimization
 description: Model optimization techniques
 original_path: _ai/optimization.md
 ---
-
-# 优化 (Optimization)
-
 ## Flash Attention：内存高效的注意力计算
 
 Flash Attention 由 Tri Dao 开发，通过分块计算（tiling）和重计算（recomputation）策略，将注意力计算从 O(N²) 内存复杂度降至 O(N)，同时保持计算精度不变。Flash Attention-3 进一步优化 Hopper GPU，利用 Tensor Core 异步执行，支持 2-4 倍更长序列，实际计算速度提升 2-4 倍。

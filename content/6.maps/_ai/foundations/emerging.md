@@ -3,9 +3,6 @@ title: Emerging AI Technologies
 description: Emerging technologies and research directions in AI
 original_path: _ai/emerging.md
 ---
-
-# 新兴技术 (Emerging Technologies)
-
 ## MoE：稀疏激活的参数扩展
 
 混合专家模型（MoE）将前馈层替换为多个"专家"网络，通过门控网络动态选择激活的专家。DeepSeek-V3 是 MoE 标杆，拥有 671B 总参数但每次只激活 37B，在保持推理成本不变的情况下显著扩展模型容量。2025 年 MoE 成为大模型标配，Mixtral、Qwen3、Gemini 1.5 Pro 均采用此架构。

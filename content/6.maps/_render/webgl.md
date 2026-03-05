@@ -2,9 +2,6 @@
 title: WebGL
 description: WebGL 基础理论与实战教程资源
 ---
-
-# WebGL
-
 WebGL（Web Graphics Library）是一种在浏览器中进行硬件加速 3D 渲染的 JavaScript API。
 
 ## 学习资源

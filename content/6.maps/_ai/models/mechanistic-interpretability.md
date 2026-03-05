@@ -3,9 +3,6 @@ title: Mechanistic Interpretability
 description: Understanding model internals and interpretability methods
 original_path: _ai/mechanistic-interpretability.md
 ---
-
-# 机制可解释性 (Mechanistic Interpretability)
-
 ## TransformerLens：逆向工程 GPT 风格模型的标准工具
 
 TransformerLens 由 Neel Nanda 开发，是机制可解释性领域的事实标准工具。它提供对 GPT 风格语言模型内部的深度访问能力，包括激活缓存、注意力模式分析、因果追踪和激活修补（Activation Patching）。使用它可以重现经典研究：归纳头（Induction Heads）负责 few-shot 学习的注意力回路、间接对象识别（IOI）解析代词指代消解的电路、以及定位执行简单数学运算的子网络。

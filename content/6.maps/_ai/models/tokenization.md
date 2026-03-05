@@ -3,9 +3,6 @@ title: Tokenization
 description: Text tokenization and encoding
 original_path: _ai/tokenization.md
 ---
-
-# 分词 (Tokenization)
-
 ## HuggingFace Tokenizers：Rust 实现的高性能分词
 
 HuggingFace Tokenizers 基于 Rust 实现，提供 Python 绑定，在训练和推理速度上都显著优于纯 Python 实现。在 GB 级语料上训练 tokenizer，它比纯 Python 实现快 10-100 倍，内存占用更低。支持 BPE、Byte-Level BPE、WordPiece、Unigram 等主流算法，与 transformers 生态无缝集成。

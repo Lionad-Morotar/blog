@@ -3,9 +3,6 @@ title: AI Architectures
 description: System architectures and design patterns for AI systems
 original_path: _ai/architectures.md
 ---
-
-# 模型架构 (Model Architectures)
-
 ## LitGPT：PyTorch Lightning 原生的 LLM 工具包
 
 LitGPT 让在个人数据上训练、微调和部署大模型变得简单高效。它内置 20+ 主流开源架构（Llama、Mistral、Qwen 等），并预配置 Flash Attention、FSDP 分布式训练、4-bit/8-bit 量化等生产级优化，开箱即用。核心代码采用"单文件模型"设计，没有过度抽象，适合快速原型验证和学习 LLM 工程实践。

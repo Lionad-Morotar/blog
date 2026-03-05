@@ -3,9 +3,6 @@ title: ML 论文写作
 description: 机器学习学术论文写作指南，包括 LaTeX 工具、文献管理与可复现性实践。
 original_path: _ai/paper-writing.md
 ---
-
-# ML 论文写作 (ML Paper Writing)
-
 ## LaTeX 与学术写作工具
 
 Overleaf 是在线协作 LaTeX 编辑的事实标准，内置 ACL、NeurIPS、ICML、ICLR、arXiv 等会议期刊模板。2025 年出现的 PaperDebugger 将 AI 辅助写作引入 Overleaf，通过多 Agent 系统在编辑器内提供语言润色、结构建议、引用验证等功能。

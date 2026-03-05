@@ -3,9 +3,6 @@ title: Fine-tuning
 description: Model fine-tuning techniques and best practices
 original_path: _ai/fine-tuning.md
 ---
-
-# 微调 (Fine-tuning)
-
 ## Axolotl：YAML 配置驱动的微调框架
 
 Axolotl 的核心理念是"用 YAML 定义整个训练流程"——从数据预处理、模型加载、训练配置到导出部署，全部收敛在一个配置文件中。这种声明式接口降低了微调门槛，支持 LoRA/QLoRA、全参数微调、多模态微调和持续预训练。2025 年 2 月新增 LoRA 优化，在单 GPU 和多 GPU 训练中进一步降低内存占用并提升训练速度。

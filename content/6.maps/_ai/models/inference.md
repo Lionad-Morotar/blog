@@ -3,9 +3,6 @@ title: Inference
 description: Model inference and serving techniques
 original_path: _ai/inference.md
 ---
-
-# 推理 (Inference)
-
 ## vLLM：PagedAttention 高吞吐服务框架
 
 vLLM 由伯克利 Sky Computing Lab 开发，核心贡献是 PagedAttention 技术。借鉴操作系统的虚拟内存分页机制，将 KV Cache 分块管理，实现近 100% 的内存利用率（传统实现仅 20-40%）。支持 Continuous Batching（动态批处理）和流水线并行，吞吐提升 2-4 倍，是开源 LLM 服务的事实标准，全球超过 40 万 GPU 部署。

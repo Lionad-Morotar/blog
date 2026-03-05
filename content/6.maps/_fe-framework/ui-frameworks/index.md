@@ -2,9 +2,6 @@
 title: UI 框架
 description: 主流前端 UI 框架，包括 Vue、React、Angular 等组件化开发工具。
 ---
-
-# UI 框架
-
 前端 UI 框架提供了组件化的开发模式，帮助开发者构建复杂的用户界面。
 
 ## 子领域导航

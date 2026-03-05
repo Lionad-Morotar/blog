@@ -2,9 +2,6 @@
 title: AI Foundations
 description: Fundamental concepts, architectures, and industry dynamics in AI
 ---
-
-# AI Foundations
-
 Fundamental concepts, architectures, and industry dynamics in artificial intelligence.
 
 ## Topics

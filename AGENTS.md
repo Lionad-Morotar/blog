@@ -2,7 +2,7 @@
 
 ## 要求
 
-* 所有 Markdown 文档，使用 frontmatter，包含标题、描述，无需在正文写一级标题
+* 所有 Markdown 文档有 frontmatter.title 就不要一级标题了
 
 ## Project Context
 

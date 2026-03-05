@@ -2,9 +2,6 @@
 title: Agent 生态系统全景
 description: AI Agent 框架、平台、协议和基础设施的全面调研
 ---
-
-# Agent 生态系统全景
-
 ## 多智能体框架对比
 
 | 框架 | GitHub | Stars | 语言 | Tool | MCP | Skill | Memory | Hook | 特点 |
