@@ -38,7 +38,8 @@
     "nuxt-og-image": "^4.2.0",
     "stylus": "^0.64.0",
     "svg2roughjs": "^3.2.1",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.0",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.95",
@@ -46,6 +47,7 @@
     "@nuxt/devtools": "^1.7.0",
     "@nuxt/eslint-config": "^0.7.6",
     "@nuxtjs/sitemap": "^7.6.0",
+    "@types/tinycolor2": "^1.4.6",
     "@vueuse/core": "^12.8.2",
     "eslint": "^9.39.3",
     "medium-zoom": "^1.1.0",
