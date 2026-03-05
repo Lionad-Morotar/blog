@@ -135,7 +135,8 @@ export default defineNuxtConfig({
           'UIcon',
           'AspectRatio',
           'Mermaid',
-          'Excalidraw'
+          'Excalidraw',
+          'UserPersona'
         ].includes(c.pascalName)
       )
 
