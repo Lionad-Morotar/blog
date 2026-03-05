@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
     '@nuxtjs/mdc',
-    // 'nuxt-feedme', // 与 Nuxt Content v3 不兼容，暂时禁用
+    'nuxt-feedme',
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
     '@nuxt-dev/medium-zoom',
@@ -79,46 +79,46 @@ export default defineNuxtConfig({
 
   /**
    * Feeds Setting
-   * @see https://nuxt.com/modules/nuxt-feedme
+   * @see https://github.com/helltraitor/nuxt-feedme
    */
   feedme: {
-    feeds: {
-      '/feed.atom': { revisit: '8h', type: 'atom1', content: true },
-      '/feed.xml': { revisit: '8h', type: 'rss2', content: true },
-      '/feed.json': { revisit: '8h', type: 'json1', content: true },
+    defaults: {
+      // 禁用默认配置，使用自定义配置
+      common: false,
+      routes: false,
+      mapping: false,
+      mappingTemplates: false,
     },
-    content: {
-      feed: {
-        defaults: {
+    feeds: {
+      common: {
+        revisit: '8h',
+        fixDateFields: true,
+        feed: {
           id: baseUrl,
           title: '仿生狮子',
           link: baseUrl,
+          description: 'Lionad 的博客，关于前端、科学、Flow 与笔记',
           author: { email: '1806234223@qq.com', name: 'lionad' },
-          categories: ['lionad', 'front-end', 'science', 'flow', 'notes'],
           copyright: 'CC BY-NC-SA 4.0',
         },
-      },
-      item: {
-        query: {
-          where: [
-            { path: /^\/(2\.articles|1\.flows)\/([^_]|(_forty-two))/ },
-          ],
-        },
+        collections: ['flows', 'articles'],
         mapping: [
-          // Third item is optional mapping function
-          ['date', 'modified', value => value ? new Date(value) : value],
-          // When mapping function result is undefined - next variant applied
-          ['date', 'created', value => value ? new Date(value) : value],
-          // Until the real one value will be set
-          ['date', '', () => new Date()],
-          // By default mapping is x => x
           ['link', 'path'],
+          ['date', 'modified'],
+          ['date', 'created'],
+          ['title', 'title'],
+          ['description', 'description'],
         ],
+        // replace 配置暂时禁用 - 需要正确处理正则序列化
+        // replace: [
+        //   ['/^(?=\\/)/', baseUrl],
+        // ],
       },
-      tags: [
-        [/^(?=\/)/, baseUrl],
-      ],
-      revisit: '24h',
+      routes: {
+        '/feed.atom': { type: 'atom1' },
+        '/feed.xml': { type: 'rss2' },
+        '/feed.json': { type: 'json1' },
+      },
     },
   },
 
