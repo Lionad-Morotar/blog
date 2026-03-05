@@ -3,30 +3,30 @@ const baseUrl = 'https://lionad.art'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
+  css: ['~/assets/css/main.css'],
+
   experimental: {
     payloadExtraction: true
   },
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => [].includes(tag),
+      isCustomElement: (tag) => ['Name'].includes(tag),
     },
   },
 
-  extends: ['@nuxt/ui-pro'],
-
   modules: [
     'nuxt-gtag',
-    '@nuxt/content',
     // 'nuxt-content-git',
     '@nuxt/image',
     '@nuxt/ui',
-    'nuxt-excalidraw',
-    '@nuxthq/studio',
+    // './modules/excalidraw', // 不兼容 Nuxt 4，暂时禁用
+    '@nuxt/content',
+    // '@nuxthq/studio', // 暂时禁用，与 Nuxt Content v3 不兼容
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
     '@nuxtjs/mdc',
-    'nuxt-feedme',
+    // 'nuxt-feedme', // 与 Nuxt Content v3 不兼容，暂时禁用
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
     '@nuxt-dev/medium-zoom',
@@ -101,7 +101,7 @@ export default defineNuxtConfig({
       item: {
         query: {
           where: [
-            { _path: /^\/(2\.articles|1\.flows)\/([^_]|(_forty-two))/ },
+            { path: /^\/(2\.articles|1\.flows)\/([^_]|(_forty-two))/ },
           ],
         },
         mapping: [
@@ -112,7 +112,7 @@ export default defineNuxtConfig({
           // Until the real one value will be set
           ['date', '', () => new Date()],
           // By default mapping is x => x
-          ['link', '_path'],
+          ['link', 'path'],
         ],
       },
       tags: [
@@ -135,6 +135,7 @@ export default defineNuxtConfig({
           'UIcon',
           'AspectRatio',
           'Mermaid',
+          'Excalidraw'
         ].includes(c.pascalName)
       )
 
@@ -142,17 +143,9 @@ export default defineNuxtConfig({
     },
   },
 
-  ui: ({ icons: ['heroicons', 'simple-icons'] } as any),
 
-  content: {
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
-        sepia: 'monokai',
-      },
-    },
-  },
+  // Nuxt Content v3 配置已移至 content.config.ts
+  // 高亮主题配置现在通过 mdc.highlight 处理
 
   routeRules: {
     '/api/search.json': {
@@ -170,6 +163,10 @@ export default defineNuxtConfig({
 
   mdc: {
     highlight: {
+      theme: {
+        default: 'github-light',
+        dark: 'github-dark',
+      },
       langs: [
         'bash',
         'cpp',

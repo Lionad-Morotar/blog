@@ -280,7 +280,7 @@ title: 🎃 斑马难题
 |   ?    |  ?   |  ?   |  ?  |  ?  |
 |   ?    |  ?   |  ?   |  ?  |  ?  |
 
-![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/%pn_06_23_024.gif)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/200621/%25pn_06_23_024.gif)
 
 我们将会得到两种“正确”的结果，以真值表的角度而言就意味着当前所有假设都是成立。
 

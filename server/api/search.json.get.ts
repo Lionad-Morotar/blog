@@ -1,5 +1,6 @@
-import { serverQueryContent } from '#content/server'
+import { defineEventHandler } from 'h3'
 
-export default eventHandler(async (event) => {
-  return serverQueryContent(event).where({ _type: 'markdown', navigation: { $ne: false } }).find()
+export default defineEventHandler(async (event) => {
+  const content = await queryCollectionSearchSections(event, 'content')
+  return content
 })
