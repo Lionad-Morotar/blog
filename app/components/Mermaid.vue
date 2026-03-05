@@ -261,16 +261,151 @@ async function render() {
   await mermaid.run({ nodes: [el.value] })
 
   const svg = el.value.querySelector('svg')
+  if (!svg) return
+
+  // 保存原始 SVG 的尺寸
+  const width = svg.getAttribute('width')
+  const height = svg.getAttribute('height')
+
+  // 使用 svg2roughjs 生成手绘风格 SVG
   const svg2roughjs = new Svg2Roughjs(el.value)
   svg2roughjs.svg = svg
-  svg2roughjs.sketch()
+  await svg2roughjs.sketch()
 
-  const roughSVG = el.value.querySelector('svg + svg')
-  const width = roughSVG.getAttribute('width')
-  const height = roughSVG.getAttribute('height')
-  roughSVG.setAttribute('viewBox', `0 0 ${width} ${height}`)
-  roughSVG.setAttribute('width', '100%')
-  roughSVG.setAttribute('height', '100%')
+  // 隐藏原始 SVG，只显示手绘版本
+  svg.style.display = 'none'
+
+  // 获取生成的手绘 SVG 并设置尺寸
+  // svg2roughjs 会在原始 SVG 之后插入新的 SVG，选择最后一个 SVG
+  const allSvgs = el.value.querySelectorAll('svg')
+  const roughSVG = allSvgs[allSvgs.length - 1]
+
+  if (roughSVG && roughSVG !== svg && width && height) {
+    // 读取 roughSVG 自身的尺寸（svg2roughjs 可能生成更大的画布）
+    const roughViewBox = roughSVG.getAttribute('viewBox')
+    let roughWidth = width
+    let roughHeight = height
+
+    if (roughViewBox) {
+      const viewBoxParts = roughViewBox.split(' ')
+      if (viewBoxParts.length === 4) {
+        roughWidth = viewBoxParts[2]
+        roughHeight = viewBoxParts[3]
+      }
+    } else {
+      // 如果没有 viewBox，尝试读取 width/height 属性
+      const roughWidthAttr = roughSVG.getAttribute('width')
+      const roughHeightAttr = roughSVG.getAttribute('height')
+      if (roughWidthAttr) roughWidth = roughWidthAttr
+      if (roughHeightAttr) roughHeight = roughHeightAttr
+    }
+
+    // 使用 roughSVG 自身的尺寸设置 viewBox，确保内容不被截断
+    roughSVG.setAttribute('viewBox', `0 0 ${roughWidth} ${roughHeight}`)
+    roughSVG.setAttribute('width', '100%')
+    roughSVG.setAttribute('height', roughHeight)
+
+    // 启用 SVG 平移缩放功能
+    setupSvgPanZoom(roughSVG)
+  }
+}
+
+/**
+ * 设置 SVG 平移和缩放功能
+ * 使用 svg-pan-zoom 库实现
+ */
+async function setupSvgPanZoom(svgElement) {
+  try {
+    const svgPanZoomModule = await import('svg-pan-zoom')
+    const svgPanZoom = svgPanZoomModule.default || svgPanZoomModule
+
+    // 给 SVG 添加点击展开功能
+    svgElement.style.cursor = 'zoom-in'
+    svgElement.addEventListener('click', () => {
+      openSvgModal(svgElement, svgPanZoom)
+    })
+  } catch {
+    // svg-pan-zoom 未安装，忽略
+  }
+}
+
+/**
+ * 打开 SVG 放大弹窗
+ */
+function openSvgModal(originalSvg, svgPanZoomFactory) {
+  // 创建遮罩层
+  const overlay = document.createElement('div')
+  overlay.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  `
+
+  // 创建容器
+  const container = document.createElement('div')
+  container.style.cssText = `
+    width: 90vw;
+    height: 90vh;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  `
+
+  // 克隆 SVG
+  const clonedSvg = originalSvg.cloneNode(true)
+  clonedSvg.style.width = '100%'
+  clonedSvg.style.height = '100%'
+  clonedSvg.style.cursor = 'grab'
+
+  container.appendChild(clonedSvg)
+  overlay.appendChild(container)
+  document.body.appendChild(overlay)
+
+  // 初始化 svg-pan-zoom
+  let panZoomInstance = null
+  try {
+    panZoomInstance = svgPanZoomFactory(clonedSvg, {
+      zoomEnabled: true,
+      controlIconsEnabled: true,
+      fit: true,
+      center: true,
+      minZoom: 0.5,
+      maxZoom: 10,
+    })
+  } catch (e) {
+    console.error('svg-pan-zoom init failed:', e)
+  }
+
+  // 点击遮罩关闭
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay || e.target === container) {
+      if (panZoomInstance) {
+        panZoomInstance.destroy()
+      }
+      document.body.removeChild(overlay)
+    }
+  })
+
+  // ESC 键关闭
+  const handleKeydown = (e) => {
+    if (e.key === 'Escape') {
+      if (panZoomInstance) {
+        panZoomInstance.destroy()
+      }
+      document.body.removeChild(overlay)
+      document.removeEventListener('keydown', handleKeydown)
+    }
+  }
+  document.addEventListener('keydown', handleKeydown)
 }
 
 onBeforeUpdate(() => {
@@ -280,20 +415,18 @@ onMounted(render)
 </script>
 
 <style>
-.mermaid > svg:has(+ svg) {
-  display: none;
-}
-
-html.dark .mermaid svg {
-  filter: invert(1);
-}
-
 .mermaid {
   margin: auto;
 
+  /* 只显示一个 SVG（手绘版本） */
   svg {
     max-width: 100%;
     height: auto;
+  }
+
+  /* 确保只有一个 SVG 可见 */
+  & > svg:first-of-type:not(:only-of-type) {
+    display: none !important;
   }
 
   &.is-sm {
@@ -308,5 +441,10 @@ html.dark .mermaid svg {
   &.is-full {
     max-width: 100%;
   }
+}
+
+/* 暗黑模式：只反射手绘 SVG（非隐藏的那个） */
+html.dark .mermaid > svg:not([style*="display: none"]) {
+  filter: invert(1);
 }
 </style>

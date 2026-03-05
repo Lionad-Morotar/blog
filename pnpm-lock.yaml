@@ -68,8 +68,11 @@ importers:
       stylus:
         specifier: ^0.64.0
         version: 0.64.0
+      svg-pan-zoom:
+        specifier: ^3.6.2
+        version: 3.6.2
       svg2roughjs:
-        specifier: ^3.2.1
+        specifier: ^3.2.2
         version: 3.2.2
       tailwindcss:
         specifier: ^4.0.0
@@ -6932,6 +6935,9 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==, tarball: https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz}
     engines: {node: '>= 0.4'}
+
+  svg-pan-zoom@3.6.2:
+    resolution: {integrity: sha512-JwnvRWfVKw/Xzfe6jriFyfey/lWJLq4bUh2jwoR5ChWQuQoOH8FEh1l/bEp46iHHKHEJWIyFJETbazraxNWECg==, tarball: https://registry.npmmirror.com/svg-pan-zoom/-/svg-pan-zoom-3.6.2.tgz}
 
   svg-pathdata@8.0.0:
     resolution: {integrity: sha512-2Zqf5zsrX44Ws9y52EdHYrzGGnzyQG0jgREw+S3nP7zdx7QeH3QJonnGPvjtxPmYzU5mJMJ2YM+q2hUWGENWFg==, tarball: https://registry.npmmirror.com/svg-pathdata/-/svg-pathdata-8.0.0.tgz}
@@ -16060,6 +16066,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  svg-pan-zoom@3.6.2: {}
 
   svg-pathdata@8.0.0: {}
 
