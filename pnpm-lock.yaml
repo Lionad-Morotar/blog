@@ -20,6 +20,9 @@ importers:
       '@iconify-json/simple-icons':
         specifier: ^1.2.71
         version: 1.2.72
+      '@lionad/nuxt-excalidraw':
+        specifier: ^2.0.2
+        version: 2.0.2(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2))
       '@nuxt/content':
         specifier: ^3.4.0
         version: 3.12.0(better-sqlite3@12.6.2)(magicast@0.5.2)
@@ -99,9 +102,6 @@ importers:
       nuxt-content-git:
         specifier: ^7.0.0
         version: 7.0.0(magicast@0.5.2)
-      nuxt-excalidraw:
-        specifier: 1.0.0-beta.7
-        version: 1.0.0-beta.7(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2))
       nuxt-feedme:
         specifier: ^2.1.0
         version: 2.1.0(better-sqlite3@12.6.2)(magicast@0.5.2)
@@ -577,12 +577,6 @@ packages:
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==, tarball: https://registry.npmmirror.com/@eslint/plugin-kit/-/plugin-kit-0.4.1.tgz}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@excalidraw/excalidraw@0.17.6':
-    resolution: {integrity: sha512-fyCl+zG/Z5yhHDh5Fq2ZGmphcrALmuOdtITm8gN4d8w4ntnaopTXcTfnAAaU3VleDC6LhTkoLOTG6P5kgREiIg==, tarball: https://registry.npmmirror.com/@excalidraw/excalidraw/-/excalidraw-0.17.6.tgz}
-    peerDependencies:
-      react: ^17.0.2 || ^18.2.0
-      react-dom: ^17.0.2 || ^18.2.0
-
   '@excalidraw/excalidraw@0.18.0':
     resolution: {integrity: sha512-QkIiS+5qdy8lmDWTKsuy0sK/fen/LRDtbhm2lc2xcFcqhv2/zdg95bYnl+wnwwXGHo7kEmP65BSiMHE7PJ3Zpw==, tarball: https://registry.npmmirror.com/@excalidraw/excalidraw/-/excalidraw-0.18.0.tgz}
     peerDependencies:
@@ -707,6 +701,10 @@ packages:
 
   '@kwsites/promise-deferred@1.1.1':
     resolution: {integrity: sha512-GaHYm+c0O9MjZRu0ongGBRbinu8gVAMd2UZjji6jVmqKtZluZnptXGWhz1E8j8D2HJ3f/yMxKAUC0b+57wncIw==, tarball: https://registry.npmmirror.com/@kwsites/promise-deferred/-/promise-deferred-1.1.1.tgz}
+
+  '@lionad/nuxt-excalidraw@2.0.2':
+    resolution: {integrity: sha512-zhHSt2Mywcu1dudbFB5KaFgZZKbvIDs1HEjYUUH9n1auIIpZQiLb+da7dPu2wRSGJlE41iFCRy11pah+EYC/dw==, tarball: https://registry.npmmirror.com/@lionad/nuxt-excalidraw/-/nuxt-excalidraw-2.0.2.tgz}
+    engines: {node: '>=20.0.0', pnpm: '>=9.0.0'}
 
   '@mapbox/node-pre-gyp@2.0.3':
     resolution: {integrity: sha512-uwPAhccfFJlsfCxMYTwOdVfOz3xqyj8xYL3zJj8f0pb30tLohnnFPhLuqp4/qoEz8sNxe4SESZedcBojRefIzg==, tarball: https://registry.npmmirror.com/@mapbox/node-pre-gyp/-/node-pre-gyp-2.0.3.tgz}
@@ -5758,10 +5756,6 @@ packages:
     resolution: {integrity: sha512-imQnWDfiB0WONrEBSrc/0H+Em2FCnyiHfhXNc1yzr8nHw02ePSZTl+SOqa4oCFCopWzPLB9l3MNQCUKK1OBKqw==, tarball: https://registry.npmmirror.com/nuxt-content-git/-/nuxt-content-git-7.0.0.tgz}
     engines: {node: '>=22'}
 
-  nuxt-excalidraw@1.0.0-beta.7:
-    resolution: {integrity: sha512-G2duGfj6BNFT/TeozK1YI3k8qwAMm8KesFme9YXkLAtHN35HYwp+eOrBL3Oswf3GE9kY4W7enW8yObn7X1MqYw==, tarball: https://registry.npmmirror.com/nuxt-excalidraw/-/nuxt-excalidraw-1.0.0-beta.7.tgz}
-    engines: {node: ^19.8.1, pnpm: ^8.10.5}
-
   nuxt-feedme@2.1.0:
     resolution: {integrity: sha512-3g5zpVnso3/6D6ypebwD6RnfJQezwfLQ68SKfsAKzc/TeO7/vuwqBm9dWKgjX5sxIJSaqcrzyGt9fyKUCdJ7qA==, tarball: https://registry.npmmirror.com/nuxt-feedme/-/nuxt-feedme-2.1.0.tgz}
 
@@ -8236,11 +8230,6 @@ snapshots:
       '@eslint/core': 0.17.0
       levn: 0.4.1
 
-  '@excalidraw/excalidraw@0.17.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-
   '@excalidraw/excalidraw@0.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@braintree/sanitize-url': 6.0.2
@@ -8421,6 +8410,21 @@ snapshots:
       - supports-color
 
   '@kwsites/promise-deferred@1.1.1': {}
+
+  '@lionad/nuxt-excalidraw@2.0.2(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2))':
+    dependencies:
+      '@excalidraw/excalidraw': 0.18.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@nuxt/kit': 3.21.1(magicast@0.5.2)
+      '@vitejs/plugin-react': 4.7.0(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2))
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - immer
+      - magicast
+      - supports-color
+      - vite
 
   '@mapbox/node-pre-gyp@2.0.3':
     dependencies:
@@ -14430,18 +14434,6 @@ snapshots:
     transitivePeerDependencies:
       - magicast
       - supports-color
-
-  nuxt-excalidraw@1.0.0-beta.7(magicast@0.5.2)(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2)):
-    dependencies:
-      '@excalidraw/excalidraw': 0.17.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@nuxt/kit': 3.21.1(magicast@0.5.2)
-      '@vitejs/plugin-react': 4.7.0(vite@7.3.1(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.0)(yaml@2.8.2))
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - magicast
-      - supports-color
-      - vite
 
   nuxt-feedme@2.1.0(better-sqlite3@12.6.2)(magicast@0.5.2):
     dependencies:

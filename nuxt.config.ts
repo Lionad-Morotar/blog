@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     'nuxt-content-git',
     '@nuxt/image',
     '@nuxt/ui',
-    // './modules/excalidraw', // 不兼容 Nuxt 4，暂时禁用
+    '@lionad/nuxt-excalidraw',
     '@nuxt/content',
     '@nuxtjs/fontaine',
     '@nuxtjs/sitemap',
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
    * @see https://nuxtseo.com/sitemap/getting-started/how-it-works
    */
   sitemap: {
-    // Auto-generate from prerendered routes
+    // Auto-generate from preRendered routes
     // Nuxt Content pages are automatically included via prerendering
     exclude: [
       '/_dir',
@@ -219,6 +219,17 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2024-11-21',
+
+  vite: {
+    optimizeDeps: {
+      include: ['@excalidraw/excalidraw', 'react', 'react-dom/client'],
+    },
+    build: {
+      commonjsOptions: {
+        transformMixedEsModules: true,
+      },
+    },
+  },
 
   /**
    * Color Mode - 避免 hydration mismatch
