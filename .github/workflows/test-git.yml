@@ -1,0 +1,38 @@
+name: test-git-history
+run-name: Test Git History for nuxt-content-git
+
+on:
+  push:
+    branches:
+      - 'test/ci'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fix git history for nuxt-content-git
+        run: |
+          if [ -f .git/shallow ]; then
+            git fetch --prune --unshallow --tags
+          fi
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Debug git info
+        run: |
+          echo "Is shallow: $(test -f .git/shallow && echo 'yes' || echo 'no')"
+          echo "Git version: $(git --version)"
+          echo ""
+          echo "Recent commits:"
+          git log --oneline -5
+          echo ""
+          echo "First commit:"
+          git log --oneline --reverse | head -1
+          echo ""
+          echo "Sample article history:"
+          find content -name "*.md" -type f | head -1 | xargs git log --format="%H %ai %s" -1 2>/dev/null || echo "No articles found"
