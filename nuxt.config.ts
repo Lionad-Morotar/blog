@@ -17,7 +17,7 @@ export default defineNuxtConfig({
 
   modules: [
     'nuxt-gtag',
-    // 'nuxt-content-git',
+    'nuxt-content-git',
     '@nuxt/image',
     '@nuxt/ui',
     // './modules/excalidraw', // 不兼容 Nuxt 4，暂时禁用

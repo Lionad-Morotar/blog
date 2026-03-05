@@ -20,6 +20,9 @@ const baseSchema = z.object({
   author: z.string().optional(),
   image: z.string().optional(),
   draft: z.boolean().optional(),
+  // nuxt-content-git 注入的字段
+  createdAt: z.date().optional(),
+  updatedAt: z.date().optional(),
 })
 
 // 文章 Schema - 包含 links 字段（用于相关链接）

@@ -169,7 +169,11 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
 
     <UPageBody prose>
       <ContentRenderer v-if="page.body" :value="page" />
-      <hr v-if="surround?.length">
+      <ArticleTimestamp
+        v-if="page.createdAt || page.updatedAt"
+        :created-at="page.createdAt"
+        :updated-at="page.updatedAt"
+      />
       <UContentSurround :surround="surround" />
     </UPageBody>
 

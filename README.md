@@ -13,6 +13,22 @@ My personal knowledge base，also a blog，build with Nuxt，online url: [https:
 
 thanks [cmykpixels@codepen](https://codepen.io/cmykpixels/pen/akYxmW) for beautiful backgrounds
 
+## Features
+
+### Git 时间戳 (nuxt-content-git)
+
+使用 [nuxt-content-git](https://github.com/dword-design/nuxt-content-git) 模块自动从 Git 历史中提取文章的创建和更新时间：
+
+- **创建时间** (`createdAt`)：首次提交的时间
+- **更新时间** (`updatedAt`)：最后修改的时间
+
+文章底部会自动显示时间戳组件，如果更新时间与创建时间相同，则只显示创建时间。
+
+**相关文件**：
+- `content.config.ts` - 定义 `createdAt` 和 `updatedAt` 字段
+- `app/components/content/ArticleTimestamp.vue` - 时间戳显示组件
+- `app/pages/[...slug].vue` - 集成时间戳到文章页面
+
 ## License
 
 <center>
