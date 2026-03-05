@@ -61,12 +61,6 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.pkgMan.outputs.package_manager }} install
 
-      - name: Install @nuxthq/studio
-        run: ${{ steps.pkgMan.outputs.package_manager }} add -D @nuxthq/studio
-
-      - name: Create .nuxtrc
-        run: echo $'\nautoImport=true\nmodules[]=@nuxthq/studio' >> .nuxtrc
-
       - name: Generate
         run: npx nuxi build --preset github_pages
         env:
