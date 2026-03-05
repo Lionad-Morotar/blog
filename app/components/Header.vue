@@ -13,14 +13,14 @@ function toggleWideLayout() {
 </script>
 
 <template>
-  <UHeader :class="{ 'wide-header': isWideLayout }">
-    <template #logo>
+  <UHeader :class="{ 'wide-header': isWideLayout }" title="Lionad.ART">
+    <template #title>
       <ClientOnly>
         <template v-if="header?.logo?.dark || header?.logo?.light">
           <UColorModeImage v-bind="{ class: 'h-6 w-auto', ...header?.logo }" />
         </template>
         <template v-else>
-          LIONAD'S BLOG
+          Lionad.ART
         </template>
       </ClientOnly>
     </template>
