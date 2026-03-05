@@ -1,6 +1,6 @@
-# KingDB
-
-
+---
+title: KingDB
+---
 
 ## 概述
 

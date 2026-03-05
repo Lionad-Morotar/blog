@@ -1,4 +1,6 @@
-# Nginx Config Example
+---
+title: Nginx Config Example
+---
 
 ```plaintext
 user lionad;

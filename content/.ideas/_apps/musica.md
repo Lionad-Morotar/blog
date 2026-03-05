@@ -1,4 +1,6 @@
-# 慕斯卡（Musica）
+---
+title: 慕斯卡（Musica）
+---
 
 ## 设想
 

@@ -1,4 +1,6 @@
-# 💫 JS 幻术 | 完全 delete 指南
+---
+title: 💫 JS 幻术 | 完全 delete 指南
+---
 
 ## 前言
 

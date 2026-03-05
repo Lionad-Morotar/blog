@@ -1,4 +1,6 @@
-# 中国画
+---
+title: 中国画
+---
 
 ![魏紫熙](https://mgear-image.oss-cn-shanghai.aliyuncs.com/art/3398528868805936641.jpg)
 

@@ -1,4 +1,6 @@
-# Excalidraw 图表使用指南
+---
+title: Excalidraw 图表使用指南
+---
 
 本文档介绍如何在博客文章中创建和嵌入 Excalidraw 手绘风格图表。
 

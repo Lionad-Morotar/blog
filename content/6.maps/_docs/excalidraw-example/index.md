@@ -1,4 +1,6 @@
-# Excalidraw 嵌入示例
+---
+title: Excalidraw 嵌入示例
+---
 
 本文演示如何在博客文章中嵌入 Excalidraw 交互式图表。
 

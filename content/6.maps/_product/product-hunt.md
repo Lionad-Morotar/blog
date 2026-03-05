@@ -1,4 +1,6 @@
-# Product Hunt 发现
+---
+title: Product Hunt 发现
+---
 
 ## AI Agents
 
