@@ -2,7 +2,7 @@
 import type { AnyFn } from '@vueuse/core'
 
 const { data: page } = await useAsyncData('index', () =>
-  queryCollection('content').path('/').first()
+  queryCollection('recommends').path('/').first()
 )
 
 // 定义首页内容的自定义字段类型

@@ -4,7 +4,49 @@ import type { ContentNavigationItem } from '@nuxt/content'
 const { seo } = useAppConfig()
 const route = useRoute()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
+// 合并所有 collection 的导航
+const { data: navigation } = await useAsyncData('navigation', async () => {
+  const [
+    flowsNav,
+    articlesNav,
+    booksNav,
+    musicNav,
+    mapsNav,
+    toolsNav,
+    sourceCodeNav,
+    hireNav,
+    linksNav,
+    achievedNav,
+    otherNav,
+  ] = await Promise.all([
+    queryCollectionNavigation('flows'),
+    queryCollectionNavigation('articles'),
+    queryCollectionNavigation('books'),
+    queryCollectionNavigation('music'),
+    queryCollectionNavigation('maps'),
+    queryCollectionNavigation('tools'),
+    queryCollectionNavigation('sourceCode'),
+    queryCollectionNavigation('hire'),
+    queryCollectionNavigation('links'),
+    queryCollectionNavigation('achieved'),
+    queryCollectionNavigation('other'),
+  ])
+
+  // 合并所有导航，保持目录结构
+  return [
+    ...flowsNav,
+    ...articlesNav,
+    ...booksNav,
+    ...musicNav,
+    ...mapsNav,
+    ...toolsNav,
+    ...sourceCodeNav,
+    ...hireNav,
+    ...linksNav,
+    ...achievedNav,
+    ...otherNav,
+  ]
+})
 const filteredNavigation = computed(() => {
   const filter = (items: ContentNavigationItem[] | undefined): ContentNavigationItem[] => {
     if (!items?.length) return []

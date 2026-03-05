@@ -2,9 +2,27 @@
 import { withoutTrailingSlash } from 'ufo'
 import { getLocaleFromPath, stripEnPrefix, withLocalePath, type PreferredLocale } from '~/utils/locale'
 
+// 根据路径确定 collection
+type CollectionName = 'flows' | 'articles' | 'books' | 'music' | 'maps' | 'tools' | 'sourceCode' | 'hire' | 'links' | 'achieved' | 'other'
+
+function getCollectionFromPath(path: string): CollectionName {
+  if (path.startsWith('/1.flows') || path.startsWith('/flows')) return 'flows'
+  if (path.startsWith('/2.articles') || path.startsWith('/articles')) return 'articles'
+  if (path.startsWith('/4.books') || path.startsWith('/books')) return 'books'
+  if (path.startsWith('/4.music') || path.startsWith('/music')) return 'music'
+  if (path.startsWith('/6.maps') || path.startsWith('/maps')) return 'maps'
+  if (path.startsWith('/7.tools') || path.startsWith('/tools')) return 'tools'
+  if (path.startsWith('/8.source-code') || path.startsWith('/source-code')) return 'sourceCode'
+  if (path.startsWith('/9.hire') || path.startsWith('/hire')) return 'hire'
+  if (path.startsWith('/10.links') || path.startsWith('/links')) return 'links'
+  if (path.startsWith('/_achieved')) return 'achieved'
+  return 'other'
+}
+
 // 从导航路径中提取 headline（替代已移除的 findPageHeadline）
 async function getPageHeadline(path: string): Promise<string | undefined> {
-  const navigation = await queryCollectionNavigation('content')
+  const collection = getCollectionFromPath(path)
+  const navigation = await queryCollectionNavigation(collection)
   const findHeadline = (items: any[], targetPath: string): string | undefined => {
     for (const item of items) {
       if (item.children?.some((child: any) => child.path === targetPath)) {
@@ -32,14 +50,16 @@ const currentLocale = computed(() => getLocaleFromPath(route.path))
 const basePath = computed(() => stripEnPrefix(route.path))
 const enPath = computed(() => withLocalePath('en', basePath.value))
 
-const { data: page } = await useAsyncData(route.path, () => queryCollection('content').path(route.path).first())
+const collection = computed(() => getCollectionFromPath(route.path))
+const { data: page } = await useAsyncData(route.path, () => queryCollection(collection.value).path(route.path).first())
 const typedPage = computed(() => page.value as typeof page.value & { body?: { toc?: { links?: any[] } } })
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
+const enCollection = computed(() => getCollectionFromPath(enPath.value))
 const { data: enCandidate } = await useAsyncData(`en-candidate:${enPath.value}`, () =>
-  queryCollection('content').path(enPath.value).first()
+  queryCollection(enCollection.value).path(enPath.value).first()
 )
 const hasEnglish = computed(() => Boolean(enCandidate.value))
 
@@ -68,8 +88,9 @@ async function setPreferredLocale(locale: PreferredLocale) {
   await navigateTo({ path: basePath.value, query: route.query, hash: route.hash })
 }
 
+const surroundCollection = computed(() => getCollectionFromPath(route.path))
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
-  queryCollectionItemSurroundings('content', withoutTrailingSlash(route.path), {
+  queryCollectionItemSurroundings(surroundCollection.value, withoutTrailingSlash(route.path), {
     fields: ['title', 'description', 'path']
   })
 )

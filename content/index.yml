@@ -1,6 +1,5 @@
 title: "Lionad's Blog"
 description: 'newest posts'
-navigation: false
 recommends:
   - category: 心流
     label: '盲视'

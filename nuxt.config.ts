@@ -59,6 +59,7 @@ export default defineNuxtConfig({
     ],
   },
 
+  ssr: false,
   nitro: {
     prerender: {
       crawlLinks: true,
@@ -94,7 +95,7 @@ export default defineNuxtConfig({
           title: '仿生狮子',
           link: baseUrl,
           author: { email: '1806234223@qq.com', name: 'lionad' },
-          categories: ['lionad','front-end','science','flow','notes'],
+          categories: ['lionad', 'front-end', 'science', 'flow', 'notes'],
           copyright: 'CC BY-NC-SA 4.0',
         },
       },
@@ -144,8 +145,9 @@ export default defineNuxtConfig({
   },
 
 
-  // Nuxt Content v3 配置已移至 content.config.ts
-  // 高亮主题配置现在通过 mdc.highlight 处理
+  // Nuxt Content v3 配置
+  // - 集合定义在 content.config.ts
+  // - Markdown/高亮配置在 content.build.markdown 下
 
   routeRules: {
     '/api/search.json': {
@@ -161,45 +163,53 @@ export default defineNuxtConfig({
     strict: false,
   },
 
-  mdc: {
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
-      },
-      langs: [
-        'bash',
-        'cpp',
-        'css',
-        'glsl',
-        'html',
-        'less',
-        'stylus',
-        'js',
-        'powershell',
-        'scss',
-        'shell',
-        'ts',
-        'vue',
-        'makefile',
-        'mermaid',
-        'csharp',
-        'java',
-        'nginx',
-        'python'
-      ],
-    },
-    rehypePlugins: {
-      'rehype-mathjax': {
-        src: 'rehype-mathjax',
-        options: {
-          tex: {
-            inlineMath: [['$', '$'], ['\\(', '\\)']],
-            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+  content: {
+    build: {
+      markdown: {
+        toc: {
+          depth: 3,
+          searchDepth: 3
+        },
+        highlight: {
+          theme: {
+            default: 'github-light',
+            dark: 'github-dark',
+          },
+          langs: [
+            'bash',
+            'cpp',
+            'css',
+            'glsl',
+            'html',
+            'less',
+            'stylus',
+            'js',
+            'powershell',
+            'scss',
+            'shell',
+            'ts',
+            'vue',
+            'makefile',
+            'mermaid',
+            'csharp',
+            'java',
+            'nginx',
+            'python'
+          ],
+        },
+        rehypePlugins: {
+          'rehype-mathjax': {
+            src: 'rehype-mathjax',
+            options: {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+              },
+            },
           },
         },
-      },
-    },
+      }
+    }
   },
 
   mediumZoom: {
