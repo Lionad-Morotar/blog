@@ -43,13 +43,18 @@ const recommendSchema = baseSchema.extend({
   })).optional(),
 })
 
-// 通用排除规则
+// 通用排除规则（保留 _ 开头的文件夹，在各集合中单独排除）
 const commonExcludes = [
   '**/.obsidian/**',
   '**/.!(navigation.yml)',
+  '**/*.excalidraw',
+]
+
+// 排除 _ 开头文件夹的规则（用于需要排除的集合）
+const excludesWithUnderscore = [
+  ...commonExcludes,
   '**/_*/**',
   '**/_*',
-  '**/*.excalidraw',
 ]
 
 export default defineContentConfig({
@@ -85,7 +90,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '2.articles/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: articleSchema,
     }),
@@ -95,7 +100,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '4.books/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: baseSchema,
     }),
@@ -105,7 +110,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '4.music/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: baseSchema,
     }),
@@ -125,7 +130,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '7.tools/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: baseSchema,
     }),
@@ -145,7 +150,7 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '9.hire/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: baseSchema,
     }),
@@ -155,17 +160,17 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '10.links/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: baseSchema,
     }),
 
-    // 归档内容（已发布但不再维护）
+    // 归档内容（已发布但大概不再维护）
     achieved: defineCollection({
       type: 'page',
       source: {
         include: '_achieved/**',
-        exclude: commonExcludes,
+        exclude: excludesWithUnderscore,
       },
       schema: baseSchema,
     }),

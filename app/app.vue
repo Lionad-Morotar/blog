@@ -51,7 +51,13 @@ const filteredNavigation = computed(() => {
   const filter = (items: ContentNavigationItem[] | undefined): ContentNavigationItem[] => {
     if (!items?.length) return []
     return items
-      .filter((item) => !(item?.path === '/en' || item?.path?.startsWith('/en/')))
+      .filter((item) => {
+        // 排除英文内容
+        if (item?.path === '/en' || item?.path?.startsWith('/en/')) return false
+        // 排除所有 _ 开头的目录（内容可访问但不在导航显示）
+        if (item?.path?.includes('/_')) return false
+        return true
+      })
       .map((item) => ({ ...item, children: filter(item.children) }))
   }
   return filter(navigation.value)
