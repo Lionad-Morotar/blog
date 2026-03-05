@@ -42,8 +42,16 @@ jobs:
 
       - name: Fix git history for nuxt-content-git
         run: |
-          git fetch --prune --unshallow --tags || true
+          if [ -f .git/shallow ]; then
+            git fetch --prune --unshallow --tags
+          fi
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Debug git info
+        run: |
+          echo "Is shallow: $(test -f .git/shallow && echo 'yes' || echo 'no')"
+          git log --oneline -3
+          git log --format="%H %ai %s" -1 -- content/2.articles/*.md 2>/dev/null || echo "No articles found"
 
       - name: Identify package manager
         id: pkgMan
