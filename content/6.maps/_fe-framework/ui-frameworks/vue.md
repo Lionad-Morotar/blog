@@ -121,6 +121,47 @@ diff 算法之双端对比 https://zhuanlan.zhihu.com/p/432927438
 
 ## 组件
 
+#### 如何处理中文输入法的 Enter 键误触发问题？
+
+中文输入法（IME, Input Method Editor）在输入过程中会触发键盘事件，导致用户按 Enter 确认候选词时意外触发消息发送。
+
+**问题场景：**
+
+用户在 textarea 中输入中文拼音，输入法显示候选词，按 Enter 确认选择时，`keydown` 事件仍然触发，导致消息在拼音阶段就被发送。
+
+**解决方案：**
+
+使用 `compositionstart` / `compositionend` 事件检测 IME 输入状态，在输入法组合过程中忽略 Enter 键。
+
+```vue
+<script setup>
+const isComposing = ref(false);
+const input = ref('');
+
+onMounted(() => {
+  const el = textarea.value;
+  el.addEventListener('compositionstart', () => {
+    isComposing.value = true;
+  });
+  el.addEventListener('compositionend', () => {
+    isComposing.value = false;
+  });
+});
+
+onKeyStroke('Enter', (e) => {
+  // 忽略 IME 输入法组合过程中的 Enter 键
+  if (isComposing.value) {
+    return;
+  }
+  // 处理发送逻辑...
+});
+</script>
+```
+
+**为什么不使用 `event.isComposing`？**
+
+`keydown` 事件触发时 `event.isComposing` 可能还未更新。通过独立监听 composition 事件，确保状态是最新的。
+
 #### keep-alive 的理解，它是如何实现的，具体缓存的是什么？
 
 keep-alive 是一个内置抽象组件，会根据内部组件的 key，使用 LRU 策略来缓存组件实例。
