@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-03-08
+
+ai-research-skills 的这种模式容易出问题。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260306123654604.png)
+
 #### 2026-03-02
 
 QQ 开放平台的图标颜色问题。
