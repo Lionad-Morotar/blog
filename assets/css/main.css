@@ -20,3 +20,26 @@
 
 /* 6. 设备展示样式 */
 @import './devices.css';
+
+/* ============================================
+   UserPersona 组件多列布局
+   ============================================ */
+.prose .infograph-cmpt.template-persona {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* 父容器使用 flex 布局实现多列 */
+.prose > *:has(> .infograph-cmpt.template-persona) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+}
+
+/* 确保单个 UserPersona 也居中 */
+.prose .infograph-cmpt.template-persona:only-child {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

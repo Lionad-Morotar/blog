@@ -144,7 +144,7 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
       <template #links>
         <div class="flex flex-wrap items-center gap-2">
           <UButton
-            v-for="(link, index) in (page.links || [])"
+            v-for="(link, index) in ((page as any).links || [])"
             :key="index"
             v-bind="link"
             :color="(link.color as any) || 'neutral'"

@@ -48,6 +48,7 @@ content/
 │   ├── _management/       # 管理学
 │   ├── _medicine/         # 医疗知识
 │   ├── _person/           # 人物笔记
+│   ├── _politics/         # 政治与政治经济学
 │   ├── _product/          # 产品与运营
 │   ├── _programming/      # 编程语言与范式
 │   ├── _react-native/     # React Native

@@ -230,6 +230,9 @@ export default defineNuxtConfig({
         transformMixedEsModules: true,
       },
     },
+    server: {
+      allowedHosts: ['host.docker.internal', 'localhost', '.localhost'],
+    },
   },
 
   /**

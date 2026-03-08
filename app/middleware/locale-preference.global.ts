@@ -1,5 +1,20 @@
 import { getLocaleFromPath, stripEnPrefix, withLocalePath } from '~/utils/locale'
 
+// 根据路径确定 collection
+function getCollectionFromPath(path: string): string {
+  if (path.startsWith('/1.flows') || path.startsWith('/flows')) return 'flows'
+  if (path.startsWith('/2.articles') || path.startsWith('/articles')) return 'articles'
+  if (path.startsWith('/4.books') || path.startsWith('/books')) return 'books'
+  if (path.startsWith('/4.music') || path.startsWith('/music')) return 'music'
+  if (path.startsWith('/6.maps') || path.startsWith('/maps')) return 'maps'
+  if (path.startsWith('/7.tools') || path.startsWith('/tools')) return 'tools'
+  if (path.startsWith('/8.source-code') || path.startsWith('/source-code')) return 'sourceCode'
+  if (path.startsWith('/9.hire') || path.startsWith('/hire')) return 'hire'
+  if (path.startsWith('/10.links') || path.startsWith('/links')) return 'links'
+  if (path.startsWith('/_achieved')) return 'achieved'
+  return 'other'
+}
+
 export default defineNuxtRouteMiddleware(async (to) => {
   // Skip internal Nuxt routes and API routes
   if (to.path.startsWith('/_') || to.path.startsWith('/api/')) return
@@ -19,15 +34,18 @@ export default defineNuxtRouteMiddleware(async (to) => {
 
   // Only query on server to avoid client-side API calls
   if (process.server) {
+    const baseCollection = getCollectionFromPath(basePath)
+    const enCollection = getCollectionFromPath(enPath)
+
     try {
-      const result = await queryCollection('content').path(basePath).first()
+      const result = await queryCollection(baseCollection as any).path(basePath).first()
       contentExistsState.value.zh = !!result
     } catch {
       contentExistsState.value.zh = false
     }
 
     try {
-      const result = await queryCollection('content').path(enPath).first()
+      const result = await queryCollection(enCollection as any).path(enPath).first()
       contentExistsState.value.en = !!result
     } catch {
       contentExistsState.value.en = false

@@ -144,11 +144,71 @@ const props = defineProps({
   size: {
     type: String,
     default: 'full' // 'sm' | 'md' | 'lg' | 'full'
+  },
+  // YAML frontmatter 直接作为 props 传递的字段
+  template: {
+    type: String,
+    default: null
+  },
+  name: {
+    type: String,
+    default: null
+  },
+  role: {
+    type: String,
+    default: null
+  },
+  avatar: {
+    type: String,
+    default: null
+  },
+  demographics: {
+    type: Array,
+    default: () => null
+  },
+  goals: {
+    type: Array,
+    default: () => null
+  },
+  painPoints: {
+    type: Array,
+    default: () => null
+  },
+  behaviors: {
+    type: Array,
+    default: () => null
+  },
+  quote: {
+    type: String,
+    default: null
   }
 })
 
 const container = ref(null)
 const parsedData = ref(null)
+
+// 检查是否通过 props 接收了数据（Nuxt Content v3 YAML 方式）
+const hasPropsData = computed(() => {
+  return props.template && props.name
+})
+
+// 从 props 构建数据对象
+const propsData = computed(() => {
+  if (!hasPropsData.value) return null
+  return {
+    template: props.template,
+    data: {
+      name: props.name,
+      role: props.role,
+      avatar: props.avatar,
+      demographics: props.demographics,
+      goals: props.goals,
+      painPoints: props.painPoints,
+      behaviors: props.behaviors,
+      quote: props.quote
+    }
+  }
+})
 
 const slots = useSlots()
 const graphSyntax = computed(() => {
@@ -172,9 +232,81 @@ const graphSyntax = computed(() => {
   return ''
 })
 
+// 检测是否为 YAML frontmatter 格式
+function isYamlFormat(text) {
+  const trimmed = text.trim()
+  return trimmed.startsWith('---') && trimmed.includes('\n---')
+}
+
+// 简单 YAML 解析（不引入外部库）
+function parseSimpleYaml(text) {
+  const lines = text.trim().split('\n')
+  const result = {}
+  let currentKey = null
+  let currentArray = null
+  let inArray = false
+
+  for (const line of lines) {
+    const trimmed = line.trim()
+
+    // 跳过 --- 分隔符
+    if (trimmed === '---') continue
+
+    // 跳过空行
+    if (!trimmed) {
+      if (inArray) {
+        inArray = false
+        currentArray = null
+        currentKey = null
+      }
+      continue
+    }
+
+    // 数组项
+    if (trimmed.startsWith('- ')) {
+      const item = trimmed.slice(2).trim()
+      if (currentArray) {
+        currentArray.push(item)
+      }
+      continue
+    }
+
+    // 键值对
+    if (trimmed.includes(':')) {
+      const colonIndex = trimmed.indexOf(':')
+      const key = trimmed.slice(0, colonIndex).trim()
+      const value = trimmed.slice(colonIndex + 1).trim()
+
+      // 值为空，开始数组
+      if (value === '') {
+        currentArray = []
+        result[key] = currentArray
+        inArray = true
+        currentKey = key
+      } else {
+        result[key] = value.replace(/^["']|["']$/g, '')
+        inArray = false
+        currentArray = null
+      }
+    }
+  }
+
+  return result
+}
+
 // 解析声明式语法
 function parseSyntax(text) {
   if (!text) return null
+
+  // 检测 YAML 格式并解析
+  if (isYamlFormat(text)) {
+    const data = parseSimpleYaml(text)
+    if (data.template) {
+      return { template: data.template, data }
+    }
+    console.warn('[UserPersona] YAML 缺少 template 字段')
+    return null
+  }
 
   const lines = text.trim().split('\n').map(l => l.trim()).filter(Boolean)
   if (lines.length === 0) return null
@@ -281,10 +413,24 @@ function parseValue(value) {
   return value.replace(/^["']|["']$/g, '')
 }
 
-// 监听语法变化
+// 初始化数据
+onMounted(() => {
+  // 优先使用 props 数据（Nuxt Content v3 YAML 方式）
+  if (hasPropsData.value) {
+    parsedData.value = propsData.value
+  } else {
+    // 否则使用 slot 解析（原有自定义语法方式）
+    parsedData.value = parseSyntax(graphSyntax.value)
+  }
+})
+
+// 监听语法变化（slot 方式）
 watch(graphSyntax, (newVal) => {
-  parsedData.value = parseSyntax(newVal)
-}, { immediate: true })
+  // 只有在没有 props 数据时才解析 slot
+  if (!hasPropsData.value) {
+    parsedData.value = parseSyntax(newVal)
+  }
+})
 </script>
 
 <style scoped>
@@ -297,23 +443,36 @@ watch(graphSyntax, (newVal) => {
   --bg-subtle: #f8fafc;
   --border-color: #e2e8f0;
 
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
 /* 尺寸变体 */
-.is-sm { max-width: 30%; margin-left: auto; margin-right: auto; }
-.is-md { max-width: 50%; margin-left: auto; margin-right: auto; }
-.is-lg { max-width: 70%; margin-left: auto; margin-right: auto; }
+.is-sm { max-width: 30%; }
+.is-md { max-width: 50%; }
+.is-lg { max-width: 70%; }
 .is-full { max-width: 100%; }
 
 /* ===== 用户画像模板 ===== */
+/* 容器：水平居中，最大宽度，支持多列布局 */
+.infograph-cmpt.template-persona {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 400px;
+  width: 100%;
+  margin: 0;
+}
+
 .template-persona .persona-card {
-  background: linear-gradient(135deg, #fff 0%, var(--bg-subtle) 100%);
+  background: #fff;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+
+  & + .template-persona {
+    margin-left: 1em;
+  }
 }
 
 .persona-header {
@@ -321,7 +480,7 @@ watch(graphSyntax, (newVal) => {
   align-items: center;
   gap: 1rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-purple) 100%);
+  background: var(--color-primary);
   color: white;
 }
 

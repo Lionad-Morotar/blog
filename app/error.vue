@@ -20,7 +20,11 @@ useHead({
   }
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content'))
+const { data: navigation } = await useAsyncData('navigation', async () => {
+  const collections = ['flows', 'articles', 'books', 'music', 'maps', 'tools', 'sourceCode', 'hire', 'links', 'achieved', 'other'] as const
+  const results = await Promise.all(collections.map(c => queryCollectionNavigation(c)))
+  return results.flat()
+})
 const filteredNavigation = computed(() => {
   const filter = (items: ContentNavigationItem[] | undefined): ContentNavigationItem[] => {
     if (!items?.length) return []

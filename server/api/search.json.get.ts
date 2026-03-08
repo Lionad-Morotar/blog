@@ -1,4 +1,5 @@
-import { defineEventHandler } from 'h3'
+import { defineEventHandler, type H3Event } from 'h3'
+import { queryCollectionSearchSections } from '@nuxt/content/server'
 
 /**
  * 截断内容至指定长度，保留完整单词
@@ -16,7 +17,7 @@ function truncateContent(content: string, maxLength: number = 200): string {
   return truncated.slice(0, lastSpaceIndex) + '...'
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event: H3Event) => {
   const collections = [
     'flows',
     'articles',
