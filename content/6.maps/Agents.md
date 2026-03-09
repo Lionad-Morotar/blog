@@ -140,3 +140,18 @@ description: [身份/职业]
 - `.planning/taxonomy-criteria.md` - 四层认知结构判断标准
 - `.planning/PROJECT.md` - Maps 知识库重构项目概述
 - `.planning/codebase/STRUCTURE.md` - 项目结构文档
+
+## 归档洞察
+
+#### Skills 作为分销渠道的商业洞察
+
+- **技能即分销渠道**：当 Skill 默认使用特定 API 或厂商时，该厂商就被选中，无需销售电话或定价页面
+- **第三买方**：技能作者成为新的买方，他们决定 Agent 使用哪些工具
+- **定价难题**：技能免费（纯文本），价值在于它路由到的服务
+- **垂直领域的持久性**：水平技能（代码审查、调试）会快速商品化，但编码 FDA 提交流程等垂直技能需要领域知识
+- **Freemium 的崩溃**：用户可以用 Prompt 快速构建 60% 需求的解决方案，免费层不再构成转化漏斗
+- **最佳可用人类标准**：AI 不需要比最好的专家更好，只需要比用户能获得的帮助更好
+- **护城河转移**：从"隐藏护城河"到"直接赠送护城河"，真正的价值是领域理解而非代码
+
+见：[I know Kung Fu](https://www.sideband.pub/p/i-know-kung-fu)、
+[The Ghost in the Funnel](https://worksonmymachine.ai/p/the-ghost-in-the-funnel)
