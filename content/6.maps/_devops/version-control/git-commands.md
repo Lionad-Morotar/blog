@@ -103,6 +103,38 @@ git pull origin master --allow-unrelated-histories
 git merge dev --strategy-option theirs
 ```
 
+#### 什么是 Octopus Merge？
+
+Octopus Merge（章鱼合并）是 Git 中用于一次性合并**三个或更多分支**的特殊合并方式。
+与普通两路合并不同，它通过单次合并操作将所有指定分支整合，只产生一个合并提交，从而保持历史记录的简洁。
+
+**基本用法：**
+
+```bash
+git merge branch1 branch2 branch3
+# 或更多分支
+git merge feature/auth feature/payment feature/ui feature/api
+```
+
+**为什么使用 Octopus Merge？**
+
+常规的多分支合并会产生多个合并提交，使历史记录变得"嘈杂"。
+而 Octopus Merge 将所有分支一次性合并，只产生单个合并提交，历史更简洁。
+
+![常规多分支合并：多个合并提交](https://raw.githubusercontent.com/durgaswaroop/blogimages/master/git_usual_merge.png)
+*图片来源：[Git Octopus Merge](https://www.freblogg.com/git-octopus-merge) —— 常规合并逐个合并产生多个合并提交*
+
+![Octopus 合并后：单个合并提交](https://raw.githubusercontent.com/durgaswaroop/blogimages/master/git_post_octopus_merge.png)
+*图片来源：[Git Octopus Merge](https://www.freblogg.com/git-octopus-merge) —— Octopus 合并单次操作，历史更简洁*
+
+**注意事项**
+
+1. **合并冲突处理复杂**：多个分支同时合并时，冲突解决难度呈指数级增长
+2. **不要过度使用**：Linus Torvalds 曾批评 66 分支的合并为"that's not an octopus, that's a **Cthulhu** merge"
+3. **建议上限**：8 路合并已属困难，超过 5-6 个分支应重新考虑合并策略
+
+见：[Git Octopus Merge: A deep dive](https://www.freblogg.com/git-octopus-merge)
+
 ## 提交管理
 
 #### 草稿功能应该怎么使用？
