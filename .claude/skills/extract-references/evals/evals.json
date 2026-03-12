@@ -1,0 +1,26 @@
+{
+  "skill_name": "extract-references",
+  "evals": [
+    {
+      "id": 1,
+      "name": "basic-extraction",
+      "prompt": "找所有我引用过的网站，放到 content/references.md",
+      "expected_output": "生成一个按 A-Z 排序的 Markdown 文件，包含项目中所有引用的外部网站域名",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "custom-path",
+      "prompt": "提取博客中引用的所有链接，整理到 /tmp/my-references.md",
+      "expected_output": "在指定路径生成引用列表文件",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "collect-links",
+      "prompt": "收集我文章中所有的外链，按字母排序",
+      "expected_output": "生成按 A-Z 排序的外部链接列表",
+      "files": []
+    }
+  ]
+}
