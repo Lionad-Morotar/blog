@@ -6,6 +6,7 @@ description: 软件工程、数据结构、算法与设计模式
 ## 子领域
 
 * [鲸落](/maps/_software/whale-fall/whale-fall) - 大型开源项目的生态演替
+* [开源文化](/maps/_software/open-source/culture) - 开源的礼物经济与创作者动机
 * [软件工程](/maps/_software/software-engineering/software-engineering) - 软件工程原则与实践
 * [数据结构](/maps/_software/data-structure/data-structure) - 基础数据结构知识
 * [设计模式](/maps/_software/design-patterns/design-patterns) - 经典设计模式解析
