@@ -122,8 +122,6 @@ git merge feature/auth feature/payment feature/ui feature/api
 而 Octopus Merge 将所有分支一次性合并，只产生单个合并提交，历史更简洁。
 
 ![常规多分支合并：多个合并提交](https://raw.githubusercontent.com/durgaswaroop/blogimages/master/git_usual_merge.png)
-*图片来源：[Git Octopus Merge](https://www.freblogg.com/git-octopus-merge) —— 常规合并逐个合并产生多个合并提交*
-
 ![Octopus 合并后：单个合并提交](https://raw.githubusercontent.com/durgaswaroop/blogimages/master/git_post_octopus_merge.png)
 *图片来源：[Git Octopus Merge](https://www.freblogg.com/git-octopus-merge) —— Octopus 合并单次操作，历史更简洁*
 
