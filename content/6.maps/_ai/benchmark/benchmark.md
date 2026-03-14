@@ -121,3 +121,13 @@ OpenAI 的分析表明，SWE-bench Verified 已不适合衡量前沿模型的编
 ## Vibe Coding 测试
 
 * [2026 年了，谁画页面更强一些](./frontend-copy.md)
+
+## Local Benchmark
+
+**M3 Max 128GB**
+
+* [qwen3.5-9b-mlx-4bit](./local/qwen3.5-9b-mlx-4bit.md)
+* [qwen3-coder-next-mlx-4bit](./local/qwen3-coder-next-mlx-4bit.md)
+* [mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit](./local/mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit.md)
+* [qwen3-embedding-8b-4bit-dwq](./local/qwen3-embedding-8b-4bit-dwq.md)
+* [glm-ocr-8bit](./local/glm-ocr-8bit.md)
