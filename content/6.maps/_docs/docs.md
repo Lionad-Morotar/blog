@@ -12,6 +12,10 @@ description: 文档管理与技术写作
 
 * [Excalidraw 图表使用指南](/maps/_docs/excalidraw-guide)：在博客中创建和嵌入手绘风格图表的完整指南
 
+## 内容引用示例
+
+* [内容引用示例](/maps/_docs/content-embedding-demo)：展示如何在 Markdown 中嵌入和引用其他文件内容，实现一处编写多处复用
+
 ## 概述
 
 本文档领域涵盖文档管理与技术写作相关的知识体系，包括：
