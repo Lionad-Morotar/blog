@@ -1,0 +1,1 @@
+.mermaid{margin:auto}.mermaid svg{height:auto;max-width:100%}.mermaid>svg:first-of-type:not(:only-of-type){display:none!important}.mermaid.is-sm{max-width:30%}.mermaid.is-md{max-width:50%}.mermaid.is-lg{max-width:70%}.mermaid.is-full{max-width:100%}html.dark .mermaid>svg:not([style*="display: none"]){filter:invert(1)}
