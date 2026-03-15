@@ -6,6 +6,7 @@ description: 服务端技术、NodeJS 及服务器相关知识
 ## 子领域
 
 * [NodeJS](/maps/_server/nodejs/nodejs)
+* [邮件服务](/maps/_server/email/self-hosted-email) - 自建邮件服务器实践
 
 ## 概述
 
