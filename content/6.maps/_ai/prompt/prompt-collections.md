@@ -10,6 +10,7 @@ original_path: _ai/prompt/prompt-collections.md
 ### Refactor
 
 * [kimi-cli rust/_/PROMPT.md](https://github.com/MoonshotAI/kimi-cli/pull/717/changes/c09ddc67a3258aa8a60ba2e46b8ef70187ef5661#diff-33f9b98486a80edce8f1f7823fbc94293d7d3a1ffa2e00a1ddf7bf9bf0c1e56f)
+* [OpenAI Codex GPT-5.2 Model Instructions](https://github.com/openai/codex/blob/rust-v0.114.0/codex-rs/core/templates/model_instructions/gpt-5.2-codex_instructions_template.md): Codex 官方模型指令模板
 
 #### Harpers Code Assist
 
