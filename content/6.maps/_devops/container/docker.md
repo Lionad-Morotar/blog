@@ -68,6 +68,10 @@ docker buildx create --use --name multiarch --platform "linux/arm64,linux/amd64"
 docker buildx build --platform linux/arm64,linux/amd64 -t your/app --push .
 ```
 
+## 镜像源
+
+* [DaoCloud Public Image Mirror](https://github.com/DaoCloud/public-image-mirror)：国内 Docker 镜像加速服务，解决镜像拉取超时问题
+
 ## 调试流程
 
 1. 拉远端镜像：`docker pull registry.gitlab.p-ray.cn/moe:75150`
