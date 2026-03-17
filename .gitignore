@@ -47,3 +47,7 @@ workspace.json
 .worktrees/
 
 refs
+
+.planning/*
+!.planning/config.json
+!.planning/codebase 
