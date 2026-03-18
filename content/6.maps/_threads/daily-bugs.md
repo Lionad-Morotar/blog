@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-03-17
+
+这种计数模式很奇怪。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260318122606557.png)
+
 #### 2026-03-08
 
 ai-research-skills 的这种模式容易出问题。
