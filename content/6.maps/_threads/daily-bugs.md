@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-03-19
+
+Gemini 也会有 bug
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260319170833374.png)
+
 #### 2026-03-17
 
 这种计数模式很奇怪。
