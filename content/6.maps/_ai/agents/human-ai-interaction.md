@@ -45,3 +45,16 @@ Judith Butler 将脆弱性（vulnerability）视为伦理关系的基础。
 facade 的问题恰恰在于它不展示自身的失败，制造了完全理解的幻觉。
 
 见：Judith Butler, *Precarious Life: The Power of Mourning and Violence* (2004); *Frames of War* (2009)
+
+#### AI 向每个学科低语"其他人不重要"
+
+AI 对每个角色都发出同一种诱惑：设计师觉得工程师是障碍，
+工程师觉得设计已是 AI 可解决的问题，后端认为前端是"已解问题"……
+本质上是在向每个人耳语："除你之外，所有人的工作都很简单。"
+
+但 Paul Ford 的反驳恰如其分：
+"生活中最残酷的事实是，你热爱的那个学科，离开了你所鄙视的其他学科，便毫无意义。"
+
+最好的产品来自跨学科团队——人不是阻力，协作才是核心。
+
+见：[Re: People Are Not Friction](https://blog.jim-nielsen.com/2026/re-people-arent-friction/)
