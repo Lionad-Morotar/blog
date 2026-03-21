@@ -6,6 +6,7 @@ description: 游戏开发、游戏设计、游戏行业等
 ## 子领域
 
 * [游戏开发](/maps/_game/game/game)
+* [游戏设计](/maps/_game/game-design/touch-controls)
 
 ## 概述
 
