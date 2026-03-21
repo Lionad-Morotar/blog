@@ -104,6 +104,7 @@ description: AI Agent 框架、平台、协议和基础设施的全面调研
 | **AP2** | Google | 支付授权 | ★★★☆☆ 60+机构 |
 | **AG-UI** | CopilotKit | 前端交互 | ★★★★☆ 主流框架支持 |
 | **ANP** | 开源社区 | 智能体互联网 | ★★★☆☆ 早期阶段 |
+| **[gitagent](https://github.com/open-gitagent/gitagent)** | 开源社区 | git 原生的 Agent 定义标准 | ★★☆☆☆ 早期阶段 |
 
 ### MCP (Model Context Protocol)
 
