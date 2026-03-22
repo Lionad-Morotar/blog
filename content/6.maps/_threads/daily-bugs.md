@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-03-21
+
+大雾
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260322235010597.png)
+
 #### 2026-03-19
 
 Gemini 也会有 bug
