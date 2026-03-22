@@ -11,6 +11,7 @@ original_path: content/6.maps/_ui/ui.md
 * [字体排版](/maps/_ui/typography/typography) - 字体设计与排版规范
 * [灵感资源](/maps/_ui/inspiration/inspiration) - 设计灵感与参考资源
 * [AI 辅助设计](/maps/_ui/ai-assisted/ai-assisted) - 生成式 AI 在 UI 设计中的应用
+* [设计模式](/maps/_ui/patterns/overlay-patterns) - 浮层组件、交互模式与 UX 决策框架
 
 ## 概述
 
