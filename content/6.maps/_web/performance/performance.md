@@ -151,6 +151,13 @@ performance.measure('myTask', 'myTask:start', 'myTask:end')
 
 **5W**：时间、地理位置、页面 URL、浏览器、系统、账号 ID、现场还原。**网络**：页面加载方式、Service Worker、HTTP 协议版本、资源压缩方式。**其它**：页面在前台还是后台。
 
+#### 时间到交互性 (Time to Interactivity)
+
+Zach Leatherman 提出的指标，关注代码已落地浏览器但交互尚未就绪的"死亡区域"。这一指
+标帮助开发者量化从可看到可用的间隔，为性能优化谈判提供具体依据。
+
+见：[Web of State of the Browser Day Out](https://remysharp.com/2026/03/18/web-of-state-of-the-browser-day-out)：Remy Sharp 的会议回顾
+
 ### Links
 
 * [蚂蚁金服如何把前端性能监控做到极致?](https://mp.weixin.qq.com/s/pqFhhb5u6w7gmUutilH5xQ)
@@ -167,6 +174,13 @@ performance.measure('myTask', 'myTask:start', 'myTask:end')
 CSS Sprite 动画是一种高性能替代方案，通过 `object-position` 切换单张 Sprite 图的不同区域来实现帧动画，相比多元素方案大幅减少了渲染开销。
 
 见：[CSS Sprite Animation](/maps/_frontend/css/sprite-animation)
+
+#### 第二页加载优化的陷阱
+
+Harry Roberts 指出一个反直觉现象：当跳出率很高时，用大量 JavaScript"优化"第二页加载
+是过早优化，反而带来负面成本。这提醒性能优化需要结合实际业务数据，而非盲目追求指标。
+
+见：[Web of State of the Browser Day Out](https://remysharp.com/2026/03/18/web-of-state-of-the-browser-day-out)：Remy Sharp 的会议回顾
 
 ## SSR 及混合应用优化
 

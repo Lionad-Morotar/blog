@@ -359,6 +359,13 @@ Tooltip 可跟随滑块 thumb 移动，无需 JavaScript 计算位置。
 
 见：[Chrome for Developers - Anchor positioning](https://developer.chrome.com/docs/css-ui/anchor-positioning-api)
 
+#### Anchor Positioning 的测试挑战
+
+CSS Anchor Positioning 能替代大量复杂 JavaScript，但规范本身并非完全简单。特别是
+call out arrows（提示箭头）场景存在测试盲区，目前仍依赖旋转边框等 Hack 实现。如何
+有效测试 CSS——启动浏览器并对比截图——是一个值得深入的话题。
+
+见：[Web of State of the Browser Day Out](https://remysharp.com/2026/03/18/web-of-state-of-the-browser-day-out)：Remy Sharp 的会议回顾
 
 #### Textbox Trim 文本框修剪
 

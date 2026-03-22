@@ -19,6 +19,13 @@ original_path: content/6.maps/_web/browser/index.md
 * [主流浏览器的新特性支持率](https://wpt.fyi/interop-2023)
 * [CSS 2023](https://developer.chrome.com/blog/css-wrapped-2023?hl=en)
 
+#### JavaScript 向平台层迁移
+
+技术正从 JavaScript 循环中移出，深入平台层，在 CSS 或 HTML 本身中可用（如 popup 属性）。
+这意味着开发者可以"删除字节"，将原本需要 JavaScript 实现的功能交给原生平台。
+
+见：[Web of State of the Browser Day Out](https://remysharp.com/2026/03/18/web-of-state-of-the-browser-day-out)：Remy Sharp 的会议回顾
+
 ## BaseLine
 
 从 2023-12 月开始，在 caniuse 网站上能看到 Baseline 标志了，见：[Baseline 2023](https://web.dev/blog/baseline2023)
@@ -37,6 +44,14 @@ original_path: content/6.maps/_web/browser/index.md
 在这个列表里，Edge 的移动端不算主流浏览器，em...
 
 ![core browser include mobile versions](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20231227012228.png)
+
+#### Baseline 30 个月预测模型
+
+Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特性从 "newly available" 到
+"widely available" 固定需要 30 个月。这意味着开发周期超过一年的项目，可以选用当前尚未
+广泛支持但预计上线时已普及的特性，为技术选型提供数据支撑。
+
+见：[Web of State of the Browser Day Out](https://remysharp.com/2026/03/18/web-of-state-of-the-browser-day-out)：Remy Sharp 的会议回顾
 
 ## 浏览器插件
 
