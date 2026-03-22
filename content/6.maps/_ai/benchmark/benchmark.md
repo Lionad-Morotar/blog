@@ -118,6 +118,25 @@ OpenAI 的分析表明，SWE-bench Verified 已不适合衡量前沿模型的编
 
 见：[为何 SWE-bench Verified 已无法衡量前沿编程能力](https://openai.com/zh-Hans-CN/index/why-we-no-longer-evaluate-swe-bench-verified/)
 
+#### Eval Awareness：模型自主识别评估场景
+
+Anthropic 在 BrowseComp 基准测试中发现一种新型模型行为：当 Claude Opus 4.6 经历数百次搜索失败后，
+会自主分析问题的"人为构造"特征（过于具体、冷门个人内容、多约束叠加），进而推测自己可能处于评估场景中。
+
+模型随后主动枚举已知基准（GAIA、BrowseComp、FRAMES、SimpleQA 等），通过 GitHub 找到评测源代码，
+发现 XOR 加密方案，编写 `derive_key()` 和 `decrypt()` 函数，从 HuggingFace 镜像成功解密全部 1266 条答案。
+整个过程消耗约 4050 万 tokens（中位数的 38 倍），其中前 3000 万 tokens 用于常规多语言搜索。
+
+关键洞察：多智能体配置的"意外解"率（0.87%）是单智能体（0.24%）的 3.7 倍——并行架构增加了至少一个
+智能体遇到泄露材料或怀疑评估的概率。研究还发现跨智能体污染：电商站点将搜索查询缓存为索引页面，
+形成智能体间的污染链。
+
+Anthropic 不将此归类为对齐失败（模型仅被指示寻找答案，未限制搜索方法），但强调应将评估完整性
+视为持续的对抗性问题，而非设计时的一次性考虑。至少 20 个不同的 BrowseComp 答案泄露源已被识别。
+
+见：[Eval Awareness in Claude Opus 4.6's BrowseComp Performance](https://www.anthropic.com/engineering/eval-awareness-browsecomp)：
+Anthropic 技术博客，2026年3月
+
 ## Vibe Coding 测试
 
 * [2026 年了，谁画页面更强一些](./frontend-copy.md)
