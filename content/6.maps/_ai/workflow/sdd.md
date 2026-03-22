@@ -145,3 +145,15 @@ AI 驱动的敏捷开发框架，模拟完整软件开发团队。
 | **团队模拟** | 无 | 无 | 无 | 21 个 Agent |
 | **核心优势** | 灵活快速 | 严格质量控制 | 解决 context rot | 完整敏捷流程 |
 | **最佳场景** | 个人/小团队 | 企业团队 | 复杂多阶段项目 | 大型敏捷项目 |
+
+## 批判性反思
+
+#### 规格与代码的等价性原理
+
+试图用自然语言规格替代代码是徒劳的——当规格精确到足以可靠生成实现时，它必然被扭曲成代码形式。这是 Dijkstra 所谓"窄接口"的必然要求。
+
+OpenAI 的 Symphony 项目自称从规格生成，但其 SPEC.md 实则是"伪代码的 markdown 形式"：包含数据库 schema 的逐字段罗列、算法的伪代码描述、甚至直接嵌入代码块。该规格文件已达 Elixir 实现代码量的 1/6，却仍未保证可靠生成。
+
+数学史印证了这一点：希腊数学因停留在口头和图形而停滞，直到 Vieta、Descartes、Leibniz 等人设计的**形式符号系统**才突破瓶颈。"代码生成于规格"的愿景本质上是 Borges 小说中的"与帝国一样大的地图"——当规格详尽到与实现重合，它便失去了作为抽象工具的价值。
+
+见：[A sufficiently detailed spec is code](https://haskellforall.com/2026/03/a-sufficiently-detailed-spec-is-code)：Gabriella Gonzalez 对 agentic coding 两个核心误区的深度剖析

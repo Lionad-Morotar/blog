@@ -71,6 +71,16 @@ Diallo 发现，用 LLM 辅助写作的文章都有相似的"声音"——相同
 
 见：[Why we feel an aversion towards LLM articles](https://idiallo.com/blog/why-we-hate-llm-articles)
 
+#### AI 生成规格的 Slop 陷阱
+
+规格工作本应比编码更需深思熟虑——它要求以审视和批判的视角审视项目，而编码开始后人们会转向行动偏误。但当行业将规格工作优化为交付速度时，规格必然沦为"规格形状的句子堆砌"。
+
+Symphony 的 Section 10.5 是典型案例：关于 GraphQL 扩展的"规格"只是缺乏连贯性的约束罗列。这是典型的 agent 工作产品特征：缺乏目的感和对更大图景的理解。更深层的问题是劳动价值的贬低——当企业从"规格工作应该比编码更容易"的前提出发，就无法完成规格写作所需的困难思考。
+
+"垃圾进垃圾出"原则在此适用：输入缺乏清晰度的文档，无法让 coding agent 可靠地填补缺失的清晰度。Coding agents 不是读心术师。
+
+见：[A sufficiently detailed spec is code](https://haskellforall.com/2026/03/a-sufficiently-detailed-spec-is-code)：Gabriella Gonzalez 对 agentic coding 两个核心误区的深度剖析
+
 ## Links
 
 #### 余额查询
