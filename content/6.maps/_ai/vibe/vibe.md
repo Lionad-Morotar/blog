@@ -28,6 +28,14 @@ original_path: _ai/vibe.md
 
 - [Team of Agents](/maps/_ai/vibe/team-of-agents)
 
+#### AI 辅助开源贡献的分工模式
+
+Matteo Collina 使用 Claude Code 在假期完成 Node.js core 的 `node:vfs` PR（14,000 行代码，66 个文件），展示了 AI 辅助大型开源项目的典型分工：人类负责架构设计、API 设计和逐行 code review；AI 处理所有繁琐实现（fs 方法的 sync/callback/promise 三种变体）、测试覆盖和文档生成。
+
+> "Without AI, this would not have been a holiday side project. It just wouldn't have happened."
+
+见：[Why Node.js Needs a Virtual File System](https://blog.platformatic.dev/why-nodejs-needs-a-virtual-file-system)：作者关于使用 Claude Code 开发 node:vfs 的实践经验
+
 ### 持续集成
 
 - [Anchoring coding agents to a ref application](/maps/_ai/vibe/anchoring)

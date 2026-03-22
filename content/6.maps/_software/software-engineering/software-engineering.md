@@ -10,6 +10,14 @@ original_path: content/6.maps/_software/software-engineering.md
 
 ## Gists
 
+#### API 向后兼容的二十年承诺
+
+Amazon S3 最 remarkable 的成就：2006 年编写的代码今天仍能运行，无需修改。二十年间基础设施迁移了多代磁盘、所有请求处理代码被完全重写、存储规模从 1PB 增长到数百 EB、价格从 $0.15/GB 降至 $0.02/GB（降幅 85%）——不变的是 API 完全向后兼容。这一案例印证了渐进演进胜于重写的工程哲学。
+
+> "Your data went through 20 years of innovation... But the data you stored 20 years ago is still available today."
+
+见：[Twenty years of Amazon S3 and building what's next](https://aws.amazon.com/cn/blogs/aws/twenty-years-of-amazon-s3-and-building-whats-next/)：AWS 官方博客
+
 #### 渐进演进的战略智慧：为何"丑陋"的代码比"干净"的重写更有价值
 
 程序员本能地想要推倒重来，因为他们认为旧代码是"混乱的"。

@@ -3,6 +3,30 @@ title: 技术架构
 description: 技术架构是指软件系统的整体结构，包括软件组件、子系统、模块之间的关系，以及软件系统的外部特性和行为。技术架构设计是软件开发的重要环节，它决定了软件系统的质量、性能、可维护性和可扩展性。
 ---
 
+## S3
+
+#### S3 的五大核心设计原则
+
+Amazon S3 自 2006 年发布至今，其底层设计原则从未改变，支撑了从 1PB 到数百 EB 的规模化演进：
+
+1. **Security**：数据默认受保护
+2. **Durability**：11 个 9（99.999999999%）的设计目标，系统以无损方式运行
+3. **Availability**：假设故障始终存在，必须在每一层设计中处理
+4. **Performance**：存储任意量数据而不降级
+5. **Elasticity**：随数据增减自动伸缩，无需人工干预
+
+> "When we get these things right, the service becomes so straightforward that most of you never have to think about how complex these concepts are."
+
+见：[Twenty years of Amazon S3 and building what's next](https://aws.amazon.com/cn/blogs/aws/twenty-years-of-amazon-s3-and-building-whats-next/)：AWS 官方博客回顾 S3 二十年演进
+
+#### 规模即优势（Scale is to your advantage）
+
+S3 的反直觉架构哲学：规模是优势而非负担。工程师刻意设计系统使规模增长改善所有用户的系统属性——S3 越大，工作负载的去相关性越强，可靠性反而提升。微服务持续巡检集群每个字节，规模扩大时检测能力同步增强；自动修复系统在数据退化时立即触发，规模效应使修复资源池更充裕。
+
+> "The larger S3 gets, the more de-correlated workloads become, which improves reliability for everyone."
+
+见：[Twenty years of Amazon S3 and building what's next](https://aws.amazon.com/cn/blogs/aws/twenty-years-of-amazon-s3-and-building-whats-next/)：S3 VP Mai-Lan Tomsen Bukovec 与 Gergely Orosz 的技术访谈
+
 ## 相关资料
 
 * [System Design 101](https://bytebytego.com/guides/)
