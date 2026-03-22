@@ -12,6 +12,7 @@ original_path: content/6.maps/_ui/ui.md
 * [灵感资源](/maps/_ui/inspiration/inspiration) - 设计灵感与参考资源
 * [AI 辅助设计](/maps/_ui/ai-assisted/ai-assisted) - 生成式 AI 在 UI 设计中的应用
 * [设计模式](/maps/_ui/patterns/overlay-patterns) - 浮层组件、交互模式与 UX 决策框架
+* [用户体验](/maps/_ui/ux) - UX 反模式、交互成本与敌对架构分析
 
 ## 概述
 
