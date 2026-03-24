@@ -11,6 +11,7 @@ description: 记录一些账单和开销
 * [VolcEngine](https://console.volcengine.com/ark/region:ark+cn-beijing/openManagement?EMBEDDING=%7B%7D&LLM=%7B%7D&OpenModelVisible=false&action=%7B%7D&advancedActiveKey=model&tab=LLM)
 * [LongCat](https://longcat.chat/platform/usage)
 * [StepFun](https://platform.stepfun.com/account-overview)
+* [Kimi](https://platform.moonshot.cn/console/account)
 
 * **Coding Plan**
 
