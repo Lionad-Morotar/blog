@@ -29,3 +29,13 @@ original_path: content/6.maps/_go/go.md
 
 * [Go Playground](https://go.dev/play/)：在线编写、运行和分享 Go 代码的工具
 * [g](https://github.com/voidint/g)：Version manager for Go
+
+## Build
+
+#### Go 构建时的 VCS 信息嵌入
+
+Go 1.18 引入的构建特性，编译时自动检测 Git 状态并将版本信息嵌入二进制文件。
+
+VCS（Version Control System）信息包括 commit hash、分支名、是否有未提交修改等。可通过 `go version -m <binary>` 查看嵌入的构建信息。
+
+当在非 Git 仓库目录构建时，Go 无法获取 VCS 信息会报错，此时需使用 `-buildvcs=false` 标志禁用该功能。
