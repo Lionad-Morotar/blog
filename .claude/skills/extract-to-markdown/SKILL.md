@@ -3,6 +3,8 @@ name: extract-to-markdown
 description: 从 PDF 和图片中提取内容为 Markdown 格式。用于将文档转换为 Markdown、从扫描文档中提取文字、处理技术文档，或将图片/PDF 内容数字化以便编辑和复用。
 ---
 
+当前 SKILL 服务且仅服务于 `/Users/lionad/Github/Lionad-Morotar/blog` 博客项目，所有改动都应以该项目为基础。
+
 # 提取为 Markdown
 
 ## 概述

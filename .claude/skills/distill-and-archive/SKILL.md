@@ -3,6 +3,8 @@ name: distill-and-archive
 description: 从网址提取知识点并归档到笔记系统的工作流。当用户说"distill"、"把这个归档到笔记"、"整理到 maps"、"保存到知识库"或类似请求时触发。支持从 URL distill 知识点、调研笔记系统结构、制定归档计划、等待用户确认后执行归档和提交。
 ---
 
+当前 SKILL 服务且仅服务于 `/Users/lionad/Github/Lionad-Morotar/blog` 博客项目，所有改动都应以该项目为基础。
+
 ## 上下文
 
 **目标**

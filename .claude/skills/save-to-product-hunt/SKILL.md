@@ -3,6 +3,8 @@ name: save-to-product-hunt
 description: 将 Product Hunt 发现的产品归档到 product-hunt.md。当用户分享带有 ?ref=producthunt 或其他产品发现来源的链接时使用。
 ---
 
+当前 SKILL 服务且仅服务于 `/Users/lionad/Github/Lionad-Morotar/blog` 博客项目，所有改动都应以该项目为基础。
+
 # Save to Product Hunt
 
 ## Overview

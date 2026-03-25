@@ -3,6 +3,8 @@ name: save-to-analytics
 description: 将数据可视化报告（如 Visual Capitalist、Our World in Data、行业研究报告）归档到 analytics.md。当用户分享数据报告、调查报告、行业研究链接时使用，自动提取关键数据点并按主题整理。
 ---
 
+当前 SKILL 服务且仅服务于 `/Users/lionad/Github/Lionad-Morotar/blog` 博客项目，所有改动都应以该项目为基础。
+
 # Save to Analytics
 
 ## Overview

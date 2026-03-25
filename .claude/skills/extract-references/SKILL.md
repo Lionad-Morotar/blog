@@ -3,6 +3,8 @@ name: extract-references
 description: 从项目的 Markdown 文件中提取所有引用的外部网站链接，去重并按 A-Z 排序生成引用列表。禁止自动触发，该技能需要手动调用。
 ---
 
+当前 SKILL 服务且仅服务于 `/Users/lionad/Github/Lionad-Morotar/blog` 博客项目，所有改动都应以该项目为基础。
+
 # Extract References
 
 从项目内容中提取引用的外部网站并生成 A-Z 排序的引用列表。
