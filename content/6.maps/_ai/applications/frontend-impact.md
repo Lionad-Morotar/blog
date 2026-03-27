@@ -26,3 +26,11 @@ description: 滴滴技术团队关于 AI 浪潮下泛前端变革的思考与实
 泛前端开发处于"理解用户需求"与"技术实现"的中间地带，需同时关注用户体验和技术指标。其专业壁垒在于：既要理解用户诉求、将功能转化为可感知的服务，又要通过工程手段实现稳定、高性能的界面交付。
 
 见：[AI 在泛前端领域的思考和实践 @滴滴技术](https://mp.weixin.qq.com/s?__biz=MzU1ODEzNjI2NA==&mid=2247574876&idx=1&sn=4b0bf1c1da0a1c3cd626ec6c308cb579)
+
+#### AI 驱动设计的质量评估维度
+
+将主观设计质量转化为可评估标准需要明确的四维框架：设计质量（整体感、色彩、排版、意象统一）、原创性（定制化决策 vs 模板痕迹）、工艺（技术执行精度）、功能性（可用性独立于美学）。
+
+权重分配反映优先级——设计质量与原创性被加重，惩罚"AI Slop"如紫色渐变配白卡片的套路。评估器通过 Playwright MCP 与实时页面交互，在九轮迭代后曾出现戏剧性转折：模型放弃干净落地页，重构为 CSS 透视渲染的 3D 空间体验。
+
+见：[Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps)：Anthropic Labs 团队关于长时应用开发的 Harness 设计实践
