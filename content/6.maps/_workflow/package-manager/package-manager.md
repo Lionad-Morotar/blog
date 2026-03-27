@@ -120,3 +120,8 @@ engine-strict = true
 #### 关于菱形依赖的复杂性
 
 [dependency-resolution-methods@Andrew Nesbitt](https://nesbitt.io/2026/02/06/dependency-resolution-methods.html)
+
+#### npmgraph
+
+* [npmgraph](https://npmgraph.js.org/)：在线可视化探索 npm 模块及其依赖关系的工具，支持依赖图生成、多维度着色分析和自定义模块导入
+* [GitHub 源码](https://github.com/npmgraph/npmgraph)
