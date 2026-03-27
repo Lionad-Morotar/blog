@@ -20,3 +20,7 @@ description: 硬件是指计算机的物理部分，包括 CPU、内存、硬盘
 ## 存储
 
 * [SSD](/maps/_hardware/ssd)
+
+## 测试工具
+
+* [HardwareTest.org](https://hardwaretest.org/)：50+ 免费在线硬件测试工具，涵盖显示器、键盘、鼠标、音频、手柄、系统性能等，基于浏览器 Web API 运行，无需安装，隐私优先
