@@ -16,7 +16,7 @@ original_path: _ai/benchmark.md
 
 * [Agentic、Safety、Frontier、Legacy LBs](https://scale.com/leaderboard/mcp_atlas)
 
-* [各数据集榜单](https://llm-stats.com/benchmarks)
+* [LLM Stats](https://llm-stats.com/benchmarks)：LLM 综合评测基准聚合平台，涵盖 Coding、Tool Calling、Long Context、Image Understanding、Math & Science 等多维度评测
 
 * [Repo Prompt](https://repoprompt.com/bench)：长上下文推理、文件编辑精度和指令遵循能力 Benchmark
 
