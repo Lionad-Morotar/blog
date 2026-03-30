@@ -145,3 +145,19 @@ flowchart TD
 | **实施成本** | 低 | 高 | 中 |
 
 **推荐**：除非公司有充足 AI 技术储备且业务极度复杂，否则**优先选择方案 C（混合架构）**，以 Workflow 建立安全基线，逐步引入 Agent 提升智能化水平。
+
+## HITL 与 HOTL 的设计准则
+
+HITL（Human-in-the-loop）不应被滥用为"保险"。如果 AI Agent 需要人类监督每一步，那就不是自动化。HITL 应该仅用于高风险、不可逆的决策点。
+
+HOTL（Human-out-of-the-loop）的唤醒准则：仅当"置信度低 AND 潜在影响高"时才唤醒人类。异常处理应遵循"自恢复/降级优先，仅高影响才唤醒"的原则。
+
+决策检查清单：
+- 这个决策是否不可逆？（是 → HITL）
+- 潜在损失是否超过人工介入成本？（是 → HITL）
+- 系统是否有足够置信度自主执行？（否 → HOTL 监督）
+- 错误是否可自动恢复/回滚？（是 → HOTL）
+
+核心洞察：HITL/HOTL 的选择不是技术问题，而是经济学问题——不是"系统能不能自主决策"，而是"人工介入的注意力成本是否值得"。
+
+见：[The Attention Debt of AI Tooling](https://www.wespiser.com/posts/2026-03-15-Attention-Debt-Of-AI-Tooling.html)：AI 工具的认知成本分析
