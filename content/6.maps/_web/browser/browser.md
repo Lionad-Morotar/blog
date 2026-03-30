@@ -130,3 +130,26 @@ javascript:(() => {
 通过代码覆盖率选项查看某个页面或某流程中，执行到的 JS 和 CSS 代码的百分比。可以用来优化首屏等场景。
 
 ![Code Coverage](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220704211729.png)
+
+#### Media Source Extensions (MSE) API
+
+MSE 让 JavaScript 能动态构建媒体流并喂给 `<video>`/`<audio>` 元素播放，解耦了播放器和媒体源。不再依赖单一 URL，而是通过 `MediaSource` 对象把多个媒体片段按需拼接。
+
+```javascript
+const mediaSource = new MediaSource();
+video.src = URL.createObjectURL(mediaSource);
+
+mediaSource.addEventListener('sourceopen', () => {
+  const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.42E01E"');
+  sourceBuffer.appendBuffer(videoSegment);
+});
+```
+
+**有意思的项目方向**：
+
+- **自适应流媒体**：自建 DASH/HLS 客户端，根据网络动态切换码率
+- **实时视频拼接**：多路摄像头、屏幕共享、预录片段混剪输出
+- **P2P 视频传输**：WebRTC DataChannel + MSE 实现去中心化流媒体
+- **浏览器内视频编辑器**：前端剪辑重排，导出片段列表给服务端合成
+- **动态广告插入**：直播流中无缝插入广告，平滑过渡
+- **字幕/音轨热切换**：多语言音轨、字幕按需加载，无需下载完整文件
