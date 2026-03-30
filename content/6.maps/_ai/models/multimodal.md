@@ -44,3 +44,17 @@ OpenAI 的 Whisper 是开源语音识别的标杆，支持 99 种语言的多语
 多模态与 RAG、Agent 结合是 2025 年的前沿方向。CLIP 和向量数据库实现图像语义检索，Qwen2.5-VL 和 GPT-4o 实现视觉感知 Agent，可处理 UI 自动化、文档分析、视频监控等复杂任务。
 
 见：[Vision-Language-Action Models 综述](https://arxiv.org/html/2507.01925v1) | [多模态学习路线](https://blog.csdn.net/qq_51175703/article/details/148561284)
+
+## Mirage Reasoning：多模态模型的幻觉推理现象
+
+#### 什么是 Mirage Reasoning
+
+前沿多模态模型会为从未提供的图像生成详细的图像描述和精心设计的推理痕迹，
+包括病理偏倚的临床发现。模型在编造视觉内容时不会表达不确定性，创造一种
+"false epistemic frame"（虚假认知框架），让使用者误以为模型真的"看到"了图像。
+
+Stanford 团队在 Phantom-0 基准测试中发现，所有前沿模型在无图像情况下的
+幻觉率均超过 60%，在医学基准测试中易感性高达 60-99%。
+
+见：[MIRAGE: The Illusion of Visual Understanding](https://arxiv.org/abs/2603.21687)：
+Stanford HAI 论文，2026年3月
