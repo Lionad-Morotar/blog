@@ -69,6 +69,12 @@ LLM 应用层创业公司的生存能力可通过两个维度评估：
 
 见：[Google VP warns that two types of AI startups may not survive](https://techcrunch.com/2026/02/21/google-vp-warns-that-two-types-of-ai-startups-may-not-survive/)
 
+#### AI 时代的软件范式转移：从界面到结果
+
+Steve Blank 指出 AI Agent 将引发软件产品的根本性变化：当前软件通过仪表盘、报告、提醒向用户展示信息，期待用户自行操作；AI Agent 将自主完成任务——解决工单、预约会议、筛选线索、补货。当产品从 Software-as-Interface 转向 Software-as-Outcome，定价也会从按席位转向按结果（每解决一个工单、每成交一笔线索）。相应地，Product/Market Fit 演变为 AI Agent/Customer Outcome Fit，MVP 演变为 MPO（Minimum Productive Outcome）。开发模式也从串行 Agile 转为 AI Agent 并行测试——瓶颈不再是工程，而是判断力和用户洞察。
+
+见：[Your Startup Is Probably Dead On Arrival](https://steveblank.com/2026/03/17/your-startup-is-probably-dead-on-arrival/)：Steve Blank 论 AI 时代的软件范式转移
+
 #### 如何看待外部新赛道业务？
 
 企业进入新赛道将在机会面前进行着资源、战略、风险、时机的多维博弈。
