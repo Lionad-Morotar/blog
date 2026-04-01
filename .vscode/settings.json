@@ -62,7 +62,8 @@
       "titleBar.activeBackground": "#f9e64f",
       "titleBar.activeForeground": "#15202b",
       "titleBar.inactiveBackground": "#f9e64f99",
-      "titleBar.inactiveForeground": "#15202b99"
+      "titleBar.inactiveForeground": "#15202b99",
+      "editorGroup.border": "#fbed80"
     },
 
     /* cspells */
