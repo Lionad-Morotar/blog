@@ -53,3 +53,16 @@ Schilling 强调：成为 Django 贡献者是一种荣誉，但**从中获得的
 社区的本质是集体协作的努力，剥离人性会让这项事业变得更加困难。
 
 见：Hubert Dreyfus, *Mind Over Machine* (1986); 另见 [_software/open-source/culture](/maps/_software/open-source/culture)
+
+#### 机器没有夺走你的手艺，是你自己放弃了
+
+编程工作最难的部分从来不是打字写出代码，而是理解系统、调试毫无头绪的问题、
+设计不会在负载下崩溃的架构，以及做出能避免数月痛苦的长期决策。
+
+LLM 可以在这些方面提供帮助，但它们本身无法解决这些核心难题。
+它们不理解整个系统，脑海中不携带真实的上下文，更不知道一个决策究竟对还是错。
+
+最重要的是——它们不做选择。
+软件开发真正的价值，在于知道什么东西应该存在，以及为什么应该存在。
+
+见：[A quote from David Abram](https://simonwillison.net/2026/Mar/23/david-abram/)：Simon Willison 引用 David Abram 的观点
