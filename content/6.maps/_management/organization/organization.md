@@ -8,6 +8,10 @@ original_path: content/6.maps/_management/organization.md
 
 * [Shape Up](/maps/_management/shape-up/shape-up)
 
+## 组织理论
+
+* [彼得原理](/maps/_management/organization/peter-principle) - 晋升悖论与管理者胜任力陷阱
+
 ## 目标管理
 
 * OKR
