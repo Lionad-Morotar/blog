@@ -5,5 +5,5 @@ recommends:
     label: '盲视'
     to: '/flows/_forty-two/blind-sight'
   - category: 技术
-    label: 'tailwind4 如何兼容预处理器'
-    to: '/articles/tailwind4-with-sass'
+    label: '生命周期只有 1 天的项目'
+    to: '/articles/snpx-archive-lesson'
