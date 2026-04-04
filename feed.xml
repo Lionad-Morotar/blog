@@ -4,7 +4,7 @@
         <title>仿生狮子</title>
         <link>https://lionad.art</link>
         <description>Lionad 的博客，关于前端、科学、Flow 与笔记</description>
-        <lastBuildDate>Fri, 03 Apr 2026 14:53:53 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 04 Apr 2026 15:29:16 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>CC BY-NC-SA 4.0</copyright>
@@ -119,6 +119,13 @@
             <guid isPermaLink="false">https://lionad.art/articles</guid>
             <pubDate>Tue, 04 Jun 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[笔记、博客以及碎碎念，我的思考和再创造。]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🪦 生命周期只有 1 天的项目]]></title>
+            <link>https://lionad.art/articles/snpx-archive-lesson</link>
+            <guid isPermaLink="false">https://lionad.art/articles/snpx-archive-lesson</guid>
+            <pubDate>Sat, 04 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[一如既往的好消息时，学习新东西变得非常容易。]]></description>
         </item>
         <item>
             <title><![CDATA[📦 一个简单有效的端口命名策略]]></title>
