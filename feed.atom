@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-04-04T15:29:16.643Z</updated>
+    <updated>2026-04-05T16:19:42.827Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -144,7 +144,7 @@
         <id>https://lionad.art/articles/snpx-archive-lesson</id>
         <link href="https://lionad.art/articles/snpx-archive-lesson"/>
         <updated>2026-04-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[一如既往的好消息时，学习新东西变得非常容易。]]></summary>
+        <summary type="html"><![CDATA[一如既往的好消息是，学习新东西变得非常容易。]]></summary>
         <published>2026-04-04T00:00:00.000Z</published>
     </entry>
     <entry>
