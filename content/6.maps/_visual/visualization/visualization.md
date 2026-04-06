@@ -40,6 +40,10 @@ placeholder: TODO - <Article-G210206-BlurStandards />
 * 可以使用两个一维高斯滤波替代二维滤波减少运算量
 * 可以使用查表法优化
 
+#### 生成艺术
+
+* [Harmonium](https://jpalmer.dev/2022/07/harmonium/)：基于向量场与流线的长形式生成艺术项目，使用 Julia 原型与 TypeScript/Svelte 实现，探讨数学形式之间的交互关系、SVG 生成与笔绘输出
+
 ## 概念
 
 ## 视错觉的形成原理？
