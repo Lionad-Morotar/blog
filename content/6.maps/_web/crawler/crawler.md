@@ -39,6 +39,10 @@ original_path: content/6.maps/_web/crawler.md
 
 如果测试每分钟抓 100 次被封了，那么很可能在 80 次就上了监控，所以可以把频次控制在 40 次左右，防止别人的爬虫触发了目标站的反爬虫限制（如 80 次上监控进化为 60 次）。
 
+## Tour
+
+* [Python Web Scraping Tutorial for 2026](https://www.scrapingbee.com/blog/web-scraping-101-with-python/)：ScrapingBee 撰写的 Python 网络爬虫入门教程，涵盖 Requests、BeautifulSoup、Selenium、Playwright、Scrapy 等主流工具及反爬虫策略
+
 ## 调试工具
 
 * [puppeteer-heap-snapshot](https://github.com/adriancooney/puppeteer-heap-snapshot)，根据属性的名字遍历堆内存，查找有这些属性的对象。
