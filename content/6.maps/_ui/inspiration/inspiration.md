@@ -6,6 +6,14 @@ original_path: content/6.maps/_ui/awwwards.md
 
 ## 设计灵感
 
+* [Landing Love](https://www.landing.love/)：精选动画网站展示平台，提供全页视频录制的优质网站示例
+* [Saaspo](https://saaspo.com/)：SaaS 网页设计灵感库，收录最佳 SaaS 落地页并按页面类型与行业分类
+* [Navbar Gallery](https://www.navbar.gallery/)：导航栏设计灵感专题网站，汇集静态、下拉、Mega Menu 等导航范例
+* [CTA.gallery](https://www.cta.gallery/)：Call-to-Action 设计灵感库，专注按钮、弹窗、订阅等转化组件案例
+* [Mobbin Awards](https://mobbin.com/awards)：Mobbin 年度设计奖，评选 iOS、Web、动画与创新领域优秀 UI 作品
+* [Rebrand](https://www.rebrand.gallery/)：视觉识别设计灵感画廊，收录品牌重塑视频与 Design System 发布案例
+* [Component Gallery](https://component.gallery/design-systems/)：设计系统与组件库收录平台，可按技术栈与功能特性筛选
+
 ## Awards
 
 - [Sites of the Day](https://www.awwwards.com/websites/sites_of_the_day/) - 每日最佳网站
