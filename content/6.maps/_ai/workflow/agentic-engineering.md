@@ -101,6 +101,16 @@ Peter 对 MCP（Model Context Protocol）持怀疑态度：
 
 见：[The Pragmatic Engineer Podcast - Peter Steinberger Interview](https://podcasts.apple.com/us/podcast/the-pragmatic-engineer/id1457313865)
 
+#### AI 生成补丁的有效率与人机协作模式
+
+Linux kernel 维护者 Greg Kroah-Hartman 的实验显示，使用简单 prompt（"Give me this"）让 AI 分析代码后，AI 能输出 60 个问题及修复补丁：约 2/3 的补丁是正确的，1/3 存在错误但仍能指向真实问题。
+
+关键洞察：即使正确的补丁也需要人工清理——更好的 changelog、集成工作和人类判断。但 AI 已经从"完全无用"跃升到"可作为有效起点"。
+
+这种人机协作模式的核心：**AI 生成初稿，人类精修**。它不替代维护者，而是显著提升维护者处理简单错误条件的吞吐量。
+
+见：[Linux kernel czar says AI bug reports aren't slop anymore - The Register](https://www.theregister.com/2026/03/26/greg_kroahhartman_ai_kernel/)
+
 #### Agent-First 工程方法论
 
 OpenAI 团队在 5 个月内用**0 行手写代码**构建了一个内部产品，所有代码（应用逻辑、测试、CI 配置、文档、可观测性工具）均由 Codex 生成。核心原则是"**人类掌舵，Agents 执行**"。
