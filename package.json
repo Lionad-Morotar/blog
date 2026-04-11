@@ -15,7 +15,8 @@
     "typecheck": "nuxt typecheck",
     "post": "npm run build && npm run upload",
     "lint": "eslint . --fix && npx case-police \"**/*.md\" --fix",
-    "toc": "node scripts/extract-toc.js"
+    "toc": "node scripts/extract-toc.js",
+    "test": "vitest run"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "^0.18.0",
@@ -47,16 +48,19 @@
     "@nuxt-dev/medium-zoom": "^0.1.0",
     "@nuxt/devtools": "^1.7.0",
     "@nuxt/eslint-config": "^0.7.6",
+    "@nuxt/test-utils": "^4.0.2",
     "@nuxtjs/sitemap": "^7.6.0",
     "@types/tinycolor2": "^1.4.6",
     "@vueuse/core": "^12.8.2",
     "eslint": "^9.39.3",
+    "happy-dom": "^20.8.9",
     "medium-zoom": "^1.1.0",
     "nuxt-content-git": "^7.0.0",
     "nuxt-feedme": "^2.1.0",
     "only-allow": "^1.2.2",
     "rehype-mathjax": "^7.1.0",
     "sass": "^1.97.3",
+    "vitest": "^4.1.4",
     "vue-tsc": "^2.2.12"
   },
   "pnpm": {

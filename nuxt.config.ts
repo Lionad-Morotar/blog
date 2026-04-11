@@ -31,6 +31,10 @@ export default defineNuxtConfig({
     '@nuxt-dev/medium-zoom',
   ],
 
+  runtimeConfig: {
+    previewDirs: process.env.NUXT_PREVIEW_DIRS || '/Users/lionad/Github/Run/claw-code/docs/.report',
+  },
+
   gtag: {
     // cspell:disable-next-line
     id: 'G-P6HBJNW6QT'
@@ -194,7 +198,9 @@ export default defineNuxtConfig({
             'csharp',
             'java',
             'nginx',
-            'python'
+            'python',
+            'go',
+            'rust'
           ],
         },
         rehypePlugins: {
