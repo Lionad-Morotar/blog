@@ -6,6 +6,7 @@ description: 命令行工具、脚本和自动化
 ## 子领域
 
 * [媒体工具](/maps/_cli/tools/ffmpeg)
+* [终端转义序列](/maps/_cli/terminal/escape-sequences)
 
 ## 概述
 
