@@ -68,4 +68,12 @@ Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 p
 /Users/lionad/.claude/projects/xxx/898b6c06e-d932-4fc7-afb9-bce78cbeeef1.jsonl
 ```
 
+#### Claude Code 源码泄露暴露的极端代码膨胀
+
+- L1: 2025年12月27日，Anthropic 首席工程师 Boris Cherny 在 X 上表示过去30天内他100%的 Claude Code 贡献由 Claude Code 自身完成：259 个 PR、497 次提交、40,000 行新增代码。
+- L1: 2026年3月31日，打包失误导致 512,000 行 Claude Code 源码泄露。泄露文件显示极端膨胀：`print.ts` 单函数 3,167 行、486 个分支点、12 层嵌套；`QueryEngine.ts` 46,000 行；`Tool.ts` 29,000 行；`commands.ts` 25,000 行；`main.tsx` 入口文件 785 KB；`userPromptKeywords.ts` 中包含粗俗用语正则情绪分析。
+- L2: 有分析认为这些指标揭示了纯 AI 生成代码库在缺乏人类深度重构时，倾向于将过多职责塞进单一单元，形成难以维护的"巨型单体"。
+
+见：Denis Stetskov, "The Snake That Ate Itself"（2026-04-01）
+
 
