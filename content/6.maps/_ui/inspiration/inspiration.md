@@ -13,6 +13,9 @@ original_path: content/6.maps/_ui/awwwards.md
 * [Mobbin Awards](https://mobbin.com/awards)：Mobbin 年度设计奖，评选 iOS、Web、动画与创新领域优秀 UI 作品
 * [Rebrand](https://www.rebrand.gallery/)：视觉识别设计灵感画廊，收录品牌重塑视频与 Design System 发布案例
 * [Component Gallery](https://component.gallery/design-systems/)：设计系统与组件库收录平台，可按技术栈与功能特性筛选
+* [SaaS UI Navigation](https://www.saasui.design/pattern/navigation)：SaaS 产品导航设计模式库，涵盖侧边栏、顶部栏、Breadcrumb 等导航范例
+* [Mobbin iOS Latest](https://mobbin.com/discover/apps/ios/latest)：Mobbin iOS 应用设计灵感流，展示最新 App 的界面截图与交互流程
+* [UI Notes](https://uinotes.com/)：中文 UI 设计灵感库，汇集网页与移动端界面设计案例
 
 ## Awards
 
