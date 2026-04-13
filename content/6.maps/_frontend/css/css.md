@@ -13,6 +13,7 @@ description: 层叠样式表（Cascading Style Sheets），用于描述网页的
 ### 特性与规范
 
 * [CSS 新特性 2025](/maps/_frontend/css/new-features-2025) - View Transitions、Container Queries、Scroll-driven Animations 等
+* [CSS Subgrid](/maps/_frontend/css/subgrid) - 嵌套网格继承父轨道定义的 breakout 布局模式
 * [CSS Layers](/maps/_frontend/css/layers) - 级联层与优先级管理
 
 ### 工具与预处理器
