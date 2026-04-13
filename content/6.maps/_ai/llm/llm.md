@@ -55,6 +55,12 @@ original_path: _ai/llm.md
 
 ## 核心概念
 
+#### Karpathy 的 MicroGPT：243 行纯 Python 零依赖 GPT 实现
+
+2026 年 2 月，Andrej Karpathy 发布了一个完整的 GPT 训练 + 推理实现，仅用 243 行纯 Python 代码，零外部依赖（无 PyTorch、无 NumPy），只使用 `os`、`math`、`random` 三个标准库。所有操作从头手算——标量算术、自动微分（Value 类）、Transformer 架构。模型采用 GPT-2 结构（1 层、16 维嵌入、4 头注意力、RMSNorm、Adam 优化器），用名字数据集训练生成新名字。核心目的是展示 GPT 的本质算法，证明"Everything else is just efficiency"。
+
+见：[microgpt.py — GitHub Gist](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95)、[microgpt 博文](http://karpathy.github.io/2026/02/12/microgpt/)
+
 #### LLM 训练的三阶段流程？
 
 **预训练（Pre-training）**
