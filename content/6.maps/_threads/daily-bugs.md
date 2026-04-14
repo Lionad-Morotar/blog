@@ -3,6 +3,14 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-13
+
+上次报了 “Stamp” 单词会引起 Kimi 调用报错的问题，当天他们就修掉了。不过后来收到了礼物，不知道和这件事有没有关系。
+
+今天抓到一个新 bug，似乎 Kimi 不兼容 CC 的 ToolSearch。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260414132105430.png)
+
 #### 2026-04-07
 
 Kimi K2.5 出现过几次此类 bug，这次给抓住了，还是在一个全新的上下文开的任务。
