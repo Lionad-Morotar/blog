@@ -4,6 +4,27 @@ original_path: content/6.maps/_render/
 ---
 3D 渲染、着色器与图形编程相关技术。
 
+## 工作室与案例
+
+#### Lusion 数字制作工作室
+
+Lusion 是一家位于 Bristol 的获奖数字制作工作室，由 Edan Kwan 于 2017 年创立。创始人从音乐人转型，自学设计与编码，先后在纽约 agency 任职后回归独立实践。工作室专注 3D 视觉叙事、沉浸式网站和互动数字体验，客户包括 Coca-Cola、Porsche、Max Mara、Google 等全球品牌。代表作：
+
+* **Oryzo AI**：讽刺性 AI 产品发布 campaign，将软木杯垫包装为高端 AI 产品，测试「荒诞创意 + 真实工艺」的上限
+* **Porsche: Dream Machine**：为 Wallpaper* 与 Porsche GB 制作的 2-3 分钟生成式 CG 短片，3 周内从未涉足的媒介中学习并完成
+* **My Little Storybook**：月度实验系列的 WebGL 互动故事书，以日式动漫手绘风格呈现鸟类家族渡河的童话
+* **Devin AI 官网**（devin.ai）：为 Cognition 设计开发 Devin AI 产品官网，Devin 本身也参与了网页开发
+
+工作室核心理念是拒绝模板化，每个项目构建独立系统。获 FWA Site of the Year、Awwwards、CSSDA、Cannes Lions、D&AD、Webby 等荣誉。
+
+见：[Codrops Studio Spotlight](https://tympanus.net/codrops/2026/04/13/lusion-where-digital-craft-meets-ambitious-experimentation/)：Codrops 2026 年 4 月深度访谈、[Lusion 官网](https://lusion.co/)、[Devin AI 项目页](https://lusion.co/projects/devin_ai)
+
+#### 月度实验驱动 R&D 模式
+
+Lusion 通过 Lusion Labs 和月度实验系列进行内部研发，用小周期（每月一个）内部项目测试想法、开发新技能。My Little Storybook 即为月度实验产出，仅用一个月完成，最终成为最受认可的内部作品之一。方法论核心是「先答应，边做边学」——Porsche CG 短片项目中团队从未制作过类似影片，但接下任务后在 3 周内并行学习、设计与构建。内部实验不仅是技能练习场，也是吸引和留住创作型人才的文化机制。
+
+见：[Codrops Studio Spotlight](https://tympanus.net/codrops/2026/04/13/lusion-where-digital-craft-meets-ambitious-experimentation/)
+
 ## 主题
 
 - [C4D](c4d.md) - Cinema 4D 三维设计

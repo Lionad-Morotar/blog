@@ -44,6 +44,12 @@ placeholder: TODO - <Article-G210206-BlurStandards />
 
 * [Harmonium](https://jpalmer.dev/2022/07/harmonium/)：基于向量场与流线的长形式生成艺术项目，使用 Julia 原型与 TypeScript/Svelte 实现，探讨数学形式之间的交互关系、SVG 生成与笔绘输出
 
+#### 从照片级到手绘风格的审美转向
+
+在 WebGL/3D 领域，主流技术路径通常追求照片级真实感（PBR、物理渲染、光线追踪）。Lusion 在 My Little Storybook 项目中展示了一条反向路径：刻意偏离常用的 photoreal 商业美学，转向受日本动漫启发的 stylised visual language——使用手工构建 3D 资产、手绘动画和互动叙事，创造「温和、手工、情感驱动」的 web 体验。这种审美转向不仅是风格偏好，更代表创意编码中「技术为叙事服务」而非「叙事为技术炫技服务」的选择。
+
+见：[Codrops Studio Spotlight](https://tympanus.net/codrops/2026/04/13/lusion-where-digital-craft-meets-ambitious-experimentation/)：Lusion 创作理念访谈
+
 ## 概念
 
 ## 视错觉的形成原理？
