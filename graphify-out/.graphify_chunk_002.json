@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {
+      "id": "favicon_svg",
+      "label": "Blog Favicon SVG",
+      "file_type": "image",
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "favicon_wine_glass_icon",
+      "label": "Wine Glass / Goblet Icon",
+      "file_type": "image",
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "favicon_bubbles_decoration",
+      "label": "Fizz Bubbles Decoration",
+      "file_type": "image",
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "favicon_color_red",
+      "label": "Red Color (#d81e06)",
+      "file_type": "image",
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "favicon_svg",
+      "target": "favicon_wine_glass_icon",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "favicon_svg",
+      "target": "favicon_bubbles_decoration",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "favicon_svg",
+      "target": "favicon_color_red",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "favicon_wine_glass_icon",
+      "target": "favicon_bubbles_decoration",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

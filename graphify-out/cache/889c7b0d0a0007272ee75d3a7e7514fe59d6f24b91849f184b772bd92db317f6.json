@@ -1,0 +1,1 @@
+{"nodes": [{"id": "benchmark_qwen3_embedding_8b_4bit_dwq", "label": "Qwen3-Embedding-8B-4bit-DWQ Benchmark", "file_type": "document", "source_file": "content/6.maps/_ai/benchmark/local/qwen3-embedding-8b-4bit-dwq.md", "source_location": null, "source_url": null, "captured_at": null, "author": null, "contributor": null}], "edges": [], "hyperedges": []}

@@ -1,0 +1,1369 @@
+{
+  "nodes": [
+    {
+      "id": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "label": "AI Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agents.md"
+      ]
+    },
+    {
+      "id": "615eb78b-48c1-4c47-af29-747bb667f513",
+      "label": "LLM-based Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agents.md"
+      ]
+    },
+    {
+      "id": "1b4b61aa-956b-4606-ab18-fe442418d1cf",
+      "label": "Simple Reflex Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "8b028843-b760-4d0d-af55-137b92cded68",
+      "label": "Model-Based Reflex Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "a3867e4c-2764-41a3-9b95-8f2087a720ad",
+      "label": "Goal-Based Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "16bc9967-94a3-453f-a909-1df672e018b2",
+      "label": "Utility-Based Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "0fbb3a5a-5fd7-49e3-940a-3f62dd288558",
+      "label": "Learning Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "5007eeb4-d177-4534-8245-fedcf14d8e07",
+      "label": "Reactive Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "8376c6b5-0259-49f0-a4e9-fa50a0815d32",
+      "label": "Deliberative Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "329d07c2-d4c0-4e30-bcbe-b877b1416383",
+      "label": "Hybrid Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "bb31b113-05b3-4d15-9fd4-3bdd0a6f92f4",
+      "label": "Symbolic AI",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "2a60f0c0-3003-4e54-b8e5-52497558d562",
+      "label": "Sub-symbolic AI",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "9dad3aa4-6735-4fa0-9d2b-2f5f33e343ee",
+      "label": "Neuro-Symbolic AI",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-taxonomy.md"
+      ]
+    },
+    {
+      "id": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "label": "Agent Architecture",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "4621840a-c097-493e-aeb1-99bc5546b6aa",
+      "label": "Workflow",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "411f4e52-d02a-4fa6-9e55-33983636004d",
+      "label": "Agent System",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "54dc4d71-30d7-4cb2-ba15-7ff9b96fff27",
+      "label": "Prompt Chaining",
+      "type": "pattern",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "37fe58dd-9d80-40bb-8386-c42ef84d7e57",
+      "label": "Routing",
+      "type": "pattern",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "36bcf339-cf84-4d95-aa45-c6c99c621dfd",
+      "label": "Parallelization",
+      "type": "pattern",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "1258c65f-d8f8-48b1-ac21-732ae09fc48e",
+      "label": "Orchestrator-Workers",
+      "type": "pattern",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "0b6ccdb5-ec9d-4efb-bc45-1d8d9d4d1150",
+      "label": "Evaluator-Optimizer",
+      "type": "pattern",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "71f0a82f-9301-4308-bb46-dae10196d9db",
+      "label": "Agent-Computer Interface (ACI)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "5ba978c6-2adb-454f-aed9-2b495f18fff1",
+      "label": "Agent Harness",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "77ef7f05-670d-44fc-9fb5-4e0f160b2dce",
+      "label": "Context Reset",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "ff63cee7-90c4-4938-8f3c-cd42183933a7",
+      "label": "Context Compaction",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-architecture.md"
+      ]
+    },
+    {
+      "id": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "label": "Multi-Agent System",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-architecture.md"
+      ]
+    },
+    {
+      "id": "73f1c56f-e2e7-42a5-8b01-eeea036b052a",
+      "label": "Orchestrator",
+      "type": "role",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-architecture.md"
+      ]
+    },
+    {
+      "id": "ed5307d9-f163-4663-991b-489ac54ada2d",
+      "label": "Subagent",
+      "type": "role",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-architecture.md"
+      ]
+    },
+    {
+      "id": "ec3e49d2-2788-4fb2-886d-f6ead5734b61",
+      "label": "Validation Subagent",
+      "type": "pattern",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-architecture.md"
+      ]
+    },
+    {
+      "id": "d5a0e875-9686-41e5-81d2-01b2f85433a5",
+      "label": "Token Consumption as Primary Performance Determinant",
+      "type": "insight",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-architecture.md"
+      ]
+    },
+    {
+      "id": "213c3a0e-04b1-4f0d-88b3-b3fe243f69a7",
+      "label": "Context Engineering",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-architecture.md"
+      ]
+    },
+    {
+      "id": "24971a75-f352-4d39-a4d3-cd75eec35404",
+      "label": "LangGraph",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/multi-agent-frameworks.md"
+      ]
+    },
+    {
+      "id": "20a6cfa6-32a9-4084-9ce1-89d59574e988",
+      "label": "AutoGen",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/multi-agent-frameworks.md"
+      ]
+    },
+    {
+      "id": "56096d33-73d8-49ce-92ab-37479b37d467",
+      "label": "CrewAI",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/multi-agent-frameworks.md"
+      ]
+    },
+    {
+      "id": "85707ee9-6704-4725-bb35-505bd707bb95",
+      "label": "AgentScope",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/agentscope.md"
+      ]
+    },
+    {
+      "id": "423e4f6d-5bf2-4e8b-b5f5-17b527359cc3",
+      "label": "OpenAI Swarm",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/multi-agent-frameworks.md"
+      ]
+    },
+    {
+      "id": "3857cfc0-5e33-4b75-810b-93508ad84fa1",
+      "label": "OpenAI Agents SDK",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/openai-agents-js-releases.md"
+      ]
+    },
+    {
+      "id": "c0638ffd-16ee-4c5e-98bd-1dfe8ddb2214",
+      "label": "Claude Agent SDK",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/claude-agent-sdk-releases.md"
+      ]
+    },
+    {
+      "id": "38fa4e6d-bc83-4835-822e-716391bb449f",
+      "label": "ElizaOS",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/multi-agent-frameworks.md"
+      ]
+    },
+    {
+      "id": "450f8a3d-2591-4d9d-a42d-87e8e9116ef5",
+      "label": "DeepAgents",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md",
+        "content/6.maps/_ai/agents/multi-agent-frameworks.md"
+      ]
+    },
+    {
+      "id": "a1dae78e-c3db-4c43-80c6-a455ef6bbf4c",
+      "label": "Pydantic AI",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "04cf0035-65cb-4aac-8b6e-baea7f96a016",
+      "label": "Google ADK",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "1ba7468f-5bd9-4ed0-a6e4-c9ba054787ed",
+      "label": "Agno",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "846571bb-c23b-4a61-a188-c95a5ee2ee61",
+      "label": "MCP (Model Context Protocol)",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "82d9240b-1277-45fe-a5c3-682a10303c0b",
+      "label": "A2A (Agent-to-Agent)",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/agents.md"
+      ]
+    },
+    {
+      "id": "a2ceef28-677a-4848-842e-cf4718d2a6b0",
+      "label": "A2UI (Agent-to-UI)",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/a2ui.md"
+      ]
+    },
+    {
+      "id": "52606f20-7cd4-484b-923f-c358bbdfd3e5",
+      "label": "AG-UI",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "54cb8843-36b8-4bcb-8e53-31b5f67e6f5c",
+      "label": "AP2",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "0e78f033-48a5-4a4e-bcf5-7e312c89162f",
+      "label": "ANP",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "a04c83f5-d5f2-47c3-b5b1-16f99593cdf1",
+      "label": "gitagent",
+      "type": "protocol",
+      "source_files": [
+        "content/6.maps/_ai/agents/agent-ecosystem.md"
+      ]
+    },
+    {
+      "id": "99d3fda8-5ca4-4c06-a7af-374aacfffe81",
+      "label": "Toxic Flow Analysis",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/toxic-flow-analysis.md"
+      ]
+    },
+    {
+      "id": "3c416c66-7b1c-424f-b9e4-d2a745ff2b26",
+      "label": "Lethal Trifecta",
+      "type": "insight",
+      "source_files": [
+        "content/6.maps/_ai/agents/toxic-flow-analysis.md"
+      ]
+    },
+    {
+      "id": "a3225b1d-9181-46c2-9949-d54c61eba500",
+      "label": "Private Data",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/toxic-flow-analysis.md"
+      ]
+    },
+    {
+      "id": "767559b6-bf89-4ad0-b54c-ae473ce556eb",
+      "label": "Untrusted Content",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/toxic-flow-analysis.md"
+      ]
+    },
+    {
+      "id": "0f8c6f87-24d7-4400-b6cc-26b5317635b3",
+      "label": "External Communication",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/toxic-flow-analysis.md"
+      ]
+    },
+    {
+      "id": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "label": "PEAS Model",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "4ef38d1f-f894-4195-a796-c1fa5573a05c",
+      "label": "Performance (PEAS)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "54c80699-1f66-40ef-b32e-1f9230970ce4",
+      "label": "Environment (PEAS)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "0f226ae7-2e54-4c2e-ae79-06a6cb575519",
+      "label": "Actuators (PEAS)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "d193508a-aa0b-4705-b7f3-7044da6ba1be",
+      "label": "Sensors (PEAS)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "label": "Smart Fitness Coach",
+      "type": "example",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "3df8ff86-b24c-4cc2-bd4e-41a4fddbc92a",
+      "label": "System 1 (Fast Thinking)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "0dfb8f4a-9298-48a0-ad59-4d42018f142b",
+      "label": "System 2 (Slow Thinking)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "624f6df5-6586-41f0-b24f-633e42d97df0",
+      "label": "Live-Coaching Bounded Context",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "50b24343-6310-434b-a807-bae903883a38",
+      "label": "Adaptive-Planning Bounded Context",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "bb824eea-4fb9-49ba-87b1-e89c44a66932",
+      "label": "Safety-Guard Bounded Context",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/peas-coach-example.md"
+      ]
+    },
+    {
+      "id": "180d433d-9ea4-4f8f-97d3-cec6c7761ac3",
+      "label": "SWE-bench",
+      "type": "benchmark",
+      "source_files": [
+        "content/6.maps/_ai/benchmark/benchmark.md"
+      ]
+    },
+    {
+      "id": "6d6371d2-5f07-431f-9904-183d7f9c5572",
+      "label": "CL-Bench",
+      "type": "benchmark",
+      "source_files": [
+        "content/6.maps/_ai/benchmark/cl-bench.md"
+      ]
+    },
+    {
+      "id": "5a3e9adc-358b-4339-b121-de2db2eda1e3",
+      "label": "LMSYS Chatbot Arena",
+      "type": "benchmark",
+      "source_files": [
+        "content/6.maps/_ai/benchmark/benchmark.md"
+      ]
+    },
+    {
+      "id": "d11fcc75-f02c-441b-87b0-f8bf0f24fa60",
+      "label": "Frontend Copy Benchmark",
+      "type": "benchmark",
+      "source_files": [
+        "content/6.maps/_ai/benchmark/frontend-copy.md"
+      ]
+    },
+    {
+      "id": "17e8e99f-80cb-4709-a816-740f34f35b6d",
+      "label": "Eval Awareness",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/benchmark/benchmark.md"
+      ]
+    },
+    {
+      "id": "8d4e90af-7928-4b0c-8ab2-8efe01cba215",
+      "label": "Prompt Engineering",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/applications/prompt-engineering.md"
+      ]
+    },
+    {
+      "id": "97b771dd-0957-4138-ab73-f450995e8fa1",
+      "label": "DSPy",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/applications/prompt-engineering.md"
+      ]
+    },
+    {
+      "id": "45ede58b-1743-448d-b0ae-5b6741d522c3",
+      "label": "Instructor",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/applications/prompt-engineering.md"
+      ]
+    },
+    {
+      "id": "c46fb953-024c-40e8-ba55-feab22af7f94",
+      "label": "Guidance",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/applications/prompt-engineering.md"
+      ]
+    },
+    {
+      "id": "4583d79c-d63e-4f17-8f44-ac358a519369",
+      "label": "Outlines",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/applications/prompt-engineering.md"
+      ]
+    },
+    {
+      "id": "b71b0fc4-057c-4afd-a499-84c9f23d4b27",
+      "label": "Workflow vs Agent",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/workflow-vs-agent.md"
+      ]
+    },
+    {
+      "id": "56340e73-9193-41e7-b9a0-a63e8140ef47",
+      "label": "HITL (Human-in-the-Loop)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/workflow-vs-agent.md"
+      ]
+    },
+    {
+      "id": "35073c1e-0757-472c-ad74-347134fb2947",
+      "label": "HOTL (Human-on-the-Loop)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/workflow-vs-agent.md"
+      ]
+    },
+    {
+      "id": "0e67073e-87d8-4da7-97e8-d4bc2a6b477f",
+      "label": "Attention Debt Economics",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/workflow-vs-agent.md"
+      ]
+    },
+    {
+      "id": "bccb9235-20c4-4fa3-8fe4-a57e882129b3",
+      "label": "Goose",
+      "type": "tool",
+      "source_files": [
+        "content/6.maps/_ai/agents/goose/goose-brief.md",
+        "content/6.maps/_ai/agents/goose/goose-brief.cn.md"
+      ]
+    },
+    {
+      "id": "c3eb38d6-fe6d-4775-8af2-cfe03f4188fe",
+      "label": "Goose Prompts",
+      "type": "artifact",
+      "source_files": [
+        "content/6.maps/_ai/agents/goose/prompts.md"
+      ]
+    },
+    {
+      "id": "996c1540-27f3-46af-8d31-82461bf450ba",
+      "label": "Claude Skills",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/claude-skills.md"
+      ]
+    },
+    {
+      "id": "b3dc3ccd-4997-41a3-825e-806e00464d5e",
+      "label": "Human-AI Interaction",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/human-ai-interaction.md"
+      ]
+    },
+    {
+      "id": "837ef9f5-2ebe-443b-bb6a-d4d2f6080b7b",
+      "label": "Coding Agent Shell Bias",
+      "type": "insight",
+      "source_files": [
+        "content/6.maps/_ai/agents/coding-agent-shell-bias.md"
+      ]
+    },
+    {
+      "id": "8633ab51-2109-4e3c-9a8c-d0d72eb6cfd9",
+      "label": "i18n (Blog)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/docs/i18n.md"
+      ]
+    },
+    {
+      "id": "bc5133ef-8d34-465a-9da4-7d1cf3cbc43d",
+      "label": "Multi-Agent Patterns",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/agents/multi-agent-patterns.md"
+      ]
+    },
+    {
+      "id": "1600af2b-97a2-4813-9b7a-f271ebd84f1f",
+      "label": "AI (Blog Section)",
+      "type": "concept",
+      "source_files": [
+        "content/6.maps/_ai/ai.md"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "615eb78b-48c1-4c47-af29-747bb667f513",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Agents are intelligent entities, often based on LLMs"
+    },
+    {
+      "source": "1b4b61aa-956b-4606-ab18-fe442418d1cf",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Russell & Norvig taxonomy: Simple Reflex Agent"
+    },
+    {
+      "source": "8b028843-b760-4d0d-af55-137b92cded68",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Russell & Norvig taxonomy: Model-Based Reflex Agent"
+    },
+    {
+      "source": "a3867e4c-2764-41a3-9b95-8f2087a720ad",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Russell & Norvig taxonomy: Goal-Based Agent"
+    },
+    {
+      "source": "16bc9967-94a3-453f-a909-1df672e018b2",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Russell & Norvig taxonomy: Utility-Based Agent"
+    },
+    {
+      "source": "0fbb3a5a-5fd7-49e3-940a-3f62dd288558",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Russell & Norvig taxonomy: Learning Agent"
+    },
+    {
+      "source": "5007eeb4-d177-4534-8245-fedcf14d8e07",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Reactive agent dimension"
+    },
+    {
+      "source": "8376c6b5-0259-49f0-a4e9-fa50a0815d32",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Deliberative agent dimension"
+    },
+    {
+      "source": "329d07c2-d4c0-4e30-bcbe-b877b1416383",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Hybrid agent dimension"
+    },
+    {
+      "source": "bb31b113-05b3-4d15-9fd4-3bdd0a6f92f4",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Symbolic AI implementation"
+    },
+    {
+      "source": "2a60f0c0-3003-4e54-b8e5-52497558d562",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Sub-symbolic AI implementation"
+    },
+    {
+      "source": "9dad3aa4-6735-4fa0-9d2b-2f5f33e343ee",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Neuro-symbolic AI implementation"
+    },
+    {
+      "source": "4621840a-c097-493e-aeb1-99bc5546b6aa",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Workflow is a deterministic architecture"
+    },
+    {
+      "source": "411f4e52-d02a-4fa6-9e55-33983636004d",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Agent system is an autonomous architecture"
+    },
+    {
+      "source": "54dc4d71-30d7-4cb2-ba15-7ff9b96fff27",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Prompt chaining workflow pattern"
+    },
+    {
+      "source": "37fe58dd-9d80-40bb-8386-c42ef84d7e57",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Routing workflow pattern"
+    },
+    {
+      "source": "36bcf339-cf84-4d95-aa45-c6c99c621dfd",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Parallelization workflow pattern"
+    },
+    {
+      "source": "1258c65f-d8f8-48b1-ac21-732ae09fc48e",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Orchestrator-Workers workflow pattern"
+    },
+    {
+      "source": "0b6ccdb5-ec9d-4efb-bc45-1d8d9d4d1150",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Evaluator-Optimizer workflow pattern"
+    },
+    {
+      "source": "71f0a82f-9301-4308-bb46-dae10196d9db",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "ACI is part of agent architecture"
+    },
+    {
+      "source": "5ba978c6-2adb-454f-aed9-2b495f18fff1",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Harness design for long-running agents"
+    },
+    {
+      "source": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Multi-agent system is a collection of agents"
+    },
+    {
+      "source": "73f1c56f-e2e7-42a5-8b01-eeea036b052a",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Orchestrator coordinates subagents"
+    },
+    {
+      "source": "ed5307d9-f163-4663-991b-489ac54ada2d",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Subagents perform delegated tasks"
+    },
+    {
+      "source": "ec3e49d2-2788-4fb2-886d-f6ead5734b61",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Validation subagent pattern for quality assurance"
+    },
+    {
+      "source": "d5a0e875-9686-41e5-81d2-01b2f85433a5",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "influences",
+      "confidence": "EXTRACTED",
+      "rationale": "Token consumption explains 95% of performance variance in Anthropic multi-agent research"
+    },
+    {
+      "source": "213c3a0e-04b1-4f0d-88b3-b3fe243f69a7",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "influences",
+      "confidence": "EXTRACTED",
+      "rationale": "Context engineering is critical for multi-agent performance"
+    },
+    {
+      "source": "24971a75-f352-4d39-a4d3-cd75eec35404",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "20a6cfa6-32a9-4084-9ce1-89d59574e988",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "56096d33-73d8-49ce-92ab-37479b37d467",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "85707ee9-6704-4725-bb35-505bd707bb95",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "423e4f6d-5bf2-4e8b-b5f5-17b527359cc3",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "3857cfc0-5e33-4b75-810b-93508ad84fa1",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "c0638ffd-16ee-4c5e-98bd-1dfe8ddb2214",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "38fa4e6d-bc83-4835-822e-716391bb449f",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "450f8a3d-2591-4d9d-a42d-87e8e9116ef5",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "a1dae78e-c3db-4c43-80c6-a455ef6bbf4c",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "04cf0035-65cb-4aac-8b6e-baea7f96a016",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "1ba7468f-5bd9-4ed0-a6e4-c9ba054787ed",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for building multi-agent systems"
+    },
+    {
+      "source": "846571bb-c23b-4a61-a188-c95a5ee2ee61",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "82d9240b-1277-45fe-a5c3-682a10303c0b",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "a2ceef28-677a-4848-842e-cf4718d2a6b0",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "52606f20-7cd4-484b-923f-c358bbdfd3e5",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "54cb8843-36b8-4bcb-8e53-31b5f67e6f5c",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "0e78f033-48a5-4a4e-bcf5-7e312c89162f",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "a04c83f5-d5f2-47c3-b5b1-16f99593cdf1",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Protocol enabling agent interoperability"
+    },
+    {
+      "source": "99d3fda8-5ca4-4c06-a7af-374aacfffe81",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "applies_to",
+      "confidence": "EXTRACTED",
+      "rationale": "Security analysis for multi-agent + MCP systems"
+    },
+    {
+      "source": "3c416c66-7b1c-424f-b9e4-d2a745ff2b26",
+      "target": "99d3fda8-5ca4-4c06-a7af-374aacfffe81",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Lethal trifecta: private data + untrusted content + external communication"
+    },
+    {
+      "source": "a3225b1d-9181-46c2-9949-d54c61eba500",
+      "target": "3c416c66-7b1c-424f-b9e4-d2a745ff2b26",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Private data is one leg of lethal trifecta"
+    },
+    {
+      "source": "767559b6-bf89-4ad0-b54c-ae473ce556eb",
+      "target": "3c416c66-7b1c-424f-b9e4-d2a745ff2b26",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Untrusted content is one leg of lethal trifecta"
+    },
+    {
+      "source": "0f8c6f87-24d7-4400-b6cc-26b5317635b3",
+      "target": "3c416c66-7b1c-424f-b9e4-d2a745ff2b26",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "External communication is one leg of lethal trifecta"
+    },
+    {
+      "source": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "models",
+      "confidence": "EXTRACTED",
+      "rationale": "PEAS model describes agent components"
+    },
+    {
+      "source": "4ef38d1f-f894-4195-a796-c1fa5573a05c",
+      "target": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Performance measure in PEAS"
+    },
+    {
+      "source": "54c80699-1f66-40ef-b32e-1f9230970ce4",
+      "target": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Environment in PEAS"
+    },
+    {
+      "source": "0f226ae7-2e54-4c2e-ae79-06a6cb575519",
+      "target": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Actuators in PEAS"
+    },
+    {
+      "source": "d193508a-aa0b-4705-b7f3-7044da6ba1be",
+      "target": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Sensors in PEAS"
+    },
+    {
+      "source": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Smart fitness coach is an agent case study"
+    },
+    {
+      "source": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "target": "d5ce9f9d-2d0d-41e6-a748-a0a828965b58",
+      "relationship": "modeled_by",
+      "confidence": "EXTRACTED",
+      "rationale": "Fitness coach analyzed via PEAS model"
+    },
+    {
+      "source": "3df8ff86-b24c-4cc2-bd4e-41a4fddbc92a",
+      "target": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "System 1 handles fast real-time decisions"
+    },
+    {
+      "source": "0dfb8f4a-9298-48a0-ad59-4d42018f142b",
+      "target": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "System 2 handles slow deliberative planning"
+    },
+    {
+      "source": "624f6df5-6586-41f0-b24f-633e42d97df0",
+      "target": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "DDD bounded context: live coaching"
+    },
+    {
+      "source": "50b24343-6310-434b-a807-bae903883a38",
+      "target": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "DDD bounded context: adaptive planning"
+    },
+    {
+      "source": "bb824eea-4fb9-49ba-87b1-e89c44a66932",
+      "target": "638def14-cdc8-4a06-b2ed-756e98f0f5b4",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "DDD bounded context: safety guard"
+    },
+    {
+      "source": "180d433d-9ea4-4f8f-97d3-cec6c7761ac3",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "evaluates",
+      "confidence": "EXTRACTED",
+      "rationale": "Benchmark for evaluating agent/LLM capabilities"
+    },
+    {
+      "source": "6d6371d2-5f07-431f-9904-183d7f9c5572",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "evaluates",
+      "confidence": "EXTRACTED",
+      "rationale": "Benchmark for evaluating agent/LLM capabilities"
+    },
+    {
+      "source": "5a3e9adc-358b-4339-b121-de2db2eda1e3",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "evaluates",
+      "confidence": "EXTRACTED",
+      "rationale": "Benchmark for evaluating agent/LLM capabilities"
+    },
+    {
+      "source": "d11fcc75-f02c-441b-87b0-f8bf0f24fa60",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "evaluates",
+      "confidence": "EXTRACTED",
+      "rationale": "Benchmark for evaluating agent/LLM capabilities"
+    },
+    {
+      "source": "17e8e99f-80cb-4709-a816-740f34f35b6d",
+      "target": "180d433d-9ea4-4f8f-97d3-cec6c7761ac3",
+      "relationship": "critiques",
+      "confidence": "EXTRACTED",
+      "rationale": "Models may optimize for evaluation rather than real utility"
+    },
+    {
+      "source": "8d4e90af-7928-4b0c-8ab2-8efe01cba215",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "enables",
+      "confidence": "EXTRACTED",
+      "rationale": "Prompt engineering enables agent behavior"
+    },
+    {
+      "source": "97b771dd-0957-4138-ab73-f450995e8fa1",
+      "target": "8d4e90af-7928-4b0c-8ab2-8efe01cba215",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for structured prompt engineering"
+    },
+    {
+      "source": "45ede58b-1743-448d-b0ae-5b6741d522c3",
+      "target": "8d4e90af-7928-4b0c-8ab2-8efe01cba215",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for structured prompt engineering"
+    },
+    {
+      "source": "c46fb953-024c-40e8-ba55-feab22af7f94",
+      "target": "8d4e90af-7928-4b0c-8ab2-8efe01cba215",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for structured prompt engineering"
+    },
+    {
+      "source": "4583d79c-d63e-4f17-8f44-ac358a519369",
+      "target": "8d4e90af-7928-4b0c-8ab2-8efe01cba215",
+      "relationship": "implements",
+      "confidence": "EXTRACTED",
+      "rationale": "Framework for structured prompt engineering"
+    },
+    {
+      "source": "b71b0fc4-057c-4afd-a499-84c9f23d4b27",
+      "target": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65",
+      "relationship": "compares",
+      "confidence": "EXTRACTED",
+      "rationale": "Comparison of workflow and agent architectures"
+    },
+    {
+      "source": "56340e73-9193-41e7-b9a0-a63e8140ef47",
+      "target": "b71b0fc4-057c-4afd-a499-84c9f23d4b27",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Human-in-the-loop design pattern"
+    },
+    {
+      "source": "35073c1e-0757-472c-ad74-347134fb2947",
+      "target": "b71b0fc4-057c-4afd-a499-84c9f23d4b27",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Human-on-the-loop design pattern"
+    },
+    {
+      "source": "0e67073e-87d8-4da7-97e8-d4bc2a6b477f",
+      "target": "b71b0fc4-057c-4afd-a499-84c9f23d4b27",
+      "relationship": "influences",
+      "confidence": "EXTRACTED",
+      "rationale": "Attention debt economics in agent design"
+    },
+    {
+      "source": "bccb9235-20c4-4fa3-8fe4-a57e882129b3",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "is_a",
+      "confidence": "EXTRACTED",
+      "rationale": "Goose is an open-source AI agent"
+    },
+    {
+      "source": "c3eb38d6-fe6d-4775-8af2-cfe03f4188fe",
+      "target": "bccb9235-20c4-4fa3-8fe4-a57e882129b3",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Goose system prompts and tool schemas"
+    },
+    {
+      "source": "996c1540-27f3-46af-8d31-82461bf450ba",
+      "target": "c0638ffd-16ee-4c5e-98bd-1dfe8ddb2214",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Claude skills extend agent capabilities"
+    },
+    {
+      "source": "b3dc3ccd-4997-41a3-825e-806e00464d5e",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "studies",
+      "confidence": "EXTRACTED",
+      "rationale": "Human-AI interaction studies agent usability"
+    },
+    {
+      "source": "837ef9f5-2ebe-443b-bb6a-d4d2f6080b7b",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "applies_to",
+      "confidence": "EXTRACTED",
+      "rationale": "Shell bias in coding agents"
+    },
+    {
+      "source": "bc5133ef-8d34-465a-9da4-7d1cf3cbc43d",
+      "target": "10054d1d-5d69-460c-af9d-0afb7f587ec6",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Patterns for building multi-agent systems"
+    },
+    {
+      "source": "77ef7f05-670d-44fc-9fb5-4e0f160b2dce",
+      "target": "5ba978c6-2adb-454f-aed9-2b495f18fff1",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Context reset is a harness technique for long-running agents"
+    },
+    {
+      "source": "ff63cee7-90c4-4938-8f3c-cd42183933a7",
+      "target": "5ba978c6-2adb-454f-aed9-2b495f18fff1",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "Context compaction is a harness technique for long-running agents"
+    },
+    {
+      "source": "8633ab51-2109-4e3c-9a8c-d0d72eb6cfd9",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "part_of",
+      "confidence": "EXTRACTED",
+      "rationale": "i18n documentation is part of the agents knowledge base"
+    },
+    {
+      "source": "1600af2b-97a2-4813-9b7a-f271ebd84f1f",
+      "target": "ec8ed8dd-951c-4a5f-887e-0611a78c1b8a",
+      "relationship": "contains",
+      "confidence": "EXTRACTED",
+      "rationale": "AI blog section contains agent concepts"
+    }
+  ],
+  "hyperedges": [
+    {
+      "relationship": "PEAS Model Components",
+      "nodes": [
+        "4ef38d1f-f894-4195-a796-c1fa5573a05c",
+        "54c80699-1f66-40ef-b32e-1f9230970ce4",
+        "0f226ae7-2e54-4c2e-ae79-06a6cb575519",
+        "d193508a-aa0b-4705-b7f3-7044da6ba1be"
+      ],
+      "confidence": "EXTRACTED",
+      "rationale": "The four components of the PEAS model"
+    },
+    {
+      "relationship": "Lethal Trifecta Components",
+      "nodes": [
+        "a3225b1d-9181-46c2-9949-d54c61eba500",
+        "767559b6-bf89-4ad0-b54c-ae473ce556eb",
+        "0f8c6f87-24d7-4400-b6cc-26b5317635b3"
+      ],
+      "confidence": "EXTRACTED",
+      "rationale": "Three dangerous capabilities that together create security risk"
+    },
+    {
+      "relationship": "Agent Taxonomy Dimensions",
+      "nodes": [
+        "1b4b61aa-956b-4606-ab18-fe442418d1cf",
+        "8b028843-b760-4d0d-af55-137b92cded68",
+        "a3867e4c-2764-41a3-9b95-8f2087a720ad",
+        "16bc9967-94a3-453f-a909-1df672e018b2",
+        "0fbb3a5a-5fd7-49e3-940a-3f62dd288558",
+        "5007eeb4-d177-4534-8245-fedcf14d8e07",
+        "8376c6b5-0259-49f0-a4e9-fa50a0815d32",
+        "329d07c2-d4c0-4e30-bcbe-b877b1416383"
+      ],
+      "confidence": "EXTRACTED",
+      "rationale": "Multiple dimensions and types in agent taxonomy"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

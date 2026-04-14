@@ -1,0 +1,1042 @@
+{
+  "nodes": [
+    {
+      "id": "nuxt-ui-v3",
+      "label": "Nuxt UI v3",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/nuxt-ui-v3.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Nuxt UI v3",
+      "description": "Nuxt UI v3"
+    },
+    {
+      "id": "reka-ui",
+      "label": "Reka UI",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Reka UI",
+      "description": "一个用于使用 Vue.js 构建高质量、可访问的设计系统和 Web 应用的开源组件库。"
+    },
+    {
+      "id": "vue-error-boundary",
+      "label": "Vue Error Boundary",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue-error-boundary.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "vue-error-boundary",
+      "description": "错误边界最早是由 React 提出的概念，但偶然发现 vue 有对应实现，那就来看看吧"
+    },
+    {
+      "id": "vue2-source",
+      "label": "Vue 2 Source Code",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Source",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "vue2-observer",
+      "label": "Vue 2 Observer",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Observer",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "vue2-parser",
+      "label": "Vue 2 Parser",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/2.parser.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Parser",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "vue2-global-api",
+      "label": "Vue 2 Global API",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/3.global-api.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Global API",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "vue2-scoped-css",
+      "label": "Vue 2 Scoped CSS",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/4.scoped-css.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Scoped CSS",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "vue2-test-kit",
+      "label": "Vue 2 Test Kit",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/5.test-kit.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Test Kit",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "vue2-utils",
+      "label": "Vue 2 Utils",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_js/vue2-source/6.utils.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Vue2 Utils",
+      "description": "deprecated warning"
+    },
+    {
+      "id": "fast-deep-equal",
+      "label": "fast-deep-equal",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_module/fast-deep-equal.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "判断两个变量相等",
+      "description": "fast-deep-equal 是一个用来深层次判断两个对象是否相等的库"
+    },
+    {
+      "id": "get-intrinsic",
+      "label": "get-intrinsic",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_module/get-intrinsic.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "get-intrinsic",
+      "description": "JavaScript Intrinsics 缓存与防御性编程，ljharb 的 es-shims 生态系统核心库"
+    },
+    {
+      "id": "html5shiv",
+      "label": "html5shiv",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_module/html5shiv.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "低版本浏览器兼容HTML5标签原理",
+      "description": "html5shiv 能使 IE6/7/8 等浏览器支持 HTML5 的新标签"
+    },
+    {
+      "id": "is-online",
+      "label": "is-online",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_module/is-online.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "判断 NodeJS 是否在线",
+      "description": "使用 DNS 模块判断 NodeJS 是否在线"
+    },
+    {
+      "id": "node-watch",
+      "label": "node-watch",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_node/node-watch.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "node-watch",
+      "description": "node-watch 是在 fs.watch 的基础上封装而来的库，能监听文件变化"
+    },
+    {
+      "id": "typescript-compiler",
+      "label": "TypeScript Compiler",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "TypeScript 编译器",
+      "description": "TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder 建立符号体系并理顺作用域，Program 汇集全局视角，TypeChecker 完成类型推断和诊断，最终由 Emitter 生成输出文件。"
+    },
+    {
+      "id": "utility-types",
+      "label": "TypeScript Utility Types",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_ts/utility-types.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Utility Types",
+      "description": "TypeScript 内置的工具类型和高级类型，包括 Partial、Required、Readonly、Record、Pick、Omit、Exclude、Extract、NonNullable、Parameters、ReturnType 等。"
+    },
+    {
+      "id": "type-challenges",
+      "label": "Type Challenges",
+      "file_type": "document",
+      "source_file": "content/8.source-code/_ts/type-challenges.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "Type Challenges",
+      "description": "TypeScript 类型挑战题解"
+    },
+    {
+      "id": "hire-index",
+      "label": "技术简历",
+      "file_type": "document",
+      "source_file": "content/9.hire/index.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "技术简历",
+      "description": "WIP"
+    },
+    {
+      "id": "essay-noname",
+      "label": "无题",
+      "file_type": "document",
+      "source_file": "content/_achieved/2018-10/noname.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "无题",
+      "description": "个人诗作"
+    },
+    {
+      "id": "essay-reactive-150loc",
+      "label": "150 行代码实现小程序数据侦听",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-05/reactive-in-150loc.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "150 行代码带你实现小程序中的数据侦听",
+      "description": "本文介绍了在 150 行代码内使用 defineProperty 实现一个简单的拥有事件发布订阅能力的状态管理库的思路。"
+    },
+    {
+      "id": "essay-messy-in-two-years",
+      "label": "聊聊离职，毕业，及其它杂乱的事情",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-06/messy-in-two-years.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "聊聊此次离职，毕业，及其它杂乱的事情",
+      "description": "个人随笔"
+    },
+    {
+      "id": "essay-teditor",
+      "label": "TEditor 优化思路",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-06/teditor.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "从一个越写越慢的编辑器中聊聊优化思路",
+      "description": "TEditor 性能优化思路"
+    },
+    {
+      "id": "essay-chrome-image-lazyload",
+      "label": "Chrome 原生图片懒加载",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-07/chrome-image-lazyload.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "听说你还在手写懒加载?",
+      "description": "Chrome 75 原生懒加载功能介绍"
+    },
+    {
+      "id": "essay-welcome",
+      "label": "为什么我要写博客",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-07/welcome.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "为什么我要写博客",
+      "description": "简单介绍自己，以及建立博客的初衷"
+    },
+    {
+      "id": "essay-a-letter-of-silience",
+      "label": "一封沉默",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-09/a-letter-of-silience.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "一封沉默",
+      "description": "个人随笔与诗作"
+    },
+    {
+      "id": "essay-chaos",
+      "label": "文字与情绪",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-09/chaos.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "文字与情绪",
+      "description": "个人随笔"
+    },
+    {
+      "id": "essay-free",
+      "label": "追寻自由与满怀希望",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-09/free.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "追寻自由与满怀希望",
+      "description": "个人随笔"
+    },
+    {
+      "id": "essay-css-interesting",
+      "label": "有关 CSS 的一些极有趣的东西",
+      "file_type": "document",
+      "source_file": "content/_achieved/2019-11/css-interesting.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "有关 CSS 的一些极有趣的东西",
+      "description": "本文介绍了几种CSS中有趣的内容如变量字体、CSS攻击手段以及CSS新特性CSS变量。"
+    },
+    {
+      "id": "essay-southwold",
+      "label": "从一幅 CSS 风景画中学习 2 个绘图知识点",
+      "file_type": "document",
+      "source_file": "content/_achieved/2020-03/learn-from-an-evening-in-southwold.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子",
+      "title": "从一幅 CSS 风景画中学习 2 个绘图知识点",
+      "description": "纯 CSS 绘制风景画的技术分析"
+    },
+    {
+      "id": "concept-vue-reactivity",
+      "label": "Vue Reactivity System",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-dep-watcher",
+      "label": "Dep and Watcher Pattern",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-aschild",
+      "label": "asChild Pattern",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-presence",
+      "label": "Presence Component",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-createcontext",
+      "label": "createContext Helper",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-typescript-compiler-pipeline",
+      "label": "TypeScript Compiler Pipeline",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-control-flow-analysis",
+      "label": "Control Flow Analysis",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-deep-equal-pruning",
+      "label": "Deep Equal Pruning Strategy",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_module/fast-deep-equal.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-es-shims",
+      "label": "es-shims Ecosystem",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_module/get-intrinsic.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-defensive-programming",
+      "label": "Defensive Programming",
+      "file_type": "concept",
+      "source_file": "content/8.source-code/_module/get-intrinsic.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-lfu-cache",
+      "label": "LFU Cache",
+      "file_type": "concept",
+      "source_file": "content/_achieved/2019-06/teditor.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-css-box-shadow-drawing",
+      "label": "CSS Box-Shadow Drawing",
+      "file_type": "concept",
+      "source_file": "content/_achieved/2020-03/learn-from-an-evening-in-southwold.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "concept-css-exfil",
+      "label": "CSS Exfil Attack",
+      "file_type": "concept",
+      "source_file": "content/_achieved/2019-11/css-interesting.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "tech-vue",
+      "label": "Vue.js",
+      "file_type": "technology",
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "tech-typescript",
+      "label": "TypeScript",
+      "file_type": "technology",
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "tech-nodejs",
+      "label": "Node.js",
+      "file_type": "technology",
+      "source_file": "content/8.source-code/_node/node-watch.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    },
+    {
+      "id": "tech-css",
+      "label": "CSS",
+      "file_type": "technology",
+      "source_file": "content/_achieved/2019-11/css-interesting.md",
+      "captured_at": "2026-04-13",
+      "author": "仿生狮子"
+    }
+  ],
+  "edges": [
+    {
+      "source": "reka-ui",
+      "target": "concept-aschild",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "source_location": "Primitive / asChild section"
+    },
+    {
+      "source": "reka-ui",
+      "target": "concept-presence",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "source_location": "Presence / forceMount section"
+    },
+    {
+      "source": "reka-ui",
+      "target": "concept-createcontext",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "source_location": "Inject Context section"
+    },
+    {
+      "source": "vue2-observer",
+      "target": "concept-vue-reactivity",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "source_location": "变化侦测"
+    },
+    {
+      "source": "vue2-observer",
+      "target": "concept-dep-watcher",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "source_location": "依赖容器及依赖"
+    },
+    {
+      "source": "vue2-source",
+      "target": "vue2-observer",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "source_location": "index"
+    },
+    {
+      "source": "vue2-source",
+      "target": "vue2-parser",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "source_location": "index"
+    },
+    {
+      "source": "vue2-source",
+      "target": "vue2-global-api",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "source_location": "index"
+    },
+    {
+      "source": "vue2-source",
+      "target": "vue2-scoped-css",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "source_location": "index"
+    },
+    {
+      "source": "vue2-source",
+      "target": "vue2-test-kit",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "source_location": "index"
+    },
+    {
+      "source": "vue2-source",
+      "target": "vue2-utils",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "source_location": "index"
+    },
+    {
+      "source": "vue2-observer",
+      "target": "tech-vue",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "source_location": "Vue 2 reactivity implementation"
+    },
+    {
+      "source": "vue2-parser",
+      "target": "tech-vue",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/2.parser.md",
+      "source_location": "Vue 2 compiler/parser"
+    },
+    {
+      "source": "vue-error-boundary",
+      "target": "tech-vue",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue-error-boundary.md",
+      "source_location": "Vue errorCaptured hook"
+    },
+    {
+      "source": "reka-ui",
+      "target": "tech-vue",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "source_location": "Reka UI Vue.js component library"
+    },
+    {
+      "source": "nuxt-ui-v3",
+      "target": "reka-ui",
+      "relation": "depends_on",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "content/8.source-code/_js/nuxt-ui-v3.md",
+      "source_location": "Nuxt UI powered by Reka UI"
+    },
+    {
+      "source": "typescript-compiler",
+      "target": "tech-typescript",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "source_location": "TypeScript compiler architecture"
+    },
+    {
+      "source": "typescript-compiler",
+      "target": "concept-typescript-compiler-pipeline",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "source_location": "编译器的整体流程"
+    },
+    {
+      "source": "typescript-compiler",
+      "target": "concept-control-flow-analysis",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "source_location": "什么是控制流分析"
+    },
+    {
+      "source": "utility-types",
+      "target": "tech-typescript",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_ts/utility-types.md",
+      "source_location": "Utility types definitions"
+    },
+    {
+      "source": "type-challenges",
+      "target": "tech-typescript",
+      "relation": "practices",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_ts/type-challenges.md",
+      "source_location": "TypeScript type challenge solutions"
+    },
+    {
+      "source": "fast-deep-equal",
+      "target": "concept-deep-equal-pruning",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_module/fast-deep-equal.md",
+      "source_location": "原理 / 剪枝策略"
+    },
+    {
+      "source": "get-intrinsic",
+      "target": "concept-es-shims",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_module/get-intrinsic.md",
+      "source_location": "es-shims 生态系统"
+    },
+    {
+      "source": "get-intrinsic",
+      "target": "concept-defensive-programming",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_module/get-intrinsic.md",
+      "source_location": "为什么需要 get-intrinsic"
+    },
+    {
+      "source": "node-watch",
+      "target": "tech-nodejs",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_node/node-watch.md",
+      "source_location": "fs.watch wrapper"
+    },
+    {
+      "source": "is-online",
+      "target": "tech-nodejs",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_module/is-online.md",
+      "source_location": "NodeJS DNS module"
+    },
+    {
+      "source": "essay-teditor",
+      "target": "concept-lfu-cache",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/_achieved/2019-06/teditor.md",
+      "source_location": "LRU 以及 LFU 策略"
+    },
+    {
+      "source": "essay-southwold",
+      "target": "concept-css-box-shadow-drawing",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/_achieved/2020-03/learn-from-an-evening-in-southwold.md",
+      "source_location": "多重阴影"
+    },
+    {
+      "source": "essay-css-interesting",
+      "target": "concept-css-exfil",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/_achieved/2019-11/css-interesting.md",
+      "source_location": "CSS 攻击 / 输入检测"
+    },
+    {
+      "source": "essay-css-interesting",
+      "target": "tech-css",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/_achieved/2019-11/css-interesting.md",
+      "source_location": "CSS 变量 / Variable fonts"
+    },
+    {
+      "source": "essay-southwold",
+      "target": "tech-css",
+      "relation": "documents",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/_achieved/2020-03/learn-from-an-evening-in-southwold.md",
+      "source_location": "CSS drawing techniques"
+    },
+    {
+      "source": "essay-reactive-150loc",
+      "target": "concept-vue-reactivity",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "content/_achieved/2019-05/reactive-in-150loc.md",
+      "source_location": "150行代码实现小程序数据侦听",
+      "rationale": "Both implement reactive systems using defineProperty with Dep/Watcher-like patterns"
+    },
+    {
+      "source": "essay-reactive-150loc",
+      "target": "concept-dep-watcher",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "content/_achieved/2019-05/reactive-in-150loc.md",
+      "source_location": "依赖对象的实现 / 主动收集依赖",
+      "rationale": "The VX library implements a Dep-like subscription pattern similar to Vue's Observer"
+    },
+    {
+      "source": "vue2-global-api",
+      "target": "tech-vue",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/3.global-api.md",
+      "source_location": "$nextTick implementation"
+    },
+    {
+      "source": "vue2-scoped-css",
+      "target": "tech-vue",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/4.scoped-css.md",
+      "source_location": "Scoped CSS mechanism"
+    },
+    {
+      "source": "vue2-test-kit",
+      "target": "tech-vue",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/5.test-kit.md",
+      "source_location": "create-local-vue"
+    },
+    {
+      "source": "vue2-utils",
+      "target": "tech-vue",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/6.utils.md",
+      "source_location": "Utility functions"
+    },
+    {
+      "source": "html5shiv",
+      "target": "tech-nodejs",
+      "relation": "semantically_similar_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2,
+      "source_file": "content/8.source-code/_module/html5shiv.md",
+      "source_location": "Browser compatibility",
+      "rationale": "html5shiv is a browser-side library, not Node.js related"
+    },
+    {
+      "source": "essay-chrome-image-lazyload",
+      "target": "tech-css",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.5,
+      "source_file": "content/_achieved/2019-07/chrome-image-lazyload.md",
+      "source_location": "Native lazy loading",
+      "rationale": "Image lazy loading is a web frontend optimization technique related to HTML/CSS"
+    },
+    {
+      "source": "type-challenges",
+      "target": "utility-types",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "content/8.source-code/_ts/type-challenges.md",
+      "source_location": "Type challenge solutions",
+      "rationale": "Both cover TypeScript type-level programming and utility type patterns"
+    },
+    {
+      "source": "type-challenges",
+      "target": "typescript-compiler",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "content/8.source-code/_ts/type-challenges.md",
+      "source_location": "Advanced TypeScript types",
+      "rationale": "Type challenges exercise the same type system that the compiler implements"
+    },
+    {
+      "source": "fast-deep-equal",
+      "target": "get-intrinsic",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.5,
+      "source_file": "content/8.source-code/_module/fast-deep-equal.md",
+      "source_location": "JavaScript library analysis",
+      "rationale": "Both are analyses of small but important JavaScript utility libraries"
+    },
+    {
+      "source": "reka-ui",
+      "target": "vue-error-boundary",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.5,
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "source_location": "Vue component library ecosystem",
+      "rationale": "Both are Vue ecosystem topics related to component architecture"
+    },
+    {
+      "source": "essay-teditor",
+      "target": "essay-reactive-150loc",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "content/_achieved/2019-06/teditor.md",
+      "source_location": "Performance optimization / state management",
+      "rationale": "Both are early technical articles about building JavaScript tools from scratch"
+    },
+    {
+      "source": "essay-welcome",
+      "target": "essay-messy-in-two-years",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "content/_achieved/2019-07/welcome.md",
+      "source_location": "Blog philosophy",
+      "rationale": "Both are personal essays reflecting on writing, identity, and life choices"
+    },
+    {
+      "source": "essay-a-letter-of-silience",
+      "target": "essay-chaos",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "content/_achieved/2019-09/a-letter-of-silience.md",
+      "source_location": "Emotional writing",
+      "rationale": "Both are poetic/introspective pieces about emotions and silence"
+    },
+    {
+      "source": "essay-messy-in-two-years",
+      "target": "essay-free",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "content/_achieved/2019-06/messy-in-two-years.md",
+      "source_location": "Personal reflection",
+      "rationale": "Both are long-form personal essays exploring freedom, meaning, and life transitions"
+    },
+    {
+      "source": "essay-css-interesting",
+      "target": "essay-southwold",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "content/_achieved/2019-11/css-interesting.md",
+      "source_location": "CSS techniques",
+      "rationale": "Both explore creative and advanced CSS capabilities"
+    },
+    {
+      "source": "concept-vue-reactivity",
+      "target": "concept-dep-watcher",
+      "relation": "depends_on",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
+      "source_location": "Observer / Dep / Watcher relationship"
+    },
+    {
+      "source": "concept-typescript-compiler-pipeline",
+      "target": "concept-control-flow-analysis",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_ts/typescript-compiler.md",
+      "source_location": "编译器整体流程 / Checker"
+    },
+    {
+      "source": "concept-aschild",
+      "target": "concept-presence",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.6,
+      "source_file": "content/8.source-code/_js/reka-ui.md",
+      "source_location": "Reka UI primitives",
+      "rationale": "Both are core Reka UI primitive patterns for flexible component composition"
+    },
+    {
+      "source": "concept-es-shims",
+      "target": "concept-defensive-programming",
+      "relation": "embodies",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "content/8.source-code/_module/get-intrinsic.md",
+      "source_location": "es-shims 设计哲学"
+    },
+    {
+      "source": "hire-index",
+      "target": "essay-welcome",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.5,
+      "source_file": "content/9.hire/index.md",
+      "source_location": "About Me",
+      "rationale": "Both introduce the author's identity and philosophy"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "he-vue2-source-series",
+      "label": "Vue 2 Source Code Analysis Series",
+      "relation": "series",
+      "nodes": [
+        "vue2-source",
+        "vue2-observer",
+        "vue2-parser",
+        "vue2-global-api",
+        "vue2-scoped-css",
+        "vue2-test-kit",
+        "vue2-utils"
+      ],
+      "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
+      "rationale": "A 7-part series analyzing Vue 2 source code across observer, parser, global API, scoped CSS, test kit, and utils"
+    },
+    {
+      "id": "he-typescript-knowledge",
+      "label": "TypeScript Knowledge Cluster",
+      "relation": "topic_cluster",
+      "nodes": [
+        "typescript-compiler",
+        "utility-types",
+        "type-challenges",
+        "tech-typescript",
+        "concept-typescript-compiler-pipeline",
+        "concept-control-flow-analysis"
+      ],
+      "source_file": "content/8.source-code/_ts/",
+      "rationale": "Documents covering TypeScript compiler internals, built-in utility types, and advanced type challenges"
+    },
+    {
+      "id": "he-vue-ecosystem",
+      "label": "Vue Ecosystem Libraries",
+      "relation": "topic_cluster",
+      "nodes": [
+        "reka-ui",
+        "vue-error-boundary",
+        "nuxt-ui-v3",
+        "tech-vue",
+        "concept-aschild",
+        "concept-presence",
+        "concept-createcontext"
+      ],
+      "source_file": "content/8.source-code/_js/",
+      "rationale": "Vue-related libraries and patterns including Reka UI, error boundaries, and Nuxt UI"
+    },
+    {
+      "id": "he-personal-essays",
+      "label": "Personal Essays and Reflections",
+      "relation": "topic_cluster",
+      "nodes": [
+        "essay-welcome",
+        "essay-messy-in-two-years",
+        "essay-free",
+        "essay-a-letter-of-silience",
+        "essay-chaos",
+        "essay-noname"
+      ],
+      "source_file": "content/_achieved/",
+      "rationale": "Personal writings spanning identity, emotion, life transitions, and creative expression"
+    },
+    {
+      "id": "he-css-articles",
+      "label": "CSS Techniques and Art",
+      "relation": "topic_cluster",
+      "nodes": [
+        "essay-css-interesting",
+        "essay-southwold",
+        "tech-css",
+        "concept-css-box-shadow-drawing",
+        "concept-css-exfil"
+      ],
+      "source_file": "content/_achieved/",
+      "rationale": "Articles exploring CSS capabilities from security (Exfil) to artistic drawing (box-shadow, multiple backgrounds)"
+    },
+    {
+      "id": "he-js-utilities",
+      "label": "JavaScript Utility Libraries",
+      "relation": "topic_cluster",
+      "nodes": [
+        "fast-deep-equal",
+        "get-intrinsic",
+        "html5shiv",
+        "is-online",
+        "node-watch",
+        "concept-deep-equal-pruning",
+        "concept-es-shims",
+        "concept-defensive-programming"
+      ],
+      "source_file": "content/8.source-code/_module/",
+      "rationale": "Small but important JavaScript/Node.js utility libraries with deep dives into their implementation"
+    },
+    {
+      "id": "he-frontend-performance",
+      "label": "Frontend Performance and Optimization",
+      "relation": "topic_cluster",
+      "nodes": [
+        "essay-teditor",
+        "essay-chrome-image-lazyload",
+        "essay-reactive-150loc",
+        "concept-lfu-cache"
+      ],
+      "source_file": "content/_achieved/",
+      "rationale": "Articles about frontend optimization techniques: editor caching, image lazy loading, and reactive state management"
+    }
+  ]
+}
