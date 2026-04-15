@@ -16,6 +16,7 @@ original_path: content/6.maps/_ui/awwwards.md
 * [SaaS UI Navigation](https://www.saasui.design/pattern/navigation)：SaaS 产品导航设计模式库，涵盖侧边栏、顶部栏、Breadcrumb 等导航范例
 * [Mobbin iOS Latest](https://mobbin.com/discover/apps/ios/latest)：Mobbin iOS 应用设计灵感流，展示最新 App 的界面截图与交互流程
 * [UI Notes](https://uinotes.com/)：中文 UI 设计灵感库，汇集网页与移动端界面设计案例
+* [Webzibition](https://tympanus.net/codrops/webzibition/)：Codrops 精选网站展示集合，定期更新优秀网页设计案例
 
 ## Awards
 
