@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-15
+
+一次奇怪的技能调用失败，可能属于低概率事件。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260415095205626.png)
+
 #### 2026-04-13
 
 上次报了 “Stamp” 单词会引起 Kimi 调用报错的问题，当天他们就修掉了。不过后来收到了礼物，不知道和这件事有没有关系。
