@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-16
+
+为什么会这样...
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260416143509328.mov)
+
 #### 2026-04-15
 
 一次奇怪的技能调用失败，可能属于低概率事件。
