@@ -136,6 +136,58 @@ Stanford 团队在VQA-RAD、MedXpertQA-MM、ReXVQA等医学基准测试中发现
 见：[MIRAGE: The Illusion of Visual Understanding](https://arxiv.org/abs/2603.21687)：
 Stanford HAI 论文，2026年3月
 
+## Jailbreak
+
+#### 安全神经元：LLM 对齐的稀疏脆弱性
+
+当前对齐方法（RLHF、DPO 等）的安全行为并非分布式地"渗透"在整个模型中，而是高度集中于极少数专门化神经元。
+
+「已核实」NeuroStrike（NDSS 2026 Distinguished Paper）在 LLaMA 系列上的实验表明，修剪不到 0.6% 的神经元即可实现高攻击成功率，多模态图像测试甚至达到 100%。这意味着安全对齐在神经元层面存在结构性脆弱——安全行为是"嫁接"在基础能力之上的薄层，而非深度融合。
+
+有分析认为，这种稀疏性颠覆了"对齐深度"的传统假设。如果安全机制仅依赖 <1% 的神经元，那么任何能够定位这些神经元的攻击者都可以轻易瓦解整个安全约束体系。
+
+见：[NeuroStrike: Neuron-Level Attacks on Aligned LLMs](https://arxiv.org/abs/2509.11864)：NDSS 2026 杰出论文，wu-lichao/NeuroStrike-Neuron-Level-Attacks-on-Aligned-LLMs（GitHub）
+
+#### 神经元级攻击的技术谱系：白盒、黑盒与迁移
+
+神经元级攻击已形成从白盒到黑盒的完整技术谱系。
+
+「已核实」白盒场景（模型权重可访问）直接定位并抑制安全神经元。黑盒场景利用安全神经元的跨模型迁移性——在开源 surrogate 模型上训练对抗性提示生成器，再部署到闭源目标模型。NeuroStrike 在 20+ 开源模型上验证了安全神经元的"位置共性"：不同 LLM 家族中负责安全决策的神经元往往位于相似的层/位置。
+
+有分析认为，这种迁移性颠覆了"闭源即安全"的假设。即使攻击者无法访问目标模型内部，也能通过开源模型制备有效的越狱攻击。
+
+见：[NeuroStrike 论文](https://arxiv.org/abs/2509.11864)：涵盖白盒与黑盒攻击的完整框架
+
+#### Abliteration：单方向消融的极简攻击
+
+Abliteration（"ablation" + "literation"）是一种无需训练、无需数据即可绕过安全对齐的方法。
+
+「已核实」其核心洞察是：拒绝行为可能由残差流中的单一潜在方向主导。通过对比有害与无害提示在各层的激活差异，找到最大区分方向（"拒绝方向"），然后将其投影归零，即可使模型"忘记"如何拒绝。该方法仅需几次前向传播即可完成，门槛极低。
+
+后续防御研究（arXiv:2505.19056）提出"扩展拒绝微调"（extended-refusal fine-tuning）——将安全信号分散到多个维度而非单一方向，从根本上消除单点脆弱性。
+
+见：[An Embarrassingly Simple Defense Against LLM Abliteration Attacks](https://arxiv.org/abs/2505.19056)：防御论文，从侧面验证攻击有效性、[Heretic](https://github.com/p-e-w/heretic)：Abliteration 的开源实现工具
+
+#### 神经元移植：训练免费的安全恢复
+
+有害微调（Harmful Fine-tuning）是攻击者通过少量有害数据微调开源模型以解除安全约束的常见手段。
+
+「已核实」AAAI 2025 的 NLSR（Neuron-Level Safety Realignment）框架提出了一种训练免费的安全恢复方案：对比模型在有害微调前后的神经元状态变化，识别出安全关键神经元的退化模式，然后从原始参考模型中"移植"这些神经元的参数。该方法无需重新训练，计算成本极低。
+
+有分析认为，NLSR 的有效性隐含了一个关键假设：安全神经元在有害微调中发生的是"局部退化"而非"全局重组"，因此局部修复足以恢复整体安全行为。
+
+见：[NLSR: Neuron-Level Safety Realignment](https://arxiv.org/abs/2412.12497)：AAAI 2025
+
+#### 安全对齐的分布式假设危机
+
+作者主张，当前主流对齐方法隐含一个未被充分检验的假设：安全行为是通过微调"分布式地"融入模型的。但神经元级攻击研究揭示的事实令人不安——安全行为可能极度稀疏和局部化。
+
+这一发现提出了三重挑战：对齐的"深度"可能被高估（安全是薄层而非深度融合）；对抗鲁棒性的基础不牢（稀疏目标易被定向攻击）；需要重新思考对齐目标——从"行为对齐"（输出符合安全规范）转向"结构对齐"（内部表征本身具备安全属性）。
+
+这与机制可解释性领域的 broader 议题相连：如果模型的关键行为都如此稀疏，那么 AI 安全的根基可能需要根本性重构。
+
+见：[Unraveling LLM Jailbreaks Through Safety Knowledge Neurons](https://arxiv.org/abs/2509.01631)：EACL 2026，从可解释性角度验证安全神经元的存在
+
 ## Framework
 
 * [SAIF（安全人工智能框架）](/maps/_ai/framework/saif)
