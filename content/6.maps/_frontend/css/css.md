@@ -31,8 +31,6 @@ description: 层叠样式表（Cascading Style Sheets），用于描述网页的
 
 Chrome 已支持 `::spelling-error`，Firefox 尚未支持，建议作为渐进增强使用。在引入 JS 拼写检查方案前，优先尝试 CSS 原生能力。
 
-见：[Design.dev](https://design.dev)
-
 ### 参考资料
 
 * [CSS Snapshot 2024](/maps/_frontend/css/snapshot-2024) - CSS 规范状态快照
