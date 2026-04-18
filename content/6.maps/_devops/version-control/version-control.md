@@ -8,6 +8,8 @@ original_path: content/6.maps/_devops/git.md (primary source), content/6.maps/_d
 
 * [Dorothy](./dorothy) - Git Commit Message 约定
 * [Gitflow](./gitflow) - Git 分支工作流程
+* [GitHub Flow](./github-flow) - 基于 PR 的轻量级工作流
+* [GitLab Flow](./gitlab-flow) - 介于 Gitflow 与 GitHub Flow 之间的折中方案
 * [Pre-commit Hook](./pre-commit-hook) - 预提交钩子与代码检查
 * [语义化版本](./semantic-versioning) - 版本号管理与 Semver
 * [Git 常用命令](./git-commands) - 分支操作、提交管理、历史查看等命令速查
