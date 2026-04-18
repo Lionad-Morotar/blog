@@ -25,6 +25,14 @@ description: 层叠样式表（Cascading Style Sheets），用于描述网页的
 
 * [CSS Sprite 动画](/maps/_frontend/css/sprite-animation) - 高性能帧动画实现方案
 
+#### 拼写检查伪元素的样式控制
+
+`::spelling-error` 和 `::grammar-error` 伪元素允许开发者自定义 `contenteditable` 元素中浏览器原生拼写/语法检查波浪线的外观，例如将默认的红色波浪线改为设计系统配色，无需 JavaScript 即可实现。
+
+Chrome 已支持 `::spelling-error`，Firefox 尚未支持，建议作为渐进增强使用。在引入 JS 拼写检查方案前，优先尝试 CSS 原生能力。
+
+见：[Design.dev](https://design.dev)
+
 ### 参考资料
 
 * [CSS Snapshot 2024](/maps/_frontend/css/snapshot-2024) - CSS 规范状态快照
