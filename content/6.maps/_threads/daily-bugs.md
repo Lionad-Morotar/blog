@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-20
+
+随随便便几百轮工具调用真的很猛哇，结果一看草死循环了。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260420155514179.png)
+
 #### 2026-04-16
 
 为什么会这样...
