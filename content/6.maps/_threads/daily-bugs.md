@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-22
+
+不知道是 GLM 5.1 还是 Kimi K2.6
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260422225035223.png)
+
 #### 2026-04-20
 
 随随便便几百轮工具调用真的很猛哇，结果一看草死循环了。
