@@ -136,6 +136,14 @@
             "date_published": "2019-06-04T00:00:00.000Z"
         },
         {
+            "id": "https://lionad.art/articles/project-river",
+            "content_html": "",
+            "url": "https://lionad.art/articles/project-river",
+            "title": "把 Git 提交历史变成一条河，看懂开源项目的「人事变迁」",
+            "date_modified": "2026-04-23T00:00:00.000Z",
+            "date_published": "2026-04-23T00:00:00.000Z"
+        },
+        {
             "id": "https://lionad.art/articles/snpx-archive-lesson",
             "content_html": "一如既往的好消息是，学习新东西变得非常容易。",
             "url": "https://lionad.art/articles/snpx-archive-lesson",

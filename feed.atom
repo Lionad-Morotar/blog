@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-04-18T04:01:47.831Z</updated>
+    <updated>2026-04-23T03:47:11.734Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -138,6 +138,13 @@
         <updated>2019-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[笔记、博客以及碎碎念，我的思考和再创造。]]></summary>
         <published>2019-06-04T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[把 Git 提交历史变成一条河，看懂开源项目的「人事变迁」]]></title>
+        <id>https://lionad.art/articles/project-river</id>
+        <link href="https://lionad.art/articles/project-river"/>
+        <updated>2026-04-23T00:00:00.000Z</updated>
+        <published>2026-04-23T00:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[🪦 生命周期只有26小时的项目]]></title>
