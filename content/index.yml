@@ -5,5 +5,5 @@ recommends:
     label: '盲视'
     to: '/flows/_forty-two/blind-sight'
   - category: 技术
-    label: '生命周期只有26小时的项目'
-    to: '/articles/snpx-archive-lesson'
+    label: '把 Git 提交历史变成一条河，看懂开源项目的「人事变迁」'
+    to: '/articles/project-river'
