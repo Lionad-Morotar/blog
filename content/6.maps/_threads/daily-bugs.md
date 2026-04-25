@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-23
+
+调用不了技能，何意味...
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260426014114716.png)
+
 #### 2026-04-22
 
 不知道是 GLM 5.1 还是 Kimi K2.6
