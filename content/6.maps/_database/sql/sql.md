@@ -7,3 +7,4 @@ description: SQL（Structured Query Language，结构化查询语言）是一种
 
 * [Text to SQL](./text-to-sql) - 自然语言到 SQL 的转换技术与风险
 * [Postgres](./postgres) - PostgreSQL 扩展生态与多场景应用
+* [索引优化](./indexing) - B-Tree 索引原理、查询性能陷阱与优化策略
