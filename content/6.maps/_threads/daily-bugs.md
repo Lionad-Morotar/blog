@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-04-29
+
+最近观察到 LLM 输出有语法错误：
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260430132833090.png)
+
 #### 2026-04-23
 
 调用不了技能，何意味...
