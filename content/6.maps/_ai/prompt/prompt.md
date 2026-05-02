@@ -13,6 +13,10 @@ original_path: _ai/prompt.md
 * [提示工程 Prompt Engineering](/maps/_ai/prompt/prompt-engineering)
 * [提示词分化：描述性 vs 指令性](/maps/_ai/prompt/prompt-paradigm) - 图像生成提示词的两种范式
 
+## Context Engineering
+
+* [上下文工程 Context Engineering](/maps/_ai/prompt/context-engineering) - 推理阶段上下文的结构化设计与优化，涵盖上下文腐烂、Fresh Markdown 注入、Prompt 缓存等
+
 ## Prompt Tools
 
 #### Chrome DevTools Prompts

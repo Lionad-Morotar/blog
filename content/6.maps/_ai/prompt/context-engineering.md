@@ -208,11 +208,23 @@ Chroma Research 在 2025 年对 18 个前沿模型（包括 GPT-4.1、Claude 4 S
 
 见：[Chroma Research](https://www.trychroma.com/research/context-rot)、[arXiv:2601.15300](https://arxiv.org/abs/2601.15300)、[arXiv:2510.05381](https://arxiv.org/abs/2510.05381)、[arXiv:2410.15288](https://arxiv.org/abs/2410.15288)
 
+#### 模型腐烂：训练快照与世界演进的脱节
+
+LLM 训练成本极高（不是周末练手项目），完成即冻结，模型成为 6/8/12/18 个月前世界与 Web 的快照。对快速演进的开源项目，这意味着模型的认知与现实严重脱节——会编造 keys、捏造模式、虚构不存在的 API。**「我们没做错什么，但这是我们的问题」**——PostHog 的 Danilo Campos 用这句话概括了厂商责任：模型不是上游训练的事，是下游集成方的工程问题。模型腐烂区别于上文「上下文腐烂」（context rot 是窗口内信息退化，model rot 是训练截止后世界继续演化）。应对策略不是等 Anthropic 重训模型，而是把第一手最新文档主动注入上下文（见下文「Fresh Markdown 注入」）。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
+
 #### 渐进式上下文披露：设计模式与实现架构
 
 Thoughtworks 在 2026 年 4 月技术雷达中将渐进式上下文披露纳入新兴技术，认为它能通过确保 Agent“在正确时刻获得正确引导”来防止上下文腐烂。这种模式比传统 RAG 更广泛——它不仅关注“检索什么”，更关注“何时加载”、“如何触发”以及“如何限定作用范围”。Anthropic 推广的 SKILL.md 规范将技能信息组织为 L1（始终保留的轻量级元数据/目录）、L2（按需加载的程序性指令）、L3（保持休眠的深度参考资料），从而允许任意大的参考资料而不导致基线上下文膨胀。实现渐进式披露需要三个组件：条件检测（显式工作流步骤或任务类别推断）、获取机制（文件读取、向量查询或子 Agent 检索）、以及范围限定（确保加载内容仅与当前任务阶段绑定，不会无限累积）。Anthropic 的 Agent Skills 框架在生产部署中实现了 70–90% 的 token 削减。
 
 见：[Thoughtworks Technology Radar](https://www.thoughtworks.com/radar/techniques/progressive-context-disclosure)、[MindStudio](https://www.mindstudio.ai/blog/progressive-disclosure-ai-agents-context-management/)、[arXiv:2603.11808](https://arxiv.org/abs/2603.11808)、[Context-Bench](https://www.sundeepteki.org/blog/context-bench-a-benchmark-for-evaluating-agentic-context-engineering)
+
+#### Fresh Markdown 注入：大上下文时代的反 RAG 实践
+
+PostHog Wizard 在生产实践中提出反共识观点：**「凭借现有的 context 窗口大小，没什么能比直接塞一堆 Markdown 文件、填补漏洞更有效」**。具体做法是文档源头永远是 posthog.com 实时渲染的最新版本（不是向量库快照），Agent 通过工具从「Fresh Hot Markdown 菜单」按当前任务类型挑选载入，直接 slide right into context，不经过分块、嵌入与 ANN 检索。这与上文「渐进式上下文披露」形成互补：渐进式披露解决「全量加载会把窗口撑爆」的问题，Fresh Markdown 解决「向量化是为窗口太小而妥协」的问题。**当 token 充裕、文档量可控时，最直接的检索就是「全量带入」**——RAG 在很多简单文档检索场景里不再必要，简化检索栈反而更可靠。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
 
 #### Prompt 缓存：机制、成本结构与部署陷阱
 

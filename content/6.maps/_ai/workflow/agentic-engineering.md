@@ -179,3 +179,19 @@ Karpathy 用 MenuGen 的一个真实 bug 说明 Agent 的盲区。用户用 Goog
 > 细节可以外包，理解不能外包。API 名称可以忘，但概念结构不能丢。
 
 见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
+
+#### Code 贬值、Prose 升值：90/8/2 组成原则
+
+PostHog Wizard 的工程师 Danilo Campos 公开过整个产品的「成分表」：
+
+- **90%** Markdown 文件（文档与拟像应用）
+- **8%** 用于交付与处理 Markdown 的工具
+- **2%** Agent 框架代码
+
+而这个产品每月被 15,000 用户使用，并在社交媒体收获主动好评。背后是一个 L3 价值判断：
+
+> 整个职业生涯我们都因为「写代码」而获奖。但**今天写好的代码，明天新模型 drop 后价值不变（甚至下降）——代码一直是贬值资产**。**当你今天写出好的 Prose，明天更好的模型上线，那段 Prose 能被它解读出更多东西。**
+
+这与「规格属于人类、细节属于 Agent」是同一个观察的另一面——人类写的 spec 是 Prose，会随模型升级而升值；Agent 生成的 implementation 是 Code，会随模型升级而被替代。Agentic Engineering 的核心产物本质是文档 + 编排，不是控制流；优化哪些资产能跨模型代际累积，是 AI 时代工程价值积累的关键问题。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
