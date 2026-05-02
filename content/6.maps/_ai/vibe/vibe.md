@@ -10,6 +10,14 @@ original_path: _ai/vibe.md
 
 - [agents.md](/maps/_ai/vibe/agents-md)
 
+#### 2025 年 12 月作为 AI 编程的可信度拐点
+
+Karpathy 把个人感受里的“程序员投降时刻”锚定到 2025 年 12 月。在那之前他把 Cursor 等工具当作“会出错的助手”，需要不断修正；之后最新模型生成的代码块开始直接可用，他在 side project 中放弃逐轮纠正，进入完全凭感觉编程的状态。他自述记不清上一次需要修改 AI 输出是什么时候。
+
+这不只是模型变强一个台阶，而是 agentic coherent workflow 的成熟——模型不再只是问答，而是能连续规划、写代码、调试、根据环境反馈继续修正。停留在“ChatGPT 式问答”印象的人，会显著低估这一年的范式变化。
+
+见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
+
 #### 编写 `agents.md` 的关键要点？
 
 - CLAUDE.md 是每次会话默认载入的文件，用来在编码代理启动时把代码库信息传给 Claude。

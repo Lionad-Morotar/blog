@@ -161,3 +161,21 @@ OpenAI 初期每周五花 20% 时间清理"AI 垃圾"，但这不可扩展。解
 这类似**垃圾回收**：技术债务像高息贷款，持续小额偿还有助于避免复利累积。人类品味一次性捕获，然后在每行代码上持续执行。
 
 见：[Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/)
+
+#### Vibe Coding 抬下限，Agentic Engineering 保上限
+
+Karpathy 给两个术语划了清楚边界。Vibe Coding 抬高的是下限——更多人能用自然语言做出软件，不会写代码的人能做小工具，会写代码的人能更快做 side project，软件创造的入口变宽。Agentic Engineering 保住的是上限——专业软件不能因为用了 AI 就引入安全漏洞、降低质量门槛或没人为生成的代码负责。
+
+它不是某个具体工具，而是一种工程纪律：把 spiky entities（能力强但会犯错的 Agent）放进合适的流程里，让它们生成方案、写代码、跑测试、互相检查，让系统有边界、有验证、有回滚。Karpathy 的另一句判断是：在 Agentic Engineering 里，熟练的人获得的加速倍数远不止 10x——真正的杠杆来自把多个 Agent、工具、测试和上下文有效组织起来。
+
+见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
+
+#### Agent 协作中规格属于人类，细节属于 Agent
+
+Karpathy 用 MenuGen 的一个真实 bug 说明 Agent 的盲区。用户用 Google 账号登录，但购买 credits 时使用 Stripe；Agent 实现购买逻辑时尝试用 Stripe 邮箱去匹配 Google 邮箱来归属用户。代码能跑、可能还过测试，但设计是错的——一个人完全可能用不同邮箱登录与付款，正确做法是用系统内部稳定的 persistent user ID 绑定身份与资金。Agent 没有理解“身份-支付-资金归属”的工程风险。
+
+由此 Karpathy 把人机分工落到具体边界：人必须负责 spec（顶层设计、约束条件、判断标准），Agent 填补实现细节。在更技术的层面也一致——他不再记 PyTorch / NumPy / pandas 之间 `keepdims` vs `keepdim`、`dim` vs `axis`、`reshape` vs `permute` 这类碎片 API，把这些交给 Agent；但他坚持理解张量、`view` 与 `storage` 的关系——什么时候只是改变同一块内存的视图、什么时候会复制数据。
+
+> 细节可以外包，理解不能外包。API 名称可以忘，但概念结构不能丢。
+
+见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)

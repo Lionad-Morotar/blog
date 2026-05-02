@@ -95,3 +95,23 @@ LLM生成听起来自信可信但实际上不正确或虚构的内容。
 #### Diffusion Models（扩散模型）？
 
 通过学习逆转噪声腐蚀过程来生成数据，从随机噪声逐步恢复出结构化信号。
+
+## 范式与隐喻
+
+#### Software 3.0：以 prompt 与 context 编程 LLM 解释器
+
+Karpathy 将软件分为三代。Software 1.0 是人写显式代码；Software 2.0 是设计数据集、目标函数与神经网络架构，通过训练得到权重；Software 3.0 则是 LLM 经大规模训练后变成一种可编程的计算机。
+
+Software 3.0 的关键不是“用自然语言代替代码”，而是程序边界从代码文件扩张到 `prompt`、`context window`、文件、工具调用与外部环境组成的“上下文程序”。Karpathy 用 OpenCL 安装举例：传统做法是写一个不断膨胀的 shell 脚本去适配各种环境；Software 3.0 里，安装说明本身就是一段可以复制给 Agent 的文本，由 Agent 读取机器环境、执行步骤、遇错调试。
+
+> 现在的问题变成：哪一段文字应该复制给你的 Agent？这就是新的编程范式。
+
+见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
+
+#### 动物 vs 幽灵：LLM 是统计模拟实体而非进化智能
+
+Karpathy 把智能来源分两路。动物智能来自进化、身体、与环境的互动、内在动机、好奇心和持续学习；动物会在世界里行动，被后果塑造。前沿 LLM 不是这样——它来自海量人类文档的预训练，再叠加 RLHF、偏好数据、工具调用等后训练过程，是由人类文档、统计模式与奖励函数塑造的“模拟实体”。
+
+这一区分有具体的使用含义：不要把 LLM 当动物。对它大喊或鼓励都不会改变其行为，它没有动物式情绪，行为完全由训练分布、上下文、工具与奖励决定。判断一个任务能否做好，应当问“它在哪些训练分布里强、哪些奖励信号塑造了它、在哪些任务上可能出现锯齿状断崖”，而不是笼统问“AI 聪不聪明”。
+
+见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
