@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxtjs/mdc',
     'nuxt-feedme',
+    'nuxt-llms',
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
     '@nuxt-dev/medium-zoom',
@@ -42,6 +43,61 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://lionad.art',
+  },
+
+  /**
+   * LLMs.txt - 为 LLM 生成友好的文档索引
+   * @see https://github.com/nuxt-content/nuxt-llms
+   */
+  llms: {
+    domain: 'https://lionad.art',
+    title: '仿生狮子的博客',
+    description: 'Lionad 的博客，关于前端工程、科学哲学、Flow 与知识管理',
+    full: {
+      title: '博客完整内容',
+      description: '包含所有文章、流程笔记与知识地图的完整内容',
+    },
+    sections: [
+      {
+        title: '文章',
+        description: '技术博客文章与随笔',
+        links: [
+          { title: '全部文章', description: '所有博客文章列表', href: '/articles' },
+        ],
+      },
+      {
+        title: 'Flow',
+        description: '流程笔记与方法论',
+        links: [
+          { title: 'Flows', description: '所有流程笔记', href: '/flows' },
+        ],
+      },
+      {
+        title: '知识地图',
+        description: '结构化知识笔记',
+        links: [
+          { title: '知识地图', description: '知识地图总览', href: '/maps' },
+        ],
+      },
+      {
+        title: '工具',
+        description: '开发工具与配置分享',
+        links: [
+          { title: '工具箱', description: '常用工具与配置', href: '/tools' },
+        ],
+      },
+      {
+        title: '源码分析',
+        description: '开源项目源码阅读笔记',
+        links: [
+          { title: '源码阅读', description: '源码分析笔记', href: '/source-code' },
+        ],
+      },
+    ],
+    notes: [
+      '本博客内容使用 CC BY-NC-SA 4.0 协议授权',
+      'Nuxt Content 自动集成，所有 Markdown 内容均包含在 llms-full.txt 中',
+    ],
   },
 
   /**
