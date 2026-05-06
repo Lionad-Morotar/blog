@@ -6,6 +6,8 @@ original_path: _ai/benchmark.md
 
 ## 基准测试
 
+* [LLM Benchmark 原始任务示例集](/maps/_ai/benchmark/llm-benchmark-task-examples) — SimpleQA、HLE、Apex Shortlist、Codeforces、SWE Verified、Terminal Bench 2.0、Toolathlon 的原始任务示例
+
 * [Arena.ai](https://arena.ai/zh/leaderboard/code)：经典大模型竞技场
 
 * [SanityHarness](https://sanityboard.lr7.dev/)：Agentic 基准
