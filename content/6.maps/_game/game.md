@@ -8,6 +8,7 @@ description: 游戏开发、游戏设计、游戏行业等
 * [游戏开发](/maps/_game/game/game)
 * [游戏设计](/maps/_game/game-design/touch-controls)
 * [叙事设计](/maps/_game/game-design/narrative-design) - 游戏叙事的哲学内核与角色设计方法论
+* [严肃游戏](/maps/_game/game-design/serious-games) - 以游戏为载体介入社会议题的设计方法与社群效应
 
 ## 概述
 
