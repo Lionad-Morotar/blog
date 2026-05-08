@@ -34,6 +34,10 @@ original_path: _ai/agents.md
 * [Claude Agent SDK (TypeScript) 发布记录](/maps/_ai/agents/claude-agent-sdk-releases)
 * [OpenAI Agents SDK (JavaScript) 发布记录](/maps/_ai/agents/openai-agents-js-releases)
 
+## 治理与政策
+
+* [智能体治理与政策](/maps/_ai/governance/agent-governance)：三部委《智能体规范应用与创新发展实施意见》要点解读
+
 ## 架构
 
 * [Agent 架构设计原则与最佳实践](/maps/_ai/agents/agent-architecture)：工作流与智能体的区别、技术选型金字塔、五种工作流模式、工具设计、长时运行 Agent 的 Harness 设计

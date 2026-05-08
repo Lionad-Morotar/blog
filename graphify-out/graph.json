@@ -1042,30 +1042,13 @@
       "norm_label": "nuxt content"
     },
     {
-      "label": "Nuxt Config",
+      "label": "nuxt.config.ts",
       "file_type": "code",
       "source_file": "nuxt.config.ts",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "nuxt_config",
-      "community": 20,
-      "norm_label": "nuxt config"
-    },
-    {
-      "label": "previewDirs runtimeConfig",
-      "file_type": "code",
-      "source_file": "nuxt.config.ts",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "runtime_config_preview_dirs",
-      "community": 20,
-      "norm_label": "previewdirs runtimeconfig"
+      "source_location": "L1",
+      "id": "nuxt_config_ts",
+      "community": 132,
+      "norm_label": "nuxt.config.ts"
     },
     {
       "label": "Vitest Config",
@@ -1077,7 +1060,7 @@
       "author": null,
       "contributor": null,
       "id": "vitest_config",
-      "community": 20,
+      "community": 28,
       "norm_label": "vitest config"
     },
     {
@@ -1090,7 +1073,7 @@
       "author": null,
       "contributor": null,
       "id": "mock_bun_test",
-      "community": 20,
+      "community": 28,
       "norm_label": "mock-bun-test plugin"
     },
     {
@@ -1103,7 +1086,7 @@
       "author": null,
       "contributor": null,
       "id": "app_vue",
-      "community": 25,
+      "community": 24,
       "norm_label": "app.vue"
     },
     {
@@ -1116,7 +1099,7 @@
       "author": null,
       "contributor": null,
       "id": "app_vue_navigation_merge",
-      "community": 25,
+      "community": 24,
       "norm_label": "merged navigation from 11 collections"
     },
     {
@@ -1129,7 +1112,7 @@
       "author": null,
       "contributor": null,
       "id": "app_vue_filter_en",
-      "community": 25,
+      "community": 24,
       "norm_label": "navigation filter excluding /en paths and _ dirs"
     },
     {
@@ -1142,7 +1125,7 @@
       "author": null,
       "contributor": null,
       "id": "app_vue_html_lang",
-      "community": 25,
+      "community": 24,
       "norm_label": "htmllang based on route path (en/zh-cn)"
     },
     {
@@ -1155,7 +1138,7 @@
       "author": null,
       "contributor": null,
       "id": "app_config_ts",
-      "community": 25,
+      "community": 24,
       "norm_label": "app.config.ts"
     },
     {
@@ -1168,7 +1151,7 @@
       "author": null,
       "contributor": null,
       "id": "app_config_ui_colors",
-      "community": 25,
+      "community": 24,
       "norm_label": "ui primary=red neutral=slate config"
     },
     {
@@ -1181,7 +1164,7 @@
       "author": null,
       "contributor": null,
       "id": "app_config_seo",
-      "community": 25,
+      "community": 24,
       "norm_label": "seo sitename config"
     },
     {
@@ -1194,7 +1177,7 @@
       "author": null,
       "contributor": null,
       "id": "app_config_header",
-      "community": 25,
+      "community": 24,
       "norm_label": "header links config (posts/maps/links)"
     },
     {
@@ -1207,7 +1190,7 @@
       "author": null,
       "contributor": null,
       "id": "app_config_footer",
-      "community": 25,
+      "community": 24,
       "norm_label": "footer credits and social links config"
     },
     {
@@ -1220,7 +1203,7 @@
       "author": null,
       "contributor": null,
       "id": "error_vue",
-      "community": 25,
+      "community": 24,
       "norm_label": "error.vue (nuxt error page)"
     },
     {
@@ -1233,7 +1216,7 @@
       "author": null,
       "contributor": null,
       "id": "locale_preference_middleware",
-      "community": 25,
+      "community": 24,
       "norm_label": "locale-preference.global.ts middleware"
     },
     {
@@ -1246,7 +1229,7 @@
       "author": null,
       "contributor": null,
       "id": "locale_preference_getCollectionFromPath",
-      "community": 25,
+      "community": 24,
       "norm_label": "getcollectionfrompath routing logic"
     },
     {
@@ -1259,7 +1242,7 @@
       "author": null,
       "contributor": null,
       "id": "locale_utils",
-      "community": 25,
+      "community": 24,
       "norm_label": "~/utils/locale helpers"
     },
     {
@@ -1272,7 +1255,7 @@
       "author": null,
       "contributor": null,
       "id": "app_config",
-      "community": 131,
+      "community": 133,
       "norm_label": "app-config.d.ts"
     },
     {
@@ -1285,7 +1268,7 @@
       "author": null,
       "contributor": null,
       "id": "usePreferredLocale",
-      "community": 25,
+      "community": 24,
       "norm_label": "usepreferredlocale composable"
     },
     {
@@ -1298,7 +1281,7 @@
       "author": null,
       "contributor": null,
       "id": "locale_ts",
-      "community": 101,
+      "community": 102,
       "norm_label": "locale.ts"
     },
     {
@@ -1311,7 +1294,7 @@
       "author": null,
       "contributor": null,
       "id": "i18n_locale",
-      "community": 101,
+      "community": 102,
       "norm_label": "i18n locale utilities"
     },
     {
@@ -1324,7 +1307,7 @@
       "author": null,
       "contributor": null,
       "id": "CodePreview",
-      "community": 42,
+      "community": 43,
       "norm_label": "codepreview component"
     },
     {
@@ -1337,7 +1320,7 @@
       "author": null,
       "contributor": null,
       "id": "CodePreview_api_highlight_code",
-      "community": 42,
+      "community": 43,
       "norm_label": "api /api/highlight-code call"
     },
     {
@@ -1350,7 +1333,7 @@
       "author": null,
       "contributor": null,
       "id": "CodePreview_scroll_to_highlight",
-      "community": 42,
+      "community": 43,
       "norm_label": "scrolltofirsthighlight logic"
     },
     {
@@ -1363,7 +1346,7 @@
       "author": null,
       "contributor": null,
       "id": "Mermaid",
-      "community": 43,
+      "community": 42,
       "norm_label": "mermaid component"
     },
     {
@@ -1376,7 +1359,7 @@
       "author": null,
       "contributor": null,
       "id": "Mermaid_tinycolor2",
-      "community": 43,
+      "community": 42,
       "norm_label": "tinycolor2 dependency for contrast"
     },
     {
@@ -1389,7 +1372,7 @@
       "author": null,
       "contributor": null,
       "id": "Mermaid_svg2roughjs",
-      "community": 43,
+      "community": 42,
       "norm_label": "svg2roughjs hand-drawn effect"
     },
     {
@@ -1402,7 +1385,7 @@
       "author": null,
       "contributor": null,
       "id": "Mermaid_svg_pan_zoom",
-      "community": 43,
+      "community": 42,
       "norm_label": "svg-pan-zoom zoom/pan feature"
     },
     {
@@ -1415,7 +1398,7 @@
       "author": null,
       "contributor": null,
       "id": "Footer",
-      "community": 25,
+      "community": 24,
       "norm_label": "footer component"
     },
     {
@@ -1428,7 +1411,7 @@
       "author": null,
       "contributor": null,
       "id": "PreviewTree",
-      "community": 132,
+      "community": 134,
       "norm_label": "previewtree component"
     },
     {
@@ -1441,7 +1424,7 @@
       "author": null,
       "contributor": null,
       "id": "Excalidraw",
-      "community": 43,
+      "community": 42,
       "norm_label": "excalidraw component"
     },
     {
@@ -1454,7 +1437,7 @@
       "author": null,
       "contributor": null,
       "id": "Excalidraw_api_excalidraw",
-      "community": 43,
+      "community": 42,
       "norm_label": "api /api/excalidraw call"
     },
     {
@@ -1467,7 +1450,7 @@
       "author": null,
       "contributor": null,
       "id": "ExcalidrawBoard",
-      "community": 43,
+      "community": 42,
       "norm_label": "excalidrawboard component"
     },
     {
@@ -1480,7 +1463,7 @@
       "author": null,
       "contributor": null,
       "id": "Header",
-      "community": 25,
+      "community": 24,
       "norm_label": "header component"
     },
     {
@@ -1493,7 +1476,7 @@
       "author": null,
       "contributor": null,
       "id": "Header_wide_layout",
-      "community": 25,
+      "community": 24,
       "norm_label": "wide layout toggle in header"
     },
     {
@@ -1519,7 +1502,7 @@
       "author": null,
       "contributor": null,
       "id": "ReadBase64",
-      "community": 133,
+      "community": 135,
       "norm_label": "readbase64 drag-drop file reader"
     },
     {
@@ -1532,7 +1515,7 @@
       "author": null,
       "contributor": null,
       "id": "aspectratio_component",
-      "community": 83,
+      "community": 84,
       "norm_label": "aspectratio vue component"
     },
     {
@@ -1545,7 +1528,7 @@
       "author": null,
       "contributor": null,
       "id": "aspectratio_placeholder_pattern",
-      "community": 83,
+      "community": 84,
       "norm_label": "svg pattern placeholder"
     },
     {
@@ -1558,7 +1541,7 @@
       "author": null,
       "contributor": null,
       "id": "aspectratio_padding_box",
-      "community": 83,
+      "community": 84,
       "norm_label": "padding-top aspect ratio technique"
     },
     {
@@ -1571,7 +1554,7 @@
       "author": null,
       "contributor": null,
       "id": "AspectRatio",
-      "community": 84,
+      "community": 85,
       "norm_label": "aspectratio component"
     },
     {
@@ -1584,7 +1567,7 @@
       "author": null,
       "contributor": null,
       "id": "SectionExtract",
-      "community": 70,
+      "community": 71,
       "norm_label": "sectionextract component (extract heading section)"
     },
     {
@@ -1597,7 +1580,7 @@
       "author": null,
       "contributor": null,
       "id": "SectionExtract_minimark",
-      "community": 70,
+      "community": 71,
       "norm_label": "minimark body parsing logic"
     },
     {
@@ -1610,7 +1593,7 @@
       "author": null,
       "contributor": null,
       "id": "TextHighlightPlayground",
-      "community": 102,
+      "community": 104,
       "norm_label": "texthighlightplayground interactive component"
     },
     {
@@ -1623,7 +1606,7 @@
       "author": null,
       "contributor": null,
       "id": "TextHighlightPlayground_selection_api",
-      "community": 102,
+      "community": 104,
       "norm_label": "selection api and range api usage"
     },
     {
@@ -1636,7 +1619,7 @@
       "author": null,
       "contributor": null,
       "id": "ProseA",
-      "community": 42,
+      "community": 43,
       "norm_label": "prosea component (enhanced link in prose)"
     },
     {
@@ -1649,7 +1632,7 @@
       "author": null,
       "contributor": null,
       "id": "ProseA_preview_repo_file_api",
-      "community": 42,
+      "community": 43,
       "norm_label": "api /api/preview-repo-file call"
     },
     {
@@ -1662,7 +1645,7 @@
       "author": null,
       "contributor": null,
       "id": "ProseA_CodePreview",
-      "community": 42,
+      "community": 43,
       "norm_label": "prosea uses codepreview component"
     },
     {
@@ -1675,7 +1658,7 @@
       "author": null,
       "contributor": null,
       "id": "ProseA_vscode_url",
-      "community": 42,
+      "community": 43,
       "norm_label": "vs code url scheme generation"
     },
     {
@@ -1688,7 +1671,7 @@
       "author": null,
       "contributor": null,
       "id": "SectionEmbed",
-      "community": 70,
+      "community": 71,
       "norm_label": "sectionembed component (embed markdown file)"
     },
     {
@@ -1701,7 +1684,7 @@
       "author": null,
       "contributor": null,
       "id": "SectionEmbed_queryCollection_maps",
-      "community": 70,
+      "community": 71,
       "norm_label": "querycollection('maps') usage"
     },
     {
@@ -1714,7 +1697,7 @@
       "author": null,
       "contributor": null,
       "id": "ArticleTimestamp",
-      "community": 134,
+      "community": 136,
       "norm_label": "articletimestamp component (git-based)"
     },
     {
@@ -1727,7 +1710,7 @@
       "author": null,
       "contributor": null,
       "id": "OgImageDocs",
-      "community": 135,
+      "community": 137,
       "norm_label": "ogimagedocs component"
     },
     {
@@ -1740,7 +1723,7 @@
       "author": null,
       "contributor": null,
       "id": "Gesture",
-      "community": 136,
+      "community": 138,
       "norm_label": "gesture component"
     },
     {
@@ -1753,7 +1736,7 @@
       "author": null,
       "contributor": null,
       "id": "Compare",
-      "community": 137,
+      "community": 139,
       "norm_label": "compare component (drag comparison)"
     },
     {
@@ -1779,7 +1762,7 @@
       "author": null,
       "contributor": null,
       "id": "LLink",
-      "community": 104,
+      "community": 105,
       "norm_label": "llink component (external link with iframe preview)"
     },
     {
@@ -1792,7 +1775,7 @@
       "author": null,
       "contributor": null,
       "id": "LLink_faas_getmeta",
-      "community": 104,
+      "community": 105,
       "norm_label": "faas getmeta endpoint for filesize"
     },
     {
@@ -1805,7 +1788,7 @@
       "author": null,
       "contributor": null,
       "id": "Spark",
-      "community": 84,
+      "community": 85,
       "norm_label": "spark component (animated sparkles)"
     },
     {
@@ -1818,7 +1801,7 @@
       "author": null,
       "contributor": null,
       "id": "Spark_particle",
-      "community": 84,
+      "community": 85,
       "norm_label": "spark particle subcomponent"
     },
     {
@@ -1831,7 +1814,7 @@
       "author": null,
       "contributor": null,
       "id": "docs_layout",
-      "community": 138,
+      "community": 140,
       "norm_label": "docs.vue layout"
     },
     {
@@ -1844,7 +1827,7 @@
       "author": null,
       "contributor": null,
       "id": "docs_layout_wide_layout",
-      "community": 25,
+      "community": 24,
       "norm_label": "docs wide-layout localstorage persistence"
     },
     {
@@ -1857,7 +1840,7 @@
       "author": null,
       "contributor": null,
       "id": "index_vue",
-      "community": 105,
+      "community": 106,
       "norm_label": "index.vue"
     },
     {
@@ -1870,7 +1853,7 @@
       "author": null,
       "contributor": null,
       "id": "home_page",
-      "community": 105,
+      "community": 106,
       "norm_label": "home page"
     },
     {
@@ -1883,7 +1866,7 @@
       "author": null,
       "contributor": null,
       "id": "slug_vue",
-      "community": 139,
+      "community": 141,
       "norm_label": "[...slug].vue"
     },
     {
@@ -1896,7 +1879,7 @@
       "author": null,
       "contributor": null,
       "id": "preview_index_vue",
-      "community": 85,
+      "community": 86,
       "norm_label": "preview/index.vue"
     },
     {
@@ -1909,7 +1892,7 @@
       "author": null,
       "contributor": null,
       "id": "preview_slug_vue",
-      "community": 85,
+      "community": 86,
       "norm_label": "preview/[...slug].vue"
     },
     {
@@ -1922,7 +1905,7 @@
       "author": null,
       "contributor": null,
       "id": "preview_feature",
-      "community": 85,
+      "community": 86,
       "norm_label": "preview feature"
     },
     {
@@ -1935,7 +1918,7 @@
       "author": null,
       "contributor": null,
       "id": "preview_test",
-      "community": 20,
+      "community": 28,
       "norm_label": "preview api test"
     },
     {
@@ -1948,7 +1931,7 @@
       "author": null,
       "contributor": null,
       "id": "server_plugin_feed",
-      "community": 20,
+      "community": 44,
       "norm_label": "feed server plugin"
     },
     {
@@ -1961,7 +1944,7 @@
       "author": null,
       "contributor": null,
       "id": "feedme_hook",
-      "community": 20,
+      "community": 44,
       "norm_label": "feedme:handle:content:item hook"
     },
     {
@@ -1974,7 +1957,7 @@
       "author": null,
       "contributor": null,
       "id": "api_search_json",
-      "community": 20,
+      "community": 44,
       "norm_label": "search json api"
     },
     {
@@ -1987,7 +1970,7 @@
       "author": null,
       "contributor": null,
       "id": "truncate_content",
-      "community": 20,
+      "community": 44,
       "norm_label": "truncatecontent"
     },
     {
@@ -2000,7 +1983,7 @@
       "author": null,
       "contributor": null,
       "id": "query_collection_search_sections",
-      "community": 20,
+      "community": 44,
       "norm_label": "querycollectionsearchsections"
     },
     {
@@ -2013,7 +1996,7 @@
       "author": null,
       "contributor": null,
       "id": "api_highlight_code",
-      "community": 20,
+      "community": 44,
       "norm_label": "highlight code api"
     },
     {
@@ -2026,7 +2009,7 @@
       "author": null,
       "contributor": null,
       "id": "shiki",
-      "community": 20,
+      "community": 44,
       "norm_label": "shiki"
     },
     {
@@ -2039,7 +2022,7 @@
       "author": null,
       "contributor": null,
       "id": "api_preview_repo_file",
-      "community": 20,
+      "community": 28,
       "norm_label": "preview repo file api"
     },
     {
@@ -2052,7 +2035,7 @@
       "author": null,
       "contributor": null,
       "id": "find_git_root",
-      "community": 20,
+      "community": 28,
       "norm_label": "findgitroot"
     },
     {
@@ -2065,7 +2048,7 @@
       "author": null,
       "contributor": null,
       "id": "detect_vscode_scheme",
-      "community": 20,
+      "community": 28,
       "norm_label": "detectvscodescheme"
     },
     {
@@ -2078,7 +2061,7 @@
       "author": null,
       "contributor": null,
       "id": "api_excalidraw",
-      "community": 20,
+      "community": 28,
       "norm_label": "excalidraw api"
     },
     {
@@ -2091,7 +2074,7 @@
       "author": null,
       "contributor": null,
       "id": "api_preview_index",
-      "community": 20,
+      "community": 28,
       "norm_label": "preview index api"
     },
     {
@@ -2104,7 +2087,7 @@
       "author": null,
       "contributor": null,
       "id": "preview_node",
-      "community": 20,
+      "community": 28,
       "norm_label": "previewnode"
     },
     {
@@ -2117,7 +2100,7 @@
       "author": null,
       "contributor": null,
       "id": "sort_nodes",
-      "community": 20,
+      "community": 28,
       "norm_label": "sortnodes"
     },
     {
@@ -2130,7 +2113,7 @@
       "author": null,
       "contributor": null,
       "id": "merge_trees",
-      "community": 20,
+      "community": 28,
       "norm_label": "mergetrees"
     },
     {
@@ -2143,7 +2126,7 @@
       "author": null,
       "contributor": null,
       "id": "scan",
-      "community": 20,
+      "community": 28,
       "norm_label": "scan"
     },
     {
@@ -2156,7 +2139,7 @@
       "author": null,
       "contributor": null,
       "id": "parse_markdown",
-      "community": 20,
+      "community": 28,
       "norm_label": "parsemarkdown"
     },
     {
@@ -2169,7 +2152,7 @@
       "author": null,
       "contributor": null,
       "id": "api_preview_path",
-      "community": 20,
+      "community": 28,
       "norm_label": "preview path api"
     },
     {
@@ -2181,7 +2164,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 71,
+      "community": 72,
       "norm_label": "blog favicon svg",
       "id": "favicon_svg"
     },
@@ -2194,7 +2177,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 71,
+      "community": 72,
       "norm_label": "wine glass / goblet icon",
       "id": "favicon_wine_glass_icon"
     },
@@ -2207,7 +2190,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 71,
+      "community": 72,
       "norm_label": "fizz bubbles decoration",
       "id": "favicon_bubbles_decoration"
     },
@@ -2220,7 +2203,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 71,
+      "community": 72,
       "norm_label": "red color (#d81e06)",
       "id": "favicon_color_red"
     },
@@ -2233,7 +2216,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 72,
+      "community": 73,
       "norm_label": "agents.md",
       "id": "AGENTS_MD"
     },
@@ -2246,7 +2229,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 72,
+      "community": 73,
       "norm_label": "markdown frontmatter rule: no h1 when frontmatter.title exists",
       "id": "AGENTS_MD_frontmatter_rule"
     },
@@ -2259,7 +2242,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 72,
+      "community": 73,
       "norm_label": "i18n lightweight multi-language solution",
       "id": "AGENTS_MD_i18n_doc"
     },
@@ -2272,7 +2255,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 72,
+      "community": 73,
       "norm_label": "claude.md",
       "id": "Claude_MD"
     },
@@ -2285,7 +2268,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 86,
+      "community": 87,
       "norm_label": "readme.md",
       "id": "README_MD"
     },
@@ -2298,7 +2281,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 86,
+      "community": 87,
       "norm_label": "nuxt-content-git timestamp feature",
       "id": "README_MD_nuxt_content_git"
     },
@@ -2311,7 +2294,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 86,
+      "community": 87,
       "norm_label": "homepage background credit cmykpixels@codepen",
       "id": "README_MD_homepage_bg"
     },
@@ -2324,7 +2307,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "\u72ee\u5b50\u7684\u4e66\u5355\u63a8\u8350",
       "id": "flows_books"
     },
@@ -2337,7 +2320,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u56db\u5341\u4e8c\u7bc7\u7cfb\u5217",
       "id": "flows_forty_two"
     },
@@ -2350,7 +2333,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 140,
+      "community": 142,
       "norm_label": "\u957f\u591c\u68a6",
       "id": "flows_long_night_dream"
     },
@@ -2363,7 +2346,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 141,
+      "community": 143,
       "norm_label": "\u4e07\u7269\u8054\u7ed3\u4e0e\u5e78\u798f\u611f",
       "id": "flows_everything"
     },
@@ -2376,7 +2359,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 142,
+      "community": 144,
       "norm_label": "\u5077\u53d6\u65f6\u95f4",
       "id": "flows_stealing_time"
     },
@@ -2389,7 +2372,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 107,
       "norm_label": "\u8868\u8fbe\u548c\u5b64\u72ec",
       "id": "flows_expression_loneliness"
     },
@@ -2402,7 +2385,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 107,
       "norm_label": "\u6211\u7684\u817c\u8146",
       "id": "flows_shy"
     },
@@ -2415,7 +2398,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 108,
       "norm_label": "\u65b0\u5de5\u4f5c,\u559d\u65b0\u996e\u6599",
       "id": "flows_drinking"
     },
@@ -2428,7 +2411,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 143,
+      "community": 145,
       "norm_label": "\u5fc3\u6d41\u5f52\u6863",
       "id": "flows_archive"
     },
@@ -2441,7 +2424,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u6709\u5173\u65b0\u9879\u76ee\u7684\u65b9\u6cd5\u8bba",
       "id": "forty_two_dark_room"
     },
@@ -2454,7 +2437,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u6210\u719f\u7684\u5c0f\u5b69\u5b50",
       "id": "forty_two_mature_child"
     },
@@ -2467,7 +2450,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u4eba\u4e4b\u4e3a\u4eba",
       "id": "forty_two_as_human"
     },
@@ -2480,7 +2463,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u76f2\u89c6",
       "id": "forty_two_blind_sight"
     },
@@ -2493,7 +2476,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u9ed1\u65e5",
       "id": "forty_two_black_sun"
     },
@@ -2506,7 +2489,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 107,
+      "community": 108,
       "norm_label": "\u4e91\u62ff\u8f6c\u6b63\u5c0f\u8282",
       "id": "forty_two_cloud_take"
     },
@@ -2519,7 +2502,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 144,
+      "community": 146,
       "norm_label": "\u53cb\u94fe",
       "id": "links_index"
     },
@@ -2532,7 +2515,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 57,
+      "community": 58,
       "norm_label": "\u6b22\u8fce",
       "id": "articles_index"
     },
@@ -2597,7 +2580,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "\u672c\u5730\u90e8\u7f72 qwen \u7ffb\u8bd1\u7f51\u9875",
       "id": "articles_local_translator"
     },
@@ -2610,7 +2593,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u6a21\u677f\u89e3\u6790\u5668\u8f7b\u8003\u53e4",
       "id": "articles_micro_templating"
     },
@@ -2675,7 +2658,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "local llm translation",
       "id": "local_llm_translation"
     },
@@ -2688,7 +2671,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "micro templating parser",
       "id": "micro_templating_parser"
     },
@@ -2740,7 +2723,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "lm studio",
       "id": "lmstudio"
     },
@@ -2753,7 +2736,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "immersive translate",
       "id": "immersive_translate"
     },
@@ -2766,7 +2749,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "john resig",
       "id": "john_resig"
     },
@@ -2779,7 +2762,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u56db\u5341\u4e8c\u7bc7 series",
       "id": "forty_two_series"
     },
@@ -2792,7 +2775,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 57,
+      "community": 58,
       "norm_label": "digital garden",
       "id": "digital_garden"
     },
@@ -2805,7 +2788,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "vuejs with statement",
       "id": "vuejs_with"
     },
@@ -2818,7 +2801,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "qwen model",
       "id": "qwen_model"
     },
@@ -2831,7 +2814,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 46,
+      "community": 47,
       "norm_label": "nginx cors proxy",
       "id": "nginx_proxy"
     },
@@ -2896,7 +2879,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "chinese room",
       "id": "chinese_room"
     },
@@ -2909,7 +2892,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "rougelike / \u5b50\u5b87\u5b99\u7406\u8bba",
       "id": "rougelike_universe"
     },
@@ -2922,7 +2905,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "attention debt of ai tooling",
       "id": "attention_debt_ai"
     },
@@ -2935,7 +2918,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "hitl to hotl",
       "id": "hitl_hotl"
     },
@@ -2948,7 +2931,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "dry principle",
       "id": "dry_principle"
     },
@@ -2961,7 +2944,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u5c4e\u5c71",
       "id": "shit_mountain"
     },
@@ -2974,7 +2957,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 26,
+      "community": 25,
       "norm_label": "\u5df4\u522b\u5854\u5c01\u9876",
       "id": "babel_tower"
     },
@@ -2987,7 +2970,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "\u795e\u79d8\u4e3b\u4e49",
       "id": "mysticism"
     },
@@ -3000,7 +2983,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "\u5e15\u65af\u5361\u8d4c\u6ce8",
       "id": "pascals_wager"
     },
@@ -3013,7 +2996,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "\u5927\u6559\u5802\u4e0e\u96c6\u5e02",
       "id": "cathedral_bazaar"
     },
@@ -3026,7 +3009,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "\u9ed1\u5ba2\u4e0e\u753b\u5bb6",
       "id": "hacker_painter"
     },
@@ -3039,7 +3022,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 47,
+      "community": 48,
       "norm_label": "\u4e09\u4f53",
       "id": "three_body"
     },
@@ -3052,7 +3035,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 73,
+      "community": 74,
       "norm_label": "mini css parser",
       "id": "mini-css-parser_css-parser"
     },
@@ -3065,7 +3048,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 73,
+      "community": 74,
       "norm_label": "micro-app",
       "id": "mini-css-parser_micro-app"
     },
@@ -3078,7 +3061,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 73,
+      "community": 74,
       "norm_label": "css nesting",
       "id": "mini-css-parser_css-nesting"
     },
@@ -3117,7 +3100,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 109,
       "norm_label": "use scrollbars",
       "id": "use-scrollbars_custom-scrollbar"
     },
@@ -3130,7 +3113,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 108,
+      "community": 109,
       "norm_label": "popupmanager / usezindex",
       "id": "zindex-manager_popup-manager"
     },
@@ -3182,7 +3165,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 58,
+      "community": 60,
       "norm_label": "\u8bbe\u8ba1\u6a21\u5f0f\u4e0e js \u9b54\u6cd5\u9505",
       "id": "design-patterns-and-js-magic-pot_design-patterns"
     },
@@ -3195,7 +3178,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 58,
+      "community": 60,
       "norm_label": "anysort",
       "id": "anysort-2th_anysort"
     },
@@ -3234,7 +3217,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 58,
+      "community": 60,
       "norm_label": "\u914d\u7f6e\u6570\u636e\u4e0e\u4e1a\u52a1\u903b\u8f91\u5206\u79bb",
       "id": "no-more-if-else_strategy-pattern-like"
     },
@@ -3338,7 +3321,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
+      "community": 61,
       "norm_label": "fingerstyle \u6307\u5f39",
       "id": "music_fingerstyle"
     },
@@ -3351,7 +3334,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
+      "community": 61,
       "norm_label": "\u77e5\u8bc6\u5730\u56fe\u7d22\u5f15",
       "id": "maps_index_knowledge-map"
     },
@@ -3364,7 +3347,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
+      "community": 61,
       "norm_label": "\u7b14\u8bb0\u7cfb\u7edf\u667a\u80fd\u4f53\u6863\u6848",
       "id": "maps_agents_note-system"
     },
@@ -3377,7 +3360,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
+      "community": 61,
       "norm_label": "a2a protocol",
       "id": "maps_a2a_protocol"
     },
@@ -3390,7 +3373,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 73,
+      "community": 74,
       "norm_label": "\u9ed1\u540d\u5355\u673a\u5236\u4f18\u4e8e\u767d\u540d\u5355\u7684 rationale",
       "id": "rationale_mini-css-parser_blacklist"
     },
@@ -3416,7 +3399,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 58,
+      "community": 60,
       "norm_label": "\u8bbe\u8ba1\u6a21\u5f0f\u672c\u8d28\u662f\u4ee3\u7801\u590d\u7528\u7684 rationale",
       "id": "rationale_design-patterns_code-reuse"
     },
@@ -3429,7 +3412,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 58,
+      "community": 60,
       "norm_label": "\u914d\u7f6e\u4e0e\u903b\u8f91\u5206\u79bb\u7684 rationale",
       "id": "rationale_no-more-if-else_separation"
     },
@@ -3442,7 +3425,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 60,
+      "community": 61,
       "norm_label": "\u56db\u5c42\u8ba4\u77e5\u7ed3\u6784\u7684 rationale",
       "id": "rationale_agents_four-layer-cognition"
     },
@@ -3608,7 +3591,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "agent architecture",
       "id": "c6e1ea07-fc7d-45c6-833b-8dc5ce6fec65"
     },
@@ -3618,7 +3601,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "workflow",
       "id": "4621840a-c097-493e-aeb1-99bc5546b6aa"
     },
@@ -3628,7 +3611,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "agent system",
       "id": "411f4e52-d02a-4fa6-9e55-33983636004d"
     },
@@ -3638,7 +3621,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "prompt chaining",
       "id": "54dc4d71-30d7-4cb2-ba15-7ff9b96fff27"
     },
@@ -3648,7 +3631,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "routing",
       "id": "37fe58dd-9d80-40bb-8386-c42ef84d7e57"
     },
@@ -3658,7 +3641,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "parallelization",
       "id": "36bcf339-cf84-4d95-aa45-c6c99c621dfd"
     },
@@ -3668,7 +3651,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "orchestrator-workers",
       "id": "1258c65f-d8f8-48b1-ac21-732ae09fc48e"
     },
@@ -3678,7 +3661,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "evaluator-optimizer",
       "id": "0b6ccdb5-ec9d-4efb-bc45-1d8d9d4d1150"
     },
@@ -3688,7 +3671,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "agent-computer interface (aci)",
       "id": "71f0a82f-9301-4308-bb46-dae10196d9db"
     },
@@ -3698,7 +3681,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "agent harness",
       "id": "5ba978c6-2adb-454f-aed9-2b495f18fff1"
     },
@@ -3708,7 +3691,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "context reset",
       "id": "77ef7f05-670d-44fc-9fb5-4e0f160b2dce"
     },
@@ -3718,7 +3701,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/agent-architecture.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "context compaction",
       "id": "ff63cee7-90c4-4938-8f3c-cd42183933a7"
     },
@@ -4247,7 +4230,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/workflow-vs-agent.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "workflow vs agent",
       "id": "b71b0fc4-057c-4afd-a499-84c9f23d4b27"
     },
@@ -4257,7 +4240,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/workflow-vs-agent.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "hitl (human-in-the-loop)",
       "id": "56340e73-9193-41e7-b9a0-a63e8140ef47"
     },
@@ -4267,7 +4250,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/workflow-vs-agent.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "hotl (human-on-the-loop)",
       "id": "35073c1e-0757-472c-ad74-347134fb2947"
     },
@@ -4277,7 +4260,7 @@
       "source_files": [
         "content/6.maps/_ai/agents/workflow-vs-agent.md"
       ],
-      "community": 28,
+      "community": 27,
       "norm_label": "attention debt economics",
       "id": "0e67073e-87d8-4da7-97e8-d4bc2a6b477f"
     },
@@ -4397,7 +4380,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 145,
+      "community": 147,
       "norm_label": "qwen3-embedding-8b-4bit-dwq benchmark",
       "id": "benchmark_qwen3_embedding_8b_4bit_dwq"
     },
@@ -4423,7 +4406,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 146,
+      "community": 148,
       "norm_label": "simple benchmark",
       "id": "benchmark_simple"
     },
@@ -4540,7 +4523,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 109,
+      "community": 110,
       "norm_label": "ai frameworks",
       "id": "framework_framework"
     },
@@ -4553,7 +4536,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 109,
+      "community": 110,
       "norm_label": "saif",
       "id": "framework_saif"
     },
@@ -4670,7 +4653,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 74,
+      "community": 75,
       "norm_label": "model context protocol",
       "id": "mcp_mcp"
     },
@@ -4683,7 +4666,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 74,
+      "community": 75,
       "norm_label": "native api to mcp",
       "id": "mcp_native_api_to_mcp"
     },
@@ -5125,7 +5108,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 74,
+      "community": 75,
       "norm_label": "webmcp",
       "id": "concept_webmcp"
     },
@@ -5164,7 +5147,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 74,
+      "community": 75,
       "norm_label": "rationale: do not naively expose apis as mcp",
       "id": "rationale_mcp_api_exposure"
     },
@@ -5307,7 +5290,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "minhash + lsh",
       "id": "dataprocessing_minhash_lsh"
     },
@@ -5320,7 +5303,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 147,
+      "community": 149,
       "norm_label": "data quality tiering",
       "id": "dataprocessing_data_tiering"
     },
@@ -5398,7 +5381,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 87,
+      "community": 88,
       "norm_label": "modal",
       "id": "infrastructure_modal"
     },
@@ -5411,7 +5394,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 87,
+      "community": 88,
       "norm_label": "lambda labs",
       "id": "infrastructure_lambda_labs"
     },
@@ -5424,7 +5407,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 87,
+      "community": 88,
       "norm_label": "skypilot",
       "id": "infrastructure_skypilot"
     },
@@ -5476,7 +5459,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "context engineering",
       "id": "context_engineering"
     },
@@ -5489,7 +5472,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "prompt engineering",
       "id": "prompt_engineering"
     },
@@ -5502,7 +5485,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 148,
+      "community": 150,
       "norm_label": "prompt paradigm",
       "id": "prompt_paradigm"
     },
@@ -5515,7 +5498,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "team based instructions",
       "id": "team_based_instructions"
     },
@@ -5528,7 +5511,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "rag",
       "id": "rag"
     },
@@ -5541,7 +5524,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "on-device information retrieval",
       "id": "on_device_retrieval"
     },
@@ -5567,7 +5550,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 75,
+      "community": 76,
       "norm_label": "p(doom)",
       "id": "safety_p_doom"
     },
@@ -5580,7 +5563,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 75,
+      "community": 76,
       "norm_label": "project glasswing",
       "id": "safety_project_glasswing"
     },
@@ -5593,7 +5576,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 75,
+      "community": 76,
       "norm_label": "claude mythos preview",
       "id": "safety_claude_mythos"
     },
@@ -5606,7 +5589,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "create a skill",
       "id": "skills_create"
     },
@@ -5619,7 +5602,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "d2c",
       "id": "skills_d2c"
     },
@@ -5632,7 +5615,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "browser automation",
       "id": "browser_automation"
     },
@@ -5645,7 +5628,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "claude code",
       "id": "claude_code"
     },
@@ -5658,7 +5641,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "codex",
       "id": "codex"
     },
@@ -5671,7 +5654,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "copilot",
       "id": "copilot"
     },
@@ -5723,7 +5706,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "agents.md",
       "id": "agents_md"
     },
@@ -5736,7 +5719,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "context engineering differs from prompt engineering",
       "id": "rationale_context_engineering_vs_prompt"
     },
@@ -5775,7 +5758,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 75,
+      "community": 76,
       "norm_label": "defense-first strategy against ai attack diffusion",
       "id": "rationale_defense_first_strategy"
     },
@@ -5788,7 +5771,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "human-written agents.md is effective but llm-generated is harmful",
       "id": "rationale_agents_md_human_written"
     },
@@ -5814,7 +5797,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "progressive disclosure is core to skills architecture",
       "id": "rationale_skills_progressive_disclosure"
     },
@@ -5827,7 +5810,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "ai smells in copilot usage",
       "id": "rationale_copilot_ai_smells"
     },
@@ -6113,7 +6096,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 76,
+      "community": 77,
       "norm_label": "\u5e94\u7528\u7d22\u5f15",
       "id": "apps_index"
     },
@@ -6126,7 +6109,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 76,
+      "community": 77,
       "norm_label": "\u90ae\u4ef6\u5de5\u5177",
       "id": "email_tools"
     },
@@ -6139,7 +6122,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 76,
+      "community": 77,
       "norm_label": "macos \u5e94\u7528",
       "id": "mac_apps"
     },
@@ -6152,7 +6135,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 76,
+      "community": 77,
       "norm_label": "vpn",
       "id": "vpn"
     },
@@ -6165,7 +6148,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "\u9886\u57df\u9a71\u52a8\u8bbe\u8ba1",
       "id": "ddd_index"
     },
@@ -6178,7 +6161,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "\u901a\u7528\u8bed\u8a00",
       "id": "ddd_ubiquitous_language"
     },
@@ -6191,7 +6174,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "\u9650\u754c\u4e0a\u4e0b\u6587",
       "id": "ddd_bounded_context"
     },
@@ -6204,7 +6187,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "\u805a\u5408",
       "id": "ddd_aggregate"
     },
@@ -6217,7 +6200,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "\u5206\u5c42\u67b6\u6784",
       "id": "ddd_layered_architecture"
     },
@@ -6230,7 +6213,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "\u67b6\u6784\u8bbe\u8ba1",
       "id": "architecture_index"
     },
@@ -6243,7 +6226,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 44,
+      "community": 45,
       "norm_label": "togaf",
       "id": "architecture_togaf"
     },
@@ -6256,7 +6239,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 111,
       "norm_label": "\u6280\u672f\u67b6\u6784",
       "id": "tech_architecture"
     },
@@ -6269,7 +6252,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 110,
+      "community": 111,
       "norm_label": "s3 \u4e94\u5927\u6838\u5fc3\u8bbe\u8ba1\u539f\u5219",
       "id": "tech_s3_principles"
     },
@@ -6282,7 +6265,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 149,
+      "community": 151,
       "norm_label": "\u8870\u8001",
       "id": "biology_aging"
     },
@@ -6295,7 +6278,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 111,
+      "community": 112,
       "norm_label": "\u6ce8\u610f\u529b",
       "id": "biology_attention"
     },
@@ -6308,7 +6291,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 111,
+      "community": 112,
       "norm_label": "\u6a2a\u5e45\u76f2\u89c6",
       "id": "biology_attention_banner_blindness"
     },
@@ -6321,7 +6304,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 150,
+      "community": 152,
       "norm_label": "\u7761\u89c9",
       "id": "biology_sleep"
     },
@@ -6334,7 +6317,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 151,
+      "community": 153,
       "norm_label": "\u7b2c\u4e00\u7bc7\u535a\u5ba2",
       "id": "blog_first_article"
     },
@@ -6347,7 +6330,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 152,
+      "community": 154,
       "norm_label": "\u535a\u5ba2\u5e73\u6ed1\u6eda\u52a8\u95ee\u9898",
       "id": "blog_smooth_scroll"
     },
@@ -6360,7 +6343,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 77,
+      "community": 78,
       "norm_label": "\u535a\u5ba2\u7cbe\u9009",
       "id": "blogs_index"
     },
@@ -6373,7 +6356,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 77,
+      "community": 78,
       "norm_label": "\u4ee5\u56fe\u7ec4\u7ec7\u5185\u5bb9\u7684\u6280\u672f\u7ad9\u70b9",
       "id": "graph_based_sites"
     },
@@ -6386,7 +6369,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 77,
+      "community": 78,
       "norm_label": "herb caudill",
       "id": "herb_caudill"
     },
@@ -6399,7 +6382,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "\u5546\u4e1a\u5206\u6790",
       "id": "business_analysis"
     },
@@ -6412,7 +6395,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "\u5546\u4e1a\u601d\u7ef4\u6848\u4f8b\u7b14\u8bb0",
       "id": "business_examples"
     },
@@ -6425,7 +6408,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "\u5546\u4e1a",
       "id": "business_index"
     },
@@ -6438,7 +6421,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "\u98ce\u9669\u6295\u8d44",
       "id": "venture_capital"
     },
@@ -6451,7 +6434,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 88,
+      "community": 89,
       "norm_label": "cli",
       "id": "cli_index"
     },
@@ -6464,7 +6447,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 88,
+      "community": 89,
       "norm_label": "terminal escape sequences",
       "id": "escape_sequences"
     },
@@ -6477,7 +6460,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 88,
+      "community": 89,
       "norm_label": "ffmpeg & imagemagick",
       "id": "ffmpeg"
     },
@@ -6568,7 +6551,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "ai \u521b\u4e1a\u62a4\u57ce\u6cb3\u77e9\u9635",
       "id": "business_ai_moat_matrix"
     },
@@ -6581,7 +6564,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 48,
+      "community": 49,
       "norm_label": "software-as-outcome paradigm",
       "id": "business_software_as_outcome"
     },
@@ -6685,7 +6668,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 89,
+      "community": 90,
       "norm_label": "communication",
       "id": "communication_communication"
     },
@@ -6698,7 +6681,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 89,
+      "community": 90,
       "norm_label": "communication \u6280\u5de7",
       "id": "communication_communication_detail"
     },
@@ -6711,7 +6694,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 90,
+      "community": 91,
       "norm_label": "\u516c\u53f8",
       "id": "company_company"
     },
@@ -6724,7 +6707,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 90,
+      "community": 91,
       "norm_label": "\u5de5\u5546\u6ce8\u518c",
       "id": "company_business"
     },
@@ -6906,7 +6889,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "\u8de8\u5e73\u53f0\u5f00\u53d1",
       "id": "crossplatform_crossplatform"
     },
@@ -6919,7 +6902,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "flutter",
       "id": "crossplatform_flutter"
     },
@@ -6932,7 +6915,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro",
       "id": "crossplatform_taro"
     },
@@ -6945,7 +6928,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "device metrics",
       "id": "crossplatform_device_metrics"
     },
@@ -7127,7 +7110,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 89,
+      "community": 90,
       "norm_label": "bikeshed effect",
       "id": "bikeshed_effect"
     },
@@ -7140,7 +7123,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 90,
+      "community": 91,
       "norm_label": "\u4e2a\u4f53\u5de5\u5546\u6237\u4e0e\u4f01\u4e1a\u7684\u533a\u522b",
       "id": "individual_business_vs_company"
     },
@@ -7543,7 +7526,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "flutter skia",
       "id": "flutter_skia"
     },
@@ -7556,7 +7539,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "flutter build()",
       "id": "flutter_build"
     },
@@ -7569,7 +7552,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro setdata diff",
       "id": "taro_setdata_diff"
     },
@@ -7582,7 +7565,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro hooks",
       "id": "taro_hooks"
     },
@@ -7595,7 +7578,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro runtime",
       "id": "taro_runtime"
     },
@@ -7608,7 +7591,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro prerender",
       "id": "taro_prerender"
     },
@@ -7777,7 +7760,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro babel \u7f16\u8bd1",
       "id": "taro_babel"
     },
@@ -7790,7 +7773,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro webpack",
       "id": "taro_webpack"
     },
@@ -7803,7 +7786,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro react reconciler",
       "id": "taro_react_reconciler"
     },
@@ -7816,7 +7799,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "flutter embedder",
       "id": "flutter_embedder"
     },
@@ -7829,7 +7812,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "flutter widget \u7ec4\u5408\u4f18\u4e8e\u7ee7\u627f",
       "id": "flutter_widget_composition"
     },
@@ -7842,7 +7825,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "points vs pixels vs ppi",
       "id": "points_vs_pixels"
     },
@@ -7920,7 +7903,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 153,
+      "community": 155,
       "norm_label": "syn flood attack",
       "id": "syn_flood"
     },
@@ -8115,7 +8098,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "codemod",
       "id": "codemod"
     },
@@ -8128,7 +8111,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "react hooks",
       "id": "react_hooks"
     },
@@ -8141,7 +8124,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "web components",
       "id": "web_components"
     },
@@ -8154,7 +8137,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "stencil",
       "id": "stencil"
     },
@@ -8167,7 +8150,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro tree shaking",
       "id": "taro_treeshaking"
     },
@@ -8180,7 +8163,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "taro api \u6447\u6811\u4f18\u5316",
       "id": "taro_api_shaking"
     },
@@ -8193,7 +8176,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "mpvue",
       "id": "mpvue"
     },
@@ -8271,7 +8254,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "rationale: flutter composition over inheritance",
       "id": "rationale_flutter_composition"
     },
@@ -8284,7 +8267,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "rationale: taro heavy compile light runtime",
       "id": "rationale_taro_compile_runtime"
     },
@@ -8388,7 +8371,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "graphql for llm",
       "id": "graphql_for_llm"
     },
@@ -8401,7 +8384,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "graphql",
       "id": "graphql"
     },
@@ -8427,7 +8410,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "nosql",
       "id": "nosql"
     },
@@ -8440,7 +8423,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "redis",
       "id": "redis"
     },
@@ -8453,7 +8436,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "postgres",
       "id": "postgres"
     },
@@ -8466,7 +8449,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "sql",
       "id": "sql"
     },
@@ -8479,7 +8462,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "text to sql",
       "id": "text_to_sql"
     },
@@ -8817,7 +8800,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "graphql for llm schema rationale",
       "id": "graphql_for_llm_rationale_schema"
     },
@@ -8830,7 +8813,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "tool calling",
       "id": "tool_calling"
     },
@@ -8843,7 +8826,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "rest api",
       "id": "rest_api"
     },
@@ -8856,7 +8839,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "dos risk",
       "id": "dos_risk"
     },
@@ -8960,7 +8943,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "text to sql hold rationale",
       "id": "text_to_sql_rationale_hold"
     },
@@ -8973,7 +8956,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "cube semantic layer",
       "id": "cube_semantic_layer"
     },
@@ -8986,7 +8969,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "dbt semantic layer",
       "id": "dbt_semantic_layer"
     },
@@ -8999,7 +8982,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 14,
+      "community": 15,
       "norm_label": "mcp",
       "id": "mcp"
     },
@@ -9376,7 +9359,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "\u7ec4\u4ef6\u65b9\u6848",
       "id": "component_solutions_index"
     },
@@ -9389,7 +9372,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "\u5fae\u524d\u7aef",
       "id": "micro_frontend"
     },
@@ -9454,7 +9437,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "blockies animation",
       "id": "blockies_animation"
     },
@@ -9467,7 +9450,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "gsap",
       "id": "gsap"
     },
@@ -9480,7 +9463,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "\u52a8\u753b\u4e0e\u4ea4\u4e92",
       "id": "motion_index"
     },
@@ -9493,7 +9476,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "lottie",
       "id": "lottie"
     },
@@ -9766,7 +9749,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "shadow dom",
       "id": "shadow_dom"
     },
@@ -9779,7 +9762,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "slots in web components",
       "id": "slots_web_components"
     },
@@ -9792,7 +9775,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "js \u6c99\u7bb1",
       "id": "js_sandbox"
     },
@@ -9805,7 +9788,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "css \u9694\u79bb",
       "id": "css_isolation"
     },
@@ -9818,7 +9801,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 15,
+      "community": 14,
       "norm_label": "module federation",
       "id": "module_federation"
     },
@@ -9935,7 +9918,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "gsap registereffect",
       "id": "gsap_register_effect"
     },
@@ -9948,7 +9931,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "gsap scrolltrigger",
       "id": "gsap_scrolltrigger"
     },
@@ -10442,7 +10425,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 154,
+      "community": 156,
       "norm_label": "vue composition api",
       "id": "vue_composition_api"
     },
@@ -10611,7 +10594,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "piecesjs",
       "id": "piecesjs"
     },
@@ -10624,7 +10607,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "lenis",
       "id": "lenis"
     },
@@ -10663,7 +10646,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "lottiefiles",
       "id": "lottiefiles"
     },
@@ -10676,7 +10659,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "dotlottie",
       "id": "dotlottie"
     },
@@ -11092,7 +11075,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 155,
+      "community": 157,
       "norm_label": "ifequals",
       "id": "utility_types_ifequals"
     },
@@ -11105,7 +11088,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 156,
+      "community": 158,
       "norm_label": "primitive / isprimitive",
       "id": "utility_types_primitive"
     },
@@ -11118,7 +11101,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 157,
+      "community": 159,
       "norm_label": "set operations on types",
       "id": "utility_types_setoperations"
     },
@@ -11131,7 +11114,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 158,
+      "community": 160,
       "norm_label": "functionkeys / requiredkeys / readonlykeys",
       "id": "utility_types_keys"
     },
@@ -11144,7 +11127,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "hover glow",
       "id": "blockies_hover_glow"
     },
@@ -11157,7 +11140,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "morphing",
       "id": "blockies_morphing"
     },
@@ -11170,7 +11153,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "shine cards",
       "id": "blockies_shine_cards"
     },
@@ -11183,7 +11166,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "text scramble",
       "id": "blockies_text_scramble"
     },
@@ -11196,7 +11179,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "zoom effect",
       "id": "blockies_zoom_effect"
     },
@@ -11209,7 +11192,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "easing gradients",
       "id": "easing_gradients"
     },
@@ -11222,7 +11205,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "species-in-pieces",
       "id": "species_in_pieces"
     },
@@ -11235,7 +11218,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "\u5b9d\u53ef\u68a6\u95ea\u5361 css",
       "id": "pokemon_cards_css"
     },
@@ -11248,7 +11231,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "mask-composite",
       "id": "mask_composite"
     },
@@ -11261,7 +11244,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 21,
+      "community": 20,
       "norm_label": "css counter \u6587\u5b57\u6253\u4e71",
       "id": "css_counter_text_scramble"
     },
@@ -11456,7 +11439,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 113,
       "norm_label": "sass @use \u6307\u4ee4",
       "id": "sass_use_directive"
     },
@@ -11469,7 +11452,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 113,
       "norm_label": "sass @forward \u6307\u4ee4",
       "id": "sass_forward_directive"
     },
@@ -11482,7 +11465,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 159,
+      "community": 161,
       "norm_label": "css snapshot 2024",
       "id": "css_snapshot_2024"
     },
@@ -12093,7 +12076,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "\u79fb\u52a8\u7aef\u865a\u62df\u6447\u6746\u8bbe\u8ba1\u539f\u5219",
       "id": "touch-controls_virtual-joystick"
     },
@@ -12106,7 +12089,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "brawl stars",
       "id": "touch-controls_brawl-stars"
     },
@@ -12119,7 +12102,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 160,
+      "community": 162,
       "norm_label": "\u4e2d\u56fd\u6e38\u620f\u7248\u53f7\u7b80\u53f2",
       "id": "game_china-game-license-history"
     },
@@ -12132,7 +12115,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "2d web \u6e38\u620f\u6846\u67b6\u9009\u578b\u6307\u5357",
       "id": "game_2d-web-framework-comparison"
     },
@@ -12145,7 +12128,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "phaser",
       "id": "game_phaser"
     },
@@ -12158,7 +12141,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "kaboom.js",
       "id": "game_kaboomjs"
     },
@@ -12171,7 +12154,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 49,
+      "community": 50,
       "norm_label": "excalibur",
       "id": "game_excalibur"
     },
@@ -12184,7 +12167,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 161,
+      "community": 163,
       "norm_label": "\u9003\u79bb\u5854\u79d1\u592b",
       "id": "games_escape-from-tarkov"
     },
@@ -12197,7 +12180,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 162,
+      "community": 164,
       "norm_label": "go \u8bed\u8a00",
       "id": "go_golang"
     },
@@ -12210,7 +12193,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 163,
+      "community": 165,
       "norm_label": "vnand",
       "id": "ssd_vnand"
     },
@@ -12223,7 +12206,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 164,
+      "community": 166,
       "norm_label": "rtx io",
       "id": "ssd_rtx-io"
     },
@@ -12236,7 +12219,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 165,
+      "community": 167,
       "norm_label": "\u524d\u7aef\u5b9e\u4e60\u95ee\u9898",
       "id": "hire_frontend-intern"
     },
@@ -12249,7 +12232,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 113,
+      "community": 114,
       "norm_label": "\u9762\u8bd5\u95ee\u9898\u6c47\u603b",
       "id": "hire_interview-questions-overall"
     },
@@ -12262,7 +12245,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 113,
+      "community": 114,
       "norm_label": "\u9762\u8bd5\u8bb0\u5f55(\u6c64\u552f\u56fd\u7b49)",
       "id": "hire_interview-records-ttx"
     },
@@ -12275,7 +12258,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 166,
+      "community": 168,
       "norm_label": "amp deep mode",
       "id": "ide_amp-deep-mode"
     },
@@ -12288,7 +12271,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 167,
+      "community": 169,
       "norm_label": "vscode \u5927\u7eb2\u89c6\u56fe\u9ed8\u8ba4\u6298\u53e0",
       "id": "ide_vscode-outline-collapse"
     },
@@ -12301,7 +12284,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 168,
+      "community": 170,
       "norm_label": "vscode \u6587\u4ef6\u6811\u805a\u7126\u95ee\u9898",
       "id": "ide_vscode-file-tree-focus"
     },
@@ -12314,7 +12297,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 91,
+      "community": 92,
       "norm_label": "\u6570\u5b57\u5316\u8f6c\u578b",
       "id": "industry_digital-transformation"
     },
@@ -12327,7 +12310,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 169,
+      "community": 171,
       "norm_label": "\u6218\u7565\u5c4b",
       "id": "industry_strategic-house"
     },
@@ -12340,7 +12323,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 91,
+      "community": 92,
       "norm_label": "\u4f4e\u4ee3\u7801",
       "id": "industry_low-code"
     },
@@ -12353,7 +12336,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 91,
+      "community": 92,
       "norm_label": "keepalive \u89e3\u51b3 react \u7ec4\u4ef6 remount",
       "id": "industry_keep-alive-remount"
     },
@@ -12366,7 +12349,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 114,
+      "community": 115,
       "norm_label": "\u9762\u8bd5\u6613\u9519\u9898",
       "id": "interview_wrong-notes"
     },
@@ -12379,7 +12362,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 114,
+      "community": 115,
       "norm_label": "\u53cd\u5411\u9762\u8bd5",
       "id": "interview_reverse-interview"
     },
@@ -12392,7 +12375,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 170,
+      "community": 172,
       "norm_label": "\u53e3\u8154\u5065\u5eb7\u2014\u2014\u6c34\u5e73\u98a4\u52a8\u62c2\u5237\u6cd5",
       "id": "life_oral-health"
     },
@@ -12405,7 +12388,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 92,
+      "community": 93,
       "norm_label": "\u6587\u672c\u521b\u4f5c",
       "id": "novel_text_creation"
     },
@@ -12418,7 +12401,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 92,
+      "community": 93,
       "norm_label": "\u6807\u9898\u751f\u6210",
       "id": "novel_title_generation"
     },
@@ -12431,7 +12414,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 92,
+      "community": 93,
       "norm_label": "\u4e13\u4e1a\u6587\u7ae0\u5927\u7eb2\u751f\u6210\u52a9\u624b",
       "id": "novel_outline_assistant"
     },
@@ -12444,7 +12427,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 171,
+      "community": 173,
       "norm_label": "\u641c\u7d22\u5173\u952e\u8bcd\u4f18\u5316\u52a9\u624b",
       "id": "seo_search_keyword_optimization"
     },
@@ -12457,7 +12440,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
+      "community": 62,
       "norm_label": "\u9879\u76ee\u7ba1\u7406",
       "id": "manage_project_management"
     },
@@ -12470,7 +12453,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
+      "community": 62,
       "norm_label": "\u9879\u76ee\u7ba1\u7406\u5b9e\u8df5",
       "id": "manage_project_management_practice"
     },
@@ -12483,7 +12466,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
+      "community": 62,
       "norm_label": "smart \u6cd5\u5219",
       "id": "manage_smart_goals"
     },
@@ -12496,7 +12479,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
+      "community": 62,
       "norm_label": "moscow \u4f18\u5148\u7ea7",
       "id": "manage_moscow_method"
     },
@@ -12509,7 +12492,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 61,
+      "community": 62,
       "norm_label": "\u5de5\u4f5c\u5206\u89e3\u7ed3\u6784 wbs",
       "id": "manage_wbs"
     },
@@ -12522,7 +12505,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u7ba1\u7406\u5b66\u9886\u57df\u5bfc\u822a\u7d22\u5f15",
       "id": "management_index"
     },
@@ -12535,7 +12518,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "capacity-driven development",
       "id": "management_capacity_driven_development"
     },
@@ -12548,7 +12531,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "stream-aligned \u56e2\u961f",
       "id": "management_stream_aligned_team"
     },
@@ -12561,7 +12544,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "wip \u9650\u5236",
       "id": "management_wip_limits"
     },
@@ -12574,7 +12557,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u8de8\u6280\u80fd\u8bad\u7ec3",
       "id": "management_cross_training"
     },
@@ -12587,7 +12570,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u52a8\u6001\u91cd\u7ec4\u56e2\u961f",
       "id": "management_dynamic_reteaming"
     },
@@ -12600,7 +12583,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u62e5\u585e\u5d29\u6e83",
       "id": "management_congestion_collapse"
     },
@@ -12613,7 +12596,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u9886\u5bfc\u529b",
       "id": "management_leadership"
     },
@@ -12626,7 +12609,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "optimize for alignment, not control",
       "id": "management_leadership_alignment"
     },
@@ -12639,7 +12622,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u5927\u79d1\u6280\u516c\u53f8\u5de5\u7a0b\u5e08\u7684 ego \u6096\u8bba",
       "id": "management_big_tech_ego_paradox"
     },
@@ -12652,7 +12635,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u5f71\u5b50 it",
       "id": "management_shadow_it"
     },
@@ -12665,7 +12648,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "ai \u52a0\u901f\u7684\u5f71\u5b50 it",
       "id": "management_ai_accelerated_shadow_it"
     },
@@ -12678,7 +12661,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "shape up",
       "id": "management_shape_up"
     },
@@ -12691,7 +12674,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u56e2\u961f\u5207\u7247",
       "id": "management_team_slicing"
     },
@@ -12704,7 +12687,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "standalone data engineering teams",
       "id": "management_standalone_data_engineering_team"
     },
@@ -12717,7 +12700,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "data mesh",
       "id": "management_data_mesh"
     },
@@ -12730,7 +12713,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 115,
+      "community": 116,
       "norm_label": "markdown",
       "id": "markdown_language"
     },
@@ -12743,7 +12726,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 115,
+      "community": 116,
       "norm_label": "markdown inline style",
       "id": "markdown_inline_style"
     },
@@ -12756,7 +12739,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 93,
+      "community": 94,
       "norm_label": "\u533b\u7597",
       "id": "medicine"
     },
@@ -12769,7 +12752,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 93,
+      "community": 94,
       "norm_label": "\u5e38\u89c1\u6d88\u6bd2\u5242\u5206\u7c7b\u548c\u4f5c\u7528\u6c34\u5e73",
       "id": "medicine_disinfectants"
     },
@@ -12782,7 +12765,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 93,
+      "community": 94,
       "norm_label": "\u5fc3\u7406\u5065\u5eb7\u5efa\u8bae",
       "id": "medicine_mental_health"
     },
@@ -12795,7 +12778,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "\u9762\u5411\u5bf9\u8c61\u7f16\u7a0b",
       "id": "oop"
     },
@@ -12808,7 +12791,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "oop \u57fa\u7840",
       "id": "oop_basics"
     },
@@ -12821,7 +12804,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "\u5c01\u88c5",
       "id": "oop_encapsulation"
     },
@@ -12834,7 +12817,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "\u7ee7\u627f",
       "id": "oop_inheritance"
     },
@@ -12847,7 +12830,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "\u591a\u6001",
       "id": "oop_polymorphism"
     },
@@ -12860,7 +12843,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "\u62bd\u8c61",
       "id": "oop_abstraction"
     },
@@ -12873,7 +12856,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 46,
       "norm_label": "\u7ec4\u5408\u4f18\u4e8e\u7ee7\u627f",
       "id": "oop_composition_over_inheritance"
     },
@@ -12886,7 +12869,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "\u963f\u59c6\u65af\u7279\u6717",
       "id": "person_armstrong"
     },
@@ -12899,7 +12882,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "\u8d1d\u7279\u62c9\u57fa",
       "id": "person_beltracchi"
     },
@@ -12912,7 +12895,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "\u59dc\u5b50\u7259",
       "id": "person_jiang_zi_ya"
     },
@@ -12925,7 +12908,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "\u5409\u59c6\u00b7\u743c\u65af",
       "id": "person_jim_jones"
     },
@@ -12938,7 +12921,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 172,
+      "community": 174,
       "norm_label": "\u4e9a\u91cc\u58eb\u591a\u5fb7",
       "id": "person_aristotle"
     },
@@ -12951,7 +12934,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "\u5386\u53f2\u4eba\u7269",
       "id": "person_historical_index"
     },
@@ -12964,7 +12947,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 50,
+      "community": 51,
       "norm_label": "\u4eba\u7269",
       "id": "person_index"
     },
@@ -12977,7 +12960,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u7a7a\u95f2\u4ea7\u80fd\u4f18\u5148\u6295\u5411\u7cfb\u7edf\u5065\u5eb7",
       "id": "rationale_capacity_driven_system_health"
     },
@@ -12990,7 +12973,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u6570\u636e\u5e94\u4ee5\u4e1a\u52a1\u9886\u57df\u4f5c\u4e3a\u7b2c\u4e00\u62bd\u8c61\u5355\u5143",
       "id": "rationale_data_mesh_domain_ownership"
     },
@@ -13003,7 +12986,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u9886\u5bfc\u8005\u7684\u89d2\u8272\u662f distribute power \u800c\u975e wield power",
       "id": "rationale_leadership_distribute_power"
     },
@@ -13016,7 +12999,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
+      "community": 21,
       "norm_label": "\u5728\u5feb\u901f\u89e3\u51b3\u95ee\u9898\u4e0e\u957f\u671f\u7a33\u5b9a\u4e4b\u95f4\u505a\u6e05\u9192\u6743\u8861",
       "id": "rationale_shadow_it_governance_balance"
     },
@@ -13029,7 +13012,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 63,
       "norm_label": "judith butler",
       "id": "ethics_judith_butler"
     },
@@ -13042,7 +13025,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 63,
       "norm_label": "\u8106\u5f31\u6027\u4f26\u7406 (vulnerability ethics)",
       "id": "ethics_vulnerability"
     },
@@ -13055,7 +13038,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 63,
       "norm_label": "\u9ed1\u683c\u5c14\u627f\u8ba4\u7406\u8bba (hegelian recognition)",
       "id": "ethics_hegel_recognition"
     },
@@ -13068,7 +13051,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 63,
       "norm_label": "jorge luis borges",
       "id": "existentialism_borges"
     },
@@ -13081,7 +13064,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 63,
       "norm_label": "\u8eab\u4efd\u5206\u88c2 (identity split)",
       "id": "existentialism_identity_split"
     },
@@ -13094,7 +13077,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "martin heidegger",
       "id": "tech_philosophy_heidegger"
     },
@@ -13107,7 +13090,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "gestell (\u5ea7\u67b6/\u4fc3\u903c)",
       "id": "tech_philosophy_gestell"
     },
@@ -13120,7 +13103,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 95,
+      "community": 97,
       "norm_label": "antonio egas moniz",
       "id": "science_antonio_egas_moniz"
     },
@@ -13146,7 +13129,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 118,
+      "community": 119,
       "norm_label": "eratosthenes",
       "id": "science_eratosthenes"
     },
@@ -13185,7 +13168,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 116,
+      "community": 120,
       "norm_label": "john michell",
       "id": "science_john_michell"
     },
@@ -13211,7 +13194,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "andrej karpathy",
       "id": "tech_andrej_karpathy"
     },
@@ -13224,7 +13207,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 119,
+      "community": 121,
       "norm_label": "evan martin",
       "id": "tech_evan_martin"
     },
@@ -13237,7 +13220,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 120,
+      "community": 117,
       "norm_label": "evan schwartz",
       "id": "tech_evan_schwartz"
     },
@@ -13250,7 +13233,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "gary marcus",
       "id": "tech_gary_marcus"
     },
@@ -13263,7 +13246,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "peter steinberger",
       "id": "tech_peter_steinberger"
     },
@@ -13276,7 +13259,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 117,
+      "community": 118,
       "norm_label": "richard stallman",
       "id": "tech_richard_stallman"
     },
@@ -13289,7 +13272,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 96,
+      "community": 95,
       "norm_label": "ronald g. wayne",
       "id": "tech_ronald_g_wayne"
     },
@@ -13302,7 +13285,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "shunyu yao",
       "id": "tech_shunyu_yao"
     },
@@ -13315,7 +13298,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 94,
+      "community": 96,
       "norm_label": "steve blank",
       "id": "tech_steve_blank"
     },
@@ -13328,7 +13311,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
+      "community": 66,
       "norm_label": "\u5341\u56db\u4e94\u89c4\u5212 (14th five-year plan)",
       "id": "policy_14th_fyp"
     },
@@ -13341,7 +13324,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
+      "community": 66,
       "norm_label": "\u5de5\u4e1a\u56ed\u533a\u9ad8\u8d28\u91cf\u53d1\u5c55\u6307\u5f15",
       "id": "policy_industrial_parks_guide"
     },
@@ -13354,7 +13337,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "ai compute crunch",
       "id": "politics_ai_compute_crunch"
     },
@@ -13367,7 +13350,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "llm \u79d1\u666e\u6559\u80b2",
       "id": "karpathy_llm_education"
     },
@@ -13380,7 +13363,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "react framework",
       "id": "yao_react_framework"
     },
@@ -13393,7 +13376,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "agentic engineering",
       "id": "steinberger_agentic_engineering"
     },
@@ -13406,7 +13389,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "\u6df7\u5408 ai \u67b6\u6784 (hybrid ai)",
       "id": "marcus_hybrid_ai"
     },
@@ -13458,7 +13441,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
+      "community": 66,
       "norm_label": "\u4e94\u5316\u53d1\u5c55\u6846\u67b6 (five developments framework)",
       "id": "industrial_parks_five_developments"
     },
@@ -13471,7 +13454,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 173,
+      "community": 175,
       "norm_label": "precarious life (2004)",
       "id": "butler_precarious_life"
     },
@@ -13484,7 +13467,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "standing-reserve (\u6301\u5b58\u7269)",
       "id": "heidegger_standing_reserve"
     },
@@ -13497,7 +13480,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 94,
+      "community": 96,
       "norm_label": "\u7cbe\u76ca\u521b\u4e1a (lean startup)",
       "id": "blank_lean_startup"
     },
@@ -13510,7 +13493,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 117,
+      "community": 118,
       "norm_label": "gnu gpl",
       "id": "stallman_gpl"
     },
@@ -13523,7 +13506,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "ai \u4e0b\u534a\u573a\u7406\u8bba (the second half)",
       "id": "yao_second_half"
     },
@@ -13536,7 +13519,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "micrograd / llm.c",
       "id": "karpathy_micrograd"
     },
@@ -13562,7 +13545,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 95,
+      "community": 97,
       "norm_label": "\u524d\u8111\u767d\u8d28\u5207\u9664\u672f (lobotomy)",
       "id": "egas_moniz_lobotomy"
     },
@@ -13588,7 +13571,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 118,
+      "community": 119,
       "norm_label": "\u5730\u7403\u5468\u957f\u6d4b\u91cf",
       "id": "eratosthenes_earth_circumference"
     },
@@ -13601,7 +13584,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 116,
+      "community": 120,
       "norm_label": "\u9ed1\u6d1e\u6982\u5ff5\u9996\u63d0 (black hole concept)",
       "id": "michell_black_hole"
     },
@@ -13614,7 +13597,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
+      "community": 66,
       "norm_label": "\u94fe\u957f\u5236 (chain chief system)",
       "id": "industrial_parks_chain_chief"
     },
@@ -13627,7 +13610,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "llm \u672c\u8d28\u7406\u89e3 (llm as data labeler simulator)",
       "id": "karpathy_llm_nature"
     },
@@ -13640,7 +13623,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "\u6548\u7528\u95ee\u9898 (utility problem)",
       "id": "yao_utility_problem"
     },
@@ -13653,7 +13636,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "\u6df1\u5ea6\u5b66\u4e60\u649e\u5899\u8bba (deep learning hitting a wall)",
       "id": "marcus_deep_learning_wall"
     },
@@ -13666,7 +13649,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "closing the loop",
       "id": "steinberger_closing_loop"
     },
@@ -13679,7 +13662,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 94,
+      "community": 96,
       "norm_label": "\u4eba\u751f\u8f6c\u5411 (life pivot)",
       "id": "blank_life_pivot"
     },
@@ -13705,7 +13688,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 95,
+      "community": 97,
       "norm_label": "1949 \u5e74\u8bfa\u8d1d\u5c14\u533b\u5b66\u5956",
       "id": "egas_moniz_nobel_1949"
     },
@@ -13718,7 +13701,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 96,
+      "community": 95,
       "norm_label": "apple \u9996\u4e2a logo",
       "id": "wayne_apple_logo"
     },
@@ -13731,7 +13714,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 96,
+      "community": 95,
       "norm_label": "apple \u539f\u59cb\u5408\u4f19\u5408\u540c",
       "id": "wayne_apple_contract"
     },
@@ -13744,7 +13727,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 119,
+      "community": 121,
       "norm_label": "linux \u7248 chrome",
       "id": "martin_chrome_linux"
     },
@@ -13757,7 +13740,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 120,
+      "community": 117,
       "norm_label": "scour",
       "id": "schwartz_scour"
     },
@@ -13770,7 +13753,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 63,
+      "community": 66,
       "norm_label": "\u6570\u5b57\u7ecf\u6d4e\u6838\u5fc3\u4ea7\u4e1a",
       "id": "policy_digital_economy"
     },
@@ -13783,7 +13766,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "dram \u4f9b\u5e94\u74f6\u9888",
       "id": "compute_crunch_dram_bottleneck"
     },
@@ -13796,7 +13779,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
+      "community": 22,
       "norm_label": "agentic ai \u62d0\u70b9\u6548\u5e94",
       "id": "compute_crunch_agentic_inflection"
     },
@@ -13809,7 +13792,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
+      "community": 67,
       "norm_label": "gamification",
       "id": "gamification"
     },
@@ -13822,7 +13805,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
+      "community": 67,
       "norm_label": "foursquare",
       "id": "foursquare"
     },
@@ -13835,7 +13818,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
+      "community": 67,
       "norm_label": "dodgeball",
       "id": "dodgeball"
     },
@@ -13848,7 +13831,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
+      "community": 67,
       "norm_label": "nicole lazzaro",
       "id": "nicole_lazzaro"
     },
@@ -13861,7 +13844,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 66,
+      "community": 67,
       "norm_label": "growth",
       "id": "growth"
     },
@@ -13874,7 +13857,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
+      "community": 68,
       "norm_label": "operation",
       "id": "operation"
     },
@@ -13887,7 +13870,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
+      "community": 68,
       "norm_label": "nps",
       "id": "nps"
     },
@@ -13900,7 +13883,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
+      "community": 68,
       "norm_label": "fred reichheld",
       "id": "fred_reichheld"
     },
@@ -13913,7 +13896,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
+      "community": 68,
       "norm_label": "ocpm",
       "id": "ocpm"
     },
@@ -13926,7 +13909,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 67,
+      "community": 68,
       "norm_label": "skills as lead generation",
       "id": "skills_leadgen"
     },
@@ -13939,7 +13922,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 174,
+      "community": 176,
       "norm_label": "product hunt",
       "id": "product_hunt"
     },
@@ -13952,7 +13935,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 97,
+      "community": 98,
       "norm_label": "product manager",
       "id": "product_manager"
     },
@@ -13965,7 +13948,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 97,
+      "community": 98,
       "norm_label": "dovetail",
       "id": "dovetail"
     },
@@ -13978,7 +13961,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 97,
+      "community": 98,
       "norm_label": "user research",
       "id": "user_research"
     },
@@ -13991,7 +13974,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 98,
+      "community": 99,
       "norm_label": "bit",
       "id": "bit"
     },
@@ -14004,7 +13987,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 98,
+      "community": 99,
       "norm_label": "budibase",
       "id": "budibase"
     },
@@ -14017,7 +14000,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 98,
+      "community": 99,
       "norm_label": "dynamo",
       "id": "dynamo"
     },
@@ -14030,7 +14013,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 77,
+      "community": 78,
       "norm_label": "zapier",
       "id": "zapier"
     },
@@ -14121,7 +14104,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 175,
+      "community": 177,
       "norm_label": "rezi",
       "id": "rezi"
     },
@@ -14134,7 +14117,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 99,
+      "community": 100,
       "norm_label": "programming",
       "id": "programming"
     },
@@ -14160,7 +14143,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 99,
+      "community": 100,
       "norm_label": "react native",
       "id": "react_native"
     },
@@ -14186,7 +14169,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 99,
+      "community": 100,
       "norm_label": "regex",
       "id": "regex"
     },
@@ -14199,7 +14182,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "\u6e32\u67d3\u6280\u672f",
       "id": "render_render"
     },
@@ -14212,7 +14195,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "cinema 4d",
       "id": "render_c4d"
     },
@@ -14225,7 +14208,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "shader art",
       "id": "render_shader"
     },
@@ -14238,7 +14221,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "webgl",
       "id": "render_webgl"
     },
@@ -14251,7 +14234,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "dlss 5",
       "id": "render_dlss5"
     },
@@ -14381,7 +14364,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 176,
+      "community": 178,
       "norm_label": "\u641c\u7d22\u5f15\u64ce\u4f18\u5316\u9886\u57df",
       "id": "seo_seo"
     },
@@ -14472,7 +14455,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u8bbe\u8ba1\u6a21\u5f0f",
       "id": "software_design_patterns"
     },
@@ -14563,7 +14546,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 121,
+      "community": 122,
       "norm_label": "evil.js",
       "id": "source_code_javascript_evil"
     },
@@ -14576,7 +14559,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 51,
+      "community": 52,
       "norm_label": "dlss 5 \u795e\u7ecf\u6e32\u67d3",
       "id": "concept_dlss5_neural_rendering"
     },
@@ -15031,7 +15014,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u5de5\u5382\u6a21\u5f0f",
       "id": "concept_design_pattern_factory"
     },
@@ -15044,7 +15027,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u62bd\u8c61\u5de5\u5382\u6a21\u5f0f",
       "id": "concept_design_pattern_abstract_factory"
     },
@@ -15057,7 +15040,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u751f\u6210\u5668\u6a21\u5f0f",
       "id": "concept_design_pattern_builder"
     },
@@ -15070,7 +15053,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u539f\u578b\u6a21\u5f0f",
       "id": "concept_design_pattern_prototype"
     },
@@ -15083,7 +15066,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u5355\u4f8b\u6a21\u5f0f",
       "id": "concept_design_pattern_singleton"
     },
@@ -15096,7 +15079,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u9002\u914d\u5668\u6a21\u5f0f",
       "id": "concept_design_pattern_adapter"
     },
@@ -15109,7 +15092,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u6865\u63a5\u6a21\u5f0f",
       "id": "concept_design_pattern_bridge"
     },
@@ -15122,7 +15105,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u7ec4\u5408\u6a21\u5f0f",
       "id": "concept_design_pattern_composite"
     },
@@ -15135,7 +15118,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u88c5\u9970\u6a21\u5f0f",
       "id": "concept_design_pattern_decorator"
     },
@@ -15148,7 +15131,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u5916\u89c2\u6a21\u5f0f",
       "id": "concept_design_pattern_facade"
     },
@@ -15161,7 +15144,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u4eab\u5143\u6a21\u5f0f",
       "id": "concept_design_pattern_flyweight"
     },
@@ -15174,7 +15157,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u4ee3\u7406\u6a21\u5f0f",
       "id": "concept_design_pattern_proxy"
     },
@@ -15187,7 +15170,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u8d23\u4efb\u94fe\u6a21\u5f0f",
       "id": "concept_design_pattern_chain"
     },
@@ -15200,7 +15183,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u547d\u4ee4\u6a21\u5f0f",
       "id": "concept_design_pattern_command"
     },
@@ -15213,7 +15196,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u4e2d\u4ecb\u8005\u6a21\u5f0f",
       "id": "concept_design_pattern_mediator"
     },
@@ -15226,7 +15209,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u5907\u5fd8\u5f55\u6a21\u5f0f",
       "id": "concept_design_pattern_memento"
     },
@@ -15239,7 +15222,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 27,
+      "community": 26,
       "norm_label": "\u89c2\u5bdf\u8005\u6a21\u5f0f",
       "id": "concept_design_pattern_observer"
     },
@@ -15551,7 +15534,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 121,
+      "community": 122,
       "norm_label": "evil.js \u6295\u6bd2\u9632\u5fa1",
       "id": "concept_evils_prevention"
     },
@@ -15668,7 +15651,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 177,
+      "community": 179,
       "norm_label": "\u5e93\u548c\u6e90\u7801",
       "id": "readme_source_code"
     },
@@ -15681,7 +15664,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 68,
+      "community": 69,
       "norm_label": "\u547d\u4ee4\u884c\u5de5\u5177\u4f7f\u7528\u6307\u5357",
       "id": "command_cli_guide"
     },
@@ -15694,7 +15677,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 68,
+      "community": 69,
       "norm_label": "\u5e76\u53d1\u7f16\u7a0b",
       "id": "concurrency_programming"
     },
@@ -15707,7 +15690,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 68,
+      "community": 69,
       "norm_label": "macos \u7cfb\u7edf\u77e5\u8bc6\u4e0e\u5b9e\u8df5\u7ecf\u9a8c",
       "id": "macos_system"
     },
@@ -15720,7 +15703,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 68,
+      "community": 69,
       "norm_label": "\u64cd\u4f5c\u7cfb\u7edf",
       "id": "os_system"
     },
@@ -15863,7 +15846,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 178,
+      "community": 180,
       "norm_label": "\u5f15\u7528\u7f51\u7ad9",
       "id": "threads_references"
     },
@@ -15902,7 +15885,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "\u7c7b\u578b\u4f53\u64cd(type gymnastics)",
       "id": "type_gymnastics"
     },
@@ -15915,7 +15898,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "typescript",
       "id": "typescript_overview"
     },
@@ -15928,7 +15911,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 122,
+      "community": 123,
       "norm_label": "typescript changelog",
       "id": "typescript_changelog"
     },
@@ -16123,7 +16106,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "\u56fe\u7075\u5b8c\u5907",
       "id": "concept_ts_turing_complete"
     },
@@ -16136,7 +16119,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "brand \u7c7b\u578b",
       "id": "concept_ts_brand_type"
     },
@@ -16266,7 +16249,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 122,
+      "community": 123,
       "norm_label": "typescript 6.0 \u7834\u574f\u6027\u53d8\u66f4",
       "id": "concept_ts6_breaking_changes"
     },
@@ -16279,7 +16262,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 68,
+      "community": 69,
       "norm_label": "awdl \u5bfc\u81f4 mac wifi \u901f\u5ea6\u66b4\u8dcc",
       "id": "concept_awdl_slow_wifi"
     },
@@ -16318,7 +16301,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "\u7c7b\u578b\u4f53\u64cd\u57fa\u672c\u8fd0\u7b97",
       "id": "concept_type_gymnastics_operations"
     },
@@ -16357,7 +16340,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 52,
+      "community": 53,
       "norm_label": "svelte \u8fc1\u79fb\u5230 jsdoc \u7684 rationale",
       "id": "concept_svelte_ts_to_jsdoc_rationale"
     },
@@ -16487,7 +16470,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 179,
+      "community": 181,
       "norm_label": "github",
       "id": "github_community"
     },
@@ -16500,7 +16483,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 180,
+      "community": 182,
       "norm_label": "\u7f51\u7ad9\u63a8\u8350",
       "id": "web_pages_bookmarks"
     },
@@ -16552,7 +16535,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 181,
+      "community": 183,
       "norm_label": "baseline",
       "id": "browser_baseline"
     },
@@ -16591,7 +16574,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 182,
+      "community": 184,
       "norm_label": "broadcast channel",
       "id": "browser_broadcast_channel"
     },
@@ -16604,7 +16587,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 183,
+      "community": 185,
       "norm_label": "bookmarklet",
       "id": "browser_bookmarklet"
     },
@@ -16617,7 +16600,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 184,
+      "community": 186,
       "norm_label": "media source extensions (mse) api",
       "id": "browser_mse_api"
     },
@@ -16942,7 +16925,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 185,
+      "community": 187,
       "norm_label": "windows",
       "id": "windows_overview"
     },
@@ -16955,7 +16938,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "\u6784\u5efa\u5de5\u5177",
       "id": "build_tools_overview"
     },
@@ -16968,7 +16951,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "vite",
       "id": "build_tools_vite"
     },
@@ -16981,7 +16964,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "webpack",
       "id": "build_tools_webpack"
     },
@@ -16994,7 +16977,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "rspack",
       "id": "build_tools_rspack"
     },
@@ -17007,7 +16990,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "unbuild stub \u6a21\u5f0f",
       "id": "build_tools_unbuild_stub"
     },
@@ -17020,7 +17003,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 53,
+      "community": 54,
       "norm_label": "rome/biome \u7edf\u4e00\u5de5\u5177\u94fe",
       "id": "build_tools_rome_biome"
     },
@@ -17033,7 +17016,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 186,
+      "community": 188,
       "norm_label": "\u7f16\u8bd1\u5668",
       "id": "compiler_overview"
     },
@@ -17046,7 +17029,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 123,
+      "community": 124,
       "norm_label": "\u5de5\u7a0b\u5316",
       "id": "engineering_overview"
     },
@@ -17059,7 +17042,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 123,
+      "community": 124,
       "norm_label": "\u524d\u7aef\u5de5\u7a0b\u5316",
       "id": "fe_engineering_overview"
     },
@@ -17072,7 +17055,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 187,
+      "community": 189,
       "norm_label": "code style",
       "id": "code_style_overview"
     },
@@ -17085,7 +17068,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 188,
+      "community": 190,
       "norm_label": "eslint",
       "id": "eslint_overview"
     },
@@ -17124,7 +17107,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 124,
+      "community": 125,
       "norm_label": "eslint-only \u683c\u5f0f\u5316\u65b9\u6848",
       "id": "linter_eslint_only_formatting"
     },
@@ -17137,7 +17120,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 124,
+      "community": 125,
       "norm_label": "\u4e3a\u4ec0\u4e48 antfu \u4e0d\u4f7f\u7528 prettier",
       "id": "linter_why_no_prettier"
     },
@@ -17358,7 +17341,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 125,
+      "community": 126,
       "norm_label": "package.json \u5e38\u7528\u5b57\u6bb5",
       "id": "npm_package_json"
     },
@@ -17371,7 +17354,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 125,
+      "community": 126,
       "norm_label": "main \u4e0e module \u5b57\u6bb5\u533a\u522b",
       "id": "npm_main_vs_module"
     },
@@ -17384,7 +17367,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 189,
+      "community": 191,
       "norm_label": "npmrc \u4f18\u5148\u7ea7",
       "id": "npm_npmrc_priority"
     },
@@ -17397,7 +17380,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "\u5305\u7684\u89d2\u8272\u5206\u7c7b\u6846\u67b6",
       "id": "package_roles_framework"
     },
@@ -17410,7 +17393,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "application \u5305\u89d2\u8272",
       "id": "package_roles_application"
     },
@@ -17423,7 +17406,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "library \u5305\u89d2\u8272",
       "id": "package_roles_library"
     },
@@ -17436,7 +17419,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "plugin \u5305\u89d2\u8272",
       "id": "package_roles_plugin"
     },
@@ -17449,7 +17432,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "compiler \u5305\u89d2\u8272",
       "id": "package_roles_compiler"
     },
@@ -17462,7 +17445,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 54,
+      "community": 55,
       "norm_label": "types \u5305\u89d2\u8272",
       "id": "package_roles_types"
     },
@@ -17592,7 +17575,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 190,
+      "community": 192,
       "norm_label": "\u5de5\u5177\u6536\u96c6",
       "id": "tools_index"
     },
@@ -17605,7 +17588,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 191,
+      "community": 193,
       "norm_label": "\u535a\u5ba2\u5143\u4fe1\u606f",
       "id": "tools_blog"
     },
@@ -17644,7 +17627,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 192,
+      "community": 194,
       "norm_label": "crapto",
       "id": "tools_crapto"
     },
@@ -17657,7 +17640,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 193,
+      "community": 195,
       "norm_label": "coconut",
       "id": "tools_coconut"
     },
@@ -17670,7 +17653,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 194,
+      "community": 196,
       "norm_label": "\u7f51\u6613\u4e91\u97f3\u4e50\u6b4c\u5355\u6392\u5e8f",
       "id": "tools_netease_sorter"
     },
@@ -17683,7 +17666,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 195,
+      "community": 197,
       "norm_label": "git \u5de5\u5177\u4e0e\u5b66\u4e60\u8d44\u6e90",
       "id": "tools_git"
     },
@@ -17696,7 +17679,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 78,
+      "community": 79,
       "norm_label": "awade \u4f4e\u7801\u7cfb\u7edf",
       "id": "awade_lowcode"
     },
@@ -17709,7 +17692,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 78,
+      "community": 79,
       "norm_label": "svd(structured view director)",
       "id": "awade_svd"
     },
@@ -17722,7 +17705,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 78,
+      "community": 79,
       "norm_label": "jigsaw \u524d\u7aef\u7ec4\u4ef6\u5e93",
       "id": "awade_jigsaw"
     },
@@ -17735,7 +17718,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 78,
+      "community": 79,
       "norm_label": "pray \u67b6\u6784",
       "id": "awade_pray"
     },
@@ -17748,7 +17731,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 79,
+      "community": 80,
       "norm_label": "kingdb \u952e\u503c\u5b58\u50a8",
       "id": "kingdb_key_value_store"
     },
@@ -17761,7 +17744,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 79,
+      "community": 80,
       "norm_label": "kingdb status \u7c7b",
       "id": "kingdb_status_class"
     },
@@ -17774,7 +17757,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 79,
+      "community": 80,
       "norm_label": "kingdb \u6d4b\u8bd5\u5b8f",
       "id": "kingdb_test_macros"
     },
@@ -17787,7 +17770,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 79,
+      "community": 80,
       "norm_label": "kingdb raii \u8d44\u6e90\u7ba1\u7406",
       "id": "kingdb_raiidi"
     },
@@ -17800,7 +17783,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 126,
+      "community": 127,
       "norm_label": "array.prototype.slice \u6d45\u62f7\u8d1d",
       "id": "es_array_slice"
     },
@@ -17813,7 +17796,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 126,
+      "community": 127,
       "norm_label": "object.prototype.assign",
       "id": "es_object_assign"
     },
@@ -17826,7 +17809,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 130,
+      "community": 131,
       "norm_label": "canvas blocker",
       "id": "js_canvas_blocker"
     },
@@ -17865,7 +17848,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 127,
+      "community": 128,
       "norm_label": "jquery",
       "id": "js_jquery"
     },
@@ -17878,7 +17861,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 127,
+      "community": 128,
       "norm_label": "jquery.noconflict",
       "id": "js_jquery_noconflict"
     },
@@ -17891,7 +17874,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 128,
+      "community": 129,
       "norm_label": "lodash.js",
       "id": "js_lodash"
     },
@@ -17904,7 +17887,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 128,
+      "community": 129,
       "norm_label": "lodash.template",
       "id": "js_lodash_template"
     },
@@ -17917,7 +17900,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 196,
+      "community": 198,
       "norm_label": "nuxt-ui v2",
       "id": "js_nuxt_ui_v2"
     },
@@ -17929,7 +17912,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Nuxt UI v3",
       "description": "Nuxt UI v3",
-      "community": 24,
+      "community": 23,
       "norm_label": "nuxt ui v3",
       "id": "nuxt-ui-v3"
     },
@@ -17941,7 +17924,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Reka UI",
       "description": "\u4e00\u4e2a\u7528\u4e8e\u4f7f\u7528 Vue.js \u6784\u5efa\u9ad8\u8d28\u91cf\u3001\u53ef\u8bbf\u95ee\u7684\u8bbe\u8ba1\u7cfb\u7edf\u548c Web \u5e94\u7528\u7684\u5f00\u6e90\u7ec4\u4ef6\u5e93\u3002",
-      "community": 24,
+      "community": 23,
       "norm_label": "reka ui",
       "id": "reka-ui"
     },
@@ -17953,7 +17936,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "vue-error-boundary",
       "description": "\u9519\u8bef\u8fb9\u754c\u6700\u65e9\u662f\u7531 React \u63d0\u51fa\u7684\u6982\u5ff5\uff0c\u4f46\u5076\u7136\u53d1\u73b0 vue \u6709\u5bf9\u5e94\u5b9e\u73b0\uff0c\u90a3\u5c31\u6765\u770b\u770b\u5427",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue error boundary",
       "id": "vue-error-boundary"
     },
@@ -17965,7 +17948,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Source",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 source code",
       "id": "vue2-source"
     },
@@ -17977,7 +17960,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Observer",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 observer",
       "id": "vue2-observer"
     },
@@ -17989,7 +17972,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Parser",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 parser",
       "id": "vue2-parser"
     },
@@ -18001,7 +17984,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Global API",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 global api",
       "id": "vue2-global-api"
     },
@@ -18013,7 +17996,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Scoped CSS",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 scoped css",
       "id": "vue2-scoped-css"
     },
@@ -18025,7 +18008,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Test Kit",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 test kit",
       "id": "vue2-test-kit"
     },
@@ -18037,7 +18020,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Vue2 Utils",
       "description": "deprecated warning",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue 2 utils",
       "id": "vue2-utils"
     },
@@ -18049,7 +18032,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u5224\u65ad\u4e24\u4e2a\u53d8\u91cf\u76f8\u7b49",
       "description": "fast-deep-equal \u662f\u4e00\u4e2a\u7528\u6765\u6df1\u5c42\u6b21\u5224\u65ad\u4e24\u4e2a\u5bf9\u8c61\u662f\u5426\u76f8\u7b49\u7684\u5e93",
-      "community": 69,
+      "community": 70,
       "norm_label": "fast-deep-equal",
       "id": "fast-deep-equal"
     },
@@ -18061,7 +18044,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "get-intrinsic",
       "description": "JavaScript Intrinsics \u7f13\u5b58\u4e0e\u9632\u5fa1\u6027\u7f16\u7a0b\uff0cljharb \u7684 es-shims \u751f\u6001\u7cfb\u7edf\u6838\u5fc3\u5e93",
-      "community": 69,
+      "community": 70,
       "norm_label": "get-intrinsic",
       "id": "get-intrinsic"
     },
@@ -18073,7 +18056,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u4f4e\u7248\u672c\u6d4f\u89c8\u5668\u517c\u5bb9HTML5\u6807\u7b7e\u539f\u7406",
       "description": "html5shiv \u80fd\u4f7f IE6/7/8 \u7b49\u6d4f\u89c8\u5668\u652f\u6301 HTML5 \u7684\u65b0\u6807\u7b7e",
-      "community": 80,
+      "community": 81,
       "norm_label": "html5shiv",
       "id": "html5shiv"
     },
@@ -18085,7 +18068,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u5224\u65ad NodeJS \u662f\u5426\u5728\u7ebf",
       "description": "\u4f7f\u7528 DNS \u6a21\u5757\u5224\u65ad NodeJS \u662f\u5426\u5728\u7ebf",
-      "community": 80,
+      "community": 81,
       "norm_label": "is-online",
       "id": "is-online"
     },
@@ -18097,7 +18080,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "node-watch",
       "description": "node-watch \u662f\u5728 fs.watch \u7684\u57fa\u7840\u4e0a\u5c01\u88c5\u800c\u6765\u7684\u5e93\uff0c\u80fd\u76d1\u542c\u6587\u4ef6\u53d8\u5316",
-      "community": 80,
+      "community": 81,
       "norm_label": "node-watch",
       "id": "node-watch"
     },
@@ -18109,7 +18092,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "TypeScript \u7f16\u8bd1\u5668",
       "description": "TypeScript \u7684\u6574\u4e2a\u7f16\u8bd1\u6d41\u7a0b\u5c42\u5c42\u9012\u8fdb\uff0c\u5206\u5de5\u660e\u786e\uff1a\u9884\u5904\u7406\u5668\u786e\u5b9a\u6587\u4ef6\u8303\u56f4\uff0c\u89e3\u6790\u5668\u751f\u6210\u62bd\u8c61\u8bed\u6cd5\u7ed3\u6784\uff0cBinder \u5efa\u7acb\u7b26\u53f7\u4f53\u7cfb\u5e76\u7406\u987a\u4f5c\u7528\u57df\uff0cProgram \u6c47\u96c6\u5168\u5c40\u89c6\u89d2\uff0cTypeChecker \u5b8c\u6210\u7c7b\u578b\u63a8\u65ad\u548c\u8bca\u65ad\uff0c\u6700\u7ec8\u7531 Emitter \u751f\u6210\u8f93\u51fa\u6587\u4ef6\u3002",
-      "community": 56,
+      "community": 57,
       "norm_label": "typescript compiler",
       "id": "typescript-compiler"
     },
@@ -18121,7 +18104,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Utility Types",
       "description": "TypeScript \u5185\u7f6e\u7684\u5de5\u5177\u7c7b\u578b\u548c\u9ad8\u7ea7\u7c7b\u578b\uff0c\u5305\u62ec Partial\u3001Required\u3001Readonly\u3001Record\u3001Pick\u3001Omit\u3001Exclude\u3001Extract\u3001NonNullable\u3001Parameters\u3001ReturnType \u7b49\u3002",
-      "community": 56,
+      "community": 57,
       "norm_label": "typescript utility types",
       "id": "utility-types"
     },
@@ -18133,7 +18116,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "Type Challenges",
       "description": "TypeScript \u7c7b\u578b\u6311\u6218\u9898\u89e3",
-      "community": 56,
+      "community": 57,
       "norm_label": "type challenges",
       "id": "type-challenges"
     },
@@ -18145,7 +18128,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u6280\u672f\u7b80\u5386",
       "description": "WIP",
-      "community": 81,
+      "community": 82,
       "norm_label": "\u6280\u672f\u7b80\u5386",
       "id": "hire-index"
     },
@@ -18157,7 +18140,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u65e0\u9898",
       "description": "\u4e2a\u4eba\u8bd7\u4f5c",
-      "community": 197,
+      "community": 199,
       "norm_label": "\u65e0\u9898",
       "id": "essay-noname"
     },
@@ -18169,7 +18152,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "150 \u884c\u4ee3\u7801\u5e26\u4f60\u5b9e\u73b0\u5c0f\u7a0b\u5e8f\u4e2d\u7684\u6570\u636e\u4fa6\u542c",
       "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u5728 150 \u884c\u4ee3\u7801\u5185\u4f7f\u7528 defineProperty \u5b9e\u73b0\u4e00\u4e2a\u7b80\u5355\u7684\u62e5\u6709\u4e8b\u4ef6\u53d1\u5e03\u8ba2\u9605\u80fd\u529b\u7684\u72b6\u6001\u7ba1\u7406\u5e93\u7684\u601d\u8def\u3002",
-      "community": 24,
+      "community": 23,
       "norm_label": "150 \u884c\u4ee3\u7801\u5b9e\u73b0\u5c0f\u7a0b\u5e8f\u6570\u636e\u4fa6\u542c",
       "id": "essay-reactive-150loc"
     },
@@ -18181,7 +18164,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u804a\u804a\u6b64\u6b21\u79bb\u804c\uff0c\u6bd5\u4e1a\uff0c\u53ca\u5176\u5b83\u6742\u4e71\u7684\u4e8b\u60c5",
       "description": "\u4e2a\u4eba\u968f\u7b14",
-      "community": 81,
+      "community": 82,
       "norm_label": "\u804a\u804a\u79bb\u804c,\u6bd5\u4e1a,\u53ca\u5176\u5b83\u6742\u4e71\u7684\u4e8b\u60c5",
       "id": "essay-messy-in-two-years"
     },
@@ -18193,7 +18176,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u4ece\u4e00\u4e2a\u8d8a\u5199\u8d8a\u6162\u7684\u7f16\u8f91\u5668\u4e2d\u804a\u804a\u4f18\u5316\u601d\u8def",
       "description": "TEditor \u6027\u80fd\u4f18\u5316\u601d\u8def",
-      "community": 24,
+      "community": 23,
       "norm_label": "teditor \u4f18\u5316\u601d\u8def",
       "id": "essay-teditor"
     },
@@ -18205,7 +18188,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u542c\u8bf4\u4f60\u8fd8\u5728\u624b\u5199\u61d2\u52a0\u8f7d?",
       "description": "Chrome 75 \u539f\u751f\u61d2\u52a0\u8f7d\u529f\u80fd\u4ecb\u7ecd",
-      "community": 55,
+      "community": 56,
       "norm_label": "chrome \u539f\u751f\u56fe\u7247\u61d2\u52a0\u8f7d",
       "id": "essay-chrome-image-lazyload"
     },
@@ -18217,7 +18200,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u4e3a\u4ec0\u4e48\u6211\u8981\u5199\u535a\u5ba2",
       "description": "\u7b80\u5355\u4ecb\u7ecd\u81ea\u5df1\uff0c\u4ee5\u53ca\u5efa\u7acb\u535a\u5ba2\u7684\u521d\u8877",
-      "community": 81,
+      "community": 82,
       "norm_label": "\u4e3a\u4ec0\u4e48\u6211\u8981\u5199\u535a\u5ba2",
       "id": "essay-welcome"
     },
@@ -18229,7 +18212,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u4e00\u5c01\u6c89\u9ed8",
       "description": "\u4e2a\u4eba\u968f\u7b14\u4e0e\u8bd7\u4f5c",
-      "community": 129,
+      "community": 130,
       "norm_label": "\u4e00\u5c01\u6c89\u9ed8",
       "id": "essay-a-letter-of-silience"
     },
@@ -18241,7 +18224,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u6587\u5b57\u4e0e\u60c5\u7eea",
       "description": "\u4e2a\u4eba\u968f\u7b14",
-      "community": 129,
+      "community": 130,
       "norm_label": "\u6587\u5b57\u4e0e\u60c5\u7eea",
       "id": "essay-chaos"
     },
@@ -18253,7 +18236,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u8ffd\u5bfb\u81ea\u7531\u4e0e\u6ee1\u6000\u5e0c\u671b",
       "description": "\u4e2a\u4eba\u968f\u7b14",
-      "community": 81,
+      "community": 82,
       "norm_label": "\u8ffd\u5bfb\u81ea\u7531\u4e0e\u6ee1\u6000\u5e0c\u671b",
       "id": "essay-free"
     },
@@ -18265,7 +18248,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u6709\u5173 CSS \u7684\u4e00\u4e9b\u6781\u6709\u8da3\u7684\u4e1c\u897f",
       "description": "\u672c\u6587\u4ecb\u7ecd\u4e86\u51e0\u79cdCSS\u4e2d\u6709\u8da3\u7684\u5185\u5bb9\u5982\u53d8\u91cf\u5b57\u4f53\u3001CSS\u653b\u51fb\u624b\u6bb5\u4ee5\u53caCSS\u65b0\u7279\u6027CSS\u53d8\u91cf\u3002",
-      "community": 55,
+      "community": 56,
       "norm_label": "\u6709\u5173 css \u7684\u4e00\u4e9b\u6781\u6709\u8da3\u7684\u4e1c\u897f",
       "id": "essay-css-interesting"
     },
@@ -18277,7 +18260,7 @@
       "author": "\u4eff\u751f\u72ee\u5b50",
       "title": "\u4ece\u4e00\u5e45 CSS \u98ce\u666f\u753b\u4e2d\u5b66\u4e60 2 \u4e2a\u7ed8\u56fe\u77e5\u8bc6\u70b9",
       "description": "\u7eaf CSS \u7ed8\u5236\u98ce\u666f\u753b\u7684\u6280\u672f\u5206\u6790",
-      "community": 55,
+      "community": 56,
       "norm_label": "\u4ece\u4e00\u5e45 css \u98ce\u666f\u753b\u4e2d\u5b66\u4e60 2 \u4e2a\u7ed8\u56fe\u77e5\u8bc6\u70b9",
       "id": "essay-southwold"
     },
@@ -18287,7 +18270,7 @@
       "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue reactivity system",
       "id": "concept-vue-reactivity"
     },
@@ -18297,7 +18280,7 @@
       "source_file": "content/8.source-code/_js/vue2-source/1.observer.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "dep and watcher pattern",
       "id": "concept-dep-watcher"
     },
@@ -18307,7 +18290,7 @@
       "source_file": "content/8.source-code/_js/reka-ui.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "aschild pattern",
       "id": "concept-aschild"
     },
@@ -18317,7 +18300,7 @@
       "source_file": "content/8.source-code/_js/reka-ui.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "presence component",
       "id": "concept-presence"
     },
@@ -18327,7 +18310,7 @@
       "source_file": "content/8.source-code/_js/reka-ui.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "createcontext helper",
       "id": "concept-createcontext"
     },
@@ -18337,7 +18320,7 @@
       "source_file": "content/8.source-code/_ts/typescript-compiler.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 56,
+      "community": 57,
       "norm_label": "typescript compiler pipeline",
       "id": "concept-typescript-compiler-pipeline"
     },
@@ -18347,7 +18330,7 @@
       "source_file": "content/8.source-code/_ts/typescript-compiler.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 56,
+      "community": 57,
       "norm_label": "control flow analysis",
       "id": "concept-control-flow-analysis"
     },
@@ -18357,7 +18340,7 @@
       "source_file": "content/8.source-code/_module/fast-deep-equal.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 69,
+      "community": 70,
       "norm_label": "deep equal pruning strategy",
       "id": "concept-deep-equal-pruning"
     },
@@ -18367,7 +18350,7 @@
       "source_file": "content/8.source-code/_module/get-intrinsic.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 69,
+      "community": 70,
       "norm_label": "es-shims ecosystem",
       "id": "concept-es-shims"
     },
@@ -18377,7 +18360,7 @@
       "source_file": "content/8.source-code/_module/get-intrinsic.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 69,
+      "community": 70,
       "norm_label": "defensive programming",
       "id": "concept-defensive-programming"
     },
@@ -18387,7 +18370,7 @@
       "source_file": "content/_achieved/2019-06/teditor.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "lfu cache",
       "id": "concept-lfu-cache"
     },
@@ -18397,7 +18380,7 @@
       "source_file": "content/_achieved/2020-03/learn-from-an-evening-in-southwold.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 55,
+      "community": 56,
       "norm_label": "css box-shadow drawing",
       "id": "concept-css-box-shadow-drawing"
     },
@@ -18407,7 +18390,7 @@
       "source_file": "content/_achieved/2019-11/css-interesting.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 55,
+      "community": 56,
       "norm_label": "css exfil attack",
       "id": "concept-css-exfil"
     },
@@ -18417,7 +18400,7 @@
       "source_file": "content/8.source-code/_js/vue2-source/0.index.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 24,
+      "community": 23,
       "norm_label": "vue.js",
       "id": "tech-vue"
     },
@@ -18427,7 +18410,7 @@
       "source_file": "content/8.source-code/_ts/typescript-compiler.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 56,
+      "community": 57,
       "norm_label": "typescript",
       "id": "tech-typescript"
     },
@@ -18437,7 +18420,7 @@
       "source_file": "content/8.source-code/_node/node-watch.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 80,
+      "community": 81,
       "norm_label": "node.js",
       "id": "tech-nodejs"
     },
@@ -18447,7 +18430,7 @@
       "source_file": "content/_achieved/2019-11/css-interesting.md",
       "captured_at": "2026-04-13",
       "author": "\u4eff\u751f\u72ee\u5b50",
-      "community": 55,
+      "community": 56,
       "norm_label": "css",
       "id": "tech-css"
     },
@@ -18525,7 +18508,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 100,
+      "community": 101,
       "norm_label": "\u5173\u4e8e\u6807\u70b9\u7684\u90a3\u4e9b\u4e8b\u513f",
       "id": "punctuations"
     },
@@ -18564,7 +18547,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 198,
+      "community": 200,
       "norm_label": "\u65e0\u9898",
       "id": "noname"
     },
@@ -18642,7 +18625,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 199,
+      "community": 201,
       "norm_label": "flex-in-flex",
       "id": "flex_in_flex"
     },
@@ -18655,7 +18638,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 200,
+      "community": 202,
       "norm_label": "\u6ce8\u610f\u529b:\u4e13\u6ce8\u7684\u79d1\u5b66\u4e0e\u8bad\u7ec3",
       "id": "attention_book"
     },
@@ -18668,7 +18651,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 201,
+      "community": 203,
       "norm_label": "\u533a\u5757\u94fe",
       "id": "blockchain_book"
     },
@@ -18733,7 +18716,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 83,
       "norm_label": "\u5927\u8111\u5e1d\u56fd",
       "id": "brain_empire_book"
     },
@@ -18746,7 +18729,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 202,
+      "community": 204,
       "norm_label": "\u6297\u708e\u751f\u6d3b",
       "id": "anti_inflammatory_book"
     },
@@ -18759,7 +18742,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 203,
+      "community": 205,
       "norm_label": "\u5df4\u62c9\u5df4\u897f\u7f51\u7edc\u79d1\u5b66",
       "id": "network_science_book"
     },
@@ -18772,7 +18755,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 83,
       "norm_label": "\u6253\u5f00\u9ed1\u7bb1\u2014\u2014\u901a\u8fc736\u90e8\u7ecf\u5178\u7535\u5f71\u89e3\u5bc6\u8111\u79d1\u5b66",
       "id": "brain_movies_book"
     },
@@ -18785,7 +18768,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 204,
+      "community": 206,
       "norm_label": "\u725b\u6d25\u901a\u8bc6\u8bfb\u672c:\u4e2d\u56fd\u6587\u5b66",
       "id": "chinese_lit_book"
     },
@@ -18824,7 +18807,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 205,
+      "community": 207,
       "norm_label": "\u56fe\u4e66\u5206\u7c7b\u53c2\u8003",
       "id": "clc_index"
     },
@@ -19019,7 +19002,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 83,
       "norm_label": "\u4e09\u8111\u7406\u8bba",
       "id": "concept_triune_brain"
     },
@@ -19032,7 +19015,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 82,
+      "community": 83,
       "norm_label": "\u6d77\u9a6c\u4f53\u4e0e\u8bb0\u5fc6",
       "id": "concept_memory_hippocampus"
     },
@@ -19123,7 +19106,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 100,
+      "community": 101,
       "norm_label": "\u4e2d\u6587\u76f4\u89d2\u5f15\u53f7\u6392\u7248",
       "id": "concept_typography_quotes"
     },
@@ -19136,7 +19119,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 100,
+      "community": 101,
       "norm_label": "\u4f7f\u7528\u76f4\u89d2\u5f15\u53f7\u662f\u56e0\u4e3a\u7f8e\u89c2",
       "id": "rationale_right_angle_quotes"
     },
@@ -19331,7 +19314,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 57,
+      "community": 58,
       "norm_label": "english articles index",
       "id": "en_articles_index"
     },
@@ -19344,7 +19327,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 57,
+      "community": 58,
       "norm_label": "todo index",
       "id": "todo_index"
     },
@@ -19682,7 +19665,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 57,
+      "community": 58,
       "norm_label": "\u4eff\u751f\u72ee\u5b50",
       "id": "bionic_lion"
     }
@@ -19711,114 +19694,6 @@
       "_tgt": "nuxt_excalidraw",
       "source": "nuxt_content",
       "target": "nuxt_excalidraw"
-    },
-    {
-      "relation": "implements",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "nuxt.config.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "nuxt_config",
-      "_tgt": "runtime_config_preview_dirs",
-      "source": "nuxt_config",
-      "target": "runtime_config_preview_dirs"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "nuxt.config.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "nuxt_config",
-      "_tgt": "api_excalidraw",
-      "source": "nuxt_config",
-      "target": "api_excalidraw"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "nuxt.config.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "nuxt_config",
-      "_tgt": "server_plugin_feed",
-      "source": "nuxt_config",
-      "target": "server_plugin_feed"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "nuxt.config.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "nuxt_config",
-      "_tgt": "vitest_config",
-      "source": "nuxt_config",
-      "target": "vitest_config"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "server/api/search.json.get.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "nuxt_config",
-      "_tgt": "api_search_json",
-      "source": "nuxt_config",
-      "target": "api_search_json"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.7,
-      "source_file": "server/api/highlight-code.post.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "nuxt_config",
-      "_tgt": "api_highlight_code",
-      "source": "nuxt_config",
-      "target": "api_highlight_code"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/api/preview-repo-file.get.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "api_preview_repo_file",
-      "_tgt": "runtime_config_preview_dirs",
-      "source": "runtime_config_preview_dirs",
-      "target": "api_preview_repo_file"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/api/preview/index.get.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "api_preview_index",
-      "_tgt": "runtime_config_preview_dirs",
-      "source": "runtime_config_preview_dirs",
-      "target": "api_preview_index"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/api/preview/[...path].get.ts",
-      "source_location": null,
-      "weight": 1.0,
-      "_src": "api_preview_path",
-      "_tgt": "runtime_config_preview_dirs",
-      "source": "runtime_config_preview_dirs",
-      "target": "api_preview_path"
     },
     {
       "relation": "implements",

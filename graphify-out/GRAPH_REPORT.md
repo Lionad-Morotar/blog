@@ -1,12 +1,12 @@
-# Graph Report - .  (2026-04-18)
+# Graph Report - .  (2026-05-08)
 
 ## Corpus Check
-- 44 files · ~277,576 words
+- 44 files · ~285,267 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1462 nodes · 1491 edges · 206 communities detected
-- Extraction: 78% EXTRACTED · 22% INFERRED · 0% AMBIGUOUS · INFERRED: 332 edges (avg confidence: 0.76)
+- 1461 nodes · 1482 edges · 208 communities detected
+- Extraction: 78% EXTRACTED · 22% INFERRED · 0% AMBIGUOUS · INFERRED: 327 edges (avg confidence: 0.76)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -216,6 +216,8 @@
 - [[_COMMUNITY_Community 203|Community 203]]
 - [[_COMMUNITY_Community 204|Community 204]]
 - [[_COMMUNITY_Community 205|Community 205]]
+- [[_COMMUNITY_Community 206|Community 206]]
+- [[_COMMUNITY_Community 207|Community 207]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `CSS 新特性 2025` - 28 edges
@@ -232,14 +234,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `Nuxt Content` --semantically_similar_to--> `Nuxt Excalidraw`  [INFERRED] [semantically similar]
   content.config.ts → content/6.maps/_docs/excalidraw-guide.md
-- `Nuxt Config` --conceptually_related_to--> `Excalidraw API`  [INFERRED]
-  nuxt.config.ts → server/api/excalidraw/[...path].get.ts
-- `Nuxt Config` --conceptually_related_to--> `Feed Server Plugin`  [INFERRED]
-  nuxt.config.ts → server/plugins/feed.ts
-- `Nuxt Config` --conceptually_related_to--> `Vitest Config`  [INFERRED]
-  nuxt.config.ts → vitest.config.ts
-- `Nuxt Config` --conceptually_related_to--> `Search JSON API`  [INFERRED]
-  nuxt.config.ts → server/api/search.json.get.ts
+- `Vitest Config` --conceptually_related_to--> `Preview API Test`  [INFERRED]
+  vitest.config.ts → tests/server/api/preview.test.ts
+- `Navigation filter excluding /en paths and _ dirs` --semantically_similar_to--> `locale-preference.global.ts middleware`  [INFERRED] [semantically similar]
+  app/app.vue → app/middleware/locale-preference.global.ts
+- `htmlLang based on route path (en/zh-cn)` --semantically_similar_to--> `locale-preference.global.ts middleware`  [INFERRED] [semantically similar]
+  app/app.vue → app/middleware/locale-preference.global.ts
+- `Preview API Test` --references--> `Preview Index API`  [INFERRED]
+  tests/server/api/preview.test.ts → server/api/preview/index.get.ts
 
 ## Hyperedges (group relationships)
 - **Wide layout system** — Header, Header_wide_layout, docs_layout, docs_layout_wide_layout [INFERRED 0.85]
@@ -371,12 +373,12 @@ Cohesion: 0.06
 Nodes (32): Google ADK, ANP, External Communication, Multi-Agent System, Agno, AutoGen, Context Engineering, LangGraph (+24 more)
 
 ### Community 14 - "Community 14"
-Cohesion: 0.07
-Nodes (32): AGENTS.md, Browser Automation, Claude Code, Codex, Context Engineering, Copilot, Cube Semantic Layer, MinHash + LSH (+24 more)
-
-### Community 15 - "Community 15"
 Cohesion: 0.08
 Nodes (32): Codemod, 组件方案, 跨平台开发, Device Metrics, Flutter, Taro, CSS 隔离, Flutter build() (+24 more)
+
+### Community 15 - "Community 15"
+Cohesion: 0.07
+Nodes (32): AGENTS.md, Browser Automation, Claude Code, Codex, Context Engineering, Copilot, Cube Semantic Layer, MinHash + LSH (+24 more)
 
 ### Community 16 - "Community 16"
 Cohesion: 0.08
@@ -395,40 +397,40 @@ Cohesion: 0.11
 Nodes (24): ACID Transactions, Apache Paimon, Avro, CDC, 数据库, Data Lake, Databricks, Delta Lake (+16 more)
 
 ### Community 20 - "Community 20"
-Cohesion: 0.16
-Nodes (23): Excalidraw API, Highlight Code API, Preview Index API, Preview Path API, Preview Repo File API, Search JSON API, detectVscodeScheme, feedme:handle:content:item hook (+15 more)
-
-### Community 21 - "Community 21"
 Cohesion: 0.11
 Nodes (20): Blockies Animation, Hover Glow, Morphing, Shine Cards, Text Scramble, Zoom Effect, CSS Counter 文字打乱, dotLottie (+12 more)
 
-### Community 22 - "Community 22"
+### Community 21 - "Community 21"
 Cohesion: 0.11
 Nodes (20): AI 加速的影子 IT, 大科技公司工程师的 Ego 悖论, Capacity-driven development, 拥塞崩溃, 跨技能训练, Data Mesh, 动态重组团队, 管理学领域导航索引 (+12 more)
 
-### Community 23 - "Community 23"
+### Community 22 - "Community 22"
 Cohesion: 0.11
 Nodes (20): Agentic AI 拐点效应, DRAM 供应瓶颈, Standing-Reserve (持存物), LLM 科普教育, LLM 本质理解 (LLM as Data Labeler Simulator), micrograd / llm.c, 深度学习撞墙论 (Deep Learning Hitting a Wall), 混合 AI 架构 (Hybrid AI) (+12 more)
 
-### Community 24 - "Community 24"
+### Community 23 - "Community 23"
 Cohesion: 0.16
 Nodes (19): asChild Pattern, createContext Helper, Dep and Watcher Pattern, LFU Cache, Presence Component, Vue Reactivity System, 150 行代码实现小程序数据侦听, TEditor 优化思路 (+11 more)
 
-### Community 25 - "Community 25"
+### Community 24 - "Community 24"
 Cohesion: 0.13
 Nodes (16): Footer component, Header component, Wide layout toggle in header, Footer credits and social links config, Header links config (Posts/Maps/Links), SEO siteName config, UI primary=red neutral=slate config, Navigation filter excluding /en paths and _ dirs (+8 more)
 
-### Community 26 - "Community 26"
+### Community 25 - "Community 25"
 Cohesion: 0.13
 Nodes (18): 模板解析器轻考古, Attention Debt Of AI Tooling, 巴别塔封顶, Chinese Room, DRY Principle, 四十二篇系列, 人之为人, 黑日 (+10 more)
 
-### Community 27 - "Community 27"
+### Community 26 - "Community 26"
 Cohesion: 0.12
 Nodes (18): 抽象工厂模式, 适配器模式, 桥接模式, 生成器模式, 责任链模式, 命令模式, 组合模式, 装饰模式 (+10 more)
 
-### Community 28 - "Community 28"
+### Community 27 - "Community 27"
 Cohesion: 0.12
 Nodes (16): Evaluator-Optimizer, Attention Debt Economics, Orchestrator-Workers, HOTL (Human-on-the-Loop), Parallelization, Routing, Agent System, Workflow (+8 more)
+
+### Community 28 - "Community 28"
+Cohesion: 0.26
+Nodes (14): Excalidraw API, Preview Index API, Preview Path API, Preview Repo File API, detectVscodeScheme, findGitRoot, mergeTrees, mock-bun-test plugin (+6 more)
 
 ### Community 29 - "Community 29"
 Cohesion: 0.16
@@ -484,91 +486,91 @@ Nodes (8): 中国画, CSS 书封展示, CSS 作品收集, CSS 折叠效果, CSS 
 
 ### Community 42 - "Community 42"
 Cohesion: 0.29
-Nodes (7): CodePreview component, API /api/highlight-code call, scrollToFirstHighlight logic, ProseA component (enhanced link in prose), ProseA uses CodePreview component, API /api/preview-repo-file call, VS Code URL scheme generation
+Nodes (7): Excalidraw component, ExcalidrawBoard component, API /api/excalidraw call, Mermaid component, svg2roughjs hand-drawn effect, svg-pan-zoom zoom/pan feature, tinycolor2 dependency for contrast
 
 ### Community 43 - "Community 43"
 Cohesion: 0.29
-Nodes (7): Excalidraw component, ExcalidrawBoard component, API /api/excalidraw call, Mermaid component, svg2roughjs hand-drawn effect, svg-pan-zoom zoom/pan feature, tinycolor2 dependency for contrast
+Nodes (7): CodePreview component, API /api/highlight-code call, scrollToFirstHighlight logic, ProseA component (enhanced link in prose), ProseA uses CodePreview component, API /api/preview-repo-file call, VS Code URL scheme generation
 
 ### Community 44 - "Community 44"
 Cohesion: 0.33
-Nodes (7): 架构设计, TOGAF, 聚合, 限界上下文, 领域驱动设计, 分层架构, 通用语言
+Nodes (7): Highlight Code API, Search JSON API, feedme:handle:content:item hook, queryCollectionSearchSections, Feed Server Plugin, Shiki, truncateContent
 
 ### Community 45 - "Community 45"
 Cohesion: 0.33
-Nodes (7): 面向对象编程, 抽象, OOP 基础, 组合优于继承, 封装, 继承, 多态
+Nodes (7): 架构设计, TOGAF, 聚合, 限界上下文, 领域驱动设计, 分层架构, 通用语言
 
 ### Community 46 - "Community 46"
 Cohesion: 0.33
-Nodes (6): 本地部署 Qwen 翻译网页, Immersive Translate, LM Studio, Local LLM Translation, nginx CORS proxy, Qwen Model
+Nodes (7): 面向对象编程, 抽象, OOP 基础, 组合优于继承, 封装, 继承, 多态
 
 ### Community 47 - "Community 47"
 Cohesion: 0.33
-Nodes (6): 大教堂与集市, 狮子的书单推荐, 黑客与画家, 神秘主义, 帕斯卡赌注, 三体
+Nodes (6): 本地部署 Qwen 翻译网页, Immersive Translate, LM Studio, Local LLM Translation, nginx CORS proxy, Qwen Model
 
 ### Community 48 - "Community 48"
+Cohesion: 0.33
+Nodes (6): 大教堂与集市, 狮子的书单推荐, 黑客与画家, 神秘主义, 帕斯卡赌注, 三体
+
+### Community 49 - "Community 49"
 Cohesion: 0.4
 Nodes (6): AI 创业护城河矩阵, 商业分析, 商业思维案例笔记, 商业, Software-as-Outcome paradigm, 风险投资
 
-### Community 49 - "Community 49"
+### Community 50 - "Community 50"
 Cohesion: 0.33
 Nodes (6): 2D Web 游戏框架选型指南, Excalibur, Kaboom.js, Phaser, Brawl Stars, 移动端虚拟摇杆设计原则
 
-### Community 50 - "Community 50"
+### Community 51 - "Community 51"
 Cohesion: 0.4
 Nodes (6): 阿姆斯特朗, 贝特拉基, 历史人物, 人物, 姜子牙, 吉姆·琼斯
 
-### Community 51 - "Community 51"
+### Community 52 - "Community 52"
 Cohesion: 0.33
 Nodes (6): DLSS 5 神经渲染, Cinema 4D, DLSS 5, 渲染技术, Shader Art, WebGL
 
-### Community 52 - "Community 52"
+### Community 53 - "Community 53"
 Cohesion: 0.33
 Nodes (6): Svelte 迁移到 JSDoc 的 rationale, Brand 类型, 图灵完备, 类型体操基本运算, 类型体操（Type Gymnastics）, TypeScript
 
-### Community 53 - "Community 53"
+### Community 54 - "Community 54"
 Cohesion: 0.47
 Nodes (6): 构建工具, Rome/Biome 统一工具链, Rspack, Unbuild stub 模式, Vite, Webpack
 
-### Community 54 - "Community 54"
+### Community 55 - "Community 55"
 Cohesion: 0.33
 Nodes (6): Application 包角色, Compiler 包角色, 包的角色分类框架, Library 包角色, Plugin 包角色, Types 包角色
 
-### Community 55 - "Community 55"
+### Community 56 - "Community 56"
 Cohesion: 0.4
 Nodes (6): CSS Box-Shadow Drawing, CSS Exfil Attack, Chrome 原生图片懒加载, 有关 CSS 的一些极有趣的东西, 从一幅 CSS 风景画中学习 2 个绘图知识点, CSS
 
-### Community 56 - "Community 56"
+### Community 57 - "Community 57"
 Cohesion: 0.53
 Nodes (6): Control Flow Analysis, TypeScript Compiler Pipeline, TypeScript, Type Challenges, TypeScript Compiler, TypeScript Utility Types
 
-### Community 57 - "Community 57"
+### Community 58 - "Community 58"
 Cohesion: 0.5
 Nodes (5): 欢迎, 仿生狮子, Digital Garden, English Articles Index, TODO Index
-
-### Community 58 - "Community 58"
-Cohesion: 0.4
-Nodes (5): Anysort, 设计模式与 JS 魔法锅, 配置数据与业务逻辑分离, 设计模式本质是代码复用的 rationale, 配置与逻辑分离的 rationale
 
 ### Community 59 - "Community 59"
 Cohesion: 0.4
 Nodes (5): Puppeteer 滑块验证码破解, 纯 CSS 判断鼠标方向, 菲涅尔效应, SVG 滤镜材质生成, POAA (Pixel-Offset Anti-Aliasing)
 
 ### Community 60 - "Community 60"
+Cohesion: 0.4
+Nodes (5): Anysort, 设计模式与 JS 魔法锅, 配置数据与业务逻辑分离, 设计模式本质是代码复用的 rationale, 配置与逻辑分离的 rationale
+
+### Community 61 - "Community 61"
 Cohesion: 0.5
 Nodes (5): A2A Protocol, 笔记系统智能体档案, 知识地图索引, FingerStyle 指弹, 四层认知结构的 rationale
 
-### Community 61 - "Community 61"
+### Community 62 - "Community 62"
 Cohesion: 0.4
 Nodes (5): MoSCoW 优先级, 项目管理, 项目管理实践, SMART 法则, 工作分解结构 WBS
 
-### Community 62 - "Community 62"
-Cohesion: 0.4
-Nodes (5): 黑格尔承认理论 (Hegelian Recognition), Judith Butler, 脆弱性伦理 (Vulnerability Ethics), Jorge Luis Borges, 身份分裂 (Identity Split)
-
 ### Community 63 - "Community 63"
 Cohesion: 0.4
-Nodes (5): 链长制 (Chain Chief System), 五化发展框架 (Five Developments Framework), 十四五规划 (14th Five-Year Plan), 数字经济核心产业, 工业园区高质量发展指引
+Nodes (5): 黑格尔承认理论 (Hegelian Recognition), Judith Butler, 脆弱性伦理 (Vulnerability Ethics), Jorge Luis Borges, 身份分裂 (Identity Split)
 
 ### Community 64 - "Community 64"
 Cohesion: 0.6
@@ -580,151 +582,151 @@ Nodes (5): 四体液说 (Four Humors), 海马体与陈述性记忆 (Hippocampus 
 
 ### Community 66 - "Community 66"
 Cohesion: 0.4
-Nodes (5): Dodgeball, FourSquare, Gamification, Growth, Nicole Lazzaro
+Nodes (5): 链长制 (Chain Chief System), 五化发展框架 (Five Developments Framework), 十四五规划 (14th Five-Year Plan), 数字经济核心产业, 工业园区高质量发展指引
 
 ### Community 67 - "Community 67"
 Cohesion: 0.4
-Nodes (5): Fred Reichheld, NPS, oCPM, Operation, Skills as Lead Generation
+Nodes (5): Dodgeball, FourSquare, Gamification, Growth, Nicole Lazzaro
 
 ### Community 68 - "Community 68"
-Cohesion: 0.5
-Nodes (5): 命令行工具使用指南, AWDL 导致 Mac WiFi 速度暴跌, 并发编程, macOS 系统知识与实践经验, 操作系统
+Cohesion: 0.4
+Nodes (5): Fred Reichheld, NPS, oCPM, Operation, Skills as Lead Generation
 
 ### Community 69 - "Community 69"
 Cohesion: 0.5
-Nodes (5): Deep Equal Pruning Strategy, Defensive Programming, es-shims Ecosystem, fast-deep-equal, get-intrinsic
+Nodes (5): 命令行工具使用指南, AWDL 导致 Mac WiFi 速度暴跌, 并发编程, macOS 系统知识与实践经验, 操作系统
 
 ### Community 70 - "Community 70"
 Cohesion: 0.5
-Nodes (4): SectionEmbed component (embed markdown file), queryCollection('maps') usage, SectionExtract component (extract heading section), minimark body parsing logic
+Nodes (5): Deep Equal Pruning Strategy, Defensive Programming, es-shims Ecosystem, fast-deep-equal, get-intrinsic
 
 ### Community 71 - "Community 71"
-Cohesion: 0.67
-Nodes (4): Fizz Bubbles Decoration, Red Color (#d81e06), Blog Favicon SVG, Wine Glass / Goblet Icon
+Cohesion: 0.5
+Nodes (4): SectionEmbed component (embed markdown file), queryCollection('maps') usage, SectionExtract component (extract heading section), minimark body parsing logic
 
 ### Community 72 - "Community 72"
 Cohesion: 0.67
-Nodes (2): Markdown frontmatter rule: no h1 when frontmatter.title exists, i18n lightweight multi-language solution
+Nodes (4): Fizz Bubbles Decoration, Red Color (#d81e06), Blog Favicon SVG, Wine Glass / Goblet Icon
 
 ### Community 73 - "Community 73"
-Cohesion: 0.5
-Nodes (4): CSS Nesting, Mini CSS Parser, micro-app, 黑名单机制优于白名单的 rationale
+Cohesion: 0.67
+Nodes (2): Markdown frontmatter rule: no h1 when frontmatter.title exists, i18n lightweight multi-language solution
 
 ### Community 74 - "Community 74"
 Cohesion: 0.5
-Nodes (4): WebMCP, Model Context Protocol, Native API to MCP, Rationale: Do Not Naively Expose APIs as MCP
+Nodes (4): CSS Nesting, Mini CSS Parser, micro-app, 黑名单机制优于白名单的 rationale
 
 ### Community 75 - "Community 75"
 Cohesion: 0.5
-Nodes (4): Defense-first strategy against AI attack diffusion, Claude Mythos Preview, p(doom), Project Glasswing
+Nodes (4): WebMCP, Model Context Protocol, Native API to MCP, Rationale: Do Not Naively Expose APIs as MCP
 
 ### Community 76 - "Community 76"
 Cohesion: 0.5
-Nodes (4): 应用索引, 邮件工具, macOS 应用, VPN
+Nodes (4): Defense-first strategy against AI attack diffusion, Claude Mythos Preview, p(doom), Project Glasswing
 
 ### Community 77 - "Community 77"
 Cohesion: 0.5
-Nodes (4): 博客精选, 以图组织内容的技术站点, Herb Caudill, Zapier
+Nodes (4): 应用索引, 邮件工具, macOS 应用, VPN
 
 ### Community 78 - "Community 78"
 Cohesion: 0.5
-Nodes (4): Jigsaw 前端组件库, Awade 低码系统, PRay 架构, SVD（Structured View Director）
+Nodes (4): 博客精选, 以图组织内容的技术站点, Herb Caudill, Zapier
 
 ### Community 79 - "Community 79"
+Cohesion: 0.5
+Nodes (4): Jigsaw 前端组件库, Awade 低码系统, PRay 架构, SVD（Structured View Director）
+
+### Community 80 - "Community 80"
 Cohesion: 0.67
 Nodes (4): KingDB 键值存储, KingDB RAII 资源管理, KingDB Status 类, KingDB 测试宏
 
-### Community 80 - "Community 80"
+### Community 81 - "Community 81"
 Cohesion: 0.5
 Nodes (4): html5shiv, is-online, node-watch, Node.js
 
-### Community 81 - "Community 81"
+### Community 82 - "Community 82"
 Cohesion: 0.5
 Nodes (4): 追寻自由与满怀希望, 聊聊离职，毕业，及其它杂乱的事情, 为什么我要写博客, 技术简历
 
-### Community 82 - "Community 82"
+### Community 83 - "Community 83"
 Cohesion: 0.5
 Nodes (4): 大脑帝国, 打开黑箱——通过36部经典电影解密脑科学, 海马体与记忆, 三脑理论
 
-### Community 83 - "Community 83"
+### Community 84 - "Community 84"
 Cohesion: 0.67
 Nodes (3): AspectRatio Vue Component, Padding-Top Aspect Ratio Technique, SVG Pattern Placeholder
 
-### Community 84 - "Community 84"
+### Community 85 - "Community 85"
 Cohesion: 0.67
 Nodes (3): AspectRatio component, Spark component (animated sparkles), Spark particle subcomponent
 
-### Community 85 - "Community 85"
+### Community 86 - "Community 86"
 Cohesion: 0.67
 Nodes (3): Preview Feature, preview/index.vue, preview/[...slug].vue
 
-### Community 86 - "Community 86"
+### Community 87 - "Community 87"
 Cohesion: 0.67
 Nodes (2): Homepage background credit cmykpixels@codepen, nuxt-content-git timestamp feature
 
-### Community 87 - "Community 87"
+### Community 88 - "Community 88"
 Cohesion: 0.67
 Nodes (3): Lambda Labs, Modal, SkyPilot
 
-### Community 88 - "Community 88"
+### Community 89 - "Community 89"
 Cohesion: 0.67
 Nodes (3): CLI, Terminal Escape Sequences, ffmpeg & imagemagick
 
-### Community 89 - "Community 89"
+### Community 90 - "Community 90"
 Cohesion: 0.67
 Nodes (3): Bikeshed Effect, Communication, Communication 技巧
 
-### Community 90 - "Community 90"
+### Community 91 - "Community 91"
 Cohesion: 0.67
 Nodes (3): 工商注册, 公司, 个体工商户与企业的区别
 
-### Community 91 - "Community 91"
+### Community 92 - "Community 92"
 Cohesion: 0.67
 Nodes (3): 数字化转型, KeepAlive 解决 React 组件 remount, 低代码
 
-### Community 92 - "Community 92"
+### Community 93 - "Community 93"
 Cohesion: 0.67
 Nodes (3): 专业文章大纲生成助手, 文本创作, 标题生成
 
-### Community 93 - "Community 93"
+### Community 94 - "Community 94"
 Cohesion: 0.67
 Nodes (3): 医疗, 常见消毒剂分类和作用水平, 心理健康建议
 
-### Community 94 - "Community 94"
-Cohesion: 0.67
-Nodes (3): 精益创业 (Lean Startup), 人生转向 (Life Pivot), Steve Blank
-
 ### Community 95 - "Community 95"
-Cohesion: 0.67
-Nodes (3): 前脑白质切除术 (Lobotomy), 1949 年诺贝尔医学奖, Antonio Egas Moniz
-
-### Community 96 - "Community 96"
 Cohesion: 0.67
 Nodes (3): Ronald G. Wayne, Apple 原始合伙合同, Apple 首个 Logo
 
+### Community 96 - "Community 96"
+Cohesion: 0.67
+Nodes (3): 精益创业 (Lean Startup), 人生转向 (Life Pivot), Steve Blank
+
 ### Community 97 - "Community 97"
 Cohesion: 0.67
-Nodes (3): Dovetail, Product Manager, User Research
+Nodes (3): 前脑白质切除术 (Lobotomy), 1949 年诺贝尔医学奖, Antonio Egas Moniz
 
 ### Community 98 - "Community 98"
 Cohesion: 0.67
-Nodes (3): Bit, Budibase, Dynamo
+Nodes (3): Dovetail, Product Manager, User Research
 
 ### Community 99 - "Community 99"
 Cohesion: 0.67
-Nodes (3): Programming, React Native, Regex
+Nodes (3): Bit, Budibase, Dynamo
 
 ### Community 100 - "Community 100"
 Cohesion: 0.67
-Nodes (3): 中文直角引号排版, 关于标点的那些事儿, 使用直角引号是因为美观
+Nodes (3): Programming, React Native, Regex
 
 ### Community 101 - "Community 101"
-Cohesion: 1.0
-Nodes (1): i18n locale utilities
+Cohesion: 0.67
+Nodes (3): 中文直角引号排版, 关于标点的那些事儿, 使用直角引号是因为美观
 
 ### Community 102 - "Community 102"
 Cohesion: 1.0
-Nodes (2): TextHighlightPlayground interactive component, Selection API and Range API usage
+Nodes (1): i18n locale utilities
 
 ### Community 103 - "Community 103"
 Cohesion: 1.0
@@ -732,409 +734,417 @@ Nodes (2): Commend component, UserPersona infographic component
 
 ### Community 104 - "Community 104"
 Cohesion: 1.0
-Nodes (2): LLink component (external link with iframe preview), FaaS getmeta endpoint for filesize
+Nodes (2): TextHighlightPlayground interactive component, Selection API and Range API usage
 
 ### Community 105 - "Community 105"
 Cohesion: 1.0
-Nodes (1): Home Page
+Nodes (2): LLink component (external link with iframe preview), FaaS getmeta endpoint for filesize
 
 ### Community 106 - "Community 106"
 Cohesion: 1.0
-Nodes (2): 表达和孤独, 我的腼腆
+Nodes (1): Home Page
 
 ### Community 107 - "Community 107"
 Cohesion: 1.0
-Nodes (2): 新工作，喝新饮料, 云拿转正小节
+Nodes (2): 表达和孤独, 我的腼腆
 
 ### Community 108 - "Community 108"
 Cohesion: 1.0
-Nodes (2): Use Scrollbars, PopupManager / useZIndex
+Nodes (2): 新工作，喝新饮料, 云拿转正小节
 
 ### Community 109 - "Community 109"
 Cohesion: 1.0
-Nodes (2): AI Frameworks, SAIF
+Nodes (2): Use Scrollbars, PopupManager / useZIndex
 
 ### Community 110 - "Community 110"
 Cohesion: 1.0
-Nodes (2): 技术架构, S3 五大核心设计原则
+Nodes (2): AI Frameworks, SAIF
 
 ### Community 111 - "Community 111"
 Cohesion: 1.0
-Nodes (2): 注意力, 横幅盲视
+Nodes (2): 技术架构, S3 五大核心设计原则
 
 ### Community 112 - "Community 112"
 Cohesion: 1.0
-Nodes (2): Sass @forward 指令, Sass @use 指令
+Nodes (2): 注意力, 横幅盲视
 
 ### Community 113 - "Community 113"
 Cohesion: 1.0
-Nodes (2): 面试问题汇总, 面试记录（汤唯国等）
+Nodes (2): Sass @forward 指令, Sass @use 指令
 
 ### Community 114 - "Community 114"
 Cohesion: 1.0
-Nodes (2): 反向面试, 面试易错题
+Nodes (2): 面试问题汇总, 面试记录（汤唯国等）
 
 ### Community 115 - "Community 115"
 Cohesion: 1.0
-Nodes (2): Markdown Inline Style, Markdown
+Nodes (2): 反向面试, 面试易错题
 
 ### Community 116 - "Community 116"
 Cohesion: 1.0
-Nodes (2): 黑洞概念首提 (Black Hole Concept), John Michell
+Nodes (2): Markdown Inline Style, Markdown
 
 ### Community 117 - "Community 117"
 Cohesion: 1.0
-Nodes (2): GNU GPL, Richard Stallman
+Nodes (2): Scour, Evan Schwartz
 
 ### Community 118 - "Community 118"
 Cohesion: 1.0
-Nodes (2): 地球周长测量, Eratosthenes
+Nodes (2): GNU GPL, Richard Stallman
 
 ### Community 119 - "Community 119"
 Cohesion: 1.0
-Nodes (2): Linux 版 Chrome, Evan Martin
+Nodes (2): 地球周长测量, Eratosthenes
 
 ### Community 120 - "Community 120"
 Cohesion: 1.0
-Nodes (2): Scour, Evan Schwartz
+Nodes (2): 黑洞概念首提 (Black Hole Concept), John Michell
 
 ### Community 121 - "Community 121"
 Cohesion: 1.0
-Nodes (2): Evil.js 投毒防御, Evil.js
+Nodes (2): Linux 版 Chrome, Evan Martin
 
 ### Community 122 - "Community 122"
 Cohesion: 1.0
-Nodes (2): TypeScript 6.0 破坏性变更, TypeScript Changelog
+Nodes (2): Evil.js 投毒防御, Evil.js
 
 ### Community 123 - "Community 123"
 Cohesion: 1.0
-Nodes (2): 工程化, 前端工程化
+Nodes (2): TypeScript 6.0 破坏性变更, TypeScript Changelog
 
 ### Community 124 - "Community 124"
 Cohesion: 1.0
-Nodes (2): ESLint-only 格式化方案, 为什么 antfu 不使用 Prettier
+Nodes (2): 工程化, 前端工程化
 
 ### Community 125 - "Community 125"
 Cohesion: 1.0
-Nodes (2): main 与 module 字段区别, package.json 常用字段
+Nodes (2): ESLint-only 格式化方案, 为什么 antfu 不使用 Prettier
 
 ### Community 126 - "Community 126"
 Cohesion: 1.0
-Nodes (2): Array.prototype.slice 浅拷贝, Object.prototype.assign
+Nodes (2): main 与 module 字段区别, package.json 常用字段
 
 ### Community 127 - "Community 127"
 Cohesion: 1.0
-Nodes (2): jQuery, jQuery.noConflict
+Nodes (2): Array.prototype.slice 浅拷贝, Object.prototype.assign
 
 ### Community 128 - "Community 128"
 Cohesion: 1.0
-Nodes (2): Lodash.js, Lodash.template
+Nodes (2): jQuery, jQuery.noConflict
 
 ### Community 129 - "Community 129"
 Cohesion: 1.0
-Nodes (2): 一封沉默, 文字与情绪
+Nodes (2): Lodash.js, Lodash.template
 
 ### Community 130 - "Community 130"
 Cohesion: 1.0
-Nodes (1): Canvas Blocker
+Nodes (2): 一封沉默, 文字与情绪
 
 ### Community 131 - "Community 131"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): Canvas Blocker
 
 ### Community 132 - "Community 132"
 Cohesion: 1.0
-Nodes (1): PreviewTree component
+Nodes (0): 
 
 ### Community 133 - "Community 133"
 Cohesion: 1.0
-Nodes (1): ReadBase64 drag-drop file reader
+Nodes (0): 
 
 ### Community 134 - "Community 134"
 Cohesion: 1.0
-Nodes (1): ArticleTimestamp component (Git-based)
+Nodes (1): PreviewTree component
 
 ### Community 135 - "Community 135"
 Cohesion: 1.0
-Nodes (1): OgImageDocs component
+Nodes (1): ReadBase64 drag-drop file reader
 
 ### Community 136 - "Community 136"
 Cohesion: 1.0
-Nodes (1): Gesture component
+Nodes (1): ArticleTimestamp component (Git-based)
 
 ### Community 137 - "Community 137"
 Cohesion: 1.0
-Nodes (1): Compare component (drag comparison)
+Nodes (1): OgImageDocs component
 
 ### Community 138 - "Community 138"
 Cohesion: 1.0
-Nodes (1): docs.vue layout
+Nodes (1): Gesture component
 
 ### Community 139 - "Community 139"
 Cohesion: 1.0
-Nodes (0): 
+Nodes (1): Compare component (drag comparison)
 
 ### Community 140 - "Community 140"
 Cohesion: 1.0
-Nodes (1): 长夜梦
+Nodes (1): docs.vue layout
 
 ### Community 141 - "Community 141"
 Cohesion: 1.0
-Nodes (1): 万物联结与幸福感
+Nodes (0): 
 
 ### Community 142 - "Community 142"
 Cohesion: 1.0
-Nodes (1): 偷取时间
+Nodes (1): 长夜梦
 
 ### Community 143 - "Community 143"
 Cohesion: 1.0
-Nodes (1): 心流归档
+Nodes (1): 万物联结与幸福感
 
 ### Community 144 - "Community 144"
 Cohesion: 1.0
-Nodes (1): 友链
+Nodes (1): 偷取时间
 
 ### Community 145 - "Community 145"
 Cohesion: 1.0
-Nodes (1): Qwen3-Embedding-8B-4bit-DWQ Benchmark
+Nodes (1): 心流归档
 
 ### Community 146 - "Community 146"
 Cohesion: 1.0
-Nodes (1): Simple Benchmark
+Nodes (1): 友链
 
 ### Community 147 - "Community 147"
 Cohesion: 1.0
-Nodes (1): Data Quality Tiering
+Nodes (1): Qwen3-Embedding-8B-4bit-DWQ Benchmark
 
 ### Community 148 - "Community 148"
 Cohesion: 1.0
-Nodes (1): Prompt Paradigm
+Nodes (1): Simple Benchmark
 
 ### Community 149 - "Community 149"
 Cohesion: 1.0
-Nodes (1): 衰老
+Nodes (1): Data Quality Tiering
 
 ### Community 150 - "Community 150"
 Cohesion: 1.0
-Nodes (1): 睡觉
+Nodes (1): Prompt Paradigm
 
 ### Community 151 - "Community 151"
 Cohesion: 1.0
-Nodes (1): 第一篇博客
+Nodes (1): 衰老
 
 ### Community 152 - "Community 152"
 Cohesion: 1.0
-Nodes (1): 博客平滑滚动问题
+Nodes (1): 睡觉
 
 ### Community 153 - "Community 153"
 Cohesion: 1.0
-Nodes (1): SYN Flood Attack
+Nodes (1): 第一篇博客
 
 ### Community 154 - "Community 154"
 Cohesion: 1.0
-Nodes (1): Vue Composition API
+Nodes (1): 博客平滑滚动问题
 
 ### Community 155 - "Community 155"
 Cohesion: 1.0
-Nodes (1): IfEquals
+Nodes (1): SYN Flood Attack
 
 ### Community 156 - "Community 156"
 Cohesion: 1.0
-Nodes (1): Primitive / isPrimitive
+Nodes (1): Vue Composition API
 
 ### Community 157 - "Community 157"
 Cohesion: 1.0
-Nodes (1): Set Operations on Types
+Nodes (1): IfEquals
 
 ### Community 158 - "Community 158"
 Cohesion: 1.0
-Nodes (1): FunctionKeys / RequiredKeys / ReadonlyKeys
+Nodes (1): Primitive / isPrimitive
 
 ### Community 159 - "Community 159"
 Cohesion: 1.0
-Nodes (1): CSS Snapshot 2024
+Nodes (1): Set Operations on Types
 
 ### Community 160 - "Community 160"
 Cohesion: 1.0
-Nodes (1): 中国游戏版号简史
+Nodes (1): FunctionKeys / RequiredKeys / ReadonlyKeys
 
 ### Community 161 - "Community 161"
 Cohesion: 1.0
-Nodes (1): 逃离塔科夫
+Nodes (1): CSS Snapshot 2024
 
 ### Community 162 - "Community 162"
 Cohesion: 1.0
-Nodes (1): Go 语言
+Nodes (1): 中国游戏版号简史
 
 ### Community 163 - "Community 163"
 Cohesion: 1.0
-Nodes (1): VNAND
+Nodes (1): 逃离塔科夫
 
 ### Community 164 - "Community 164"
 Cohesion: 1.0
-Nodes (1): RTX IO
+Nodes (1): Go 语言
 
 ### Community 165 - "Community 165"
 Cohesion: 1.0
-Nodes (1): 前端实习问题
+Nodes (1): VNAND
 
 ### Community 166 - "Community 166"
 Cohesion: 1.0
-Nodes (1): Amp Deep Mode
+Nodes (1): RTX IO
 
 ### Community 167 - "Community 167"
 Cohesion: 1.0
-Nodes (1): VSCode 大纲视图默认折叠
+Nodes (1): 前端实习问题
 
 ### Community 168 - "Community 168"
 Cohesion: 1.0
-Nodes (1): VSCode 文件树聚焦问题
+Nodes (1): Amp Deep Mode
 
 ### Community 169 - "Community 169"
 Cohesion: 1.0
-Nodes (1): 战略屋
+Nodes (1): VSCode 大纲视图默认折叠
 
 ### Community 170 - "Community 170"
 Cohesion: 1.0
-Nodes (1): 口腔健康——水平颤动拂刷法
+Nodes (1): VSCode 文件树聚焦问题
 
 ### Community 171 - "Community 171"
 Cohesion: 1.0
-Nodes (1): 搜索关键词优化助手
+Nodes (1): 战略屋
 
 ### Community 172 - "Community 172"
 Cohesion: 1.0
-Nodes (1): 亚里士多德
+Nodes (1): 口腔健康——水平颤动拂刷法
 
 ### Community 173 - "Community 173"
 Cohesion: 1.0
-Nodes (1): Precarious Life (2004)
+Nodes (1): 搜索关键词优化助手
 
 ### Community 174 - "Community 174"
 Cohesion: 1.0
-Nodes (1): Product Hunt
+Nodes (1): 亚里士多德
 
 ### Community 175 - "Community 175"
 Cohesion: 1.0
-Nodes (1): Rezi
+Nodes (1): Precarious Life (2004)
 
 ### Community 176 - "Community 176"
 Cohesion: 1.0
-Nodes (1): 搜索引擎优化领域
+Nodes (1): Product Hunt
 
 ### Community 177 - "Community 177"
 Cohesion: 1.0
-Nodes (1): 库和源码
+Nodes (1): Rezi
 
 ### Community 178 - "Community 178"
 Cohesion: 1.0
-Nodes (1): 引用网站
+Nodes (1): 搜索引擎优化领域
 
 ### Community 179 - "Community 179"
 Cohesion: 1.0
-Nodes (1): Github
+Nodes (1): 库和源码
 
 ### Community 180 - "Community 180"
 Cohesion: 1.0
-Nodes (1): 网站推荐
+Nodes (1): 引用网站
 
 ### Community 181 - "Community 181"
 Cohesion: 1.0
-Nodes (1): Baseline
+Nodes (1): Github
 
 ### Community 182 - "Community 182"
 Cohesion: 1.0
-Nodes (1): Broadcast Channel
+Nodes (1): 网站推荐
 
 ### Community 183 - "Community 183"
 Cohesion: 1.0
-Nodes (1): Bookmarklet
+Nodes (1): Baseline
 
 ### Community 184 - "Community 184"
 Cohesion: 1.0
-Nodes (1): Media Source Extensions (MSE) API
+Nodes (1): Broadcast Channel
 
 ### Community 185 - "Community 185"
 Cohesion: 1.0
-Nodes (1): Windows
+Nodes (1): Bookmarklet
 
 ### Community 186 - "Community 186"
 Cohesion: 1.0
-Nodes (1): 编译器
+Nodes (1): Media Source Extensions (MSE) API
 
 ### Community 187 - "Community 187"
 Cohesion: 1.0
-Nodes (1): Code Style
+Nodes (1): Windows
 
 ### Community 188 - "Community 188"
 Cohesion: 1.0
-Nodes (1): ESLint
+Nodes (1): 编译器
 
 ### Community 189 - "Community 189"
 Cohesion: 1.0
-Nodes (1): npmrc 优先级
+Nodes (1): Code Style
 
 ### Community 190 - "Community 190"
 Cohesion: 1.0
-Nodes (1): 工具收集
+Nodes (1): ESLint
 
 ### Community 191 - "Community 191"
 Cohesion: 1.0
-Nodes (1): 博客元信息
+Nodes (1): npmrc 优先级
 
 ### Community 192 - "Community 192"
 Cohesion: 1.0
-Nodes (1): Crapto
+Nodes (1): 工具收集
 
 ### Community 193 - "Community 193"
 Cohesion: 1.0
-Nodes (1): Coconut
+Nodes (1): 博客元信息
 
 ### Community 194 - "Community 194"
 Cohesion: 1.0
-Nodes (1): 网易云音乐歌单排序
+Nodes (1): Crapto
 
 ### Community 195 - "Community 195"
 Cohesion: 1.0
-Nodes (1): Git 工具与学习资源
+Nodes (1): Coconut
 
 ### Community 196 - "Community 196"
 Cohesion: 1.0
-Nodes (1): nuxt-ui v2
+Nodes (1): 网易云音乐歌单排序
 
 ### Community 197 - "Community 197"
 Cohesion: 1.0
-Nodes (1): 无题
+Nodes (1): Git 工具与学习资源
 
 ### Community 198 - "Community 198"
 Cohesion: 1.0
-Nodes (1): 无题
+Nodes (1): nuxt-ui v2
 
 ### Community 199 - "Community 199"
 Cohesion: 1.0
-Nodes (1): flex-in-flex
+Nodes (1): 无题
 
 ### Community 200 - "Community 200"
 Cohesion: 1.0
-Nodes (1): 注意力：专注的科学与训练
+Nodes (1): 无题
 
 ### Community 201 - "Community 201"
 Cohesion: 1.0
-Nodes (1): 区块链
+Nodes (1): flex-in-flex
 
 ### Community 202 - "Community 202"
 Cohesion: 1.0
-Nodes (1): 抗炎生活
+Nodes (1): 注意力：专注的科学与训练
 
 ### Community 203 - "Community 203"
 Cohesion: 1.0
-Nodes (1): 巴拉巴西网络科学
+Nodes (1): 区块链
 
 ### Community 204 - "Community 204"
 Cohesion: 1.0
-Nodes (1): 牛津通识读本：中国文学
+Nodes (1): 抗炎生活
 
 ### Community 205 - "Community 205"
+Cohesion: 1.0
+Nodes (1): 巴拉巴西网络科学
+
+### Community 206 - "Community 206"
+Cohesion: 1.0
+Nodes (1): 牛津通识读本：中国文学
+
+### Community 207 - "Community 207"
 Cohesion: 1.0
 Nodes (1): 图书分类参考
 
@@ -1147,215 +1157,217 @@ Nodes (1): 图书分类参考
 ## Knowledge Gaps
 - **726 isolated node(s):** `mock-bun-test plugin`, `UI primary=red neutral=slate config`, `SEO siteName config`, `getCollectionFromPath routing logic`, `~/utils/locale helpers` (+721 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 101`** (2 nodes): `i18n locale utilities`, `locale.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 102`** (2 nodes): `TextHighlightPlayground interactive component`, `Selection API and Range API usage`
+- **Thin community `Community 102`** (2 nodes): `i18n locale utilities`, `locale.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 103`** (2 nodes): `Commend component`, `UserPersona infographic component`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 104`** (2 nodes): `LLink component (external link with iframe preview)`, `FaaS getmeta endpoint for filesize`
+- **Thin community `Community 104`** (2 nodes): `TextHighlightPlayground interactive component`, `Selection API and Range API usage`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 105`** (2 nodes): `Home Page`, `index.vue`
+- **Thin community `Community 105`** (2 nodes): `LLink component (external link with iframe preview)`, `FaaS getmeta endpoint for filesize`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 106`** (2 nodes): `表达和孤独`, `我的腼腆`
+- **Thin community `Community 106`** (2 nodes): `Home Page`, `index.vue`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 107`** (2 nodes): `新工作，喝新饮料`, `云拿转正小节`
+- **Thin community `Community 107`** (2 nodes): `表达和孤独`, `我的腼腆`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 108`** (2 nodes): `Use Scrollbars`, `PopupManager / useZIndex`
+- **Thin community `Community 108`** (2 nodes): `新工作，喝新饮料`, `云拿转正小节`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 109`** (2 nodes): `AI Frameworks`, `SAIF`
+- **Thin community `Community 109`** (2 nodes): `Use Scrollbars`, `PopupManager / useZIndex`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 110`** (2 nodes): `技术架构`, `S3 五大核心设计原则`
+- **Thin community `Community 110`** (2 nodes): `AI Frameworks`, `SAIF`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 111`** (2 nodes): `注意力`, `横幅盲视`
+- **Thin community `Community 111`** (2 nodes): `技术架构`, `S3 五大核心设计原则`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 112`** (2 nodes): `Sass @forward 指令`, `Sass @use 指令`
+- **Thin community `Community 112`** (2 nodes): `注意力`, `横幅盲视`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 113`** (2 nodes): `面试问题汇总`, `面试记录（汤唯国等）`
+- **Thin community `Community 113`** (2 nodes): `Sass @forward 指令`, `Sass @use 指令`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 114`** (2 nodes): `反向面试`, `面试易错题`
+- **Thin community `Community 114`** (2 nodes): `面试问题汇总`, `面试记录（汤唯国等）`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 115`** (2 nodes): `Markdown Inline Style`, `Markdown`
+- **Thin community `Community 115`** (2 nodes): `反向面试`, `面试易错题`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 116`** (2 nodes): `黑洞概念首提 (Black Hole Concept)`, `John Michell`
+- **Thin community `Community 116`** (2 nodes): `Markdown Inline Style`, `Markdown`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 117`** (2 nodes): `GNU GPL`, `Richard Stallman`
+- **Thin community `Community 117`** (2 nodes): `Scour`, `Evan Schwartz`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 118`** (2 nodes): `地球周长测量`, `Eratosthenes`
+- **Thin community `Community 118`** (2 nodes): `GNU GPL`, `Richard Stallman`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 119`** (2 nodes): `Linux 版 Chrome`, `Evan Martin`
+- **Thin community `Community 119`** (2 nodes): `地球周长测量`, `Eratosthenes`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 120`** (2 nodes): `Scour`, `Evan Schwartz`
+- **Thin community `Community 120`** (2 nodes): `黑洞概念首提 (Black Hole Concept)`, `John Michell`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 121`** (2 nodes): `Evil.js 投毒防御`, `Evil.js`
+- **Thin community `Community 121`** (2 nodes): `Linux 版 Chrome`, `Evan Martin`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 122`** (2 nodes): `TypeScript 6.0 破坏性变更`, `TypeScript Changelog`
+- **Thin community `Community 122`** (2 nodes): `Evil.js 投毒防御`, `Evil.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 123`** (2 nodes): `工程化`, `前端工程化`
+- **Thin community `Community 123`** (2 nodes): `TypeScript 6.0 破坏性变更`, `TypeScript Changelog`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 124`** (2 nodes): `ESLint-only 格式化方案`, `为什么 antfu 不使用 Prettier`
+- **Thin community `Community 124`** (2 nodes): `工程化`, `前端工程化`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 125`** (2 nodes): `main 与 module 字段区别`, `package.json 常用字段`
+- **Thin community `Community 125`** (2 nodes): `ESLint-only 格式化方案`, `为什么 antfu 不使用 Prettier`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 126`** (2 nodes): `Array.prototype.slice 浅拷贝`, `Object.prototype.assign`
+- **Thin community `Community 126`** (2 nodes): `main 与 module 字段区别`, `package.json 常用字段`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 127`** (2 nodes): `jQuery`, `jQuery.noConflict`
+- **Thin community `Community 127`** (2 nodes): `Array.prototype.slice 浅拷贝`, `Object.prototype.assign`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 128`** (2 nodes): `Lodash.js`, `Lodash.template`
+- **Thin community `Community 128`** (2 nodes): `jQuery`, `jQuery.noConflict`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 129`** (2 nodes): `一封沉默`, `文字与情绪`
+- **Thin community `Community 129`** (2 nodes): `Lodash.js`, `Lodash.template`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 130`** (1 nodes): `Canvas Blocker`
+- **Thin community `Community 130`** (2 nodes): `一封沉默`, `文字与情绪`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 131`** (1 nodes): `app-config.d.ts`
+- **Thin community `Community 131`** (1 nodes): `Canvas Blocker`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 132`** (1 nodes): `PreviewTree component`
+- **Thin community `Community 132`** (1 nodes): `nuxt.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 133`** (1 nodes): `ReadBase64 drag-drop file reader`
+- **Thin community `Community 133`** (1 nodes): `app-config.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 134`** (1 nodes): `ArticleTimestamp component (Git-based)`
+- **Thin community `Community 134`** (1 nodes): `PreviewTree component`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 135`** (1 nodes): `OgImageDocs component`
+- **Thin community `Community 135`** (1 nodes): `ReadBase64 drag-drop file reader`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 136`** (1 nodes): `Gesture component`
+- **Thin community `Community 136`** (1 nodes): `ArticleTimestamp component (Git-based)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 137`** (1 nodes): `Compare component (drag comparison)`
+- **Thin community `Community 137`** (1 nodes): `OgImageDocs component`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 138`** (1 nodes): `docs.vue layout`
+- **Thin community `Community 138`** (1 nodes): `Gesture component`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 139`** (1 nodes): `[...slug].vue`
+- **Thin community `Community 139`** (1 nodes): `Compare component (drag comparison)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 140`** (1 nodes): `长夜梦`
+- **Thin community `Community 140`** (1 nodes): `docs.vue layout`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 141`** (1 nodes): `万物联结与幸福感`
+- **Thin community `Community 141`** (1 nodes): `[...slug].vue`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 142`** (1 nodes): `偷取时间`
+- **Thin community `Community 142`** (1 nodes): `长夜梦`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 143`** (1 nodes): `心流归档`
+- **Thin community `Community 143`** (1 nodes): `万物联结与幸福感`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 144`** (1 nodes): `友链`
+- **Thin community `Community 144`** (1 nodes): `偷取时间`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 145`** (1 nodes): `Qwen3-Embedding-8B-4bit-DWQ Benchmark`
+- **Thin community `Community 145`** (1 nodes): `心流归档`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 146`** (1 nodes): `Simple Benchmark`
+- **Thin community `Community 146`** (1 nodes): `友链`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 147`** (1 nodes): `Data Quality Tiering`
+- **Thin community `Community 147`** (1 nodes): `Qwen3-Embedding-8B-4bit-DWQ Benchmark`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 148`** (1 nodes): `Prompt Paradigm`
+- **Thin community `Community 148`** (1 nodes): `Simple Benchmark`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 149`** (1 nodes): `衰老`
+- **Thin community `Community 149`** (1 nodes): `Data Quality Tiering`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 150`** (1 nodes): `睡觉`
+- **Thin community `Community 150`** (1 nodes): `Prompt Paradigm`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 151`** (1 nodes): `第一篇博客`
+- **Thin community `Community 151`** (1 nodes): `衰老`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 152`** (1 nodes): `博客平滑滚动问题`
+- **Thin community `Community 152`** (1 nodes): `睡觉`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 153`** (1 nodes): `SYN Flood Attack`
+- **Thin community `Community 153`** (1 nodes): `第一篇博客`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 154`** (1 nodes): `Vue Composition API`
+- **Thin community `Community 154`** (1 nodes): `博客平滑滚动问题`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 155`** (1 nodes): `IfEquals`
+- **Thin community `Community 155`** (1 nodes): `SYN Flood Attack`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 156`** (1 nodes): `Primitive / isPrimitive`
+- **Thin community `Community 156`** (1 nodes): `Vue Composition API`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 157`** (1 nodes): `Set Operations on Types`
+- **Thin community `Community 157`** (1 nodes): `IfEquals`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 158`** (1 nodes): `FunctionKeys / RequiredKeys / ReadonlyKeys`
+- **Thin community `Community 158`** (1 nodes): `Primitive / isPrimitive`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 159`** (1 nodes): `CSS Snapshot 2024`
+- **Thin community `Community 159`** (1 nodes): `Set Operations on Types`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 160`** (1 nodes): `中国游戏版号简史`
+- **Thin community `Community 160`** (1 nodes): `FunctionKeys / RequiredKeys / ReadonlyKeys`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 161`** (1 nodes): `逃离塔科夫`
+- **Thin community `Community 161`** (1 nodes): `CSS Snapshot 2024`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 162`** (1 nodes): `Go 语言`
+- **Thin community `Community 162`** (1 nodes): `中国游戏版号简史`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 163`** (1 nodes): `VNAND`
+- **Thin community `Community 163`** (1 nodes): `逃离塔科夫`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 164`** (1 nodes): `RTX IO`
+- **Thin community `Community 164`** (1 nodes): `Go 语言`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 165`** (1 nodes): `前端实习问题`
+- **Thin community `Community 165`** (1 nodes): `VNAND`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 166`** (1 nodes): `Amp Deep Mode`
+- **Thin community `Community 166`** (1 nodes): `RTX IO`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 167`** (1 nodes): `VSCode 大纲视图默认折叠`
+- **Thin community `Community 167`** (1 nodes): `前端实习问题`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 168`** (1 nodes): `VSCode 文件树聚焦问题`
+- **Thin community `Community 168`** (1 nodes): `Amp Deep Mode`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 169`** (1 nodes): `战略屋`
+- **Thin community `Community 169`** (1 nodes): `VSCode 大纲视图默认折叠`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 170`** (1 nodes): `口腔健康——水平颤动拂刷法`
+- **Thin community `Community 170`** (1 nodes): `VSCode 文件树聚焦问题`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 171`** (1 nodes): `搜索关键词优化助手`
+- **Thin community `Community 171`** (1 nodes): `战略屋`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 172`** (1 nodes): `亚里士多德`
+- **Thin community `Community 172`** (1 nodes): `口腔健康——水平颤动拂刷法`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 173`** (1 nodes): `Precarious Life (2004)`
+- **Thin community `Community 173`** (1 nodes): `搜索关键词优化助手`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 174`** (1 nodes): `Product Hunt`
+- **Thin community `Community 174`** (1 nodes): `亚里士多德`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 175`** (1 nodes): `Rezi`
+- **Thin community `Community 175`** (1 nodes): `Precarious Life (2004)`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 176`** (1 nodes): `搜索引擎优化领域`
+- **Thin community `Community 176`** (1 nodes): `Product Hunt`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 177`** (1 nodes): `库和源码`
+- **Thin community `Community 177`** (1 nodes): `Rezi`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 178`** (1 nodes): `引用网站`
+- **Thin community `Community 178`** (1 nodes): `搜索引擎优化领域`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 179`** (1 nodes): `Github`
+- **Thin community `Community 179`** (1 nodes): `库和源码`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 180`** (1 nodes): `网站推荐`
+- **Thin community `Community 180`** (1 nodes): `引用网站`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 181`** (1 nodes): `Baseline`
+- **Thin community `Community 181`** (1 nodes): `Github`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 182`** (1 nodes): `Broadcast Channel`
+- **Thin community `Community 182`** (1 nodes): `网站推荐`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 183`** (1 nodes): `Bookmarklet`
+- **Thin community `Community 183`** (1 nodes): `Baseline`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 184`** (1 nodes): `Media Source Extensions (MSE) API`
+- **Thin community `Community 184`** (1 nodes): `Broadcast Channel`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 185`** (1 nodes): `Windows`
+- **Thin community `Community 185`** (1 nodes): `Bookmarklet`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 186`** (1 nodes): `编译器`
+- **Thin community `Community 186`** (1 nodes): `Media Source Extensions (MSE) API`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 187`** (1 nodes): `Code Style`
+- **Thin community `Community 187`** (1 nodes): `Windows`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 188`** (1 nodes): `ESLint`
+- **Thin community `Community 188`** (1 nodes): `编译器`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 189`** (1 nodes): `npmrc 优先级`
+- **Thin community `Community 189`** (1 nodes): `Code Style`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 190`** (1 nodes): `工具收集`
+- **Thin community `Community 190`** (1 nodes): `ESLint`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 191`** (1 nodes): `博客元信息`
+- **Thin community `Community 191`** (1 nodes): `npmrc 优先级`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 192`** (1 nodes): `Crapto`
+- **Thin community `Community 192`** (1 nodes): `工具收集`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 193`** (1 nodes): `Coconut`
+- **Thin community `Community 193`** (1 nodes): `博客元信息`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 194`** (1 nodes): `网易云音乐歌单排序`
+- **Thin community `Community 194`** (1 nodes): `Crapto`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 195`** (1 nodes): `Git 工具与学习资源`
+- **Thin community `Community 195`** (1 nodes): `Coconut`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 196`** (1 nodes): `nuxt-ui v2`
+- **Thin community `Community 196`** (1 nodes): `网易云音乐歌单排序`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 197`** (1 nodes): `无题`
+- **Thin community `Community 197`** (1 nodes): `Git 工具与学习资源`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 198`** (1 nodes): `无题`
+- **Thin community `Community 198`** (1 nodes): `nuxt-ui v2`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 199`** (1 nodes): `flex-in-flex`
+- **Thin community `Community 199`** (1 nodes): `无题`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 200`** (1 nodes): `注意力：专注的科学与训练`
+- **Thin community `Community 200`** (1 nodes): `无题`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 201`** (1 nodes): `区块链`
+- **Thin community `Community 201`** (1 nodes): `flex-in-flex`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 202`** (1 nodes): `抗炎生活`
+- **Thin community `Community 202`** (1 nodes): `注意力：专注的科学与训练`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 203`** (1 nodes): `巴拉巴西网络科学`
+- **Thin community `Community 203`** (1 nodes): `区块链`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 204`** (1 nodes): `牛津通识读本：中国文学`
+- **Thin community `Community 204`** (1 nodes): `抗炎生活`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 205`** (1 nodes): `图书分类参考`
+- **Thin community `Community 205`** (1 nodes): `巴拉巴西网络科学`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 206`** (1 nodes): `牛津通识读本：中国文学`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 207`** (1 nodes): `图书分类参考`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
@@ -1365,7 +1377,7 @@ _Questions this graph is uniquely positioned to answer:_
   _Edge tagged AMBIGUOUS (relation: AMBIGUOUS) - confidence is low._
 - **What is the exact relationship between `html5shiv` and `Node.js`?**
   _Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low._
-- **Why does `前端框架` connect `Community 3` to `Community 9`, `Community 21`, `Community 15`?**
+- **Why does `前端框架` connect `Community 3` to `Community 9`, `Community 20`, `Community 14`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `UI 框架` connect `Community 9` to `Community 3`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._

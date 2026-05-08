@@ -22,10 +22,13 @@ Machine learning, large language models, AI agents, and AI engineering practices
 - [Prompt](prompt/prompt.md) — Prompt engineering and design patterns
 - [Coding Agent Shell Bias](agents/coding-agent-shell-bias.md) — PowerShell vs Bash performance disparity
 
+### Governance & Safety
+- [Governance](governance/governance.md) — AI governance, policy, and compliance
+- [Safety](safety/safety.md) — AI safety and alignment
+
 ### Specialized Topics
 - [RAG](rag/rag.md) — Retrieval-augmented generation
 - [MCP](mcp/mcp.md) — Model Context Protocol
-- [Safety](safety/safety.md) — AI safety and alignment
 - [Skills](skills/skills.md) — AI skill development
 
 ### Applications & Tools
