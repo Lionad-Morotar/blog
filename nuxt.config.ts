@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   experimental: {
-    payloadExtraction: true
+    payloadExtraction: true,
   },
 
   vue: {

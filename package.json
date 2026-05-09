@@ -75,7 +75,10 @@
       "sharp",
       "unrs-resolver",
       "vue-demi"
-    ]
+    ],
+    "patchedDependencies": {
+      "@nuxt/vite-builder@4.4.4": "patches/@nuxt__vite-builder@4.4.4.patch"
+    }
   },
   "overrides": {
     "nuxt": {

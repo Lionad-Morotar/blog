@@ -7,6 +7,11 @@ settings:
 overrides:
   chokidar: ^3.6.0
 
+patchedDependencies:
+  '@nuxt/vite-builder@4.4.4':
+    hash: 005ea03f17517a8abe31a5b6cbc869f0b2650f100a1fbeb247dacf043bd2fc12
+    path: patches/@nuxt__vite-builder@4.4.4.patch
+
 importers:
 
   .:
@@ -10473,7 +10478,7 @@ snapshots:
       - vue
       - yjs
 
-  '@nuxt/vite-builder@4.4.4(1fcacf18cb6527281fa0c7430e37252a)':
+  '@nuxt/vite-builder@4.4.4(patch_hash=005ea03f17517a8abe31a5b6cbc869f0b2650f100a1fbeb247dacf043bd2fc12)(1fcacf18cb6527281fa0c7430e37252a)':
     dependencies:
       '@nuxt/kit': 4.4.4(magicast@0.5.2)
       '@rollup/plugin-replace': 6.0.3(rollup@4.60.2)
@@ -16336,7 +16341,7 @@ snapshots:
       '@nuxt/nitro-server': 4.4.4(@babel/core@7.29.0)(@babel/plugin-proposal-decorators@7.29.0(@babel/core@7.29.0))(better-sqlite3@12.6.2)(db0@0.3.4(better-sqlite3@12.6.2))(ioredis@5.10.1)(magicast@0.5.2)(nuxt@4.4.4(@babel/core@7.29.0)(@babel/plugin-proposal-decorators@7.29.0(@babel/core@7.29.0))(@babel/plugin-syntax-jsx@7.28.6(@babel/core@7.29.0))(@parcel/watcher@2.5.6)(@types/node@25.3.3)(@vue/compiler-sfc@3.5.33)(better-sqlite3@12.6.2)(cac@6.7.14)(commander@13.1.0)(db0@0.3.4(better-sqlite3@12.6.2))(eslint@9.39.3(jiti@2.6.1))(ioredis@5.10.1)(lightningcss@1.31.1)(magicast@0.5.2)(optionator@0.9.4)(rollup-plugin-visualizer@7.0.1(rollup@4.60.2))(rollup@4.60.2)(sass@1.97.3)(srvx@0.11.15)(stylus@0.64.0)(terser@5.46.2)(typescript@5.9.3)(vite@7.3.2(@types/node@25.3.3)(jiti@2.6.1)(lightningcss@1.31.1)(sass@1.97.3)(stylus@0.64.0)(terser@5.46.2)(yaml@2.8.4))(vue-tsc@2.2.12(typescript@5.9.3))(yaml@2.8.4))(oxc-parser@0.128.0)(srvx@0.11.15)(typescript@5.9.3)
       '@nuxt/schema': 4.4.4
       '@nuxt/telemetry': 2.8.0(@nuxt/kit@4.4.4(magicast@0.5.2))
-      '@nuxt/vite-builder': 4.4.4(1fcacf18cb6527281fa0c7430e37252a)
+      '@nuxt/vite-builder': 4.4.4(patch_hash=005ea03f17517a8abe31a5b6cbc869f0b2650f100a1fbeb247dacf043bd2fc12)(1fcacf18cb6527281fa0c7430e37252a)
       '@unhead/vue': 2.1.13(vue@3.5.33(typescript@5.9.3))
       '@vue/shared': 3.5.33
       chokidar: 3.6.0

@@ -1,0 +1,30 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 0e583f9358bdda73ea140c21d429292227274bf9..c9026e5a870e1490f3148d77ba2ef6f062862719 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -124,6 +124,11 @@ function resolveServerEntry(config) {
+ 	if (input) {
+ 		if (typeof input === "string") return input;
+ 		if (!Array.isArray(input) && input.server) return input.server;
++		// Fallback for client-only configs (ssr: false) — return first input value
++		if (!Array.isArray(input)) {
++			const firstValue = Object.values(input)[0];
++			if (typeof firstValue === "string") return firstValue;
++		}
+ 	}
+ 	throw new Error("No entry found in rollupOptions.input");
+ }
+@@ -300,7 +305,12 @@ function ViteNodePlugin(nuxt) {
+ 				socketServer = createViteNodeSocketServer(nuxt, ssrServer, clientServer, invalidates, viteNodeServerOptions);
+ 			}
+ 			if (nuxt.options.experimental.viteEnvironmentApi) resolveServer(clientServer);
+-			else nuxt.hook("vite:serverCreated", (ssrServer, ctx) => ctx.isServer ? resolveServer(ssrServer) : void 0);
++			else nuxt.hook("vite:serverCreated", (ssrServer, ctx) => {
++				if (ctx.isServer) return resolveServer(ssrServer);
++				// When SSR is disabled, only client server is created.
++				// We still need to set up the vite-node socket for manifest fetching.
++				if (!nuxt.options.ssr) return resolveServer(clientServer);
++			});
+ 			nuxt.hook("close", cleanupSocket);
+ 			const client = nuxt.options.experimental.viteEnvironmentApi ? clientServer.environments.client : clientServer;
+ 			nuxt.hook("app:templatesGenerated", (_app, changedTemplates) => {
