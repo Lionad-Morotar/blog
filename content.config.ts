@@ -51,6 +51,13 @@ const commonExcludes = [
   '**/.obsidian/**',
   '**/.!(navigation.yml)',
   '**/*.excalidraw',
+  '**/*.png',
+  '**/*.jpg',
+  '**/*.jpeg',
+  '**/*.gif',
+  '**/*.webp',
+  '**/*.bmp',
+  '**/*.ico',
 ]
 
 // 排除 _ 开头文件夹的规则（用于需要排除的集合）
