@@ -3,6 +3,18 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-05-20
+
+是我理解的那个“Codex”吗？
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260520112101155.png)
+
+#### 2026-05-19
+
+VSCode 近半年界面经常崩溃，也不是直接出错挂掉，而是渲染了一些稀奇古怪的字符。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260519111458216.png)
+
 #### 2026-05-13
 
 这特喵什么东西呀...
