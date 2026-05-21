@@ -3,6 +3,13 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-05-21
+
+edge 一个渲染 bug， 打开 devtool 后某些场景的 mix-blend-mode 会失效（前），关 devtool 就好了（后）
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260521114455495.png)
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260521114545821.png)
+
 #### 2026-05-20
 
 是我理解的那个“Codex”吗？
