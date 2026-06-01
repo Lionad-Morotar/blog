@@ -3,7 +3,9 @@
     "allow": [
       "Bash(mkdir -p ~/.claude/research_output/)",
       "Bash(cp /Users/lionad/Documents/Claude_Code_Neurosymbolic_Research_20260413/research_report_20260413_claude_code_neurosymbolic.md ~/.claude/research_output/)",
-      "Bash(cp /Users/lionad/Documents/Claude_Code_Neurosymbolic_Research_20260413/research_report_20260413_claude_code_neurosymbolic.html ~/.claude/research_output/)"
+      "Bash(cp /Users/lionad/Documents/Claude_Code_Neurosymbolic_Research_20260413/research_report_20260413_claude_code_neurosymbolic.html ~/.claude/research_output/)",
+      "Bash(mkdir -p ~/Documents/Prompt_Engineering_Structured_Research_20260421)",
+      "Bash(mkdir -p ~/.claude/research_output)"
     ]
   }
 }

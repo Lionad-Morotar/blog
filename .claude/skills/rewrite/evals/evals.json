@@ -1,0 +1,23 @@
+{
+  "skill_name": "rewrite",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "仿照 Daily Dose of DS 风格重写以下文档：/Users/lionad/Github/Lionad-Morotar/blog/.claude/skills/rewrite/evals/test-inputs/project-river.md，将输出保存到 /tmp/rewrite-eval/iteration-1/eval-1/with_skill/outputs/rewritten.md",
+      "expected_output": "一篇以反直觉钩子开头、数据冲击、单句成段、零过渡语、原因反转、对比验证的 Avi Chawla 风格中文技术文章",
+      "files": ["/Users/lionad/Github/Lionad-Morotar/blog/.claude/skills/rewrite/evals/test-inputs/project-river.md"]
+    },
+    {
+      "id": 2,
+      "prompt": "Rewrite the following English tech doc in Avi Chawla (Daily Dose of DS) style. Read /Users/lionad/Github/Lionad-Morotar/blog/.claude/skills/rewrite/evals/test-inputs/api-design.md and save the output to /tmp/rewrite-eval/iteration-1/eval-2/with_skill/outputs/rewritten.md",
+      "expected_output": "An Avi Chawla style English tech article with counterintuitive hook, data shock, single-sentence paragraphs, zero transition words, cause inversion, and contrast validation",
+      "files": ["/Users/lionad/Github/Lionad-Morotar/blog/.claude/skills/rewrite/evals/test-inputs/api-design.md"]
+    },
+    {
+      "id": 3,
+      "prompt": "用 hooks + 数据冲击的风格重写 /Users/lionad/Github/Lionad-Morotar/blog/.claude/skills/rewrite/evals/test-inputs/cursor-review.md，保存到 /tmp/rewrite-eval/iteration-1/eval-3/with_skill/outputs/rewritten.md",
+      "expected_output": "一篇节奏紧凑、钩子驱动、有数据支撑的中文产品体验文章",
+      "files": ["/Users/lionad/Github/Lionad-Morotar/blog/.claude/skills/rewrite/evals/test-inputs/cursor-review.md"]
+    }
+  ]
+}
