@@ -76,4 +76,9 @@ Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 p
 
 见：Denis Stetskov, "The Snake That Ate Itself"（2026-04-01）
 
+#### 子代理也能自动调用
+
+这次对话中，我没有显示指定使用子智能体，但 CC 自动调用了 `ce-web-researcher`。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260428101330624.png)
 
