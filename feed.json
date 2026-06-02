@@ -136,10 +136,18 @@
             "date_published": "2019-06-04T00:00:00.000Z"
         },
         {
+            "id": "https://lionad.art/articles/gen-ui-flows",
+            "content_html": "当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？",
+            "url": "https://lionad.art/articles/gen-ui-flows",
+            "title": "🎼 从文本到交互界面——GenUI 的中庸之道",
+            "date_modified": "2026-06-02T00:00:00.000Z",
+            "date_published": "2026-06-02T00:00:00.000Z"
+        },
+        {
             "id": "https://lionad.art/articles/project-river",
-            "content_html": "",
+            "content_html": "从代码流动的节奏中，读懂一个项目的生命力",
             "url": "https://lionad.art/articles/project-river",
-            "title": "把 Git 提交历史变成一条河，看懂开源项目的「人事变迁」",
+            "title": "🌊 Project River：把 Git 提交历史变成一条河",
             "date_modified": "2026-04-23T00:00:00.000Z",
             "date_published": "2026-04-23T00:00:00.000Z"
         },

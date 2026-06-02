@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-04-23T03:47:11.734Z</updated>
+    <updated>2026-06-02T05:50:39.323Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -140,10 +140,19 @@
         <published>2019-06-04T00:00:00.000Z</published>
     </entry>
     <entry>
-        <title type="html"><![CDATA[把 Git 提交历史变成一条河，看懂开源项目的「人事变迁」]]></title>
+        <title type="html"><![CDATA[🎼 从文本到交互界面——GenUI 的中庸之道]]></title>
+        <id>https://lionad.art/articles/gen-ui-flows</id>
+        <link href="https://lionad.art/articles/gen-ui-flows"/>
+        <updated>2026-06-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？]]></summary>
+        <published>2026-06-02T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[🌊 Project River：把 Git 提交历史变成一条河]]></title>
         <id>https://lionad.art/articles/project-river</id>
         <link href="https://lionad.art/articles/project-river"/>
         <updated>2026-04-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[从代码流动的节奏中，读懂一个项目的生命力]]></summary>
         <published>2026-04-23T00:00:00.000Z</published>
     </entry>
     <entry>

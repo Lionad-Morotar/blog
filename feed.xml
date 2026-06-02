@@ -4,7 +4,7 @@
         <title>仿生狮子</title>
         <link>https://lionad.art</link>
         <description>Lionad 的博客，关于前端、科学、Flow 与笔记</description>
-        <lastBuildDate>Thu, 23 Apr 2026 03:47:11 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 Jun 2026 05:50:39 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>CC BY-NC-SA 4.0</copyright>
@@ -121,10 +121,18 @@
             <description><![CDATA[笔记、博客以及碎碎念，我的思考和再创造。]]></description>
         </item>
         <item>
-            <title><![CDATA[把 Git 提交历史变成一条河，看懂开源项目的「人事变迁」]]></title>
+            <title><![CDATA[🎼 从文本到交互界面——GenUI 的中庸之道]]></title>
+            <link>https://lionad.art/articles/gen-ui-flows</link>
+            <guid isPermaLink="false">https://lionad.art/articles/gen-ui-flows</guid>
+            <pubDate>Tue, 02 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？]]></description>
+        </item>
+        <item>
+            <title><![CDATA[🌊 Project River：把 Git 提交历史变成一条河]]></title>
             <link>https://lionad.art/articles/project-river</link>
             <guid isPermaLink="false">https://lionad.art/articles/project-river</guid>
             <pubDate>Thu, 23 Apr 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[从代码流动的节奏中，读懂一个项目的生命力]]></description>
         </item>
         <item>
             <title><![CDATA[🪦 生命周期只有26小时的项目]]></title>
