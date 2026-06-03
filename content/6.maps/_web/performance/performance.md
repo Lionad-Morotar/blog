@@ -27,7 +27,7 @@ original_path: content/6.maps/_web/performance.md
 
 #### Web Vitals 有哪些指标？
 
-Web Vitals 关注 <abbr title="Largest Contentful Paint">LCP</abbr>、<abbr title="First Input Delay">FID</abbr>、<abbr title="Cumulative Layout Shift">CLS</abbr> 的测量，分别描述最大内容渲染时间评分、页面可交互时间评分和布局偏移评分。
+Core Web Vitals 包含 <abbr title="Largest Contentful Paint">LCP</abbr>、<abbr title="Interaction to Next Paint">INP</abbr>、<abbr title="Cumulative Layout Shift">CLS</abbr>，分别衡量加载性能、交互响应和视觉稳定性。LCP 需在 2.5 秒内完成，INP 需在 200 毫秒内响应，CLS 需保持在 0.1 以下。LCP、INP、CLS 均处于「稳定」生命周期阶段，定义和阈值每年最多更新一次。
 
 <div style="display:flex; justify-content:space-evenly;">
   <img src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/lcp_ux.svg" width="33%" alt="Largest Contentful Paint threshold recommendations">
@@ -37,6 +37,18 @@ Web Vitals 关注 <abbr title="Largest Contentful Paint">LCP</abbr>、<abbr titl
 
 见：[Web Vitals](https://github.com/GoogleChrome/web-vitals)
 
+#### Core Web Vitals 的三阶段生命周期
+
+Google 将 Core Web Vitals 指标按「实验性 → 待处理 → 稳定」三阶段推进。实验性阶段允许根据社区反馈进行重大修改；待处理阶段至少保持六个月，给生态预留适应窗口；稳定阶段每年最多更新一次，当前 LCP、CLS、INP 均处于稳定阶段。INP 即从实验性指标逐步替换 FID 的典型演进。
+
+#### 第 75 百分位评估标准
+
+Google 建议以 P75（第 75 百分位）作为 Core Web Vitals 的合规阈值，并按移动端与桌面端分别统计。若网页在 LCP、INP、CLS 三项指标的 P75 均达到推荐值，则视为通过评估。这一标准平衡了大多数用户的体验质量与尾部异常值的干扰。
+
+#### 实验室监控与真实用户监控的互补角色
+
+Core Web Vitals 首先是真实用户指标（RUM），反映设备能力、网络状况和交互方式的实际差异。实验室测量（Lighthouse 等工具）适合开发阶段预防回归。两者互补，不可互相替代。辅助指标 TTFB、FCP 用于诊断 LCP 问题来源（服务器响应或渲染阻塞），TBT 用于诊断 INP 的潜在交互延迟。
+
 #### 有哪些开发工具？
 
 * [Web Vitals](https://github.com/GoogleChrome/web-vitals)，获取 Web Vitals 评分。
@@ -45,6 +57,26 @@ Web Vitals 关注 <abbr title="Largest Contentful Paint">LCP</abbr>、<abbr titl
 * [lighthouse-parade](https://github.com/cloudfour/lighthouse-parade)，递归抓取页面并评分，输出关于网站的完整报告。
 
 ![webpack-lighthouse-plugin](https://github.com/Lionad-Morotar/webpack-lighthouse-plugin/blob/main/assets/example.gif?raw=true)
+
+#### 使用 web-vitals JS 库采集指标
+
+web-vitals 库提供了 `onCLS`、`onINP`、`onLCP` 等 API，以与 Google 工具一致的计算方式测量指标。接入后通过 `navigator.sendBeacon` 或 `fetch` 将数据上报到分析端点，再按 P75 汇总即可判断页面是否达标。
+
+```js
+import {onCLS, onINP, onLCP} from 'web-vitals';
+
+function sendToAnalytics(metric) {
+  const body = JSON.stringify(metric);
+  (navigator.sendBeacon && navigator.sendBeacon('/analytics', body)) ||
+    fetch('/analytics', {body, method: 'POST', keepalive: true});
+}
+
+onCLS(sendToAnalytics);
+onINP(sendToAnalytics);
+onLCP(sendToAnalytics);
+```
+
+见：[web-vitals](https://github.com/GoogleChrome/web-vitals)
 
 ---
 
