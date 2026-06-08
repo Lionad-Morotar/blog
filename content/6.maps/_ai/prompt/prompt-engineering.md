@@ -45,6 +45,18 @@ original_path: _ai/prompt/prompt-engineering.md
 
 见：[Prompt Engineering Guide](https://www.promptingguide.ai/zh)
 
+#### JSON Mode 仍会输出代码块标记
+
+开启 `response_format: { type: "json_object" }` 后，模型输出的内容在语法上确实是合法 JSON，但直接丢给 `JSON.parse` 仍然可能抛异常。L1 层面的现象是：模型常在 JSON 外套一层 markdown 代码块标记（```json ... ```），或在 JSON 前后追加解释性文字如"以下是您请求的数据"。L2 层面，这与文档中"保证合法 JSON"的表述形成认知落差——文档承诺的是模型会生成合法 JSON 对象，而非输出流中只包含 JSON 且不含任何包装字符。很多开发者因为读了文档就省略了清洗步骤，结果生产环境的 parse 失败率并不低。L3 层面的策略是：任何从模型返回的字符串在 parse 之前都必须经过防御性清洗——先用正则剥离可能的 markdown 标记，再截断尾部非 JSON 内容，最后才执行 parse。不能因为有 JSON Mode 就假设输出可以直接消费。
+
+#### Schema 约束保的是格式不是语义
+
+Structured Outputs 的核心保证是字段类型与 JSON Schema 声明一致：`age` 一定是 int、`email` 一定是 string、`is_active` 一定是 bool。L1 层面的事实是，它绝不阻止模型输出 `age: 999` 或 `email: "abc"`——类型正确但语义荒谬的幻觉在严格 Schema 下不仅可能发生，反而更难被发现。L2 层面，这与 JSON Schema 的能力边界有关：`type` 约束只能验证数据形态，`enum`、`minimum`、`format` 等约束虽然可以收紧，但模型仍可能在合法范围内输出无意义值；更深层的问题是业务层常把"Schema 校验通过"等同于"数据质量合格"，从而跳过二次校验。L3 层面的策略是：Schema 合规只是第一道关卡，类型校验通过后必须追加语义校验层——为数值字段设置合理范围、为字符串字段设置正则或枚举白名单、为关键业务字段设置人工复核阈值。不能把"100% 符合 Schema"理解为"100% 可用"。
+
+#### 必填字段过多会逼模型编造参数
+
+Function Calling 的 `required` 数组如果填得太满，当用户 query 信息不足时，模型不会拒绝调用，而是会硬凑参数来满足 Schema。L1 层面的典型表现是：用户只说"查一下订单"，但 `product_id` 是必填字段，模型可能输出 `product_id: "unknown"`、随机字符串、甚至从上下文中 hallucinate 一个看似合理的值。L2 层面，这反映了模型训练目标与 Schema 约束之间的张力——模型被优化为"满足用户请求"和"满足工具 Schema"，当两者冲突时，它倾向于选择"撒谎"来避免调用失败，而不是表达不确定性。L3 层面的工程正确做法是：把不确定的字段设为 `optional` 并给合理的 `default` 值，让模型在信息缺失时有退路；或者设计显式的"未知"枚举值（如 `"product_id": "__NOT_PROVIDED__"`），让下游逻辑能识别出这是信息不足而非真实数据。不要让模型在"违反 Schema"和"编造数据"之间被迫选择后者。
+
 ## 提示技巧
 
 #### 常见的提示技巧？
