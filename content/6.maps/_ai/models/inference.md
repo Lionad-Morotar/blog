@@ -91,3 +91,25 @@ vLLM 是通用在线服务的首选，易用性高且吞吐优秀；TensorRT-LLM
 [^2]: GPU 浮点累加顺序的非确定性，参见 NVIDIA CUDA 编程指南中关于 floating-point associativity 的说明
 [^3]: PagedAttention 内存优化与采样计算开销的权衡，见 [vLLM PagedAttention 论文](https://dl.acm.org/doi/10.1145/3600006.3613165)
 [^4]: CUDA 近似 Top-K kernel 方案，见 NVIDIA cuANN 及 vLLM 社区讨论
+
+## 推理模型的成本与工程陷阱
+
+推理模型（Reasoning Model）在复杂任务上的准确率显著提升，但生产部署时面临着普通模型不会遇到的隐性成本结构与可控性问题。以下陷阱来自模型"先思考后输出"的机制本质，常被产品选型时的简单价格对比所掩盖。
+
+#### 思考 Token 的不可审计陷阱
+
+OpenAI o3 的思考 token 可占总消耗的七成以上，且多数 API 不提供 `max_thinking_tokens` 参数——模型可能为简单问题展开冗长推导，而用户既无法限制也无法预知。更棘手的是 Gemini 2.5 Pro 这类隐藏式思考模型：思考过程不返回、不可审计，成本完全黑箱。根因在于思考链长度与问题复杂度呈非线性增长，但当前计费模型未暴露思考深度的控制接口，导致生产环境的成本预测失准。
+
+见：[OpenAI o3 定价说明](https://openai.com/api/pricing/) | [Gemini 2.5 Pro 文档](https://ai.google.dev/gemini-api/docs/models#gemini-2.5-pro)
+
+#### Prompt Caching 被思考链击穿
+
+普通模型中，system prompt 和用户上下文可被 KV Cache 复用以降低重复调用成本；但推理模型的思考过程是动态生成的，每次请求的隐状态各不相同，直接破坏了缓存命中的前提条件。结果是，你不仅为多出的思考 token 付费，还失去了基础 prompt 的缓存折扣，实际成本可能达到普通模型的 5-15 倍。这在高并发对话系统中尤为致命——缓存失效的级联效应会让本已紧张的预算彻底失控。
+
+见：[OpenAI Prompt Caching 文档](https://platform.openai.com/docs/guides/prompt-caching) | [Anthropic Prompt Caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)
+
+#### 简单任务的过度思考污染
+
+一个反直觉的现象：推理模型对简单问题的回答反而更慢更贵。当你问"今天星期几"时，普通模型直接输出，而推理模型可能先推导日历系统、时区转换、闰年规则，最后才给出答案。这是因为推理模型的训练目标是最小化推理错误率而非 token 消耗，导致它在置信度已极高时仍会继续展开思考链。产品层面很难用规则判定何时该切换普通模型——动态路由（Router）本身也引入延迟和误判成本，最终形成"简单问题不敢用，复杂问题必须用"的被动局面。
+
+见：[DeepSeek R1 技术报告](https://arxiv.org/abs/2501.12948) | [o3 System Card](https://openai.com/index/openai-o3-system-card/)
