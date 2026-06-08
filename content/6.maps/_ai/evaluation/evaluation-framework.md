@@ -72,3 +72,35 @@ MicroVQA原始准确率61-69% → B-Clean后降至15-23%，揭示了大量问题
 
 见：[MIRAGE: The Illusion of Visual Understanding](https://arxiv.org/abs/2603.21687)：
 Stanford HAI 论文，2026年3月
+
+## 经典指标的结构性失效
+
+#### BLEU/ROUGE 在 LLM 评估中的结构性失效
+
+[L1] 传统 n-gram 重叠指标（BLEU、ROUGE）在绝大多数 LLM 生产评估中已被完全弃用，当前主流转向 BERTScore 或 LLM-as-a-Judge。
+
+[L2] 根本矛盾在于：BLEU/ROUGE 惩罚同义替换和语序重组，而 LLM 的核心价值恰恰在于生成语义等价但表述多样的文本。这些指标对短文本尤其敏感，而现代 LLM 输出以对话和推理为主，n-gram 匹配率与真实质量几乎脱钩。
+
+[L3] 面试者仍在机械背诵 BLEU/ROUGE 作为"经典指标"，这反映的是评估认知的滞后。理解指标背后的假设边界，比记住指标公式更有价值。
+
+见：[BLEU: a Method for Automatic Evaluation of Machine Translation](https://aclanthology.org/P02-1040/)
+
+#### RAGAS 的 faithfulness 无法捕获"伪忠实"幻觉
+
+[L1] RAGAS 将 faithfulness 定义为"回答是否基于检索内容"，其自动检测基于 entailment 模型判断断言与检索片段的蕴含关系。
+
+[L2] 最致命的幻觉类型是 grounded hallucination：模型正确引用了检索片段，却通过错误逻辑组合推导出虚假结论。例如检索到"张三在 A 公司任职"和"李四在 B 公司任职"，模型输出"张三和李四是同事"——每个断言都有据可查，但组合关系完全错误。RAGAS 的 entailment 检测对这种跨片段的逻辑、时序、因果错误几乎无能为力。
+
+[L3] 当前 RAG 评估框架在"伪忠实"面前存在系统性盲区，生产环境中不能仅凭 RAGAS 分数判定幻觉风险，必须叠加人工审核或更细粒度的关系验证。
+
+见：[RAGAS Documentation](https://docs.ragas.io/)
+
+#### Perplexity 与输出质量存在任务依赖性的负相关
+
+[L1] 低困惑度在预训练阶段代表更好的概率建模能力，但在对话和指令遵循任务中，perplexity 往往与用户满意度呈负相关。经过 RLHF 对齐的模型相比基础模型，输出 perplexity 通常更高，但人类偏好得分更好。
+
+[L2] 低 perplexity 意味着模型选择概率最高的"安全"词汇，导致回答过于保守、缺乏信息增量。perplexity 的解读必须绑定任务类型：在预训练阶段它是能力指标，在生成阶段它可能反映的是"冒险意愿"而非"质量"。
+
+[L3] 若将 perplexity 作为生产监控指标，可能系统性地误判对齐后的优质输出为"质量退化"。监控体系需要按任务阶段和模型类型分别设定基线，而非使用统一阈值。
+
+见：[Perplexity in NLP](https://huggingface.co/docs/transformers/perplexity)
