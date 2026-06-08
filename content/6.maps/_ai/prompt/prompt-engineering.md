@@ -27,6 +27,16 @@ original_path: _ai/prompt/prompt-engineering.md
 * **Frequency penalty**：对重复（下个 token 占已响应内容该 token 出现次数的比例）施加惩罚，以减少产生重复内容。
 * **Presence penalty**：对重复的词施加惩罚，重复多次的惩罚权重和重复一次的权重相等，以鼓励模型使用更多新词。
 
+#### Temperature 与 Top-P 的作用域错位
+
+`Temperature` 与 `Top-P` 并非随机性的简单叠加，而是分阶段组合：温度作用于 logits（softmax 前），Top-P 作用于概率分布（softmax 后）[^5]。
+
+文档常见的 `Temperature=0, Top-P=0.9` 推荐在理论上是矛盾的——温度归零后分布应坍缩为单点，Top-P 的 90% 阈值已无意义。但在浮点实现的缝隙里，这一组合仍可能因数值精度引入微量抖动[^6]。
+
+反过来，高温度把分布压平后，Top-P=0.9 可能一次性放进来几千个候选词，输出质量断崖式下跌。生产环境中「模型突然胡言乱语」的事故，根因往往在此。
+
+见：[Prompt Engineering Guide](https://www.promptingguide.ai/zh)
+
 ## 提示技巧
 
 #### 常见的提示技巧？
@@ -39,3 +49,6 @@ original_path: _ai/prompt/prompt-engineering.md
 * 增强检索（RAG）：通过检索相关文档或信息，增强模型的知识基础。比如：“请从以下文档中提取相关信息来回答问题：xxx。”。
 * ReACT：使用行动-观察-思考的循环，如：“请按照以下格式解决问题：思考：分析目前情况，进行必要推断。行动：执行一个具体步骤，如推理、查询、计算、判断等。观察：评估行动结果，决定下步策略。反复循环，直到解决问题。”。
 * 元提示：专注于任务与问题的结构与句法，而非其中具体内容细节。
+
+[^5]: 采样参数的分阶段作用机制，见 [Prompt Engineering Guide](https://www.promptingguide.ai/zh)
+[^6]: 浮点精度对 softmax 输出的影响，见相关数值分析文献

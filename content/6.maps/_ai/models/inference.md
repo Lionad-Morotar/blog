@@ -61,8 +61,33 @@ Codex-Spark 采用轻量级工作风格以换取极致的交互流畅性：
 
 见：[Twitter 更新](https://x.com/thsottiaux/status/2024947946849186064)
 
+## 采样机制的工程陷阱
+
+#### Temperature=0 的确定性幻觉
+
+多数工程师认为 `Temperature=0` 即可获得完全可复现的输出，但推理框架的实现细节会打破这一假设。
+
+vLLM、TensorRT-LLM 等系统处理 `temp=0` 时路径并不统一：部分框架走特殊贪心分支，另一部分仅用一个极小的浮点数替代温度除法[^1]。更根本的是，GPU 并行计算中的浮点累加顺序本身就不确定，batch size 或显卡型号的改变都可能导致 softmax 后出现不同的 winner[^2]。
+
+这意味着在 A100 上通过的 regression test，在 H100 上输出可能发生变化。「确定性」在参数层面是意图，在硬件实现层面却是伪命题。
+
+见：[vLLM GitHub](https://github.com/vllm-project/vllm) | [TensorRT-LLM 文档](https://developer.nvidia.com/tensorrt-llm)
+
+#### Top-P 的生产性能税
+
+「Top-P 比 Top-K 更灵活」是事实，但代价是每次推理都要对整张词表（5万-10万维）做排序和累积概率计算。其 O(n log n) 的复杂度在高并发 serving 场景下会成为内存带宽瓶颈，PagedAttention 的内存优化优势会被它吃掉一部分[^3]。
+
+业内常见的工程权衡是用足够大的 Top-K（如 1024）来近似 Top-P 的效果，或者使用 CUDA 近似 Top-K kernel 绕过全排序[^4]。这是一个文档不会写、但上线后 profiler 会告诉你的决策点。
+
+见：[vLLM GitHub](https://github.com/vllm-project/vllm) | [LLM 推理框架综述](https://www.arxiv.org/pdf/2505.01658v1)
+
 ## 推理框架选择指南
 
 vLLM 是通用在线服务的首选，易用性高且吞吐优秀；TensorRT-LLM 适合极致性能需求但仅支持 NVIDIA；llama.cpp 是本地/边缘部署的标准，跨平台且轻量；SGLang 在结构化生成和多轮对话场景表现突出。选择应权衡延迟、吞吐、易用性、硬件限制和具体应用场景。
 
 见：[LLM 推理框架综述](https://www.arxiv.org/pdf/2505.01658v1) | [vLLM vs SGLang 对比](https://tensorfuse.io/blog/llm-throughput-vllm-vs-sglang)
+
+[^1]: vLLM 与 TensorRT-LLM 对 `temperature=0` 的实现路径差异，详见各框架源码中 sampling 模块
+[^2]: GPU 浮点累加顺序的非确定性，参见 NVIDIA CUDA 编程指南中关于 floating-point associativity 的说明
+[^3]: PagedAttention 内存优化与采样计算开销的权衡，见 [vLLM PagedAttention 论文](https://dl.acm.org/doi/10.1145/3600006.3613165)
+[^4]: CUDA 近似 Top-K kernel 方案，见 NVIDIA cuANN 及 vLLM 社区讨论
