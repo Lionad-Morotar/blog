@@ -5,5 +5,5 @@ recommends:
     label: '盲视'
     to: '/flows/_forty-two/blind-sight'
   - category: 技术
-    label: 'Project River：把 Git 提交历史变成一条河'
-    to: '/articles/project-river'
+    label: 'cc-expand：将 CC 的可用上下文窗口扩大 60%，甚至更多'
+    to: '/articles/cc-expand'
