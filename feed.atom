@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-06-02T07:15:07.207Z</updated>
+    <updated>2026-06-10T15:30:07.893Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -138,6 +138,14 @@
         <updated>2019-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[笔记、博客以及碎碎念，我的思考和再创造。]]></summary>
         <published>2019-06-04T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多]]></title>
+        <id>https://lionad.art/articles/cc-expand</id>
+        <link href="https://lionad.art/articles/cc-expand"/>
+        <updated>2026-06-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机]]></summary>
+        <published>2026-06-10T00:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[🎼 从文本到交互界面——GenUI 的中庸之道]]></title>

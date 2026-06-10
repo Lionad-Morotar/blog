@@ -1,1 +1,0 @@
-import{d as t,I as s}from"./CahMyzFs.js";import"./0pWGBXOc.js";import"./BN_7HF1G.js";const n=t({__name:"[...slug]",async setup(a){throw s({statusCode:404,statusMessage:"Page not found",fatal:!0})}});export{n as default};

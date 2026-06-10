@@ -136,6 +136,14 @@
             "date_published": "2019-06-04T00:00:00.000Z"
         },
         {
+            "id": "https://lionad.art/articles/cc-expand",
+            "content_html": "上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机",
+            "url": "https://lionad.art/articles/cc-expand",
+            "title": "📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多",
+            "date_modified": "2026-06-10T00:00:00.000Z",
+            "date_published": "2026-06-10T00:00:00.000Z"
+        },
+        {
             "id": "https://lionad.art/articles/gen-ui-flows",
             "content_html": "当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？",
             "url": "https://lionad.art/articles/gen-ui-flows",

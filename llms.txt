@@ -57,6 +57,7 @@
 ## Articles
 
 - [🦁 欢迎](https://lionad.art/raw/articles.md): 笔记、博客以及碎碎念，我的思考和再创造。
+- [📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多](https://lionad.art/raw/articles/cc-expand.md): 上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机
 - [🎼 从文本到交互界面——GenUI 的中庸之道](https://lionad.art/raw/articles/gen-ui-flows.md): 当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？
 - [🌊 Project River：把 Git 提交历史变成一条河](https://lionad.art/raw/articles/project-river.md): 从代码流动的节奏中，读懂一个项目的生命力
 - [🪦 生命周期只有26小时的项目](https://lionad.art/raw/articles/snpx-archive-lesson.md): 一如既往的好消息是，学习新东西变得非常容易。
@@ -548,6 +549,7 @@
 - [WebTransport](https://lionad.art/raw/maps/_web/network/webtransport.md): 基于 HTTP/3 + QUIC 的下一代 Web 双向通信技术
 - [页面性能](https://lionad.art/raw/maps/_web/performance/performance.md): 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
 - [Web 安全](https://lionad.art/raw/maps/_web/security/security.md): Web 安全技术、OAuth 协议与加密算法
+- [SM2](https://lionad.art/raw/maps/_web/security/sm2.md): 国密 SM2 椭圆曲线公钥密码算法标准与工程陷阱
 - [软件供应链安全](https://lionad.art/raw/maps/_web/security/supply-chain.md): 开源软件生态中的传递性信任问题与供应链攻击防范
 - [Web 技术](https://lionad.art/raw/maps/_web/web.md): Web 开发技术，包括浏览器原理、性能优化、安全、爬虫和小程序
 - [Windows](https://lionad.art/raw/maps/_windows/windows.md): 记录一些使用 Windows 碰到的问题
