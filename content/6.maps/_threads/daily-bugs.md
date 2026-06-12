@@ -3,6 +3,14 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-06-12
+
+这特喵也能串！
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260612152834586.png)
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260612153330619.png)
+
 #### 2026-05-24
 
 K 师傅又拼错单词了
