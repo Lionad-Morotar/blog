@@ -14,6 +14,7 @@ original_path: _ai/skills.md
 * [如何编写 Skills](/maps/_ai/skills/create-a-skill.md)
 * [Skill 蒸馏的边界与精度阶梯](/maps/_ai/skills/skill-distillation) — 从 ACT-R 双记忆模型与 Polanyi 默会知识看 Skill 能蒸馏几分之几
 * [D2C 实践](/maps/_ai/skills/d2c)：基于 AWS Kiro + MCP + Skills 的智能 Design-to-Code 架构
+* [SkillOpt：把 Agent Skill 当神经网络训练](/maps/_ai/skills/skillopt.md) — 微软开源的 Skill 文档自优化框架
 
 ## Ecosystem
 
