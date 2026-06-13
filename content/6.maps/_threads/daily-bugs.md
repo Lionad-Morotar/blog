@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-06-13
+
+Kimi K2.7 不对劲，又串台了
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260613111557652.png)
+
 #### 2026-06-12
 
 这特喵也能串！
