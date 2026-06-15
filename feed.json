@@ -136,6 +136,14 @@
             "date_published": "2019-06-04T00:00:00.000Z"
         },
         {
+            "id": "https://lionad.art/articles/mcp-node-version",
+            "content_html": "记录一次因 Node.js 版本导致 Claude Code 多个 MCP server 报 Connection closed 的排查过程",
+            "url": "https://lionad.art/articles/mcp-node-version",
+            "title": "🔧 Claude Code MCP 集体报错排查记录",
+            "date_modified": "2026-06-15T00:00:00.000Z",
+            "date_published": "2026-06-15T00:00:00.000Z"
+        },
+        {
             "id": "https://lionad.art/articles/cc-expand",
             "content_html": "上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机",
             "url": "https://lionad.art/articles/cc-expand",

@@ -57,6 +57,7 @@
 ## Articles
 
 - [🦁 欢迎](https://lionad.art/raw/articles.md): 笔记、博客以及碎碎念，我的思考和再创造。
+- [🔧 Claude Code MCP 集体报错排查记录](https://lionad.art/raw/articles/mcp-node-version.md): 记录一次因 Node.js 版本导致 Claude Code 多个 MCP server 报 Connection closed 的排查过程
 - [📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多](https://lionad.art/raw/articles/cc-expand.md): 上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机
 - [🎼 从文本到交互界面——GenUI 的中庸之道](https://lionad.art/raw/articles/gen-ui-flows.md): 当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？
 - [🌊 Project River：把 Git 提交历史变成一条河](https://lionad.art/raw/articles/project-river.md): 从代码流动的节奏中，读懂一个项目的生命力
@@ -184,6 +185,7 @@
 - [如何编写 Agent Skills](https://lionad.art/raw/maps/_ai/skills/create-a-skill.md): 如何编写 Agent Skills - 完整指南
 - [D2C](https://lionad.art/raw/maps/_ai/skills/d2c.md): 智能 Design-to-Code 架构实践
 - [Skill 蒸馏的边界与精度阶梯](https://lionad.art/raw/maps/_ai/skills/skill-distillation.md): 从 ACT-R 双记忆模型与 Polanyi 默会知识看 Skill 能蒸馏几分之几 — L1 规则可编码、L1.5 风格扩散有边界、L2 Utility 写不进。
+- [SkillOpt](https://lionad.art/raw/maps/_ai/skills/skillopt.md): 微软开源的 Agent Skill 优化框架，把 markdown skill 文档当作可训练参数，通过 rollout→reflect→aggregate→select→update→evaluate 循环自动迭代。
 - [Agent Skills](https://lionad.art/raw/maps/_ai/skills/skills.md): Skill 是一种能力，作为 Agent 和工具之间的胶水层，帮助 Agent 理解工具以及有控制上下文等优点。
 - [Browser AI Automation](https://lionad.art/raw/maps/_ai/tools/browser-automation.md): AI 驱动的浏览器自动化工具对比
 - [Claude Code](https://lionad.art/raw/maps/_ai/tools/claude-code.md): Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务

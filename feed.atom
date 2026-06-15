@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-06-10T15:30:07.893Z</updated>
+    <updated>2026-06-15T18:13:37.753Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -138,6 +138,14 @@
         <updated>2019-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[笔记、博客以及碎碎念，我的思考和再创造。]]></summary>
         <published>2019-06-04T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[🔧 Claude Code MCP 集体报错排查记录]]></title>
+        <id>https://lionad.art/articles/mcp-node-version</id>
+        <link href="https://lionad.art/articles/mcp-node-version"/>
+        <updated>2026-06-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[记录一次因 Node.js 版本导致 Claude Code 多个 MCP server 报 Connection closed 的排查过程]]></summary>
+        <published>2026-06-15T00:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多]]></title>
