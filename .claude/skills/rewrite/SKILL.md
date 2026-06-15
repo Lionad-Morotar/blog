@@ -30,6 +30,7 @@ description: >
 | 风格 | 路径 | 核心特征 |
 |------|------|----------|
 | Avi Chawla（Daily Dose of DS） | `references/avi-chawla/` | 反直觉钩子、数据冲击、单句成段、零过渡语、原因反转、对比验证 |
+| Lionad 博客 | `references/lionad/` | 口语化排查叙事、大幅删减只留主线、单点技术机制讲透、问题导向小标题推进 |
 
 如果用户要求其他风格（如 Paul Graham、Nat Friedman 等），先分析用户提供的参考文章，然后在 `references/` 下新建对应目录，写入 `instructions.md`、`compose.md` 和 `example.md`。
 
