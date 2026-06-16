@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-06-15
+
+GLM 5.2 很 fashion
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260616170459654.png)
+
 #### 2026-06-13
 
 Kimi K2.7 不对劲，又串台了
