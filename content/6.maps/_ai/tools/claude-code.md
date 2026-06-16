@@ -27,6 +27,12 @@ Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 p
 * [Straion](https://straion.com/?ref=producthunt)：AI Coding Agent 规则管理工具，统一管理编码规范，支持 Claude Code、Cursor 和 GitHub Copilot
 * [Ruflo](https://github.com/ruvnet/ruflo)：Claude 多智能体编排平台，支持分布式智能体集群、RAG 集成、原生 Claude Code / Codex 集成
 
+#### Claude Code 的 MCP 扩展与远程连接
+
+Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：HTTP（推荐远程）、SSE、WebSocket 和 stdio。可以通过 `claude mcp add --transport http <name> <url>` 或 `claude mcp add --transport sse <name> <url>` 连接局域网内的远程 MCP server，HTTP/SSE server 断线时还会自动重连。Claude Code 也可以自身作为 MCP server 运行：`claude mcp serve` 会以 stdio 方式启动一个 MCP server，供其他应用调用。结合一个 stdio-to-HTTP 桥接，理论上可以把远程 Claude Code 实例暴露给本地 Claude Code 作为 tool 使用。
+
+见：[Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
+
 ## 内置指令
 
 #### 新会话中执行 `Compact` 的结果
