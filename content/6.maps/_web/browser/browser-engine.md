@@ -39,3 +39,7 @@ Ladybird 是一个从零构建的全新浏览器引擎，**非任何现有浏览
 **路线图**：2026 年发布 Linux/macOS Alpha 版（面向开发者和早期用户）；Windows 和移动端非当前优先。
 
 见：[Ladybird 官网](https://ladybird.org/)
+
+#### V8 引擎实现参考
+
+* [V8 Resources](https://mrale.ph/v8/resources.html)：V8 引擎演讲、文章与视频资源索引，涵盖性能优化、编译管线、GC 与 inline caching 等实现细节
