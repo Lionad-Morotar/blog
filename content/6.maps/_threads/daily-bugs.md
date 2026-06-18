@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-06-18
+
+安装 Kimi Work 的时候图像乱码
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260618155200646.png)
+
 #### 2026-06-15
 
 GLM 5.2 很 fashion
