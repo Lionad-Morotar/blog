@@ -93,6 +93,53 @@ React 经历了多次架构变革。早期使用 mixins 实现代码复用，ES6
 
 见：[Get in Zoomer, We're Saving React](https://acko.net/blog/get-in-zoomer-we-re-saving-react/)
 
+#### 多层 Context Provider 嵌套是否等同于多个局部 store？
+
+多层 Context Provider 嵌套常被用来替代全局状态管理方案，但这种做法本质上是把单一全局 store 拆成多个作用域更小的局部 store，只是换了一个叫 context 的名字。它没有减少状态管理的复杂度，只是把 store 的边界沿着组件树做了重新划分。
+
+Redux 因样板代码较多而在社区中受到批评，导致一些本应放在 Thunk 或 Saga 中的异步逻辑和副作用被硬塞进组件 render() 中，反而让视图层承担了本不该承担的控制职责。正确做法是把副作用留在 store 层，让组件只负责渲染。
+
+#### Thunk 和 Saga 如何隔离 React 副作用？
+
+Redux Thunk 和 Redux Saga 都是把副作用从组件 render() 中抽离到 store 层的方案，但抽象层级不同。
+
+Thunk 让 action creator 返回一个函数，Redux Thunk 中间件拦截这个函数并注入 `dispatch` 和 `getState`，使它能够执行异步操作后再 dispatch 普通 action：
+
+```js
+function incrementAsync() {
+  return (dispatch, getState) => {
+    setTimeout(() => {
+      dispatch({ type: 'INCREMENT' })
+    }, 1000)
+  }
+}
+
+store.dispatch(incrementAsync())
+```
+
+Saga 则使用 ES6 Generator 函数和声明式 Effect 来描述异步流程。`call` 表示调用函数，`put` 表示 dispatch action，`takeEvery` 表示监听某类 action：
+
+```js
+import { call, put, takeEvery } from 'redux-saga/effects'
+
+function* fetchUser(action) {
+  try {
+    const user = yield call(api.fetchUser, action.payload)
+    yield put({ type: 'FETCH_USER_SUCCESS', payload: user })
+  } catch (e) {
+    yield put({ type: 'FETCH_USER_FAIL', payload: e.message })
+  }
+}
+
+function* watchFetchUser() {
+  yield takeEvery('FETCH_USER_REQUEST', fetchUser)
+}
+```
+
+Thunk 适合简单异步和条件 dispatch；Saga 适合复杂流程、竞态、取消和长时间运行的副作用。现代 Redux Toolkit 已内置 Thunk，复杂场景仍可引入 Saga 或 RTK Query。
+
+见：[Redux Thunk](https://github.com/reduxjs/redux-thunk)、[Redux Saga](https://redux-saga.js.org/)
+
 ## Hooks
 
 * [useHooks(🐠)](https://usehooks.com/)
