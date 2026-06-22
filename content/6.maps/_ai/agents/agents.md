@@ -32,6 +32,7 @@ original_path: _ai/agents.md
 ## Agent SDK
 
 * [Claude Agent SDK (TypeScript) 发布记录](/maps/_ai/agents/claude-agent-sdk-releases)
+* [Claude Agent SDK 使用方式与调用栈](/maps/_ai/agents/claude-agent-sdk)
 * [OpenAI Agents SDK (JavaScript) 发布记录](/maps/_ai/agents/openai-agents-js-releases)
 
 ## 治理与政策
