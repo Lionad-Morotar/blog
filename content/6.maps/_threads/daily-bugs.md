@@ -13,6 +13,10 @@ CC 的工具面板的代码预览使用了关键字匹配，见“this”
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260623141958438.png)
 
+在 10w context 的时候，glm 5.2 就出了错别字，后续验证了没有“雕剅”这个词，惯用词应当是“雕刻”
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260623155109525.png)
+
 #### 2026-06-18
 
 安装 Kimi Work 的时候图像乱码
