@@ -19,6 +19,21 @@ Claude Agent SDK 并非直接调用 Anthropic API 的 HTTP 客户端，而是把
 
 见：[Environment variables - Claude Code Docs](https://code.claude.com/docs/en/env-vars)
 
+#### 通过 ANTHROPIC_CUSTOM_HEADERS 覆盖 Claude Code User-Agent
+
+Claude Code CLI 向 Anthropic API 发送请求时，允许通过 `ANTHROPIC_CUSTOM_HEADERS` 环境变量注入自定义 HTTP headers，实测可用其覆盖默认的 `User-Agent`。该变量采用 `Name: Value` 格式，多个 header 用换行（`\n`）分隔，既可配置在 shell 环境，也可写入 `~/.claude/settings.json` 的 `env` 字段中。此机制常用于将 Claude Code 路由到内部 LLM 网关或代理，但也可以直接修改请求标识。
+
+示例：
+
+```bash
+export ANTHROPIC_CUSTOM_HEADERS="User-Agent: MyAgent/1.0
+X-Request-ID: abc-123"
+```
+
+由于 User-Agent 只是普通 HTTP header，在 Claude Code 的自定义 header 机制中会被最终请求采用，覆盖掉 CLI 默认生成的 User-Agent。Anthropic 侧对客户端的识别并不依赖 User-Agent，而是依赖 system prompt 中的 billing header，因此修改 User-Agent 不会影响订阅计费或客户端身份判定。
+
+见：[Environment variables - Claude Code Docs](https://code.claude.com/docs/en/env-vars)
+
 #### CLAUDE_CODE_ENTRYPOINT 的入口点映射
 
 `CLAUDE_CODE_ENTRYPOINT` 不仅影响 User-Agent 括号内的字符串，也决定 Anthropic 内部遥测对客户端类别的归类。常见入口点与 telemetry 分类的映射包括：`cli` → `claude_code_cli`、`sdk-ts`/`sdk-py` → `claude_code_sdk`、`local-agent` → `claude_code_local_agent`、`claude-vscode` → `claude_code_vscode`、各类 `remote_*` → `claude_code_remote`、`mcp` → `claude_code_mcp`。SDK 用户可在 `options.env` 中显式覆盖入口点，但未知入口点会落入默认分类。
