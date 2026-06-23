@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-06-23
+
+记忆会污染上下文的真实案例
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260623095737344.png)
+
 #### 2026-06-18
 
 安装 Kimi Work 的时候图像乱码
