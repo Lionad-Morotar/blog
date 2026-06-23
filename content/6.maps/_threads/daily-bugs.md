@@ -9,6 +9,10 @@ description: 追踪一些日常碰到的软件缺陷
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260623095737344.png)
 
+CC 的工具面板的代码预览使用了关键字匹配，见“this”
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260623141958438.png)
+
 #### 2026-06-18
 
 安装 Kimi Work 的时候图像乱码
