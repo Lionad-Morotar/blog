@@ -111,6 +111,97 @@ corepack prepare pnpm@<version> --activate
 engine-strict = true
 ```
 
+#### Node 16 等旧版本 Node 的依赖 engine 兼容性锁定
+
+当项目被迫停留在旧版 Node（如 Node 16），而上游依赖不断提高 `engines.node` 要求时，yarn 1.x 会在 `yarn install` 阶段因 engine 校验直接报错。此时不能仅依赖 lockfile，而需要主动把直接依赖和传递依赖都钉回兼容版本。
+
+典型触发组合：
+
+- `sass` 1.101.0+ 要求 Node ≥ 20.19.0
+- `@intlify/shared` 12.0.0-alpha.4 要求 Node ≥ 22.0.0
+- `vitest@0.34.6` 的传递依赖解析到 `vite@5.4.21` / `rollup@4.62.2`，要求 Node ≥ 18
+
+定位不兼容包时，可用脚本扫描 `node_modules` 中所有 `package.json` 的 `engines.node` 声明：
+
+```js
+const fs = require('fs')
+const path = require('path')
+const semver = require('semver')
+
+const NODE_VERSION = process.version
+const ROOT = path.resolve(__dirname, '..')
+
+function walk(dir, cb) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      if (entry.name === 'node_modules') {
+        for (const pkg of fs.readdirSync(full, { withFileTypes: true })) {
+          if (pkg.isDirectory()) {
+            const pkgJson = path.join(full, pkg.name, 'package.json')
+            if (fs.existsSync(pkgJson)) cb(pkgJson)
+            const nested = path.join(full, pkg.name, 'node_modules')
+            if (fs.existsSync(nested)) walk(nested, cb)
+          }
+        }
+      } else {
+        walk(full, cb)
+      }
+    }
+  }
+}
+
+const incompatible = []
+walk(ROOT, (pkgJson) => {
+  const pkg = JSON.parse(fs.readFileSync(pkgJson, 'utf8'))
+  const range = pkg.engines?.node
+  if (range && !semver.satisfies(NODE_VERSION, range)) {
+    incompatible.push({ name: pkg.name, version: pkg.version, range, path: pkgJson })
+  }
+})
+incompatible.sort((a, b) => a.name.localeCompare(b.name))
+console.table(incompatible)
+```
+
+锁定策略分两种：
+
+1. 直接依赖：用 `~` 把次版本钉死，阻止解析到要求更高 Node 的版本。例如 `sass` 从 `^1.54.4` 改为 `~1.90.0`，使其停留在 1.90.x。
+
+2. 传递依赖：用包管理器的覆盖字段强制解析到兼容版本。yarn 1.x 用 `resolutions`，npm 用 `overrides`，pnpm 用 `pnpm.overrides`。
+
+```json
+{
+  "dependencies": {
+    "sass": "~1.90.0"
+  },
+  "resolutions": {
+    "@intlify/shared": "9.14.5",
+    "@intlify/message-compiler": "9.14.5",
+    "vite": "^3.2.11",
+    "rollup": "^2.79.1"
+  }
+}
+```
+
+选择这些版本的原则：
+
+- `@intlify` 系列与 `vue-i18n@9` 主版本一致，且 9.14.5 明确支持 Node 16。
+- `vite` 限制在 3.x 以匹配项目原有 Vite 3 基线。
+- `rollup@2.79.1` 是 Vite 3 时代的常见搭档，且兼容 Node 16。
+
+修改后要删除 lockfile 和 `node_modules` 重新生成依赖树，并在与生产一致的 Node 镜像中复验：
+
+```bash
+rm -rf node_modules yarn.lock
+yarn install
+docker run --rm -v "$PWD":/app -w /app node:16.15.0-alpine \
+  sh -c "yarn install --frozen-lockfile && yarn test && yarn build"
+```
+
+这种强制锁定只是过渡方案。升级 Node 或迁移到 Vite 4/5 后，应及时移除这些 `resolutions` 和 `~` 锁定，避免旧版本长期占据依赖树。
+
+见：[Node 16 依赖 engine 兼容性锁定方案](/Users/lionad/Github/86Links/auth-center/docs/research/2026-06-24-node16-dependency-locking.md)
+
 #### 为什么 package.json scripts 中路径宜用引号包裹起来？
 
 因为 glob patterns 有兼容性问题，NPM 在 Linux 平台使用 sh -s 指令运行脚本，在 Windows 上使用 cmd /d /s /c。如果是编写应用代码，则可以使用 node-glob 等工具处理路径以解决跨平台的兼容性问题。
