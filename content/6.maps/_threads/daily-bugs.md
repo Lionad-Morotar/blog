@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-06-24
+
+这张图片是否暗示了 GLM 5.1 常漏删漏补括号问题的根因？
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260624194705997.png)
+
 #### 2026-06-23
 
 记忆会污染上下文的真实案例
