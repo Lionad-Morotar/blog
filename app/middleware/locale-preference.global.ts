@@ -29,11 +29,11 @@ export default defineNuxtRouteMiddleware(async (to) => {
     en: boolean
   }>(`locale-content:${basePath}`, () => ({
     zh: false,
-    en: false,
+    en: false
   }))
 
   // Only query on server to avoid client-side API calls
-  if (process.server) {
+  if (import.meta.server) {
     const baseCollection = getCollectionFromPath(basePath)
     const enCollection = getCollectionFromPath(enPath)
 

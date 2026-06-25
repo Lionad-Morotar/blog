@@ -1,21 +1,21 @@
 <script setup lang="ts">
 /**
  * SectionExtract - 从其他 Markdown 文件中提取特定章节
- * 
+ *
  * 用法:
  * ::section-extract{from="_docs/api-reference" heading="认证方式"}
  * ::
- * 
+ *
  * ::section-extract{from="_docs/api-reference" level="2" index="1"}
  * ::
  */
 
 interface Props {
-  from: string           // 源文件路径（相对于 6.maps/ 目录，不带 .md 后缀）
-  heading?: string       // 按标题文字匹配（优先级高于 index）
-  level?: string | number  // 标题层级，默认 2 (h2)
-  index?: string | number  // 第几个同级标题，0-based
-  class?: string         // 额外 CSS 类
+  from: string // 源文件路径（相对于 6.maps/ 目录，不带 .md 后缀）
+  heading?: string // 按标题文字匹配（优先级高于 index）
+  level?: string | number // 标题层级，默认 2 (h2)
+  index?: string | number // 第几个同级标题，0-based
+  class?: string // 额外 CSS 类
 }
 
 const props = defineProps<Props>()
@@ -41,7 +41,7 @@ const currentPath = computed(() => route.path)
 // 解析相对路径
 function resolveRelativePath(src: string, basePath: string): string {
   // 移除 .md 后缀
-  let path = src.replace(/\.md$/, '')
+  const path = src.replace(/\.md$/, '')
 
   // 如果不是相对路径，直接返回相对于 maps 根目录的路径
   if (!path.startsWith('./') && !path.startsWith('../')) {
@@ -158,7 +158,7 @@ const bodyContent = computed(() => {
 })
 
 // 判断节点是否为 heading（适配 minimark 格式）
-function isHeadingNode(node: any): { isHeading: boolean; level: number; text: string } {
+function isHeadingNode(node: any): { isHeading: boolean, level: number, text: string } {
   // 对象格式: { type: 'element', tag: 'h2', ... }
   if (node?.type === 'element' && node.tag?.match?.(/^h[1-6]$/)) {
     return {
@@ -270,10 +270,16 @@ const sourceTitle = computed(() => data.value?.title || props.from)
 </script>
 
 <template>
-  <div class="section-extract border-l-4 border-primary-500 pl-4 py-2 my-4 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-lg relative" :class="$props.class">
+  <div
+    class="section-extract border-l-4 border-primary-500 pl-4 py-2 my-4 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-lg relative"
+    :class="$props.class"
+  >
     <!-- 源文件引用信息 -->
     <div class="text-xs text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2 flex-wrap">
-      <UIcon name="i-heroicons-document-text" class="w-4 h-4" />
+      <UIcon
+        name="i-heroicons-document-text"
+        class="w-4 h-4"
+      />
       <span>引用自: </span>
       <NuxtLink
         :to="urlPath"
@@ -281,8 +287,14 @@ const sourceTitle = computed(() => data.value?.title || props.from)
       >
         {{ sourceTitle }}
       </NuxtLink>
-      <span v-if="heading" class="text-gray-400">/ {{ heading }}</span>
-      <span v-else-if="props.index !== undefined" class="text-gray-400">/ 第 {{ Number(props.index) + 1 }} 节</span>
+      <span
+        v-if="heading"
+        class="text-gray-400"
+      >/ {{ heading }}</span>
+      <span
+        v-else-if="props.index !== undefined"
+        class="text-gray-400"
+      >/ 第 {{ Number(props.index) + 1 }} 节</span>
     </div>
 
     <!-- 提取的内容 -->
@@ -292,36 +304,58 @@ const sourceTitle = computed(() => data.value?.title || props.from)
       :class="{ 'resize-active': isResizing }"
       :style="customHeight ? { height: `${customHeight}px` } : { maxHeight: '50vh' }"
     >
-      <ContentRenderer v-if="extractedContent" :value="extractedContent" />
-    
-    <!-- 调试信息（开发时显示） -->
-    <div v-else-if="data" class="text-amber-600 text-sm p-2 bg-amber-50 dark:bg-amber-900/20 rounded">
-      <UIcon name="i-heroicons-exclamation-triangle" class="w-4 h-4 inline mr-1" />
-      未找到指定章节
-      <span v-if="heading">"{{ heading }}"</span>
-      <span v-else>（第 {{ Number(props.index ?? 0) + 1 }} 个 h{{ props.level ?? 2 }}）</span>
-      <details class="mt-1">
-        <summary class="cursor-pointer text-xs text-gray-500">可用章节 ({{ availableHeadings.length }}个)</summary>
-        <ul class="text-xs text-gray-500 mt-1 ml-4">
-          <li v-for="(h, i) in availableHeadings" :key="i">{{ i + 1 }}. {{ h }}</li>
-        </ul>
-      </details>
-    </div>
+      <ContentRenderer
+        v-if="extractedContent"
+        :value="extractedContent"
+      />
 
-    <!-- 未找到文件 -->
-    <div v-else class="text-red-500 text-sm p-2 bg-red-50 dark:bg-red-900/20 rounded">
-      <UIcon name="i-heroicons-exclamation-triangle" class="w-4 h-4 inline mr-1" />
-      无法加载文件: {{ from }}
-      <div class="text-xs text-gray-500 mt-1">
-        尝试路径: {{ contentPath }}
+      <!-- 调试信息（开发时显示） -->
+      <div
+        v-else-if="data"
+        class="text-amber-600 text-sm p-2 bg-amber-50 dark:bg-amber-900/20 rounded"
+      >
+        <UIcon
+          name="i-heroicons-exclamation-triangle"
+          class="w-4 h-4 inline mr-1"
+        />
+        未找到指定章节
+        <span v-if="heading">"{{ heading }}"</span>
+        <span v-else>（第 {{ Number(props.index ?? 0) + 1 }} 个 h{{ props.level ?? 2 }}）</span>
+        <details class="mt-1">
+          <summary class="cursor-pointer text-xs text-gray-500">
+            可用章节 ({{ availableHeadings.length }}个)
+          </summary>
+          <ul class="text-xs text-gray-500 mt-1 ml-4">
+            <li
+              v-for="(h, i) in availableHeadings"
+              :key="i"
+            >
+              {{ i + 1 }}. {{ h }}
+            </li>
+          </ul>
+        </details>
       </div>
-    </div>
+
+      <!-- 未找到文件 -->
+      <div
+        v-else
+        class="text-red-500 text-sm p-2 bg-red-50 dark:bg-red-900/20 rounded"
+      >
+        <UIcon
+          name="i-heroicons-exclamation-triangle"
+          class="w-4 h-4 inline mr-1"
+        />
+        无法加载文件: {{ from }}
+        <div class="text-xs text-gray-500 mt-1">
+          尝试路径: {{ contentPath }}
+        </div>
+      </div>
     </div>
 
     <!-- Resize handle -->
     <div
       class="resize-handle absolute bottom-0 right-0 w-4 h-4 cursor-ns-resize flex items-end justify-end group"
-      :class="{ 'active': isResizing }"
+      :class="{ active: isResizing }"
       @mousedown.prevent="startResize"
     >
       <svg
@@ -331,7 +365,11 @@ const sourceTitle = computed(() => data.value?.title || props.from)
         stroke="currentColor"
         stroke-width="2"
       >
-        <path d="M22 22L16 16M22 16L16 22" stroke-linecap="round" stroke-linejoin="round" />
+        <path
+          d="M22 22L16 16M22 16L16 22"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </div>
   </div>

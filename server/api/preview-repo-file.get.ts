@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
   const rawDirs = (config.previewDirs as string) || ''
   const dirs = rawDirs
     .split(',')
-    .map((d) => d.trim())
+    .map(d => d.trim())
     .filter(Boolean)
 
   const cleanPath = filePath.replace(/^\/+/, '')
@@ -69,10 +69,9 @@ export default defineEventHandler(async (event) => {
         ext: cleanPath.split('.').pop() || '',
         size: content.length,
         absolutePath: fullPath,
-        vscodeScheme: detectVscodeScheme(),
+        vscodeScheme: detectVscodeScheme()
       }
-    }
-    catch {
+    } catch {
       continue
     }
   }

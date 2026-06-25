@@ -46,7 +46,7 @@ describe('Preview API', () => {
     expect(Array.isArray(data)).toBe(true)
     expect(data.length).toBeGreaterThan(0)
 
-    const item = findInTree(data, (d) => d.slug === '01-what-is-claude-code')
+    const item = findInTree(data, d => d.slug === '01-what-is-claude-code')
     expect(item).toBeDefined()
     expect(item?.title).toBeDefined()
   })
@@ -55,8 +55,7 @@ describe('Preview API', () => {
     let error: any
     try {
       await $fetch('/api/preview/foo/bar')
-    }
-    catch (err: any) {
+    } catch (err: any) {
       error = err
     }
 
@@ -67,8 +66,7 @@ describe('Preview API', () => {
     let error: any
     try {
       await $fetch('/api/preview/non-existent-file')
-    }
-    catch (err: any) {
+    } catch (err: any) {
       error = err
     }
 

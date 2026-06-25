@@ -56,7 +56,7 @@ const cardUi = computed(() => {
   return {
     header: `${p} min-h-0`,
     body: `${p} min-h-0`,
-    footer: `${p} min-h-0`,
+    footer: `${p} min-h-0`
   }
 })
 
@@ -106,7 +106,7 @@ const language = computed(() => {
     kt: 'kotlin',
     sql: 'sql',
     dockerfile: 'dockerfile',
-    toml: 'toml',
+    toml: 'toml'
   }
   return map[ext] || ext || 'text'
 })
@@ -132,19 +132,17 @@ async function fetchContent() {
   loading.value = true
   try {
     const result = await $fetch<RepoFileResponse>('/api/preview-repo-file', {
-      query: { path: filePathForApi.value },
+      query: { path: filePathForApi.value }
     })
     data.value = result
-  }
-  catch (err: any) {
+  } catch (err: any) {
     data.value = {
       path: filePathForApi.value,
       content: err?.statusMessage || '无法加载内容',
       ext: '',
-      size: 0,
+      size: 0
     }
-  }
-  finally {
+  } finally {
     loading.value = false
     hasFetched.value = true
   }
@@ -174,7 +172,10 @@ function onOpenChange(open: boolean) {
     </NuxtLink>
 
     <template #content>
-      <UCard :class="['shadow-xl', sizeClasses]" :ui="cardUi">
+      <UCard
+        :class="['shadow-xl', sizeClasses]"
+        :ui="cardUi"
+      >
         <template #header>
           <div class="flex justify-between items-center gap-2">
             <span class="font-mono text-gray-500 dark:text-gray-400 text-xs truncate">{{ href }}</span>
@@ -182,8 +183,14 @@ function onOpenChange(open: boolean) {
           </div>
         </template>
 
-        <div class="overflow-auto custom-scrollbar" :class="contentHeightClass">
-          <div v-if="loading" class="flex justify-center items-center h-32">
+        <div
+          class="overflow-auto custom-scrollbar"
+          :class="contentHeightClass"
+        >
+          <div
+            v-if="loading"
+            class="flex justify-center items-center h-32"
+          >
             <span class="text-gray-400 text-sm">加载中...</span>
           </div>
           <CodePreview
@@ -203,8 +210,14 @@ function onOpenChange(open: boolean) {
               class="inline-flex h-7 w-7 items-center justify-center rounded text-gray-500 hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-800 transition-colors"
               aria-label="在 VSCode 中打开"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.583 1.936 9.42 9.45 4.41 5.55 2.25 7.2v9.6l2.16 1.65 5.01-3.9 8.163 7.515L21.75 20.4V3.6l-4.167-1.664zM16.5 19.065l-6.885-5.34 6.885-5.34v10.68z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M17.583 1.936 9.42 9.45 4.41 5.55 2.25 7.2v9.6l2.16 1.65 5.01-3.9 8.163 7.515L21.75 20.4V3.6l-4.167-1.664zM16.5 19.065l-6.885-5.34 6.885-5.34v10.68z" />
               </svg>
             </a>
             <div class="flex justify-end gap-1">

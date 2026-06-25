@@ -1,5 +1,8 @@
 <template>
-  <div class="wh-container relative flex rounded-sm overflow-hidden" :style="{ width: w }">
+  <div
+    class="wh-container relative flex rounded-sm overflow-hidden"
+    :style="{ width: w }"
+  >
     <slot name="default">
       <svg
         class="absolute inset-0 h-full w-full border rounded  stroke-gray-900/10 dark:stroke-white/10 border-gray-900/10 dark:border-gray-white/10"
@@ -27,7 +30,10 @@
         </rect>
       </svg>
     </slot>
-    <div class="padding-box w-0 h-0" :style="{ paddingTop: h }" />
+    <div
+      class="padding-box w-0 h-0"
+      :style="{ paddingTop: h }"
+    />
   </div>
 </template>
 

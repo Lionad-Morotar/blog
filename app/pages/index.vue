@@ -23,7 +23,7 @@ useSeoMeta({
   title: homePage.value?.title,
   ogTitle: homePage.value?.title,
   description: homePage.value?.description,
-  ogDescription: homePage.value?.description,
+  ogDescription: homePage.value?.description
 })
 
 const parallaxRef = ref()
@@ -35,7 +35,7 @@ const changeSlide = (function () {
     const dateNow = +Date.now()
     if (dateNow - lastTriggerTime < 500) return
 
-    const idx = ['up', 'down'].findIndex((x) => x === e)
+    const idx = ['up', 'down'].findIndex(x => x === e)
     slide.value = slides[idx]
     const toHeight = [0, scrollHeight.value][idx]
 
@@ -73,7 +73,7 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_0.png',
     done: false,
-    cb: () => (assets.parallax_0.done = true),
+    cb: () => (assets.parallax_0.done = true)
   },
   parallax_1: {
     sort: 1,
@@ -81,7 +81,7 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_1.png',
     done: false,
-    cb: () => (assets.parallax_1.done = true),
+    cb: () => (assets.parallax_1.done = true)
   },
   parallax_2: {
     sort: 2,
@@ -89,7 +89,7 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_2.png',
     done: false,
-    cb: () => (assets.parallax_2.done = true),
+    cb: () => (assets.parallax_2.done = true)
   },
   parallax_3: {
     sort: 3,
@@ -97,7 +97,7 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_3.png',
     done: false,
-    cb: () => (assets.parallax_3.done = true),
+    cb: () => (assets.parallax_3.done = true)
   },
   parallax_4: {
     sort: 4,
@@ -105,7 +105,7 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_4.png',
     done: false,
-    cb: () => (assets.parallax_4.done = true),
+    cb: () => (assets.parallax_4.done = true)
   },
   parallax_5: {
     sort: 5,
@@ -113,7 +113,7 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_5.png',
     done: false,
-    cb: () => (assets.parallax_5.done = true),
+    cb: () => (assets.parallax_5.done = true)
   },
   parallax_6: {
     sort: 6,
@@ -121,45 +121,82 @@ const assets: Record<string, {
     value:
       'https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/homepage/layer_6.png',
     done: false,
-    cb: () => (assets.parallax_6.done = true),
-  },
+    cb: () => (assets.parallax_6.done = true)
+  }
 }
 </script>
 
 <template>
   <div :class="['home-page', slide]">
     <!-- FireWatch Mountain -->
-    <div ref="parallaxRef" class="parallax">
+    <div
+      ref="parallaxRef"
+      class="parallax"
+    >
       <div class="parallax__layer parallax__layer__0">
-        <img :src="assets.parallax_0.value" alt="云朵背景图片" class="cloud animation" draggable="false">
+        <img
+          :src="assets.parallax_0.value"
+          alt="云朵背景图片"
+          class="cloud animation"
+          draggable="false"
+        >
       </div>
       <div class="parallax__layer parallax__layer__1">
-        <img :src="assets.parallax_1.value" alt="山岳背景图片" draggable="false">
+        <img
+          :src="assets.parallax_1.value"
+          alt="山岳背景图片"
+          draggable="false"
+        >
       </div>
       <div class="parallax__layer parallax__layer__2">
-        <img :src="assets.parallax_2.value" alt="山岳背景图片" draggable="false">
+        <img
+          :src="assets.parallax_2.value"
+          alt="山岳背景图片"
+          draggable="false"
+        >
       </div>
       <div class="parallax__layer parallax__layer__3">
-        <img :src="assets.parallax_3.value" alt="山岳背景图片" draggable="false">
+        <img
+          :src="assets.parallax_3.value"
+          alt="山岳背景图片"
+          draggable="false"
+        >
       </div>
       <div class="parallax__layer parallax__layer__4">
-        <img :src="assets.parallax_4.value" alt="山岳背景图片" draggable="false">
+        <img
+          :src="assets.parallax_4.value"
+          alt="山岳背景图片"
+          draggable="false"
+        >
       </div>
       <div class="parallax__layer parallax__layer__5">
-        <img :src="assets.parallax_5.value" alt="山岳背景图片" draggable="false">
+        <img
+          :src="assets.parallax_5.value"
+          alt="山岳背景图片"
+          draggable="false"
+        >
       </div>
       <div class="parallax__layer parallax__layer__6">
-        <img :src="assets.parallax_6.value" alt="山岳背景图片" draggable="false">
+        <img
+          :src="assets.parallax_6.value"
+          alt="山岳背景图片"
+          draggable="false"
+        >
       </div>
       <div class="parallax__cover" />
     </div>
 
     <!-- My Info -->
-    <Gesture :swipe-up="() => changeSlide('up')" freeze-time="300" :event-invoke="stopMove">
+    <Gesture
+      :swipe-up="() => changeSlide('up')"
+      freeze-time="300"
+      :event-invoke="stopMove"
+    >
       <div class="wrapper wrapper-detail">
         <div class="avatar">
           <img
-            src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/avatar.gif" alt="Lionad's Avatar"
+            src="https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/avatar.gif"
+            alt="Lionad's Avatar"
             draggable="false"
           >
         </div>
@@ -172,12 +209,18 @@ const assets: Record<string, {
               <span>{{ homePage?.info }}</span>
             </div>
             <div class="description">
-              前端偏甜工程师 | 兴趣泛滥 | 逃离地球 | <del><a href="/flows/long-night-dream.html" style="color: inherit">午夜吉他恶魔</a></del>
+              前端偏甜工程师 | 兴趣泛滥 | 逃离地球 | <del><a
+                href="/flows/long-night-dream.html"
+                style="color: inherit"
+              >午夜吉他恶魔</a></del>
             </div>
           </div>
           <div class="buttons">
             <div class="into-article">
-              <a id="into-article" href="/articles">进入博客</a>
+              <a
+                id="into-article"
+                href="/articles"
+              >进入博客</a>
             </div>
           </div>
         </div>
@@ -185,7 +228,11 @@ const assets: Record<string, {
     </Gesture>
 
     <!-- Title -->
-    <Gesture :swipe-down="() => changeSlide('down')" freeze-time="300" :event-invoke="stopMove">
+    <Gesture
+      :swipe-down="() => changeSlide('down')"
+      freeze-time="300"
+      :event-invoke="stopMove"
+    >
       <div class="wrapper wrapper-brief">
         <div class="page-title-con">
           <div class="page-title">
@@ -195,11 +242,20 @@ const assets: Record<string, {
             Newest Posts
           </div>
           <div class="page-side-content">
-            <template v-for="article in homePage?.recommends" :key="article.to">
+            <template
+              v-for="article in homePage?.recommends"
+              :key="article.to"
+            >
               <p class="article-list">
-                <span class="article-list-label" v-text="article.category + '：'" />
+                <span
+                  class="article-list-label"
+                  v-text="article.category + '：'"
+                />
                 <span class="article-list-content">
-                  <a :href="article.to" v-text="article.label" />
+                  <a
+                    :href="article.to"
+                    v-text="article.label"
+                  />
                 </span>
               </p>
             </template>

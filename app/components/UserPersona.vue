@@ -11,42 +11,84 @@
     <template v-if="parsedData.template === 'persona'">
       <div class="persona-card">
         <div class="persona-header">
-          <div v-if="parsedData.data.avatar" class="persona-avatar">
+          <div
+            v-if="parsedData.data.avatar"
+            class="persona-avatar"
+          >
             {{ parsedData.data.avatar }}
           </div>
           <div class="persona-title">
             <h3>{{ parsedData.data.name }}</h3>
-            <p v-if="parsedData.data.role" class="persona-role">{{ parsedData.data.role }}</p>
+            <p
+              v-if="parsedData.data.role"
+              class="persona-role"
+            >
+              {{ parsedData.data.role }}
+            </p>
           </div>
         </div>
         <div class="persona-body">
-          <div v-if="parsedData.data.demographics?.length" class="persona-section">
+          <div
+            v-if="parsedData.data.demographics?.length"
+            class="persona-section"
+          >
             <h4>基本信息</h4>
             <div class="tag-list">
-              <span v-for="(item, i) in parsedData.data.demographics" :key="i" class="tag">
+              <span
+                v-for="(item, i) in parsedData.data.demographics"
+                :key="i"
+                class="tag"
+              >
                 {{ item }}
               </span>
             </div>
           </div>
-          <div v-if="parsedData.data.goals?.length" class="persona-section">
+          <div
+            v-if="parsedData.data.goals?.length"
+            class="persona-section"
+          >
             <h4>目标</h4>
             <ul>
-              <li v-for="(goal, i) in parsedData.data.goals" :key="i">{{ goal }}</li>
+              <li
+                v-for="(goal, i) in parsedData.data.goals"
+                :key="i"
+              >
+                {{ goal }}
+              </li>
             </ul>
           </div>
-          <div v-if="parsedData.data.painPoints?.length" class="persona-section">
+          <div
+            v-if="parsedData.data.painPoints?.length"
+            class="persona-section"
+          >
             <h4>痛点</h4>
             <ul class="pain-points">
-              <li v-for="(pain, i) in parsedData.data.painPoints" :key="i">{{ pain }}</li>
+              <li
+                v-for="(pain, i) in parsedData.data.painPoints"
+                :key="i"
+              >
+                {{ pain }}
+              </li>
             </ul>
           </div>
-          <div v-if="parsedData.data.behaviors?.length" class="persona-section">
+          <div
+            v-if="parsedData.data.behaviors?.length"
+            class="persona-section"
+          >
             <h4>行为特征</h4>
             <ul>
-              <li v-for="(behavior, i) in parsedData.data.behaviors" :key="i">{{ behavior }}</li>
+              <li
+                v-for="(behavior, i) in parsedData.data.behaviors"
+                :key="i"
+              >
+                {{ behavior }}
+              </li>
             </ul>
           </div>
-          <div v-if="parsedData.data.quote" class="persona-quote">
+          <div
+            v-if="parsedData.data.quote"
+            class="persona-quote"
+          >
             <blockquote>"{{ parsedData.data.quote }}"</blockquote>
           </div>
         </div>
@@ -62,10 +104,14 @@
           class="step-item"
           :class="{ 'is-active': step.active }"
         >
-          <div class="step-number">{{ i + 1 }}</div>
+          <div class="step-number">
+            {{ i + 1 }}
+          </div>
           <div class="step-content">
             <h4>{{ step.title }}</h4>
-            <p v-if="step.desc">{{ step.desc }}</p>
+            <p v-if="step.desc">
+              {{ step.desc }}
+            </p>
           </div>
         </div>
       </div>
@@ -77,14 +123,26 @@
         <div class="compare-side compare-left">
           <h4>{{ parsedData.data.left.title }}</h4>
           <ul>
-            <li v-for="(item, i) in parsedData.data.left.items" :key="i">{{ item }}</li>
+            <li
+              v-for="(item, i) in parsedData.data.left.items"
+              :key="i"
+            >
+              {{ item }}
+            </li>
           </ul>
         </div>
-        <div class="compare-divider">VS</div>
+        <div class="compare-divider">
+          VS
+        </div>
         <div class="compare-side compare-right">
           <h4>{{ parsedData.data.right.title }}</h4>
           <ul>
-            <li v-for="(item, i) in parsedData.data.right.items" :key="i">{{ item }}</li>
+            <li
+              v-for="(item, i) in parsedData.data.right.items"
+              :key="i"
+            >
+              {{ item }}
+            </li>
           </ul>
         </div>
       </div>
@@ -99,9 +157,17 @@
           class="stat-card"
           :style="{ '--accent-color': stat.color || 'var(--color-primary)' }"
         >
-          <div class="stat-value">{{ stat.value }}</div>
-          <div class="stat-label">{{ stat.label }}</div>
-          <div v-if="stat.change" class="stat-change" :class="{ 'is-positive': stat.change > 0, 'is-negative': stat.change < 0 }">
+          <div class="stat-value">
+            {{ stat.value }}
+          </div>
+          <div class="stat-label">
+            {{ stat.label }}
+          </div>
+          <div
+            v-if="stat.change"
+            class="stat-change"
+            :class="{ 'is-positive': stat.change > 0, 'is-negative': stat.change < 0 }"
+          >
             {{ stat.change > 0 ? '+' : '' }}{{ stat.change }}%
           </div>
         </div>
@@ -117,11 +183,15 @@
           class="timeline-item"
           :class="{ 'is-milestone': event.milestone }"
         >
-          <div class="timeline-marker"></div>
+          <div class="timeline-marker" />
           <div class="timeline-content">
-            <div class="timeline-date">{{ event.date }}</div>
+            <div class="timeline-date">
+              {{ event.date }}
+            </div>
             <h4>{{ event.title }}</h4>
-            <p v-if="event.desc">{{ event.desc }}</p>
+            <p v-if="event.desc">
+              {{ event.desc }}
+            </p>
           </div>
         </div>
       </div>

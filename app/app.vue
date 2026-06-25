@@ -17,7 +17,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
     hireNav,
     linksNav,
     achievedNav,
-    otherNav,
+    otherNav
   ] = await Promise.all([
     queryCollectionNavigation('flows'),
     queryCollectionNavigation('articles'),
@@ -29,7 +29,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
     queryCollectionNavigation('hire'),
     queryCollectionNavigation('links'),
     queryCollectionNavigation('achieved'),
-    queryCollectionNavigation('other'),
+    queryCollectionNavigation('other')
   ])
 
   // 合并所有导航，保持目录结构
@@ -44,7 +44,7 @@ const { data: navigation } = await useAsyncData('navigation', async () => {
     ...hireNav,
     ...linksNav,
     ...achievedNav,
-    ...otherNav,
+    ...otherNav
   ]
 })
 const filteredNavigation = computed(() => {
@@ -69,7 +69,7 @@ const filteredNavigation = computed(() => {
         if (item?.path?.includes('/_')) return false
         return true
       })
-      .map((item) => ({ ...item, children: filter(item.children, item.path) }))
+      .map(item => ({ ...item, children: filter(item.children, item.path) }))
   }
   return filter(navigation.value)
 })
@@ -103,7 +103,10 @@ provide('navigation', filteredNavigation)
 
 <template>
   <UApp>
-    <div id="app-content" :data-full-path="route?.fullPath">
+    <div
+      id="app-content"
+      :data-full-path="route?.fullPath"
+    >
       <Header id="app-header" />
 
       <UMain id="app-main">
@@ -115,7 +118,11 @@ provide('navigation', filteredNavigation)
       <Footer id="app-footer" />
 
       <ClientOnly>
-        <LazyUContentSearch id="app-search" :files="files" :navigation="filteredNavigation" />
+        <LazyUContentSearch
+          id="app-search"
+          :files="files"
+          :navigation="filteredNavigation"
+        />
       </ClientOnly>
     </div>
   </UApp>

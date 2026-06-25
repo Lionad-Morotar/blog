@@ -102,7 +102,7 @@ useSeoMeta({
   description: page.value.description,
   ogDescription: page.value.description,
   // Mark English pages as machine-translated
-  ogLocale: currentLocale.value === 'en' ? 'en_US' : 'zh_CN',
+  ogLocale: currentLocale.value === 'en' ? 'en_US' : 'zh_CN'
 })
 
 // hreflang for multilingual SEO (only if English version exists)
@@ -113,7 +113,7 @@ useHead(computed(() => {
   const links = [
     { rel: 'alternate', hreflang: 'zh', href: `${baseUrl}${basePath.value}` },
     { rel: 'alternate', hreflang: 'en', href: `${baseUrl}${enPath.value}` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${baseUrl}${basePath.value}` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${baseUrl}${basePath.value}` }
   ]
 
   return { link: links }
@@ -134,13 +134,17 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
   icon: 'i-heroicons-pencil-square',
   label: 'Edit this page',
   to: `${(toc?.bottom as any).edit}/${page?.value?.stem}.md`,
-  target: '_blank',
+  target: '_blank'
 }, ...(toc?.bottom?.links || [])].filter(Boolean))
 </script>
 
 <template>
   <UPage>
-    <UPageHeader :title="page.title" :description="page.description" :headline="headline">
+    <UPageHeader
+      :title="page.title"
+      :description="page.description"
+      :headline="headline"
+    >
       <template #links>
         <div class="flex flex-wrap items-center gap-2">
           <UButton
@@ -168,7 +172,10 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
     </UPageHeader>
 
     <UPageBody prose>
-      <ContentRenderer v-if="page.body" :value="page" />
+      <ContentRenderer
+        v-if="page.body"
+        :value="page"
+      />
       <ArticleTimestamp
         v-if="page.createdAt || page.updatedAt"
         :created-at="page.createdAt"
@@ -177,12 +184,30 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
       <UContentSurround :surround="surround" />
     </UPageBody>
 
-    <template v-if="page.toc !== false" #right>
-      <UContentToc :title="toc?.title" :links="page.body?.toc?.links">
-        <template v-if="toc?.bottom" #bottom>
-          <div class="hidden lg:block space-y-6" :class="{ '!mt-6': page.body?.toc?.links?.length }">
-            <USeparator v-if="page.body?.toc?.links?.length" type="dashed" />
-            <UPageLinks :title="toc.bottom.title" :links="links" />
+    <template
+      v-if="page.toc !== false"
+      #right
+    >
+      <UContentToc
+        :title="toc?.title"
+        :links="page.body?.toc?.links"
+      >
+        <template
+          v-if="toc?.bottom"
+          #bottom
+        >
+          <div
+            class="hidden lg:block space-y-6"
+            :class="{ '!mt-6': page.body?.toc?.links?.length }"
+          >
+            <USeparator
+              v-if="page.body?.toc?.links?.length"
+              type="dashed"
+            />
+            <UPageLinks
+              :title="toc.bottom.title"
+              :links="links"
+            />
           </div>
         </template>
       </UContentToc>

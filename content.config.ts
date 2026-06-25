@@ -8,7 +8,7 @@ const baseSchema = z.object({
     title: z.string().optional(),
     icon: z.string().optional(),
     to: z.string().optional(),
-    target: z.string().optional(),
+    target: z.string().optional()
   })]).optional(),
   toc: z.boolean().optional(),
   icon: z.string().optional(),
@@ -22,7 +22,7 @@ const baseSchema = z.object({
   draft: z.boolean().optional(),
   // nuxt-content-git 注入的字段
   createdAt: z.date().optional(),
-  updatedAt: z.date().optional(),
+  updatedAt: z.date().optional()
 })
 
 // 文章 Schema - 包含 links 字段（用于相关链接）
@@ -33,8 +33,8 @@ const articleSchema = baseSchema.extend({
     target: z.string().optional(),
     icon: z.string().optional(),
     color: z.string().optional(),
-    variant: z.string().optional(),
-  })).optional(),
+    variant: z.string().optional()
+  })).optional()
 })
 
 // 首页推荐 Schema
@@ -42,8 +42,8 @@ const recommendSchema = baseSchema.extend({
   recommends: z.array(z.object({
     category: z.string(),
     label: z.string(),
-    to: z.string(),
-  })).optional(),
+    to: z.string()
+  })).optional()
 })
 
 // 通用排除规则（保留 _ 开头的文件夹，在各集合中单独排除）
@@ -57,14 +57,14 @@ const commonExcludes = [
   '**/*.gif',
   '**/*.webp',
   '**/*.bmp',
-  '**/*.ico',
+  '**/*.ico'
 ]
 
 // 排除 _ 开头文件夹的规则（用于需要排除的集合）
 const excludesWithUnderscore = [
   ...commonExcludes,
   '**/_*/**',
-  '**/_*',
+  '**/_*'
 ]
 
 export default defineContentConfig({
@@ -75,9 +75,9 @@ export default defineContentConfig({
     recommends: defineCollection({
       type: 'page',
       source: {
-        include: 'index.yml',
+        include: 'index.yml'
       },
-      schema: recommendSchema,
+      schema: recommendSchema
     }),
 
     // 流程/Flows
@@ -88,11 +88,11 @@ export default defineContentConfig({
         exclude: [
           '**/.obsidian/**',
           '**/.!(navigation.yml)',
-          '**/*.excalidraw',
+          '**/*.excalidraw'
           // 注意：1.flows/_forty-two 被保留，不在此排除
-        ],
+        ]
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 文章/Articles
@@ -100,9 +100,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '2.articles/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: articleSchema,
+      schema: articleSchema
     }),
 
     // 书籍/Books
@@ -110,9 +110,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '4.books/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 音乐/Music
@@ -120,9 +120,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '4.music/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 知识地图/Maps
@@ -130,9 +130,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '6.maps/**',
-        exclude: commonExcludes,
+        exclude: commonExcludes
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 工具/Tools
@@ -140,9 +140,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '7.tools/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 源码分析/Source Code
@@ -150,9 +150,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '8.source-code/**',
-        exclude: commonExcludes,
+        exclude: commonExcludes
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 招聘/Hire
@@ -160,9 +160,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '9.hire/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 链接/Links
@@ -170,9 +170,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '10.links/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 归档内容（已发布但大概不再维护）
@@ -180,9 +180,9 @@ export default defineContentConfig({
       type: 'page',
       source: {
         include: '_achieved/**',
-        exclude: excludesWithUnderscore,
+        exclude: excludesWithUnderscore
       },
-      schema: baseSchema,
+      schema: baseSchema
     }),
 
     // 其他内容（未分类）
@@ -205,10 +205,10 @@ export default defineContentConfig({
           '_books/**',
           '_paint/**',
           'todo/**',
-          'en/**',
-        ],
+          'en/**'
+        ]
       },
-      schema: baseSchema,
-    }),
-  },
+      schema: baseSchema
+    })
+  }
 })

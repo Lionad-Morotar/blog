@@ -23,15 +23,16 @@ watch(isWideLayout, (value) => {
 <template>
   <UContainer :class="{ 'wide-layout': isWideLayout }">
     <UPage class="docs-page">
-
       <template #left>
         <UPageAside class="docs-aside-left">
-          <UContentNavigation :navigation="navigation" :collapsible="false" />
+          <UContentNavigation
+            :navigation="navigation"
+            :collapsible="false"
+          />
         </UPageAside>
       </template>
 
       <slot />
-
     </UPage>
   </UContainer>
 </template>

@@ -30,12 +30,10 @@ function mergeTrees(trees: PreviewNode[][]): PreviewNode[] {
         if (!existing) {
           map.set(node.name, node)
         }
-      }
-      else {
+      } else {
         if (!existing) {
           map.set(node.name, node)
-        }
-        else if (!existing.isFile && existing.children && node.children) {
+        } else if (!existing.isFile && existing.children && node.children) {
           existing.children = mergeTrees([existing.children, node.children])
         }
       }
@@ -54,7 +52,7 @@ export default defineEventHandler(async (event) => {
   const rawDirs = (config.previewDirs as string) || ''
   const dirs = rawDirs
     .split(',')
-    .map((d) => d.trim())
+    .map(d => d.trim())
     .filter(Boolean)
 
   if (dirs.length === 0) {
@@ -77,11 +75,10 @@ export default defineEventHandler(async (event) => {
           nodes.push({
             name: entry.name,
             isFile: false,
-            children: sortNodes(children),
+            children: sortNodes(children)
           })
         }
-      }
-      else if (entry.name.endsWith('.md')) {
+      } else if (entry.name.endsWith('.md')) {
         const slug = relPath.replace(/\.md$/, '')
         if (seenSlugs.has(slug)) {
           continue
@@ -96,15 +93,14 @@ export default defineEventHandler(async (event) => {
             isFile: true,
             slug,
             title: parsed.data?.title || slug,
-            description: parsed.data?.description,
+            description: parsed.data?.description
           })
-        }
-        catch {
+        } catch {
           nodes.push({
             name: entry.name,
             isFile: true,
             slug,
-            title: slug,
+            title: slug
           })
         }
       }
@@ -130,11 +126,10 @@ export default defineEventHandler(async (event) => {
             nodes.push({
               name: entry.name,
               isFile: false,
-              children: sortNodes(children),
+              children: sortNodes(children)
             })
           }
-        }
-        else if (entry.name.endsWith('.md')) {
+        } else if (entry.name.endsWith('.md')) {
           const slug = relPath.replace(/\.md$/, '')
           if (seenSlugs.has(slug)) {
             continue
@@ -149,22 +144,20 @@ export default defineEventHandler(async (event) => {
               isFile: true,
               slug,
               title: parsed.data?.title || slug,
-              description: parsed.data?.description,
+              description: parsed.data?.description
             })
-          }
-          catch {
+          } catch {
             nodes.push({
               name: entry.name,
               isFile: true,
               slug,
-              title: slug,
+              title: slug
             })
           }
         }
       }
       treeList.push(sortNodes(nodes))
-    }
-    catch {
+    } catch {
       // 如果目录不存在或无法读取，静默跳过
     }
   }

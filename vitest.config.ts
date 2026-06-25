@@ -2,7 +2,7 @@ import { defineVitestConfig } from '@nuxt/test-utils/config'
 
 export default defineVitestConfig({
   test: {
-    environment: 'node',
+    environment: 'node'
   },
   plugins: [
     {
@@ -23,7 +23,7 @@ export default defineVitestConfig({
             export function afterAll() {}
           `
         }
-      },
-    },
-  ],
+      }
+    }
+  ]
 })

@@ -8,12 +8,12 @@
  */
 
 interface Props {
-  src: string            // 源文件路径（相对于 maps/ 内容集合，不带 .md 后缀，如 "_docs/shared-config"）
-  showTitle?: string | boolean  // 是否显示源文件标题，默认 "true"
-  showLink?: string | boolean   // 是否显示"查看原文"链接，默认 "true"
-  'show-title'?: string | boolean  // MDC kebab-case 支持
-  'show-link'?: string | boolean   // MDC kebab-case 支持
-  class?: string         // 额外 CSS 类
+  'src': string // 源文件路径（相对于 maps/ 内容集合，不带 .md 后缀，如 "_docs/shared-config"）
+  'showTitle'?: string | boolean // 是否显示源文件标题，默认 "true"
+  'showLink'?: string | boolean // 是否显示"查看原文"链接，默认 "true"
+  'show-title'?: string | boolean // MDC kebab-case 支持
+  'show-link'?: string | boolean // MDC kebab-case 支持
+  'class'?: string // 额外 CSS 类
 }
 
 const props = defineProps<Props>()
@@ -27,11 +27,11 @@ const showLink = computed(() => rawShowLink.value !== 'false' && rawShowLink.val
 // 调试
 watchEffect(() => {
   console.log('[SectionEmbed] Props:', {
-    src: props.src,
-    showTitle: props.showTitle,
+    'src': props.src,
+    'showTitle': props.showTitle,
     'show-title': props['show-title'],
-    rawShowTitle: rawShowTitle.value,
-    computedShowTitle: showTitle.value
+    'rawShowTitle': rawShowTitle.value,
+    'computedShowTitle': showTitle.value
   })
 })
 
@@ -42,7 +42,7 @@ const currentPath = computed(() => route.path)
 // 解析相对路径
 function resolveRelativePath(src: string, basePath: string): string {
   // 移除 .md 后缀
-  let path = src.replace(/\.md$/, '')
+  const path = src.replace(/\.md$/, '')
 
   // 如果不是相对路径，返回相对于 maps 根目录的路径
   if (!path.startsWith('./') && !path.startsWith('../')) {
@@ -121,26 +121,38 @@ const { data } = await useAsyncData(
 </script>
 
 <template>
-  <div 
-    class="section-embed border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden my-4" 
+  <div
+    class="section-embed border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden my-4"
     :class="$props.class"
   >
     <!-- 头部信息 -->
-    <div v-if="showTitle || showLink" class="bg-gray-50 dark:bg-gray-800/50 px-4 py-2 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
-      <div v-if="showTitle && data?.title" class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-        <UIcon name="i-heroicons-document-duplicate" class="w-4 h-4 text-primary-500" />
+    <div
+      v-if="showTitle || showLink"
+      class="bg-gray-50 dark:bg-gray-800/50 px-4 py-2 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between"
+    >
+      <div
+        v-if="showTitle && data?.title"
+        class="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300"
+      >
+        <UIcon
+          name="i-heroicons-document-duplicate"
+          class="w-4 h-4 text-primary-500"
+        />
         {{ data.title }}
       </div>
-      <NuxtLink 
+      <NuxtLink
         v-if="showLink"
         :to="urlPath"
         class="text-xs text-gray-500 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400 flex items-center gap-1 transition-colors"
       >
         <span>查看原文</span>
-        <UIcon name="i-heroicons-arrow-top-right-on-square" class="w-3 h-3" />
+        <UIcon
+          name="i-heroicons-arrow-top-right-on-square"
+          class="w-3 h-3"
+        />
       </NuxtLink>
     </div>
-    
+
     <!-- 内容区域 -->
     <div class="relative">
       <div
@@ -149,9 +161,18 @@ const { data } = await useAsyncData(
         :class="{ 'resize-active': isResizing }"
         :style="customHeight ? { height: `${customHeight}px` } : { maxHeight: '50vh' }"
       >
-        <ContentRenderer v-if="data" :value="data" />
-        <div v-else class="text-red-500 text-sm p-4 bg-red-50 dark:bg-red-900/20 rounded">
-          <UIcon name="i-heroicons-exclamation-triangle" class="w-4 h-4 inline mr-1" />
+        <ContentRenderer
+          v-if="data"
+          :value="data"
+        />
+        <div
+          v-else
+          class="text-red-500 text-sm p-4 bg-red-50 dark:bg-red-900/20 rounded"
+        >
+          <UIcon
+            name="i-heroicons-exclamation-triangle"
+            class="w-4 h-4 inline mr-1"
+          />
           无法加载文件: {{ src }}
           <div class="text-xs text-gray-500 mt-1">
             尝试路径: {{ contentPath }}
@@ -162,7 +183,7 @@ const { data } = await useAsyncData(
       <!-- Resize handle -->
       <div
         class="resize-handle absolute bottom-0 right-0 w-4 h-4 cursor-ns-resize flex items-end justify-end group"
-        :class="{ 'active': isResizing }"
+        :class="{ active: isResizing }"
         @mousedown.prevent="startResize"
       >
         <svg
@@ -172,7 +193,11 @@ const { data } = await useAsyncData(
           stroke="currentColor"
           stroke-width="2"
         >
-          <path d="M22 22L16 16M22 16L16 22" stroke-linecap="round" stroke-linejoin="round" />
+          <path
+            d="M22 22L16 16M22 16L16 22"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </div>
     </div>

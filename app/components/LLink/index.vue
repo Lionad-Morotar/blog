@@ -6,7 +6,10 @@
       rel="noopener noreferrer"
       target="_blank"
       @click.prevent.stop="showpage"
-    ><span v-if="props.label" v-text="props.label" /> <slot v-else /></a>
+    ><span
+      v-if="props.label"
+      v-text="props.label"
+    /> <slot v-else /></a>
   </template>
   <template v-if="props.type === 'blockquote'">
     <blockquote>
@@ -17,7 +20,10 @@
           rel="noopener noreferrer"
           target="_blank"
           @click.prevent.stop="showpage"
-        ><span v-if="props.label" v-text="props.label" /> <slot v-else /></a>
+        ><span
+          v-if="props.label"
+          v-text="props.label"
+        /> <slot v-else /></a>
       </p>
     </blockquote>
   </template>
@@ -30,7 +36,10 @@
         target="_blank"
         @click.prevent.stop="showpage"
       >
-        <span v-if="props.label" v-text="props.label" />
+        <span
+          v-if="props.label"
+          v-text="props.label"
+        />
         <slot v-else />
       </a>
     </h5>
@@ -43,7 +52,7 @@ import {
   defineComponent,
   onMounted,
   nextTick,
-  onScopeDispose,
+  onScopeDispose
 } from 'vue'
 
 // 获取文件大小
@@ -53,8 +62,8 @@ const getOSSFilesize = async (url) => {
   const filesize = await fetch(
     `http://faas.lionad.art/getmeta?name=${filename}`
   )
-    .then((res) => res.text())
-    .then((res) => +res)
+    .then(res => res.text())
+    .then(res => +res)
   return filesize
 }
 
@@ -62,7 +71,7 @@ const getOSSFilesize = async (url) => {
 const getHTML = async (url) => {
   // TODO use dompurify
   // HTML 源码清洗，仅保留 HTML 和 CSS
-  const secureHTML = (html) =>
+  const secureHTML = html =>
     html
       .replace(/<!--[^-]*-->/gim, '')
       .replace(/<script[^>]*>/gim, ' <!-- ')
@@ -71,8 +80,8 @@ const getHTML = async (url) => {
       .replace(/(<a\s+[^>]*)href=/gim, '$1')
 
   return await fetch(url)
-    .then((res) => res.text())
-    .then((res) => secureHTML(res))
+    .then(res => res.text())
+    .then(res => secureHTML(res))
 }
 
 // MAIN
@@ -83,20 +92,20 @@ export default defineComponent({
   props: {
     type: {
       type: String,
-      default: 'h5',
+      default: 'h5'
     },
     to: {
       type: String,
-      default: '',
+      default: ''
     },
     source: {
       type: String,
-      default: '',
+      default: ''
     },
     label: {
       type: String,
-      default: '',
-    },
+      default: ''
+    }
   },
   setup(props) {
     const slots = useSlots()
@@ -104,7 +113,7 @@ export default defineComponent({
     // TODO auto sourceURL
     const data = reactive({
       loading: false,
-      slotContent: '',
+      slotContent: ''
     })
     const showpage = async (e) => {
       e.preventDefault()
@@ -154,9 +163,9 @@ export default defineComponent({
 
       const clean = () => {
         $iframe && $iframe.remove()
-        listener &&
-          (document.removeEventListener('keydown', listener),
-          innerDoc && innerDoc.addEventListener('keydown', listener))
+        listener
+        && (document.removeEventListener('keydown', listener),
+        innerDoc && innerDoc.addEventListener('keydown', listener))
       }
       await nextTick()
       disableInnerLink()
@@ -166,12 +175,12 @@ export default defineComponent({
       const container = document.querySelector(frameClassnameWithDot)
       const innerDoc = container.shadowRoot || container.document || container
       const alinks = innerDoc ? [...innerDoc.querySelectorAll('a')] : []
-      alinks.map((a) => a.removeAttribute('href'))
+      alinks.map(a => a.removeAttribute('href'))
     }
 
     onMounted(() => {
       const nameNode = slots.default
-      const safe = (text) => text.toLowerCase().replace(/\s+/g, '-')
+      const safe = text => text.toLowerCase().replace(/\s+/g, '-')
       if (nameNode) {
         data.slotContent = safe(nameNode.text || '')
       }
@@ -181,8 +190,8 @@ export default defineComponent({
       props,
       showpage,
       display,
-      disableInnerLink,
+      disableInnerLink
     }
-  },
+  }
 })
 </script>

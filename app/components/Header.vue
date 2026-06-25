@@ -13,7 +13,10 @@ function toggleWideLayout() {
 </script>
 
 <template>
-  <UHeader :class="{ 'wide-header': isWideLayout }" title="Lionad.ART">
+  <UHeader
+    :class="{ 'wide-header': isWideLayout }"
+    title="Lionad.ART"
+  >
     <template #title>
       <ClientOnly>
         <template v-if="header?.logo?.dark || header?.logo?.light">
@@ -25,12 +28,19 @@ function toggleWideLayout() {
       </ClientOnly>
     </template>
 
-    <template v-if="header?.search" #center>
+    <template
+      v-if="header?.search"
+      #center
+    >
       <UContentSearchButton class="hidden lg:flex" />
     </template>
 
     <template #right>
-      <UContentSearchButton v-if="header?.search" collapsed class="lg:hidden" />
+      <UContentSearchButton
+        v-if="header?.search"
+        collapsed
+        class="lg:hidden"
+      />
 
       <!-- 宽屏布局切换按钮 - 仅桌面端显示 -->
       <ClientOnly>

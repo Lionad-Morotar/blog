@@ -1,7 +1,12 @@
 <template>
   <!-- Keep this to fetch `default` slot in metadata -->
   <slot v-if="false" />
-  <pre ref="el" :style="{ display: rendered ? 'block' : 'none' }" class="not-prose" :class="`is-${size}`">
+  <pre
+    ref="el"
+    :style="{ display: rendered ? 'block' : 'none' }"
+    class="not-prose"
+    :class="`is-${size}`"
+  >
     {{ mermaidSyntax }}
   </pre>
 </template>
@@ -29,7 +34,7 @@ const softColorPalette = [
   { bg: '#E8D0D5', text: '#4A3A3F' }, // 玫瑰灰
   { bg: '#D8E8D4', text: '#3F4A3A' }, // 淡绿
   { bg: '#E4D0E8', text: '#453A4A' }, // 淡紫
-  { bg: '#D0D8E8', text: '#3A3F4A' }, // 钢蓝灰
+  { bg: '#D0D8E8', text: '#3A3F4A' } // 钢蓝灰
 ]
 
 /**
@@ -44,7 +49,7 @@ function getRandomColor() {
  * 确保颜色对比度符合 WCAG AA 标准（至少 4.5:1）
  */
 function ensureContrast(bg, text) {
-  let bgColor = tinycolor(bg)
+  const bgColor = tinycolor(bg)
   let textColor = tinycolor(text)
 
   // 计算当前对比度
@@ -150,7 +155,7 @@ function generateMermaidTheme() {
       nodeTextColor: primary.text,
 
       // 类图
-      classText: primary.text,
+      classText: primary.text
     }
   }
 }
@@ -210,7 +215,7 @@ async function render() {
   }
 
   const [{ default: mermaid }, { Svg2Roughjs }] = await Promise.all([
-    import("mermaid"),
+    import('mermaid'),
     import('svg2roughjs')
   ])
 
@@ -225,7 +230,7 @@ async function render() {
     flowchart: {
       htmlLabels: true,
       curve: 'basis',
-      padding: 16,
+      padding: 16
     },
     sequence: {
       diagramMarginX: 50,
@@ -241,7 +246,7 @@ async function render() {
       bottomMarginAdj: 1,
       useMaxWidth: true,
       rightAngles: false,
-      showSequenceNumbers: false,
+      showSequenceNumbers: false
     },
     gantt: {
       titleTopMargin: 25,
@@ -252,8 +257,8 @@ async function render() {
       gridLineStartPadding: 35,
       fontSize: 11,
       numberSectionStyles: 4,
-      axisFormat: '%Y-%m-%d',
-    },
+      axisFormat: '%Y-%m-%d'
+    }
   })
 
   el.value.classList.add('mermaid')
@@ -379,7 +384,7 @@ function openSvgModal(originalSvg, svgPanZoomFactory) {
       fit: true,
       center: true,
       minZoom: 0.5,
-      maxZoom: 10,
+      maxZoom: 10
     })
   } catch (e) {
     console.error('svg-pan-zoom init failed:', e)

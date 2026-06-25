@@ -29,14 +29,14 @@ const filteredNavigation = computed(() => {
   const filter = (items: ContentNavigationItem[] | undefined): ContentNavigationItem[] => {
     if (!items?.length) return []
     return items
-      .filter((item) => !(item?.path === '/en' || item?.path?.startsWith('/en/')))
-      .map((item) => ({ ...item, children: filter(item.children) }))
+      .filter(item => !(item?.path === '/en' || item?.path?.startsWith('/en/')))
+      .map(item => ({ ...item, children: filter(item.children) }))
   }
   return filter(navigation.value)
 })
 const { data: files } = useLazyFetch('/api/search.json', {
   default: () => [],
-  server: false,
+  server: false
 })
 
 provide('navigation', filteredNavigation)
@@ -57,8 +57,10 @@ provide('navigation', filteredNavigation)
     <Footer />
 
     <ClientOnly>
-      <LazyUContentSearch :files="files" :navigation="filteredNavigation" />
+      <LazyUContentSearch
+        :files="files"
+        :navigation="filteredNavigation"
+      />
     </ClientOnly>
-
   </div>
 </template>

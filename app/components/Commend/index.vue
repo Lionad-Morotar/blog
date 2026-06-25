@@ -6,25 +6,49 @@
     <template v-else>
       <div class="left-con">
         <div class="commend-image-con">
-          <img class="commend-image" :title="caption" :alt="caption" :src="src">
+          <img
+            class="commend-image"
+            :title="caption"
+            :alt="caption"
+            :src="src"
+          >
           <div class="commend-image-name">
             {{ caption }}
           </div>
         </div>
-        <details v-if="tags" class="tag-con" open>
+        <details
+          v-if="tags"
+          class="tag-con"
+          open
+        >
           <summary>标签</summary>
-          <div v-for="tag in tags" :key="tag" class="tag">
+          <div
+            v-for="tag in tags"
+            :key="tag"
+            class="tag"
+          >
             {{ tag }}
           </div>
         </details>
       </div>
       <div class="right-con">
-        <div v-for="callout in callouts" :key="callout" class="callout-con">
-          <div v-if="type !== 'min'" class="callout-icon">
+        <div
+          v-for="callout in callouts"
+          :key="callout"
+          class="callout-con"
+        >
+          <div
+            v-if="type !== 'min'"
+            class="callout-icon"
+          >
             💡
           </div>
           <div class="callout-line">
-            <div v-for="line in splitCallout(callout)" :key="line" class="callout">
+            <div
+              v-for="line in splitCallout(callout)"
+              :key="line"
+              class="callout"
+            >
               {{ line }}
             </div>
           </div>
@@ -45,7 +69,7 @@ defineProps({
   callouts: Array
 })
 
-const splitCallout = (callout) => callout.split('\n')
+const splitCallout = callout => callout.split('\n')
 
 onMounted(() => {
   // Lifecycle hooks or any other composition API related code can be added here.

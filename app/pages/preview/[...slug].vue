@@ -28,7 +28,7 @@ useSeoMeta({
   title: page.value.title,
   ogTitle: `${page.value.title} - ${seo?.siteName}`,
   description: page.value.description,
-  ogDescription: page.value.description,
+  ogDescription: page.value.description
 })
 
 const typedPage = computed(() => page.value as typeof page.value & { body?: { toc?: { links?: any[] } } })
@@ -36,14 +36,26 @@ const typedPage = computed(() => page.value as typeof page.value & { body?: { to
 
 <template>
   <UPage>
-    <UPageHeader :title="page.title" :description="page.description" />
+    <UPageHeader
+      :title="page.title"
+      :description="page.description"
+    />
 
     <UPageBody prose>
-      <ContentRenderer v-if="typedPage.body" :value="typedPage" />
+      <ContentRenderer
+        v-if="typedPage.body"
+        :value="typedPage"
+      />
     </UPageBody>
 
-    <template v-if="page.toc !== false" #right>
-      <UContentToc :title="toc?.title" :links="typedPage.body?.toc?.links" />
+    <template
+      v-if="page.toc !== false"
+      #right
+    >
+      <UContentToc
+        :title="toc?.title"
+        :links="typedPage.body?.toc?.links"
+      />
     </template>
   </UPage>
 </template>

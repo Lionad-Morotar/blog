@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
   const rawDirs = (config.previewDirs as string) || ''
   const dirs = rawDirs
     .split(',')
-    .map((d) => d.trim())
+    .map(d => d.trim())
     .filter(Boolean)
 
   if (dirs.length === 0) {
@@ -49,16 +49,15 @@ export default defineEventHandler(async (event) => {
           description: parsed.data?.description,
           body: {
             ...parsed.body,
-            toc: parsed.toc,
+            toc: parsed.toc
           },
           path: `/preview/${path}`,
-          toc: true,
+          toc: true
         }
-      }
-      catch (parseError) {
+      } catch (parseError) {
         throw createError({
           statusCode: 500,
-          statusMessage: `Failed to parse markdown: ${parseError instanceof Error ? parseError.message : 'unknown error'}`,
+          statusMessage: `Failed to parse markdown: ${parseError instanceof Error ? parseError.message : 'unknown error'}`
         })
       }
     }

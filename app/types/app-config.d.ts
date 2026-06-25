@@ -22,9 +22,9 @@ declare module 'nuxt/app' {
       credits?: string
       colorMode?: boolean
       links?: Array<{
-        icon?: string
-        to?: string
-        target?: string
+        'icon'?: string
+        'to'?: string
+        'target'?: string
         'aria-label'?: string
       }>
     }

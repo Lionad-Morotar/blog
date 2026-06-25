@@ -18,7 +18,7 @@ function formatDate(dateString: string): string {
   return date.toLocaleDateString('zh-CN', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric',
+    day: 'numeric'
   })
 }
 
@@ -38,7 +38,10 @@ const shouldShowUpdated = computed(() => {
       <span class="timestamp-label">发布于</span>
       <span class="timestamp-value">{{ formatDate(createdAt) }}</span>
     </div>
-    <div v-if="shouldShowUpdated" class="timestamp-item">
+    <div
+      v-if="shouldShowUpdated"
+      class="timestamp-item"
+    >
       <span class="timestamp-label">更新于</span>
       <span class="timestamp-value">{{ formatDate(updatedAt) }}</span>
     </div>

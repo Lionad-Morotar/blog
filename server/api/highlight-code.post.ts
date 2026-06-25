@@ -34,20 +34,19 @@ export default defineEventHandler(async (event) => {
               type: 'element',
               tagName: 'span',
               properties: { class: 'line-number' },
-              children: [{ type: 'text', value: String(lineNumber) }],
+              children: [{ type: 'text', value: String(lineNumber) }]
             })
             return node
-          },
-        },
-      ],
+          }
+        }
+      ]
     })
 
     return { html }
-  }
-  catch (err: any) {
+  } catch (err: any) {
     throw createError({
       statusCode: 500,
-      statusMessage: `Highlight failed: ${err?.message || 'unknown error'}`,
+      statusMessage: `Highlight failed: ${err?.message || 'unknown error'}`
     })
   }
 })

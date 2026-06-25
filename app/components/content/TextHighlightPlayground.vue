@@ -2,7 +2,10 @@
   <div class="text-highlight-playground">
     <div class="playground-layout">
       <!-- 左侧内容区 -->
-      <div class="content-area" ref="articleRef">
+      <div
+        ref="articleRef"
+        class="content-area"
+      >
         <article class="article-card">
           <h2 class="text-xl font-bold mb-4 text-primary">
             浏览器文本高亮原理
@@ -33,7 +36,10 @@
         <UCard>
           <template #header>
             <div class="flex items-center gap-2">
-              <UIcon name="i-heroicons-paint-brush" class="text-primary" />
+              <UIcon
+                name="i-heroicons-paint-brush"
+                class="text-primary"
+              />
               <span class="font-semibold">高亮控制面板</span>
             </div>
           </template>
@@ -49,8 +55,8 @@
                 :key="color.name"
                 :class="['color-btn', { active: currentColor === color.name }]"
                 :style="{ backgroundColor: color.value }"
-                @click="currentColor = color.name"
                 size="sm"
+                @click="currentColor = color.name"
               />
             </div>
           </div>
@@ -95,7 +101,10 @@
           </div>
 
           <!-- 已保存高亮 -->
-          <div v-if="highlights.length > 0" class="mb-6">
+          <div
+            v-if="highlights.length > 0"
+            class="mb-6"
+          >
             <label class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 block">
               已保存的高亮 ({{ highlights.length }})
             </label>
@@ -207,7 +216,7 @@ const storageDisplay = computed(() => {
 
 // 生命周期
 onMounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     document.addEventListener('selectionchange', handleSelectionChange)
     document.addEventListener('mouseup', handleMouseUp)
     document.addEventListener('keydown', handleKeydown)
@@ -216,7 +225,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (process.client) {
+  if (import.meta.client) {
     document.removeEventListener('selectionchange', handleSelectionChange)
     document.removeEventListener('mouseup', handleMouseUp)
     document.removeEventListener('keydown', handleKeydown)
@@ -225,7 +234,7 @@ onUnmounted(() => {
 
 // 处理选择变化
 function handleSelectionChange() {
-  if (!process.client) return
+  if (!import.meta.client) return
 
   const selection = window.getSelection()
 
@@ -258,7 +267,7 @@ function handleSelectionChange() {
 
 // 鼠标抬起显示工具栏
 function handleMouseUp(e) {
-  if (!process.client) return
+  if (!import.meta.client) return
 
   const selection = window.getSelection()
   if (!selection.rangeCount || selection.isCollapsed) {
@@ -293,7 +302,7 @@ function handleKeydown(e) {
 
 // 应用高亮
 function applyHighlight() {
-  if (!currentSelection.value || !process.client) return
+  if (!currentSelection.value || !import.meta.client) return
 
   const { range, text, ...data } = currentSelection.value
 
@@ -360,7 +369,7 @@ function getXPath(node) {
 
 // 删除高亮
 function deleteHighlight(id) {
-  if (!process.client) return
+  if (!import.meta.client) return
 
   const span = document.querySelector(`[data-highlight-id="${id}"]`)
   if (span) {
@@ -379,9 +388,9 @@ function deleteHighlight(id) {
 
 // 清除所有高亮
 function clearAllHighlights() {
-  if (!process.client) return
+  if (!import.meta.client) return
 
-  document.querySelectorAll('[data-highlight-id]').forEach(span => {
+  document.querySelectorAll('[data-highlight-id]').forEach((span) => {
     const parent = span.parentNode
     while (span.firstChild) {
       parent.insertBefore(span.firstChild, span)
@@ -397,13 +406,13 @@ function clearAllHighlights() {
 
 // 保存/加载高亮
 function saveHighlights() {
-  if (process.client) {
+  if (import.meta.client) {
     localStorage.setItem('text-highlight-playground', JSON.stringify(highlights.value))
   }
 }
 
 function loadHighlights() {
-  if (!process.client) return
+  if (!import.meta.client) return
 
   const saved = localStorage.getItem('text-highlight-playground')
   if (saved) {
@@ -425,7 +434,7 @@ function copyRangeInfo() {
     return
   }
 
-  if (process.client) {
+  if (import.meta.client) {
     navigator.clipboard.writeText(JSON.stringify(currentSelection.value, null, 2))
     toast.add({ title: '已复制到剪贴板', color: 'green' })
   }

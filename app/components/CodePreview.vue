@@ -39,8 +39,7 @@ async function scrollToFirstHighlight() {
       const lineHeight = first.offsetHeight || 16
       const offset = firstRect.top - parentRect.top + scrollParent.scrollTop - lineHeight * 2
       scrollParent.scrollTop = Math.max(0, offset)
-    }
-    else {
+    } else {
       first.scrollIntoView({ block: 'start', inline: 'nearest' })
     }
     return true
@@ -61,13 +60,12 @@ async function highlight() {
         code: props.code,
         language: props.language || 'text',
         theme: colorMode.value === 'dark' ? 'github-dark' : 'github-light',
-        highlightLines: props.highlightLines || [],
-      },
+        highlightLines: props.highlightLines || []
+      }
     })
     highlightedHtml.value = result.html
     scrollToFirstHighlight()
-  }
-  catch {
+  } catch {
     // fallback to plain text wrapped in pre
     highlightedHtml.value = `<pre class="shiki" style="padding: 0.75rem 0"><code>${escapeHtml(props.code)}</code></pre>`
     scrollToFirstHighlight()
@@ -86,7 +84,7 @@ watch(
   () => {
     highlight()
   },
-  { immediate: true },
+  { immediate: true }
 )
 
 async function copyCode() {
@@ -106,8 +104,14 @@ async function copyCode() {
       class="flex items-center justify-between px-3 py-2 border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900"
     >
       <div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-        <span v-if="language" class="font-mono">{{ language }}</span>
-        <span v-if="filename" class="font-medium">{{ filename }}</span>
+        <span
+          v-if="language"
+          class="font-mono"
+        >{{ language }}</span>
+        <span
+          v-if="filename"
+          class="font-medium"
+        >{{ filename }}</span>
       </div>
       <button
         type="button"
@@ -142,19 +146,29 @@ async function copyCode() {
           stroke-linecap="round"
           stroke-linejoin="round"
         >
-          <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+          <rect
+            width="14"
+            height="14"
+            x="8"
+            y="8"
+            rx="2"
+            ry="2"
+          />
           <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
         </svg>
       </button>
     </div>
 
     <div
-      ref="contentRef"
       v-if="highlightedHtml"
+      ref="contentRef"
       class="text-[13px] [&_pre]:bg-transparent [&_pre]:m-0 [&_pre]:p-0 [&_code]:block [&_code]:w-full"
       v-html="highlightedHtml"
     />
-    <div v-else class="flex items-center justify-center h-32 text-sm text-gray-400">
+    <div
+      v-else
+      class="flex items-center justify-center h-32 text-sm text-gray-400"
+    >
       高亮加载中...
     </div>
   </div>

@@ -1,7 +1,13 @@
 <template>
-  <span class="spark-cmpt" :class="classname || ''">
+  <span
+    class="spark-cmpt"
+    :class="classname || ''"
+  >
     <particle
-      v-for="sparkle in data.sparkles" :key="sparkle.id" :color="sparkle.color" :size="sparkle.size"
+      v-for="sparkle in data.sparkles"
+      :key="sparkle.id"
+      :color="sparkle.color"
+      :size="sparkle.size"
       :styles="sparkle.style"
     />
     <span class="children-wrapper">

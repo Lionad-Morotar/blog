@@ -12,7 +12,7 @@ export default defineAppConfig({
     }
   },
   seo: {
-    siteName: 'Lionad\'s Blog and KnowledgeBase',
+    siteName: 'Lionad\'s Blog and KnowledgeBase'
   },
   header: {
     logo: {
@@ -24,31 +24,31 @@ export default defineAppConfig({
     links: [
       {
         label: 'Posts',
-        to: '/articles',
+        to: '/articles'
       },
       {
         label: 'Maps',
-        to: '/maps',
+        to: '/maps'
       },
       {
         label: 'Links',
-        to: '/links',
-      },
+        to: '/links'
+      }
     ],
-    colorMode: true,
+    colorMode: true
   },
   footer: {
     credits: 'Copyright © 2024 Lionad - CC-BY-NC-CD-4.0',
     colorMode: true,
     links: [{
-      icon: 'i-simple-icons-github',
-      to: 'https://github.com/Lionad-Morotar',
-      target: '_blank',
+      'icon': 'i-simple-icons-github',
+      'to': 'https://github.com/Lionad-Morotar',
+      'target': '_blank',
       'aria-label': 'Lionad-Morotar on GitHub'
     }, {
-      icon: 'i-simple-icons-juejin',
-      to: 'https://juejin.cn/user/289926800227694/posts',
-      target: '_blank',
+      'icon': 'i-simple-icons-juejin',
+      'to': 'https://juejin.cn/user/289926800227694/posts',
+      'target': '_blank',
       'aria-label': 'Lionad-Morotar on JueJin'
     }]
   },
@@ -61,7 +61,7 @@ export default defineAppConfig({
           icon: 'i-heroicons-book-open',
           label: 'RSS',
           to: 'feed.xml',
-          target: '_blank',
+          target: '_blank'
         }
       ]
     }

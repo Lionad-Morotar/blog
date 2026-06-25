@@ -66,19 +66,28 @@ const loadingText = computed(() => {
 <template>
   <div class="excalidraw-wrapper">
     <ClientOnly>
-      <div v-if="pending" class="excalidraw-state">
+      <div
+        v-if="pending"
+        class="excalidraw-state"
+      >
         <span class="excalidraw-state-text">{{ loadingText }}</span>
       </div>
-      <div v-else-if="error" class="excalidraw-state excalidraw-error">
+      <div
+        v-else-if="error"
+        class="excalidraw-state excalidraw-error"
+      >
         <span class="excalidraw-state-text">图表加载失败: {{ error.message }}</span>
       </div>
-      <div v-else-if="!diagramData" class="excalidraw-state excalidraw-error">
+      <div
+        v-else-if="!diagramData"
+        class="excalidraw-state excalidraw-error"
+      >
         <span class="excalidraw-state-text">图表数据为空</span>
       </div>
       <ExcalidrawBoard
         v-else
-        :initialData="diagramData"
-        :viewModeEnabled="true"
+        :initial-data="diagramData"
+        :view-mode-enabled="true"
         :theme="excalidrawTheme"
         :UIOptions="uiOptions"
       />

@@ -14,7 +14,7 @@ const props = defineProps<{
 }>()
 
 const open = defineModel<Record<string, boolean>>('open', {
-  default: () => ({}),
+  default: () => ({})
 })
 
 function toggle(name: string) {
@@ -27,8 +27,15 @@ function isOpen(name: string): boolean {
 </script>
 
 <template>
-  <ul class="space-y-0.5" :class="level ? 'ms-5 border-l border-gray-200 dark:border-gray-800 pl-2' : ''">
-    <li v-for="node in nodes" :key="node.name" class="">
+  <ul
+    class="space-y-0.5"
+    :class="level ? 'ms-5 border-l border-gray-200 dark:border-gray-800 pl-2' : ''"
+  >
+    <li
+      v-for="node in nodes"
+      :key="node.name"
+      class=""
+    >
       <!-- Folder -->
       <div
         v-if="!node.isFile"
@@ -52,7 +59,10 @@ function isOpen(name: string): boolean {
         :to="`/preview/${node.slug}`"
         class="flex items-center gap-2 rounded px-2 py-1 text-sm text-primary hover:bg-gray-100 hover:underline dark:hover:bg-gray-800"
       >
-        <UIcon name="lucide:file-text" class="h-4 w-4 shrink-0 text-gray-400" />
+        <UIcon
+          name="lucide:file-text"
+          class="h-4 w-4 shrink-0 text-gray-400"
+        />
         <span class="truncate">{{ node.title || node.name }}</span>
       </NuxtLink>
 

@@ -1,12 +1,24 @@
 <template>
-  <div ref="cmpt" class="compare-cmpt">
-    <div ref="left" class="left">
+  <div
+    ref="cmpt"
+    class="compare-cmpt"
+  >
+    <div
+      ref="left"
+      class="left"
+    >
       <slot name="left" />
     </div>
-    <div ref="right" class="right">
+    <div
+      ref="right"
+      class="right"
+    >
       <slot name="right" />
     </div>
-    <div ref="cursor" class="cursor" />
+    <div
+      ref="cursor"
+      class="cursor"
+    />
   </div>
 </template>
 
@@ -19,12 +31,12 @@ const right = ref(null)
 const cursor = ref(null)
 
 const state = reactive({
-    cursorWidth: 4,
-    cursorPos: null,
-    cordRec: {},
-    offset: {},
-    parentWH: {},
-    posStore: null
+  cursorWidth: 4,
+  cursorPos: null,
+  cordRec: {},
+  offset: {},
+  parentWH: {},
+  posStore: null
 })
 
 onMounted(() => {
@@ -113,7 +125,6 @@ function calcOffset() {
   }
 }
 </style>
-
 
 <style lang="stylus" scoped>
 .compare-cmpt {

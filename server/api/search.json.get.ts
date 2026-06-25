@@ -29,14 +29,14 @@ export default defineEventHandler(async (event: H3Event) => {
     'hire',
     'links',
     'achieved',
-    'other',
+    'other'
   ] as const
 
   const allSections = await Promise.all(
     collections.map(collection =>
       queryCollectionSearchSections(event, collection, {
         minHeading: 'h2', // 从 h2 开始索引，跳过 h1（通常是页面标题）
-        maxHeading: 'h3', // 最多到 h3，避免过多细粒度 section
+        maxHeading: 'h3' // 最多到 h3，避免过多细粒度 section
       })
     )
   )
@@ -46,6 +46,6 @@ export default defineEventHandler(async (event: H3Event) => {
 
   return flattenedSections.map(section => ({
     ...section,
-    content: truncateContent(section.content, 100),
+    content: truncateContent(section.content, 100)
   }))
 })
