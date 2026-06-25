@@ -1,0 +1,1 @@
+{"nodes": [{"id": "content_config_ts", "label": "content.config.ts", "file_type": "code", "source_file": "content.config.ts", "source_location": "L1"}], "edges": [{"source": "content_config_ts", "target": "content", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "content.config.ts", "source_location": "L1", "weight": 1.0}]}
