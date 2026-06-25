@@ -1,4 +1,5 @@
 import type { NitroApp } from 'nitropack'
+import { resolveCoverImage } from '../utils/feed-cover'
 
 export default defineNitroPlugin((nitroApp: NitroApp) => {
   // 处理 content feed 生成前的数据
@@ -47,12 +48,19 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
       }
     }
 
+    // 站点配置（硬编码，避免依赖 nuxt.config.ts 的 runtimeConfig 注入）
+    const siteUrl = 'https://lionad.art'
+    const defaultCover = `${siteUrl}/images/cover-placeholder.png`
+
+    // 解析封面图
+    const cover = resolveCoverImage(raw, defaultCover, siteUrl)
+
     // 构建新的 item 对象
-    const newItem: any = {
+    const newItem: Record<string, unknown> = {
       ...currentItem,
       title: currentItem.title || raw.title || '无标题',
       date: itemDate,
-      published: currentItem.published || itemDate,
+      published: currentItem.published || itemDate
     }
 
     // 确保 link 是绝对 URL
@@ -60,8 +68,16 @@ export default defineNitroPlugin((nitroApp: NitroApp) => {
     if (link) {
       link = String(link)
       if (!link.startsWith('http')) {
-        newItem.link = `https://lionad.art${link}`
-        newItem.id = `https://lionad.art${link}`
+        newItem.link = `${siteUrl}${link}`
+        newItem.id = `${siteUrl}${link}`
+      }
+    }
+
+    // 设置封面图 enclosure
+    if (cover) {
+      newItem.image = {
+        url: cover.url,
+        type: cover.type
       }
     }
 
