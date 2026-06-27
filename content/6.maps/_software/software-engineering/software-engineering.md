@@ -108,3 +108,27 @@ Fred Brooks 在《No Silver Bullet》(1986) 中区分了两种复杂度：
 更健康的视角是将代码视为"花费的行数"（lines spent）。删除代码减少未来成本，即使表现为"负生产力"。优秀的工程师通过精简实现降低系统复杂度，而非通过增加代码展示工作量。
 
 见：[Lines of code are useful](https://entropicthoughts.com/lines-of-code)：kqr 关于 LOC 作为成本指标的洞见
+
+#### Token Maxing：AI 使用量排行榜如何扭曲工程激励
+
+当 AI 的 token 消耗、生成代码量或 agent 调用次数被纳入工程师绩效或内部排行榜时，工程师会开始刻意刷量：让 AI 重复解释基础文档、执行无意义的指令、把简单任务交给 agent 以冲高调用数。这种被称为 token maxing 的现象已在 Meta、Amazon、Microsoft 等公司内部出现。它不只是浪费预算，更把工程师的注意力从“交付可靠价值”转移到“证明自己在用 AI”，让组织误以为高 token 消耗等于高产出，最终侵蚀质量文化和真实交付。
+
+见：[Meta shifts from "tokenmaxxing" to token managing](https://the-decoder.com/meta-shifts-from-tokenmaxxing-to-token-managing-as-internal-ai-costs-reportedly-hit-billions/)、[Tech workers maxed out their AI use](https://www.nytimes.com/2026/06/18/technology/ai-token-minimizing.html)
+
+#### 验证缺口：生成速度已超过审查能力
+
+AI 工具让代码产出速度大幅提升，但审查、测试和理解系统的速度并没有同比例增长，结果就是大量 AI 生成代码未经充分人工验证就进入生产。Meta Instagram 的账户接管漏洞据称与 AI 编写、AI 审查的代码有关；Amazon 的 AI 编码助手 Kiro 被曝出删除生产环境并引发严重 outage；GitHub 则因 agentic 工作负载快速增长而可用性下降。这些事件的共同根因不是代码生成太慢，而是系统信任的积累速度赶不上代码的积累速度。
+
+见：[Hackers Used Meta's AI Support Bot to Seize Instagram Accounts](https://krebsonsecurity.com/2026/06/hackers-used-metas-ai-support-bot-to-seize-instagram-accounts/)、[When AI Deletes Production: The Amazon Kiro Incident](https://course.shuruai.com/blog/when-ai-deletes-production)、[The Pulse: AI load breaks GitHub](https://newsletter.pragmaticengineer.com/p/the-pulse-github-breaks)
+
+#### Agentic 负载正在压垮现有基础设施
+
+当整个工程组织把代码审查、PR、搜索、文档解析甚至部分部署都交给 agent 完成时，平台侧承受的压力会远超最初设计容量。GitHub 反映其基础设施在约两年内负载增长约三倍，导致可用性事件频发；Amazon 的内部 AI 助手曾因自主操作而直接删除生产环境。这说明基础设施的韧性、可观测性和配额治理必须赶在 agent 规模化之前到位，否则生成侧越快，系统整体反而越脆弱。
+
+见：[The Pulse: AI load breaks GitHub](https://newsletter.pragmaticengineer.com/p/the-pulse-github-breaks)、[Amazon Kiro Deleted Production](https://atypicaltech.dev/blog/amazon-kiro-when-your-ai-deletes-production/)
+
+#### 慢下来才能更快：把 agent 用量限制在自己能验证的范围内
+
+真正的长期收益不是个人产出速度，而是团队能否在更高速度下保持质量。Gergely Orosz 的建议是把每日 agent 使用量封顶在自己能审计、测试或系统验证的范围内；利用 AI 快速清理技术债，把自己从“写代码的人”变成“架构维护者”；同时不要让 AI 替代深度领域知识，否则短期快是以长期技能衰退为代价。这种“先建护栏、再踩油门”的策略，是 AI 时代软件工程从个人效率转向系统效率的关键。
+
+见：[Slow down to speed up: AI and software engineering](https://www.bestblogs.dev/video/550c5a2)、[Ideas: slow down to speed up when working with AI agents](https://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when)

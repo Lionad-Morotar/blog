@@ -51,3 +51,4 @@ refs
 .planning/*
 !.planning/config.json
 !.planning/codebase 
+.gstack/
