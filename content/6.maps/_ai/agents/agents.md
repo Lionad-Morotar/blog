@@ -52,6 +52,10 @@ original_path: _ai/agents.md
 
 * [Harness 工程](/maps/_ai/agents/harness-engineering)：控制论前馈/反馈、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计
 
+## 企业落地
+
+* [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](/maps/_ai/agents/tokenmaxxing)：Agentic coding 成本失控、组织流程瓶颈、能力错配与 J 型曲线下探
+
 ## 参考
 
 * [Building effective agents @Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
