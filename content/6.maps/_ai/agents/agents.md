@@ -48,6 +48,10 @@ original_path: _ai/agents.md
 
 * [人机协作智能体团队](/maps/_ai/agents/human-agent-teams)：Anthropic 关于构建高效人类与智能体协作团队的经验
 
+## Harness 工程
+
+* [Harness 工程](/maps/_ai/agents/harness-engineering)：控制论前馈/反馈、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计
+
 ## 参考
 
 * [Building effective agents @Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
