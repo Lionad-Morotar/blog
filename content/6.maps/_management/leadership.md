@@ -44,3 +44,4 @@ description: 领导力原则与团队管理智慧
 文章暗示工程工作不仅是技术挑战，更是情感/心理挑战。持续的自我怀疑需要 ego 来对抗。这种"情感劳动"往往被技术文化忽视，却是决定工程师能否在大型组织中持续产出的关键因素。
 
 见：[Big Tech Needs Big Egos](https://www.seangoedecke.com/big-tech-needs-big-egos/)
+

@@ -32,7 +32,8 @@ description: >
 | Avi Chawla（Daily Dose of DS） | `references/avi-chawla/` | 反直觉钩子、数据冲击、单句成段、零过渡语、原因反转、对比验证 |
 | Lionad 博客 | `references/lionad/` | 口语化排查叙事、大幅删减只留主线、单点技术机制讲透、问题导向小标题推进 |
 
-如果用户要求其他风格（如 Paul Graham、Nat Friedman 等），先分析用户提供的参考文章，然后在 `references/` 下新建对应目录，写入 `instructions.md`、`compose.md` 和 `example.md`。
+如果用户要求其他风格（如 Paul Graham、Nat Friedman 等），先分析用户提供的参考文章，然后在 `references/` 下新建对应目录，写入 `instructions.md`、
+`compose.md` 和 `example.md`。
 
 ## 操作流程
 
@@ -90,3 +91,4 @@ description: >
 - **原文缺乏数据**：如果原文确实没有可引用的数字，可以保留描述性论证，但尝试将抽象概念转化为具体场景
 - **用户要求其他风格**：如果用户明确要求其他参考风格，在 `references/` 下新建目录，分析用户提供的文章并创建对应的 `instructions.md`、`compose.md` 和 `example.md`
 - **非技术文档**：如果是纯叙事/文学类文档，提示用户该风格主要针对技术写作，询问是否继续
+

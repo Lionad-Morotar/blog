@@ -727,12 +727,14 @@ title: 🍥 9种CSS图案解析
 
 这是我们第一次碰上背景移动的情况，不过这张图片组成简单，以下是分析。
 
-- 背景的移动不外乎都是 CSS Animation + Background-* 属性完成的。此图的背景渐变是一个简单的 45deg 的两条纹理渐变，推测背景使用了 Animation + Background-Position 进行平移。
+- 背景的移动不外乎都是 CSS Animation + Background-* 属性完成的。此图的背景渐变是一个简单的 45deg 的两条纹理渐变，
+推测背景使用了 Animation + Background-Position 进行平移。
 - 再看文字部分，易得文字是由一个带 180deg 渐变的背景 + Text-Shadow 组成。
 
     文字可以使用渐变背景？对，通过 Background-Clip 可以实现文字对背景图案裁剪功能。
 
-    由于 Text-Shadow 的颜色比渐变深，但是观察发现 Text-Shadow 并没有被裁剪进入字体中，推断文字应该是由两个伪元素组成的，使用 Background-Clip 属性的伪元素层级要比使用 Text-Shadow 的伪元素高。
+    由于 Text-Shadow 的颜色比渐变深，但是观察发现 Text-Shadow 并没有被裁剪进入字体中，推断文字应该是由两个伪元素组成的，
+    使用 Background-Clip 属性的伪元素层级要比使用 Text-Shadow 的伪元素高。
 
 - 最后是文字下面两道横线。这个的画实现方法太多了，双伪元素 Border 也可，Box-Shadow 也可，Border-Image 也可，Background-Image 也可...
 
@@ -924,3 +926,4 @@ title: 🍥 9种CSS图案解析
 我的博客有源码 [Lionad's Blog](http://localhost:8080/articles/9张看面试题也写不出来的CSS图案.html)。
 
 转载随意，注明出处掘金及名 Lionad 即可。
+

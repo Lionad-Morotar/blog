@@ -9,4 +9,8 @@ description: Communication is the process of exchanging information, ideas, thou
 
 ## 概述
 
-Communication (沟通) is the process of exchanging information, ideas, thoughts, and feelings between individuals or groups. Effective communication involves not just transmitting messages, but ensuring they are understood as intended. This domain covers communication patterns, techniques, and common pitfalls like the Bikeshed Effect.
+Communication (沟通) is the process of exchanging information, ideas, thoughts,
+and feelings between individuals or groups. Effective communication involves not just transmitting messages,
+but ensuring they are understood as intended. This domain covers communication patterns, techniques,
+and common pitfalls like the Bikeshed Effect.
+

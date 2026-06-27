@@ -11,7 +11,8 @@ description: 错误边界最早是由 React 提出的概念，但偶然发现 vu
 
 ## Vue 中的错误捕获
 
-VueJS 内置了两种选项用于捕获组件中出现的错误，errorHandler 和 errorCaptured（Vue@2.5+），分别用于设置全局的错误捕获与子孙组件的错误捕获。VueJS 自定义了错误的传播规则：只要 errorCaptured 没有返回 false，错误就会一直向上传播：
+VueJS 内置了两种选项用于捕获组件中出现的错误，errorHandler 和 errorCaptured（Vue@2.5+），分别用于设置全局的错误捕获与子孙组件的错误捕获。VueJS 自定义了错误的传播规则：
+只要 errorCaptured 没有返回 false，错误就会一直向上传播：
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20201013110407.png)
 
@@ -177,3 +178,4 @@ export default defineComponent({
 * [vue-error-boundary](https://github.com/dillonchanis/vue-error-boundary#readme)
 * [VueJS 选项/生命周期钩子 errorCaptured](https://cn.vuejs.org/v2/api/#errorCaptured)
 * [5 种处理 Vue 异常的方法](https://juejin.im/post/6844903869428793351)
+

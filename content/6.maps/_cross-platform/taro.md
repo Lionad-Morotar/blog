@@ -17,7 +17,9 @@ codemod -m -d /home/jrosenstein/www --extensions php,html \
 
 <q>从开发的角度来说，小程序的开发体验就非常值得商榷了，不仅语法上显得有些不伦不类，而且有些莫名其妙的坑也经常让人不经意间感叹一下和谐社会，从市面上层出不穷的小程序开发框架就可见一斑。</q>
 
-依赖管理混乱；不能用 CSS 预处理器或 CSS Module；ES6 支持度低。.. 这些其实是小程序 IDE 的问题，如果小程序的开发一开始就是确定一套规范，使用 JS 开发，然后围绕代码产出一套 IDE 插件（类似 Vue + Vue SFC + VS Code 插件），那会少很多麻烦。最要命的是，所有人都知道微信的这个“独特的” DSL 中间层其实就是开发的性能瓶颈所在。虽然说 Taro 博客从写从数百个 Nerv 组件编译到微信只要几十秒，但这背后的成本其实是 Taro 团队，甚至整个社区要为微信小程序填坑投入人力资源。如果按照“不符合直觉的坑才是真坑”的原则来说，上面提到的微信小程序的这些缺陷还不算坑，但它确实浪费了许多人的时间。
+依赖管理混乱；不能用 CSS 预处理器或 CSS Module；ES6 支持度低。.. 这些其实是小程序 IDE 的问题，如果小程序的开发一开始就是确定一套规范，使用 JS 开发，然后围绕代码产出一套 IDE 插件（
+类似 Vue + Vue SFC + VS Code 插件），那会少很多麻烦。最要命的是，所有人都知道微信的这个“独特的” DSL 中间层其实就是开发的性能瓶颈所在。虽然说 Taro 博客从写从数百个 Nerv 组件编译到微信只要几十秒，
+但这背后的成本其实是 Taro 团队，甚至整个社区要为微信小程序填坑投入人力资源。如果按照“不符合直觉的坑才是真坑”的原则来说，上面提到的微信小程序的这些缺陷还不算坑，但它确实浪费了许多人的时间。
 
 <q>每调用一次 setData，小程序内部都会将该部分数据在逻辑层（运行环境 JSCore）进行类似序列化的操作，将数据转换成字符串形式传递给视图层（运行环境 WebView），视图层通过反序列化拿到数据后再进行页面渲染</q>
 
@@ -27,7 +29,8 @@ Taro 会自动把多次 setData 合并，并且剔出只发生了改变的部分
 
 <q>Template 模板方案是一个失败的组件化方案，Taro 开源初期的 Bug 主要来源于此。因为这一方案将 JS 逻辑与模板拆分开了，需要手工来保证 JS 与模板中数据一致，这样在循环组件渲染、组件多重嵌套的情况下，要保证组件正确渲染与 props 正确传递的难度非常大，实现的成本也非常高。</q>
 
-其实吧，还是 IDE 的锅。同样是 string-based 的 Vuex 就不会用这种问题，如果说 Vuex 太轻无法和 Template 作为一个量级的比较的话，那么 HTML 和 CSS 脱离了 IDE 也是 string-based 的。
+其实吧，还是 IDE 的锅。同样是 string-based 的 Vuex 就不会用这种问题，如果说 Vuex 太轻无法和 Template 作为一个量级的比较的话，
+那么 HTML 和 CSS 脱离了 IDE 也是 string-based 的。
 
 ![Taro UI](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616094000.png)
 
@@ -44,7 +47,8 @@ Taro UI 这个组件划分思路可以给 Lego Editor 做参考。
 
 记得没错的话，ElementUI 的按需引入依赖插件 babel-plugin-component，把 import { A } from 'element' 转换为类似 import A from 'element/a' 的形式。
 
-Taro 的 API 的摇树优化，也是通过 babel 插件实现的，但和 ElementUI 不一样。插件会把把 Taro.xxx 这种属性调用单独提取并转换。这些属性是 Taro 编译时通过 Rollup 导出的。呐呐，复杂度开始变大了。不过感觉也很有意思。
+Taro 的 API 的摇树优化，也是通过 babel 插件实现的，但和 ElementUI 不一样。插件会把把 Taro.xxx 这种属性调用单独提取并转换。这些属性是 Taro 编译时通过 Rollup 导出的。呐呐，复杂度开始变大了。
+不过感觉也很有意思。
 
 ```js
 // 编译前
@@ -88,7 +92,8 @@ _getStorage();
 
 <q>简单来说，Hooks 就是一组在 React 组件中运行的函数，让你在不编写 Class 的情况下使用 state 及其它特性。</q>
 
-原来 Taro 1.3 就支持 Hooks 了，那时候好像正好准备离职了，没看到这东西。Taro 的文档简单介绍了 Hooks 的原理：Hooks 是一个全局维护的状态栈，每次新运行的 useState 会新增一个 Hook，并返回 initialState 和 changeInitialState 组成的元组，而后者会把新增 Hook 时所依赖的函数（也就是组件）CurrentOwner 记录到下一次需要更新的队列中。
+原来 Taro 1.3 就支持 Hooks 了，那时候好像正好准备离职了，没看到这东西。Taro 的文档简单介绍了 Hooks 的原理：Hooks 是一个全局维护的状态栈，每次新运行的 useState 会新增一个 Hook，
+并返回 initialState 和 changeInitialState 组成的元组，而后者会把新增 Hook 时所依赖的函数（也就是组件）CurrentOwner 记录到下一次需要更新的队列中。
 
 ```js
 function getHook (): Hook {
@@ -151,11 +156,15 @@ Taro 架构划分为：编译时、运行时两个步骤。早期 Taro（v1.3）
 
 实话说，这个区别好比微信小程序 vs xxx 小程序。
 
-运行时原理都好鸡贼！Taro 编译后会在 React 的 createComponent 中对接事件和生命周期，砍了 render 函数；mpvue 在 new Vue 时会同步创建小程序页面 new Page；patch 方法也被拦截了，不再更改 DOM，而是调用 setData 更改数据。
+运行时原理都好鸡贼！Taro 编译后会在 React 的 createComponent 中对接事件和生命周期，砍了 render 函数；mpvue 在 new Vue 时会同步创建小程序页面 new Page；patch 方法也被拦截了，
+不再更改 DOM，而是调用 setData 更改数据。
 
 ![mpvue runtime architecture](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616123350.png)
 
-新的 Taro 架构实现了 taro-runtime 包，用来模拟了一套最简的 DOM/BOM API（1000 loc）。再配合 taro-react，重写 render（其实是用作 ReactDOM.render 的补充），以连接 react-reconciler 到 taro-runtime。所有的 JSX Node 都会在 render 时调用 taro-runtime 的 createReactPage 方法在创建 Page 时渲染为微信的 template。这样就走通了 React 在小程序端的运行环境。Vue 类似，区别只是 taro-runtime 中的 createVuePage。
+新的 Taro 架构实现了 taro-runtime 包，用来模拟了一套最简的 DOM/BOM API（1000 loc）。再配合 taro-react，重写 render（其实是用作 ReactDOM.render 的补充），
+以连接 react-reconciler 到 taro-runtime。
+所有的 JSX Node 都会在 render 时调用 taro-runtime 的 createReactPage 方法在创建 Page 时渲染为微信的 template。这样就走通了 React 在小程序端的运行环境。Vue 类似，
+区别只是 taro-runtime 中的 createVuePage。
 
 ![JSX Node -> MiniProgram Template](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616183851.png)
 
@@ -224,3 +233,4 @@ https://taro-docs.jd.com/taro/blog/2019-07-10-taro-hooks
 https://taro-docs.jd.com/taro/blog/2020-01-02-gmtc#taro-%E8%BF%90%E8%A1%8C%E6%97%B6
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/V~CO7GR6GA9%3AHMJ2%60FWK@O.png)
+

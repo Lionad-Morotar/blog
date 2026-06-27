@@ -313,7 +313,9 @@ module.exports = {
 
 #### Loader 是什么？
 
-webpack 提供的 Loader 接口丰富了模块处理的能力。使用自定义 Loader 可以加载诸如图片、样式、字体这些资源，资源经过不同的 Loader 处理，并发往下一个 Loader，所以可以把 Loader 看作基于字符串的流水线式处理。比如说针对样式文件，可以配置 PostCSS Loader，而 PostCSS Loader 可以使用插件接入 StyleLint、CSS Module 等功能。PostCSS Loader 处理后，结果继续交给 CSS Loader 解析 CSS 语法生成 AST，又交由 Style Loader 将 CSS 整合输入到某个文件中。
+webpack 提供的 Loader 接口丰富了模块处理的能力。使用自定义 Loader 可以加载诸如图片、样式、字体这些资源，资源经过不同的 Loader 处理，并发往下一个 Loader，
+所以可以把 Loader 看作基于字符串的流水线式处理。比如说针对样式文件，可以配置 PostCSS Loader，而 PostCSS Loader 可以使用插件接入 StyleLint、CSS Module 等功能。
+PostCSS Loader 处理后，结果继续交给 CSS Loader 解析 CSS 语法生成 AST，又交由 Style Loader 将 CSS 整合输入到某个文件中。
 
 ![webpack Style Loaders](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200729022653.png?type=draw&w=40)
 
@@ -340,3 +342,4 @@ TODO，[Webpack4 中的 Tree-Shaking](https://zhuanlan.zhihu.com/p/193663299)
 TODO，[透过分析 webpack 面试题，构建 webpack5.x 知识体系<进阶篇>](https://zhuanlan.zhihu.com/p/454945287)
 
 [^重要概念]: 见 [《前端工程化 - 聊聊 webpack v3 到 webpack v5 的核心架构变迁》](https://juejin.im/post/5f1ac4725188252e4839cfe6)
+

@@ -14,7 +14,9 @@ original_path: /_workflow/packer/vite.md
 
 #### Vite 多 dev server 并发预构建会踩踏缓存目录
 
-当同一项目需要同时启动多个 Vite dev server（例如主应用 dev server 与另一个使用不同 `root`、`mode` 或代理配置的辅助 dev server）时，如果它们共享默认的 `node_modules/.vite`，依赖预构建阶段会先把产物写入 `node_modules/.vite/deps_temp`，完成后重命名为 `deps`。多实例并发下这个重命名会互相覆盖或锁失败，浏览器请求被挂起，最终表现为 `504 Gateway Timeout`。
+当同一项目需要同时启动多个 Vite dev server（例如主应用 dev server 与另一个使用不同 `root`、`mode` 或代理配置的辅助 dev server）时，
+如果它们共享默认的 `node_modules/.vite`，依赖预构建阶段会先把产物写入 `node_modules/.vite/deps_temp`，完成后重命名为 `deps`。多实例并发下这个重命名会互相覆盖或锁失败，
+浏览器请求被挂起，最终表现为 `504 Gateway Timeout`。
 
 解决方式是通过 `cacheDir` 为每个实例指定独立缓存目录，并在脚本里用环境变量传入：
 
@@ -34,3 +36,4 @@ export default {
 每次只运行一个 dev server 时通常不会触发这个问题，因为默认缓存目录足以工作；只有在多实例并行且都触发依赖预构建时才需要隔离。
 
 见：[Shared Options | Vite](https://v3.vite.dev/config/shared-options)
+

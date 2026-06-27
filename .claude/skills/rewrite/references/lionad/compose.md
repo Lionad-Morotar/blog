@@ -19,7 +19,8 @@
 
 **对比示例**：
 
-> 原文：该项目是一个基于 Vue 2 的老后台系统，使用 webpack 4 构建，团队历史原因导致 Node 版本长期锁定在 16。本机通过 fnm 管理 Node，default 为 22，但项目根目录的 `.node-version` 文件会在进入目录时自动切换版本...
+> 原文：该项目是一个基于 Vue 2 的老后台系统，使用 webpack 4 构建，团队历史原因导致 Node 版本长期锁定在 16。本机通过 fnm 管理 Node，default 为 22，
+但项目根目录的 `.node-version` 文件会在进入目录时自动切换版本...
 >
 > 改写：因为在一些老项目，我通过 fnm 维护项目级别的 Node.js 版本：全局默认 22，项目根 `.node-version` 锁定 16。
 
@@ -39,7 +40,8 @@
 
 **对比示例**：
 
-> 原文：Node 16 缺少 `GlobalRequest`、`ReadableStream` 等现代 Web API，导致依赖这些 API 的 ESM 服务在启动时直接崩溃。`@hono/node-server` 中 `class Request extends GlobalRequest` 拿到 `undefined`...
+> 原文：Node 16 缺少 `GlobalRequest`、`ReadableStream` 等现代 Web API，导致依赖这些 API 的 ESM 服务在启动时直接崩溃。
+`@hono/node-server` 中 `class Request extends GlobalRequest` 拿到 `undefined`...
 >
 > 改写：Node 16 下启动会发现报错 `Class extends value undefined is not a constructor or null`。换 Node 22 就好了。根因就是 Node 版本。
 
@@ -90,3 +92,4 @@
 - 添加“综上所述”“总结一下”
 - 保留过多环境铺垫和完整输出
 - 小标题用文档式词汇
+

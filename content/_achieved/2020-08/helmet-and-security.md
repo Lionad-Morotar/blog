@@ -3,9 +3,11 @@ title: 👹 Helmet & Security
 description: 本文简单介绍了安全库 Helmet 的原理，相关 MIME 嗅探、XSS、CSP、DNS 预取等。
 ---
 
-Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help![^helmet]
+Helmet helps you secure your Express apps by setting various HTTP headers. It's not a silver bullet, but it can help![
+^helmet]
 
-Helmet 是一个 Express 中间件，它更改了 HTTP 请求的某些响应头，以告知浏览器使用某种安全策略。Helmet 不能带来绝对的安全，比如针对 DNS Rebinding[^dns-rebinding-1] 问题，它就无能为力 [^dns-rebinding-2]。不过尽管不是银弹，它确实还是很有效的。
+Helmet 是一个 Express 中间件，它更改了 HTTP 请求的某些响应头，以告知浏览器使用某种安全策略。Helmet 不能带来绝对的安全，比如针对 DNS Rebinding[^dns-rebinding-1] 问题，
+它就无能为力 [^dns-rebinding-2]。不过尽管不是银弹，它确实还是很有效的。
 
 仅需数行代码，就可以引入 Helmet 并使用：
 
@@ -52,7 +54,8 @@ response.removeHeader('X-Powered-By')
 response.setHeader('X-Content-Type-Options', 'nosniff')
 ```
 
-浏览器的 MIME 嗅探是指某些浏览器（如 IE8）会根据文件内容，而不是 `Content-Type`，执行、渲染文件。这可能使攻击者发送的图片等文件中嵌套的脚本代码得到执行。解决方案也很简单，只需用响应头 `X-Content-Type-Options = nosniff` 告诉浏览器把 MIME 嗅探关闭就完事儿了。
+浏览器的 MIME 嗅探是指某些浏览器（如 IE8）会根据文件内容，而不是 `Content-Type`，执行、渲染文件。这可能使攻击者发送的图片等文件中嵌套的脚本代码得到执行。解决方案也很简单，
+只需用响应头 `X-Content-Type-Options = nosniff` 告诉浏览器把 MIME 嗅探关闭就完事儿了。
 
 ### 移除 X-XSS-Protection
 
@@ -62,7 +65,9 @@ response.setHeader('X-XSS-Protection', '0')
 
 不是应该打开 `X-XSS-Protection`，以防范 XSS 攻击么，为什么要把它关闭？
 
-这得追溯回去年的 Chrome 移除 `XSS Auditor`，准备使用新的 XSS 防护方法这事儿上。“XSS Auditor 已经充满了漏洞”，并且“修复所有信息泄漏已经证明是困难的”。所以就把这玩意儿给废除了 [^xss-auditor]。至于程序员们最担心的 Edge，它已经在 18 年去除了 `XSS Auditor`，并开始使用 `CSP` 等现代标准（更现代的标准）[^delete-xss-auditor]。也就是说，应用程序应该尽可能跟着新标准走，而 `X-XSS-Protection` 这个响应头是让浏览器不要再用 `XSS Auditor`。
+这得追溯回去年的 Chrome 移除 `XSS Auditor`，准备使用新的 XSS 防护方法这事儿上。“XSS Auditor 已经充满了漏洞”，并且“修复所有信息泄漏已经证明是困难的”。
+所以就把这玩意儿给废除了 [^xss-auditor]。至于程序员们最担心的 Edge，它已经在 18 年去除了 `XSS Auditor`，并开始使用 `CSP` 等现代标准（更现代的标准）[^delete-xss-auditor]。
+也就是说，应用程序应该尽可能跟着新标准走，而 `X-XSS-Protection` 这个响应头是让浏览器不要再用 `XSS Auditor`。
 
 见：[#376](https://github.com/OWASP/CheatSheetSeries/issues/376)、[Nuxt Security X-XSS-Protection](https://nuxt-security.vercel.app/headers/xxssprotection)
 
@@ -72,7 +77,8 @@ response.setHeader('X-XSS-Protection', '0')
 response.setHeader('X-Frame-Options', 'SAMEORIGIN')
 ```
 
-`X-Frame-Options` 指定了浏览器的 frame、iframe、object、embed 等元素的有效父级作用域。限制 `X-Frame-Options` 为 `SameOrigin`，可以防止网页被 iframe 等元素嵌套到非同源页面中，预防某些点击劫持攻击。
+`X-Frame-Options` 指定了浏览器的 frame、iframe、object、embed 等元素的有效父级作用域。限制 `X-Frame-Options` 为 `SameOrigin`，
+可以防止网页被 iframe 等元素嵌套到非同源页面中，预防某些点击劫持攻击。
 
 本来它的值有三种选择，`Deny`、`SameOrigin`、`AllowFrom`。但 `AllowFrom` 因为其兼容性原因，被 Helmet 弃用：
 
@@ -121,7 +127,8 @@ function referrerPolicy(options = {}) {
 }
 ```
 
-其实，在 HTML 中，无论是 Meta、Image、iFrame、Script 或是 Style 标签，都能设置 `Referrer Policy`。Meta 标签设置的 `Referrer Policy` 对整个页面都有效果（但优先级最低）。
+其实，在 HTML 中，无论是 Meta、Image、iFrame、Script 或是 Style 标签，都能设置 `Referrer Policy`。Meta 标签设置的 `Referrer Policy` 对整个页面都有效果（
+但优先级最低）。
 
 ```html
 <meta name="referrer" content="origin" />
@@ -131,7 +138,8 @@ function referrerPolicy(options = {}) {
 
 ### 强制使用 HTTPS
 
-通过设置请求头的 `Strict-Transport-Security（STS）`，可以告诉浏览器，这个网站需要使用 HTTPS 而不是 HTTP 协议进行访问。浏览器每接收到这种请求后，会进行倒计时，在计时结束之前都不会将 HTTPS 降级回 HTTP[^timeend]。
+通过设置请求头的 `Strict-Transport-Security（STS）`，可以告诉浏览器，这个网站需要使用 HTTPS 而不是 HTTP 协议进行访问。浏览器每接收到这种请求后，会进行倒计时，
+在计时结束之前都不会将 HTTPS 降级回 HTTP[^timeend]。
 
 这个规范本身很好理解，通过 `max-age` 可以指定倒计时时间；`includesSubDomains` 指定子域的 `HSTS`；`preload` 指定预加载内容的 `HSTS`。
 
@@ -179,7 +187,8 @@ Expect-CT:
     max-age=<age>
 ```
 
-自 2018 年 4 月，Chrome 强制要求所有 TLS 服务器证书都要符合 Chromium CT 政策。由于 Expect-CT 的 maxAge 最大可设置为 39 个月，39 个月之后，也就是 2021 年 6 月，`Expect-CT` 就作不上用咯。.. TODO
+自 2018 年 4 月，Chrome 强制要求所有 TLS 服务器证书都要符合 Chromium CT 政策。由于 Expect-CT 的 maxAge 最大可设置为 39 个月，39 个月之后，也就是 2021 年 6 月，
+`Expect-CT` 就作不上用咯。.. TODO
 
 ### 拒绝来自 PDF、Flash 的跨域请求
 
@@ -228,7 +237,8 @@ function xPermittedCrossDomainPolicies(headerValue = 'none') {
 
 ### 开启 CSP
 
-还记得刚才提到 Chrome 关闭了 `XSS Auditor` 吗？既然不再使用 `XSS Auditor`，那他就迫切需要一种更新的 XSS 防范手段，那就是我们提到的 `CSP` 标准 [^csp-standard]。CSP 提供了很多限制选项，涉及安全的各个方面，可以有效阻止一些基础的攻击手段。
+还记得刚才提到 Chrome 关闭了 `XSS Auditor` 吗？既然不再使用 `XSS Auditor`，那他就迫切需要一种更新的 XSS 防范手段，那就是我们提到的 `CSP` 标准 [^csp-standard]。
+CSP 提供了很多限制选项，涉及安全的各个方面，可以有效阻止一些基础的攻击手段。
 
 `CSP` 既可以通过响应头指定，也可以通过 HTML 标签指定。
 
@@ -316,7 +326,8 @@ response.setHeader('X-DNS-Prefetch-Control', 'on')
 
 前端安全是一个非常宏大的话题。Hemlet 给你的 Express 应用带来的改进只是其中非常小的一部分内容。比如，它没有提及安全 Cookie 相关内容。
 
-- 设置安全 Cookie：通过 Set-Cookie 可以指定浏览器设置安全 Cookie，该 Cookie 只能通过 HTTPS 发送至服务器；带 HttpOnly 的 Cookie 将不能被脚本访问；SameSite=Lax 则可以指定某 Cookie 不随跨域请求一起发送。[^secure-cookie]
+- 设置安全 Cookie：通过 Set-Cookie 可以指定浏览器设置安全 Cookie，该 Cookie 只能通过 HTTPS 发送至服务器；带 HttpOnly 的 Cookie 将不能被脚本访问；
+SameSite=Lax 则可以指定某 Cookie 不随跨域请求一起发送。[^secure-cookie]
 
 如果你想了解更多关于 HTTP Secure Header 的详细内容，可以参考 [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)。当然，MDN 上提供了关于前端安全问题更广泛的思路，有时间阔以深入学习一下：[Web Security](https://infosec.mozilla.org/guidelines/web_security)。以下是一些额外的可供探索的页面：
 
@@ -337,3 +348,4 @@ response.setHeader('X-DNS-Prefetch-Control', 'on')
 [^ct]: [HTTPS 证书被伪造了怎么办@ConardLi](https://mp.weixin.qq.com/s?src=11&timestamp=1597650971&ver=2527&signature=X6agCz5iwHLLw3yQchPE0dhzMC9KfLtQrqUv2DlIochk2oFEfw61w*l1QRf0GXSbzgyve2c0t0YGjDw*n-i6ubwQ9*UgxYglhx5BFEtJSuaEPm99ak-DowM3*0Lx1eNY&new=1)
 [^csp-standard]: [Content Security Policy Level 3](https://www.w3.org/TR/CSP/)
 [^secure-cookie]: [Secure-Cookie](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie)
+

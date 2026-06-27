@@ -68,7 +68,8 @@ original_path: content/6.maps/_cpp/google-cpp-standard.md
 - 用 auto 绕过烦琐的类型名，只要可读性好就继续用，别用在局部变量之外的地方。
 - 适当使用 lambda 表达式。别用默认 lambda 捕获，所有捕获都要显式写出来。
 - 不要使用复杂的模板编程
-- 只使用 Boost 中被认可的库，包括：Call Traits、Compressed Pair、BGL、Property Map、Iterator、Polygon、Bitmap、Statistic Distribution and Functions、Multi-index、Heap、Container。
+- 只使用 Boost 中被认可的库，包括：Call Traits、Compressed Pair、BGL、Property Map、Iterator、Polygon、Bitmap、
+Statistic Distribution and Functions、Multi-index、Heap、Container。
 
 #### 命名约定
 
@@ -114,3 +115,4 @@ original_path: content/6.maps/_cpp/google-cpp-standard.md
 - 对于现有不符合既定编程风格的代码可以网开一面。
 - Windows 程序员有自己的编程习惯，主要源于 Windows 头文件和其它 Microsoft 代码。
 - 运用常识和判断力，并且 保持一致。
+

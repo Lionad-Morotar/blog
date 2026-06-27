@@ -57,7 +57,8 @@ export default {
 this.scroll(document.querySelector('.parallax'), 999)
 ```
 
-预期是，每次 Run 函数执行时，ele 的 scrollTop 值都会改变，但是出现了一个很诡异的问题，如果只执行一次 Run 函数，则 ele.scrollTop 值能改变，树林和山脉能看见变化；如果加上了 `window.requestAnimFrame(run)`，ele.scrollTop 的值就始终为零。
+预期是，每次 Run 函数执行时，ele 的 scrollTop 值都会改变，但是出现了一个很诡异的问题，如果只执行一次 Run 函数，则 ele.scrollTop 值能改变，树林和山脉能看见变化；
+如果加上了 `window.requestAnimFrame(run)`，ele.scrollTop 的值就始终为零。
 
 我写了一个预期应该实现的功能的 Demo。为了节约流量，我把运行代码的组件去掉了，你可以在 CodePen 里面试试这段代码。
 
@@ -115,7 +116,8 @@ document.querySelector('.btn2').addEventListener('click', () => scroll($scrollAr
 $(document.querySelector('.parallax')).scrollTo(toHeight)
 ```
 
-使用 jQuery.scrollTo 插件，可以正常进行滚动动画的，于是我瞥了一眼源码（其实还特意找了 zepto@v1.1 的源码），jQuery.scrollTo 改变 scrollTop 的方式和我的思路是一样的，只是作为库，代码要更加健壮一些，此外并没有发现什么有特殊的需要注意的地方。
+使用 jQuery.scrollTo 插件，可以正常进行滚动动画的，于是我瞥了一眼源码（其实还特意找了 zepto@v1.1 的源码），jQuery.scrollTo 改变 scrollTop 的方式和我的思路是一样的，只是作为库，
+代码要更加健壮一些，此外并没有发现什么有特殊的需要注意的地方。
 
 无解。.. 但我不可能因为这个问题专门引入 jQuery 及其插件，所以还得换种写法
 
@@ -134,3 +136,4 @@ this.$refs.parallax.scrollTo
 最后实测了一下，PC 阔以，安卓主流浏览器阔以，iOS 兼容一如既往地极差（iOS Safari 本身就不支持我的首页的 Z 轴偏移视差滚动效果，所以真的是一塌糊涂）。
 
 嘛，暂时弃坑，博客要更新的内容太多了，还得抓紧时间完善一下其它东西。
+

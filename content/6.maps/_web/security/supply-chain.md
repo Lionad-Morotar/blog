@@ -40,3 +40,4 @@ pnpm 10.16（2025-09）引入 `minimumReleaseAge` 配置，延迟安装指定时
 为社区发现供应链攻击争取窗口期。支持 `minimumReleaseAgeExclude` 对可信包单独放行。
 
 见：[Package Managers Need to Cool Down](https://simonwillison.net/2026/Mar/24/package-managers-need-to-cool-down/)：Simon Willison 关于依赖冷却的综述
+

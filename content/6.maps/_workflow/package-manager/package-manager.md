@@ -27,7 +27,8 @@ description: 用于管理项目依赖的工具，涵盖 npm、pnpm、yarn 的核
 NPM V3 开始，使用扁平模式管理依赖，把重复依赖提升到 node_modules 一级目录，缓解了依赖地狱的问题，但却引入了幽灵依赖、多重依赖和不确定性等问题。
 
 * **幽灵依赖**：如果某依赖不是包本身的依赖但是被提升到了一级目录，那么就能在代码中引入。
-* **多重依赖**：首先，依赖的某版本已经提升了，却不会影响其它依赖共同依赖它的其它版本，所以还是存在多重依赖的问题；其次，由于 NodeJS 的 require 的缓存规则是按照文件名及路径而不是模块名，此时对依赖进行有副作用的修改会破环单例模式；再者不同版本依赖的 types 可能会冲突。
+* **多重依赖**：首先，依赖的某版本已经提升了，却不会影响其它依赖共同依赖它的其它版本，所以还是存在多重依赖的问题；其次，由于 NodeJS 的 require 的缓存规则是按照文件名及路径而不是模块名，
+此时对依赖进行有副作用的修改会破环单例模式；再者不同版本依赖的 types 可能会冲突。
 * **不确定性**：手动安装依赖可能会带来和 npm install 安装后不同的结构。
 
 #### yarn 的 PnP 模式是什么？
@@ -40,7 +41,8 @@ Yarn（V2）带来一种独特的依赖安装模式：[PnP（Plug'n'Play）](htt
 
 #### tnpm 的主要思路是什么？
 
-tnpm 想给包管理工具提供一套方案，以解决所有恼人的问题。在网络端，使用服务器来生成依赖树，节约请求；在表示层，将 tgz 文件合并写入 tar，节约写入次数；在 IO 层，使用 Rust 完成 IO 操作性优于 NodeJS；在系统层，使用 FUSE 文件系统，省去文件解压操作。
+tnpm 想给包管理工具提供一套方案，以解决所有恼人的问题。在网络端，使用服务器来生成依赖树，节约请求；在表示层，将 tgz 文件合并写入 tar，节约写入次数；在 IO 层，使用 Rust 完成 IO 操作性优于 NodeJS；在系统层，
+使用 FUSE 文件系统，省去文件解压操作。
 
 ![tnpm](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220318001222.png)
 
@@ -56,7 +58,8 @@ peerDependencies：
 
 #### 如何锁定包管理器？
 
-1. 可以使用脚本判断环境变量中的 npm_execpath 或者 npm_config_user_agent，分别根据执行指令的包管理器具体路径、执行指令的包管理器具体版本（Vue3 和 Vite 分别使用了这两种办法限制特定的包管理器）。
+1. 可以使用脚本判断环境变量中的 npm_execpath 或者 npm_config_user_agent，分别根据执行指令的包管理器具体路径、执行指令的包管理器具体版本（Vue3 和 Vite 分别使用了这两种办法限制特定的包管理器）
+。
 2. 使用 only-allow 包（Vite 使用这种方法）。
 3. 使用 Corepack 锁定包管理器
 
@@ -113,7 +116,8 @@ engine-strict = true
 
 #### Node 16 等旧版本 Node 的依赖 engine 兼容性锁定
 
-当项目被迫停留在旧版 Node（如 Node 16），而上游依赖不断提高 `engines.node` 要求时，yarn 1.x 会在 `yarn install` 阶段因 engine 校验直接报错。此时不能仅依赖 lockfile，而需要主动把直接依赖和传递依赖都钉回兼容版本。
+当项目被迫停留在旧版 Node（如 Node 16），而上游依赖不断提高 `engines.node` 要求时，yarn 1.x 会在 `yarn install` 阶段因 engine 校验直接报错。此时不能仅依赖 lockfile，
+而需要主动把直接依赖和传递依赖都钉回兼容版本。
 
 典型触发组合：
 
@@ -200,11 +204,14 @@ docker run --rm -v "$PWD":/app -w /app node:16.15.0-alpine \
 
 这种强制锁定只是过渡方案。升级 Node 或迁移到 Vite 4/5 后，应及时移除这些 `resolutions` 和 `~` 锁定，避免旧版本长期占据依赖树。
 
-见：[Node 16 依赖 engine 兼容性锁定方案](/Users/lionad/Github/86Links/auth-center/docs/research/2026-06-24-node16-dependency-locking.md)
+见：
+[Node 16 依赖 engine 兼容性锁定方案](/Users/lionad/Github/86Links/auth-center/docs/research/2026-06-24-node16-dependency-locking.
+md)
 
 #### 为什么 package.json scripts 中路径宜用引号包裹起来？
 
-因为 glob patterns 有兼容性问题，NPM 在 Linux 平台使用 sh -s 指令运行脚本，在 Windows 上使用 cmd /d /s /c。如果是编写应用代码，则可以使用 node-glob 等工具处理路径以解决跨平台的兼容性问题。
+因为 glob patterns 有兼容性问题，NPM 在 Linux 平台使用 sh -s 指令运行脚本，在 Windows 上使用 cmd /d /s /c。如果是编写应用代码，
+则可以使用 node-glob 等工具处理路径以解决跨平台的兼容性问题。
 
 见：[<i>Why you should always quote your globs in NPM scripts</i>](https://medium.com/@jakubsynowiec/you-should-always-quote-your-globs-in-npm-scripts-621887a2a784)
 
@@ -216,3 +223,4 @@ docker run --rm -v "$PWD":/app -w /app node:16.15.0-alpine \
 
 * [npmgraph](https://npmgraph.js.org/)：在线可视化探索 npm 模块及其依赖关系的工具，支持依赖图生成、多维度着色分析和自定义模块导入
 * [GitHub 源码](https://github.com/npmgraph/npmgraph)
+

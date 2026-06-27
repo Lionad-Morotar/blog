@@ -109,13 +109,15 @@ namespace Utility {}
 
 #### 为什么 TS 支持导入 CSS 文件？
 
-语法上 TS 没有限制能导入什么类型的文件，而 TS 编译器本身不会去解析 CSS 文件的内容，只要你写了 import "./index.css"，TS 编译器会尝试类型检查。如果没有合适的类型声明，会报错。所以一般仍然需要声明文件的类型，通常是通过 `declare module "*.css"` 来声明 CSS 模块。
+语法上 TS 没有限制能导入什么类型的文件，而 TS 编译器本身不会去解析 CSS 文件的内容，只要你写了 import "./index.css"，TS 编译器会尝试类型检查。如果没有合适的类型声明，会报错。
+所以一般仍然需要声明文件的类型，通常是通过 `declare module "*.css"` 来声明 CSS 模块。
 
 ## 类型系统
 
 #### 全局类型声明是如何运作的？
 
-全局类型声明即 @types 类型包。默认情况下，TypeScript 会自动包含所有在 node_modules/@types 文件夹下能找到的类型声明包。但如果明确设置了 compilerOptions.types，只有列表中指定的类型声明包会被包含进来，其他的都不会自动包含。
+全局类型声明即 @types 类型包。默认情况下，TypeScript 会自动包含所有在 node_modules/@types 文件夹下能找到的类型声明包。但如果明确设置了 compilerOptions.types，
+只有列表中指定的类型声明包会被包含进来，其他的都不会自动包含。
 
 #### 类型接口应该如何使用？
 
@@ -273,7 +275,8 @@ void process<int>(int val) { /* 针对 int 的高效实现 */ }
 
 #### 什么是类型体操？
 
-TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种"实现"的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，或是把它看作某种脑力运动。充满技巧，有乐趣，复杂，又花里胡哨，所以是体操咯。
+TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种"实现"的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，
+或是把它看作某种脑力运动。充满技巧，有乐趣，复杂，又花里胡哨，所以是体操咯。
 
 * [类型体操](/maps/_typescript/type-gymnastics/type-gymnastics)
 * [体操训练](/source-code/_ts/type-challenges) - TypeScript 类型挑战练习
@@ -339,7 +342,8 @@ TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解
 
 #### [compilerOptions.isolatedModules](https://www.typescriptlang.org/tsconfig#isolatedModules)
 
-许多编译工具如 Babel 不支持在"一个系统层面"角度理解类型。所以需要开启 isolatedModules。开启后，TS 会将每一个 TS 文件都视为独立的 Module，这需要项目使用 ES Module 语法，但同时，TS 会带来更严格的类型检测支持。
+许多编译工具如 Babel 不支持在"一个系统层面"角度理解类型。所以需要开启 isolatedModules。开启后，TS 会将每一个 TS 文件都视为独立的 Module，这需要项目使用 ES Module 语法，但同时，
+TS 会带来更严格的类型检测支持。
 
 在 vite-based 项目中，这个选项应该且默认打开。
 
@@ -557,3 +561,4 @@ getUserPosts(productId)   // Type Error! 不能传 ProductId
 * [详解 TypeScript 里的 This](https://zhuanlan.zhihu.com/p/104565681)
 * [In typescript, why is `[boolean, string?]` different from `[boolean, string] | [boolean]`?](https://stackoverflow.com/questions/69635559/in-typescript-why-is-boolean-string-different-from-boolean-string/69653332#69653332)
 * [TypeScript error: "Type 'number' is not assignable to type '0 | 1 | 2' ". Why am I getting this error?](https://stackoverflow.com/questions/56346520/typescript-error-type-number-is-not-assignable-to-type-0-1-2-why-am)
+

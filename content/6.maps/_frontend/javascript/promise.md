@@ -26,7 +26,8 @@ Promise.resolve(1)
 
 #### Promise.resolve(1).then(() => 2)
 
-Promise.then 以及 catch 和 finally 方法都返回一个新 Promise。如果 then 方法中 return 了值 x，x 会进入 Promise.then 的 PRP 过程（Promise Resolution Procedure），可比作：Promise.then.resolve(x)。
+Promise.then 以及 catch 和 finally 方法都返回一个新 Promise。如果 then 方法中 return 了值 x，x 会进入 Promise.then 的 PRP 过程（
+Promise Resolution Procedure），可比作：Promise.then.resolve(x)。
 
 ```js
 Promise.resolve(1).then(() => 2)
@@ -124,7 +125,8 @@ promise.then(() => {
 
 #### mapSeries 和 each 的区别？
 
-mapSeries 类似 async 版本的 .map 方法，each 类似 map(asycn => {})；each 语义上用来执行有副作用的函数，函数的 return 对 each 的返回值无影响，each 将返回它接收到的值（fulfilled promise）。
+mapSeries 类似 async 版本的 .map 方法，each 类似 map(asycn => {})；each 语义上用来执行有副作用的函数，函数的 return 对 each 的返回值无影响，each 将返回它接收到的值（
+fulfilled promise）。
 
 见：[Promise.each](http://bluebirdjs.com/docs/api/promise.each.html)、[Promise.mapSeries](http://bluebirdjs.com/docs/api/promise.mapseries.html)、[Promise.each testcase](https://github.com/doodlewind/nativebird/blob/e55c3164dcaf33493d31f9eabbe50b3962219660/test/each.mjs)
 
@@ -184,3 +186,4 @@ Promise.all([
 ```
 
 见：[Promise.map testcase](https://github.com/doodlewind/nativebird/blob/e55c3164dcaf33493d31f9eabbe50b3962219660/test/map.mjs#L247)
+

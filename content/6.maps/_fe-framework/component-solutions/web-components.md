@@ -6,11 +6,14 @@ original_path: /maps/_fe-framework/web-components.md
 
 ## Shadow DOM
 
-**传统网页应用中的样式具有一定程度的脆弱性，微小样式带来的影响通常会逐渐累积、放大，最终给全局带来影响。** 为了解决这种脆弱性，Shadow DOM 定义了一系列围绕 DOM 产生的新概念，如影子树规范（DOM 4.1）、UI 交互规范等。其渲染部分则与 CSS 作用域规范（CSS Scoping Specification）相关。
+**传统网页应用中的样式具有一定程度的脆弱性，微小样式带来的影响通常会逐渐累积、放大，最终给全局带来影响。** 为了解决这种脆弱性，Shadow DOM 定义了一系列围绕 DOM 产生的新概念，如影子树规范（DOM 4.1）、
+UI 交互规范等。其渲染部分则与 CSS 作用域规范（CSS Scoping Specification）相关。
 
-影子树（Shadow Tree）的根节点是影子根（Shadow Root），后者并不是一个真正的元素，不过它作为影子树和 DOM 的桥梁，和一个正常的 DOM 元素，即影子宿主（Shadow Root）绑定在一起。有时，我们会按照组件的作用域范围，把影子宿主所在的树称作 Light Tree（组件外部），以区分影子树所在树 Dark Tree（组件内部）。
+影子树（Shadow Tree）的根节点是影子根（Shadow Root），后者并不是一个真正的元素，不过它作为影子树和 DOM 的桥梁，和一个正常的 DOM 元素，即影子宿主（Shadow Root）绑定在一起。有时，
+我们会按照组件的作用域范围，把影子宿主所在的树称作 Light Tree（组件外部），以区分影子树所在树 Dark Tree（组件内部）。
 
-可能会令人困惑的是：影子宿主元素中的正常元素是不会被正常渲染，而是通过规范定义的通讯组（Distribution List[^distribution-list]）将这些元素强制拉入影子树中渲染。通讯组不是一个实体概念，但它具有一个 Content 元素，将影子宿主中的正常元素囊括其中，而 Content 本身并不渲染（类似 `display：content`）。
+可能会令人困惑的是：影子宿主元素中的正常元素是不会被正常渲染，而是通过规范定义的通讯组（Distribution List[^distribution-list]）将这些元素强制拉入影子树中渲染。通讯组不是一个实体概念，
+但它具有一个 Content 元素，将影子宿主中的正常元素囊括其中，而 Content 本身并不渲染（类似 `display：content`）。
 
 [^distribution-list]: [https://www.w3.org/TR/css-scoping-1/#insertion-point](https://www.w3.org/TR/css-scoping-1/#insertion-point)
 
@@ -36,7 +39,8 @@ original_path: /maps/_fe-framework/web-components.md
 
 ### 插槽
 
-插槽（Slot）类似于通讯组，作为组件内部的一个占位符，其本身不在组件中渲染。如果你习惯使用 Slots in Vue，可能会发现两者几乎一模一样，其实，Slots in Vue 已经在其文档中说明了，Vue 中的 Slots API 的灵感来源于 Slots in Web Components [^slosts-salute]。
+插槽（Slot）类似于通讯组，作为组件内部的一个占位符，其本身不在组件中渲染。如果你习惯使用 Slots in Vue，可能会发现两者几乎一模一样，其实，Slots in Vue 已经在其文档中说明了，
+Vue 中的 Slots API 的灵感来源于 Slots in Web Components [^slosts-salute]。
 
 [^slosts-salute]: [https://cn.vuejs.org/v2/guide/components-slots.html#%E6%8F%92%E6%A7%BD%E5%86%85%E5%AE%B9](https://cn.vuejs.org/v2/guide/components-slots.html#%E6%8F%92%E6%A7%BD%E5%86%85%E5%AE%B9)
 
@@ -75,7 +79,8 @@ this.shadowRoot
 
 ### API
 
-其实，如 textarea、input，许多浏览器原生组件都是使用原生 Shadow DOM 去绘制，但由于其复杂性，并不在 Elements 面板对开发者开放，不过，你可以通过开发者工具中的"Show user agent shadow DOM"选项打开它。
+其实，如 textarea、input，许多浏览器原生组件都是使用原生 Shadow DOM 去绘制，但由于其复杂性，并不在 Elements 面板对开发者开放，不过，
+你可以通过开发者工具中的"Show user agent shadow DOM"选项打开它。
 
 或者你可以使用 JS 创建影子节点，随意把玩。创建影子节点时可选用一系列 API，见下代码：
 
@@ -97,3 +102,4 @@ this.attachShadow({
 * [Shadow DOM 兼容性 @CanIUse](https://www.caniuse.com/shadowdomv1)
 * [DOM4.1 Shadow Tree @W3C](https://www.w3.org/TR/dom41/#shadow-trees)
 * [CSS 作用域规范 @W3C](https://www.w3.org/TR/css-scoping-1/#shadow-dom)
+

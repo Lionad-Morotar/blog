@@ -5,7 +5,8 @@ description: Apple 第三位联合创始人，多面手工程师，设计了 App
 
 #### 简介
 
-Ronald G. Wayne（1934~）是 Apple 公司的第三位联合创始人，与 Steve Jobs 和 Steve Wozniak 于 1976 年共同创立 Apple。他在公司仅停留两周便退出，但留下了 Apple 的第一个 Logo 和原始合伙合同。
+Ronald G. Wayne（1934~）是 Apple 公司的第三位联合创始人，与 Steve Jobs 和 Steve Wozniak 于 1976 年共同创立 Apple。他在公司仅停留两周便退出，
+但留下了 Apple 的第一个 Logo 和原始合伙合同。
 
 #### 在 Apple 的贡献
 
@@ -58,3 +59,4 @@ Ronald G. Wayne（1934~）是 Apple 公司的第三位联合创始人，与 Stev
 在 Atari 共事期间与 Jobs 有过多次哲学讨论。曾说服 Jobs 购买 25 万美元黄金（Jobs 在金价上涨到 40 万美元时卖出，Wayne 认为他"什么都没学到"）。
 
 见：[Ronald G. Wayne Is More Than Two Weeks At Apple](https://tedium.co/2026/03/31/ronald-g-wayne-apple-interview/)
+

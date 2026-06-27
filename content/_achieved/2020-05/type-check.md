@@ -273,3 +273,4 @@ Window.toString()
 * [The history of “typeof null”](https://2ality.com/2013/10/typeof-null.html)
 * [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-typeof-operator)
 * [instanceof 和 typeof 原理](https://juejin.im/post/5b0b9b9051882515773ae714)
+

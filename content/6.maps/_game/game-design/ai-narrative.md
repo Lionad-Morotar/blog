@@ -24,3 +24,4 @@ description: AI 在游戏叙事中的伦理边界与创作融合
 *   创作者主动参与定义"正确使用 AI"的标准，而非让不懂创作的人主导
 
 见：[The Big Debate: What role should AI have in video game narrative?](https://www.gamesindustry.biz/the-big-debate-what-role-should-ai-have-in-video-game-narrative)
+

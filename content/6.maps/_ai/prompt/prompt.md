@@ -15,13 +15,15 @@ original_path: _ai/prompt.md
 
 ## Context Engineering
 
-* [上下文工程 Context Engineering](/maps/_ai/prompt/context-engineering) - 推理阶段上下文的结构化设计与优化，涵盖上下文腐烂、Fresh Markdown 注入、Prompt 缓存等
+* [上下文工程 Context Engineering](/maps/_ai/prompt/context-engineering) - 推理阶段上下文的结构化设计与优化，涵盖上下文腐烂、Fresh Markdown 注入、
+Prompt 缓存等
 
 ## Prompt Tools
 
 #### Chrome DevTools Prompts
 
-谷歌浏览器内置了一个 1.8B 的小模型用来交互，比方说的 DevTools 可以选中部分代码，然后询问其实现。从结果看来，在这个特定领域，1.8B 模型的输出能力不俗。可以从源码中找到其提示代码。提示代码很详细，将问题拆解成了大小步骤，以及提供了示例。从这个例子可以看到小型模型在垂直任务时的发展潜力，以及提示词是如何与当今 COT 思维链关联上的——智能和复杂度在某个层面的转移。
+谷歌浏览器内置了一个 1.8B 的小模型用来交互，比方说的 DevTools 可以选中部分代码，然后询问其实现。从结果看来，在这个特定领域，1.8B 模型的输出能力不俗。可以从源码中找到其提示代码。提示代码很详细，将问题拆解成了大小步骤，
+以及提供了示例。从这个例子可以看到小型模型在垂直任务时的发展潜力，以及提示词是如何与当今 COT 思维链关联上的——智能和复杂度在某个层面的转移。
 
 ```markdown
 <!-- Network Agent Prompts -->
@@ -55,3 +57,4 @@ This request aims to retrieve a list of products matching the search query "lapt
 ```
 
 见：[Chrome DevTools Ai Prompts](https://source.chromium.org/chromium/chromium/src/+/main:out/chromeos-Debug/gen/third_party/devtools-frontend/src/front_end/panels/ai_assistance/agents/)
+

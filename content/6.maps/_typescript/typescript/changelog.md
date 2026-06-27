@@ -27,7 +27,8 @@ description: TypeScript 版本变更记录与破坏性变更验证
 | **迁移方案** | 显式设置 `"types": ["node"]` 或 `"types": ["*"]` 恢复旧行为 |
 
 **来源验证**:
-> "types now defaults to []. TypeScript will no longer pull in potentially thousands of type declarations at build time. Great for performance, but... if you were relying on it, your project will break!"
+> "types now defaults to []. TypeScript will no longer pull in potentially thousands of type declarations at build time.
+Great for performance, but... if you were relying on it, your project will break!"
 > — [Microsoft TypeScript 6.0 Announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
 
 **技术背景**:
@@ -47,7 +48,8 @@ description: TypeScript 版本变更记录与破坏性变更验证
 | **迁移方案** | 显式设置 `"strict": false` 维持旧行为（不推荐） |
 
 **来源验证**:
-> "strict is now true by default. Many of you will already be working in strict mode, but if not, get ready for a flood of new type errors unless you explicitly set it to false."
+> "strict is now true by default. Many of you will already be working in strict mode, but if not,
+get ready for a flood of new type errors unless you explicitly set it to false."
 > — [Microsoft TypeScript 6.0 Announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
 
 **技术背景**:
@@ -72,7 +74,8 @@ description: TypeScript 版本变更记录与破坏性变更验证
 | **影响** | 目标环境为 Node 时需更新配置 |
 
 **来源验证**:
-> "--moduleResolution node is deprecated. If you're targeting Node, you'll now use --moduleResolution nodenext which reflects how modern versions of Node resolve modules."
+> "--moduleResolution node is deprecated. If you're targeting Node, you'
+ll now use --moduleResolution nodenext which reflects how modern versions of Node resolve modules."
 > — [Microsoft TypeScript 6.0 Announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
 
 **详细变更**:
@@ -112,7 +115,8 @@ description: TypeScript 版本变更记录与破坏性变更验证
 | **TypeScript 支持** | 6.0 起原生支持 |
 
 **来源验证**:
-> "#/ subpath imports now work. Available in Node since v25.4 (and backported into LTS releases), but now in TypeScript too."
+> "#/ subpath imports now work. Available in Node since v25.4 (and backported into LTS releases),
+but now in TypeScript too."
 > — [Microsoft TypeScript 6.0 Announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
 
 **配置示例**:
@@ -143,7 +147,8 @@ import { helper } from '#/utils/helper';
 | **迁移方案** | 显式设置 `"rootDir": "./src"` 或其他适当值 |
 
 **来源验证**:
-> "rootDir now defaults to . If you have source files deeper than your tsconfig.json and were relying on TypeScript to infer a common root directory, you now need to explicitly set rootDir."
+> "rootDir now defaults to . If you have source files deeper than your tsconfig.
+json and were relying on TypeScript to infer a common root directory, you now need to explicitly set rootDir."
 > — [Microsoft TypeScript 6.0 Announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
 
 ---
@@ -158,7 +163,9 @@ import { helper } from '#/utils/helper';
 | **迁移方案** | 改用 `import express from "express"` |
 
 **来源验证**:
-> "--esModuleInterop false and --allowSyntheticDefaultImports false no longer work. So if you're still using syntax like import * as express from 'express' it won't work, you'd need to use import express from 'express'."
+> "--esModuleInterop false and --allowSyntheticDefaultImports false no longer work. So if you'
+re still using syntax like import * as express from 'express' it won't work, you'd need to use import express from '
+express'."
 > — [Microsoft TypeScript 6.0 Announcement](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
 
 **代码迁移示例**:
@@ -267,3 +274,4 @@ import express from "express";
 - [TypeScript GitHub Releases](https://github.com/microsoft/TypeScript/releases)
 - [TypeScript Compiler Options](https://www.typescriptlang.org/tsconfig)
 - [TypeScript Roadmap](https://github.com/microsoft/TypeScript/wiki/Roadmap)
+

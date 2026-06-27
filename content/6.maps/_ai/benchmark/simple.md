@@ -12,7 +12,8 @@ original_path: _ai/benchmark/simple.md
 - [DeepSeek V3.2](https://chat.deepseek.com/share/bpg5qaiwq5fuk7addd)：通过数万token的枚举，找到了几组不错的答案，此外衍生出了关于“含义对立”的思路。
 - [GPT-5](https://www.maxai.co/share?id=a5222cc57cbc97e4830bf86724d1b1b8851ebc3d0614f2112961e160)：第一轮就找到了不错的答案，此外思路绝佳。
 
-无论我的系统提示词是什么，本地 Qwen3 Next 直接拒绝了我的任务，除非我把 GPT-5 的思路拔下来告诉他要怎么找答案。本地的 Qwen3 Next Thinking 则是花了四分钟烧掉 1w token，找到两个错误答案和一个“诺/no”。
+无论我的系统提示词是什么，本地 Qwen3 Next 直接拒绝了我的任务，除非我把 GPT-5 的思路拔下来告诉他要怎么找答案。本地的 Qwen3 Next Thinking 则是花了四分钟烧掉 1w token，找到两个错误答案和一个“
+诺/no”。
 
 ![Local Qwen3 Next](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20251208131758762.png)
 
@@ -20,7 +21,8 @@ original_path: _ai/benchmark/simple.md
 
 * SVD 的全称
 
-在一个关于“教材”的变量名隐喻中，如果 SVD 中 D 的解释是 Director，那么全称可能是什么？正确答案是什么？4o、QwQ 和 Kimi 把答案导向了数学，但经过追问，话题相关低代码、组件、编译原理之类的，和数学没有关系。那么 SVD 是什么？4o 说是 Structure View Director，即数据结构视图导演。我觉得这个回答接近正确答案，而其他两个乱答。
+在一个关于“教材”的变量名隐喻中，如果 SVD 中 D 的解释是 Director，那么全称可能是什么？正确答案是什么？4o、QwQ 和 Kimi 把答案导向了数学，但经过追问，话题相关低代码、组件、编译原理之类的，和数学没有关系。
+那么 SVD 是什么？4o 说是 Structure View Director，即数据结构视图导演。我觉得这个回答接近正确答案，而其他两个乱答。
 
 ![翻译问题](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503182351515.png)
 
@@ -30,7 +32,8 @@ GPT-4o（MaxAI）关于“billion”的翻译犯了很明显的错误。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503070241843.png)
 
-非联网。在很开头就找到了"buy"和"卖"，但是居然没有从这里推理出正确结果（尽管最终答案包含"buy"和"卖"）。继续问相同的问题，经过 2 分半的思考，找到了“爱”和“hate”，不算是可接受的答案。下次直接试试：“找十组中文单词，这些中文单词和某个英文单词的发音相近，但两者的意思完全相反”。
+非联网。在很开头就找到了"buy"和"卖"，但是居然没有从这里推理出正确结果（尽管最终答案包含"buy"和"卖"）。继续问相同的问题，经过 2 分半的思考，找到了“爱”和“hate”，不算是可接受的答案。下次直接试试：“找十组中文单词，
+这些中文单词和某个英文单词的发音相近，但两者的意思完全相反”。
 
 * [如何解读：Business is Business @metaso](https://metaso.cn/s/IpfAIch)
 
@@ -45,3 +48,4 @@ GPT-4o（MaxAI）关于“billion”的翻译犯了很明显的错误。
 
 ![llama & qwen](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282330132.png)
 ![gemini-pro & gpt4-turbo](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282331378.png)
+

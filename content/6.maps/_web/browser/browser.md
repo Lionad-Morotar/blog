@@ -61,13 +61,15 @@ Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特
 
 #### 事件捕获机制？
 
-浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。事件捕获默认发生在冒泡阶段，但可以在事件监听时使用 useCapture 参数使回调在 Capture 阶段触发。
+浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。事件捕获默认发生在冒泡阶段，
+但可以在事件监听时使用 useCapture 参数使回调在 Capture 阶段触发。
 
 ![event processing in browser](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/event-capture.svg?w=60)
 
 #### 为什么 passive true 能改善滚动性能？
 
-绑定了事件的 DOM 相关区域会在合成器线程中被标记为 Non-fast Scrollable Region，滚动时，需要等待可能的 JS 执行（比如说 e.preventDefault），将渲染树复合分割为磁贴后，交由栅格线程渲染，最后由 GPU 绘制到界面上。当一个事件标记了 passive: true 之后，合成器线程知悉 JS 执行不会改变滚动事件，所以可以直接走复合、栅格化、渲染的流程。
+绑定了事件的 DOM 相关区域会在合成器线程中被标记为 Non-fast Scrollable Region，滚动时，需要等待可能的 JS 执行（比如说 e.preventDefault），将渲染树复合分割为磁贴后，交由栅格线程渲染，
+最后由 GPU 绘制到界面上。当一个事件标记了 passive: true 之后，合成器线程知悉 JS 执行不会改变滚动事件，所以可以直接走复合、栅格化、渲染的流程。
 
 passive 在 document 绑定 touchmove 或 touchstart 时默认是开启的，但是如果内部使用了 preventDefault，则会使优化失效，在控制台也会报警告。
 
@@ -153,3 +155,4 @@ mediaSource.addEventListener('sourceopen', () => {
 - **浏览器内视频编辑器**：前端剪辑重排，导出片段列表给服务端合成
 - **动态广告插入**：直播流中无缝插入广告，平滑过渡
 - **字幕/音轨热切换**：多语言音轨、字幕按需加载，无需下载完整文件
+

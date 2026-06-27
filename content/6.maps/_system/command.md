@@ -175,7 +175,8 @@ ftype Microsoft.Powershellscript.1="%SystemRoot%\system32\windowspowershell\v1.0
 
 ### 初始化
 
-PowerShell 启动时，会加载当前用户的 Profile 文件，一般地址在 `Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`，如果没有可以自己创建一个，然后重新打开 PowerShell 窗口就会自动加载了。
+PowerShell 启动时，会加载当前用户的 Profile 文件，一般地址在 `Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`，如果没有可以自己创建一个，
+然后重新打开 PowerShell 窗口就会自动加载了。
 
 启动脚本中可以放一些个性化的东西，比如说引入模块、设置函数或 Alias 等。参考我的部分公共函数：
 
@@ -207,3 +208,4 @@ function EditProfile {
 ```bash
 Remove-Item ./* -Recurse -Exclude index.html
 ```
+

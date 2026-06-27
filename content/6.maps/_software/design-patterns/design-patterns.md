@@ -43,13 +43,15 @@ original_path: content/6.maps/_software/design-patterns.md
 <!-- ProcessOn 生成的 SVG 格式有些问题 -->
 ![[生成器结构](https://www.processon.com/diagraming/614ed017637689481b66191e)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/bd255980-5c94-4d8a-8a6f-0b7149ade883.svg)
 
-由于生成器还解耦了构造的步骤，你也许需要一个主管类（Director）来封装这些构造步骤，使其与客户端解耦。举例来说，汽车生产导演可以控制汽车的生产流程，选择生产 SUV 或是跑车，而汽车生产者（Builder）则负责生产汽车的各个部分，如 GPS、引擎、轮子等。
+由于生成器还解耦了构造的步骤，你也许需要一个主管类（Director）来封装这些构造步骤，使其与客户端解耦。举例来说，汽车生产导演可以控制汽车的生产流程，选择生产 SUV 或是跑车，而汽车生产者（Builder）则负责生产汽车的各个部分，
+如 GPS、引擎、轮子等。
 
 见：[生成器模式 @RefactoringGuru](https://refactoringguru.cn/design-patterns/builder)
 
 #### 原型
 
-原型模式使你能否复制已有对象，而无需依赖它们所属的类。通常，直接遍历并拷贝对象会丢失一些对象私有属性或是外部依赖变量，使用原型模式可以让你更便捷及高效地完成复制操作。直接调用已有对象，以复制一个新对象就像细胞的有丝分裂；你也可以通过提供一个注册表来维护一些基本的可用来复制的预生成对象，并提供搜索方法，方便客户端搜索它们  。
+原型模式使你能否复制已有对象，而无需依赖它们所属的类。通常，直接遍历并拷贝对象会丢失一些对象私有属性或是外部依赖变量，使用原型模式可以让你更便捷及高效地完成复制操作。直接调用已有对象，以复制一个新对象就像细胞的有丝分裂；
+你也可以通过提供一个注册表来维护一些基本的可用来复制的预生成对象，并提供搜索方法，方便客户端搜索它们  。
 
 ![[原型结构](https://www.processon.com/diagraming/614edeb80e3e743114730791)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/a719383a-7761-4a72-90b9-ac83da7b47d8.svg)
 
@@ -75,7 +77,8 @@ original_path: content/6.maps/_software/design-patterns.md
 
 #### 桥接
 
-桥接可以将一个大类或者一系列紧密相关的类拆分为抽象和实现两个独立的层次结构，从而在开发的时候分别使用。这里说的抽象和实现与 OO 中的名词不是一回事儿，更适合描述应该是：使用桥接模式意味着把一些基础函数以及用基础函数组合出来的更抽象的函数分别按照实现类和抽象类分开。
+桥接可以将一个大类或者一系列紧密相关的类拆分为抽象和实现两个独立的层次结构，从而在开发的时候分别使用。这里说的抽象和实现与 OO 中的名词不是一回事儿，更适合描述应该是：
+使用桥接模式意味着把一些基础函数以及用基础函数组合出来的更抽象的函数分别按照实现类和抽象类分开。
 
 ![[桥接结构](https://www.processon.com/diagraming/614f66a7637689167d0dc218)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/5de62e64-55e2-459b-8cf8-6d5a8914d17c.svg)
 
@@ -153,7 +156,8 @@ original_path: content/6.maps/_software/design-patterns.md
 
 ![[备忘录结构](https://www.processon.com/diagraming/61503ed7637689167d1000e8)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/723839a8-a6a1-4b46-a66a-e61ead876980.svg)
 
-在传统 OO 语言中，备忘录总是有着复杂的结构，因为它需要使用类来隔离接口、封装状态，比方说，保存快照时，将对象内部的指取出来组装成新的 Memento 意味着需要掌控着对象权限的原发器来操作这件事情，如果你在编辑器中编辑文本，那么原发器就是编辑器。而在 JavaScript 中，往往 Memento 是和 Caretaker 绑定的，Caretaker 收到 Originator 的指令以维护保存的状态及状态列表。
+在传统 OO 语言中，备忘录总是有着复杂的结构，因为它需要使用类来隔离接口、封装状态，比方说，保存快照时，将对象内部的指取出来组装成新的 Memento 意味着需要掌控着对象权限的原发器来操作这件事情，如果你在编辑器中编辑文本，
+那么原发器就是编辑器。而在 JavaScript 中，往往 Memento 是和 Caretaker 绑定的，Caretaker 收到 Originator 的指令以维护保存的状态及状态列表。
 
 #### 观察者
 
@@ -167,3 +171,4 @@ original_path: content/6.maps/_software/design-patterns.md
 
 * [设计模式与 JS 魔法锅](/articles/design-patterns-and-js-magic-pot)
 * [Vue Patterns](https://www.patterns.dev/vue/)
+

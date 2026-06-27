@@ -30,7 +30,8 @@ original_path: content/6.maps/_software/whale-fall.md
 
 **Sass 的迁移路径**：Ruby gem → LibSass (C++) → Dart Sass。每代重写都受益于前代的 bug 报告和设计争论，但实现被抛弃。大多数写 Sass 的人不知道它始于 Ruby gem。
 
-**失败模式**：Edera 在 Rust tar-rs 库发现解析漏洞，影响所有下游 fork（async-tar、tokio-tar、Astral 内部 fork）。代码通过连续 fork 复制，但没人重新审计继承自原版的 PAX 头解析逻辑。安全漏洞就这样藏在骨架中，协调披露需要联系约二十个实体，其中多个库无人维护。
+**失败模式**：Edera 在 Rust tar-rs 库发现解析漏洞，影响所有下游 fork（async-tar、tokio-tar、Astral 内部 fork）。代码通过连续 fork 复制，
+但没人重新审计继承自原版的 PAX 头解析逻辑。安全漏洞就这样藏在骨架中，协调披露需要联系约二十个实体，其中多个库无人维护。
 
 #### 许可证变更触发食腐
 
@@ -62,3 +63,4 @@ Oracle 2010 年收购 Sun 不是单一鲸落，而是整群鲸鱼同时死亡：
 **云厂商整合趋势**：当前大型开源项目被平台公司拥有的趋势正在减少鲸落率。这可能产生二阶效应——生态系统多样性受损，但无人追踪。
 
 > 健康生态需要稳定的鲸落供应——尽管这意味着希望大型项目死亡，因为深海海底没有其他食物来源。
+

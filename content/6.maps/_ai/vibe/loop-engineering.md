@@ -18,3 +18,4 @@ Loop 常被描述为五个构建块：automations、worktrees、skills、plugins
 ## 自动化放大理解债务
 
 循环不会减少工程师责任，反而会把“看不懂自己代码”的问题加速。Loop 跑得越顺，越容易产出大量你未逐行审阅的代码，形成 comprehension debt；如果长期依赖循环而不保持判断，就会滑向 cognitive surrender——把思考外包给机器。设计循环的真正难度不在于让它跑起来，而在于让它在放大杠杆的同时，仍然强迫你保持领域判断。见：[Loop Engineering](https://addyo.substack.com/p/loop-engineering)
+

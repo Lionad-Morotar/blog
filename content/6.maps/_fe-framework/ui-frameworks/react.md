@@ -8,7 +8,8 @@ original_path: content/6.maps/_fe-framework/ui/react.md
 
 #### Fiber 是什么，怎么实现的？
 
-在 React 15 之前更新 VDom 树时，React 会找到所有差异并一次性地同步更新它们，这可能会导致卡顿。使用 Fiber 后，React 把树的遍历转换为从父节点，到子节点，到兄弟节点，再回到父节点这一流程，使得遍历是可以中断的，分批异步更新 DOM 成为可能。React 可以在浏览器有动画、用户输入任务等高优先级任务时，先执行高优先级任务。直到有空闲才继续执行 Diff 操作。
+在 React 15 之前更新 VDom 树时，React 会找到所有差异并一次性地同步更新它们，这可能会导致卡顿。使用 Fiber 后，React 把树的遍历转换为从父节点，到子节点，到兄弟节点，再回到父节点这一流程，
+使得遍历是可以中断的，分批异步更新 DOM 成为可能。React 可以在浏览器有动画、用户输入任务等高优先级任务时，先执行高优先级任务。直到有空闲才继续执行 Diff 操作。
 
 ```js
 const tasks = []
@@ -25,7 +26,8 @@ requestIdelCallBack(render)
 
 #### SyntheticEvent 是什么？
 
-合成事件（SyntheticEvent）是 React 17 以前的事件系统设计思路，它是 DOM 事件上的一层封装。合成事件解决了浏览器兼容性问题，并且通过池化技术减少了内存消耗。不过，池化技术会在事件回收时，将对象属性重置为空，所以合成事件用于异步时，需要提前将值缓存或者使用 event.persist 将事件持久化。
+合成事件（SyntheticEvent）是 React 17 以前的事件系统设计思路，它是 DOM 事件上的一层封装。合成事件解决了浏览器兼容性问题，并且通过池化技术减少了内存消耗。不过，池化技术会在事件回收时，将对象属性重置为空，
+所以合成事件用于异步时，需要提前将值缓存或者使用 event.persist 将事件持久化。
 
 见：[SyntheticEvent](https://reactjs.org/docs/events.html)
 
@@ -39,7 +41,8 @@ React.PureComponent 中默认在 shouldComponentUpdate 中实现了 state 和 pr
 
 #### React 的生命周期是怎么样的？
 
-组件的生命周期分为 Mount、Update 和 Unmount 三个阶段，每个阶段又可以划分出渲染、预提交和提交三个过程。未挂载的组件会在实例创建好后，调 render 函数更新 DOM 节点，最后触发 componentDidMount 钩子，组件更新时则是根据 props 和 states 通过 shouldComponentUpdate 钩子来判断是否要调用 render 函数。
+组件的生命周期分为 Mount、Update 和 Unmount 三个阶段，每个阶段又可以划分出渲染、预提交和提交三个过程。未挂载的组件会在实例创建好后，调 render 函数更新 DOM 节点，
+最后触发 componentDidMount 钩子，组件更新时则是根据 props 和 states 通过 shouldComponentUpdate 钩子来判断是否要调用 render 函数。
 
 ![React 16.4 Lifecycles](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220627111627.png)
 
@@ -47,7 +50,8 @@ React.PureComponent 中默认在 shouldComponentUpdate 中实现了 state 和 pr
 
 #### getDerivedStateFromProps 是做什么的？
 
-getDerivedStateFromProps 是 React 16.3 后引入的生命周期，用来替代 componentWillReceiveProps。它用来接受来自 props 的更新，以更新当前组件的 States。在 getDerivedStateFromProps 之后，states 和 props 的改变都会走 shouldComponentUpdate 来确定是否跳过渲染。
+getDerivedStateFromProps 是 React 16.3 后引入的生命周期，用来替代 componentWillReceiveProps。它用来接受来自 props 的更新，以更新当前组件的 States。
+在 getDerivedStateFromProps 之后，states 和 props 的改变都会走 shouldComponentUpdate 来确定是否跳过渲染。
 
 ```js
 static getDerivedStateFromProps(nextProps, prevState) {
@@ -95,9 +99,11 @@ React 经历了多次架构变革。早期使用 mixins 实现代码复用，ES6
 
 #### 多层 Context Provider 嵌套是否等同于多个局部 store？
 
-多层 Context Provider 嵌套常被用来替代全局状态管理方案，但这种做法本质上是把单一全局 store 拆成多个作用域更小的局部 store，只是换了一个叫 context 的名字。它没有减少状态管理的复杂度，只是把 store 的边界沿着组件树做了重新划分。
+多层 Context Provider 嵌套常被用来替代全局状态管理方案，但这种做法本质上是把单一全局 store 拆成多个作用域更小的局部 store，只是换了一个叫 context 的名字。它没有减少状态管理的复杂度，
+只是把 store 的边界沿着组件树做了重新划分。
 
-Redux 因样板代码较多而在社区中受到批评，导致一些本应放在 Thunk 或 Saga 中的异步逻辑和副作用被硬塞进组件 render() 中，反而让视图层承担了本不该承担的控制职责。正确做法是把副作用留在 store 层，让组件只负责渲染。
+Redux 因样板代码较多而在社区中受到批评，导致一些本应放在 Thunk 或 Saga 中的异步逻辑和副作用被硬塞进组件 render() 中，反而让视图层承担了本不该承担的控制职责。正确做法是把副作用留在 store 层，
+让组件只负责渲染。
 
 #### Thunk 和 Saga 如何隔离 React 副作用？
 
@@ -157,3 +163,4 @@ Thunk 适合简单异步和条件 dispatch；Saga 适合复杂流程、竞态、
 #### 什么是组件横切关系？
 
 横切关系是那些和程序中大部分模块都有联系的部分，它们形成了切面开发的基础单元。
+

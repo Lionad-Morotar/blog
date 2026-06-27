@@ -105,3 +105,4 @@ Symbol.species 可以影响实例的创建过程。啊，没能理解。
 ## TODO
 
 * [Metaprogramming in ES6: Symbols and why they're awesome](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies)
+

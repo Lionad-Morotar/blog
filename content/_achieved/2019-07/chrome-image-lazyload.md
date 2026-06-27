@@ -8,7 +8,8 @@ title: 听说你还在手写懒加载?
 
 ### 直接开始使用
 
-当然, 你也可以现在就开始体验这一功能, 在浏览器的标签栏输入`browser://flags/#enable-lazy-image-loading`并进入页面, 找到`enable-lazy-image-loading`这一项打开它, 重启后即可使用.
+当然, 你也可以现在就开始体验这一功能, 在浏览器的标签栏输入`browser://flags/#enable-lazy-image-loading`并进入页面, 找到`enable-lazy-image-loading`这一项打开它,
+重启后即可使用.
 
 ![如何开启](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/chrome-image-lazyload/2019-04-23-00-45-26.png)
 
@@ -48,5 +49,6 @@ title: 听说你还在手写懒加载?
 * [Lazyload images and iframes](https://github.com/whatwg/html/pull/3752)
 * [图片和视频的懒加载](https://github.com/dwqs/blog/issues/74)
 * [极致性能 – 图片渐进显示和懒加载](http://medium.yintage.com/?p=44)
+
 
 

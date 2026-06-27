@@ -9,7 +9,8 @@ original_path: content/6.maps/_web/crawler.md
 
 #### 有哪些常见的反爬虫策略？
 
-前端主要从 HTML、CSS、JS 的角度去考虑。HTML 和 CSS 的策略较简单，比如 iframe 延迟加载、隐形内容、background 偏移、字体重映射等。JS 加密一般会用于价值较高的项目。服务器端可以分主动防御和被动防御两项，指纹、蜜罐、无头浏览器校验、UA、IP、robots.txt 等等。
+前端主要从 HTML、CSS、JS 的角度去考虑。HTML 和 CSS 的策略较简单，比如 iframe 延迟加载、隐形内容、background 偏移、字体重映射等。JS 加密一般会用于价值较高的项目。
+服务器端可以分主动防御和被动防御两项，指纹、蜜罐、无头浏览器校验、UA、IP、robots.txt 等等。
 
 通过对规则进行组合可以设计出更严格的的反爬策略，如：先访问某图片才能访问某 URL，否则被计分。
 
@@ -50,3 +51,4 @@ original_path: content/6.maps/_web/crawler.md
 ## Links
 
 [TODO，猿人学爬虫教程](https://www.yuanrenxue.com/crawler/why-write-python-crawler.html)
+

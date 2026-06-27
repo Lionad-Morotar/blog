@@ -50,7 +50,8 @@ Exparser 是一套小程序的组件框架，它提供了一套类似 Shadow DOM
 
 讨论多端小程序时，我们其实是在讨论其架构的技术差异以及这些技术差异对业务的影响。
 
-作者认为分为三种多端 UI 框架（这个词不太合适，原文是小程序多端框架）：全包型的 [Flutter](/maps/_cross-platform/flutter)，JS 作为 DSL 的 Web 技术类型如 React Native，和 JS 编译到 native 代码的编译型如 Taro。
+作者认为分为三种多端 UI 框架（这个词不太合适，原文是小程序多端框架）：全包型的 [Flutter](/maps/_cross-platform/flutter)，JS 作为 DSL 的 Web 技术类型如 React Native，
+和 JS 编译到 native 代码的编译型如 Taro。
 
 查过 React Native 架构技术文档页面，写得是稀烂，一行都看不懂。
 
@@ -95,3 +96,4 @@ export default new Method();
 在多种同类工具中选型，可以从开发功能（多端支持、保真度）、（IDE、Linter、TS、DSL Type）、生态（组件库、文档、DEMO）和社区（Github Star、PR、NPM Downloads、Forum）这些角度来考虑。
 
 ![chameleon vs mpvue vs Taro vs uni-app vs WePY](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220616030210.png)
+

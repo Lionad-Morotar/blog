@@ -28,7 +28,8 @@ artstation
 
 #### 通用
 
-longbody, lowres, bad anatomy, bad hands, missing fingers, pubic hair,extra digit, fewer digits, cropped, worst quality, low quality
+longbody, lowres, bad anatomy, bad hands, missing fingers, pubic hair,extra digit, fewer digits, cropped, worst quality,
+low quality
 
 nsfw,
 (worst quality :2), (low quality :1), (normal quality :1),
@@ -50,3 +51,4 @@ signature, watermark, username, blurry, cropped, jpeg artifacts, text, error,
 
 * [Midjourney 提示词生成器](http://www.atoolbox.net/Tool.php?Id=1102)
 * [元素法典](https://docs.qq.com/doc/DWHl3am5Zb05QbGVs)
+

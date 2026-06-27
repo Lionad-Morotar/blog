@@ -17,13 +17,17 @@ description: AI Agent 框架、平台、协议和基础设施的全面调研
 
 #### Hermes Agent 与 OpenClaw：自进化智能体的两种范式
 
-Nous Research 于 2026 年 2 月发布 Hermes Agent（最新 v0.10.0，2026.4.16），定位为"能自我进化的开源自托管个人智能体"。同期 OpenClaw 活跃迭代（2026.3.7 引入可插拔 ContextEngine），两者代表自托管智能体赛道的两种竞争性架构哲学。
+Nous Research 于 2026 年 2 月发布 Hermes Agent（最新 v0.10.0，2026.4.16），定位为"能自我进化的开源自托管个人智能体"。同期 OpenClaw 活跃迭代（
+2026.3.7 引入可插拔 ContextEngine），两者代表自托管智能体赛道的两种竞争性架构哲学。
 
-**核心架构差异**：Hermes 以"Agent 执行循环"为同步编排引擎，围绕其集成网关、定时调度器、工具运行时和 ACP，形成"执行—学习—改进"的自我进化闭环；OpenClaw 以"网关"为中枢控制器，统一协调会话、路由、工具调用和状态维护，强调人类可控和显式配置。
+**核心架构差异**：Hermes 以"Agent 执行循环"为同步编排引擎，围绕其集成网关、定时调度器、工具运行时和 ACP，形成"执行—学习—改进"的自我进化闭环；OpenClaw 以"网关"为中枢控制器，统一协调会话、路由、
+工具调用和状态维护，强调人类可控和显式配置。
 
-**记忆设计差异**：Hermes 采用四层分层结构——核心持久记忆（~1.3k tokens，每次会话加载）+ SQLite 可搜索历史（FTS5 全文索引，按需检索）+ Honcho 长期用户画像 + 技能层（程序性记忆，存储"学会做什么"）；OpenClaw 采用 Markdown 文件化记忆，是"事实的权威来源"。
+**记忆设计差异**：Hermes 采用四层分层结构——核心持久记忆（~1.3k tokens，每次会话加载）+ SQLite 可搜索历史（FTS5 全文索引，按需检索）+ Honcho 长期用户画像 + 技能层（程序性记忆，
+存储"学会做什么"）；OpenClaw 采用 Markdown 文件化记忆，是"事实的权威来源"。
 
-**安全与配置哲学**：Hermes 采用五层纵深防御（用户授权、危险命令审批、容器隔离、MCP 凭证过滤、上下文文件扫描），定位为"默认安全、生产就绪"；OpenClaw 强调操控性和可审查性，安全加固依赖用户自身运维，定位为"强大但需手动配置"。
+**安全与配置哲学**：Hermes 采用五层纵深防御（用户授权、危险命令审批、容器隔离、MCP 凭证过滤、上下文文件扫描），定位为"默认安全、生产就绪"；OpenClaw 强调操控性和可审查性，安全加固依赖用户自身运维，
+定位为"强大但需手动配置"。
 
 两者并非互斥——有分析认为可以并行运行、输出复用甚至互联，下一代产品可能兼具"用户直接掌控"和"能力复利"。
 
@@ -183,3 +187,4 @@ Agent 之间的"HTTP 协议"，解决跨框架、跨厂商 Agent 的互操作性
 * [A2A 协议规范](https://google.github.io/A2A/)
 * [Agentic AI Foundation](https://www.agentic.ai/)
 * [Anthropic - Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)
+

@@ -42,3 +42,4 @@ description: 组织内晋升悖论与管理者胜任力陷阱
 将员工当前工作绩效与其未来职业发展潜力分开评估。晋升决策应基于候选人是否具备目标岗位所需的能力，而非过去岗位的业绩记录。
 
 见：[The Peter Principle: Why great employees become bad bosses](https://cn.weforum.org/stories/2019/05/bi-de-yuan-li-wei-shen-me-zui-jia-yuan-gong-que-cheng-bu-liao-zui-jia-jing-li)（世界经济论坛）
+

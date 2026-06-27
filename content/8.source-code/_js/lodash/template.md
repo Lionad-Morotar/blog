@@ -4,7 +4,8 @@ title: Lodash.template
 
 ## 完整实现
 
-Lodash.template 用于解析模板字符串。注释中提到这个模板解析函数基于 John Resig 的 [Micro Templating](/articles/micro-templating) 和 Laura Doktorava 的 doT.js 项目。
+Lodash.template 用于解析模板字符串。
+注释中提到这个模板解析函数基于 John Resig 的 [Micro Templating](/articles/micro-templating) 和 Laura Doktorava 的 doT.js 项目。
 
 ```js
 function template(string, options, guard) {
@@ -128,3 +129,4 @@ function template(string, options, guard) {
 ## 代码解析
 
 TODO...
+

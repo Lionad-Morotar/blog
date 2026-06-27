@@ -51,12 +51,14 @@ Agent Skills 是一个开放标准（[agentskills.io](https://agentskills.io/spe
 
 **关键发现**：
 
-1. **跨提供商发现已成常态** — Cursor、Copilot、OpenCode、Pi 等都会读取 `.claude/skills/` 和 `.agents/skills/`，意味着为 Claude Code 编写的 Skill 可在多个平台复用
+1. **跨提供商发现已成常态** — Cursor、Copilot、OpenCode、Pi 等都会读取 `.claude/skills/` 和 `.agents/skills/`，
+意味着为 Claude Code 编写的 Skill 可在多个平台复用
 2. **Claude Code 拥有最丰富的扩展字段**（12 个 provider-specific 字段），远超其他提供商
 3. **Codex CLI 和 OpenCode 支持向上扫描** — 从 CWD 向上扫描到 repo root，monorepo 友好
 4. **Pi 支持 package.json 声明和 CLI `--skill` 参数** — 最灵活的发现机制
 
-见：[Provider Skills Differences](/Users/lionad/Github/Run/impeccable/docs/research/provider-skills-differences.md) — 10 家提供商详细对比
+见：[Provider Skills Differences](/Users/lionad/Github/Run/impeccable/docs/research/provider-skills-differences.md) —
+10 家提供商详细对比
 
 ## 提供商实现差异
 
@@ -165,3 +167,4 @@ VSCode 有 Skill 的校验。
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260124134051380.png)
 
 [^1]: [Designing, Refining, and Maintaining Agent Skills at Perplexity](https://research.perplexity.ai/articles/designing-refining-and-maintaining-agent-skills-at-perplexity): Perplexity 研究团队公开的生产级 Skill 工程指南。
+

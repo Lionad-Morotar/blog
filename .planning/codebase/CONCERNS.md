@@ -8,7 +8,8 @@
 - **Issue:** MathJax configuration causing display problems with block-level math expressions
 - **Files:** `nuxt.config.ts` (lines 176-186), `.todo` (line 1: "fix mathjax")
 - **Impact:** Mathematical content not rendering correctly, affecting 21+ markdown files with math content
-- **Fix approach:** Review rehype-mathjax configuration, consider alternative math rendering libraries or update to latest version
+- **Fix approach:** Review rehype-mathjax configuration,
+consider alternative math rendering libraries or update to latest version
 
 ### Disabled OG Image Generation
 - **Issue:** Open Graph image generation disabled due to "twimoji fetch error"
@@ -72,7 +73,8 @@
 
 ### Large Content Directory
 - **Problem:** 543+ markdown files, some very large
-- **Files:** `content/6.maps/_frontend/css/0.css-mind-map.md` (809 lines), `content/6.maps/_frontend/javascript/0.javascript-mind-map.md` (502 lines)
+- **Files:** `content/6.maps/_frontend/css/0.css-mind-map.md` (809 lines), `content/6.maps/_frontend/javascript/0.
+javascript-mind-map.md` (502 lines)
 - **Impact:** Build times increase with content volume, memory usage during prerender
 - **Improvement path:** Implement incremental builds or content pagination
 
@@ -219,3 +221,4 @@
 ---
 
 *Concerns audit: 2026-02-24*
+

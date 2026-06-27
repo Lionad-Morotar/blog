@@ -8,7 +8,8 @@ title: 🛠 低版本浏览器兼容HTML5标签原理
 
 它主要做了以下两件事情：
 
-* 用高阶函数增强浏览器原生的 createElement 等 API。需要创建新标签时，使用已缓存的元素克隆并返还一个新元素，或回退至调用原生 API 创建 H5 新元素。这个增强是基于 document.createElement 能创建非标准元素这个特性实现的。
+* 用高阶函数增强浏览器原生的 createElement 等 API。需要创建新标签时，使用已缓存的元素克隆并返还一个新元素，或回退至调用原生 API 创建 H5 新元素。
+这个增强是基于 document.createElement 能创建非标准元素这个特性实现的。
 * 给新标签增加相应的默认样式。
 
 ## 具体实现
@@ -53,7 +54,8 @@ supportsUnknownElements = a.childNodes.length == 1 || (function() {
 }())
 ```
 
-如果连 document.createElement 都调用失败的话，那 html5shiv 代码就毫无作用了（html5shiv 的原理需要用到 document.createElement），所以用一个 try/catch 将上述两个功能包裹起来。遇到错误则假装浏览器正常支持 HTML5，相关检测变量被置为 true。
+如果连 document.createElement 都调用失败的话，那 html5shiv 代码就毫无作用了（html5shiv 的原理需要用到 document.createElement），
+所以用一个 try/catch 将上述两个功能包裹起来。遇到错误则假装浏览器正常支持 HTML5，相关检测变量被置为 true。
 
 ```js
 (function() {
@@ -135,7 +137,8 @@ function shivDocument(ownerDocument) {
   }
 ```
 
-接下来，仔细康康 shivMethods 方法。shivMethods 仿制了 createElement 和 createDocumentFragment 两个 API，将其挂载到 document._html5shiv。并通过装饰器模式增强了浏览器原生的 createElement 等 API 的功能。
+接下来，仔细康康 shivMethods 方法。shivMethods 仿制了 createElement 和 createDocumentFragment 两个 API，将其挂载到 document._html5shiv。
+并通过装饰器模式增强了浏览器原生的 createElement 等 API 的功能。
 
 ```js
 function shivMethods(ownerDocument, data) {
@@ -186,7 +189,8 @@ data.frag = data.createFrag()
 // >>> Uncaught TypeError: Illegal invocation
 ```
 
-由于没有具体的报错原因，只能暂时猜测是 this 指向的锅。更改 this 指向后，再试了一次，这次没得问题。在 GitHub issues 中没有人提过这个问题，所以我只能猜测因为所有现代浏览器都支持使用原生 API 创建非标准元素，所以不会走 shivMethods 的逻辑。
+由于没有具体的报错原因，只能暂时猜测是 this 指向的锅。更改 this 指向后，再试了一次，这次没得问题。在 GitHub issues 中没有人提过这个问题，所以我只能猜测因为所有现代浏览器都支持使用原生 API 创建非标准元素，
+所以不会走 shivMethods 的逻辑。
 
 ```js
 data = {}
@@ -196,7 +200,8 @@ data.frag = data.createFrag()
 // >>> #document-fragment
 ```
 
-我们继续。以下代码是对 createElement 的仿制， 用于返回一个已经 shiv 过的元素。主要是用来兼容原生 document.createElement 不支持创建一个非规范的元素的情况。比方说，HTML5 标签中有 article 元素，document.createElement 不支持的话，就需要调用此仿制 API。
+我们继续。以下代码是对 createElement 的仿制， 用于返回一个已经 shiv 过的元素。主要是用来兼容原生 document.createElement 不支持创建一个非规范的元素的情况。比方说，
+HTML5 标签中有 article 元素，document.createElement 不支持的话，就需要调用此仿制 API。
 
 ```js
 function createElement(nodeName, ownerDocument, data){
@@ -294,7 +299,8 @@ function addStyleSheet(ownerDocument, cssText) {
 }
 ```
 
-一对用来维护 html5.elements 的方法 getElements、addElements。相当于 getter/setter。因为 html5shiv 将 html5 这个对象挂载到了 window 对象上，向外暴露。所以可以轻易调用 addElements 维护 html.elements。
+一对用来维护 html5.elements 的方法 getElements、addElements。相当于 getter/setter。因为 html5shiv 将 html5 这个对象挂载到了 window 对象上，向外暴露。
+所以可以轻易调用 addElements 维护 html.elements。
 
 ```js
 function getElements() {
@@ -318,7 +324,8 @@ function addElements(newElements, ownerDocument) {
 
 ## 阅读更多
 
-害，看 html5shiv 并不能带来什么具体的帮助。看完之后，只感觉上一代前端真是太辛苦了，为 IE 操碎了心。现代前端技术随着打包工具的发展开阔了不止一点，兼容性这个曾经的代码重心已经悄然落下帷幕。如果现在我去哪家公司面试，还会被大面积问到兼容性问题，那估计我会当场“quit”吧。
+害，看 html5shiv 并不能带来什么具体的帮助。看完之后，只感觉上一代前端真是太辛苦了，为 IE 操碎了心。现代前端技术随着打包工具的发展开阔了不止一点，兼容性这个曾经的代码重心已经悄然落下帷幕。如果现在我去哪家公司面试，
+还会被大面积问到兼容性问题，那估计我会当场“quit”吧。
 
 [^html5shiv]: [html5shiv](https://github.com/aFarkas/html5shiv)
 [^hidden]: [HTMLElement.hidden@MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/hidden)

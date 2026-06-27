@@ -7,7 +7,8 @@ description: GitLab Flow 是介于 GitHub Flow 和 Gitflow 之间的折中方案
 
 #### GitLab Flow 是什么？
 
-GitLab Flow 是 GitLab 于 2014 年提出的一种 Git 工作流，定位为 GitHub Flow 与 Gitflow 之间的折中方案。它在 GitHub Flow 的简洁性基础上增加了可选的环境分支和发布分支，同时大幅减少了 Gitflow 的分支复杂度。核心原则：**提交只能向下游流动（commits only flow downstream）。**
+GitLab Flow 是 GitLab 于 2014 年提出的一种 Git 工作流，定位为 GitHub Flow 与 Gitflow 之间的折中方案。它在 GitHub Flow 的简洁性基础上增加了可选的环境分支和发布分支，
+同时大幅减少了 Gitflow 的分支复杂度。核心原则：**提交只能向下游流动（commits only flow downstream）。**
 
 #### GitLab Flow 怎么运作？
 
@@ -47,3 +48,4 @@ GitLab Flow 是 GitLab 于 2014 年提出的一种 Git 工作流，定位为 Git
 * [What is GitLab Flow? - GitLab 官方](https://about.gitlab.com/topics/version-control/what-is-gitlab-flow/)
 * [Branching Strategies - GitLab Docs](https://docs.gitlab.com/user/project/repository/branches/strategies/)
 * [The problem with Git Flow - GitLab Blog](https://about.gitlab.com/blog/what-is-gitlab-flow/)
+

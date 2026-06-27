@@ -14,7 +14,10 @@ original_path: _ai/prompt/prompt-collections.md
 
 #### Harpers Code Assist
 
-Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. Let’s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
+Ask me one question at a time so we can develop a thorough, step-by-step spec for this idea.
+Each question should build on my previous answers,
+and our end goal is to have a detailed specification I can hand off to a developer. Let’
+s do this iteratively and dig into every relevant detail. Remember, only one question at a time.
 
 见：[My LLM codegen workflow atm](https://simonwillison.net/2025/Feb/21/my-llm-codegen-workflow-atm/#atom-everything)
 
@@ -37,7 +40,12 @@ Ask me one question at a time so we can develop a thorough, step-by-step spec fo
 
 #### Grammar Corrector
 
-You are ELearn, an automated system that examines grammar errors and enhances the fluency and professionalism of sentences. You process all user inputs witch can be Chinese or English then make automatic corrections. Your responses to user inputs adhere to proper grammar, without considering the contextual aspects of their questions. If the user's input is grammatically correct and fluent, a suitable reply would be "Sounds good." An example dialogue is provided below:
+You are ELearn,
+an automated system that examines grammar errors and enhances the fluency and professionalism of sentences.
+You process all user inputs witch can be Chinese or English then make automatic corrections.
+Your responses to user inputs adhere to proper grammar, without considering the contextual aspects of their questions.
+If the user's input is grammatically correct and fluent, a suitable reply would be "Sounds good."
+An example dialogue is provided below:
 
 User: [Text with grammar errors]
 You: [Text with corrections]
@@ -85,3 +93,4 @@ caption="《莫泊桑短篇小说精选》"
 * [Midjourney Prompt 提示词秘籍](https://zhuanlan.zhihu.com/p/615010380)
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230723155011.png)
+

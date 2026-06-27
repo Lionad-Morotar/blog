@@ -39,7 +39,8 @@ dir <parentPath> | format-table | findstr <childPath>
 
 文中有一段简单的 cmd 脚本用来递归查找文件夹下所有目录，这之后可以把这些目录添加的 Path 中，这样，目录下的程序就可以直接访问了。
 
-**自动设置环境变量脚本**：我的需求和文章描述的不太一样。首先我在 OneDrive 里有一个 Code 的文件夹，装了诸如 Python2、Python3、NodeJS 等许许多多的依赖文件，我想通过脚本一次性全部将他们加入 CodeBin 变量下。以下是我的代码，十分简陋，仅供参考思路。
+**自动设置环境变量脚本**：我的需求和文章描述的不太一样。首先我在 OneDrive 里有一个 Code 的文件夹，装了诸如 Python2、Python3、NodeJS 等许许多多的依赖文件，
+我想通过脚本一次性全部将他们加入 CodeBin 变量下。以下是我的代码，十分简陋，仅供参考思路。
 
 ![C:\Users\lionad\OneDrive\Code](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210917151711.png?type=win11)
 
@@ -134,3 +135,4 @@ set-env "test" "C:\\Users\\18062\\OneDrive\\WebSaver"
 在 CodeBin 变量里面塞满其它路径，不至于撑爆 Path 变量：
 
 ![CodeBin](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20210917150717.png?type=win11)
+

@@ -87,7 +87,9 @@ type test2 = test1<number>
 
 ### 选择
 
-选择对应 TS 中的 extends。用来判断某种范围是否是另一种范围的子集（更严谨的说法是判断某种类型是否可以分配给另一种类型）。这里的范围可以是某种值，也可以是某种类型。所以我们可以看到 1 extends number 或 number extends number | string 这种写法。既然是判断范围而不是直接判断值是否相等，所以才会通过结合三元运算返回 true 或 false 来达到返回某种值的功能。
+选择对应 TS 中的 extends。用来判断某种范围是否是另一种范围的子集（更严谨的说法是判断某种类型是否可以分配给另一种类型）。这里的范围可以是某种值，也可以是某种类型。
+所以我们可以看到 1 extends number 或 number extends number | string 这种写法。既然是判断范围而不是直接判断值是否相等，
+所以才会通过结合三元运算返回 true 或 false 来达到返回某种值的功能。
 
 ```ts
 type test = 1 extends 1 ? (/* other logic */) : (/* other logic */)
@@ -116,7 +118,8 @@ type test4 = 'a' extends string ? true : false; // true
 type test5 = never extends any ? true : false; // true
 ```
 
-以下用 Equals 实现了一个更接近等号语义的函数。如果仅包含类型 T 的元组可以分配给仅包含类型 S 的元组，并且这两个元组即使位置互换，分配运算也能成立，那么说明这两个类型相等。对付常见的类型，这个函数就足够了。给 Euqals 传入字符串字面量、数字或是类型，他都能有效返回。
+以下用 Equals 实现了一个更接近等号语义的函数。如果仅包含类型 T 的元组可以分配给仅包含类型 S 的元组，并且这两个元组即使位置互换，分配运算也能成立，那么说明这两个类型相等。对付常见的类型，这个函数就足够了。
+给 Euqals 传入字符串字面量、数字或是类型，他都能有效返回。
 
 ```ts
 type Equals<T, S> =
@@ -131,7 +134,8 @@ type Equals<T, S> =
 
 和 JS 不一样的是，除了比较运算的其它运算（加减乘除等）在 TS 类型系统中是件难事儿，因为入参不同，实现也不同。需要分情况讨论。
 
-元组是 TS 类型系统的基础，其基本运算可以概括为 Push、Pop、UnShift、Shift。分别是在尾部新增一项、去除尾部一项、在头部新增意向、去除头部一项。加法和减法分别对应 Push、UnShift 和 Pop、Shift。见下代码，在这种元组加法的实现中，灵活使用展开运算符，构造出一个新数组。减法的实现则依赖使用 infer 自动推断。
+元组是 TS 类型系统的基础，其基本运算可以概括为 Push、Pop、UnShift、Shift。分别是在尾部新增一项、去除尾部一项、在头部新增意向、去除头部一项。加法和减法分别对应 Push、UnShift 和 Pop、Shift。
+见下代码，在这种元组加法的实现中，灵活使用展开运算符，构造出一个新数组。减法的实现则依赖使用 infer 自动推断。
 
 ```ts
 type raw = ['a', 'b', 'c']
@@ -149,7 +153,8 @@ type Shift<T extends any[]> = T extends [infer First, ...infer Rest] ? [...Rest]
 type test_Shift = Shift<raw> // ['b','c']
 ```
 
-由于在 TS 的类型系统中数字字面量不能直接应用加法减法等运算符，所以数字的计算要依靠其它数据结构实现。以下是一个加法减法的快速实现，通过递归执行元组的 Push、Pop 等操作，来改变元组的长度，并将其长度作为最终的计算结果返回。需要说明的是，这个实现和文中其它实现一样，仅作为实现示意，其中有许多问题，不能用于生产环境。
+由于在 TS 的类型系统中数字字面量不能直接应用加法减法等运算符，所以数字的计算要依靠其它数据结构实现。以下是一个加法减法的快速实现，通过递归执行元组的 Push、Pop 等操作，来改变元组的长度，并将其长度作为最终的计算结果返回。
+需要说明的是，这个实现和文中其它实现一样，仅作为实现示意，其中有许多问题，不能用于生产环境。
 
 ```ts
 type CreateTupple<n extends number, T extends any[] = []> =
@@ -163,7 +168,8 @@ type test1 = Add1<5> // 6
 type test2 = Minus1<5> // 4
 ```
 
-字符的加法也就是使用模板字符串创建一个新字符串，`${A}${B}`，减法则对应 JavaScript 中的 Replace 函数的语义。见下代码，在 Replace 的实现中，使用模式匹配推断出 Old 之前的字符子串 Front 与之后的字符子串 End。推断成功，则返回一个新字符串，否则返回原字符串。
+字符的加法也就是使用模板字符串创建一个新字符串，`${A}${B}`，减法则对应 JavaScript 中的 Replace 函数的语义。见下代码，在 Replace 的实现中，
+使用模式匹配推断出 Old 之前的字符子串 Front 与之后的字符子串 End。推断成功，则返回一个新字符串，否则返回原字符串。
 
 ```ts
 type raw = 'Lionad is lion'
@@ -274,3 +280,4 @@ type res = MultipleNum<6, 8> // 48
 * [TypeScript 类型体操天花板，用类型运算写一个 Lisp 解释器](https://zhuanlan.zhihu.com/p/427309936)
 * [TypeScript 类型体操通关秘籍](https://juejin.cn/book/7047524421182947366)
 * [Types DOOM](https://www.youtube.com/watch?v=0mCsluv5FXA)
+

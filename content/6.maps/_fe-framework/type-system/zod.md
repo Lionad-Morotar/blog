@@ -6,7 +6,8 @@ original_path: content/6.maps/_fe-framework/schema/zod.md
 
 #### 简介
 
-Zod 使用 Schema 来描述数据结构，其核心理念是 "parse, don't validate"（解析，而不是验证），这意味着数据要么被解析为正确的类型，要么解析失败抛出错误，这很适合接口层的数据校验。也难怪其生态包含了许多 API 增强的类库，如 zod-endpoints, zod-sockets。此外，Zod 还提供了链式 API，支持 NodeJS 和主流浏览器。
+Zod 使用 Schema 来描述数据结构，其核心理念是 "parse, don't validate"（解析，而不是验证），这意味着数据要么被解析为正确的类型，要么解析失败抛出错误，这很适合接口层的数据校验。
+也难怪其生态包含了许多 API 增强的类库，如 zod-endpoints, zod-sockets。此外，Zod 还提供了链式 API，支持 NodeJS 和主流浏览器。
 
 Zod 生态分为：API Libs、Form Integration、Transformers（如 [zod-to-json-schema](https://github.com/StefanTerdell/zod-to-json-schema)）、Utils（如 [zod-validation-error](https://github.com/causaly/zod-validation-error)）、Made with Zod
 
@@ -277,3 +278,4 @@ for (const key in testMap) {
 
 * ChangeLog：[Zod](https://zod.dev/CHANGELOG)
 * GitHub：[Zod](https://github.com/colinhacks/zod)
+

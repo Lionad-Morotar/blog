@@ -17,7 +17,8 @@ original_path: content/6.maps/_server/nodejs/source/require.md
 
 NodeJS 导入模块时有主要功能点：解析模块地址算法以及改善 IO 操作消耗大量的性能的优化算法。
 
-* **地址解析**：在 require 时，我们可以传入 fs、path、a/index.js、webpack 等各种参数，解析分两种情况：如果传入核心部件名或是相对路径名称，则直接导入模块；不然则从本目录开始寻找 node_modules 目录，没找到时递归回退直到系统根目录。
+* **地址解析**：在 require 时，我们可以传入 fs、path、a/index.js、webpack 等各种参数，解析分两种情况：如果传入核心部件名或是相对路径名称，则直接导入模块；
+不然则从本目录开始寻找 node_modules 目录，没找到时递归回退直到系统根目录。
 * **性能消耗**：所有加载过的模块都用 WeakMap 缓存下来，再次加载时，直接返回已经加载好的内容。
 
 ## 代码解析
@@ -551,3 +552,4 @@ const pendingDeprecation = getOptionValue('--pending-deprecation')
 ```js
 const preserveSymlinks = getOptionValue('--preserve-symlinks')
 ```
+

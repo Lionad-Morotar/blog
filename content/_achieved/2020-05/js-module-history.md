@@ -131,7 +131,8 @@ math.sum(1, 3)
 
 ServerJS 想进一步推广到浏览器端，于是将社区改名叫 CommonJS。激烈争论 Modules 的下一版规范时，分歧和冲突由此诞生。
 
-James Burke 推荐直接改良 CommonJS 的模块格式以适应浏览器端开发，但是 CommonJS 的发起者并不同意，这也就催生了 RequireJS。James Burke 制定了 AMD 规范，并在 2010 年实现了遵循 AMD 规范的模块加载器 RequireJS。
+James Burke 推荐直接改良 CommonJS 的模块格式以适应浏览器端开发，但是 CommonJS 的发起者并不同意，这也就催生了 RequireJS。James Burke 制定了 AMD 规范，
+并在 2010 年实现了遵循 AMD 规范的模块加载器 RequireJS。
 
 ```js
 require(['module/module1.js', 'module/module2.js'], function(module1, module2) {
@@ -182,7 +183,8 @@ export const foo = Math.sqrt(2)
 
 为什么 ES 模块比 CommonJS 更好？我引用 RollupJS 文档中的一段加以解释：
 
-ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 CommonJS 模块是一种特殊的传统格式，在 ES 模块被提出之前做为暂时的解决方案。 ES 模块允许进行静态分析，从而实现像 tree-shaking 的优化，并提供诸如循环引用和动态绑定等高级功能。
+ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 CommonJS 模块是一种特殊的传统格式，在 ES 模块被提出之前做为暂时的解决方案。 ES 模块允许进行静态分析，
+从而实现像 tree-shaking 的优化，并提供诸如循环引用和动态绑定等高级功能。
 
 在浏览器中，需要使用特定属性的脚本标签，以支持 ES Module 规范（ `<script type="module">` ）。
 
@@ -204,7 +206,8 @@ ES Module 是官方标准，也是 JavaScript 语言明确的发展方向，而 
 
 尽管 ES Module 规范发布已久，但并没有得到广泛的兼容。由于 ES Module 继承了现在来说仍属主流的 CommonJS 规范的诸多优点，所以两者之间有许多共性。我们来看看它们之间的区别。
 
-最大的不同之处在于，**CommonJS 是一种约定，而 ES Module 是语言规范**。CommonJS 定义了一套使用“module.epoxrts 和 require”等代码进行模块导入导出的约定，通过扩充 JS 编译器外层代码，只要开发人员遵守约定，就可以使用此规范。而 ES Module 的实现依赖于编译器。这也导致：
+最大的不同之处在于，**CommonJS 是一种约定，而 ES Module 是语言规范**。CommonJS 定义了一套使用“module.epoxrts 和 require”等代码进行模块导入导出的约定，通过扩充 JS 编译器外层代码，
+只要开发人员遵守约定，就可以使用此规范。而 ES Module 的实现依赖于编译器。这也导致：
 
 1. Require 导入值的拷贝，模块内部变化不能直接反应到外部；ES Module 导入值的映射，就算是模块内部的字符串有修改，同样会反映到模块外部。
 2. Require 本质是一个函数，所以容易实现动态导入的功能；ES Module 依赖于编译器的静态分析，所以动态导入功能难以被完善实现。
@@ -243,3 +246,4 @@ TODO
 * [JavaScript 模块化入门 Ⅰ：理解模块](https://zhuanlan.zhihu.com/p/22890374)
 * [JavaScript 模块化入门 Ⅱ：模块打包构建](hhttps://zhuanlan.zhihu.com/p/22945985)
 * [前端工程师必备：前端的模块化](https://juejin.im/post/5cb004da5188251b130c773e)
+

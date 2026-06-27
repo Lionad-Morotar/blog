@@ -32,8 +32,11 @@ original_path: _ai/industry-dynamics.md
 
 #### MenuGen 启示：传统 App 会被模型原生能力直接吞掉
 
-Karpathy 自己写的 MenuGen 是一个“拍菜单生成菜品图”的应用。旧范式做法需要 OCR 识别文字、抽出菜名、调用图像生成器、重新排版、部署上线，几层中间步骤串起来。Software 3.0 版本只需要把菜单照片交给 Gemini，再让 Nano Banana 把菜品图叠回菜单——返回的不是结构化数据或组件，而是一张已经渲染完成的新图片。
+Karpathy 自己写的 MenuGen 是一个“拍菜单生成菜品图”的应用。旧范式做法需要 OCR 识别文字、抽出菜名、调用图像生成器、重新排版、部署上线，几层中间步骤串起来。
+Software 3.0 版本只需要把菜单照片交给 Gemini，再让 Nano Banana 把菜品图叠回菜单——返回的不是结构化数据或组件，而是一张已经渲染完成的新图片。
 
-Karpathy 由此判断“我整个 MenuGen 都是多余的，那个 App 不应该存在”。商业含义是：很多 AI 应用以为自己在做“更快的软件”——把 10 步压成 3 步，但模型能力会直接覆盖整个任务，中间 App 失去必要性。更值得做的不是把已有东西做得更快，而是用 LLM 的信息重组能力做出“以前根本不可能存在的东西”，例如把文章/文档/事实重新编译成 wiki。
+Karpathy 由此判断“我整个 MenuGen 都是多余的，那个 App 不应该存在”。商业含义是：很多 AI 应用以为自己在做“更快的软件”——把 10 步压成 3 步，但模型能力会直接覆盖整个任务，中间 App 失去必要性。
+更值得做的不是把已有东西做得更快，而是用 LLM 的信息重组能力做出“以前根本不可能存在的东西”，例如把文章/文档/事实重新编译成 wiki。
 
 见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
+

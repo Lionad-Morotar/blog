@@ -6,7 +6,8 @@ original_path: _ai/prompt/context-engineering.md
 
 ## Brief
 
-上下文工程是指在推理阶段，对提供给大语言模型的信息进行系统化的设计与优化，从而稳定地产生期望输出。它的核心是对各种情境要素进行结构化、选择和排序——例如提示词、检索到的数据、记忆、指令以及环境信号等——以便让模型的内部层次在一种最优状态下运行。
+上下文工程是指在推理阶段，对提供给大语言模型的信息进行系统化的设计与优化，从而稳定地产生期望输出。它的核心是对各种情境要素进行结构化、选择和排序——例如提示词、检索到的数据、记忆、指令以及环境信号等——
+以便让模型的内部层次在一种最优状态下运行。
 
 与只关注提示词措辞的提示工程不同，上下文工程关心的是“情境”的完整配置：相关知识、指令和历史上下文是如何被组织和投递的，以便实现最有效的结果。
 
@@ -198,37 +199,53 @@ original_path: _ai/prompt/context-engineering.md
 
 #### 提示工程 vs 上下文工程：学科分野与层级关系
 
-到 2025 年，产学研界已形成共识：提示工程关注措辞与单次交互优化，是一门交互设计学科；上下文工程则关注信息环境整体设计——检索哪些文档、如何管理对话历史、如何编排工具输出、如何编码机构知识——本质上是一门系统架构学科。Andrej Karpathy 在 2025 年指出，工业级 LLM 应用中的难题不再是“如何措辞请求”，而是“如何在正确的时间组装正确的信息”。企业正在构建专门的上下文层（Context Layers），使 Agent 查询受治理的上下文层而非依赖单个 Prompt 字符串。两门学科的关系越来越被理解为层级性的：提示工程已成为上下文工程的一个子集。
+到 2025 年，产学研界已形成共识：提示工程关注措辞与单次交互优化，是一门交互设计学科；上下文工程则关注信息环境整体设计——检索哪些文档、如何管理对话历史、如何编排工具输出、如何编码机构知识——本质上是一门系统架构学科。
+Andrej Karpathy 在 2025 年指出，工业级 LLM 应用中的难题不再是“如何措辞请求”，而是“如何在正确的时间组装正确的信息”。企业正在构建专门的上下文层（Context Layers），
+使 Agent 查询受治理的上下文层而非依赖单个 Prompt 字符串。两门学科的关系越来越被理解为层级性的：提示工程已成为上下文工程的一个子集。
 
 见：[Atlan](https://atlan.com/know/context-engineering-vs-prompt-engineering/)、[Elastic](https://www.elastic.co/search-labs/blog/context-engineering-vs-prompt-engineering)、[Firecrawl](https://www.firecrawl.dev/blog/context-engineering)、[KeyValue Systems](https://www.keyvalue.systems/blog/context-engineering-for-smart-ai-agents/)
 
 #### 上下文腐烂：长上下文退化的实证与机制
 
-Chroma Research 在 2025 年对 18 个前沿模型（包括 GPT-4.1、Claude 4 Sonnet、Gemini 2.5 Pro）的评测显示，所有模型均随输入长度增长而单调退化，最陡峭的下降通常发生在 100K–500K token 区间。Wang 等人（2026）将这一现象定义为“智能退化（Intelligence Degradation）”——超过临界阈值后综合任务性能下降超过 30%。arXiv:2510.05381 的实验更具冲击力：即使在完美检索和最小干扰的情况下，向上下文插入 25,000 个空白 token 就足以导致模型得出错误答案，证明上下文长度本身就会损害推理，与检索质量无关。导致退化的机制包括：Liu 等人记录的“Lost in the Middle”现象（RoPE 长期衰减所致）、注意力稀释（100K token 需计算 100 亿对关系）、以及临界阈值崩塌（性能在狭窄范围内灾难性下降）。
+Chroma Research 在 2025 年对 18 个前沿模型（包括 GPT-4.1、Claude 4 Sonnet、Gemini 2.5 Pro）的评测显示，所有模型均随输入长度增长而单调退化，
+最陡峭的下降通常发生在 100K–500K token 区间。Wang 等人（2026）将这一现象定义为“智能退化（Intelligence Degradation）”——超过临界阈值后综合任务性能下降超过 30%。
+arXiv:2510.05381 的实验更具冲击力：即使在完美检索和最小干扰的情况下，向上下文插入 25,000 个空白 token 就足以导致模型得出错误答案，证明上下文长度本身就会损害推理，与检索质量无关。导致退化的机制包括：
+Liu 等人记录的“Lost in the Middle”现象（RoPE 长期衰减所致）、注意力稀释（100K token 需计算 100 亿对关系）、以及临界阈值崩塌（性能在狭窄范围内灾难性下降）。
 
 见：[Chroma Research](https://www.trychroma.com/research/context-rot)、[arXiv:2601.15300](https://arxiv.org/abs/2601.15300)、[arXiv:2510.05381](https://arxiv.org/abs/2510.05381)、[arXiv:2410.15288](https://arxiv.org/abs/2410.15288)
 
 #### 模型腐烂：训练快照与世界演进的脱节
 
-LLM 训练成本极高（不是周末练手项目），完成即冻结，模型成为 6/8/12/18 个月前世界与 Web 的快照。对快速演进的开源项目，这意味着模型的认知与现实严重脱节——会编造 keys、捏造模式、虚构不存在的 API。**「我们没做错什么，但这是我们的问题」**——PostHog 的 Danilo Campos 用这句话概括了厂商责任：模型不是上游训练的事，是下游集成方的工程问题。模型腐烂区别于上文「上下文腐烂」（context rot 是窗口内信息退化，model rot 是训练截止后世界继续演化）。应对策略不是等 Anthropic 重训模型，而是把第一手最新文档主动注入上下文（见下文「Fresh Markdown 注入」）。
+LLM 训练成本极高（不是周末练手项目），完成即冻结，模型成为 6/8/12/18 个月前世界与 Web 的快照。对快速演进的开源项目，这意味着模型的认知与现实严重脱节——会编造 keys、捏造模式、虚构不存在的 API。**「
+我们没做错什么，但这是我们的问题」**——PostHog 的 Danilo Campos 用这句话概括了厂商责任：模型不是上游训练的事，是下游集成方的工程问题。模型腐烂区别于上文「上下文腐烂」（context rot 是窗口内信息退化，
+model rot 是训练截止后世界继续演化）。应对策略不是等 Anthropic 重训模型，而是把第一手最新文档主动注入上下文（见下文「Fresh Markdown 注入」）。
 
 见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
 
 #### 渐进式上下文披露：设计模式与实现架构
 
-Thoughtworks 在 2026 年 4 月技术雷达中将渐进式上下文披露纳入新兴技术，认为它能通过确保 Agent“在正确时刻获得正确引导”来防止上下文腐烂。这种模式比传统 RAG 更广泛——它不仅关注“检索什么”，更关注“何时加载”、“如何触发”以及“如何限定作用范围”。Anthropic 推广的 SKILL.md 规范将技能信息组织为 L1（始终保留的轻量级元数据/目录）、L2（按需加载的程序性指令）、L3（保持休眠的深度参考资料），从而允许任意大的参考资料而不导致基线上下文膨胀。实现渐进式披露需要三个组件：条件检测（显式工作流步骤或任务类别推断）、获取机制（文件读取、向量查询或子 Agent 检索）、以及范围限定（确保加载内容仅与当前任务阶段绑定，不会无限累积）。Anthropic 的 Agent Skills 框架在生产部署中实现了 70–90% 的 token 削减。
+Thoughtworks 在 2026 年 4 月技术雷达中将渐进式上下文披露纳入新兴技术，认为它能通过确保 Agent“在正确时刻获得正确引导”来防止上下文腐烂。这种模式比传统 RAG 更广泛——它不仅关注“检索什么”，更关注“何时加载”
+、“如何触发”以及“如何限定作用范围”。Anthropic 推广的 SKILL.md 规范将技能信息组织为 L1（始终保留的轻量级元数据/目录）、L2（按需加载的程序性指令）、L3（保持休眠的深度参考资料），
+从而允许任意大的参考资料而不导致基线上下文膨胀。实现渐进式披露需要三个组件：条件检测（显式工作流步骤或任务类别推断）、获取机制（文件读取、向量查询或子 Agent 检索）、以及范围限定（确保加载内容仅与当前任务阶段绑定，不会无限累积）。
+Anthropic 的 Agent Skills 框架在生产部署中实现了 70–90% 的 token 削减。
 
 见：[Thoughtworks Technology Radar](https://www.thoughtworks.com/radar/techniques/progressive-context-disclosure)、[MindStudio](https://www.mindstudio.ai/blog/progressive-disclosure-ai-agents-context-management/)、[arXiv:2603.11808](https://arxiv.org/abs/2603.11808)、[Context-Bench](https://www.sundeepteki.org/blog/context-bench-a-benchmark-for-evaluating-agentic-context-engineering)
 
 #### Fresh Markdown 注入：大上下文时代的反 RAG 实践
 
-PostHog Wizard 在生产实践中提出反共识观点：**「凭借现有的 context 窗口大小，没什么能比直接塞一堆 Markdown 文件、填补漏洞更有效」**。具体做法是文档源头永远是 posthog.com 实时渲染的最新版本（不是向量库快照），Agent 通过工具从「Fresh Hot Markdown 菜单」按当前任务类型挑选载入，直接 slide right into context，不经过分块、嵌入与 ANN 检索。这与上文「渐进式上下文披露」形成互补：渐进式披露解决「全量加载会把窗口撑爆」的问题，Fresh Markdown 解决「向量化是为窗口太小而妥协」的问题。**当 token 充裕、文档量可控时，最直接的检索就是「全量带入」**——RAG 在很多简单文档检索场景里不再必要，简化检索栈反而更可靠。
+PostHog Wizard 在生产实践中提出反共识观点：**「凭借现有的 context 窗口大小，没什么能比直接塞一堆 Markdown 文件、填补漏洞更有效」**。具体做法是文档源头永远是 posthog.com 实时渲染的最新版本（
+不是向量库快照），Agent 通过工具从「Fresh Hot Markdown 菜单」按当前任务类型挑选载入，直接 slide right into context，不经过分块、嵌入与 ANN 检索。这与上文「渐进式上下文披露」形成互补：
+渐进式披露解决「全量加载会把窗口撑爆」的问题，Fresh Markdown 解决「向量化是为窗口太小而妥协」的问题。**当 token 充裕、文档量可控时，最直接的检索就是「全量带入」**——RAG 在很多简单文档检索场景里不再必要，
+简化检索栈反而更可靠。
 
 见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
 
 #### Prompt 缓存：机制、成本结构与部署陷阱
 
-Anthropic 为 Claude 推出的 Prompt 缓存通过前缀匹配（Prefix Matching）存储 KV 缓存：只有 Prompt 开头部分可被缓存，且必须逐字符完全相同。缓存条目存活时间约 5 分钟。缓存读取成本约为标准输入 token 费率的 10%，缓存创建（写入）成本比标准输入高约 25%，但只需支付一次即可在后续命中中摊销。Anthropic 宣称，对于命中缓存的长 Prompt，可实现高达 90% 的成本降低和 85% 的延迟降低。对于企业级 Agent，最有价值的缓存放置位置是：系统提示词末尾（静态且重复）、注入的工作区文件末尾（如 MEMORY.md、AGENTS.md）、以及对话历史中的可配置断点。关键陷阱包括：向系统提示词注入动态内容（时间戳、会话 ID）会在每次调用时使缓存失效；在各轮之间积极修剪或总结对话历史会改变前缀并破坏缓存命中。
+Anthropic 为 Claude 推出的 Prompt 缓存通过前缀匹配（Prefix Matching）存储 KV 缓存：只有 Prompt 开头部分可被缓存，且必须逐字符完全相同。缓存条目存活时间约 5 分钟。
+缓存读取成本约为标准输入 token 费率的 10%，缓存创建（写入）成本比标准输入高约 25%，但只需支付一次即可在后续命中中摊销。Anthropic 宣称，对于命中缓存的长 Prompt，
+可实现高达 90% 的成本降低和 85% 的延迟降低。对于企业级 Agent，最有价值的缓存放置位置是：系统提示词末尾（静态且重复）、注入的工作区文件末尾（如 MEMORY.md、AGENTS.md）、以及对话历史中的可配置断点。
+关键陷阱包括：向系统提示词注入动态内容（时间戳、会话 ID）会在每次调用时使缓存失效；在各轮之间积极修剪或总结对话历史会改变前缀并破坏缓存命中。
 
 见：[AWS Bedrock 博客](https://aws.amazon.com/blogs/machine-learning/supercharge-your-development-with-claude-code-and-amazon-bedrock-prompt-caching/)、[InfoWorld](https://www.infoworld.com/article/3487267/anthropic-adds-prompt-caching-to-claude-cutting-costs-for-developers.html)、[MindStudio](https://www.mindstudio.ai/blog/anthropic-prompt-caching-claude-subscription-limits/)
 
@@ -243,4 +260,5 @@ Anthropic 为 Claude 推出的 Prompt 缓存通过前缀匹配（Prefix Matching
 5. 为机构化推理构建或集成知识/上下文图，向量相似性搜索在受监管或高风险领域是不够的。
 6. 为长周期的有状态执行而设计，使用持久状态存储、检查点和主动压缩，而非被动截断。
 7. 衡量和监控上下文质量（token 预算、缓存命中率、检索相关性、上下文长度），而不仅仅是输出质量。
+
 

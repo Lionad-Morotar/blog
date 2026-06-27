@@ -29,3 +29,4 @@ original_path: content/6.maps/_web/browser/new.md
 * isWellFormed：String 的 isWellFormed 方法和 [toWellFormed](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/toWellFormed) 方法成对使用，用于检查及将字符串转换为格式良好的字符串。
 * [html search element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/search)：目前看来没有功能，支持一个标签占位，类似 main 标签。search 可以用来标记网站的搜索和过滤功能所在区域。举例，你可以在在 form 外层套上 search。
 * [hr in select options](https://developer.chrome.com/blog/hr-in-select?hl=zh-cn)：Select 中，可以使用和 Option 元素平级的 hr 元素来分割选项。
+

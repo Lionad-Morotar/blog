@@ -10,15 +10,18 @@ original_path: _ai/tools/claude-code.md
 
 #### Prompt caching 为何是长时运行 agentic 产品的关键技术？
 
-Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 prompt caching 构建。该技术通过重用先前轮次的计算结果，显著降低延迟和成本——缓存命中可使延迟降低 85%、成本降低 90%。团队甚至将缓存命中率作为关键指标监控，过低时会触发 SEV（严重事故）告警。
+Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 prompt caching 构建。该技术通过重用先前轮次的计算结果，显著降低延迟和成本——缓存命中可使延迟降低 85%、
+成本降低 90%。团队甚至将缓存命中率作为关键指标监控，过低时会触发 SEV（严重事故）告警。
 
-> A high prompt cache hit rate decreases costs and helps us create more generous rate limits for our subscription plans, so we run alerts on our prompt cache hit rate and declare SEVs if they're too low.
+> A high prompt cache hit rate decreases costs and helps us create more generous rate limits for our subscription plans,
+so we run alerts on our prompt cache hit rate and declare SEVs if they're too low.
 
 见：[A quote from Thariq Shihipar](https://simonwillison.net/2026/Feb/20/thariq-shihipar/)
 
 ## 从零实现 Claude Code
 
-通过 11 个渐进式会话构建类 Claude Code 的 Agent，从简单的 bash 循环到完整的自主团队系统。涵盖 Tools、TodoWrite、Subagents、Skills、Compact、Tasks、Background Tasks、Agent Teams 等核心机制。
+通过 11 个渐进式会话构建类 Claude Code 的 Agent，从简单的 bash 循环到完整的自主团队系统。涵盖 Tools、TodoWrite、Subagents、Skills、Compact、Tasks、
+Background Tasks、Agent Teams 等核心机制。
 
 * [Learn Claude Code](https://github.com/shareAI-lab/learn-claude-code)：从零构建 AI Agent 的 11 个渐进式教程，从简单循环到自主团队系统
 
@@ -29,7 +32,10 @@ Anthropic 工程师 Thariq Shihipar 指出，Claude Code 的整个架构围绕 p
 
 #### Claude Code 的 MCP 扩展与远程连接
 
-Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：HTTP（推荐远程）、SSE、WebSocket 和 stdio。可以通过 `claude mcp add --transport http <name> <url>` 或 `claude mcp add --transport sse <name> <url>` 连接局域网内的远程 MCP server，HTTP/SSE server 断线时还会自动重连。Claude Code 也可以自身作为 MCP server 运行：`claude mcp serve` 会以 stdio 方式启动一个 MCP server，供其他应用调用。结合一个 stdio-to-HTTP 桥接，理论上可以把远程 Claude Code 实例暴露给本地 Claude Code 作为 tool 使用。
+Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：HTTP（推荐远程）、SSE、WebSocket 和 stdio。
+可以通过 `claude mcp add --transport http <name> <url>` 或 `claude mcp add --transport sse <name> <url>` 连接局域网内的远程 MCP server
+，HTTP/SSE server 断线时还会自动重连。Claude Code 也可以自身作为 MCP server 运行：`claude mcp serve` 会以 stdio 方式启动一个 MCP server，供其他应用调用。
+结合一个 stdio-to-HTTP 桥接，理论上可以把远程 Claude Code 实例暴露给本地 Claude Code 作为 tool 使用。
 
 见：[Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
 
@@ -76,8 +82,11 @@ Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：
 
 #### Claude Code 源码泄露暴露的极端代码膨胀
 
-- L1: 2025年12月27日，Anthropic 首席工程师 Boris Cherny 在 X 上表示过去30天内他100%的 Claude Code 贡献由 Claude Code 自身完成：259 个 PR、497 次提交、40,000 行新增代码。
-- L1: 2026年3月31日，打包失误导致 512,000 行 Claude Code 源码泄露。泄露文件显示极端膨胀：`print.ts` 单函数 3,167 行、486 个分支点、12 层嵌套；`QueryEngine.ts` 46,000 行；`Tool.ts` 29,000 行；`commands.ts` 25,000 行；`main.tsx` 入口文件 785 KB；`userPromptKeywords.ts` 中包含粗俗用语正则情绪分析。
+- L1: 2025年12月27日，Anthropic 首席工程师 Boris Cherny 在 X 上表示过去30天内他100%的 Claude Code 贡献由 Claude Code 自身完成：259 个 PR、497 次提交、
+40,000 行新增代码。
+- L1: 2026年3月31日，打包失误导致 512,000 行 Claude Code 源码泄露。泄露文件显示极端膨胀：`print.ts` 单函数 3,167 行、486 个分支点、12 层嵌套；
+`QueryEngine.ts` 46,000 行；`Tool.ts` 29,000 行；`commands.ts` 25,000 行；`main.tsx` 入口文件 785 KB；
+`userPromptKeywords.ts` 中包含粗俗用语正则情绪分析。
 - L2: 有分析认为这些指标揭示了纯 AI 生成代码库在缺乏人类深度重构时，倾向于将过多职责塞进单一单元，形成难以维护的"巨型单体"。
 
 见：Denis Stetskov, "The Snake That Ate Itself"（2026-04-01）
@@ -87,4 +96,5 @@ Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：
 这次对话中，我没有显示指定使用子智能体，但 CC 自动调用了 `ce-web-researcher`。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260428101330624.png)
+
 

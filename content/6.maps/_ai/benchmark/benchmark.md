@@ -6,7 +6,8 @@ original_path: _ai/benchmark.md
 
 ## 基准测试
 
-* [LLM Benchmark 原始任务示例集](/maps/_ai/benchmark/llm-benchmark-task-examples) — SimpleQA、HLE、Apex Shortlist、Codeforces、SWE Verified、Terminal Bench 2.0、Toolathlon 的原始任务示例
+* [LLM Benchmark 原始任务示例集](/maps/_ai/benchmark/llm-benchmark-task-examples) — SimpleQA、HLE、Apex Shortlist、Codeforces、
+SWE Verified、Terminal Bench 2.0、Toolathlon 的原始任务示例
 
 * [Arena.ai](https://arena.ai/zh/leaderboard/code)：经典大模型竞技场
 
@@ -98,6 +99,8 @@ Anthropic 技术博客，2026年3月
 
 * [qwen3.5-9b-mlx-4bit](./local/qwen3.5-9b-mlx-4bit.md)
 * [qwen3-coder-next-mlx-4bit](./local/qwen3-coder-next-mlx-4bit.md)
-* [mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit](./local/mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit.md)
+* [mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit](./local/mlx-qwen3.5-27b-claude-4.
+6-opus-reasoning-distilled-4bit.md)
 * [qwen3-embedding-8b-4bit-dwq](./local/qwen3-embedding-8b-4bit-dwq.md)
 * [glm-ocr-8bit](./local/glm-ocr-8bit.md)
+

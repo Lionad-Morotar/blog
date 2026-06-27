@@ -44,7 +44,8 @@ new:
 make new button-dark
 ```
 
-MAKECMDGOALS 变量指整个 make 脚本的参数字符串“new button-dark”，$@ 指调用的指令即“new”。从“new button-dark”中过滤掉“new”后，传给 node 脚本的参数也就只剩字符串“button-dark”了。
+MAKECMDGOALS 变量指整个 make 脚本的参数字符串“new button-dark”，$@ 指调用的指令即“new”。从“new button-dark”中过滤掉“new”后，传给 node 脚本的参数也就只剩字符串“
+button-dark”了。
 
 最终脚本执行，按照脚本逻辑，先用标准的模板内容创建对应文件。
 
@@ -100,7 +101,8 @@ export default Alert;
 
 **组件打包涉及组件逻辑打包、组件样式打包、源码入口打包三个步骤**。
 
-在 Element 中，所有的组件都存放在 packages 文件夹里，每个子文件夹各对应一个组件。打包组件会把 package 目录下所有组件 package/[component].js 编译生成到 lib/[component].js。由于 components.json 聚合了所有组件的路径信息，所以会在各打包任务中用到。
+在 Element 中，所有的组件都存放在 packages 文件夹里，每个子文件夹各对应一个组件。
+打包组件会把 package 目录下所有组件 package/[component].js 编译生成到 lib/[component].js。由于 components.json 聚合了所有组件的路径信息，所以会在各打包任务中用到。
 
 #### 组件逻辑打包
 
@@ -294,7 +296,9 @@ require("[libraryName]/lib/[styleLibraryName]/button.css");
 }
 ```
 
-按照“打包组件有哪些步骤”那个小节的介绍，在组件逻辑打包和组件样式打包时，除了生成源代码入口、默认样式入口以外，还用 webpack.component.js 以及 gulp build theme-chalk/gulpfile.js 单独打包各组件及组件样式。这样一来，就能从 lib/[component] 及 lib/theme-chalk/[component].css 也就拿到组件独立的资源文件了。相比整个引入 Element，单独引入组件自然减小了资源体积。
+按照“打包组件有哪些步骤”那个小节的介绍，在组件逻辑打包和组件样式打包时，除了生成源代码入口、默认样式入口以外，
+还用 webpack.component.js 以及 gulp build theme-chalk/gulpfile.js 单独打包各组件及组件样式。这样一来，
+就能从 lib/[component] 及 lib/theme-chalk/[component].css 也就拿到组件独立的资源文件了。相比整个引入 Element，单独引入组件自然减小了资源体积。
 
 相关阅读：
 
@@ -388,7 +392,8 @@ export default {
 }
 ```
 
-接下来是监听 document 的点击事件。使用点击事件的参数 event.target 可以找到点击事件到底是点地哪一个元素；我们把点击事件记录下来，并对比指令挂载的元素（即 nodeList）和点击元素是否是同一个元素，如果不是同一个元素，就可以触发回调函数了。
+接下来是监听 document 的点击事件。使用点击事件的参数 event.target 可以找到点击事件到底是点地哪一个元素；我们把点击事件记录下来，并对比指令挂载的元素（即 nodeList）和点击元素是否是同一个元素，
+如果不是同一个元素，就可以触发回调函数了。
 
 ```js
 let startClick = null;
@@ -527,3 +532,4 @@ fs.writeFile(
 ## 阅读更多
 
 * [Make 基础语法以及在 ElementUI 中的运用](https://juejin.im/post/6844903775912591368)
+

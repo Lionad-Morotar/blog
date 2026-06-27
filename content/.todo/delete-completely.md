@@ -53,7 +53,8 @@ console.log(a['0']) // -> 'test'
 
 可以发现，a[b] 中的 b 隐式转换为了字符串。
 
-不过，很遗憾，尽管 JS 中确实存在隐式转换这么一说，但是以上关于 delete 的解释是**完全错误的**。稍加深入探索，你就会发现，对于控制台直接运行 delete window['0'] 的结果，和上述推断正好相反。此外，delete eval("window['0']") 的结果则更是会让人不可思议。
+不过，很遗憾，尽管 JS 中确实存在隐式转换这么一说，但是以上关于 delete 的解释是**完全错误的**。稍加深入探索，你就会发现，对于控制台直接运行 delete window['0'] 的结果，和上述推断正好相反。此外，
+delete eval("window['0']") 的结果则更是会让人不可思议。
 
 想要知道 delete 运算符实际是怎么运作的，我们必须回归 [JS 规范](http://www.ecma-international.org/ecma-262/6.0/index.html)。不过 JS 规范太长了，也许我们<del>应该从 MDN 开始</del>可以从最简单的问题二开始，逐步前进。
 
@@ -69,7 +70,8 @@ var haha = 1
 delete window.haha // false
 ```
 
-参考 MDN 中 delete 运算符文档[^return-value]可以知道：“非严格模式下，删除一个不可配置的属性会返回 false”。那么由这点定义，我们可以猜测，使用 var 关键字声明得到的绑定在 window 对象上的变量是“不可配置的”。可以在控制台通过以下代码检测一下我们的猜想是否正确：
+参考 MDN 中 delete 运算符文档[^return-value]可以知道：“非严格模式下，删除一个不可配置的属性会返回 false”。那么由这点定义，我们可以猜测，使用 var 关键字声明得到的绑定在 window 对象上的变量是“
+不可配置的”。可以在控制台通过以下代码检测一下我们的猜想是否正确：
 
 ```js
 window.udkjs = 1
@@ -109,3 +111,4 @@ console.log(window.newFn)
 * [Understanding delete](http://perfectionkills.com/understanding-delete/)
 
 [^return-value]: 参考 MDN 的 delete 运算符的[描述](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/delete#%E8%BF%94%E5%9B%9E%E5%80%BC)
+

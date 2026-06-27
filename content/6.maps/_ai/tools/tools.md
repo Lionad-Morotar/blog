@@ -32,3 +32,4 @@ Sashiko 是 Google 开发并捐赠给 Linux Foundation 的 AI 驱动补丁审查
 各子系统（网络、BPF、DRM、存储等）正在为 Sashiko 添加领域特定的审查规则，形成共享的 AI 审查能力池。
 
 见：[Linux kernel czar says AI bug reports aren't slop anymore - The Register](https://www.theregister.com/2026/03/26/greg_kroahhartman_ai_kernel/)
+

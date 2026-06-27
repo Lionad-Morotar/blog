@@ -11,7 +11,8 @@ original_path: /maps/_frontend/w3c/css/conditional-rule-module
 
 主要描述了使用条件选择规则（at-rules）以及相关语法的使用以便在同一个样式表中有选择性的应用部分样式。
 
-条件选择规则（conditional group rules）通常携带一个布尔逻辑判断。结果为真则应用相关规则，反之则不应用。从语法来说，它们可以放在 CSS 中任何样式规则可以被放置的地方。错误的语法或未知的规则是无效的，所以也不会被应用。以下给出一个正确语法的示例。
+条件选择规则（conditional group rules）通常携带一个布尔逻辑判断。结果为真则应用相关规则，反之则不应用。从语法来说，它们可以放在 CSS 中任何样式规则可以被放置的地方。错误的语法或未知的规则是无效的，
+所以也不会被应用。以下给出一个正确语法的示例。
 
 ```css
 @media print {
@@ -55,3 +56,4 @@ original_path: /maps/_frontend/w3c/css/conditional-rule-module
   /* ... */
 }
 ```
+

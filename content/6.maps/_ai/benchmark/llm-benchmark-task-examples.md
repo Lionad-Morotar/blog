@@ -424,3 +424,4 @@ if __name__ == "__main__":
 [^simpleqa-verified]: [SimpleQA Verified: A Reliable Factuality Benchmark](https://arxiv.org/pdf/2509.07968), Google, 2025
 
 [^swe-bench-verified]: [SWE-bench Verified](https://www.swebench.com/verified.html), Princeton + OpenAI, 2024
+

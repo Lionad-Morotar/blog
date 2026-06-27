@@ -8,7 +8,8 @@ original_path: content/6.maps/_industry/digital.md
 
 #### 什么是数字化和数字化转型？
 
-数字化就是指通过各类手段，将人类行为最大限度地向虚拟空间转移，并在虚拟空间中完成与物理世界的必要互动，这里既需要技术手段，也需要业务、法律等非技术手段的支持，数字时代就是以智能体验类技术为特征的技术时代；而数字化转型指的是从当前信息化环境下的人类行为、组织形态向数字化环境下的人类行为、组织形态的转变过程。
+数字化就是指通过各类手段，将人类行为最大限度地向虚拟空间转移，并在虚拟空间中完成与物理世界的必要互动，这里既需要技术手段，也需要业务、法律等非技术手段的支持，数字时代就是以智能体验类技术为特征的技术时代；
+而数字化转型指的是从当前信息化环境下的人类行为、组织形态向数字化环境下的人类行为、组织形态的转变过程。
 
 #### 历史上的三个技术时代？
 
@@ -48,11 +49,14 @@ original_path: content/6.maps/_industry/digital.md
 
 时代的变化应当是可以被确切感知的，还要满足一些规律性的发展方向。想界定一个新的时代，我们最好是去观察人们生产和生活的变化，抓住对人们的生产和生活产生最大影响的技术特征。
 
-数字化转型的规律目前来看有两个方面：人们一直在努力打破空间对人类活动的限制，无论是在生产还是生活方面，都在持续努力突破这种限制；其次是，个体能力的增强，这种趋势要求人们必须具备高效获得更多信息的能力，同时又不会被爆炸的信息压垮。数据是最重要的生产资料，而海量的数据要被技术手段处理，生产工具和生产要素的变化合起来就是生产力的变化，所以数字化时代应当是数据密集型和软件密集型的。
+数字化转型的规律目前来看有两个方面：人们一直在努力打破空间对人类活动的限制，无论是在生产还是生活方面，都在持续努力突破这种限制；其次是，个体能力的增强，这种趋势要求人们必须具备高效获得更多信息的能力，同时又不会被爆炸的信息压垮。
+数据是最重要的生产资料，而海量的数据要被技术手段处理，生产工具和生产要素的变化合起来就是生产力的变化，所以数字化时代应当是数据密集型和软件密集型的。
 
 #### 数字化和信息化的区别？
 
-原则上来说，数字化是技术手段，信息化关注管理和资源的结合，两者最终目标是要促成业务和技术的深度融合。但是结合中文语境和国情来看，十四五规划提到信息化是指，通过使用网络和计算机技术提高管理水平，如“加大政务信息化建设统筹力度，健全政务信息化项目清单，加强政务信息化建设快速迭代，增强政务信息系统快速部署能力和弹性扩展能力。”，而数字化除了提及相关技术，也强调数字产业（行业）概念，如通过云计算、大数据行业相关技术，“深入推进服务业数字化转型，培育众包设计、智慧物流、新零售等新增长点。加快发展智慧农业，推进农业生产经营和管理服务数字化改造”，以推动产业数字化转型。
+原则上来说，数字化是技术手段，信息化关注管理和资源的结合，两者最终目标是要促成业务和技术的深度融合。但是结合中文语境和国情来看，十四五规划提到信息化是指，通过使用网络和计算机技术提高管理水平，如“加大政务信息化建设统筹力度，
+健全政务信息化项目清单，加强政务信息化建设快速迭代，增强政务信息系统快速部署能力和弹性扩展能力。”，而数字化除了提及相关技术，也强调数字产业（行业）概念，如通过云计算、大数据行业相关技术，“深入推进服务业数字化转型，培育众包设计、智慧物流、
+新零售等新增长点。加快发展智慧农业，推进农业生产经营和管理服务数字化改造”，以推动产业数字化转型。
 
 #### 如何制定数字化战略？
 
@@ -83,11 +87,14 @@ original_path: content/6.maps/_industry/digital.md
 
 #### [Leveraging digital to improve the human experience](https://www.cloudflare.com/zh-cn/the-net/illuminate/technology-transformation/)
 
-> 67 percent of nonprofits are increasing their investment in technology to better engage constituents...Using digital tools to support fundraising, volunteer management, donor engagement, and program delivery can help nonprofits streamline processes and maximise their impact.
+> 67 percent of nonprofits are increasing their investment in technology to better engage constituents...
+Using digital tools to support fundraising, volunteer management, donor engagement,
+and program delivery can help nonprofits streamline processes and maximise their impact.
 
 5 lessons the author learned:
 
-* <q>Simplifying tech stack</q>, "almost free" products makes Orgs bending huge tech stack and increase the number of "Shadow ITs"
+* <q>Simplifying tech stack</q>, "almost free" products makes Orgs bending huge tech stack and increase the number of "
+Shadow ITs"
 * <q>Moving to cloud-based solutions</q>
 * <q>We use Zero Trust Network Access instead of VPN</q>
 * <q>Collaborate with private and nonprofit peers ... have similar digital transformation objectives and challenges</q>
@@ -99,17 +106,28 @@ original_path: content/6.maps/_industry/digital.md
 
 现场服务器如何实现更丰富的零售体验？
 
-> he was working on that deploys Docker containers to servers running in the stores of a large food retailer. They power point-of-sale systems that serve customer experience as well as store back office systems for processing payments and orders ... it sounded like an odd mixture of technologies, as I had previously only encountered containers used in data centers or for local development environments
+> he was working on that deploys Docker containers to servers running in the stores of a large food retailer.
+They power point-of-sale systems that serve customer experience as well as store back office systems for processing 
+payments and orders ... it sounded like an odd mixture of technologies,
+as I had previously only encountered containers used in data centers or for local development environments
 
 听起来类似边缘服务器概念。
 
-> The most likely disruptive event is the loss of network connectivity from the store to the central services ... A store server that caches the critical business information and is able to autonomously implement business flows acts as a buffer between the store and the central services, ensuring that local store operations can go on undisturbed, and that any changes will be synchronized as soon as the connection is restored.
+> The most likely disruptive event is the loss of network connectivity from the store to the central services ...
+A store server that caches the critical business information and is able to autonomously implement business flows acts 
+as a buffer between the store and the central services, ensuring that local store operations can go on undisturbed,
+and that any changes will be synchronized as soon as the connection is restored.
 
 网络连接确实非常脆弱。我确信这就是一个“边缘服务器”，他的数据的终点站仍然是中心服务器。
 
-> An example you may be familiar with is Google Docs. If you install the app on your mobile it lets you continue to work even when you are offline, and transparently syncs with the server when you have connectivity again.
+> An example you may be familiar with is Google Docs.
+If you install the app on your mobile it lets you continue to work even when you are offline,
+and transparently syncs with the server when you have connectivity again.
 
-> In one of our projects we worked with a client supporting 40,000 devices in more than 2000 stores. Each device would be configured to receive daily business data updates and to send near real-time telemetry and analytical data to the central servers. At this scale, device failures and network interruptions happen all the time, so your system better be prepared to deal with them.
+> In one of our projects we worked with a client supporting 40,000 devices in more than 2000 stores.
+Each device would be configured to receive daily business data updates and to send near real-time telemetry and 
+analytical data to the central servers. At this scale, device failures and network interruptions happen all the time,
+so your system better be prepared to deal with them.
 
 没有成熟的业务链路带来的高额技术和维护成本，让无人超市的发展受限。除开技术，其实无人超市本身也有很多值得讨论的问题。
 
@@ -119,7 +137,8 @@ original_path: content/6.maps/_industry/digital.md
 
 #### 为什么 ai.com 域名能卖到 7000 万美元？
 
-加密货币网站创始人以 **7000 万美元**收购域名"ai.com"，刷新域名交易历史纪录。该域名未来将提供"AI 智能体"服务。历史第二贵域名是 Block.one 3000 万美元购入的"Voice.com"，第三是 360 公司 1700 万美元购入的"360.com"（约人民币 5 亿元）。
+加密货币网站创始人以 **7000 万美元**收购域名"ai.com"，刷新域名交易历史纪录。该域名未来将提供"AI 智能体"服务。历史第二贵域名是 Block.one 3000 万美元购入的"Voice.com"，
+第三是 360 公司 1700 万美元购入的"360.com"（约人民币 5 亿元）。
 
 这一交易反映了 AI 赛道的资本热度——**优质域名本身已成为稀缺资产**，其价值甚至超过许多实体企业的估值。
 
@@ -144,3 +163,4 @@ original_path: content/6.maps/_industry/digital.md
 - **"面"**：建设高标准数字园区，畅通园区内数据链、创新链、产业链、供应链
 
 见：[工信部：力争2027年建成200个左右高标准数字园区](https://finance.sina.cn/2024-07-05/detail-inccaaes2163515.d.html)
+

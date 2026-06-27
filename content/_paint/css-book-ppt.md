@@ -143,7 +143,8 @@ title: 【CSS】书封展示
   }
   /* 纸的高光 */
   .book-cover .paper::after {
-    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.25), rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.15) 70%, rgba(0,0,0,.1));
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.25), rgba(255,255,255,0.18) 50%, rgba(255,255,255,0.
+    15) 70%, rgba(0,0,0,.1));
   }
   /* 书封面磨砂 */
   .book-cover .cover .paper {
@@ -153,8 +154,10 @@ title: 【CSS】书封展示
   }
   /* 书封面高光 */
   .book-cover .cover::after {
-    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0.13) 30%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,.1));
-    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.08), rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.02) 50%, rgba(0,0,0,.3));
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0.13) 30%, rgba(255,255,255,0.
+    05) 50%, rgba(0,0,0,.1));
+    background: radial-gradient(ellipse at 100% 0%, rgba(255,255,255,0.08), rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.
+    02) 50%, rgba(0,0,0,.3));
   }
   /* 书籍的阴影 */
   .book-cover .book {
@@ -215,3 +218,4 @@ title: 【CSS】书封展示
 * 阴影使用了多重阴影。
 
 详情请参见博客：[《CSS 幻术 | 光影效果探秘》](/articles/css-light-travel)
+

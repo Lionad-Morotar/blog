@@ -113,3 +113,4 @@ animation
 * [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) - GSAP 官方滚动动画插件
 * [Lenis](https://darkroom.engineering/) - 丝滑滚动库（Darkroom Engineering）
 * [piecesjs](https://github.com/piecesjs/piecesjs) - 基于原生 Web Components 的轻量框架
+

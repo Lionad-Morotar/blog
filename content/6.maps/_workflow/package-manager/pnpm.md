@@ -12,7 +12,8 @@ original_path: "/_workflow/package-manager/pnpm.md"
 
 #### pnpm fetch
 
-`pnpm fetch` 它跳过了 package.json 文件，允许项目在只有 pnpm-lock 文件的情况下创建 .pnpm 虚拟仓库。这有利于 docker 构建，因为 package.json 经常因为非依赖变化的改动而改动，导致 docker layer 失效。
+`pnpm fetch` 它跳过了 package.json 文件，允许项目在只有 pnpm-lock 文件的情况下创建 .pnpm 虚拟仓库。这有利于 docker 构建，因为 package.json 经常因为非依赖变化的改动而改动，
+导致 docker layer 失效。
 
 相比 yarn 和 npm，在脱离 package.json 的情况下，单靠 package-lock（或 yarn-lock），yarn 和 npm 没有办法确定依赖版本，因为其 package-lock 中，依赖的版本号不是固定版本号。
 
@@ -97,9 +98,12 @@ module.exports = {
 
 #### 依赖的层次结构是怎样的？
 
-当项目文件读取 `bar` 时，直接读取 `node_modules/bar`，但它其实是 `.pnpm` 文件夹下 `bar/node_modules/bar` 的一个符号链接。也就是说，他的真实的地址在 `.pnpm` 文件夹下。这样一来，当 `bar` 读取它的依赖的时候（项目的依赖的依赖），会在 `bar` 的上层目录即 `bar/node_modules` 找到 `foo` 这个依赖。项目文件没法读取 `bar/node_modules/foo` 所以避免了幽灵依赖问题。
+当项目文件读取 `bar` 时，直接读取 `node_modules/bar`，但它其实是 `.pnpm` 文件夹下 `bar/node_modules/bar` 的一个符号链接。也就是说，他的真实的地址在 `.pnpm` 文件夹下。
+这样一来，当 `bar` 读取它的依赖的时候（项目的依赖的依赖），会在 `bar` 的上层目录即 `bar/node_modules` 找到 `foo` 这个依赖。
+项目文件没法读取 `bar/node_modules/foo` 所以避免了幽灵依赖问题。
 
-`bar/node_modules/foo` 要怎么找到它的依赖呢？它的真实地址在项目 ·（和官网的图有出入），所以 foo 也只能读取它自己的子依赖，即 `node_modules/.pnpm/foo/node_modules`。如果有依赖依赖了同一份（同一版本）的 `foo`，那么它们的真实地址都是一样的 `node_modules/.pnpm/foo/node_modules/foo`，这样就避免依赖分身问题。
+`bar/node_modules/foo` 要怎么找到它的依赖呢？它的真实地址在项目 ·（和官网的图有出入），所以 foo 也只能读取它自己的子依赖，即 `node_modules/.pnpm/foo/node_modules`。
+如果有依赖依赖了同一份（同一版本）的 `foo`，那么它们的真实地址都是一样的 `node_modules/.pnpm/foo/node_modules/foo`，这样就避免依赖分身问题。
 
 ![Modules Mapping in pnpm](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220317192927.png)
 
@@ -107,9 +111,15 @@ module.exports = {
 
 #### 如何处理同级依赖？
 
-当项目的两个包 A、B 依赖依赖了同一版本的 C，但是却安装了不同版本的 C 的同级依赖 D@1.0 和 D@1.1，这时，A 依赖的 C 的真实地址是 `.pnpm/C_D@1.0/node_modules/C`，B 依赖的 C 的真实地址是 `.pnpm/C_D@1.1/node_modules/C`。这样一来，两个 C 在读取其同级依赖时，分别读取了 `.pnpm/C_D@1.0/node_modules/D` 和 `.pnpm/C_D@1.1/node_modules/D@1.0`，分别对应真实地址 `.pnpm/D@1.0/node_modules/D` 和 `.pnpm/D@1.1/node_modules/D`。
+当项目的两个包 A、B 依赖依赖了同一版本的 C，但是却安装了不同版本的 C 的同级依赖 D@1.0 和 D@1.1，这时，A 依赖的 C 的真实地址是 `.pnpm/C_D@1.0/node_modules/C`，
+B 依赖的 C 的真实地址是 `.pnpm/C_D@1.1/node_modules/C`。这样一来，两个 C 在读取其同级依赖时，
+分别读取了 `.pnpm/C_D@1.0/node_modules/D` 和 `.pnpm/C_D@1.1/node_modules/D@1.0`，
+分别对应真实地址 `.pnpm/D@1.0/node_modules/D` 和 `.pnpm/D@1.1/node_modules/D`。
 
-当同级依赖的深度增加时，层级结构也随之变得复杂。如果某个依赖 A 依赖了同一个 B，但是 B 子依赖 C 的版本不同（C@1.0 和 C@1.1），这样就创造出了指数级增长的软链数量。为了保证 B 能分别访问两个 C，B 的符号链接的被链接地址会有 `.pnpm/B_C@1.0/node_modules/B` 和 `.pnpm/B_C@1.1/node_modules/B`，而为此，A 的被链接地址也会有两个，`.pnpm/A_C@1.0/node_modules/A` 和 `.pnpm/A_C@1.0/node_modules/A`。从不同的 A 的被链接地址的上级目录 `node_modules` 可以读取到不同的 B 的被链目录，从不同的 B 可以读取到不同的 C。
+当同级依赖的深度增加时，层级结构也随之变得复杂。如果某个依赖 A 依赖了同一个 B，但是 B 子依赖 C 的版本不同（C@1.0 和 C@1.1），这样就创造出了指数级增长的软链数量。为了保证 B 能分别访问两个 C，
+B 的符号链接的被链接地址会有 `.pnpm/B_C@1.0/node_modules/B` 和 `.pnpm/B_C@1.1/node_modules/B`，而为此，A 的被链接地址也会有两个，
+`.pnpm/A_C@1.0/node_modules/A` 和 `.pnpm/A_C@1.0/node_modules/A`。从不同的 A 的被链接地址的上级目录 `node_modules` 可以读取到不同的 B 的被链目录，
+从不同的 B 可以读取到不同的 C。
 
 ```plaintext
 node_modules
@@ -145,7 +155,8 @@ node_modules
 3. 读取本文件夹中 node_modules 中对应名字文件夹中的 index.js 文件
 4. 跳出本文件夹，继续前三个步骤
 
-因为项目 `node_modules/bar` 是 `.pnpm/bar/node_modules/bar` 的符号链接，所以项目文件可以直接读取 `node_modules/bar/x.js`。同时，如果 `node_modules/bar/x.js` 需要加载 `foo/x.js`，那么在上述步骤的第 4 步，就能找到 `.pnpm/bar/node_modules/foo/x.js` 文件。
+因为项目 `node_modules/bar` 是 `.pnpm/bar/node_modules/bar` 的符号链接，所以项目文件可以直接读取 `node_modules/bar/x.js`。同时，
+如果 `node_modules/bar/x.js` 需要加载 `foo/x.js`，那么在上述步骤的第 4 步，就能找到 `.pnpm/bar/node_modules/foo/x.js` 文件。
 
 #### 为什么其模块层次只是“比较严格的”（semistrict）？
 
@@ -153,7 +164,8 @@ node_modules
 
 #### 为什么能节约磁盘空间？
 
-由 pnpm 创造的 node_modules 层级结构可以知道，所有依赖的符号链接的真实地址都在 `.pnpm/package-name/node_modules/package-name` 这个文件夹中。这种文件夹会通过硬链接的形式链接到 `user-document/.pnpm-store` 中，所以相同的包只会存一份，也就是 `.pnpm-store/package-name`。
+由 pnpm 创造的 node_modules 层级结构可以知道，所有依赖的符号链接的真实地址都在 `.pnpm/package-name/node_modules/package-name` 这个文件夹中。
+这种文件夹会通过硬链接的形式链接到 `user-document/.pnpm-store` 中，所以相同的包只会存一份，也就是 `.pnpm-store/package-name`。
 
 #### 软硬链接有什么问题？
 
@@ -176,7 +188,8 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 
 #### PNPM 速度变慢了？
 
-今天逛官网时，偶然发现 Readme 中的 benchmark 过时了。它说“要比 Yarn Classic 和 npm “快两倍以上，但是从 benchmark 来看，他要比 Yarn 和 npm 慢了不少。以后启用 NodeJS 20 以上时，如果问题得不到改善，我应该会重新选择 npm 而不是 pnpm，鉴于幽灵依赖和依赖分身带来的问题是可排查可解决的，而速度是解决不了的问题。
+今天逛官网时，偶然发现 Readme 中的 benchmark 过时了。它说“要比 Yarn Classic 和 npm “快两倍以上，但是从 benchmark 来看，他要比 Yarn 和 npm 慢了不少。
+以后启用 NodeJS 20 以上时，如果问题得不到改善，我应该会重新选择 npm 而不是 pnpm，鉴于幽灵依赖和依赖分身带来的问题是可排查可解决的，而速度是解决不了的问题。
 
 ![pnpm vs npm vs yarn benchmark](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230605235736.png)
 
@@ -205,7 +218,8 @@ $PNPM_HOME="<path>" | pnpm install -g xxx
 
 #### PnP 模式下的依赖提升设置？
 
-默认的 node_modules 依赖的层级处于严格和不严格之间的水平（semi-strict）。使用最严格的设置需要打开 PnP 模式，因为在 monorepo 中 PnP 模式中，就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
+默认的 node_modules 依赖的层级处于严格和不严格之间的水平（semi-strict）。使用最严格的设置需要打开 PnP 模式，因为在 monorepo 中 PnP 模式中，
+就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
 
 ```
 node-linker=pnp
@@ -225,3 +239,4 @@ symlink=false
 目前应该是所有包管理器都有这种问题，但是不知道怎么解决。
 
 ![sass-embedded 下载了多份二进制代码](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200412724.png)
+

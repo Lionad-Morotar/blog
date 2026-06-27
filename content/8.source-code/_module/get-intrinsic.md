@@ -4,7 +4,8 @@ description: JavaScript Intrinsics 缓存与防御性编程，ljharb 的 es-shim
 ---
 #### get-intrinsic 是什么？
 
-get-intrinsic 是 ljharb 开发的一个 JavaScript 工具库，用于在首次 require 时获取并稳健地缓存所有 JavaScript 语言级内置方法（intrinsics）。它的核心用途是在运行时安全地获取 JavaScript 内置对象和方法的引用，即使这些方法在运行时被篡改或删除。
+get-intrinsic 是 ljharb 开发的一个 JavaScript 工具库，用于在首次 require 时获取并稳健地缓存所有 JavaScript 语言级内置方法（intrinsics）。
+它的核心用途是在运行时安全地获取 JavaScript 内置对象和方法的引用，即使这些方法在运行时被篡改或删除。
 
 见：[get-intrinsic](https://github.com/ljharb/get-intrinsic)
 
@@ -369,3 +370,4 @@ function stringToPath(string) {
   return result;
 }
 ```
+

@@ -5,7 +5,8 @@ description: 记录开发 VS Code 插件相关知识点
 
 ## 权威指南
 
-为了不让插件对编辑器本身造成破坏性影响，VS Code 会对插件进行进程隔离。在初始化时，编辑器初始化出主进程、渲染进程和插件进程三个进程。由插件进程（Extension Host）复杂加载与运行插件。这样可以保证编辑器的启动速度、界面的响应速度以及界面样式都不会受插件的影响。
+为了不让插件对编辑器本身造成破坏性影响，VS Code 会对插件进行进程隔离。在初始化时，编辑器初始化出主进程、渲染进程和插件进程三个进程。由插件进程（Extension Host）复杂加载与运行插件。这样可以保证编辑器的启动速度、
+界面的响应速度以及界面样式都不会受插件的影响。
 
 ## 开始开发
 
@@ -27,9 +28,12 @@ yo code
 
 ![项目启动配置](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121233025.png)
 
-yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
+yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，
+它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
 
-看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 <keyboard>Ctrl + P</keyboard> 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，
+即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，
+比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 <keyboard>Ctrl + P</keyboard> 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
 
 ```json
 {
@@ -47,7 +51,8 @@ yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src
 }
 ```
 
-指令是在插件主入口 src/extension.ts 注册的。可以看到它暴露了 activate 和 deactivate 两个函数，分别会在插件初始化和插件失效时执行。插件初始化时注册了 vscode-plugin-demo.helloWorld 这个指令，用来显示一段 Hello World 文本。
+指令是在插件主入口 src/extension.ts 注册的。可以看到它暴露了 activate 和 deactivate 两个函数，分别会在插件初始化和插件失效时执行。
+插件初始化时注册了 vscode-plugin-demo.helloWorld 这个指令，用来显示一段 Hello World 文本。
 
 ```js
 export function activate(context: vscode.ExtensionContext) {
@@ -60,7 +65,8 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 ```
 
-脚手架默认生成了调试插件所需要的配置，存放在了 .vscode 文件夹中。只需要按 <keyboard>F5</keyboard> 键就可以在新窗口启动当前插件查看运行效果。如果你对插件有修改，可以 <keyboard>Shift + F5</keyboard> 停用插件后再重开，或者直接在新窗口使用 <keyboard>Ctrl + R</keyboard> 重载（或使用指令 Reload Window）。
+脚手架默认生成了调试插件所需要的配置，存放在了 .vscode 文件夹中。只需要按 <keyboard>F5</keyboard> 键就可以在新窗口启动当前插件查看运行效果。如果你对插件有修改，
+可以 <keyboard>Shift + F5</keyboard> 停用插件后再重开，或者直接在新窗口使用 <keyboard>Ctrl + R</keyboard> 重载（或使用指令 Reload Window）。
 
 ![Reload Window](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121235255.png)
 
@@ -159,7 +165,8 @@ viewsWelcome
 walkthroughs
 ```
 
-如果你想更详细配置手头的项目，或是想在 VS Code 的插件市场发布你的插件的话，就需要对 package.json 好好设定一番了。以下以一个简单的统计 Markdown 文件字数插件的配置为例，初步介绍一下各个属性的作用，让你有一个大致印象。
+如果你想更详细配置手头的项目，或是想在 VS Code 的插件市场发布你的插件的话，就需要对 package.json 好好设定一番了。以下以一个简单的统计 Markdown 文件字数插件的配置为例，初步介绍一下各个属性的作用，
+让你有一个大致印象。
 
 ```shell
 npm install -g yo code-generator
@@ -175,9 +182,12 @@ yo code
 
 ![项目启动配置](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20220121233025.png)
 
-yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
+yo code 生成的 HelloWolrd 项目中，我们主要关心 package.json 和 src/extension.ts 两个文件。前者就是我们熟悉的项目配置说明文件，
+它额外指定了一些字段用来配置 VS Code 插件所启用的功能；后者则是插件的主入口。
 
-看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 <keyboard>Ctrl + P</keyboard> 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
+看到 package.json，重要关注 activationEvents 和 contributes 属性。contributes 即插件的“贡献点”，这个属性的名字可能有点绕，但其意思就是如此，
+即插件给 VS Code 新增了哪些额外的功能。这些新增的功能都需要通过 contributes 中的值来绑定其 ID。而 activationEvents 则意味着这些指令在什么情况下可以激活，
+比如 HelloWorld 中的 onCommand 便意味着在 VS Code 中使用 <keyboard>Ctrl + P</keyboard> 输入指令时可以激活 vscode-plugin-demo.helloWorld 指令。
 
 ```json
 {
@@ -242,3 +252,4 @@ export function deactivate() {}
 ```
 
 package.json 中每个属性的具体描述、用法都可以在官方文档找到实例。详情请参考：[Extension Manifest](https://code.visualstudio.com/api/references/extension-manifest)。许多属性并不是 VS Code Plugin 专用属性，而是沿用的 NPM 的那套设置，这是需要参考：[NPM package.json](https://docs.npmjs.com/cli/v7/configuring-npm/package-json)。
+

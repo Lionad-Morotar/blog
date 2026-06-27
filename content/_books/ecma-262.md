@@ -57,7 +57,9 @@ JS 中有三种不同的代码，全局代码（Global Code）、函数代码（
 
 ![[对象的本质](https://timothygu.me/es-howto/)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/timothygu.me_es-howto_object-uml.svg.png)
 
-ECMAScript 是一种基于对象的基本语言，其基础设置主要依赖宿主提供的对象。基于此概念，可以把 ECMAScript 程序看作一组相互通讯的对象集合。按照规范，对象的精确描述其实应该是：“一个具有零或多个被属性描述符决定的属性的集合 [^object-definition]”。对象的属性能持有其它值，包括规范定义的原始值：Undefined、Null、Boolean、Number、BigInt、String、Symbol 和 Object。这里说的 Object 还包括可执行对象，callable object，也就是函数。而由对象内属性持有的函数，叫做方法。
+ECMAScript 是一种基于对象的基本语言，其基础设置主要依赖宿主提供的对象。基于此概念，可以把 ECMAScript 程序看作一组相互通讯的对象集合。按照规范，对象的精确描述其实应该是：“
+一个具有零或多个被属性描述符决定的属性的集合 [^object-definition]”。对象的属性能持有其它值，包括规范定义的原始值：Undefined、Null、Boolean、Number、BigInt、String、
+Symbol 和 Object。这里说的 Object 还包括可执行对象，callable object，也就是函数。而由对象内属性持有的函数，叫做方法。
 
 [^object-definition]: 定义见 [ Terms and Definitions - object](https://262.ecma-international.org/12.0/#sec-terms-and-definitions-object)
 
@@ -71,17 +73,27 @@ ECMAScript 是一种基于对象的基本语言，其基础设置主要依赖宿
 
 ### 语言风格
 
-ECMAScript 基于对象，这和 C++、Java 不同的本质区别在于创建对象的方式以及属性共享思路的不同：ECMAScript 支持多种方式创建对象：构造器、字面量或 Object.create，而属性共享则是使用原型。使用原型意味着尽管 ECMAScript 支持类继承，但是是通过原型继承隐式实现的：每一个构造器函数都有一个原型属性，属性名为 prototype。以该构造器创建的实例会携带一个隐式的指向其构造器的原型的引用（称为实例的原型）。而构造器函数也是一个对象实例，所以也会有对应的原型。ECMAScript 依赖这条由对象原型组成的链条式的关系，即原型链，来共享属性。而在经典面向对象语言中，总的来说，属性（也就是状态）是直接挂载在实例上的，只有方法挂载在类上，这也就意味着类继承只约束了继承结构和对象的行为，没有约束对象的状态。此外，由于 ECMAScript 支持动态重写对象，这使得你可以在运行时去创建一个动态的继承结构。
+ECMAScript 基于对象，这和 C++、Java 不同的本质区别在于创建对象的方式以及属性共享思路的不同：ECMAScript 支持多种方式创建对象：构造器、字面量或 Object.create，而属性共享则是使用原型。
+使用原型意味着尽管 ECMAScript 支持类继承，但是是通过原型继承隐式实现的：每一个构造器函数都有一个原型属性，属性名为 prototype。以该构造器创建的实例会携带一个隐式的指向其构造器的原型的引用（称为实例的原型）。
+而构造器函数也是一个对象实例，所以也会有对应的原型。ECMAScript 依赖这条由对象原型组成的链条式的关系，即原型链，来共享属性。而在经典面向对象语言中，总的来说，属性（也就是状态）是直接挂载在实例上的，只有方法挂载在类上，
+这也就意味着类继承只约束了继承结构和对象的行为，没有约束对象的状态。此外，由于 ECMAScript 支持动态重写对象，这使得你可以在运行时去创建一个动态的继承结构。
 
-ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一方面，其语法被考虑设计成尽可能简单的。规范对语言的具体描述是一种“通用编程语言”，并不是指代语言性质，如“脚本语言”，或是具体实现，如“JavaScript”。有不少其它语言也完整实现了规范，如微软早期的 JScript 和用于 Flash 的 ActionScript。从这个角度来看，JavaScript 应该看作 ECMAScript 的一种方言。
+ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一方面，其语法被考虑设计成尽可能简单的。规范对语言的具体描述是一种“通用编程语言”，并不是指代语言性质，如“脚本语言”，或是具体实现，如“JavaScript”。
+有不少其它语言也完整实现了规范，如微软早期的 JScript 和用于 Flash 的 ActionScript。从这个角度来看，JavaScript 应该看作 ECMAScript 的一种方言。
 
-如果从历史的角度来看，ECAMAScript 和 JavaScript 的关系会发生变化。JavaScript 是网景公司在宣发时使用的名称，这个语言一开始叫做 Mocha，而后又叫做 LiveScript。微软在 IE 中也做了一种实现，但由于版权问题卡喉咙，不能叫做 JavaScript，所以改为了 JScript。在网景公司没落前，他们起草了 ECMAScript 标准，用来规划 JavaScript 的发展路线。尽管网景没了，但规范则一直在更新，比如被人们熟知的 ES6，指代 ECMAScript 2015 6th Edition。ECMAScript 和 JavaScript 也就不仅仅应当被理解成标准和实现，它们还属于共生共荣的关系。
+如果从历史的角度来看，ECAMAScript 和 JavaScript 的关系会发生变化。JavaScript 是网景公司在宣发时使用的名称，这个语言一开始叫做 Mocha，而后又叫做 LiveScript。微软在 IE 中也做了一种实现，
+但由于版权问题卡喉咙，不能叫做 JavaScript，所以改为了 JScript。在网景公司没落前，他们起草了 ECMAScript 标准，用来规划 JavaScript 的发展路线。尽管网景没了，但规范则一直在更新，
+比如被人们熟知的 ES6，指代 ECMAScript 2015 6th Edition。ECMAScript 和 JavaScript 也就不仅仅应当被理解成标准和实现，它们还属于共生共荣的关系。
 
 ### 宿主系统
 
-脚本语言是设计给包括非职业开发人员使用的语言，没有必要拥有主程序入口。所以脚本语言通常寄生于特定系统，依赖宿主提供的设施以完善语言功能，使用终端进行操作，以便人员操控程序或自动化流程。规范原本想设计一款 Web 脚本语言，用于客户端以响应用户在界面上的操作，使 Web 页面能够执行逻辑。但随着越来越广泛的使用，功能逐渐完善，ECMAScript 演变成为了通用程序语言。
+脚本语言是设计给包括非职业开发人员使用的语言，没有必要拥有主程序入口。所以脚本语言通常寄生于特定系统，依赖宿主提供的设施以完善语言功能，使用终端进行操作，以便人员操控程序或自动化流程。规范原本想设计一款 Web 脚本语言，
+用于客户端以响应用户在界面上的操作，使 Web 页面能够执行逻辑。但随着越来越广泛的使用，功能逐渐完善，ECMAScript 演变成为了通用程序语言。
 
-每一个支持 ECMAScript 的浏览器或者服务器端都拥有一个对应的宿主系统用于执行脚本。宿主系统的实现需要按照规范，不过规范对某些特征只描述了特定行为而没有给出具体算法。这些具体算法通常会由其它规范来实现，比如说 HTML 规范中定义的宏任务和微任务或 Math.exp 这种特定算法。总而言之，只要宿主系统和规范是一致的（见 [一致性](#一致性）)并实现了特定的行为如 Host Hooks、Host-defined Fileds、Host-defined Objects、Running Jobs、Internal Methods of Exotic Objects 和 Built-in Objects and Methods，就算是一个完整的 ECMAScript 宿主系统，就能正确地和规范进行交互。
+每一个支持 ECMAScript 的浏览器或者服务器端都拥有一个对应的宿主系统用于执行脚本。宿主系统的实现需要按照规范，不过规范对某些特征只描述了特定行为而没有给出具体算法。这些具体算法通常会由其它规范来实现，
+比如说 HTML 规范中定义的宏任务和微任务或 Math.exp 这种特定算法。总而言之，只要宿主系统和规范是一致的（见 [一致性](#一致性）)并实现了特定的行为如 Host Hooks、Host-defined Fileds、
+Host-defined Objects、Running Jobs、Internal Methods of Exotic Objects 和 Built-in Objects and Methods，
+就算是一个完整的 ECMAScript 宿主系统，就能正确地和规范进行交互。
 
 ### 一致性
 
@@ -104,7 +116,8 @@ ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一
 
 ## 规范类型和语言类型
 
-为什么要区分语言类型和规范类型呢？顾名思义，语言类型是 JavaScript 所使用的一种类型系统，包含比如 Null、Undefined、Object 等类型，但由于 JavaScript 需要由其它引擎实现，也就是说规范所描述的算法逻辑中携带的基本类型不是 JavaScript 语言中的基本类型，而更可能是诸如 C++ 中的数据类型。
+为什么要区分语言类型和规范类型呢？顾名思义，语言类型是 JavaScript 所使用的一种类型系统，包含比如 Null、Undefined、Object 等类型，但由于 JavaScript 需要由其它引擎实现，
+也就是说规范所描述的算法逻辑中携带的基本类型不是 JavaScript 语言中的基本类型，而更可能是诸如 C++ 中的数据类型。
 
 ## 其它
 
@@ -138,3 +151,4 @@ ECMAScript 被故意地设计成类 Java 的语法，这是历史原因。另一
 | prototype | 原型 | 见 [语言风格](#语言风格) |
 | standard object | 标准对象 | 行为（语义）和规范一致的对象 |
 | undefined value | 未定义值 | 表示变量初始化成功但未赋值 |
+

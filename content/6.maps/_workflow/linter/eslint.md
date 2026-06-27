@@ -14,7 +14,8 @@ original_path: /_workflow/linter/eslint.md
 
 #### `rushstack/eslint-patch` 有什么作用？
 
-最主要的功能是为 ESLint 带来现代的模块解析功能。它加载了 .eslintrc.js 并在内存中修改了 ESLint 引擎，使其插件解析器引用模块的路径是相对于引用配置文件，而不是项目根目录，这可以增强 monorepo 下的开发体验。
+最主要的功能是为 ESLint 带来现代的模块解析功能。它加载了 .eslintrc.js 并在内存中修改了 ESLint 引擎，使其插件解析器引用模块的路径是相对于引用配置文件，而不是项目根目录，
+这可以增强 monorepo 下的开发体验。
 
 到了 Flat Config 时代，ESLint 的插件寻址路径已经改为相对于配置文件所在目录，而不是项目根目录。
 
@@ -44,14 +45,16 @@ Flat Config 配置不存在向上级目录寻找的情况。
 
 #### 为什么 ESLint@8 废弃了个人配置文件？
 
-个人配置文件指 `~` 目录（用户主目录）下的配置文件，如果 ESLint 在项目中找不到配置文件，那么将自动搜寻用户主目录下的配置文件。但是配置文件这种形式难以共享和修改（因为它从用户主目录下 node_modules 加载共享配置和解析器，而在项目目录加载插件），所以在 ESLint@8 被废弃。
+个人配置文件指 `~` 目录（用户主目录）下的配置文件，如果 ESLint 在项目中找不到配置文件，那么将自动搜寻用户主目录下的配置文件。但是配置文件这种形式难以共享和修改（
+因为它从用户主目录下 node_modules 加载共享配置和解析器，而在项目目录加载插件），所以在 ESLint@8 被废弃。
 
 #### 如何配置全局变量？
 
 * 文件内联配置：`/* global x1, x2:writable */`、`/* eslint-env es2022, node, mocha */`
 * 使用配置文件或 eslintConfig 中的 env 字段
 
-注意，如果直接更改 parserOptions 的 ecmaVersion 而不更改 env 配置，是不会支持对应版本 ES 规范的全局变量的，因为 parserOptions 的 ecmaVersion 只是告诉 ESLint 使用哪个版本的 ECMAScript 语法解析代码。
+注意，如果直接更改 parserOptions 的 ecmaVersion 而不更改 env 配置，是不会支持对应版本 ES 规范的全局变量的，
+因为 parserOptions 的 ecmaVersion 只是告诉 ESLint 使用哪个版本的 ECMAScript 语法解析代码。
 
 见：[ESLint parserOptions](https://zh-hans.eslint.org/docs/latest/use/configure/language-options#-7)
 
@@ -68,3 +71,4 @@ Flat Config 配置不存在向上级目录寻找的情况。
 #### 关于性能的指摘？
 
 社区有一些 Rust 化的替代品，如 RSLint（已停更）。ESLint 内部也讨论过 Rust 化的可能性，见 [Complete rewrite of ESLint](https://github.com/eslint/eslint/discussions/16557)，ESLint 作为一个通用的代码检查器，其核心流程（包括解析路径、修复错误、报告错误等）并不慢，慢的是特殊的插件以及在单线程环境中运行解析器并创建巨大的抽象语法树。
+

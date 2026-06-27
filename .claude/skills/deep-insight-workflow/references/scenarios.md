@@ -74,7 +74,9 @@
 
 **选择模块**：`find-contradictions` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-questions`
 
-**搜索增强版本**（用户说"搜索最新进展"）：`search-context` → `find-contradictions` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-questions`
+**搜索增强版本**（用户说"搜索最新进展"）：
+`search-context` → `find-contradictions` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-
+questions`
 
 **工作重心分配**：
 | 模块 | 时间占比 | 输出深度 | 说明 |
@@ -159,7 +161,9 @@
 - "我想研究这个领域，但不知道从哪入手"
 - "帮我探索这个研究方向"
 
-**选择模块**：`verify-sources` → `weakness-scanner` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-questions` → [reAct循环]
+**选择模块**：
+`verify-sources` → `weakness-scanner` → `build-timeline` → `expert-insights` → `construct-framework` → `expert-questions
+` → [reAct循环]
 
 **工作重心分配**：
 | 模块 | 时间占比 | 输出深度 | 说明 |

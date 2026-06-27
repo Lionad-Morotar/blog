@@ -26,4 +26,6 @@ original_path: content/6.maps/_markdown/markdown.md
 * InlineCSS 合并时 Margin、MarginBottom 这些重复的属性不会被合并，所以出现了部分样式问题
 * InlineCSS 解析 CSS 不能解析 CSS 变量
 
-因为相关问题很多，虽然方向可行，但还是弃坑了。最近需要贴文章时还是直接贴 Markdown，懒得再做转换了。以后重新再捡起来的时候，也许会写个直接在浏览器中跑的脚本，毕竟直接调用 DOM API 获取样式的稳定性感觉要比用 InlineCSS 好。
+因为相关问题很多，虽然方向可行，但还是弃坑了。最近需要贴文章时还是直接贴 Markdown，懒得再做转换了。以后重新再捡起来的时候，也许会写个直接在浏览器中跑的脚本，
+毕竟直接调用 DOM API 获取样式的稳定性感觉要比用 InlineCSS 好。
+

@@ -90,7 +90,8 @@ npm 自己在警告：当前 Node 是 16.20.2。然后照样崩在 `ReadableStre
 #!/usr/bin/env node
 ```
 
-`env node` 的意思是：按 `PATH` 顺序找第一个叫 `node` 的可执行文件。我虽然指定了 Node 22 目录下的 `npx` 文件，但它启动时找解释器，还是回到 `PATH` 里——而 `PATH` 里的 `node` 是 fnm 切好的 16。
+`env node` 的意思是：按 `PATH` 顺序找第一个叫 `node` 的可执行文件。我虽然指定了 Node 22 目录下的 `npx` 文件，但它启动时找解释器，还是回到 `PATH` 里——
+而 `PATH` 里的 `node` 是 fnm 切好的 16。
 
 所以光换 `npx` 的文件路径没用，`pnpm` 同理（也是 `#!/usr/bin/env node`）。要换的是 `npx`/`pnpm` 启动时**看到的那个 `node`**，也就是 `PATH` 本身。
 
@@ -170,7 +171,8 @@ lionad-kimi-tools-mcp-0.3.0.tgz   # 2 秒，成功
 
 tarball 能下。那 npx 卡在哪？
 
-卡在 `@latest` 这个 dist-tag 的解析上。本机 registry 是国内镜像 `npmmirror.com`，对这个 4 月才发的小众包，dist-tag 元数据同步不完整，npx 查 `@latest` 一直卡。换成官方源（`registry.npmjs.org`）裸连，国内没配代理，一样卡。
+卡在 `@latest` 这个 dist-tag 的解析上。本机 registry 是国内镜像 `npmmirror.com`，对这个 4 月才发的小众包，dist-tag 元数据同步不完整，npx 查 `@latest` 一直卡。
+换成官方源（`registry.npmjs.org`）裸连，国内没配代理，一样卡。
 
 context7/open-websearch/glm-image 能成功，是因为它们是成熟大包，镜像同步充分。`@lionad/kimi-tools-mcp` 这种新包正好踩中。
 
@@ -241,14 +243,16 @@ kimi-tools-mcp Server 正在通过 stdio 运行
 
 几个需要记住的点：
 
-1. **context7 是 plugin 配置**，路径在 `~/.claude/plugins/cache/.../context7/<sha>/.mcp.json`。插件更新（`gitCommitSha` 变）会把它覆盖回原版 `npx`，到时 context7 又会失败。要么重新套用 wrapper，要么挪到 `~/.claude.json` 顶层 `mcpServers` 持久化。
+1. **context7 是 plugin 配置**，路径在 `~/.claude/plugins/cache/.../context7/<sha>/.mcp.json`。插件更新（`gitCommitSha` 变）
+会把它覆盖回原版 `npx`，到时 context7 又会失败。要么重新套用 wrapper，要么挪到 `~/.claude.json` 顶层 `mcpServers` 持久化。
 2. **wrapper 里写死了 `v22.22.1` 路径**。这是 `fnm default`，稳定。但以后 fnm 升默认版本，wrapper 要跟着改一行。
 3. **kimi 升级**：`@lionad/kimi-tools-mcp` 发新版本时，手动更新本地包：
    ```bash
    npm install --prefix ~/.claude/mcp-packages/kimi-tools \
      @lionad/kimi-tools-mcp@latest --registry=https://registry.npmmirror.com
    ```
-4. **别动 npmmirror registry**。中间为了试 kimi 临时注释过 npmmirror 切官方源——但 context7/open-websearch/glm-image 还靠 npx 实时下载，官方源国内裸连慢，会让它们重新超时变红。kimi 已经本地化不受影响，所以 npmmirror 保持开着最稳。
+4. **别动 npmmirror registry**。中间为了试 kimi 临时注释过 npmmirror 切官方源——但 context7/open-websearch/glm-image 还靠 npx 实时下载，官方源国内裸连慢，
+会让它们重新超时变红。kimi 已经本地化不受影响，所以 npmmirror 保持开着最稳。
 
 ## 复现要点
 
@@ -256,5 +260,7 @@ kimi-tools-mcp Server 正在通过 stdio 运行
 - 想验证 wrapper 生效：`echo '<initialize JSON-RPC>' | ~/.claude/mcp-node22.sh npx -y @upstash/context7-mcp`，应返回 server 信息。
 - MCP 的 initialize 请求体：
   ```json
-  {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"t","version":"1"}}}
+  {"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"
+  name":"t","version":"1"}}}
   ```
+

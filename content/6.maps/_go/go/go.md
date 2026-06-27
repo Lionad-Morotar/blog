@@ -86,3 +86,4 @@ func RequestInspectorMW() { isNeedOpenapiAuth(ctx) }  // 直接调用，无需im
 package middleware
 func isNeedOpenapiAuth(c *app.RequestContext) bool { ... }
 ```
+

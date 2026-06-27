@@ -6,9 +6,12 @@ original_path: content/6.maps/_programming/dx/genai-for-legacy-codebases.md
 
 ## Brief
 
-最近几个月，我们已经看到清晰的证据：使用生成式 AI 来理解遗留代码库，能够显著加速对大型、复杂系统的理解。像 Cursor、Claude Code、Copilot、Windsurf、Aider、Cody、Swimm、Unblocked 以及 PocketFlow-Tutorial-Codebase-Knowledge 这样的工具，可以帮助开发人员挖掘业务规则、总结业务与技术逻辑，并识别系统依赖关系。配合开放的技术框架和直接对大模型进行提示（prompt），这些工具能大幅缩短理解遗留代码库所需的时间。
+最近几个月，我们已经看到清晰的证据：使用生成式 AI 来理解遗留代码库，能够显著加速对大型、复杂系统的理解。像 Cursor、Claude Code、Copilot、Windsurf、Aider、Cody、Swimm、
+Unblocked 以及 PocketFlow-Tutorial-Codebase-Knowledge 这样的工具，可以帮助开发人员挖掘业务规则、总结业务与技术逻辑，并识别系统依赖关系。配合开放的技术框架和直接对大模型进行提示（
+prompt），这些工具能大幅缩短理解遗留代码库所需的时间。
 
-我们在多个客户项目中的经验表明：借助生成式 AI 来理解遗留系统，现在已经是一个**实用的默认选择**，而不再只是试验性的做法。前期的环境与数据准备工作量会有所不同，尤其是像 GraphRAG 这类高级方法，其成本通常会随着被分析代码库的规模和复杂度而增长。尽管如此，对生产力的正向影响却是持续而且显著的。生成式 AI 已经成为我们探索和理解遗留系统方式中的一个关键组成部分。
+我们在多个客户项目中的经验表明：借助生成式 AI 来理解遗留系统，现在已经是一个**实用的默认选择**，而不再只是试验性的做法。前期的环境与数据准备工作量会有所不同，尤其是像 GraphRAG 这类高级方法，
+其成本通常会随着被分析代码库的规模和复杂度而增长。尽管如此，对生产力的正向影响却是持续而且显著的。生成式 AI 已经成为我们探索和理解遗留系统方式中的一个关键组成部分。
 
 来源：技术雷达
 
@@ -172,3 +175,4 @@ original_path: content/6.maps/_programming/dx/genai-for-legacy-codebases.md
    - 对含敏感代码的项目：  
      - 优先选择本地部署或企业版 LLM 方案  
      - 在组织层面明确：哪些仓库可以、哪些不可以接入外部云端 AI 工具。
+

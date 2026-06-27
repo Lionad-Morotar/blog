@@ -2,7 +2,8 @@
 title: 🎃 斑马难题
 ---
 
-好了，不卖关子了，我说的就是“**斑马难题**”。网传斑马难题是爱因斯坦设下的一道谜题，世界上只有 2% 的人能解。不过，对此我深表怀疑... 我们直接看看题目吧，如果实在毫无头绪的话，可以直接跳到文末视频（BiliBili 干杯~ []~(￣ ▽ ￣)~\*）。
+好了，不卖关子了，我说的就是“**斑马难题**”。网传斑马难题是爱因斯坦设下的一道谜题，世界上只有 2% 的人能解。不过，对此我深表怀疑... 我们直接看看题目吧，如果实在毫无头绪的话，可以直接跳到文末视频（
+BiliBili 干杯~ []~(￣ ▽ ￣)~\*）。
 
 ## 题目介绍
 
@@ -32,13 +33,15 @@ title: 🎃 斑马难题
 
 <hr />
 
-有条件，就有推理；将条件写成表达式，推理就变成了布尔代数，所以最符合逻辑的解法应该是真值表之类的。不过也许有人和我一样，第一反应是想写段代码穷举的 hhh... 事实上，我觉得用纸和笔推算答案可能要比写代码快很多，因为能猜到题目是给了挺充分条件，要求最优解的问题。
+有条件，就有推理；将条件写成表达式，推理就变成了布尔代数，所以最符合逻辑的解法应该是真值表之类的。不过也许有人和我一样，第一反应是想写段代码穷举的 hhh... 事实上，我觉得用纸和笔推算答案可能要比写代码快很多，
+因为能猜到题目是给了挺充分条件，要求最优解的问题。
 
 这里先后介绍分别使用两种工具解斑马题：**布尔代数** 和 **Excel**（对，你没看错）
 
 ## 布尔代数策略
 
-在斑马题中，布尔代数其实就是和 True 或 False 组成的表达式打交道，针对题目给定的条件，如“小提琴家喜欢喝橘子汁”，我们需要找到条件所包含的变量，用以组成表达式。这之后，我们可以使用布尔代数的运算规则和真值表推算所有变量的可能的组合，根据组合的可能性得到符合答案的结果。
+在斑马题中，布尔代数其实就是和 True 或 False 组成的表达式打交道，针对题目给定的条件，如“小提琴家喜欢喝橘子汁”，我们需要找到条件所包含的变量，用以组成表达式。这之后，
+我们可以使用布尔代数的运算规则和真值表推算所有变量的可能的组合，根据组合的可能性得到符合答案的结果。
 
 比方说我们有以下三条件：
 
@@ -163,8 +166,10 @@ title: 🎃 斑马难题
 8. DiplomatYellow(1) XOR DiplomatYellow(3) XOR DiplomatYellow(4) XOR DiplomatYellow(5)
 9. GreenCoffee(4) XOR GreenCoffee(5)
 10. ViolinistJuice(2) XOR ViolinistJuice(4) XOR ViolinistJuice(5)
-11. (Fox(1) AND Doctor(2)) XOR (Fox(2) AND Doctor(3)) XOR (Fox(3) AND Doctor(4)) XOR (Fox(4) AND Doctor(5)) XOR (Fox(2) AND Doctor(1)) XOR (Fox(3) AND Doctor(2)) XOR (Fox(4) AND Doctor(3)) XOR (Fox(5) AND Doctor(4))
-12. (DiplomatYellow(1) AND Horse(2)) XOR (DiplomatYellow(3) AND Horse(2)) XOR (DiplomatYellow(3) AND Horse(4)) XOR (DiplomatYellow(4) AND Horse(3)) XOR (DiplomatYellow(4) AND Horse(5)) XOR (DiplomatYellow(5) AND Horse(4))
+11. (Fox(1) AND Doctor(2)) XOR (Fox(2) AND Doctor(3)) XOR (Fox(3) AND Doctor(4)) XOR (Fox(4) AND Doctor(5)) XOR (Fox(2)
+AND Doctor(1)) XOR (Fox(3) AND Doctor(2)) XOR (Fox(4) AND Doctor(3)) XOR (Fox(5) AND Doctor(4))
+12. (DiplomatYellow(1) AND Horse(2)) XOR (DiplomatYellow(3) AND Horse(2)) XOR (DiplomatYellow(3) AND Horse(4)) XOR (
+DiplomatYellow(4) AND Horse(3)) XOR (DiplomatYellow(4) AND Horse(5)) XOR (DiplomatYellow(5) AND Horse(4))
 
 目前来说，已知量最多的是房子颜色数据，我们有 Yellow、Green、White、Red、Blue 这几个变量相关的表达式。所以可以从第 6 项，第 1 项，第 8 项入手，推断未知信息，见下例：
 
@@ -199,7 +204,8 @@ title: 🎃 斑马难题
 2. SpainDog(3) XOR SpainDog(4) XOR SpainDog(5)
 3. (Green(5) AND White(4) AND EnglishRed(3)) XOR (Green(4) AND White(3) AND EnglishRed(5))
 4. PhotorSnail(3) XOR PhotorSnail(4) XOR PhotorSnail(5)
-5. (Fox(1) AND Doctor(2)) XOR XOR (Fox(3) AND Doctor(4)) XOR (Fox(4) AND Doctor(5)) XOR (Fox(3) AND Doctor(2)) XOR (Fox(4) AND Doctor(3)) XOR (Fox(5) AND Doctor(4))
+5. (Fox(1) AND Doctor(2)) XOR XOR (Fox(3) AND Doctor(4)) XOR (Fox(4) AND Doctor(5)) XOR (Fox(3) AND Doctor(2)) XOR (Fox(
+4) AND Doctor(3)) XOR (Fox(5) AND Doctor(4))
 
 其中，第 6 项和第 10 项可以合并为：
 
@@ -213,7 +219,8 @@ title: 🎃 斑马难题
 5. (Green(5) AND White(4) AND EnglishRed(3)) XOR (Green(4) AND White(3) AND EnglishRed(5))
 6. PhotorSnail(3) XOR PhotorSnail(4) XOR PhotorSnail(5)、
 7. ViolinistJuice(2) XOR ViolinistJuice(4) XOR ViolinistJuice(5)
-8. (Fox(1) AND Doctor(2)) XOR XOR (Fox(3) AND Doctor(4)) XOR (Fox(4) AND Doctor(5)) XOR (Fox(3) AND Doctor(2)) XOR (Fox(4) AND Doctor(3)) XOR (Fox(5) AND Doctor(4))
+8. (Fox(1) AND Doctor(2)) XOR XOR (Fox(3) AND Doctor(4)) XOR (Fox(4) AND Doctor(5)) XOR (Fox(3) AND Doctor(2)) XOR (Fox(
+4) AND Doctor(3)) XOR (Fox(5) AND Doctor(4))
 
 我们取 2、4、6，三个变量比较少的表达式进行推算：
 
@@ -265,7 +272,8 @@ title: 🎃 斑马难题
 
 ## 剪枝策略
 
-大家如有有写过搜索算法的话，都应该听过“剪枝”这个词。无论是深度优先搜索，还是广度优先搜索，只要是搜索问题，我们的目标都是要找到符合条件的问题解。如果此过程中判定的搜索条件越界了，那么就直接中止循环了。对应到斑马题中，我们把所有条件列出，然后逐个假设这些表达式是正确的，若碰到了当前假设的表达式违背了已知项时，就将这个假设删掉，不再继续寻找可能性。比方说，如果我们要装满一个容量为 5 的背包，一旦我们测试有一种装法装满了，那么就可以不继续装其它物品测试了（剪枝）。
+大家如有有写过搜索算法的话，都应该听过“剪枝”这个词。无论是深度优先搜索，还是广度优先搜索，只要是搜索问题，我们的目标都是要找到符合条件的问题解。如果此过程中判定的搜索条件越界了，那么就直接中止循环了。对应到斑马题中，我们把所有条件列出，
+然后逐个假设这些表达式是正确的，若碰到了当前假设的表达式违背了已知项时，就将这个假设删掉，不再继续寻找可能性。比方说，如果我们要装满一个容量为 5 的背包，一旦我们测试有一种装法装满了，那么就可以不继续装其它物品测试了（剪枝）。
 
 举个例子，假设有已知表格如下，并分别应用两个假设：
 
@@ -302,7 +310,8 @@ title: 🎃 斑马难题
 
 此时，若假设有 Yellow(5) 条件，分别代入两个表格，发现 Yellow(5) 于第一个表格不成立，即与已知项相违背，那么之后的推算我们就可以仅使用第二个表格了（剪枝）。
 
-实际推算时，需要注意表格的维度。比如刚才的“绿房子在白房子的右边”这个条件使我们表格的维度翻倍（使用“维度”可能相当不准确，大意就是某个条件如果是未知项目，就会分裂我们当前的搜索结果），所以接下来 GreenCoffee 这个条件需要代入两个表格进行推算。而接下来及时使用 Yellow(5) 条件，又可以减少表格的运算数量，减轻我们的运算负担。
+实际推算时，需要注意表格的维度。比如刚才的“绿房子在白房子的右边”这个条件使我们表格的维度翻倍（使用“维度”可能相当不准确，大意就是某个条件如果是未知项目，就会分裂我们当前的搜索结果），
+所以接下来 GreenCoffee 这个条件需要代入两个表格进行推算。而接下来及时使用 Yellow(5) 条件，又可以减少表格的运算数量，减轻我们的运算负担。
 
 下面我将展示一个推算的示例。
 
@@ -314,9 +323,11 @@ title: 🎃 斑马难题
 
 ## 阅读更多
 
-斑马难题是上个月我在《计算机科学精粹》一书中发现的，尽管使用布尔代数解法的思路中只用了一些初等代数的知识，但一开始也是看不懂（开始后悔为啥不学点数学了）。我一度想写程序看能不能穷举这题，但过了一会儿就放弃了，因为突然觉得用 Excel 穷举会比打代码快。实践证明确实如此啊，**选择对的工具，往往决定了思路能不能一路畅通**。
+斑马难题是上个月我在《计算机科学精粹》一书中发现的，尽管使用布尔代数解法的思路中只用了一些初等代数的知识，但一开始也是看不懂（开始后悔为啥不学点数学了）。我一度想写程序看能不能穷举这题，但过了一会儿就放弃了，
+因为突然觉得用 Excel 穷举会比打代码快。实践证明确实如此啊，**选择对的工具，往往决定了思路能不能一路畅通**。
 
 希望本文能对你有所帮助，如果文中出现了不流畅或理解错误的地方也麻烦各位评论指出。<JJ><p>若有任何疑问，或想深入探讨，可以给我发邮件：dGFuZ25hZEBxcS5jb20=</p></JJ>
 
 * [计算机科学精粹](https://book.douban.com/subject/30382590/)
 * [Solving the Zebra Puzzle with Boolean Algebra](https://code.energy/solving-zebra-puzzle/)
+

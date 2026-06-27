@@ -34,7 +34,8 @@ C++ 拥有丰富的构建工具链和标准化体系，从 Makefile 到现代构
 
 #### PInvoke 是什么？
 
-PInvoke 既 Platform Invocation Services 平台调用服务，允许你使用 C# 之类的语言调用外部函数。比如，许多硬件中，其驱动是用 C/C++ 写的，而用 C# 在外面再套一层壳子来管理界面（WPF/Winform）。这时，可以使用 PInvoke 方法让 C# 去调用动态链接库中的函数。
+PInvoke 既 Platform Invocation Services 平台调用服务，允许你使用 C# 之类的语言调用外部函数。比如，许多硬件中，其驱动是用 C/C++ 写的，而用 C# 在外面再套一层壳子来管理界面（
+WPF/Winform）。这时，可以使用 PInvoke 方法让 C# 去调用动态链接库中的函数。
 
 #### <Link type="h5" to="https://mgear-file.oss-cn-shanghai.aliyuncs.com/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0PInvoke_%E9%BB%84%E8%85%BE%E9%9C%84%E7%9A%84%E5%8D%9A%E5%AE%A2_CSDN%E5%8D%9A%E5%AE%A2.html" source="https://blog.csdn.net/htxhtx123/article/details/104323450" >《手把手教你 PInvoke》</Link>
 
@@ -79,3 +80,4 @@ class Program
 * [PInvoke Interop Assistant](https://github.com/jaredpar/pinvoke-interop-assistant)
 
 此外，在 C++ 中，可以通过函数指针直接接受来自 C# 的委托函数，十分令人愉快。
+

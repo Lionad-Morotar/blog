@@ -6,7 +6,8 @@ original_path: content/6.maps/_person/gary-marcus.md
 
 #### 简介？
 
-Gary Marcus 是认知科学家、AI 研究者、企业家和作家。他是纽约大学心理学与神经科学荣誉教授，曾创立机器学习公司 Geometric Intelligence（后被 Uber 收购），并创立了机器人公司 Robust.AI。他以对当前 AI 技术路径的批判性观点而闻名，主张结合深度学习与符号推理的混合方法。
+Gary Marcus 是认知科学家、AI 研究者、企业家和作家。他是纽约大学心理学与神经科学荣誉教授，曾创立机器学习公司 Geometric Intelligence（后被 Uber 收购），并创立了机器人公司 Robust.AI。
+他以对当前 AI 技术路径的批判性观点而闻名，主张结合深度学习与符号推理的混合方法。
 
 #### 主要观点？
 

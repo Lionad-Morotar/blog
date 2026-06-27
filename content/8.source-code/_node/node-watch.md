@@ -60,7 +60,8 @@ function watch(fpath, options, cb) {
 }
 ```
 
-NodeJS 文档提到，fs.watch 的 recursive 选项在 Linux 中是无效的，因为 fs.watch 的实现依赖具体操作系统底层 API。所以到底要不要用原生的 recursive 选项需要提前判断一下，node-watch 的实现挺粗暴，直接使用 IO 操作去检测：先到系统临时文件目录创建一些文件夹，然后监听它们并删除里面的内容，如果超时了还没有触发 watcher 的 change 事件，那就说明不是原生支持 recursive 选项。
+NodeJS 文档提到，fs.watch 的 recursive 选项在 Linux 中是无效的，因为 fs.watch 的实现依赖具体操作系统底层 API。所以到底要不要用原生的 recursive 选项需要提前判断一下，
+node-watch 的实现挺粗暴，直接使用 IO 操作去检测：先到系统临时文件目录创建一些文件夹，然后监听它们并删除里面的内容，如果超时了还没有触发 watcher 的 change 事件，那就说明不是原生支持 recursive 选项。
 
 ```js
 var IS_SUPPORT
@@ -114,7 +115,8 @@ Watcher.prototype.expose = function() {
 }
 ```
 
-监听路径支持传数组，我们当然希望就算是数组，也是由同一个 EventEmitter 来管理事件的，传入的是既然是数组，那么自然会生成多个 watcher 实例，只不过代码中使用了 composeWatcher 函数，把这些事件整合并向外发送。
+监听路径支持传数组，我们当然希望就算是数组，也是由同一个 EventEmitter 来管理事件的，传入的是既然是数组，那么自然会生成多个 watcher 实例，只不过代码中使用了 composeWatcher 函数，
+把这些事件整合并向外发送。
 
 ```js
 function composeWatcher(watchers) {
@@ -218,3 +220,4 @@ source: https://stackoverflow.com/questions/43112227/recursive-node-js-fs-watch-
 
 * [《node-watch、Chokidar封装思路解析》](https://juejin.cn/post/7000262974430511117)
 * [《如何利用 Nodejs 监听文件夹》](https://www.jianshu.com/p/09dae09457fa)
+

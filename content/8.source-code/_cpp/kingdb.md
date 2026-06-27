@@ -4,7 +4,8 @@ title: KingDB
 
 ## 概述
 
-源码分两部分，从相关的测试文件，到核心源码。参考 IKVS 系列文章给的架构图，核心源码的阅读顺序沿着 Put、Delete、Get 三个接口，由 Database 一路向 Buffer、Event Manager、Storage Engine、HSTable Manager、File System 相关、Index 前进。最好再看相关快照、迭代器、Multipart 等部分。期间如果遇到简单的帮助函数会先讲帮助函数。
+源码分两部分，从相关的测试文件，到核心源码。参考 IKVS 系列文章给的架构图，核心源码的阅读顺序沿着 Put、Delete、Get 三个接口，由 Database 一路向 Buffer、Event Manager、
+Storage Engine、HSTable Manager、File System 相关、Index 前进。最好再看相关快照、迭代器、Multipart 等部分。期间如果遇到简单的帮助函数会先讲帮助函数。
 
 本来想从第一个 Git Commit 开始看起的。但我 checkout 过去之后，碰到了一堆编译问题，根本跑不通，索性就直接回到 master 来看最新代码了。本文章的源码快照见 [KingDB@58994](https://github.com/goossaert/kingdb/tree/58994280e789fc7248d61371f03a6c04c844c197)。阅读源码前可以先看一下 KingDB 的 Readme：doc/kingdb.md 以及 doc/kingserver.md。
 
@@ -17,7 +18,8 @@ title: KingDB
 
 ## 从测试开始
 
-Emmanuel 给了一个典型的 KDB 用户使用示例，见 unit-tests/kingdb_user.cc。通过此示例，能大概了解 KDB 的接口及如何使用该接口。创建数据库、存入、读取前都需要创建对应的参数配置 Options；这些动作通过 Status 对象来回传操作成功与否。
+Emmanuel 给了一个典型的 KDB 用户使用示例，见 unit-tests/kingdb_user.cc。通过此示例，能大概了解 KDB 的接口及如何使用该接口。创建数据库、存入、读取前都需要创建对应的参数配置 Options；
+这些动作通过 Status 对象来回传操作成功与否。
 
 ```cpp
 #include <kingdb/kdb.h>
@@ -91,7 +93,8 @@ Free size: 944 GB
 ==== PASSED 11 tests
 ```
 
-每个功能点如数据库初始化和关闭 CloseAndReopen、存入带结束符的键 KeysWithNullBytes 都使用对应继承了 DBTest 的测试类进行测试。涉及到与数据库交互的功能部分如 TestStringInterface 使用循环，遍历了所有数据库 Options 可以设置的情况（但是只是二维循环，没有测试参数间的组合）。即对应上文的 Stage 1、Stage 2...
+每个功能点如数据库初始化和关闭 CloseAndReopen、存入带结束符的键 KeysWithNullBytes 都使用对应继承了 DBTest 的测试类进行测试。
+涉及到与数据库交互的功能部分如 TestStringInterface 使用循环，遍历了所有数据库 Options 可以设置的情况（但是只是二维循环，没有测试参数间的组合）。即对应上文的 Stage 1、Stage 2...
 
 在 test_db 创建相应的测试类时，会自动调用测试套件（unit-tests/testharness.cc）中的 RegisterTest 把测试函数储存起来。以便运行测试时，通过读取环境变量来判断是否要跳过某类测试。
 
@@ -99,7 +102,8 @@ Free size: 944 GB
 
 #### 信号处理
 
-和数据库核心的入口函数一样，使用 signal 挂载了对 SIGSEGV、SIGABRT 信号的处理。这两个信号分别指代系统内存错误和系统中断。而处理函数非常简单，就是 IKVS 中提到的“let it die”风格：输出调用栈，立马结束程序。
+和数据库核心的入口函数一样，使用 signal 挂载了对 SIGSEGV、SIGABRT 信号的处理。这两个信号分别指代系统内存错误和系统中断。而处理函数非常简单，就是 IKVS 中提到的“let it die”风格：输出调用栈，
+立马结束程序。
 
 ```cpp
 void handler(int sig) {
@@ -123,7 +127,8 @@ int main() {
 
 #### 使用宏创建测试类
 
-test_db 中的类是使用宏定义的。如下代码，TEST 展开的新类，继承了 DBTest，实现了 _RunIt 接口以便调用测试函数。TCONCAT 宏顾名思义就是连接，使用标记黏贴运算符把两个字符串或实参连接在一起并视为一个新的标记。\_Test\_ 和 name 连接在一起后，就是新类的名称，如 _Test_CloseAndReopen。
+test_db 中的类是使用宏定义的。如下代码，TEST 展开的新类，继承了 DBTest，实现了 _RunIt 接口以便调用测试函数。TCONCAT 宏顾名思义就是连接，使用标记黏贴运算符把两个字符串或实参连接在一起并视为一个新的标记。
+\_Test\_ 和 name 连接在一起后，就是新类的名称，如 _Test_CloseAndReopen。
 
 ```cpp
 TEST(DBTest, CloseAndReopen) {
@@ -149,11 +154,13 @@ bool TCONCAT(_Test_ignored_,name) =                                     \
 #define TCONCAT1(a,b) a##b
 ```
 
-这就要提到宏的一个特殊规则了，如果宏参数使用了字符串化运算符（#）或标记黏贴运算符（##），那么即便参数是宏也不会展开。所以需要一个间接宏 TCONCAT1，以达到先展开参数（如果参数是宏的化），再调用标记黏贴运算符的目的。从 test_db 可以看到，测试类的名词都不是宏，所以这里本不需要 TCONCAT1 这个间接宏。但是考虑到程序的健壮性，加上更好。
+这就要提到宏的一个特殊规则了，如果宏参数使用了字符串化运算符（#）或标记黏贴运算符（##），那么即便参数是宏也不会展开。所以需要一个间接宏 TCONCAT1，以达到先展开参数（如果参数是宏的化），再调用标记黏贴运算符的目的。
+从 test_db 可以看到，测试类的名词都不是宏，所以这里本不需要 TCONCAT1 这个间接宏。但是考虑到程序的健壮性，加上更好。
 
 #### 断言宏
 
-测试代码中的断言也是使用的宏来定义的。相比 TCONCAT 简单很多了，但其特点是可以记录抛错的文件以及行号。以下代码实现了 ASSERT_EQ 的定义。Tester 用于记录宏展开时所在的文件 \_\_FILE\_\_、行号 \_\_LINE\_\_ 以及断言结果。一但断言失败，记录到 ok_ 成员变量中。在 Tester 析构时，会把相关信息一并打印出来。
+测试代码中的断言也是使用的宏来定义的。相比 TCONCAT 简单很多了，但其特点是可以记录抛错的文件以及行号。以下代码实现了 ASSERT_EQ 的定义。Tester 用于记录宏展开时所在的文件 \_\_FILE\_\_、
+行号 \_\_LINE\_\_ 以及断言结果。一但断言失败，记录到 ok_ 成员变量中。在 Tester 析构时，会把相关信息一并打印出来。
 
 ```cpp
 class Tester {
@@ -174,7 +181,8 @@ class Tester {
 
 #### string.repeat(ntimes)
 
-写 JavaScript 时经常用到 String 的原型方法 repeat，用来把 n 个内容重复的字符串拼接为一个新字符串。也许是 C++ 标准库没有提供相应的算法，KDB 使用了一种和 repeat 完全不一样的处理思路。KDB 使用 StringStream 填充一定位数内容，还可以不用考虑值的长度。
+写 JavaScript 时经常用到 String 的原型方法 repeat，用来把 n 个内容重复的字符串拼接为一个新字符串。也许是 C++ 标准库没有提供相应的算法，KDB 使用了一种和 repeat 完全不一样的处理思路。
+KDB 使用 StringStream 填充一定位数内容，还可以不用考虑值的长度。
 
 ```cpp
 std::stringstream ss;
@@ -201,7 +209,9 @@ for (int i = 0; i < size; i++) {
 
 ## 接口层
 
-接口的声明位于 interface/kingdb.h，实现则是 interface/kingdb.cc。KingDB 类给 Database 和 Snapshot 定义了要求实现的 Get、Put、Delete、NewIterater、Open、Close、Flush、Compact、NewMultipartReader 接口。KDB 有自己的数据传输格式 ByteArray，诸如 Get、Put 这些接口在 KingDB 类中对应方法得到了重载，以实现通过 std::string 来传递键、值或者两者，可视为为接受 ByteArray 的方法的包装。所有数据库操作方法都返回 Status 对象，相关异常部分的简介见[异常与日志](#异常与日志)小节。
+接口的声明位于 interface/kingdb.h，实现则是 interface/kingdb.cc。KingDB 类给 Database 和 Snapshot 定义了要求实现的 Get、Put、Delete、NewIterater、
+Open、Close、Flush、Compact、NewMultipartReader 接口。KDB 有自己的数据传输格式 ByteArray，诸如 Get、Put 这些接口在 KingDB 类中对应方法得到了重载，
+以实现通过 std::string 来传递键、值或者两者，可视为为接受 ByteArray 的方法的包装。所有数据库操作方法都返回 Status 对象，相关异常部分的简介见[异常与日志](#异常与日志)小节。
 
 重载方法的实现示例如下，即先把 std::string 转回 ByteArray 再调用子类（Database 或 Snapshot）的实现。
 
@@ -215,7 +225,9 @@ virtual Status Put(WriteOptions& write_options, const std::string& key, const st
 
 #### 数据库开关
 
-数据库的开启与关闭，分别对应 Database 类的 Open 和 Close 方法。开启时，通过 stat 库函数找到数据库路径以及配置文件，使用 open 库函数获取其文件描述符。配置文件须先用 flock 锁住，使用 mmap 映射后再读取；如果没有那么分情况写入。之后，创建好 EventManager、WriteBuffer 和 StorageEngine 的实例，就完成了。关闭时过程类似，锁定住配置文件后再关闭，同时删除以上创建的实例。可以发现，资源申请全放在了 Open 中，而资源的销毁放在了 Close 中，而 Database 类析构时会自动调用 Close，所以这是一个类似 RAII 的资源管理过程。
+数据库的开启与关闭，分别对应 Database 类的 Open 和 Close 方法。开启时，通过 stat 库函数找到数据库路径以及配置文件，使用 open 库函数获取其文件描述符。配置文件须先用 flock 锁住，
+使用 mmap 映射后再读取；如果没有那么分情况写入。之后，创建好 EventManager、WriteBuffer 和 StorageEngine 的实例，就完成了。关闭时过程类似，锁定住配置文件后再关闭，同时删除以上创建的实例。
+可以发现，资源申请全放在了 Open 中，而资源的销毁放在了 Close 中，而 Database 类析构时会自动调用 Close，所以这是一个类似 RAII 的资源管理过程。
 
 ```cpp
 class Database: public KingDB {
@@ -259,7 +271,8 @@ virtual void Close() override {
 
 ## 异常与日志
 
-代码没有使用 C++ 风格的异常捕获，取而代之的是设计了状态类 Status。就像 kingdb_user 示例展示的，所有数据库操作都会返回一个状态实例，通过调用其 IsOK 方法，调用者可以判断处出操作有没有成功；如果失败了，可以使用 ToString 方法把出错原因输出。尽管这种设计会带来额外的内存开销，且使每次调用都带来轻微的性能消耗，不过这种消耗可以避免魔法数值，它将错误码和核心解耦，使代码有更佳的可读性。
+代码没有使用 C++ 风格的异常捕获，取而代之的是设计了状态类 Status。就像 kingdb_user 示例展示的，所有数据库操作都会返回一个状态实例，通过调用其 IsOK 方法，调用者可以判断处出操作有没有成功；如果失败了，
+可以使用 ToString 方法把出错原因输出。尽管这种设计会带来额外的内存开销，且使每次调用都带来轻微的性能消耗，不过这种消耗可以避免魔法数值，它将错误码和核心解耦，使代码有更佳的可读性。
 
 ```cpp
 class Status {
@@ -296,7 +309,9 @@ std::string Status::ToString() const {
 }
 ```
 
-KDB 内部代码出现异常时会使用日志将其记录下来。如果没有日志，那么在排查代码问题时简直就是噩梦。KDB 有两套日志的输出目标，分别是系统输出和标准输出设备。日志类记录输出目标、日志级别、线程锁等成员，并通过静态方法 Logv 实现记录日志。锁的最大用处是保证记录顺序。仅有当出现最高级别的日志（kLogLevelEMERG）时，才会跳过锁直接写入。出现 kLogLevelEMERG 时意味着程序遇到了紧急问题，通常会直接退出或是返回 Status 异常，所以这个时候需要及时记录。
+KDB 内部代码出现异常时会使用日志将其记录下来。如果没有日志，那么在排查代码问题时简直就是噩梦。KDB 有两套日志的输出目标，分别是系统输出和标准输出设备。日志类记录输出目标、日志级别、线程锁等成员，
+并通过静态方法 Logv 实现记录日志。锁的最大用处是保证记录顺序。仅有当出现最高级别的日志（kLogLevelEMERG）时，才会跳过锁直接写入。出现 kLogLevelEMERG 时意味着程序遇到了紧急问题，
+通常会直接退出或是返回 Status 异常，所以这个时候需要及时记录。
 
 日志级别的划分参考了 Syslog：
 
@@ -365,3 +380,4 @@ p += snprintf(p, limit - p,
               ss.str().c_str(),
               logname);
 ```
+

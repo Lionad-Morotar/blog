@@ -61,3 +61,4 @@ original_path: /maps/_oop/oop.md
 使用组合可以方便地把不同的"维度"之间的并行关联拆分出来，降低代码复杂度：
 
 ![[Computer Structure V2](https://www.processon.com/diagraming/614e080b637689481b658be2)](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/6cbffe1a-8efd-4de6-9ed3-bfef8392bab5.svg)
+

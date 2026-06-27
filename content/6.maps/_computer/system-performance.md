@@ -33,3 +33,4 @@ L1 缓存访问比主内存快约 100 倍，而内存又比磁盘随机访问快
 精确数值会随硬件演进变化，但数量级关系保持相对稳定。
 
 见：[Numbers Every Programmer Should Know By Year](https://colin-scott.github.io/personal_website/research/interactive_latency.html)
+

@@ -40,3 +40,4 @@ title: 注意力
 见：[화면 구석 상시 노출되는 도박 중독 예방 문구의 실질적 시선 점유율](https://piracysim.com/%ed%99%94%eb%a9%b4-%ea%b5%ac%ec%84%9d-%ec%83%81%ec%8b%9c-%eb%85%b8%ec%b6%9c-%eb%8f%84%eb%b0%95-%ec%a4%91%eb%8f%85-%ec%98%88%eb%b0%a9-%eb%ac%b8%ea%b5%ac-%ec%8b%a4%ec%a7%88%ec%a0%81-%ec%8b%9c%ec%84%a0/)、
 [Banner Blindness - Benway (1998)](https://baike.baidu.com/item/banner%2520blindness/10544170)、
 [知觉负载理论 - Lavie (2005)](https://link.springer.com/article/10.3758/s13423-015-0982-5)
+

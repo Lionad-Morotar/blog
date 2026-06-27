@@ -6,7 +6,8 @@ original_path: content/6.maps/_person/peter-steinberger.md
 
 #### 简介？
 
-Peter Steinberger 是奥地利资深开发者，PSPDFKit（PDF 框架，用于超 10 亿设备）的创始人。2024 年离开 PSPDFKit 后，创建了 Claudebot——一个开源的个人 AI 助手项目，短期内迅速获得社区关注（GitHub 3k+ stars）。
+Peter Steinberger 是奥地利资深开发者，PSPDFKit（PDF 框架，用于超 10 亿设备）的创始人。2024 年离开 PSPDFKit 后，创建了 Claudebot——一个开源的个人 AI 助手项目，
+短期内迅速获得社区关注（GitHub 3k+ stars）。
 
 #### 主要贡献/观点？
 

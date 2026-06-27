@@ -20,23 +20,30 @@ When you're building a full-stack app, CC must understand the entire backend, li
 
 Most backends don't hand over this info cleanly.
 
-For instance, with Supabase, asking for OAuth setup via MCP returns the entire auth docs, including sections on email/password, magic links, phone auth, SAML, and SSO.
+For instance, with Supabase, asking for OAuth setup via MCP returns the entire auth docs,
+including sections on email/password, magic links, phone auth, SAML, and SSO.
 
 That's 5-10x more tokens than the agent actually needed. And this happens on every MCP call across every domain.
 
-The agent then discovers the state through separate calls to `list_tables`, `execute_sql`, and `list_extensions`, each returning a partial view.
+The agent then discovers the state through separate calls to `list_tables`, `execute_sql`, and `list_extensions`,
+each returning a partial view.
 
 Some info, like which auth providers are configured, isn't queryable through MCP at all.
 
-And when something breaks, Supabase returns the same error code whether the rejection came from the platform layer or from the function code.
+And when something breaks,
+Supabase returns the same error code whether the rejection came from the platform layer or from the function code.
 
-The agent has no way to infer accurately, so it cycles through code-level fixes for a problem that might not be in the code at all.
+The agent has no way to infer accurately,
+so it cycles through code-level fixes for a problem that might not be in the code at all.
 
 A better model does not have a magical way to skip these gaps.
 
-In fact, it tries even harder to fill them, which means more discovery queries, more reasoning, and more retries. That's why the token cost went up with a better Claude model.
+In fact, it tries even harder to fill them, which means more discovery queries, more reasoning, and more retries. That'
+s why the token cost went up with a better Claude model.
 
-A smarter approach is actually implemented in **InsForge**, an open-source backend (self-hostable via Docker) that offers the same primitives as Supabase but structures everything around the assumption that an agent is operating the backend, not a human on a dashboard.
+A smarter approach is actually implemented in **InsForge**, an open-source backend (self-hostable via Docker)
+that offers the same primitives as Supabase but structures everything around the assumption that an agent is operating 
+the backend, not a human on a dashboard.
 
 Before writing any code, a single CLI call returns the full backend topology in ~500 tokens.
 
@@ -51,7 +58,9 @@ Instead of one broad skill like Supabase that triggers on everything, it has fou
 
 This keeps the agent's cognitive load lean since it only loads what matches the current task.
 
-The CLI returns structured JSON with semantic exit codes on every operation, so the agent always knows whether something succeeded or failed and why. There are no ambiguous 401s that may indicate three different things.
+The CLI returns structured JSON with semantic exit codes on every operation,
+so the agent always knows whether something succeeded or failed and why.
+There are no ambiguous 401s that may indicate three different things.
 
 We tested both backends on the same full-stack RAG app and recorded the full sessions.
 
@@ -65,9 +74,11 @@ InsForge:
 - consumed 3.7M tokens
 - completed the entire build without any errors
 
-This isn't a Supabase-specific problem. Most backends were designed for humans who can see dashboards and interpret raw errors.
+This isn't a Supabase-specific problem.
+Most backends were designed for humans who can see dashboards and interpret raw errors.
 
-When an agent operates the backend instead, every missing piece of context needs a discovery call, and every ambiguous error enters a retry loop.
+When an agent operates the backend instead, every missing piece of context needs a discovery call,
+and every ambiguous error enters a retry loop.
 
 Fixing this requires giving agents structured backend context before they start writing code.
 
@@ -79,11 +90,14 @@ GitHub repo (9k+ stars): **https://github.com/InsForge/InsForge**
 
 **You can read our walkthrough on building the full-stack RAG with Supabase and Insforge in this newsletter issue ->**
 
-Long-running agent flows fail mid-run, and in most frameworks, that means restarting from zero and burning the tokens again.
+Long-running agent flows fail mid-run, and in most frameworks,
+that means restarting from zero and burning the tokens again.
 
-**CrewAI** just shipped checkpointing in v1.14. Every flow method becomes a recovery point, written automatically when an event you specify fires (e.g., `method_execution_finished`).
+**CrewAI** just shipped checkpointing in v1.14. Every flow method becomes a recovery point,
+written automatically when an event you specify fires (e.g., `method_execution_finished`).
 
-You can resume in one line and fork from any saved state into a new branch with full lineage tracking. An async TUI lets you browse checkpoints, inspect events, and resume or fork from the UI.
+You can resume in one line and fork from any saved state into a new branch with full lineage tracking.
+An async TUI lets you browse checkpoints, inspect events, and resume or fork from the UI.
 
 The pipelines become resumable, inspectable, and branchable processes, with zero extra infra.
 
@@ -97,3 +111,4 @@ At the end of the day, all businesses care about _impact_. That's it!
 - Drive revenue?
 - Can you scale ML models?
 - Predict trends before they happen?
+

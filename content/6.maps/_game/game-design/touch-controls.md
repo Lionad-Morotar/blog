@@ -14,3 +14,4 @@ description: 移动端游戏触控交互的设计原则与体验优化
 - **模拟量输出**：方向控制输出连续强度值而非"按下/未按下"，人物可按力度调速，手感接近真实手柄
 
 见：[I built the best virtual joystick for PhaserJS, then went to bed](https://medium.com/@renatocassino/i-built-the-best-virtual-joystick-for-phaserjs-then-went-to-bed-ab4ac09d1265)
+

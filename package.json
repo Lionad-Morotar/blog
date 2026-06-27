@@ -14,7 +14,9 @@
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
     "post": "npm run build && npm run upload",
-    "lint": "eslint . --fix && npx case-police \"**/*.md\" --fix",
+    "lint": "eslint . --fix && npx case-police \"**/*.md\" --fix && node scripts/lint-md.mjs --all",
+    "lint:md": "node scripts/lint-md.mjs --all",
+    "lint:md:fix": "node scripts/lint-md.mjs --all --fix",
     "toc": "node scripts/extract-toc.js",
     "test": "vitest run"
   },

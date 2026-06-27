@@ -26,7 +26,8 @@
 
 立即反转读者对原因的默认假设。
 
-> "The reason has nothing to do with the model itself. Instead, it has to do with what the agent needs to know before it can start building."
+> "The reason has nothing to do with the model itself. Instead,
+it has to do with what the agent needs to know before it can start building."
 
 - **技巧**：否定最明显的解释，然后揭示真正的原因
 - **公式**：The reason has nothing to do with [显而易见的原因]. Instead, [真正的原因].
@@ -46,7 +47,8 @@
 
 指出一个更深层的矛盾——为什么更好的方案反而更差。
 
-> "A better model does not have a magical way to skip these gaps. In fact, it tries even harder to fill them, which means more discovery queries, more reasoning, and more retries."
+> "A better model does not have a magical way to skip these gaps. In fact, it tries even harder to fill them,
+which means more discovery queries, more reasoning, and more retries."
 
 - **公式**：A better [X] does not have a magical way to [做读者期望的事]. In fact, [相反的行为], which means [负面后果].
 - **效果**：让读者恍然大悟——原来问题的根源在这里
@@ -174,3 +176,4 @@
 - [ ] 是否有具体场景/例子说明问题？
 - [ ] 是否用对比数据（而非形容词）证明观点？
 - [ ] 结尾是否把问题泛化，而不是局限于某个产品？
+
