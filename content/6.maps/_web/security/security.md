@@ -33,6 +33,29 @@ input[value^=a]{
 }
 ```
 
+#### Security through obscurity
+
+系统的安全性若依赖实现细节、算法或配置的保密，就属于 security through obscurity。
+一旦这些秘密被反编译、员工离职带走、写进日志或备份泄露，安全边界会瞬间崩塌。
+现代密码学遵循 Kerckhoffs 原则：即使除密钥外的一切公开，系统仍应保持安全。
+
+把服务绑在动态高端口但不设鉴权，本质是把“端口未知”当作安全假设。
+IPv4 端口空间只有 16 位，本地全端口扫描可在秒级完成；
+nmap 默认扫描本地主机只需约 0.2 秒。端口被发现后服务即完全暴露，
+因此端口隐藏最多是 defense in depth 的冗余层，不能替代认证机制。
+
+把敏感信息从命令行参数移到环境变量，能消除 shell history 和 ps aux 的泄露，
+但并未消除同 uid 进程的风险。Linux 上 /proc/<pid>/environ 记录进程启动时的环境变量，
+且对同一用户可读；macOS 上 ps eww <pid> 也能查看。
+因此 env 只是“更好的明文传输”，不是安全的秘密存储。
+
+Security through obscurity 不应被完全否定：
+隐藏真实攻击面、使用非默认端口、混淆内部结构可以增加攻击者的侦察成本。
+但它不能是唯一的防线，必须与密码学、最小权限、审计等机制配合。
+一旦把 obscurity 当作根，系统就会因“秘密泄露”而整体崩塌。
+
+见：[Kerckhoffs's principle - Wikipedia](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle)
+
 ## 用户追踪技术
 
 #### LinkedIn 如何使用浏览器指纹追踪用户？
