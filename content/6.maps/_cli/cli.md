@@ -6,6 +6,7 @@ description: 命令行工具、脚本和自动化
 ## 子领域
 
 * [CLI 工程化](/maps/_cli/engineering/cli-design) - CLI 设计、实现与发布最佳实践
+* [pnpm](/maps/_cli/tools/pnpm) - pnpm 虚拟存储、符号链接与依赖解析陷阱
 * [媒体工具](/maps/_cli/tools/ffmpeg)
 * [终端转义序列](/maps/_cli/terminal/escape-sequences)
 
