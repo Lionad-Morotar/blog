@@ -22,7 +22,7 @@ const MAX_LENGTH = 120
 // 构造超过长度限制的中文段落：默认产出一段远超 120 字符、含中文逗号的文本
 const longChinese = (chunks = 50) => `${'字'.repeat(100)}，${'字'.repeat(chunks)}`
 
-let dir
+let dir: string
 beforeEach(async () => {
   dir = await mkdtemp(path.join(tmpdir(), 'lint-md-'))
 })
@@ -30,7 +30,7 @@ afterEach(async () => {
   await rm(dir, { recursive: true, force: true })
 })
 
-async function writeMd(name, content) {
+async function writeMd(name: string, content: string): Promise<string> {
   const filePath = path.join(dir, name)
   await writeFile(filePath, content, 'utf8')
   return filePath
@@ -251,16 +251,20 @@ describe('processFile', () => {
     expect(longLines).toHaveLength(0)
   })
 
-  it('列表项超长行被修复且缩进保持', async () => {
-    const file = await writeMd('a.md', `- ${longChinese(100)}\n`)
+  it('列表项超长行被修复且缩进保持，续行缩进到标记宽度以维持列表结构', async () => {
+    const file = await writeMd('a.md', `- ${'字'.repeat(200)}\n`)
     await processFile(file, { fix: true })
     const { readFile } = await import('node:fs/promises')
     const lines = (await readFile(file, 'utf8')).split(/\r?\n/).filter(l => l.length > 0)
-    // 所有延续行应保持列表项的缩进
-    for (const line of lines) {
-      expect(line.length).toBeLessThanOrEqual(MAX_LENGTH)
-    }
     expect(lines[0].startsWith('- ')).toBe(true)
+    // 续行须缩进到列表标记后的内容列，否则脱离列表变普通段落
+    for (let i = 1; i < lines.length; i++) {
+      expect(lines[i].startsWith('  ')).toBe(true)
+    }
+    // 按脚本语义校验：去行首缩进后的内容不超过限制（续行缩进不计入）
+    for (const line of lines) {
+      expect(splitIndent(line).content.length).toBeLessThanOrEqual(MAX_LENGTH)
+    }
   })
 
   it('幂等：修复后再次检查不再报告超长行', async () => {
@@ -302,7 +306,7 @@ describe('processFile', () => {
     await processFile(file, { fix: true })
     const { readFile } = await import('node:fs/promises')
     const after = await readFile(file, 'utf8')
-    expect(after).toContain("don't")
+    expect(after).toContain('don\'t')
     expect(after).not.toMatch(/don'\s*\r?\n/)
   })
 })

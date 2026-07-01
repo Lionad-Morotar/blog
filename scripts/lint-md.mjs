@@ -137,7 +137,7 @@ export function findBreakPoint(text, maxLength) {
   for (let i = searchEnd - 1; i > 0; i--) {
     if (ENGLISH_PUNCTUATION.has(text[i])) {
       // 撇号夹在字母之间是单词内部（don't / it's），断开会破坏单词
-      if (text[i] === "'" && /\w/.test(text[i - 1]) && /\w/.test(text[i + 1] || '')) continue
+      if (text[i] === '\'' && /\w/.test(text[i - 1]) && /\w/.test(text[i + 1] || '')) continue
       return i + 1
     }
   }
@@ -155,7 +155,7 @@ export function findBreakPoint(text, maxLength) {
 /**
  * 将一行文本按规则截断为多行，保持缩进。
  */
-export function wrapLine(text, indent) {
+export function wrapLine(text, indent, continuationIndent = indent) {
   const results = []
   let remaining = text
 
@@ -172,7 +172,8 @@ export function wrapLine(text, indent) {
   }
 
   if (remaining.length > 0) results.push(remaining)
-  return results.map(part => indent + part)
+  // 首行用 indent（可含列表标记等前缀），续行用 continuationIndent（对齐内容列）
+  return results.map((part, i) => (i === 0 ? indent : continuationIndent) + part)
 }
 
 /**
@@ -240,7 +241,19 @@ export async function processFile(filePath, { fix = false } = {}) {
     longLines.push({ line: index + 1, length: lineContent.length, text: raw })
 
     if (fix) {
-      wrappedLines.push(...wrapLine(lineContent, indent))
+      // 列表项续行须缩进到标记宽度，否则脱离列表结构变普通段落
+      const listMarker = lineContent.match(/^([-*+]\s+|\d+\.\s+)/)
+      if (listMarker) {
+        const marker = listMarker[1]
+        // marker 作为内容一起断句（计入 120），仅续行补缩进以对齐内容列、维持列表结构
+        wrappedLines.push(...wrapLine(
+          lineContent,
+          indent,
+          indent + ' '.repeat(marker.length)
+        ))
+      } else {
+        wrappedLines.push(...wrapLine(lineContent, indent))
+      }
     } else {
       wrappedLines.push(raw)
     }
