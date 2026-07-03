@@ -50,5 +50,8 @@ refs
 
 .planning/*
 !.planning/config.json
-!.planning/codebase 
+!.planning/codebase
 .gstack/
+
+assets/images/articles-v2/*
+assets/images/articles/*
