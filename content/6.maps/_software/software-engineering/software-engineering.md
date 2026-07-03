@@ -104,6 +104,34 @@ Fred Brooks 在《No Silver Bullet》(1986) 中区分了两种复杂度：
 
 见：[Lines of code are useful](https://entropicthoughts.com/lines-of-code)：kqr 关于 LOC 作为成本指标的论述
 
+#### 接口窄而实现厚才是深模块
+
+Unix 的 `open()` 调用只暴露路径与 flags，却隐藏了文件系统、权限、缓存、inode 解析等大量机制。
+这说明深模块的关键不在于内部代码量少，而在于接口窄而语义厚——调用者以极低的认知成本撬动大量已封装的实现。
+
+见：[A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/aposd.php)
+
+#### 深模块降低的是系统总复杂度
+
+评价模块价值的核心指标不是它自身是否复杂，而是它是否为系统净减少复杂度。
+好的深模块通过信息隐藏把细节锁在内部，让上层看到的概念面更小，从而降低整个系统的认知负担与维护成本。
+
+见：[A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/aposd.php)
+
+#### 警惕透传型浅模块
+
+如果一个模块只是把参数原样转发给下一层，自身几乎没有独立决策，那它通常是浅模块。
+它没隐藏任何信息，反而多了一层接口、多了一份需要维护的契约，带来 Ousterhout 所说的"复杂度税"。
+
+见：[A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/aposd.php)
+
+#### 过度拆分函数会制造接口复杂度税
+
+把每个小操作都拆成独立函数并不总是好事。当函数的实现只有几行对象拼接或条件转发，却需要调用者理解多个参数和边界情况时，
+拆分带来的接口复杂度可能超过其隐藏的价值，最终成为系统噪音。
+
+见：[A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/aposd.php)
+
 #### "Lines Spent"：将代码视为成本而非产出
 
 代码行数作为度量指标的真正价值在于衡量成本而非生产力。当 LOC 被用作成本指标时，它与总复杂度相关，能有效预测维护负担；但当被用作生产力指标时，便陷入 Goodhart's Law——一旦个人知道用 LOC 评判绩效，
