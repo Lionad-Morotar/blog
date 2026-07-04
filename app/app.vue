@@ -80,13 +80,24 @@ const { data: files } = useLazyFetch('/api/search.json', {
 
 const htmlLang = computed(() => (route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'zh-cn'))
 
+/**
+ * 规范 URL：统一去除尾斜杠、去除查询与 hash，避免搜索引擎将带/不带斜杠视为重复内容
+ * GitHub Pages 静态托管无法做服务端 301，因此用 canonical 标签作为权威性收敛信号
+ */
+const canonicalUrl = computed(() => {
+  const path = route.path
+  const normalized = path === '/' ? '/' : path.replace(/\/+$/, '')
+  return `https://lionad.art${normalized}`
+})
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'baidu-site-verification', content: 'codeva-SWZsd8tNWV' }
   ],
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
+    { rel: 'icon', href: '/favicon.ico' },
+    { rel: 'canonical', href: canonicalUrl }
   ],
   htmlAttrs: {
     lang: htmlLang

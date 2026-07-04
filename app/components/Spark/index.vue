@@ -17,7 +17,10 @@
 </template>
 
 <script setup>
+/* eslint-disable vue/multi-word-component-names */
 import Particle from './particle.vue'
+
+defineOptions({ name: 'Spark' })
 
 const props = defineProps({
   // 星星的颜色，默认为黄色，可以传入颜色值或者 colors 对象内的键名，也支持直接传入数组
@@ -93,29 +96,30 @@ const data = reactive({
   task: null
 })
 
+let propColors = []
+
 onMounted(() => {
+  try {
+    const _colors = eval(props.color)
+    const useColors = _colors instanceof Array ? _colors : colors[_colors] || _colors
+    propColors = useColors instanceof Array ? useColors : [useColors]
+  } catch {
+    propColors = colors.multy
+  }
   data.task = triggerSpark()
 })
 
 onBeforeUnmount(() => {
-  data.task && data.task.stop()
+  if (data.task) {
+    data.task.stop()
+  }
   data.sparkles.length = 0
 })
 
-const propColors = []
-try {
-  const _colors = eval(props.color)
-  const useColors = _colors instanceof Array ? _colors : colors[_colors] || _colors
-  propColors.push(...useColors)
-} catch (e) {
-  // console.log('[ERR] e', e, props.color, typeof props.color)
-  propColors.push(colors.multy)
-}
-
 function triggerSpark(minDelay = +props.minDelay, maxDelay = +props.maxDelay) {
-  let isStop = false
+  let _isStop = false
   const task = {
-    stop: () => (isStop = true),
+    stop: () => (_isStop = true),
     run: () => {
       window.setTimeout(() => {
         const newSpark = genSparkle(propColors)

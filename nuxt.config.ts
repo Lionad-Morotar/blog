@@ -15,12 +15,13 @@ export default defineNuxtConfig({
     '@nuxtjs/mdc',
     'nuxt-feedme',
     'nuxt-llms',
+    '@nuxtjs/robots',
     // ! cant fetch twimoji error, so disable for a while
     // 'nuxt-og-image'
     '@nuxt-dev/medium-zoom'
   ],
 
-  ssr: false,
+  ssr: true,
 
   devtools: {
     enabled: false
@@ -129,6 +130,15 @@ export default defineNuxtConfig({
   routeRules: {
     '/api/search.json': {
       prerender: true
+    },
+    '/feed.atom': {
+      headers: { 'X-Robots-Tag': 'noindex' }
+    },
+    '/feed.json': {
+      headers: { 'X-Robots-Tag': 'noindex' }
+    },
+    '/feed.xml': {
+      headers: { 'X-Robots-Tag': 'noindex' }
     }
   },
 
@@ -322,12 +332,28 @@ export default defineNuxtConfig({
   },
 
   /**
+   * Robots.txt
+   * @see https://nuxtseo.com/robots/getting-started/how-it-works
+   */
+  robots: {
+    disallow: [
+      '/api/_content',
+      '/__sitemap',
+      '/preview',
+      '/raw'
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`
+  },
+
+  /**
    * Sitemap Configuration
    * @see https://nuxtseo.com/sitemap/getting-started/how-it-works
    */
   sitemap: {
-    // Auto-generate from preRendered routes
-    // Nuxt Content pages are automatically included via prerendering
+    // 从 Nuxt Content 集合动态拉取核心内容页
+    sources: [
+      '/api/__sitemap__/urls'
+    ],
     exclude: [
       '/_dir',
       '/_/**',
@@ -335,7 +361,14 @@ export default defineNuxtConfig({
       '/**/_dir',
       '/**/_.*',
       '/api/**',
-      '/__sitemap/**'
+      '/__sitemap/**',
+      '/preview/**',
+      '/raw/**',
+      '/maps/**',
+      '/achieved/**',
+      '/todo/**',
+      '/_books/**',
+      '/_paint/**'
     ]
   }
 })
