@@ -1,0 +1,80 @@
+# 📦 一个简单有效的端口命名策略
+
+> 使用字符到数字的键盘映射
+
+太多项目要跑，端口号命名是个麻烦的问题。
+
+- Vibe 流行的这两年，新项目眼花缭乱，太多项目要本地启动才能验证和消化，多个项目端口号容易冲突
+- 为了在浏览器保存标签页（或书签），每个项目的端口号是不能改变。
+
+比如，我电脑上光 Nuxt 应用程序就十来个，清一色的 3000 端口，肯定不行，所以创建了一套简单有效的端口命名规则，用来约定项目端口号。
+
+## 核心思路
+
+与其随意挑选数字，不如把 **项目名称映射到键盘上对应的数字** 来生成一个“可读、可记”的端口。只要结果落在合法的端口范围（0 ~ 65535），且不占用系统保留端口，就可以直接使用。
+
+即按照标准 QWERTY 键盘的 **行列坐标** 把每个字母映射为一个单数字，举个例子
+
+“cfetch” → `c(3) f(4) e(3) t(5) c(3) h(6)`，取前四位即 3453 或全部五位 34353 都可以。
+
+有些项目前端、后端、数据库等等包含多个端口号，则以下两种命名方式二选一：
+
+1. “cfetch”，取 3435，然后前端（fe，即 43）取 34354，后端（server）取 34352，数据库（mongo）取34357，以此类推
+2. “cfetch”，取 3435，然后 Web 取 34351，后端取 34352，数据库取34353，以此类推
+
+## 端口号的合法范围
+
+- 端口号必须在 **0‑65535** 范围内。
+- 对于自定义服务，一般建议使用 **1024 ~ 49151**（非系统保留范围）或更高的 **49152 ~ 65535**（私有/动态端口）。
+- 只要映射得到的数值不超过上述上限，就算有效。
+
+---
+
+AI Translation
+
+When you’re running a bunch of projects locally, picking port numbers becomes annoying.
+
+- Over the last couple of years, there have been *so many* new projects. To really try them out,
+you often need to boot them locally—and then ports start colliding.
+- If you want to keep browser tabs (or bookmarks) stable, a project’s port shouldn’t keep changing.
+
+For example, I have more than ten Nuxt apps on my machine. If they all default to `3000`, that’
+s obviously not going to work. So I came up with a simple, consistent port naming rule to “assign” ports per project.
+
+## Core idea
+
+Instead of picking random numbers, map the **project name to numbers based on the keyboard**,
+so the port is *readable* and *memorable*.
+
+As long as the result is within the valid port range (**0–65535**) and doesn’
+t hit reserved/system ports, you can just use it.
+
+More specifically: using a standard QWERTY keyboard,
+map each letter to a single digit based on its **row/column position**.
+
+Example:
+
+`"cfetch"` → `c(3) f(4) e(3) t(5) c(3) h(6)`
+
+Then you can take the first 4 digits (e.g. `3453`), or keep more digits (e.g. `34353`). Either is fine.
+
+If a project needs multiple ports (frontend, backend, database, etc.), pick **one** of these two approaches:
+
+1. Use the project prefix, then append a “role suffix”
+  - For `"cfetch"`, take `3435` as the base
+  - Frontend (`fe`, i.e. `43`) → `34354`
+  - Backend (`server`) → `34352`
+  - Database (`mongo`) → `34357`
+  - …and so on
+2. Use the project prefix, then assign sequential roles
+  - For `"cfetch"`, take `3435` as the base
+  - Web → `34351`
+  - Backend → `34352`
+  - Database → `34353`
+  - …and so on
+
+## Valid port range
+
+- Ports must be within **0–65535**.
+- For custom services, it’s usually best to use **1024–49151** (non-reserved) or **49152–65535** (private/dynamic).
+- As long as the mapped number stays under the limit, it’s valid.

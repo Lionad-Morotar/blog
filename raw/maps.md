@@ -1,0 +1,208 @@
+# 🏁 知识地图
+
+> 新的笔记结构以及记录方式，正在从 Gists 栏搬运到这里
+
+此目录下内容性质接近笔记。部分内容已过时，或包含许多实质性错误，部分内容由 AI 辅助完成，参考时请注意核对。
+
+分类方法：
+
+1. 将笔记按领域、主题、子主题三层级划分
+2. 主题、子主题的数量最多为 10 个
+3. 按领域组织而不是交叉引用零散的知识点
+
+## 前端
+
+- [前端技术](/maps/_frontend/frontend) - CSS、HTML、JavaScript、W3C 标准
+- [TypeScript](/maps/_typescript/typescript)
+- [前端框架](/maps/_fe-framework/fe-framework)
+- [SEO](/maps/_seo/seo)
+
+## 工程
+
+- [前端工程化](/maps/_workflow/engineering/fe-engineering)
+- [Monorepo](/maps/_workflow/monorepo/monorepo)
+- [包管理器](/maps/_workflow/package-manager/package-manager)
+- [构建工具](/maps/_workflow/build-tools/build-tools)
+- [编译器](/maps/_workflow/compiler/compiler)
+- [代码规范](/maps/_workflow/linter/linter)
+- [DX](/maps/_programming/dx/dx)
+
+## Web
+
+- [浏览器](/maps/_web/browser/browser)
+- [页面性能](/maps/_web/performance/performance)
+- [爬虫](/maps/_web/crawler/crawler)
+- [安全](/maps/_web/security/security)
+
+## 跨端
+
+- [小程序](/maps/_web/miniapp/miniapp)
+- [React Native](/maps/_react-native/react-native/react-native)
+- [跨平台开发](/maps/_cross-platform/taro) - Taro、Flutter、Device Metrics
+
+## 服务端
+
+- [Server](/maps/_server/server)
+
+## 数据库
+
+- [NoSQL](/maps/_database/nosql/nosql) - Redis 缓存与数据结构
+- [DataLake](/maps/_database/datalake/datalake) - 数据湖与大数据存储
+- [DeltaLake](/maps/_database/deltalake/deltalake) - Delta Lake 存储层与优化
+- [Lakehouse](/maps/_database/lakehouse/lakehouse) - 湖仓一体架构
+- [SQL](/maps/_database/sql/sql) - SQL 查询与关系型数据库
+- [GraphQL](/maps/_database/graphql/graphql) - GraphQL 查询语言与数据访问
+
+## 测试
+
+- [软件测试](/maps/_test/test)
+
+## 应用
+
+- [IDE](/maps/_ide/ide)
+- [命令行工具](/maps/_cli/cli) - ffmpeg、imagemagick 等
+- [应用](/maps/_apps/apps) - VPN 等工具
+- [网页开发](/maps/_web-pages/web-pages)
+
+## 计算机
+
+- [计算机网络](/maps/_computer/network/network)
+- [组成原理](/maps/_computer/fundamentals/fundamentals)
+- [编码](/maps/_computer/encoding/encoding)
+
+## 系统
+
+- [Linux](/maps/_linux/linux)
+- [macOS](/maps/_system/macos)
+- [Windows](/maps/_windows/windows)
+
+## 硬件
+
+- [硬件](/maps/_hardware/hardware)
+
+## 软件
+
+- [软件工程](/maps/_software/software-engineering/software-engineering)
+- [Whale Fall](/maps/_software/whale-fall/whale-fall) - 大型开源项目的生态演替
+- [函数式](/maps/_programming/paradigms/paradigms)
+- [面向对象](/maps/_oop/oop/oop)
+- [设计模式](/maps/_software/design-patterns/design-patterns)
+- [数据结构](/maps/_software/data-structure/data-structure)
+- [算法](/maps/_software/algorithm/algorithm)
+- [技术偏见](/maps/_programming/programming)
+- [Rezi](/maps/_programming/frameworks/frameworks) - TypeScript TUI 框架
+
+## 编程语言
+
+- [C++](/maps/_cpp/cpp)
+- [Markdown](/maps/_markdown/markdown/markdown)
+- [Regex](/maps/_regex/regex/regex)
+- [PHP](/maps/_php/php/php)
+- [Go](/maps/_go/go/go)
+- [Python](/maps/_python/python)
+- [编程语言](/maps/_programming/languages/languages)
+
+## 架构
+
+- [云原生（CloudNative）](/maps/_cloud-native/cloud-native)
+- [无服务（Serverless）](/maps/_cloud-native/serverless/serverless)
+
+## 项目
+
+- [DevOps](/maps/_devops/devops) - DevOps 实践与理论
+- [版本控制](/maps/_devops/version-control/version-control) - Git、版本管理与工作流
+- [CI/CD](/maps/_devops/cicd/cicd) - 持续集成与持续部署
+- [容器](/maps/_devops/container/docker) - Docker 容器技术
+- [日志](/maps/_devops/logging/rotatelogs) - 日志轮转与管理
+- [项目管理](/maps/_manage/manage)
+
+## 产品
+
+- [产品经理](/maps/_product/product-manager/product-manager)
+- [产品设计](/maps/_product/product)
+- [运营](/maps/_product/operation/operation)
+- [增长](/maps/_product/growth/growth)
+
+## 文档
+
+- [文档](/maps/_docs/docs)
+
+## 行业
+
+- [数字化](/maps/_industry/digital)
+- [低代码](/maps/_industry/low-code)
+- [行业报告](/maps/_industry/analytics)
+- [游戏](/maps/_game/game/game)
+
+## 商业
+
+- [商业分析](/maps/_business/analysis/business-analysis)
+- [风险投资](/maps/_business/venture-capital/venture-capital)
+- [注册公司](/maps/_company/business/company)
+
+## 管理
+
+- [组织](/maps/_management/organization/organization)
+- [沟通](/maps/_communication/communication)
+
+## 政治
+
+- [政治](/maps/_politics/republic) - 政体形式、政治经济学
+
+## 政策
+
+- [政策](/maps/_policy/policy)
+
+## AI
+
+- [人工智能](/maps/_ai/ai) - Copilot、AIGC、机器学习
+
+## UI
+
+- [界面设计（UI）](/maps/_ui/ui)
+- [字体排版](/maps/_ui/typography/typography)
+
+## 可视化
+
+- [可视化](/maps/_visual/visualization/visualization)
+- [信息设计](/maps/_visual/info-design/info-design)
+
+## 渲染
+
+- [C4D](/maps/_render/c4d)
+- [Shader](/maps/_render/shader)
+
+## 科学
+
+- [神经科学](/maps/_science/neuroscience/neuroscience)
+- [熵](/maps/_science/entropy/entropy)
+- [宇宙](/maps/_science/cosmos/cosmos)
+- [量子](/maps/_science/quantum/quantum)
+- [复杂科学](/maps/_science/complex-science/complex-science)
+- [环保](/maps/_science/environment/environment)
+
+## 兴趣
+
+- [阅读](/books) - 书籍笔记与阅读清单
+- [摄影](/maps/_photography/techniques/techniques)
+- [人物](/maps/_person/person)
+- [游戏](/maps/_games/games)
+- [博客订阅](/maps/_blogs/blogs) - Feeds、资讯聚合
+- [跨域笔记](/maps/_cross-domain/cross-domain) - 跨领域思考
+- [产品观察](/maps/_products/products) - 产品分析与研究
+- [~~指弹~~](/music)
+- [逃离塔克夫](/maps/_games/games/escape-from-tarkov)
+
+## 生活逻辑
+
+- [医疗](/maps/_medicine/medicine/medicine)
+
+## 工作
+
+- [面试技巧](/maps/_interview/reverse-interview)
+- [前端实习问题](/maps/_hire/intern)
+
+## Threads
+
+- [Daily Bugs](/maps/_threads/daily-bugs)
+- [Bills](/maps/_threads/bills)

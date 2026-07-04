@@ -1,0 +1,9 @@
+# SQL
+
+> SQL（Structured Query Language，结构化查询语言）是一种用于管理和操作关系型数据库的编程语言。它用于执行各种数据库操作，如查询数据、插入记录、更新数据和删除记录。
+
+## 主题
+
+- [Text to SQL](./text-to-sql) - 自然语言到 SQL 的转换技术与风险
+- [Postgres](./postgres) - PostgreSQL 扩展生态与多场景应用
+- [索引优化](./indexing) - B-Tree 索引原理、查询性能陷阱与优化策略

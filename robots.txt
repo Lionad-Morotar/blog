@@ -1,0 +1,9 @@
+# START nuxt-robots (indexable)
+User-agent: *
+Disallow: /api/_content
+Disallow: /__sitemap
+Disallow: /preview
+Disallow: /raw
+
+Sitemap: https://lionad.art/sitemap.xml
+# END nuxt-robots

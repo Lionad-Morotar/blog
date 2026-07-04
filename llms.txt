@@ -57,6 +57,8 @@
 ## Articles
 
 - [🦁 欢迎](https://lionad.art/raw/articles.md): 笔记、博客以及碎碎念，我的思考和再创造。
+- [cc-flow](https://lionad.art/raw/articles/cc-flow.md): cc-flow
+- [🤡 由 Kimi 死循环消耗了两个周限额带来的 CC User-Agent 分析](https://lionad.art/raw/articles/cc-billing-header.md): 被 CC 计费头坑了，但无关缓存
 - [🔧 Claude Code MCP 集体报错排查记录](https://lionad.art/raw/articles/mcp-node-version.md): 记录一次因 Node.js 版本导致 Claude Code 多个 MCP server 报 Connection closed 的排查过程
 - [📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多](https://lionad.art/raw/articles/cc-expand.md): 上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机
 - [🎼 从文本到交互界面——GenUI 的中庸之道](https://lionad.art/raw/articles/gen-ui-flows.md): 当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？
@@ -106,20 +108,25 @@
 - [Agent 分类学](https://lionad.art/raw/maps/_ai/agents/agent-taxonomy.md): Russell & Norvig 经典智能体分类体系及三个互补分类维度
 - [Agents](https://lionad.art/raw/maps/_ai/agents/agents.md): AI 代理（Agents）是能够自主执行任务并与环境交互的智能实体，通常基于大语言模型（LLM）构建。
 - [AgentScope](https://lionad.art/raw/maps/_ai/agents/agentscope.md): 阿里巴巴开源的生产级多智能体框架，支持 ReAct Agent、强化学习训练、实时语音交互和 MCP/A2A 协议
+- [Claude Agent SDK](https://lionad.art/raw/maps/_ai/agents/claude-agent-sdk.md): Anthropic Claude Agent SDK 的使用方式、调用栈与 User-Agent 机制
 - [Claude Agent SDK (TypeScript) 发布记录](https://lionad.art/raw/maps/_ai/agents/claude-agent-sdk-releases.md): Anthropic Claude Agent SDK TypeScript 版本的完整发布历史与变更日志
 - [Claude Code Skills](https://lionad.art/raw/maps/_ai/agents/claude-skills.md): Claude Code 技能集合
 - [Coding Agent 的 Shell 偏差](https://lionad.art/raw/maps/_ai/agents/coding-agent-shell-bias.md): 探讨 Coding Agent 在 PowerShell 与 Bash 环境下的性能差异及其训练语料根源
 - [上下文图与机构化推理](https://lionad.art/raw/maps/_ai/agents/context-graphs.md): 上下文图作为知识图的运营化演进，如何支撑企业级 Agent 的机构化推理与合规决策
 - [i18n 国际化实现](https://lionad.art/raw/maps/_ai/agents/docs/i18n.md): 本博客的轻量级国际化（i18n）实现方案，基于文件路径约定和客户端偏好存储。
-- [Goose Agent Prompt](https://lionad.art/raw/maps/_ai/agents/goose/goose-brief.md): You are a general-purpose AI agent called goose, created by Block, the parent company of Square, CashApp, and Tidal.goose is being developed as an open-source software project.
+- [Goose Agent Prompt](https://lionad.art/raw/maps/_ai/agents/goose/goose-brief.md): You are a general-purpose AI agent called goose, created by Block, the parent company of Square, CashApp, and Tidal.
+goose is being developed as an open-source software project.
 - [扩展](https://lionad.art/raw/maps/_ai/agents/goose/goose-brief.cn.md): 您是一种通用型 AI 代理，名为 goose，由 Block（Square、CashApp 与 Tidal 的母公司）创建。goose 正在作为开源软件项目进行开发。
 - [Goose Prompts](https://lionad.art/raw/maps/_ai/agents/goose/prompts.md): xxx
+- [Harness 工程](https://lionad.art/raw/maps/_ai/agents/harness-engineering.md): 结合控制论与真实 .codebuddy 配置，探讨 AI 辅助编程中 Harness 的双环控制、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计。
+- [人机协作智能体团队](https://lionad.art/raw/maps/_ai/agents/human-agent-teams.md): Anthropic 关于构建高效人类与智能体协作团队的经验：公共空间、明确角色、北极星目标与渐进信任
 - [AI 与人性交互](https://lionad.art/raw/maps/_ai/agents/human-ai-interaction.md)
 - [多智能体架构决策与工程实践](https://lionad.art/raw/maps/_ai/agents/multi-agent-architecture.md): 单/多智能体架构选择、Anthropic 工程实践、Cognition 上下文工程原则、Claude 官方决策指南
 - [多智能体协作框架对比](https://lionad.art/raw/maps/_ai/agents/multi-agent-frameworks.md): AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph 等多智能体框架的核心设计、适用场景与选择建议
 - [多智能体构建模式与实践指南](https://lionad.art/raw/maps/_ai/agents/multi-agent-patterns.md): 四类智能体构建关注点、框架选择决策矩阵、生产环境最佳实践
 - [OpenAI Agents SDK (JavaScript) 发布记录](https://lionad.art/raw/maps/_ai/agents/openai-agents-js-releases.md): OpenAI Agents SDK JavaScript/TypeScript 版本的完整发布历史与变更日志
 - [智能健身教练 PEAS 模型分析](https://lionad.art/raw/maps/_ai/agents/peas-coach-example.md): 通过智能健身教练案例深入理解 PEAS 模型的应用，包括性能度量、环境描述、执行器、传感器及环境特性分析
+- [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/raw/maps/_ai/agents/tokenmaxxing.md): 从 2026 年初 Tokenmaxxing 现象出发，分析 Agentic coding 的成本失控、组织流程瓶颈、Agent 能力错配与需求天花板，并将其置于 J 型增长曲线与生产率悖论的经济学框架中理解。
 - [有毒数据流分析](https://lionad.art/raw/maps/_ai/agents/toxic-flow-analysis.md): 在多代理系统中识别和缓解敏感数据泄露风险的技术
 - [Workflow 与 Agent 对比：电商退款案例](https://lionad.art/raw/maps/_ai/agents/workflow-vs-agent.md): 通过电商售后退款场景，对比 Workflow 固定流程与 Agent 智能决策的优劣，及混合架构设计
 - [Artificial Intelligence](https://lionad.art/raw/maps/_ai/ai.md): Machine learning, large language models, AI agents, and AI engineering
@@ -150,6 +157,7 @@
 - [SAIF](https://lionad.art/raw/maps/_ai/framework/saif.md): Google 安全人工智能框架（Secure AI Framework），管理 AI 安全风险的实用指南。
 - [Agent Governance](https://lionad.art/raw/maps/_ai/governance/agent-governance.md): 智能体（Agent）相关的政策法规、治理框架与合规要求
 - [Governance](https://lionad.art/raw/maps/_ai/governance/governance.md): AI 治理、政策法规、合规要求与伦理规范
+- [AIGC 海报生成](https://lionad.art/raw/maps/_ai/image/aigc-poster.md): 端到端海报生成、多任务编辑与质量评估的技术体系
 - [Image Generation](https://lionad.art/raw/maps/_ai/image/image.md): AI 图像生成技术与工具，包括 Stable Diffusion 等文生图模型与提示词技巧。
 - [Image Generator](https://lionad.art/raw/maps/_ai/image/stable-diffusion.md): Stable Diffusion 图像生成提示词与风格指南。
 - [Datadog LLM Observability](https://lionad.art/raw/maps/_ai/llm/datadog/datadog-llm.md): 为 LLM 与 Agent 工作流提供端到端追踪、监控与诊断，融入 Datadog APM 体系；对已用 Datadog 的团队较友好，但埋点与协同要求高。
@@ -160,6 +168,7 @@
 - [结构化输出](https://lionad.art/raw/maps/_ai/llm/structured-output.md): LLM 结构化输出技术，约束模型生成预定义格式的响应。
 - [Model Context Protocol](https://lionad.art/raw/maps/_ai/mcp/mcp.md): MCP（Model Context Protocol）是 Anthropic 开源的标准协议，用于连接 AI 应用与外部系统，被誉为 AI 应用的 USB-C 接口。
 - [反对「直接把内部 API 暴露成 MCP」的天真做法](https://lionad.art/raw/maps/_ai/mcp/native-api-to-mcp.md): 原文反对将现有内部 API 直接转换为 MCP，建议为代理场景专门设计安全的 MCP 服务层
+- [GLM-5.2 深度调研报告：为长程任务而生](https://lionad.art/raw/maps/_ai/models/2026-06-17-glm-5.2-deep-research-report.md)
 - [Inference](https://lionad.art/raw/maps/_ai/models/inference.md): Model inference and serving techniques
 - [Mechanistic Interpretability](https://lionad.art/raw/maps/_ai/models/mechanistic-interpretability.md): Understanding model internals and interpretability methods
 - [AI Models](https://lionad.art/raw/maps/_ai/models/models.md): Model internals, inference, optimization, and interpretability
@@ -199,6 +208,7 @@
 - [agents.md](https://lionad.art/raw/maps/_ai/vibe/agents-md.md): AGENTS.md 是一种用于向 AI 编码代理提供说明的常用格式
 - [Anchoring coding agents to a ref application](https://lionad.art/raw/maps/_ai/vibe/anchoring.md): 在编码代理时代，通过将其锚定至实时可编译的参考应用，有效应对代码漂移问题
 - [对 AI 生成代码”惰性依赖”的警惕与治理](https://lionad.art/raw/maps/_ai/vibe/complacency.md): AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲”惰性依赖”风险
+- [Loop Engineering](https://lionad.art/raw/maps/_ai/vibe/loop-engineering.md): 从手动提示词工程到自主循环系统的 AI 编程范式迁移，以及其构建块、风险与工程权衡
 - [玩具化设计思维](https://lionad.art/raw/maps/_ai/vibe/playful-ai.md): 将复杂 AI 能力转化为情感化、游戏化体验的包装策略
 - [编码智能体团队](https://lionad.art/raw/maps/_ai/vibe/team-of-agents.md): 通过协作的多个 AI 编码智能体来完成开发任务
 - [Vibe Coding](https://lionad.art/raw/maps/_ai/vibe/vibe.md): Vibe 是一种基于 AI 的代码生成和协作方式，旨在通过自然语言提示帮助开发者快速生成代码片段、自动化任务和提升编程效率。
@@ -225,8 +235,12 @@
 - [商业](https://lionad.art/raw/maps/_business/business.md): 商业分析、风险投资及商业思维
 - [风险投资](https://lionad.art/raw/maps/_business/venture-capital/venture-capital.md): 高风险、高回报的投资行为
 - [CLI](https://lionad.art/raw/maps/_cli/cli.md): 命令行工具、脚本和自动化
+- [CLI 设计哲学与用户体验](https://lionad.art/raw/maps/_cli/engineering/cli-design.md): 命令行工具的设计原则、交互模式与可访问性实践
+- [CLI 技术实现与架构](https://lionad.art/raw/maps/_cli/engineering/cli-implementation.md): 命令行工具的分层架构、框架选择、错误处理与配置管理
+- [CLI 测试、文档与发布](https://lionad.art/raw/maps/_cli/engineering/cli-lifecycle.md): 命令行工具的质量保障、文档规范与自动化发布流程
 - [Terminal Escape Sequences](https://lionad.art/raw/maps/_cli/terminal/escape-sequences.md): ANSI 转义序列与终端颜色输出，涵盖 16 色、256 色和 True Color 模式
 - [ffmpeg & imagemagick](https://lionad.art/raw/maps/_cli/tools/ffmpeg.md): 最常使用的视频和图片处理工具。
+- [pnpm](https://lionad.art/raw/maps/_cli/tools/pnpm.md): pnpm 包管理器的虚拟存储、符号链接结构与常见陷阱
 - [CloudNative](https://lionad.art/raw/maps/_cloud-native/cloud-native.md): 云原生技术概论
 - [Arm 云计算实例 — 建议默认采用](https://lionad.art/raw/maps/_cloud-native/hardware/arm-on-cloud-native.md): 将 Arm 视为云端计算实例的默认选择，除非存在明确的 x86 架构依赖。
 - [云原生硬件](https://lionad.art/raw/maps/_cloud-native/hardware/hardware.md): 云原生环境下的硬件架构选择，包括 Arm 架构应用
@@ -243,6 +257,7 @@
 - [编码](https://lionad.art/raw/maps/_computer/encoding/encoding.md): 编码是将信息从一种形式或格式转换为另一种形式或格式的过程。
 - [哈希冲突](https://lionad.art/raw/maps/_computer/encoding/hash-collision.md): 哈希冲突是指两个不同的键值被哈希函数映射到了同一个位置。
 - [计算机基础](https://lionad.art/raw/maps/_computer/fundamentals/fundamentals.md): 计算机基础知识导图，包含进制转换、数字电路设计、原码反码补码等核心概念的详细解析。
+- [数字身份](https://lionad.art/raw/maps/_computer/identity/digital-identity.md): 数字身份系统的脆弱性、武器化风险与意识形态基础
 - [计算机网络](https://lionad.art/raw/maps/_computer/network/network.md): 计算机网络基础知识全览，包含 TCP/IP、HTTP、HTTPS、TLS 等协议的详细解析，以及网络安全、CDN、跨域等实践内容。
 - [Http Request Example](https://lionad.art/raw/maps/_computer/network/segments/http-request-example.md)
 - [Http Response Example](https://lionad.art/raw/maps/_computer/network/segments/http-response-example.md)
@@ -499,6 +514,7 @@
 - [开源文化](https://lionad.art/raw/maps/_software/open-source/culture.md): 开源软件的文化基础、礼物经济与创作者动机
 - [开源仓库维护](https://lionad.art/raw/maps/_software/open-source/repo-maintenance.md): 开源项目维护实践、贡献者管理与可持续性策略
 - [软件](https://lionad.art/raw/maps/_software/software.md): 软件工程、数据结构、算法与设计模式
+- [AI 代码评审](https://lionad.art/raw/maps/_software/software-engineering/ai-code-review.md): 阿里 Open Code Review 等 AI 代码评审工具的架构设计与工程实践
 - [技艺学习的认识论](https://lionad.art/raw/maps/_software/software-engineering/learning-craft.md): 技能习得、专家思维与学习的哲学反思
 - [软件工程](https://lionad.art/raw/maps/_software/software-engineering/software-engineering.md): 软件工程（Software Engineering）是指应用工程化的方法和原则来设计、开发、测试和维护软件系统的学科和实践。
 - [Whale Fall](https://lionad.art/raw/maps/_software/whale-fall/whale-fall.md): 大型开源项目死亡后的生态演替，类比海洋中的鲸落现象
@@ -613,7 +629,8 @@
 - [判断两个变量相等](https://lionad.art/raw/source-code/_module/fast-deep-equal.md)
 - [get-intrinsic](https://lionad.art/raw/source-code/_module/get-intrinsic.md): JavaScript Intrinsics 缓存与防御性编程，ljharb 的 es-shims 生态系统核心库
 - [🛠 低版本浏览器兼容HTML5标签原理](https://lionad.art/raw/source-code/_module/html5shiv.md)
-- [判断 NodeJS 是否在线](https://lionad.art/raw/source-code/_module/is-online.md): 之前被组长问道要如何判断 NodeJS 是否在线，我不假思索回答：“Ping 百度试试。”。调用 Ping 需要 child_process，那还不如直接改用内置的 DNS 试试是否在线更简单一些。不过会不会碰到缓存等问题，没往下细想了。今天正好在别人的博客看到了 NodeJS DNS 模块，突然想起这个问题，于是就搜了一下相关库。找到了 internet-available 这个玩意儿。这里一起来看看他们的实现。
+- [判断 NodeJS 是否在线](https://lionad.art/raw/source-code/_module/is-online.md): 之前被组长问道要如何判断 NodeJS 是否在线，我不假思索回答：“Ping 百度试试。”。调用 Ping 需要 child_process，那还不如直接改用内置的 DNS 试试是否在线更简单一些。不过会不会碰到缓存等问题，没往下细想了。
+今天正好在别人的博客看到了 NodeJS DNS 模块，突然想起这个问题，于是就搜了一下相关库。找到了 internet-available 这个玩意儿。这里一起来看看他们的实现。
 - [node-watch](https://lionad.art/raw/source-code/_node/node-watch.md): node-watch 是在 fs.watch 的基础上封装而来的库，能监听文件变化
 - [TypeScript Type Challenges](https://lionad.art/raw/source-code/_ts/type-challenges.md): TypeScript type challenges
 - [TypeScript 编译器](https://lionad.art/raw/source-code/_ts/typescript-compiler.md): TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder 建立符号体系并理顺作用域，Program 汇集全局视角，TypeChecker 完成类型推断和诊断，最终由 Emitter 生成输出文件。

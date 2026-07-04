@@ -1,0 +1,87 @@
+# 自建邮件服务器
+
+> 自建邮件服务器的实践指南，包括技术要点、权衡分析和适用场景
+
+#### 自建邮件服务器真的那么难吗？
+
+传统观点认为自建邮件服务器"太难了"，但实践发现：**"不简单，但也没有传说中那么难"**。
+核心挑战在于 IP 信誉积累（新服务器邮件常被拒收）和多重认证配置（DKIM、SPF、DMARC），而非技术本身的复杂度。
+
+**关键技术要点：**
+
+<table>
+<thead>
+  <tr>
+    <th>
+      组件
+    </th>
+    
+    <th>
+      说明
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      <strong>
+        非对称 SMTP 配置
+      </strong>
+    </td>
+    
+    <td>
+      自建服务器仅用于发送，接收用域名转发服务
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>
+        容器化部署
+      </strong>
+    </td>
+    
+    <td>
+      使用 <code>
+        boky/postfix
+      </code>
+      
+       镜像，内置 opendkim
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>
+        DNS 记录
+      </strong>
+    </td>
+    
+    <td>
+      A、MX、PTR（反向 DNS）、TXT（DKIM/SPF/DMARC）
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>
+        端口 25
+      </strong>
+    </td>
+    
+    <td>
+      常被云服务商封锁，需申请解封
+    </td>
+  </tr>
+</tbody>
+</table>
+
+**核心权衡：**
+
+- **自建优势**：一次配置完成，避免持续付费（Mailgun $15/月、SendGrid $19.95/月），追求自主可控
+- **自建成本**：需持续维护安全、监控日志、处理投递失败
+
+**适用人群**：已有域名和 VPS、有技术能力且愿投入时间维护的用户。否则，付费服务是更务实的选择。
+
+见：[How To Host Your Own Email Server](https://blog.miguelgrinberg.com/post/how-to-host-your-own-email-server)

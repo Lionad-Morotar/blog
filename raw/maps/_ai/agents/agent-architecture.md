@@ -1,0 +1,798 @@
+# Agent 架构第一性原理
+
+> Agent 架构设计的核心原则、工作流模式、工具设计与最佳实践
+
+## LLM 是神经符号主义的极佳实践？
+
+神经符号人工智能（Neuro-Symbolic AI）旨在融合神经网络的学习能力与符号 AI 的推理能力。这与认知科学的双过程理论高度契合：系统1（快速、直觉、无意识）对应神经网络，系统2（缓慢、深思熟虑、有意识）对应符号推理。
+
+LLM 智能体通过 Chain-of-Thought 实现了这一融合——神经网络内核提供亚符号的模式识别（系统1），而生成的结构化推理文本又实现了符号主义的逻辑能力（系统2）。LLM 充当了符号空间与自然语言空间之间的桥梁，
+使 AI 系统既能从海量数据中学习，又能进行严谨的符号推理。
+
+三种神经符号融合范式：
+
+- **Symbolic→LLM**：符号方法生成推理数据，LLM 学习模仿（如 AlphaGeometry、LOGIPT）
+- **LLM→Symbolic**：LLM 将问题形式化后调用符号求解器（如 LogicLM、LLM+P、PAL）
+- **LLM+Symbolic**：端到端混合架构，符号与神经网络协同工作（如 DeepProbLog、可微分符号模块）
+
+见：[神经符号人工智能：迈向提升大语言模型的推理能力](https://www.163.com/dy/article/KDRD9CE705567BBF.html)、[大型语言模型：符号推理的新趋势](https://zhuanlan.zhihu.com/p/678549814)
+
+## PEAS 模型如何描述智能体任务环境？
+
+PEAS 模型是人工智能领域用于精确描述智能体任务环境的经典框架，由四个维度构成：
+
+<table>
+<thead>
+  <tr>
+    <th>
+      维度
+    </th>
+    
+    <th>
+      含义
+    </th>
+    
+    <th>
+      示例（智能旅行助手）
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      <strong>
+        P
+      </strong>
+      
+      erformance（性能度量）
+    </td>
+    
+    <td>
+      评估智能体成功与否的标准
+    </td>
+    
+    <td>
+      用户满意度、行程可行性、预算控制
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>
+        E
+      </strong>
+      
+      nvironment（环境）
+    </td>
+    
+    <td>
+      智能体运作的场景与条件
+    </td>
+    
+    <td>
+      航班系统、酒店平台、天气服务
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>
+        A
+      </strong>
+      
+      ctuators（执行器）
+    </td>
+    
+    <td>
+      智能体影响环境的方式
+    </td>
+    
+    <td>
+      搜索航班、预订酒店、生成行程
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <strong>
+        S
+      </strong>
+      
+      ensors（传感器）
+    </td>
+    
+    <td>
+      智能体获取环境信息的渠道
+    </td>
+    
+    <td>
+      用户输入、API 返回数据
+    </td>
+  </tr>
+</tbody>
+</table>
+
+LLM 智能体面对的环境通常具备四个鲜明特点：
+
+- **部分可观察**（Partially Observable）：无法一次性获取全貌，需要记忆和探索
+- **随机性**（Stochastic）：行动结果不确定，环境状态动态变化
+- **多智能体**（Multi-agent）：环境中存在其他行动者（如其他用户、自动化脚本）
+- **序贯且动态**（Sequential & Dynamic）：当前动作影响未来，环境自身在变化
+
+见：[智能体(Agent)核心技术解析：从PEAS模型到主流框架实战](https://zhuanlan.zhihu.com/p/1982412289576546663)、[一文搞懂大模型智能体工作原理](https://blog.csdn.net/Trb701012/article/details/156984467)
+
+#### 完整案例分析
+
+[智能健身教练：PEAS 模型完整案例分析](/maps/_ai/agents/peas-coach-example)
+
+## 工作流与智能体的核心区别？
+
+决策权归属是区分二者的关键。
+
+**工作流（Workflow）** 像流水线或菜谱，任务流程固定且预先设计好。LLM 被代码调用完成特定子任务（如总结文本、提取信息），决策权在代码而非模型。
+
+**智能体（Agent）** 像侦探，你给它总目标，但没有固定剧本。它会根据情况动态决定下一步该做什么、使用哪个工具、任务是否完成，决策权在 LLM 而非代码。
+
+#### 完整案例分析
+
+[Workflow 与 Agent 对比：电商退款案例](/maps/_ai/agents/workflow-vs-agent) —— 通过售后退款场景对比两种方案优劣及混合架构设计
+
+## 技术选型金字塔？
+
+Anthropic 建议始终从最简单方案开始，只有当简单方案无法满足需求时才增加复杂性。
+
+<table>
+<thead>
+  <tr>
+    <th>
+      层级
+    </th>
+    
+    <th>
+      方案
+    </th>
+    
+    <th>
+      适用场景
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      底层（基础）
+    </td>
+    
+    <td>
+      优化单一 LLM 调用
+    </td>
+    
+    <td>
+      简单任务，追求效率。通过 RAG、Few-shot 示例解决大部分问题
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      中层（中级）
+    </td>
+    
+    <td>
+      工作流
+    </td>
+    
+    <td>
+      流程固定、明确、可预测，对质量有高标准
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      顶层（高级）
+    </td>
+    
+    <td>
+      智能体
+    </td>
+    
+    <td>
+      开放式任务，无法预测步骤，需要模型大规模自主决策
+    </td>
+  </tr>
+</tbody>
+</table>
+
+**示例**：翻译 / 本地化任务
+
+- 读一封外文邮件/工单，快速了解大意即可 → 单一 LLM 调用
+- 需要稳定产出与可追溯质量（术语一致、格式固定、必须复核），如用户手册/合规文档翻译 → 工作流（翻译 → 术语校验 → 审校/回译）
+- 目标是"把内容做成一条可发布的多语言产线"，涉及选题、改写、本地化用词、生成标题与摘要、更新站点/提交 PR 等多步决策与多工具协作 → 智能体
+
+见：[Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)（Anthropic 官方指南）
+
+## 五种工作流模式？
+
+Anthropic 从生产实践中总结出五种可组合的工作流模式，按复杂度递增：
+
+**Prompt Chaining（提示链）**
+任务分解为顺序步骤，每步 LLM 处理上一步输出。可添加程序检查（gate）确保过程正确。
+
+- 适用：可清晰分解为固定子任务，用延迟换准确性
+- 示例：生成营销文案 → 翻译成其他语言；写大纲 → 检查 → 写文档
+
+**Routing（路由）**
+输入分类后路由到专门下游任务，分离关注点，构建更专业的提示。
+
+- 适用：复杂任务有明确类别，分类可由 LLM 或传统模型处理
+- 示例：客服查询按类型（一般问题/退款/技术支持）路由到不同流程
+
+**Parallelization（并行化）**
+
+- **Sectioning（分段）**：任务拆分为独立子任务并行处理
+- **Voting（投票）**：同一任务多次运行，聚合多样输出
+- 适用：可并行提速，或需多视角/多次尝试提高置信度
+- 示例：代码漏洞审查（多提示并行审查）、内容安全评估
+
+**Orchestrator-workers（编排器-工作者）**
+中心 LLM 动态分解任务，委派给工作 LLM，再综合结果。与并行的关键区别：子任务不是预定义的，而是由编排器根据输入动态决定。
+
+- 适用：复杂任务无法预测子任务（如编码需修改的文件数量和性质取决于任务）
+- 示例：多文件复杂代码修改、多源信息搜集分析
+
+**Evaluator-optimizer（评估-优化）**
+一个 LLM 生成响应，另一个提供评估反馈，循环迭代。
+
+- 适用：你能清楚定义"好/坏"的标准，而且多改几轮确实会变更好。通常有两个信号：人工点评能明显改善结果；模型也能按同一套标准给出可用的点评
+- 示例：文学翻译（捕捉细微差别）、复杂搜索任务（多轮搜索分析）
+
+## Agent 设计三原则？
+
+1. **简洁性** —— 保持设计简单
+2. **透明性** —— 显式展示规划步骤
+3. **ACI（Agent-Computer Interface）** —— 精心设计的工具文档和测试
+
+#### Agent 是章鱼：不要过度约束
+
+「Agent 是一只章鱼——能蜿蜒、能挤进窄缝、能绕开问题。除了 shenanigan（恶作剧/越权）需要约束之外，**不要过度约束 Agent 解决问题的能力。**」——Danilo Campos（PostHog Wizard）
+
+由此带来思维转变：
+
+- ❌ 旧式：「我怎么 scaffold Agent 的每一步行为？」
+- ✅ 新式：**「我怎么后退一步、给足信息、把信息排好顺序，让它做对事并让用户开心？」**
+
+这与「简洁性」原则互为表里——给信息和顺序，不给步骤。约束应作用于工具粒度（信任边界）与披露顺序（Breadcrumb），而非每一步动作的脚手架。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
+
+#### Plan-and-Solve 的规划幻觉比 ReAct 更难察觉
+
+Plan-and-Solve 通过将规划与执行解耦来规避 ReAct 的规划-执行耦合问题，但解耦后引入了一种更隐蔽的风险：规划阶段的错误在执行前难以暴露。ReAct 的错误在每一步都有 Observation 反馈，如果检索结果跑偏了，
+下一步 Thought 有机会修正；但 Plan-and-Solve 的完整规划在执行前缺乏真实数据校验，validate_plan 通常只能做语法和逻辑层面的检查——它无法验证外部 API 是否在线、某个字段在该环境下是否实际必填、
+或者用户的模糊表述在真实上下文中是否有另一种解读。
+
+更隐蔽的是，validate_plan 本身往往也是 LLM 判断，它会对「看起来合理的规划」放行，直到执行阶段才暴露不可行性，此时回滚成本远高于 ReAct 的步级回滚。生产环境的折中方案不是完全切换到纯规划-执行分离架构，
+而是保留 ReAct 的步级反馈机制，但在每步执行前加入轻量级预验证（如检查 API schema 是否匹配），让错误在更早的阶段以更低的成本暴露。
+
+#### System Prompt 里的错误处理是纸面合规
+
+System Prompt 中写入的"工具调用超时重试 1 次""连续 3 次错误触发告警"等规则，模型无法实际执行。L1 层面，LLM 没有内置的超时感知能力，它不知道一个 API 调用花了 3 秒还是 30 秒；
+它也没有跨轮次的状态记忆，无法在"连续 3 次错误"时主动触发告警。L2 层面，这些指令本质上是给人类看的文档，不是模型能执行的代码——遇到异常时，模型最可能生成一段"抱歉出错了"的文本，然后继续基于错误的假设瞎猜，
+它无法区分"API 返回 500"和"API 正常返回空数据"。L3 层面的工程正确做法是，真正有效的错误处理必须在编排层通过 try-catch、超时装饰器、状态计数器实现。
+System Prompt 中的错误处理描述只能作为输出风格引导（让模型在出错时输出统一的错误格式），不能替代工程层面的容错机制。
+
+## 工具设计的最佳实践？
+
+设计工具时，投入与 HCI（人机界面）相当的努力到 ACI（Agent-Computer Interface）：
+
+**格式选择原则**
+
+- 给模型足够 token 在"陷入困境"前思考
+- 格式贴近模型在互联网上自然见过的形式
+- 避免格式开销（如 diff 需计算行数、JSON 需转义引号）
+
+**设计检查清单**
+
+- 站在模型角度：工具描述和参数是否一目了然？好的工具定义包含示例用法、边界情况、输入格式要求
+- 优化参数命名和描述：像为团队初级开发者写优秀 docstring
+- 测试迭代：在 workbench 中运行大量示例输入，观察模型错误并迭代
+- Poka-yoke（防错）：调整参数使错误更难发生
+
+**Anthropic 实战经验**
+
+在构建 SWE-bench Agent 时，优化工具的时间超过优化提示。例如：发现模型在使用相对路径的工具上出错（Agent 已移出根目录后），改为要求绝对路径后，模型 flawlessly 使用该方法。
+
+#### 信任边界窄化：用窄工具替代盲读
+
+PostHog Wizard 早期版本会直接读取用户 `.env` 文件来执行写入——结果是用户敏感信息被发送到 cloud 推理日志。修复方式不是再加访问控制，而是**把工具拆细**：
+
+<table>
+<thead>
+  <tr>
+    <th>
+      旧设计（出问题）
+    </th>
+    
+    <th>
+      新设计（信任边界窄化）
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      盲读整个 <code>
+        .env
+      </code>
+      
+      ，把全部内容上传 LLM
+    </td>
+    
+    <td>
+      工具 1：<code>
+        check_key(name)
+      </code>
+      
+       → 仅返回 boolean，不读 value
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      
+    </td>
+    
+    <td>
+      工具 2：<code>
+        write_key(name, value)
+      </code>
+      
+       → 只写指定键，不读取整个文件
+    </td>
+  </tr>
+</tbody>
+</table>
+
+「在别人电脑上跑 Agent 需要巨大的信任。**即使你解决了承诺的问题，过程中可能让你看起来像个混蛋**。」（Danilo Campos）
+
+设计原则：**信任降级到工具粒度**，而非交给 Agent 自我克制。这是 Poka-yoke（防错）思想在权限边界上的应用——让「读敏感数据」在物理上不可能发生，而非靠提示词约束。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
+
+## 长时运行 Agent 的 Harness 设计？
+
+当 Agent 需要跨多个上下文窗口工作（数小时甚至数天）时，核心挑战是**每个新会话都从零开始**，对之前工作一无所知。
+Anthropic 采用 **Initializer Agent + Coding Agent** 的双代理架构解决此问题。
+
+**Initializer Agent（初始化代理）**
+
+首次会话运行，负责搭建基础环境：
+
+- `feature_list.json`：详细功能清单（如 claude.ai 克隆项目超过 200 个功能），全部初始标记为 `failing`
+- `claude-progress.txt`：进度日志，记录每个会话完成的工作
+- `init.sh`：启动脚本，一键运行开发服务器
+- 初始 git commit，建立版本基线
+
+**Coding Agent（编码代理）**
+
+后续所有会话运行，遵循增量开发原则：
+
+- 会话开始时：读取进度文件和 git log → 运行 `init.sh` 启动服务 → 端到端测试验证基础功能
+- 每次只处理**一个功能**，避免"一次性做完"的冲动
+- 会话结束时：提交 git commit（描述性消息）→ 更新进度文件 → 保持环境在"可合并状态"
+
+**功能清单的设计要点**
+
+使用 JSON 而非 Markdown，因为模型更不容易误改 JSON 结构。每个功能包含 `category`、`description`、`steps`、`passes` 字段。
+Coding Agent 只能修改 `passes` 字段，强烈措辞约束："删除或编辑测试是不可接受的，这会导致功能缺失或 bug"。
+
+**端到端测试的必要性**
+
+Agent 容易"未经充分测试就标记功能完成"。显式提示使用浏览器自动化工具（如 Puppeteer MCP），像人类用户一样测试。这能发现仅从代码看不出的 bug，但注意 Claude 无法看到浏览器原生 alert 弹窗。
+
+<table>
+<thead>
+  <tr>
+    <th>
+      常见失败模式
+    </th>
+    
+    <th>
+      Initializer 解决方案
+    </th>
+    
+    <th>
+      Coding Agent 解决方案
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      过早宣布整个项目完成
+    </td>
+    
+    <td>
+      设置详细功能清单
+    </td>
+    
+    <td>
+      每次只选一个功能开发
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      留下 bug 或未记录的进度
+    </td>
+    
+    <td>
+      初始化 git 和进度文件
+    </td>
+    
+    <td>
+      开始读进度/git log，结束写 commit
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      过早标记功能完成
+    </td>
+    
+    <td>
+      设置功能清单文件
+    </td>
+    
+    <td>
+      自验证所有功能，仔细测试后才标记 passing
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      花时间摸索如何运行应用
+    </td>
+    
+    <td>
+      编写 <code>
+        init.sh
+      </code>
+      
+       脚本
+    </td>
+    
+    <td>
+      会话开始就读 <code>
+        init.sh
+      </code>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+见：[Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)（Anthropic Engineering）
+
+## Claude Agent SDK 的核心设计原则？
+
+Claude Agent SDK（原 Claude Code SDK）的设计哲学是**给 Claude 一台计算机**——让它能够使用程序员日常使用的工具（终端、文件系统、代码执行），从而像人类一样工作。
+
+这不仅让 Claude 擅长编码，还能处理各种非编码任务：读取 CSV、搜索网页、构建可视化、解释指标等。核心反馈循环是：**收集上下文 → 采取行动 → 验证工作 → 重复**。
+
+> Over the past several months, Claude Code has become far more than a coding tool. At Anthropic, we'
+> ve been using it for deep research, video creation, and note-taking, among countless other non-coding applications.
+> In fact, it has begun to power almost all of our major agent loops.
+> —— Anthropic
+
+## Agent 如何有效收集上下文？
+
+**Agentic Search（代理式搜索）**
+文件系统代表"可能被拉入上下文"的信息。Agent 使用 `grep`、`tail` 等 bash 脚本自主决定如何加载大文件（如日志）。文件夹结构本身成为一种上下文工程。
+
+**Semantic Search（语义搜索）**
+通常比代理式搜索更快，但准确性较低、维护更困难、透明度更低。建议先使用代理式搜索，仅在需要更快结果或更多变体时添加语义搜索。
+
+**Subagents（子代理）**
+SDK 默认支持子代理，有两个主要用途：
+
+- **并行化**：同时启动多个子代理处理不同任务
+- **上下文管理**：子代理使用独立的上下文窗口，只返回相关信息给编排器
+
+**Compaction（上下文压缩）**
+当 Agent 长时间运行时，自动总结之前的消息以避免上下文耗尽。这是 Claude Code `/compact` 命令的底层能力。
+
+#### Breadcrumb 任务披露：限制 Agent 即兴发挥
+
+直接告诉 Agent「实施 PostHog 集成」会得到 15,000 种不同的实施方式——「**Sorcerer's Apprentice 困境**」（巫师学徒，魔法失控的传说），最终演变为支持地狱。
+PostHog Wizard 的解法是**面包屑式渐进披露**，每步只暴露眼前任务，不告诉 Agent 全局目标：
+
+1. **不告诉**Agent 它在做 PostHog 集成
+2. 「项目里哪些文件有商业价值？登录、支付、流失风险？」（**business stuff casts a huge shadow in code**——业务逻辑在代码中投下巨大阴影）
+3. 「列一下这些文件中可能的事件名（不要写代码）」
+4. 「现在加载文档并实施」（按框架/语言定向加载，配合 Fresh Markdown 注入）
+
+**核心机制**：Agent 看不到全局，就不会在第 5 步开始「rock polishy」（过度抛光，类似 Claude Code 在最后一个任务上花过多时间）。
+
+约束不是为了禁锢，是为了一致性——这与「子 Agent 上下文管理」遥相呼应，同样是用上下文边界换可控性。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
+
+## Agent 采取行动的关键方式？
+
+**Tools（工具）**
+工具是 Agent 执行的主要构建块，在 Claude 的上下文窗口中非常突出。设计工具时要考虑上下文效率，将最频繁的操作定义为工具。
+
+**Bash & Scripts**
+Bash 作为通用工具，让 Agent 能够灵活地使用计算机完成各种任务。例如：下载 PDF、转换为文本、搜索内容。
+
+**Code Generation（代码生成）**
+代码精确、可组合、无限复用，是 Agent 执行复杂操作的理想输出。Claude.AI 的文件创建功能完全依赖代码生成——用 Python 脚本创建 Excel、PPT、Word 文档。
+
+**MCPs（Model Context Protocol）**
+提供与外部服务的标准化集成，自动处理认证和 API 调用。可快速连接 Slack、GitHub、Google Drive、Asana 等，无需编写自定义集成代码。
+
+#### 并行 Action 的竞态条件陷阱
+
+把 vLLM 投机采样的思路借用到并行 Action 上时，一个关键前提常被忽略：token 生成的并行是纯粹的无状态数学运算，而工具调用的并行涉及外部系统状态。如果你一次性生成多个候选 Action 并同时执行，而 Action A 是「
+扣减库存」、Action B 是「查询库存余额」，并行执行下 B 读到的可能是 A 扣减前的旧值——这种竞态条件在 ReAct 的串行执行中天然不存在，但并行优化把它引入了。
+
+工程上的可行方案是构建工具依赖图，对无状态依赖的读操作并行、写操作和依赖该状态的读操作串行，而不是盲目并行所有 Action。
+
+## Agent 如何验证工作质量？
+
+**Defining Rules（定义规则）**
+最佳反馈形式是提供清晰的输出规则，然后解释哪些规则失败及原因。代码 linting 是优秀的规则反馈——生成 TypeScript 比纯 JavaScript 更好，因为提供了额外的反馈层。
+
+**Visual Feedback（视觉反馈）**
+对于 UI 生成或测试等视觉任务，截图或渲染可以提供有价值的验证。检查布局、样式、内容层次、响应式表现等。使用 Playwright MCP 可以自动化此反馈循环。
+
+**LLM as a Judge**
+让另一个语言模型基于模糊规则评判输出。这不是非常稳健的方法，且有较高的延迟代价，但在追求性能提升的应用中可能有帮助。
+
+## 测试和改进 Agent 的关键问题？
+
+- 如果 Agent 误解任务，是否缺少关键信息？能否调整搜索 API 结构？
+- 如果 Agent 反复失败，能否在工具调用中添加正式规则来识别和修复？
+- 如果 Agent 无法修复错误，能否提供更有用或更有创意的工具？
+- 如果性能随功能增加而变化，能否基于客户使用构建代表性的测试集进行程序化评估？
+
+见：[Building agents with the Claude Agent SDK](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)（Claude 官方博客）
+
+#### 上下文重置优于上下文压缩
+
+长时运行 Agent 面临"上下文焦虑"——模型在感知到上下文窗口将满时会提前草率收尾。上下文重置（Context Reset）通过完全清空上下文并结构化交接状态，比原地压缩更能缓解这一问题。
+
+与 Compaction 的区别在于：压缩保留连续性但无法提供干净 slate，而重置让新会话从零开始却携带完整状态继承。Claude Sonnet 4.5 的实验表明，仅靠压缩不足以支撑强长时任务表现，
+重置成为 Harness 设计的关键机制。
+
+见：[Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps)：Anthropic Labs 团队关于长时应用开发的 Harness 设计实践
+
+#### ReAct 摘要回写的二次信息损失
+
+摘要回写（Summary Write-back）是缓解 ReAct 多轮推理上下文漂移的常用手段，但常被忽略的是：摘要本身是一次不可逆的有损压缩，而「压缩什么、保留什么」这个决策是模型替你做的。一个典型场景是，原始上下文中的「
+用户对青霉素过敏」在多轮摘要后逐渐退化为「用户有药物过敏史」——这个表述在语法上完全正确，但后续推理轮次中模型可能据此推荐头孢类药物，而原始信息明确排除了整个青霉素类。
+
+更棘手的是，这种信息损失不会在日志中暴露为明显错误。每一轮的摘要都独立地「合理」，但关键约束在逐轮传递中被系统性地稀释。工程上的可靠做法不是简单做摘要，而是对安全约束、用户明确否定等关键信息做结构化标记，在回写时强制保留原句而非摘要形式——
+或者直接用上下文重置替代渐进式压缩。
+
+#### 推理时质询：把 Agent 当用户研究
+
+PostHog Wizard 在 Stop Hook 注册了一个简单问题：**「这次运行你需要什么才能更成功？」**——把 Agent 当作用户来做研究。这种轻量级 interrogation 在生产中暴露了大量人类自身的疏漏：
+
+- 两个 MCP 工具的指令互相矛盾（「让我陷入不可能境地」）
+- 教 Agent 用一个不存在的工具（hundreds of runs 都因此失败）
+- 把 JavaScript 风格的指令塞给 Python 项目
+
+「人的 context 也是有限且碎片化的——上周的实现细节这周就忘了。」（Danilo Campos）**不问就不会知道**——代价低、信息密度高，是 Agentic Engineering 中最经济的反馈机制之一，也是「
+测试和改进 Agent」清单中应当默认开启的一项。
+
+见：[The PostHog Wizard: Lessons in AI onboarding](https://www.youtube.com/watch?v=juoNbJiZUi0)
+
+## 参考
+
+- [Building effective agents @Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
+- [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
+- [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
+- [Building agents with the Claude Agent SDK](https://claude.com/blog/building-agents-with-the-claude-agent-sdk)
+
+## AI Agent 三层问题堆栈
+
+大多数工程精力集中在第一层（能力层），但真实组织中系统常在第二层（采用层）或第三层（涌现层）失败。
+
+<table>
+<thead>
+  <tr>
+    <th>
+      层级
+    </th>
+    
+    <th>
+      问题
+    </th>
+    
+    <th>
+      注意力成本
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      3. 涌现层
+    </td>
+    
+    <td>
+      能否持续可用？能否在真实使用中存活？
+    </td>
+    
+    <td>
+      监控、信任校准、修正
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      2. 采用层
+    </td>
+    
+    <td>
+      用户会尝试吗？恐惧、回避、习惯阻力
+    </td>
+    
+    <td>
+      说服、习惯改变、工作流调整
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      1. 能力层
+    </td>
+    
+    <td>
+      能用吗？正确性、实用性
+    </td>
+    
+    <td>
+      工程投入
+    </td>
+  </tr>
+</tbody>
+</table>
+
+即使技术上能工作的系统，如果用户回避它，或真实使用模式逐渐侵蚀信任和实用性，系统仍会失败。第二层和第三层常被忽视，因为它们不是纯粹的技术问题——64% 的人报告对 AI 有恐惧或担忧，而恐惧无法通过更好的产品设计解决，当技术挑战人们的身份、
+专业能力或工作安全感时。
+
+见：[The Attention Debt of AI Tooling](https://www.wespiser.com/posts/2026-03-15-Attention-Debt-Of-AI-Tooling.html)：AI 工具的认知成本分析
+
+## RACI 框架：从 Consulted 到 Responsible
+
+用 RACI 框架审视 AI 系统的角色分配：
+
+<table>
+<thead>
+  <tr>
+    <th>
+      模式
+    </th>
+    
+    <th>
+      人类角色
+    </th>
+    
+    <th>
+      AI 角色
+    </th>
+    
+    <th>
+      注意力成本
+    </th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+    <td>
+      HITL（现状）
+    </td>
+    
+    <td>
+      Responsible + Accountable
+    </td>
+    
+    <td>
+      Consulted
+    </td>
+    
+    <td>
+      最大化
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      HOTL（目标）
+    </td>
+    
+    <td>
+      Accountable + Informed
+    </td>
+    
+    <td>
+      <strong>
+        Responsible
+      </strong>
+    </td>
+    
+    <td>
+      最小化
+    </td>
+  </tr>
+</tbody>
+</table>
+
+许多 AI 工具今天占据 Consulted 角色——人类仍负责和问责，AI 只提供建议。这正是注意力成本最大化的配置。
+
+真正的机会是将 AI 向左移动：让 AI Agent 承担 Responsible 角色（执行主要工作），人类保持 Accountable 和 Informed，仅在必要时被咨询。
+
+不要向 AI 征求建议，要求它完成工作。然后仅在需要做出昂贵或不可逆决策时通知人类。
+
+见：[The Attention Debt of AI Tooling](https://www.wespiser.com/posts/2026-03-15-Attention-Debt-Of-AI-Tooling.html)：AI 工具的认知成本分析
+
+#### 有状态压缩与子 Agent：长周期工作流的上下文架构
+
+长周期 Agentic 工作流（跨越数小时至数周）面临根本性挑战：被动截断对话历史会丢失关键状态。CaveAgent 以“LLM-as-Runtime-Operator”范式开创了双流架构：轻量级语义流用于 LLM 推理，
+持久化运行时流用于状态管理和代码执行。复杂数据结构（如 DataFrames）作为原生 Python 变量注入持久运行时，Agent 通过简洁变量引用操作高保真数据，将存储与有限的上下文窗口解耦。
+监督者 Agent 可以编程方式将变量注入子 Agent 运行时，多个 Agent 可在统一共享运行时上操作，实现隐式同步和无损状态流。
+
+主动上下文压缩是另一项新兴技术：在每 10–15 次工具调用后，Agent 使用 `start_focus` 和 `complete_focus` 指令自主压缩上下文。在上下文密集的 SWE-bench Lite 任务中，
+这实现了 22.7% 的 token 节省而不牺牲准确性，相比之下被动压缩仅节省 6%。企业级分层记忆架构正在兴起，包含六个层次：事件日志（仅追加真相来源）、状态存储（检查点与幂等键）、知识存储（语义记忆）、检索层（混合搜索与租户隔离）、
+上下文构建器（token 预算内组装 Prompt）、可观测性层（审计与溯源）。
+
+见：[arXiv:2601.01569](https://arxiv.org/abs/2601.01569)、[arXiv:2601.07190](https://arxiv.org/abs/2601.07190)、[StackAI](https://www.stack-ai.com/insights/ai-agent-memory-and-context-management-best-practices-and-patterns-for-long-running-enterprise-workflows)、[Leanware](https://www.leanware.co/insights/langgraph-agents)
+
+#### 企业级幻觉防控：上下文管道与多 Agent 审查架构
+
+企业级 AI Agent 的幻觉问题越来越通过多层次的上下文管道解决，而非仅靠提示工程。主导架构转变是从单 Agent 推理转向编排管道，结合 RAG、知识图、神经符号验证和多 Agent 审查层。“上下文层”
+方法将管道视为原始企业数据与 Agent 之间的中介：通过 MCP 等协议将上下文暴露为可查询工具，使用共享业务词汇表和本体论解析模糊术语，通过列级血缘告知数据来源，并将治理规则编码为可查询节点。
+
+研究表明，渐进式多 Agent 精炼架构可显著降低幻觉得分：四级管道（前端 Agent → 二级审查员 → 三级审查员 → 评估 Agent）使用结构化 JSON 的 Agent 间通信，传递“耳语上下文（Whisper Context）”
+元数据，在 310 个对抗性 Prompt 实验中将总幻觉得分（THS）降低了近 2,800%。相比标准向量相似性 RAG，Graph-RAG 同时遍历结构化知识图和文本检索，提供可解释的推理路径。神经符号护栏使用框架级钩子拦截工具调用，
+防止 LLM 可能幻觉出的参数错误和工具绕过行为。企业安全框架通常解决四类风险：幻觉（输出验证器 + Graph-RAG）、失控行为（沙盒 + 熔断器）、数据泄露（PII 检测管道，约 96% F1）、过度自主（人机回环升级）。
+
+见：[arXiv:2501.13946](https://arxiv.org/abs/2501.13946)、[AWS/Strands Agents](https://dev.to/aws/stop-ai-agent-hallucinations-4-essential-techniques-2i94)、[IJLRP](https://www.ijlrp.com/papers/2026/3/2015.pdf)
+
+#### Agent-first 基础设施：以 Agent 为一等公民重写工具链
+
+Karpathy 注意到今天大多数文档、API、权限模型、设置流程仍然为人设计：去某个 URL、点某个菜单、复制某个 key、配置某个 DNS。在 Agentic 范式下，他的反应是“为什么还在告诉我该怎么做？我什么都不想做。
+给我能复制粘贴给 Agent 的东西是什么？”
+
+Agent-first infrastructure 的目标是把世界拆成 Agent 能读懂的输入与可安全调用的动作接口。文档、API、权限、日志、部署、配置、账单、回滚都要变得更适合 Agent 使用——
+不是让 Agent 模拟人去点网页，而是让 Agent 直接理解状态、调用动作、收到反馈。Karpathy 的具体测试标准是：未来给 LLM 一句 `Build MenuGen`，它不仅写代码，还能完成部署、上线、配置依赖服务，
+整个过程不需要人去一个个菜单里操作。
+
+更远一步，他设想每个人和组织都可能有自己的 Agent representation——安排会议、协调事项变成“我的 Agent 和你的 Agent 去谈”。
+
+见：[Karpathy 最新访谈：Vibe Coding 只是开始，真正重要的是 Agentic Engineering](https://baoyu.io/blog/andrej-karpathy-from-vibe-coding-to-agentic-engineering)
+
+#### 否定指令比正面指令弱
+
+很多工程师习惯用"不能透露竞品价格""不能承诺配送时间"来画边界，但执行效果通常不如把边界重新表述为正面流程。LLM 的概率预测机制偏向正向模式匹配，训练数据里肯定指令也占主导，导致"不要做 X"更容易被忽略或只在表面被满足。
+工程上更可靠的做法是：把禁止事项转化为"遇到该情况时必须执行的检查步骤"，例如"如果用户询问竞品，先调用 `product_compare_refusal` 工具并返回固定话术"。单纯罗列禁止项，
+模型在压力场景下会倾向于满足用户请求而不是遵守否定约束。
+
+#### 置信度阈值需要校准
+
+在 Prompt 里写"置信度 >90% 直接回复，<60% 转人工"看起来很工程化，但模型 verbalized confidence 的校准极差，会随温度、领域、上下文长度漂移。这个阈值是未被观测的隐变量，不是可配置参数；
+没有 held-out eval 或独立 verifier 做回测校准，它会在某些场景下过度自信，另一些场景下又过度保守。更稳的做法是把阈值当作初始 guess，配套一个持续收集 bad case 并调整阈值的反馈环，
+而不是写死在一个字符串里。
+
+#### 上下文截断要写在代码里
+
+很多工程师会把"只保留最近 3 轮对话"写进 System Prompt，期待模型自己学会摘要和丢弃。但 LLM 没有对自己已消费 token 的自我感知，它看到的历史就是已经塞进窗口的全部内容；
+提示词里的"管理规则"本质上只是在告诉模型"如果遇到历史，请优先关注近期"，并不能真正防止窗口溢出。真正决定哪些信息进入上下文的，是代码层的 compaction、摘要器、路由器和截断策略。
+把上下文管理当成 prompt 工程而不是系统工程，长会话后期会 silently 丢失关键 earlier context，表现为"模型突然忘记用户说过什么"。

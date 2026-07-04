@@ -1,0 +1,149 @@
+# 网站的可访问性
+
+> 增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用底处理性能或低带宽设备的人
+
+## 页面观感
+
+### 文字对比度
+
+很多网站会使用白色加灰色文字来创造一种"高级感"，不过使用这种技巧的同时，为了保证可读性，一般会把文字设置得很大。如在在保证字体大小的情况下确定其可读性呢？你可以使用 Chrome 自带的颜色对比度检测工具。看下图，右下角打了勾勾，
+就说明没啥问题：
+
+![Chrome Inspect](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718183201.png)
+
+老样子，还是要推荐一下 VisBug 插件，比起 Chrome 自带的东西，虽然不那么好用，但是功能更全一些。下图展示 VisBug 的颜色对比度测试：
+
+![VisBug 的颜色对比度测试](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718180918.png)
+
+### 图片的替换文本
+
+最基本的可访问性图片标签是怎么写的？有三点建议：
+
+- 给 HTML 中的所有图片都加上 alt 属性
+- 给 CSS 中的背景图片对应的 HTML 的容器加上 aria-label 属性
+- 装饰性的图案使用空 alt 属性
+
+```html
+<img alt="a dog" />
+
+<div class="background-image" aria-label="a dog" />
+
+<img id="decorative-image" alt="" />
+```
+
+### 可点击的小玩意儿
+
+页面上的没有文字提示，却又有点击作用的图片、图标、按钮，实在是另人头疼。
+
+我曾在某博客看到一排微信、豆瓣等应用的图标。鼠标悬浮上去，也没有提示。我以为是博主的联系方式。结果点击了，跳出一个分享页面，才知道，嗷，原来是骗我分享用的。
+
+除非是非常棒的、一眼就能让人理解的设计，否则，文字和图片请一起加上吧！就像这样：
+
+![文字+图标](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718185203.png)
+
+或者，至少加个 title 也行鸭（arial-label 也不能少）！
+
+![带 title 属性的图片](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718190935.png)
+
+## WAI
+
+W3C 无障碍推进小组（WAI）为提高残障人士的网页体验，指定了一组被国际公认的无障碍标准指南，其中包括：
+
+- [WCAG（网页内容无障碍指南）](https://www.w3.org/TR/WCAG20/)
+- [UAAG（用户代理无障碍指南）](https://www.w3.org/TR/2015/NOTE-UAAG20-20151215/)
+- [ATAG（创作工具无障碍指南）](https://www.w3.org/TR/2015/REC-ATAG20-20150924/)
+- WAI-ARIA（无障碍富网络应用）
+
+## ARIA
+
+为了增强页面相对于屏幕阅读器的可访问性，无障碍富网络应用项目（WAI-ARIA）优雅地给 HTML 元素按照其所在页面的角色（roles，控件的作用）、状态（states，包含的数据）、及角色属性（properties，控件属性）
+设定元素的语义。比如，你想把一个 div 作为按钮时，就需要给标签加上 `role="button"`。当然，如果你已经用的是 button 了，那就没有再加 `role="button"` 的必要咯。
+
+### roles
+
+按照控件的作用，可以将 roles 划分为以下几类 <sup>
+
+[1](#user-content-fn-category)
+
+</sup>
+
+：
+
+- **功能控件**：button（按钮）、checkbox（勾选框）、link（链接）、progressbar（进度条）、radio（单选框）、radiogroup（选项组）、switch（开关）、tab（标签页）、slider（轮播）、
+textbox（文本编辑区）
+- **结构控件**：img（图片）、list（列表）、listitem（列表项）
+- **坐标控件**：banner（横幅）、search（搜索区）、complementary（补充）、contentinfo（内容信息）、navigation（导航）
+- **动态控件**：alert（警告）、计时器（timer）、log（记录）、status（状态栏）
+- **窗口控件**：alertdialog（警告框）、dialog（对话框）
+
+### States & Properties
+
+#### 对话框打开时聚焦标题而非关闭按钮的实践建议
+
+WAI-ARIA 规范推荐在对话框（dialog/modal）打开时将焦点置于第一个可聚焦元素——通常是关闭按钮。但这会导致屏幕阅读器用户听到"对话框，购物车，关闭，按钮"的混淆信息，误以为对话框已处于关闭状态。
+
+一种替代实践建议：将焦点置于对话框标题而非关闭按钮。实现方式为给标题添加 `id` 和 `tabindex="-1"`，对话框打开时通过 JavaScript 的 `focus()` 方法聚焦标题元素。用户听到的是"对话框，购物车"，
+确认焦点已随操作转移，且不被"关闭"一词暗示干扰。
+
+需注意，这与 WAI-ARIA Authoring Practices Guide (APG) 的推荐做法存在分歧。APG 推荐聚焦第一个有意义的交互元素或 dialog 容器本身。聚焦标题属于 UX 优先的设计偏好，
+适合作为规范合规与用户体验之间张力的一种解法参考。
+
+见：[Quick Tip: Dialog Focus - Tarnoff](https://tarnoff.info/2026/03/10/quick-tip-dialog-focus/)
+
+## 自动滚动内容的可访问性问题
+
+**自动滚动内容**（如跑马灯、轮播图自动播放）对多类用户群体构成障碍，
+尤其对 Android 屏幕阅读器用户造成极大的使用困扰。
+
+**核心问题：Android TalkBack 的音频反馈冲突**
+
+Android 屏幕阅读器 TalkBack 在滚动时会发出"earcons"（听觉图标）作为音频反馈，
+帮助盲用户感知滚动距离。但当页面存在自动滚动内容时，
+这些提示音会**持续不断地播放**，形成刺耳的"滴答声交响曲"，严重干扰内容收听。
+
+**受影响的用户群体：**
+
+- **视障用户**：被迫聆听持续的音调变化，难以获取实际内容
+- **认知障碍用户**：持续性动画导致分心、迷失方向
+- **前庭敏感用户**：可能引发头晕、身体不适
+- **注意力障碍用户**：难以聚焦于静态内容
+
+**平台差异：**
+
+- **Android TalkBack**（网页和原生应用均受影响）：存在此问题
+- **iOS VoiceOver**：不受此问题影响
+
+**建议方案：**
+
+1. **完全放弃自动滚动**，改用溢出文本或手动控制的轮播
+2. 如必须使用，提供**显式的播放/暂停/停止控件**
+3. 尊重用户的 `prefers-reduced-motion` 设置
+
+见：[Please do not use auto-scrolling content on the web](https://cerovac.com/a11y/2026/01/please-do-not-use-auto-scrolling-content-on-the-web-and-in-applications/)
+
+## 反面教材
+
+掘金上的一些文章喜欢直接套用 Markdown Nice 的排版：
+
+![掘金某文章](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20200718182207.png?w=70)
+
+从设计的角度而言，这种网格纸背景能给人带来一丝"学习"、"青春"之类的联想，也许能提高读者的阅读理解水平。但这种背景既不吸引注意，又无法忽视它，我不喜欢 <sup>
+
+[2](#user-content-fn-wierd-bg)
+
+</sup>
+
+。
+
+## 阅读更多
+
+- [The 6 Most Common Accessibility Problems (and How to Fix Them)](https://blog.scottlogic.com/2020/07/02/6-most-common-accessibility-problems.html#empty-links-and-empty-buttons)
+
+<section className="footnotes" dataFootnotes="">
+
+## Footnotes
+
+1. [https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques) [↩](#user-content-fnref-category)
+2. 也许我上了年纪，不是这种文章的目标读者了~ [↩](#user-content-fnref-wierd-bg)
+
+</section>
