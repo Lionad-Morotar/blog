@@ -40,6 +40,7 @@ Lusion 通过 Lusion Labs 和月度实验系列进行内部研发，用小周期
 
 - [C4D](c4d.md) - Cinema 4D 三维设计
 - [Shader](shader.md) - 着色器编程
+- [Three.js](threejs.md) - WebGL 三维渲染库
 - [WebGL](webgl.md) - WebGL 基础与实战
 
 #### DLSS 5：实时光线追踪后的下一个图形突破
