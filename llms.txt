@@ -203,6 +203,7 @@ goose is being developed as an open-source software project.
 - [Tools](https://lionad.art/raw/maps/_ai/tools/tools.md): AI 开发工具与平台，包括 Claude Code、浏览器自动化、GitHub Copilot 等编码助手。
 - [Fine-tuning](https://lionad.art/raw/maps/_ai/training/fine-tuning.md): Model fine-tuning techniques and best practices
 - [Post-training](https://lionad.art/raw/maps/_ai/training/post-training.md): Post-training optimization and model alignment
+- [RLVR](https://lionad.art/raw/maps/_ai/training/rlvr.md): Reinforcement Learning with Verifiable Rewards 核心概念与算法
 - [拓扑感知调度](https://lionad.art/raw/maps/_ai/training/topology-aware-scheduling.md): 拓扑感知调度是一种在分布式计算环境中，根据硬件拓扑结构和网络性能来优化任务调度和资源分配的方法，以提高整体系统的效率和性能。
 - [AI Training](https://lionad.art/raw/maps/_ai/training/training.md): Model training, fine-tuning, and post-training techniques
 - [agents.md](https://lionad.art/raw/maps/_ai/vibe/agents-md.md): AGENTS.md 是一种用于向 AI 编码代理提供说明的常用格式
@@ -490,6 +491,7 @@ goose is being developed as an open-source software project.
 - [Cinema 4D](https://lionad.art/raw/maps/_render/c4d.md): C4D 相关的技术和应用
 - [渲染技术](https://lionad.art/raw/maps/_render/render.md): 3D 渲染、着色器与图形编程相关技术。
 - [Shader Art](https://lionad.art/raw/maps/_render/shader.md): Shader Art 是一种使用 Shader 语言进行创作的艺术形式，它可以用来制作动画、图像、音乐等。
+- [Three.js](https://lionad.art/raw/maps/_render/threejs.md): Three.js 高级材质、着色器与实时渲染的实战秘密
 - [WebGL](https://lionad.art/raw/maps/_render/webgl.md): WebGL 基础理论与实战教程资源
 - [复杂科学](https://lionad.art/raw/maps/_science/complex-science/complex-science.md): 复杂科学是一门研究复杂系统的学科，它涉及到多个学科领域，包括物理学、生物学、社会学、经济学等。复杂科学的研究对象是复杂系统，这些系统由大量相互作用的元素组成，这些元素之间的相互作用会导致系统的行为变得难以预测。
 - [系统论](https://lionad.art/raw/maps/_science/complex-science/systems-theory.md): 系统论是一种研究系统的科学，它是一种研究对系统的整体性、结构性、最优化的科学，是一种研究系统的一般规律的科学，是一种研究系统之间相互作用的科学。
