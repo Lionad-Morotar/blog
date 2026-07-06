@@ -170,6 +170,45 @@ original_path: _ai/llm/llm-as-a-judge.md
 
 原文的态度是：这些改进「意在增强可靠性，但显著增加成本和复杂度」，且尚未把 LLM 评审带到「成熟、可无脑依赖」的程度。
 
+#### CDRRM：对比驱动的 Rubric 生成
+
+直接让 LLM 为某个偏好对生成评估 rubric，容易输出模型先验里自带的、
+与真实判别因素脱节的冗余标准。CDRRM 的 Contrast-then-Synthesis 范式先把 chosen/rejected 两个回答
+放在同一套动态维度下做细粒度对比（Contrastive Profiling），
+再基于两者的实际差异合成 rubric；消融实验中，少了这一步的 One-step Rubric Judge 平均只有 79.0，
+而完整 CDRRM-8B(Base) 达到 85.8，
+说明「先对比、再合成」不是流程装饰，而是把 rubric 对齐到真实决策边界的关键。
+
+见：[CDRRM](https://arxiv.org/abs/2603.08035)
+
+#### 用一致性约束自举过滤噪声 rubric
+
+CDRRM 在 Rubric Synthesis 后加了一条 Preference-Consistency Constraint：
+只有当生成的 rubric 能重新正确判断原始偏好对时，这个样本才会进入训练集。
+这相当于用同一个 judge 做反向验证，不需要额外人工标注就能把与真实偏好不一致的 noisy rubrics 过滤掉；
+配合 Contrastive Profiling，只用 3k 样本训练的 Rubric Generator 就能让 frozen pre-trained judge 超过 fully fine-tuned baseline。
+
+见：[CDRRM](https://arxiv.org/abs/2603.08035)
+
+#### 高质量 rubric 能解锁 frozen judge 的潜力
+
+CDRRM-8B(Base) 没有微调 Judge Model，只是把 Rubric Generator 生成的 rubrics prompt 给 frozen Qwen3-8B，
+就在 RewardBench/RMBench/RMB 平均达到 85.8，
+超过 BR-RM-Qwen-8B(85.2) 和 RM-R1-Qwen-Instruct-32B(83.5) 等经过完整微调的 baseline。
+这意味着当评估标准被显式化、结构化之后，通用模型的 in-context reasoning 能力可以被充分激发，而不必重写模型权重。
+
+见：[CDRRM](https://arxiv.org/abs/2603.08035)
+
+#### 显式 rubric 把评审焦点从风格拉回事实
+
+在 RMBench Hard（专门测 subtle content discrepancy、verbosity bias、position bias）上，
+Scalar RMs 最高 54.3，GenRMs 最高 76.1，rubric-based RMs 最高 71.9，而 CDRRM-14B(SFT) 达到 83.4。
+案例研究显示，Direct Judge 会把一个更长但截断的回答判为更好，
+CDRRM 则生成「必须完整无截断」「禁止未要求的结构元素」等 hard rules，
+把判断依据从长度、格式、位置等表面特征转移到具体的事实与规则违反上。
+
+见：[CDRRM](https://arxiv.org/abs/2603.08035)
+
 ### 系统性影响：对评估体系和工程实践的冲击
 
 #### 对评估架构与指标体系的影响
