@@ -81,12 +81,16 @@ const { data: files } = useLazyFetch('/api/search.json', {
 const htmlLang = computed(() => (route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'zh-cn'))
 
 /**
- * 规范 URL：统一去除尾斜杠、去除查询与 hash，避免搜索引擎将带/不带斜杠视为重复内容
- * GitHub Pages 静态托管无法做服务端 301，因此用 canonical 标签作为权威性收敛信号
+ * 规范 URL：目录型路径补尾斜杠，与 GitHub Pages 静态托管的实际 301 行为对齐
+ *
+ * GitHub Pages 对目录型产物（dir/index.html）强制 /foo ──301──▶ /foo/，
+ * Google 索引的最终版本是带尾斜杠的。canonical 必须指向这个最终服务 URL，
+ * 否则搜索引擎会发现 canonical 指向一个会 301 的 URL，从而忽略 canonical 自行决策。
+ * route.path 不含 query 与 hash，天然满足"去除查询参数"的需求。
  */
 const canonicalUrl = computed(() => {
   const path = route.path
-  const normalized = path === '/' ? '/' : path.replace(/\/+$/, '')
+  const normalized = path === '/' || path.endsWith('/') ? path : `${path}/`
   return `https://lionad.art${normalized}`
 })
 
