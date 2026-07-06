@@ -11,5 +11,8 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "academic-research-skills@academic-research-skills": true
   }
 }
