@@ -1,6 +1,7 @@
 const baseUrl = 'https://lionad.art'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// @ts-expect-error vue-tsc 的 vue-router/volar/sfc-route-blocks 插件加载失败导致 DefineNuxtConfig 类型暂时不可用
 export default defineNuxtConfig({
 
   modules: [
@@ -277,6 +278,13 @@ export default defineNuxtConfig({
     domain: 'https://lionad.art',
     title: '仿生狮子的博客',
     description: 'Lionad 的博客，关于前端工程、科学哲学、Flow 与知识管理',
+    /**
+     * 关闭 llms.txt 链接到 /raw/*.md 的重写，让索引指向渲染后的 HTML 页面。
+     * 每个页面同时提供同名 .md 路由与 Accept 内容协商，AI 智能体仍可读取 Markdown。
+     */
+    contentRawMarkdown: {
+      rewriteLLMSTxt: false
+    },
     full: {
       title: '博客完整内容',
       description: '包含所有文章、流程笔记与知识地图的完整内容'
@@ -336,11 +344,22 @@ export default defineNuxtConfig({
    * @see https://nuxtseo.com/robots/getting-started/how-it-works
    */
   robots: {
-    disallow: [
-      '/api/_content',
-      '/__sitemap',
-      '/preview',
-      '/raw'
+    groups: [
+      {
+        comment: [
+          '面向所有爬虫（包括 AI 智能体）的规则',
+          '允许搜索索引与 AI 输入（RAG、grounding、生成式搜索），禁止用于模型训练'
+        ],
+        userAgent: ['*'],
+        allow: ['/'],
+        disallow: [
+          '/api/_content',
+          '/__sitemap',
+          '/preview',
+          '/raw'
+        ],
+        contentSignal: ['search=yes', 'ai-input=yes', 'ai-train=no']
+      }
     ],
     sitemap: `${baseUrl}/sitemap.xml`
   },

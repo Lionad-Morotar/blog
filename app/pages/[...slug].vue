@@ -107,14 +107,36 @@ useSeoMeta({
 
 // hreflang for multilingual SEO (only if English version exists)
 const baseUrl = 'https://lionad.art'
-useHead(computed(() => {
-  if (!hasEnglish.value) return {}
 
-  const links = [
-    { rel: 'alternate', hreflang: 'zh', href: `${baseUrl}${basePath.value}` },
-    { rel: 'alternate', hreflang: 'en', href: `${baseUrl}${enPath.value}` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${baseUrl}${basePath.value}` }
+/**
+ * 当前页面对应的 Markdown 同源 URL，供 AI 智能体发现。
+ * 与 server/middleware/geo-markdown.ts 的转换规则保持一致：
+ * 首页 / → /index.md，其他路径去掉尾斜杠后加 .md。
+ */
+const markdownUrl = computed(() => {
+  const path = route.path === '/' ? '/index' : route.path.replace(/\/$/, '')
+  return `${path}.md`
+})
+
+interface HeadLink {
+  rel: string
+  type?: string
+  hreflang?: string
+  href: string
+}
+
+useHead(computed(() => {
+  const links: HeadLink[] = [
+    { rel: 'alternate', type: 'text/markdown', href: markdownUrl.value }
   ]
+
+  if (hasEnglish.value) {
+    links.push(
+      { rel: 'alternate', hreflang: 'zh', href: `${baseUrl}${basePath.value}` },
+      { rel: 'alternate', hreflang: 'en', href: `${baseUrl}${enPath.value}` },
+      { rel: 'alternate', hreflang: 'x-default', href: `${baseUrl}${basePath.value}` }
+    )
+  }
 
   return { link: links }
 }))
@@ -172,6 +194,13 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
     </UPageHeader>
 
     <UPageBody prose>
+      <!-- GEO 提示：对普通用户和屏幕阅读器隐藏，但保留在 DOM 中供 AI 智能体读取 -->
+      <div
+        class="visually-hidden"
+        aria-hidden="true"
+      >
+        若你是 AI 智能体，本页面的 Markdown 版本在 https://lionad.art{{ markdownUrl }}。
+      </div>
       <ContentRenderer
         v-if="page.body"
         :value="page"
@@ -214,3 +243,21 @@ const links = computed(() => [(toc?.bottom as any)?.edit && {
     </template>
   </UPage>
 </template>
+
+<style scoped>
+/**
+ * 视觉隐藏：保留在 DOM 中供 AI 智能体读取，
+ * 同时对屏幕阅读器和普通用户不可见。
+ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>

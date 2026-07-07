@@ -14,6 +14,13 @@ const { toc, seo } = useAppConfig()
 
 const path = computed(() => withoutTrailingSlash(route.path))
 
+interface PreviewPage {
+  title: string
+  description: string
+  toc?: boolean
+  body?: { toc?: { links?: unknown[] } }
+}
+
 const { data: page } = await useAsyncData(path.value, async () => {
   const slug = (route.params.slug as string[]).join('/')
   return await $fetch(`/api/preview/${slug}`)
@@ -23,22 +30,22 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
+const typedPage = computed(() => page.value as unknown as PreviewPage)
+
 useSeoMeta({
   titleTemplate: `%s - ${seo?.siteName}`,
-  title: page.value.title,
-  ogTitle: `${page.value.title} - ${seo?.siteName}`,
-  description: page.value.description,
-  ogDescription: page.value.description
+  title: typedPage.value.title,
+  ogTitle: `${typedPage.value.title} - ${seo?.siteName}`,
+  description: typedPage.value.description,
+  ogDescription: typedPage.value.description
 })
-
-const typedPage = computed(() => page.value as typeof page.value & { body?: { toc?: { links?: any[] } } })
 </script>
 
 <template>
   <UPage>
     <UPageHeader
-      :title="page.title"
-      :description="page.description"
+      :title="typedPage.title"
+      :description="typedPage.description"
     />
 
     <UPageBody prose>
@@ -49,7 +56,7 @@ const typedPage = computed(() => page.value as typeof page.value & { body?: { to
     </UPageBody>
 
     <template
-      v-if="page.toc !== false"
+      v-if="typedPage.toc !== false"
       #right
     >
       <UContentToc
