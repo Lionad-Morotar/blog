@@ -173,7 +173,9 @@ original_path: _ai/llm/llm-as-a-judge.md
 #### CDRRM：对比驱动的 Rubric 生成
 
 直接让 LLM 为某个偏好对生成评估 rubric，容易输出模型先验里自带的、
-与真实判别因素脱节的冗余标准。CDRRM 的 Contrast-then-Synthesis 范式先把 chosen/rejected 两个回答
+与真实判别因素脱节的冗余标准；现有数据集中多数样本会产出 7 条以上 criteria，
+而随机删除 1-3 条后重新训练，验证集精度波动不超过 0.42%，
+说明大量 rubric 并不携带真正的判别信号。CDRRM 的 Contrast-then-Synthesis 范式先把 chosen/rejected 两个回答
 放在同一套动态维度下做细粒度对比（Contrastive Profiling），
 再基于两者的实际差异合成 rubric；消融实验中，少了这一步的 One-step Rubric Judge 平均只有 79.0，
 而完整 CDRRM-8B(Base) 达到 85.8，
