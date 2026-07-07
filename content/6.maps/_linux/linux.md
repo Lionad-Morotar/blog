@@ -153,6 +153,7 @@ chmod 777 xxx
 ```
 
 见：[Nginx 配置文件示例](/maps/_linux/nginx/config-example)
+见：[Nginx 配置原理与陷阱](/maps/_linux/nginx/nginx)
 
 #### 如何安装 ImageMagick？
 
