@@ -13,6 +13,7 @@ original_path: content/6.maps/_devops/git.md (primary source), content/6.maps/_d
 * [Pre-commit Hook](./pre-commit-hook) - 预提交钩子与代码检查
 * [语义化版本](./semantic-versioning) - 版本号管理与 Semver
 * [Git 常用命令](./git-commands) - 分支操作、提交管理、历史查看等命令速查
+* [Lore](./lore) - Epic Games 开源的新一代版本控制系统
 
 ## 简介
 
@@ -145,4 +146,110 @@ Semver 被设计用来解决依赖地狱的问题，常用于定义了公共 API
 在单仓多包项目中，如果遵循语义化版本，那么版本同步会使版本号迅速膨胀。一个好的方案是现在其他项目使用 0.x 版本号开发，等 API 稳定后再合并到单仓中升级成为 1.0.0 版本。
 
 见：[The Case for Monorepos](https://medium.com/netscape/the-case-for-monorepos-907c1361708a)
+
+## 核心概念
+
+#### 内容寻址（Content-Addressed Storage）
+
+内容寻址指数据通过其内容哈希来标识和检索，而非文件路径或位置。
+相同内容必然得到相同哈希，因此天然支持去重与完整性校验。
+Git 的对象数据库、Lore 的块存储、IPFS 都采用这种机制。
+
+见：[Lore README](https://github.com/epicgames/lore/blob/main/README.md)
+
+#### Merkle Tree
+
+Merkle Tree 是一种哈希树：叶子节点是数据块的哈希，非叶子节点是子节点哈希的哈希，
+根节点称为 Merkle Root。它的价值在于：用根哈希即可验证整棵树完整性、
+快速定位差异子树、支持稀疏获取。
+
+见：[Lore System Design](https://github.com/epicgames/lore/blob/main/docs/explanation/system-design.md)
+
+#### 不可变版本链与 revert
+
+不可变版本链指每个 revision 的哈希由其父 revision 哈希与自身内容哈希共同决定，
+历史无法被篡改而不改变哈希。revert 不是修改历史，而是追加一个新的 revision，
+其内容状态等于目标旧状态。
+
+见：[Lore CLI Commands](https://github.com/epicgames/lore/blob/main/docs/reference/lore-cli-commands.md)
+
+#### 大文件分块存储的适用场景
+
+Content-Defined Chunking（CDC）适合频繁局部修改的大文件，如纹理贴图、3D 模型、音频、
+视频、关卡数据、日志文件。固定大小分块则适合需要规范寻址的场景。
+
+见：[Lore System Design](https://github.com/epicgames/lore/blob/main/docs/explanation/system-design.md)
+
+## 工具与生态
+
+#### Git 的内容寻址粒度
+
+Git 确实是内容寻址的：blob、tree、commit 对象都用 SHA-1（逐步迁到 SHA-256）做哈希，
+对象名即哈希值。但 Git 的粒度是"整个对象"——一个 blob 就是一整个文件快照，
+而不是文件分块。
+
+见：[Git Internals - Git Objects](https://git-scm.com/book/en/v2/Git-Internals-Git-Objects)
+
+#### Git LFS 的常见缺陷
+
+Git LFS 用指针文件替代大文件，真实 blob 存在 LFS 服务器。
+常见缺陷包括：指针文件污染历史、去重能力有限、lock 机制弱、需要额外安装配置、
+大仓库性能差、rebase/merge 困难、带宽与存储效率一般。
+
+见：[Git LFS](https://git-lfs.com/)
+
+#### libgit2 是什么
+
+libgit2 是 Git 核心逻辑的可移植 C 语言库实现，与 Git 官方命令行工具独立。
+它提供 C API 与多语言绑定，被 GitHub Desktop、GitKraken 等工具使用，
+但常滞后于 Git 官方新特性。
+
+见：[libgit2](https://libgit2.org/)
+
+#### Perforce 的局限性
+
+Perforce（p4/Helix Core）是商业集中式 VCS，使用专有协议与锁机制。
+在大规模团队与 TB 级资产场景下，其扩展成本、全球协作延迟、锁竞争、
+与现代 CI/CD 集成能力都成为痛点，这也是 Epic 推动 Lore 的背景之一。
+
+见：[Perforce Helix Core](https://www.perforce.com/products/helix-core)
+
+#### TB 级资产的来源
+
+3A 游戏与影视项目的资产可达 TB 甚至 PB 级，包括纹理贴图、3D 模型、动画、音频、
+视频、关卡数据、光照贴图、构建产物等。Fortnite、Unreal Engine 5 项目、影视 VFX
+都是典型代表。
+
+见：[EpicGames/lore](https://github.com/EpicGames/lore)
+
+#### 新型轻量 VCS 概览
+
+| 系统 | 特点 |
+|---|---|
+| Jujutsu (jj) | Google 开发，兼容 Git 存储，变更模型更强大 |
+| Sapling | Meta 开发，兼容 Git/Hg，内置 EdenFS 虚拟文件系统 |
+| Pijul | 基于 patch theory，合并更数学化 |
+| Fossil | 轻量、自包含，内置 wiki/bug tracking |
+| DVC | 面向 ML 的数据/模型版本控制 |
+| LakeFS | 数据湖的 Git-like 版本控制 |
+| Dolt | "Git for data"，MySQL 兼容的数据库版本控制 |
+| Radicle | 去中心化 P2P 代码协作网络 |
+
+见：[Lore README](https://github.com/epicgames/lore/blob/main/README.md)
+
+## 术语速查
+
+#### SHA 的发音
+
+SHA 读作 /ʃɑː/，类似中文"沙"。SHA-1 读作"shah one"，
+SHA-256 读作"shah two fifty-six"。全称是 Secure Hash Algorithm。
+
+见：[NIST FIPS 180](https://csrc.nist.gov/pubs/fips/180-5/final)
+
+#### p4 是什么
+
+p4 是 Perforce 的命令行客户端，也是 Perforce 生态的简称。
+Perforce 的服务器产品名为 Helix Core，图形化客户端名为 P4V。
+
+见：[Perforce Helix Core](https://www.perforce.com/products/helix-core)
 
