@@ -20,6 +20,10 @@ Rezi 是一个高性能的 TypeScript 终端 UI（TUI）框架。开发者使用
 
 见：[Rezi 文档](https://rtlzeromemory.github.io/Rezi)
 
+## WidgetKit
+
+* [现代化 WidgetKit 项目工程实践](/maps/_programming/frameworks/widgetkit) - 小组件项目的工程化决策、运行时约束与测试策略
+
 ---
 
 *注：此子领域未来可扩展更多开发框架与工具库内容。*
