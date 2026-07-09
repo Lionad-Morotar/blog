@@ -11,6 +11,7 @@ description: DevOps 是一种开发理论，它致力于将大量自动化操作
 * [CI/CD](/maps/_devops/cicd/cicd) - 持续集成与持续部署
 * [容器](/maps/_devops/container/docker) - Docker 容器技术
 * [BuildKit](/maps/_devops/container/buildkit) - Docker 下一代构建引擎与高级构建语义
+* [Dev Container](/maps/_devops/container/devcontainer) - 容器化开发环境速通与前端陷阱
 * [日志](/maps/_devops/logging/rotatelogs) - 日志轮转与管理
 
 ## 概述
