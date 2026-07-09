@@ -18,6 +18,41 @@ rizaco 在 Hacker News 让 ChatGPT 在图片中画红圈标浣熊位置，结果
 
 见：[Where's the raccoon with the ham radio?](https://simonwillison.net/2026/Apr/21/gpt-image-2/)
 
+## Seedream
+
+#### Pro 的 4K 是像素陷阱
+
+Seedream 5.0 Pro 并非靠堆分辨率取胜。官方 API 文档将输出像素乘积限制在 4,194,304（等价于 2048×2048），
+16:9 场景下长边只能到约 2752–2848 px，即俗称的 2.7K 左右。这与 Lite 支持原生 3K/4K 的规格形成倒挂，
+因此如果业务需求是印刷级 4K 或大屏物料，选 Pro 反而可能拿不到想要的尺寸，需要先确认目标分辨率再决定用
+Pro 还是 Lite，必要时配合 upscaler。
+
+见：[Seedream 5.0 Pro - Runware Docs](https://runware.ai/docs/models/bytedance-seedream-5-0-pro)
+
+#### 编辑只写"改什么"会连带毁整体
+
+用参考图做局部编辑时，Seedream 5.0 Pro 不会自动保留未提及的区域。如果只描述"把鞋面换成森林绿"，
+模型很可能同时改动背景、角度、光影甚至鞋型。稳定做法是在提示词里用明确的 pin 语句列出必须保持不变的属性，
+例如"保持原图轮廓、相机角度、背景、灯光不变"。没有 pin 语句的编辑请求，返工率会显著上升。
+
+见：[Prompting Seedream 5.0 Pro - Runware Docs](https://runware.ai/docs/models/bytedance-seedream-5-0-pro/guides/prompting)
+
+#### 多图融合 Prefer 白底产品图
+
+多图融合最多支持 10 张参考图，但参考图类型直接决定合成稳定性。白底 packshot 的几何、材质、logo 比
+lifestyle 图更稳定；用生活场景图做参考，容易出现材质漂移、形变或比例失真。提示词中应通过内容描述来指代
+参考图（如"tan leather-bound journal"），而不是用"first reference"这类索引，否则换图顺序后提示词会错位。
+
+见：[Prompting Seedream 5.0 Pro - Runware Docs](https://runware.ai/docs/models/bytedance-seedream-5-0-pro/guides/prompting)
+
+#### 提示词过长会丢失指定细节
+
+虽然 API 允许 positivePrompt 最长 3000 字符，但官方指南建议控制在 600 英文词以内。超过这个长度后，
+模型注意力会分散，复杂信息图或多主体场景中的指定细节容易 dropout。分层式提示词
+（格式 → 主体 → 构图 → 灯光 → 文字 → 风格）和先声明画幅/版式，比单纯堆砌形容词更能保留关键信息。
+
+见：[Prompting Seedream 5.0 Pro - Runware Docs](https://runware.ai/docs/models/bytedance-seedream-5-0-pro/guides/prompting)
+
 ## Stable Diffusion
 
 * [Stable Diffusion](/maps/_ai/image/stable-diffusion) - 提示词收集与风格指南
