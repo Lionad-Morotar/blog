@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-07-10
+
+这是什么原理？
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260710141944104.png)
+
 #### 2026-06-24
 
 这张图片是否暗示了 GLM 5.1 常漏删漏补括号问题的根因？
