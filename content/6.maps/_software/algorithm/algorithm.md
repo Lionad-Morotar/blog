@@ -12,6 +12,10 @@ original_path: content/6.maps/_software/algorithm.md
 
 见：[QuickSort @read-source-code](https://github.com/Lionad-Morotar/read-source-code/blob/master/algorithm/quicksort.js)
 
+#### 选择算法与中位数
+
+* [选择算法与中位数](selection-algorithm.md)：顺序统计量（第 k 小与中位数）的选择算法演化、偶数长度与 NaN 下的数值语义，以及崩溃点、截尾均值等稳健统计根因
+
 #### 多人协作系统
 
 * [How Figma's multiplayer technology works](https://www.figma.com/blog/how-figmas-multiplayer-technology-works/)
