@@ -199,6 +199,36 @@ git reset --hard <repo-name>/<branch-name>
 
 git reflog 指令可以恢复已经被 reset 或删除的 commit 记录，但是并不保证一定成功，因为 git 有定期清理的策略。
 
+#### 悬空提交为什么删不掉？
+
+amend、rebase、reset 这类“替换型”操作会让旧 commit 失去分支引用，
+变成悬空提交（unreachable / dangling），但它并不会立刻消失——
+Git 判定可达性时 reflog 也算引用，只要 reflog 条目还在，gc 也会手下留情。
+reflog 默认保留 90 天（其中 unreachable 条目 30 天，
+由 gc.reflogExpire / gc.reflogExpireUnreachable 控制），过期后才被回收，回收前随时可找回。
+也因此 push 只推送可达 commit，悬空提交永远不会被推到远端，除非显式按 ref 推送。
+
+见：[git-reflog Documentation](https://git-scm.com/docs/git-reflog)
+
+#### 如何精确清理悬空提交？
+
+只跑 git gc 删不掉，因为 reflog 仍在引用；要先断 reflog 引用、再修剪对象，两步缺一不可：
+
+```bash
+# 1. 清掉引用悬空提交的 reflog 条目（只清 unreachable 的，不影响其它回退路径）
+git reflog expire --expire-unreachable=now main
+# 2. 修剪悬空对象
+git prune --expire=now
+```
+
+注意 git prune 只删 loose objects；若对象已被打进 .pack，必须改用 git gc --prune=now 重新打包。
+清理前后可用 git fsck --unreachable --no-reflogs 与 git cat-file -t <hash> 验证。
+避免 git reflog expire --expire=now --all 这种核弹参数——它会销毁全部 reflog 回退路径；
+手动删除 .git/objects 下的对象文件同理不推荐（tree/blob 残留且易误伤）。
+amend 场景下新旧 commit 共享的 blob 会自动保留，清理不会破坏替换后的 commit。
+
+见：[git-gc Documentation](https://git-scm.com/docs/git-gc)
+
 #### 如何清理最近几次提交？
 
 可以使用 reset --soft 或者 rebase。使用 rebase 可以对前几次提交进行重新排序、修改提交消息或者进行压缩提交等操作。
