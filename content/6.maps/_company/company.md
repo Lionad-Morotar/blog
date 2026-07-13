@@ -6,6 +6,7 @@ description: 注册和经营的流程及注意事项
 ## 子领域
 
 * [工商注册](/maps/_company/business/company)
+* [企业信息查询](/maps/_company/business/company-info-query)
 
 ## 概述
 
