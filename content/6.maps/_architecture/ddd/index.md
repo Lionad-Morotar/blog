@@ -494,6 +494,16 @@ public interface DiscountPolicy {
 比如用了 Spring Data JPA，你实际上多了一层「JPA Repository」抽象：它坐在领域层和数据库之间，帮你生成 SQL。再比如使用 API Gateway 框架，相当于在系统前面又加了一层「网关层」，
 这都会对整体分层形态产生影响。
 
+#### 接入层与领域层之间的数据对象需要显式转换
+
+分层架构里，接入层（Controller/Handler）的数据结构是“传输契约”——由 IDL/OpenAPI 定义、
+受向前兼容约束、字段服从序列化稳定；领域层的实体则是“业务模型”，携带不变式与行为方法。
+两者必须用独立 convertor 解耦，而非让接入层直接操作领域实体。
+这样 API 契约调整字段不污染领域模型，领域重构也不破坏对外协议，
+多一层转换代码换的是两套模型各自独立演进的自由度。
+
+见：[PresentationDomainDataLayering](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
+
 ### 4.8 接入层（Interface）
 
 接入层负责的是系统的输入和输出。

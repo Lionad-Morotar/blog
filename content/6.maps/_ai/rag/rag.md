@@ -47,6 +47,17 @@ efConstruction（构建时的候选列表大小）和 efSearch（查询时的候
 
 见：[What are the key configuration parameters for an HNSW index](https://milvus.io/ai-quick-reference/what-are-the-key-configuration-parameters-for-an-hnsw-index-such-as-m-and-efconstructionefsearch-and-how-does-each-influence-the-tradeoff-between-index-size-build-time-query-speed-and-recall)
 
+#### HNSW 与 IVFFlat 的场景选型
+
+两者都是 ANN（近似最近邻）向量索引，权衡点不同。HNSW（分层小世界图）把向量组织成多层图，
+查询快、召回高，但内存占用大、构建慢，适合对延迟敏感、内存充裕的中小规模，是多数系统的默认选择。
+IVFFlat 先用聚类把向量分桶，查询时只扫近邻桶，内存省、构建快，
+但召回依赖 nprobe 调参、精度略低，适合数据量极大（千万级以上）且内存吃紧的场景。
+经验法则：默认选 HNSW；当数据量大到内存装不下全量 HNSW 图时，
+再考虑 IVFFlat 或专用分布式向量库。
+
+见：[Milvus Vector Index](https://milvus.io/docs/index.md)
+
 #### pgvector 的舒适区在十万级以下
 
 pgvector 的优势在于和 PostgreSQL 共用存储、事务和运维体系，团队不需要引入新组件就能完成语义检索，这在数据规模可控时非常划算。
@@ -236,6 +247,17 @@ GPT-4o Vision 在处理复杂表格时会出现“看起来合理但单元格错
 
 Multi-Query 通过 LLM 把用户问题改写成多个查询变体再分别检索，确实能覆盖同义表达和不同侧面，但工程上它引入了一条几乎被面试答案忽略的隐性成本链：每多一个变体就要走完整的一次 embedding、检索、去重链路，
 token 消耗和延迟与变体数量近似线性增长；合并结果时还要处理不同查询召回的分数不可比问题。因此它提升的是召回率的上限，却以成本和响应时间为代价，更适合高价值查询或离线链路，而不是无差别地加在所有请求上。
+
+#### BM25 与 Lucene：关键词检索的底层打分
+
+BM25（Best Matching 25）是信息检索的经典排序函数，基于词频（TF）、逆文档频率（IDF）
+和文档长度归一化三个量计算相关性分数，比朴素 TF-IDF 更贴合真实检索质量，
+是 Elasticsearch/OpenSearch 的默认打分算法。Lucene 则是 Apache 旗下的 Java 全文检索引擎库，
+提供倒排索引、分词、BM25 打分等核心能力——ES 和 Solr 都是在 Lucene 之上封装的成品服务。
+在 RAG 的 hybrid search 里，BM25 构成“关键词召回”这一分支，与向量召回互补，
+再由 RRF 等融合策略合并排序。
+
+见：[BM25 vs Lucene Default Similarity](https://www.elastic.co/blog/found-bm-vs-lucene-default-similarity)
 
 #### 混合检索的固定权重是起点而非答案
 
