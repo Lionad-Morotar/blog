@@ -5,5 +5,5 @@ recommends:
     label: '盲视'
     to: '/flows/_forty-two/blind-sight'
   - category: 技术
-    label: 'cc-expand：将 CC 的可用上下文窗口扩大 60%，甚至更多'
-    to: '/articles/cc-expand'
+    label: 'AI 原生团队该凑齐哪五种人'
+    to: '/articles/boris-five-roles-in-ai-native-teams'
