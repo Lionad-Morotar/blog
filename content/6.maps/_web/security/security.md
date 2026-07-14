@@ -119,6 +119,31 @@ OpenID Connect（OIDC）是构建在 OAuth 2.0 之上的身份验证层。
 
 两者可独立使用，也可组合。层叠设计比"大而全"的单一协议更具灵活性和可维护性。
 
+#### JWT 的 sub 校验只能在后端做
+
+`sub`（Subject）是 JWT payload 里标识 token 主体的注册声明，通常装用户 id，在签发方上下文中唯一。
+
+前端可以 base64 解码 payload 看到 `sub`，却无法验证签名，因此读到的 `sub` 可能是伪造的。
+真正的 `sub` 校验——存在性、把 `sub` 解析成具体身份、查该用户是否被禁用或 token 是否被吊销——
+必须在验签之后进行，只有持有签名密钥的后端能做。
+
+所以前端拿到的 `sub` 只能用于展示，不能作为鉴权依据；鉴权决策永远以服务端验签后的结果为准。
+
+见：[RFC 7519 §4.1.2](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.2)
+
+#### Opaque Token：前端不解析 JWT
+
+一种稳妥的接入模式是把 access token 当不透明（opaque）字符串：
+前端只负责存储和在 `Authorization` 头传递，从不解码 payload。
+
+用户身份通过后端接口（如"获取当前用户"）或换取 token 时响应里平铺的字段获取——
+后端早已把 `sub` 解码出来单独返回，前端无需也不应自己抠 JWT。
+
+职责划分因此清晰：前端管 token 的"存和传"，后端管 token 的"验和信"，签名密钥永远不出后端。
+即使 access token 本身是 JWT，前端也按 opaque 方式使用，避免把不可信的 payload 当依据。
+
+见：[Opaque token vs JWT](https://blog.logto.io/opaque-token-vs-jwt)
+
 #### 安全设计原则
 
 OAuth 的每一处复杂性都对应一个安全威胁：
