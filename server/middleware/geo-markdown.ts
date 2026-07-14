@@ -65,7 +65,14 @@ function wantsMarkdown(event: H3Event): { wants: boolean, unsupported: boolean }
 
   // 2. 基于 Accept 头内容协商
   const accept = getRequestHeader(event, 'accept') || ''
-  const parsed = parseAccept(accept)
+  const trimmedAccept = accept.trim()
+
+  // Accept 头为空或未指定可接受类型时，默认返回 HTML
+  if (!trimmedAccept) {
+    return { wants: false, unsupported: false }
+  }
+
+  const parsed = parseAccept(trimmedAccept)
   const mdQ = effectiveQ(parsed, 'text', 'markdown')
   const htmlQ = effectiveQ(parsed, 'text', 'html')
 
