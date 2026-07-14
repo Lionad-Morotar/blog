@@ -4,7 +4,7 @@
         <title>仿生狮子</title>
         <link>https://lionad.art</link>
         <description>Lionad 的博客，关于前端、科学、Flow 与笔记</description>
-        <lastBuildDate>Mon, 06 Jul 2026 13:12:02 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 14 Jul 2026 09:12:16 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>CC BY-NC-SA 4.0</copyright>
@@ -137,19 +137,11 @@
             <enclosure length="0" type="image/png" url="https://lionad.art/images/cover-placeholder.png"/>
         </item>
         <item>
-            <title><![CDATA[cc-flow]]></title>
-            <link>https://lionad.art/articles/cc-flow</link>
-            <guid isPermaLink="false">https://lionad.art/articles/cc-flow</guid>
-            <pubDate>Sat, 27 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[cc-flow]]></description>
-            <enclosure length="0" type="image/png" url="https://lionad.art/images/cc-flow-cover.png"/>
-        </item>
-        <item>
-            <title><![CDATA[🤡 由 Kimi 死循环消耗了两个周限额带来的 CC User-Agent 分析]]></title>
-            <link>https://lionad.art/articles/cc-billing-header</link>
-            <guid isPermaLink="false">https://lionad.art/articles/cc-billing-header</guid>
-            <pubDate>Thu, 25 Jun 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[被 CC 计费头坑了，但无关缓存]]></description>
+            <title><![CDATA[🤖 AI 原生团队该凑齐哪五种人]]></title>
+            <link>https://lionad.art/articles/boris-five-roles-in-ai-native-teams</link>
+            <guid isPermaLink="false">https://lionad.art/articles/boris-five-roles-in-ai-native-teams</guid>
+            <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[当工程、产品、设计在 AI 面前熔合成一种新角色，团队里真正存在的是什么角色？]]></description>
             <enclosure length="0" type="image/png" url="https://lionad.art/images/cover-placeholder.png"/>
         </item>
         <item>

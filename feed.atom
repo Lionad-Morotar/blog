@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-07-06T13:12:02.156Z</updated>
+    <updated>2026-07-14T09:12:16.709Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -156,22 +156,13 @@
         <published>2019-06-04T00:00:00.000Z</published>
     </entry>
     <entry>
-        <title type="html"><![CDATA[cc-flow]]></title>
-        <id>https://lionad.art/articles/cc-flow</id>
-        <link href="https://lionad.art/articles/cc-flow"/>
-        <link rel="enclosure" href="https://lionad.art/images/cc-flow-cover.png" type="image/png"/>
-        <updated>2026-06-27T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[cc-flow]]></summary>
-        <published>2026-06-27T00:00:00.000Z</published>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[🤡 由 Kimi 死循环消耗了两个周限额带来的 CC User-Agent 分析]]></title>
-        <id>https://lionad.art/articles/cc-billing-header</id>
-        <link href="https://lionad.art/articles/cc-billing-header"/>
+        <title type="html"><![CDATA[🤖 AI 原生团队该凑齐哪五种人]]></title>
+        <id>https://lionad.art/articles/boris-five-roles-in-ai-native-teams</id>
+        <link href="https://lionad.art/articles/boris-five-roles-in-ai-native-teams"/>
         <link rel="enclosure" href="https://lionad.art/images/cover-placeholder.png" type="image/png"/>
-        <updated>2026-06-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[被 CC 计费头坑了，但无关缓存]]></summary>
-        <published>2026-06-25T00:00:00.000Z</published>
+        <updated>2026-07-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[当工程、产品、设计在 AI 面前熔合成一种新角色，团队里真正存在的是什么角色？]]></summary>
+        <published>2026-07-14T00:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[🔧 Claude Code MCP 集体报错排查记录]]></title>

@@ -200,28 +200,16 @@
             "date_published": "2019-06-04T00:00:00.000Z"
         },
         {
-            "id": "https://lionad.art/articles/cc-flow",
-            "content_html": "cc-flow",
-            "url": "https://lionad.art/articles/cc-flow",
-            "title": "cc-flow",
-            "image": {
-                "url": "https://lionad.art/images/cc-flow-cover.png",
-                "type": "image/png"
-            },
-            "date_modified": "2026-06-27T00:00:00.000Z",
-            "date_published": "2026-06-27T00:00:00.000Z"
-        },
-        {
-            "id": "https://lionad.art/articles/cc-billing-header",
-            "content_html": "被 CC 计费头坑了，但无关缓存",
-            "url": "https://lionad.art/articles/cc-billing-header",
-            "title": "🤡 由 Kimi 死循环消耗了两个周限额带来的 CC User-Agent 分析",
+            "id": "https://lionad.art/articles/boris-five-roles-in-ai-native-teams",
+            "content_html": "当工程、产品、设计在 AI 面前熔合成一种新角色，团队里真正存在的是什么角色？",
+            "url": "https://lionad.art/articles/boris-five-roles-in-ai-native-teams",
+            "title": "🤖 AI 原生团队该凑齐哪五种人",
             "image": {
                 "url": "https://lionad.art/images/cover-placeholder.png",
                 "type": "image/png"
             },
-            "date_modified": "2026-06-25T00:00:00.000Z",
-            "date_published": "2026-06-25T00:00:00.000Z"
+            "date_modified": "2026-07-14T00:00:00.000Z",
+            "date_published": "2026-07-14T00:00:00.000Z"
         },
         {
             "id": "https://lionad.art/articles/mcp-node-version",

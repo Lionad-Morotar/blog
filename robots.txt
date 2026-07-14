@@ -1,9 +1,15 @@
 # START nuxt-robots (indexable)
+# 面向所有爬虫（包括 AI 智能体）的规则
+# 允许搜索索引与 AI 输入（RAG、grounding、生成式搜索），禁止用于模型训练
 User-agent: *
+Allow: /
 Disallow: /api/_content
 Disallow: /__sitemap
 Disallow: /preview
 Disallow: /raw
+Content-Signal: search=yes
+Content-Signal: ai-input=yes
+Content-Signal: ai-train=no
 
 Sitemap: https://lionad.art/sitemap.xml
 # END nuxt-robots

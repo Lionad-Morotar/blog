@@ -38,613 +38,620 @@
 
 ## Flows
 
-- [📕 狮子的书单推荐](https://lionad.art/raw/flows/books.md): 2024 年开始用微信读书
-- [🚝 四十二篇系列](https://lionad.art/raw/flows/forty-two.md): 闪念，那些一闪而过的想法
-- [🌃 长夜梦](https://lionad.art/raw/flows/long-night-dream.md): 最近总是梦到自己站在冰天雪地里吹冷风，让我想起了刚开始弹吉他的那段日子。
-- [🌌 万物联结与幸福感](https://lionad.art/raw/flows/everything.md): 一场雨的故事
-- [⌛ 偷取时间](https://lionad.art/raw/flows/stealing-time-from-god.md): “双手手掌都有四条横纹的人，就是能偷时间的人。”
-- [🌆 表达和孤独](https://lionad.art/raw/flows/expression-and-loneliness.md): 被误解才是表达者的宿命
-- [🌧️ 我的腼腆](https://lionad.art/raw/flows/shy.md): 每次想起你说我的腼腆，我就想起这么一首诗来。
-- [🥛 新工作，喝新饮料](https://lionad.art/raw/flows/drinking-while-thinking.md): 工作久了，脑袋里的怪东西变得和喝的饮料一样多
-- [📝 心流归档](https://lionad.art/raw/flows/archive.md): 这里会收录几乎不再更新的内容，请注意其时效性
-- [有关新项目的方法论](https://lionad.art/raw/flows/_forty-two/dark-room.md): 《四十二篇系列 · 第一》
-- [成熟的小孩子](https://lionad.art/raw/flows/_forty-two/mature-child.md): 《四十二篇系列 · 第二》
-- [人之为人](https://lionad.art/raw/flows/_forty-two/as-human.md): 《四十二篇系列 · 第三》
-- [盲视](https://lionad.art/raw/flows/_forty-two/blind-sight.md): 《四十二篇系列 · 第四》
-- [黑日](https://lionad.art/raw/flows/_forty-two/black-sun.md): 《四十二篇系列 · 第五》
-- [云拿转正小节](https://lionad.art/raw/flows/_forty-two/_cloud-take.md): 以下是原文章《近来新工作，及喝饮料时的一些思考》的节选，因为类似目前正在更新的《四十二篇系列》，所以放到这儿啦。
+- [📕 狮子的书单推荐](https://lionad.art/flows/books): 2024 年开始用微信读书
+- [🚝 四十二篇系列](https://lionad.art/flows/forty-two): 闪念，那些一闪而过的想法
+- [🌃 长夜梦](https://lionad.art/flows/long-night-dream): 最近总是梦到自己站在冰天雪地里吹冷风，让我想起了刚开始弹吉他的那段日子。
+- [🌌 万物联结与幸福感](https://lionad.art/flows/everything): 一场雨的故事
+- [⌛ 偷取时间](https://lionad.art/flows/stealing-time-from-god): “双手手掌都有四条横纹的人，就是能偷时间的人。”
+- [🌆 表达和孤独](https://lionad.art/flows/expression-and-loneliness): 被误解才是表达者的宿命
+- [🌧️ 我的腼腆](https://lionad.art/flows/shy): 每次想起你说我的腼腆，我就想起这么一首诗来。
+- [🥛 新工作，喝新饮料](https://lionad.art/flows/drinking-while-thinking): 工作久了，脑袋里的怪东西变得和喝的饮料一样多
+- [📝 心流归档](https://lionad.art/flows/archive): 这里会收录几乎不再更新的内容，请注意其时效性
+- [有关新项目的方法论](https://lionad.art/flows/_forty-two/dark-room): 《四十二篇系列 · 第一》
+- [成熟的小孩子](https://lionad.art/flows/_forty-two/mature-child): 《四十二篇系列 · 第二》
+- [人之为人](https://lionad.art/flows/_forty-two/as-human): 《四十二篇系列 · 第三》
+- [盲视](https://lionad.art/flows/_forty-two/blind-sight): 《四十二篇系列 · 第四》
+- [黑日](https://lionad.art/flows/_forty-two/black-sun): 《四十二篇系列 · 第五》
+- [云拿转正小节](https://lionad.art/flows/_forty-two/_cloud-take): 以下是原文章《近来新工作，及喝饮料时的一些思考》的节选，因为类似目前正在更新的《四十二篇系列》，所以放到这儿啦。
 
 ## Articles
 
-- [🦁 欢迎](https://lionad.art/raw/articles.md): 笔记、博客以及碎碎念，我的思考和再创造。
-- [cc-flow](https://lionad.art/raw/articles/cc-flow.md): cc-flow
-- [🤡 由 Kimi 死循环消耗了两个周限额带来的 CC User-Agent 分析](https://lionad.art/raw/articles/cc-billing-header.md): 被 CC 计费头坑了，但无关缓存
-- [🔧 Claude Code MCP 集体报错排查记录](https://lionad.art/raw/articles/mcp-node-version.md): 记录一次因 Node.js 版本导致 Claude Code 多个 MCP server 报 Connection closed 的排查过程
-- [📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多](https://lionad.art/raw/articles/cc-expand.md): 上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机
-- [🎼 从文本到交互界面——GenUI 的中庸之道](https://lionad.art/raw/articles/gen-ui-flows.md): 当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？
-- [🌊 Project River：把 Git 提交历史变成一条河](https://lionad.art/raw/articles/project-river.md): 从代码流动的节奏中，读懂一个项目的生命力
-- [🪦 生命周期只有26小时的项目](https://lionad.art/raw/articles/snpx-archive-lesson.md): 一如既往的好消息是，学习新东西变得非常容易。
-- [📦 一个简单有效的端口命名策略](https://lionad.art/raw/articles/simple-naming-method.md): 使用字符到数字的键盘映射
-- [🌪️ Tailwind v4 如何兼容预处理器](https://lionad.art/raw/articles/tailwind4-with-sass.md): tailwind4 不支持 sass 的解决方法
-- [🥞 在 tailwind 中使用现代化 CSS Layers](https://lionad.art/raw/articles/tailwind-sass-and-css-layer.md): 本文探讨如何结合 Tailwind、CSS Layers 和 Sass，优化样式管理
-- [💻 本地部署 Qwen 翻译网页](https://lionad.art/raw/articles/local-translator.md): 沉浸式翻译太贵辽，试试本地部署 LLM 用来翻译网页的可行性。
-- [🧊 模板解析器轻考古](https://lionad.art/raw/articles/micro-templating.md): 忍者秘籍中提到的模板解析器，很短但支持变量和 if 等语句，还是 15 年前的代码！
-- [Ⓜ️ Mini CSS Parser](https://lionad.art/raw/articles/mini-css-parser.md): 我的项目使用 micro-app 框架作为微前端框架。使用 micro-app 时，由于开启了样式隔离功能，子应用加载的 CSS 会被解析器解析，在选择器前增加一个子应用属性选择器前缀。我碰到的问题是，如果 CSS 源码中带嵌套语法那么解析就会失败。今天借这个问题给大家简单介绍一下 CSS Parser 的基本流程。
-- [🚩 向AI咨询前端问题](https://lionad.art/raw/articles/use-gpt-learn-complex-frontend.md): 在两个纯知识面的问题上，受到了 GPT 的碾压
-- [⛸️ 怎样定制复杂组件的自定义滚动条？](https://lionad.art/raw/articles/use-scrollbars.md): 如何自定义 antd-table、vxe-table 等复杂组件的滚动条？
-- [⚖️ 统一多组件库的层叠顺序](https://lionad.art/raw/articles/zindex-manager.md): 使用 element-plus 内的层级管理器可以解决多组件库间层级不统一的问题
-- [🕷️ 滑动验证码破解思路](https://lionad.art/raw/articles/crack-the-slider.md): 如何破解滑块验证码？本文介绍使用Puppeteer操作浏览器进行图片对比、图片识别及优化鼠标轨迹以模仿真是用户等几种简单爬虫验证码破解思路，适用多种场景。
-- [🌟 探秘 CSS 光影效果](https://lionad.art/raw/articles/css-light-travel.md): 本文介绍了几种通过CSS实现的常见阴影效果如单侧投影、空心投影、投影动画、彩色阴影、长投影和倒影，以及尝试使用SVG模拟材质特性如粗糙度及光学效应如菲尼尔效应生成了几种特殊的纹理，最后通过一个CSS绘制真实书本案例介绍了实战中的一些细节。
-- [🍲 设计模式与 JS 魔法锅](https://lionad.art/raw/articles/design-patterns-and-js-magic-pot.md): 排除人的因素，设计模式的本质只是相关代码复用。本文通过使用JS仿制并简化了几种OOL中经典设计模式，以探讨经典设计模式和代码模板的区别主要在于代码复用的层次不同，以及粗浅聊了聊设计模式与语言特征之间此强彼弱的关系。
-- [🌐 Anysort：灵活、优雅的多属性排序](https://lionad.art/raw/articles/anysort-2th.md): 上一篇讲 anysort 的文章说到因网易云音乐的歌单排序功能较弱，我们自己实现的用来给歌单自定义排序的排序库的思路。这篇文章在排序库的基础上，介绍了其 TypeScript 类型实现。
-- [💫 CSS 幻术 | 抗锯齿](https://lionad.art/raw/articles/css-poaa.md): 传统网页的渲染是基于像素的，所以常出现锯齿。本文简单介绍了锯齿出现的成因，以及CSS中相关锯齿处理的字体平滑、图片渲染属性，并通过实践创造了一种类似FXAA原理的background背景图案抗锯齿技术poaa（pixel-offset-anti-aliasing）。
-- [❓ 用纯CSS判断鼠标进入的方向](https://lionad.art/raw/articles/css-judge-direction.md): 本文介绍了使用CSS判断鼠标进入区域方向的原理，并且在codepen笑脸demo的基础上实现了一个眼睛跟随鼠标位置进行转动的效果。
-- [📝 你本可以少写些 if-else](https://lionad.art/raw/articles/no-more-if-else.md): 本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。
-- [📝 技术博客归档](https://lionad.art/raw/articles/archive.md): 这里会收录几乎不再更新的内容，请注意其时效性
+- [🦁 欢迎](https://lionad.art/articles): 笔记、博客以及碎碎念，我的思考和再创造。
+- [🤖 AI 原生团队该凑齐哪五种人](https://lionad.art/articles/boris-five-roles-in-ai-native-teams): 当工程、产品、设计在 AI 面前熔合成一种新角色，团队里真正存在的是什么角色？
+- [🔧 Claude Code MCP 集体报错排查记录](https://lionad.art/articles/mcp-node-version): 记录一次因 Node.js 版本导致 Claude Code 多个 MCP server 报 Connection closed 的排查过程
+- [📦 使用 cc-expand 将可用上下文窗口扩大 60%，甚至更多](https://lionad.art/articles/cc-expand): 上下文压缩会导致模型性能降低，你需要在特定的模型推迟自动压缩的时机
+- [🎼 从文本到交互界面——GenUI 的中庸之道](https://lionad.art/articles/gen-ui-flows): 当 LLM 输出不再是一段段纯文本，而是可交互的 UI 组件——从流式 JSON 碎片到完整交互界面，背后需要解决哪些工程问题？
+- [🌊 Project River：把 Git 提交历史变成一条河](https://lionad.art/articles/project-river): 从代码流动的节奏中，读懂一个项目的生命力
+- [🪦 生命周期只有26小时的项目](https://lionad.art/articles/snpx-archive-lesson): 一如既往的好消息是，学习新东西变得非常容易。
+- [📦 一个简单有效的端口命名策略](https://lionad.art/articles/simple-naming-method): 使用字符到数字的键盘映射
+- [🌪️ Tailwind v4 如何兼容预处理器](https://lionad.art/articles/tailwind4-with-sass): tailwind4 不支持 sass 的解决方法
+- [🥞 在 tailwind 中使用现代化 CSS Layers](https://lionad.art/articles/tailwind-sass-and-css-layer): 本文探讨如何结合 Tailwind、CSS Layers 和 Sass，优化样式管理
+- [💻 本地部署 Qwen 翻译网页](https://lionad.art/articles/local-translator): 沉浸式翻译太贵辽，试试本地部署 LLM 用来翻译网页的可行性。
+- [🧊 模板解析器轻考古](https://lionad.art/articles/micro-templating): 忍者秘籍中提到的模板解析器，很短但支持变量和 if 等语句，还是 15 年前的代码！
+- [Ⓜ️ Mini CSS Parser](https://lionad.art/articles/mini-css-parser): 我的项目使用 micro-app 框架作为微前端框架。使用 micro-app 时，由于开启了样式隔离功能，子应用加载的 CSS 会被解析器解析，在选择器前增加一个子应用属性选择器前缀。我碰到的问题是，如果 CSS 源码中带嵌套语法那么解析就会失败。今天借这个问题给大家简单介绍一下 CSS Parser 的基本流程。
+- [🚩 向AI咨询前端问题](https://lionad.art/articles/use-gpt-learn-complex-frontend): 在两个纯知识面的问题上，受到了 GPT 的碾压
+- [⛸️ 怎样定制复杂组件的自定义滚动条？](https://lionad.art/articles/use-scrollbars): 如何自定义 antd-table、vxe-table 等复杂组件的滚动条？
+- [⚖️ 统一多组件库的层叠顺序](https://lionad.art/articles/zindex-manager): 使用 element-plus 内的层级管理器可以解决多组件库间层级不统一的问题
+- [🕷️ 滑动验证码破解思路](https://lionad.art/articles/crack-the-slider): 如何破解滑块验证码？本文介绍使用Puppeteer操作浏览器进行图片对比、图片识别及优化鼠标轨迹以模仿真是用户等几种简单爬虫验证码破解思路，适用多种场景。
+- [🌟 探秘 CSS 光影效果](https://lionad.art/articles/css-light-travel): 本文介绍了几种通过CSS实现的常见阴影效果如单侧投影、空心投影、投影动画、彩色阴影、长投影和倒影，以及尝试使用SVG模拟材质特性如粗糙度及光学效应如菲尼尔效应生成了几种特殊的纹理，最后通过一个CSS绘制真实书本案例介绍了实战中的一些细节。
+- [🍲 设计模式与 JS 魔法锅](https://lionad.art/articles/design-patterns-and-js-magic-pot): 排除人的因素，设计模式的本质只是相关代码复用。本文通过使用JS仿制并简化了几种OOL中经典设计模式，以探讨经典设计模式和代码模板的区别主要在于代码复用的层次不同，以及粗浅聊了聊设计模式与语言特征之间此强彼弱的关系。
+- [🌐 Anysort：灵活、优雅的多属性排序](https://lionad.art/articles/anysort-2th): 上一篇讲 anysort 的文章说到因网易云音乐的歌单排序功能较弱，我们自己实现的用来给歌单自定义排序的排序库的思路。这篇文章在排序库的基础上，介绍了其 TypeScript 类型实现。
+- [💫 CSS 幻术 | 抗锯齿](https://lionad.art/articles/css-poaa): 传统网页的渲染是基于像素的，所以常出现锯齿。本文简单介绍了锯齿出现的成因，以及CSS中相关锯齿处理的字体平滑、图片渲染属性，并通过实践创造了一种类似FXAA原理的background背景图案抗锯齿技术poaa（pixel-offset-anti-aliasing）。
+- [❓ 用纯CSS判断鼠标进入的方向](https://lionad.art/articles/css-judge-direction): 本文介绍了使用CSS判断鼠标进入区域方向的原理，并且在codepen笑脸demo的基础上实现了一个眼睛跟随鼠标位置进行转动的效果。
+- [📝 你本可以少写些 if-else](https://lionad.art/articles/no-more-if-else): 本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。
+- [📝 技术博客归档](https://lionad.art/articles/archive): 这里会收录几乎不再更新的内容，请注意其时效性
 
 ## Books
 
-- [📕 读书笔记](https://lionad.art/raw/books.md): 读书笔记以及短评。希望能逐步摆脱豆瓣。
+- [📕 读书笔记](https://lionad.art/books): 读书笔记以及短评。希望能逐步摆脱豆瓣。
 
 ## Music
 
-- [🎸 FingerStyle！](https://lionad.art/raw/music.md): “指弹”是一种木吉他演奏形式
-- [🌬️ 等待的风](https://lionad.art/raw/music/wind.md): Le vent se lève, il faut tenter de vivre
-- [💕 约定的海洋](https://lionad.art/raw/music/ocean.md): 多少个夜晚，我听到大海的轻涛细浪
-- [🎼 Wings~You are the Hero！](https://lionad.art/raw/music/wings-you-are-the-hero.md): 翼这首曲子应该是很多人练拳的原动力吧！
-- [🌏 残酷天使的行动纲领](https://lionad.art/raw/music/eva.md): 2018，使徒没有袭来。
-- [🏔️ 奇跡の山](https://lionad.art/raw/music/miracle-mountain.md): 很喜欢这周，但是技术设备所限，目前还原度很低
-- [🍷 Wu Wei](https://lionad.art/raw/music/wu-wei.md): 原版无为我能听一万年
-- [🌅 无题](https://lionad.art/raw/music/untitled.md): 一千个人有一千种无题
+- [🎸 FingerStyle！](https://lionad.art/music): “指弹”是一种木吉他演奏形式
+- [🌬️ 等待的风](https://lionad.art/music/wind): Le vent se lève, il faut tenter de vivre
+- [💕 约定的海洋](https://lionad.art/music/ocean): 多少个夜晚，我听到大海的轻涛细浪
+- [🎼 Wings~You are the Hero！](https://lionad.art/music/wings-you-are-the-hero): 翼这首曲子应该是很多人练拳的原动力吧！
+- [🌏 残酷天使的行动纲领](https://lionad.art/music/eva): 2018，使徒没有袭来。
+- [🏔️ 奇跡の山](https://lionad.art/music/miracle-mountain): 很喜欢这周，但是技术设备所限，目前还原度很低
+- [🍷 Wu Wei](https://lionad.art/music/wu-wei): 原版无为我能听一万年
+- [🌅 无题](https://lionad.art/music/untitled): 一千个人有一千种无题
 
 ## Maps
 
-- [🏁 知识地图](https://lionad.art/raw/maps.md): 新的笔记结构以及记录方式，正在从 Gists 栏搬运到这里
-- [Agents](https://lionad.art/raw/maps/agents.md): 笔记系统智能体档案，记录知识管理规范与系统结构
-- [A2A Protocol](https://lionad.art/raw/maps/_ai/agents/a2a.md): Agent-to-Agent 协议，Google 推出的多智能体协同开放标准
-- [A2UI](https://lionad.art/raw/maps/_ai/agents/a2ui.md): Google 推出的声明式 UI 协议，让 AI Agent 能生成富交互界面
-- [Agent 架构第一性原理](https://lionad.art/raw/maps/_ai/agents/agent-architecture.md): Agent 架构设计的核心原则、工作流模式、工具设计与最佳实践
-- [Agent 生态系统全景](https://lionad.art/raw/maps/_ai/agents/agent-ecosystem.md): AI Agent 框架、平台、协议和基础设施的全面调研
-- [Agent 分类学](https://lionad.art/raw/maps/_ai/agents/agent-taxonomy.md): Russell & Norvig 经典智能体分类体系及三个互补分类维度
-- [Agents](https://lionad.art/raw/maps/_ai/agents/agents.md): AI 代理（Agents）是能够自主执行任务并与环境交互的智能实体，通常基于大语言模型（LLM）构建。
-- [AgentScope](https://lionad.art/raw/maps/_ai/agents/agentscope.md): 阿里巴巴开源的生产级多智能体框架，支持 ReAct Agent、强化学习训练、实时语音交互和 MCP/A2A 协议
-- [Claude Agent SDK](https://lionad.art/raw/maps/_ai/agents/claude-agent-sdk.md): Anthropic Claude Agent SDK 的使用方式、调用栈与 User-Agent 机制
-- [Claude Agent SDK (TypeScript) 发布记录](https://lionad.art/raw/maps/_ai/agents/claude-agent-sdk-releases.md): Anthropic Claude Agent SDK TypeScript 版本的完整发布历史与变更日志
-- [Claude Code Skills](https://lionad.art/raw/maps/_ai/agents/claude-skills.md): Claude Code 技能集合
-- [Coding Agent 的 Shell 偏差](https://lionad.art/raw/maps/_ai/agents/coding-agent-shell-bias.md): 探讨 Coding Agent 在 PowerShell 与 Bash 环境下的性能差异及其训练语料根源
-- [上下文图与机构化推理](https://lionad.art/raw/maps/_ai/agents/context-graphs.md): 上下文图作为知识图的运营化演进，如何支撑企业级 Agent 的机构化推理与合规决策
-- [i18n 国际化实现](https://lionad.art/raw/maps/_ai/agents/docs/i18n.md): 本博客的轻量级国际化（i18n）实现方案，基于文件路径约定和客户端偏好存储。
-- [Goose Agent Prompt](https://lionad.art/raw/maps/_ai/agents/goose/goose-brief.md): You are a general-purpose AI agent called goose, created by Block, the parent company of Square, CashApp, and Tidal.
+- [🏁 知识地图](https://lionad.art/maps): 新的笔记结构以及记录方式，正在从 Gists 栏搬运到这里
+- [Agents](https://lionad.art/maps/agents): 笔记系统智能体档案，记录知识管理规范与系统结构
+- [A2A Protocol](https://lionad.art/maps/_ai/agents/a2a): Agent-to-Agent 协议，Google 推出的多智能体协同开放标准
+- [A2UI](https://lionad.art/maps/_ai/agents/a2ui): Google 推出的声明式 UI 协议，让 AI Agent 能生成富交互界面
+- [Agent 架构第一性原理](https://lionad.art/maps/_ai/agents/agent-architecture): Agent 架构设计的核心原则、工作流模式、工具设计与最佳实践
+- [Agent 生态系统全景](https://lionad.art/maps/_ai/agents/agent-ecosystem): AI Agent 框架、平台、协议和基础设施的全面调研
+- [Agent 分类学](https://lionad.art/maps/_ai/agents/agent-taxonomy): Russell & Norvig 经典智能体分类体系及三个互补分类维度
+- [Agents](https://lionad.art/maps/_ai/agents/agents): AI 代理（Agents）是能够自主执行任务并与环境交互的智能实体，通常基于大语言模型（LLM）构建。
+- [AgentScope](https://lionad.art/maps/_ai/agents/agentscope): 阿里巴巴开源的生产级多智能体框架，支持 ReAct Agent、强化学习训练、实时语音交互和 MCP/A2A 协议
+- [Claude Agent SDK](https://lionad.art/maps/_ai/agents/claude-agent-sdk): Anthropic Claude Agent SDK 的使用方式、调用栈与 User-Agent 机制
+- [Claude Agent SDK (TypeScript) 发布记录](https://lionad.art/maps/_ai/agents/claude-agent-sdk-releases): Anthropic Claude Agent SDK TypeScript 版本的完整发布历史与变更日志
+- [Claude Code Skills](https://lionad.art/maps/_ai/agents/claude-skills): Claude Code 技能集合
+- [Coding Agent 的 Shell 偏差](https://lionad.art/maps/_ai/agents/coding-agent-shell-bias): 探讨 Coding Agent 在 PowerShell 与 Bash 环境下的性能差异及其训练语料根源
+- [上下文图与机构化推理](https://lionad.art/maps/_ai/agents/context-graphs): 上下文图作为知识图的运营化演进，如何支撑企业级 Agent 的机构化推理与合规决策
+- [i18n 国际化实现](https://lionad.art/maps/_ai/agents/docs/i18n): 本博客的轻量级国际化（i18n）实现方案，基于文件路径约定和客户端偏好存储。
+- [Goose Agent Prompt](https://lionad.art/maps/_ai/agents/goose/goose-brief): You are a general-purpose AI agent called goose, created by Block, the parent company of Square, CashApp, and Tidal.
 goose is being developed as an open-source software project.
-- [扩展](https://lionad.art/raw/maps/_ai/agents/goose/goose-brief.cn.md): 您是一种通用型 AI 代理，名为 goose，由 Block（Square、CashApp 与 Tidal 的母公司）创建。goose 正在作为开源软件项目进行开发。
-- [Goose Prompts](https://lionad.art/raw/maps/_ai/agents/goose/prompts.md): xxx
-- [Harness 工程](https://lionad.art/raw/maps/_ai/agents/harness-engineering.md): 结合控制论与真实 .codebuddy 配置，探讨 AI 辅助编程中 Harness 的双环控制、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计。
-- [人机协作智能体团队](https://lionad.art/raw/maps/_ai/agents/human-agent-teams.md): Anthropic 关于构建高效人类与智能体协作团队的经验：公共空间、明确角色、北极星目标与渐进信任
-- [AI 与人性交互](https://lionad.art/raw/maps/_ai/agents/human-ai-interaction.md)
-- [多智能体架构决策与工程实践](https://lionad.art/raw/maps/_ai/agents/multi-agent-architecture.md): 单/多智能体架构选择、Anthropic 工程实践、Cognition 上下文工程原则、Claude 官方决策指南
-- [多智能体协作框架对比](https://lionad.art/raw/maps/_ai/agents/multi-agent-frameworks.md): AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph 等多智能体框架的核心设计、适用场景与选择建议
-- [多智能体构建模式与实践指南](https://lionad.art/raw/maps/_ai/agents/multi-agent-patterns.md): 四类智能体构建关注点、框架选择决策矩阵、生产环境最佳实践
-- [OpenAI Agents SDK (JavaScript) 发布记录](https://lionad.art/raw/maps/_ai/agents/openai-agents-js-releases.md): OpenAI Agents SDK JavaScript/TypeScript 版本的完整发布历史与变更日志
-- [智能健身教练 PEAS 模型分析](https://lionad.art/raw/maps/_ai/agents/peas-coach-example.md): 通过智能健身教练案例深入理解 PEAS 模型的应用，包括性能度量、环境描述、执行器、传感器及环境特性分析
-- [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/raw/maps/_ai/agents/tokenmaxxing.md): 从 2026 年初 Tokenmaxxing 现象出发，分析 Agentic coding 的成本失控、组织流程瓶颈、Agent 能力错配与需求天花板，并将其置于 J 型增长曲线与生产率悖论的经济学框架中理解。
-- [有毒数据流分析](https://lionad.art/raw/maps/_ai/agents/toxic-flow-analysis.md): 在多代理系统中识别和缓解敏感数据泄露风险的技术
-- [Workflow 与 Agent 对比：电商退款案例](https://lionad.art/raw/maps/_ai/agents/workflow-vs-agent.md): 通过电商售后退款场景，对比 Workflow 固定流程与 Agent 智能决策的优劣，及混合架构设计
-- [Artificial Intelligence](https://lionad.art/raw/maps/_ai/ai.md): Machine learning, large language models, AI agents, and AI engineering
-- [Applications](https://lionad.art/raw/maps/_ai/applications/applications.md): AI 应用场景与实践，涵盖前端影响、学术论文写作和提示工程等领域应用。
-- [AI 对泛前端领域的影响](https://lionad.art/raw/maps/_ai/applications/frontend-impact.md): 滴滴技术团队关于 AI 浪潮下泛前端变革的思考与实践
-- [ML 论文写作](https://lionad.art/raw/maps/_ai/applications/paper-writing.md): 机器学习学术论文写作指南，包括 LaTeX 工具、文献管理与可复现性实践。
-- [提示工程](https://lionad.art/raw/maps/_ai/applications/prompt-engineering.md): 提示工程框架与工具，包括 DSPy、Instructor、Guidance、Outlines 等声明式提示编程方案。
-- [LLM Benchmark](https://lionad.art/raw/maps/_ai/benchmark/benchmark.md): 各类大语言模型的基准测试结果与排行榜资源。
-- [CL-Bench](https://lionad.art/raw/maps/_ai/benchmark/cl-bench.md): LLM 智能体持续学习基准测试框架
-- [Frontend Copy Benchmark](https://lionad.art/raw/maps/_ai/benchmark/frontend-copy.md): 前端抄代码能力测试
-- [LLM Benchmark 原始任务示例集](https://lionad.art/raw/maps/_ai/benchmark/llm-benchmark-task-examples.md): SimpleQA、HLE、Apex Shortlist、Codeforces、SWE Verified、Terminal Bench 2.0、Toolathlon 的原始任务示例。
-- [glm-ocr-8bit](https://lionad.art/raw/maps/_ai/benchmark/local/glm-ocr-8bit.md)
-- [mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit](https://lionad.art/raw/maps/_ai/benchmark/local/mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit.md)
-- [qwen3-coder-next-mlx-4bit](https://lionad.art/raw/maps/_ai/benchmark/local/qwen3-coder-next-mlx-4bit.md)
-- [qwen3-coder-next-mlx-4bit](https://lionad.art/raw/maps/_ai/benchmark/local/qwen3-embedding-8b-4bit-dwq.md)
-- [qwen3.5-9b-mlx-4bit](https://lionad.art/raw/maps/_ai/benchmark/local/qwen3.5-9b-mlx-4bit.md)
-- [Simple Benchmark](https://lionad.art/raw/maps/_ai/benchmark/simple.md): 日常使用的简单基准测试
-- [Evaluation](https://lionad.art/raw/maps/_ai/evaluation/evaluation.md): AI 系统评估与测试方法论，涵盖模型评估框架、可观测性平台和可重复性实践。
-- [Evaluation Framework](https://lionad.art/raw/maps/_ai/evaluation/evaluation-framework.md): 大语言模型评估框架与基准测试，包括 lm-evaluation-harness、BigCode 等统一评估工具。
-- [Observability](https://lionad.art/raw/maps/_ai/evaluation/observability.md): LLM 可观测性平台与工具，包括 LangSmith、Phoenix、Langfuse 等追踪、评估和监控方案。
-- [Reproducibility](https://lionad.art/raw/maps/_ai/evaluation/reproducibility.md): 机器学习可重复性（Reproducibility）的核心价值与实践方法，包括随机种子固定、数据版本控制等关键实践。
-- [AI Architectures](https://lionad.art/raw/maps/_ai/foundations/architectures.md): System architectures and design patterns for AI systems
-- [AI Core Concepts](https://lionad.art/raw/maps/_ai/foundations/core-concepts.md): 20个AI核心概念一句话速查
-- [Emerging AI Technologies](https://lionad.art/raw/maps/_ai/foundations/emerging.md): Emerging technologies and research directions in AI
-- [AI Foundations](https://lionad.art/raw/maps/_ai/foundations/foundations.md): Fundamental concepts, architectures, and industry dynamics in AI
-- [AI Industry Dynamics](https://lionad.art/raw/maps/_ai/foundations/industry-dynamics.md): Market trends and industry analysis in AI
-- [AI Frameworks](https://lionad.art/raw/maps/_ai/framework/framework.md): AI 安全与开发框架，包括 Google SAIF 等安全人工智能框架。
-- [SAIF](https://lionad.art/raw/maps/_ai/framework/saif.md): Google 安全人工智能框架（Secure AI Framework），管理 AI 安全风险的实用指南。
-- [Agent Governance](https://lionad.art/raw/maps/_ai/governance/agent-governance.md): 智能体（Agent）相关的政策法规、治理框架与合规要求
-- [Governance](https://lionad.art/raw/maps/_ai/governance/governance.md): AI 治理、政策法规、合规要求与伦理规范
-- [AIGC 海报生成](https://lionad.art/raw/maps/_ai/image/aigc-poster.md): 端到端海报生成、多任务编辑与质量评估的技术体系
-- [Image Generation](https://lionad.art/raw/maps/_ai/image/image.md): AI 图像生成技术与工具，包括 Stable Diffusion 等文生图模型与提示词技巧。
-- [Image Generator](https://lionad.art/raw/maps/_ai/image/stable-diffusion.md): Stable Diffusion 图像生成提示词与风格指南。
-- [Datadog LLM Observability](https://lionad.art/raw/maps/_ai/llm/datadog/datadog-llm.md): 为 LLM 与 Agent 工作流提供端到端追踪、监控与诊断，融入 Datadog APM 体系；对已用 Datadog 的团队较友好，但埋点与协同要求高。
-- [Embeddings 入门指南](https://lionad.art/raw/maps/_ai/llm/embeddings.md): LLM Embeddings 的核心概念、演进历史与实践
-- [Large Language Models](https://lionad.art/raw/maps/_ai/llm/llm.md): 大语言模型（LLM）相关技术与实践，包括 Embeddings、结构化输出、评估等。
-- [LLM 作为评审者（LLM as a judge）](https://lionad.art/raw/maps/_ai/llm/llm-as-a-judge.md): 讨论用 LLM 自动评估生成式系统输出的现状、问题与建议
-- [小型语言模型（SLM）](https://lionad.art/raw/maps/_ai/llm/slm.md): 小型语言模型（SLM）相关技术与应用场景
-- [结构化输出](https://lionad.art/raw/maps/_ai/llm/structured-output.md): LLM 结构化输出技术，约束模型生成预定义格式的响应。
-- [Model Context Protocol](https://lionad.art/raw/maps/_ai/mcp/mcp.md): MCP（Model Context Protocol）是 Anthropic 开源的标准协议，用于连接 AI 应用与外部系统，被誉为 AI 应用的 USB-C 接口。
-- [反对「直接把内部 API 暴露成 MCP」的天真做法](https://lionad.art/raw/maps/_ai/mcp/native-api-to-mcp.md): 原文反对将现有内部 API 直接转换为 MCP，建议为代理场景专门设计安全的 MCP 服务层
-- [GLM-5.2 深度调研报告：为长程任务而生](https://lionad.art/raw/maps/_ai/models/2026-06-17-glm-5.2-deep-research-report.md)
-- [Inference](https://lionad.art/raw/maps/_ai/models/inference.md): Model inference and serving techniques
-- [Mechanistic Interpretability](https://lionad.art/raw/maps/_ai/models/mechanistic-interpretability.md): Understanding model internals and interpretability methods
-- [AI Models](https://lionad.art/raw/maps/_ai/models/models.md): Model internals, inference, optimization, and interpretability
-- [Multimodal Models](https://lionad.art/raw/maps/_ai/models/multimodal.md): Vision, language, and multimodal AI systems
-- [Optimization](https://lionad.art/raw/maps/_ai/models/optimization.md): Model optimization techniques
-- [Tokenization](https://lionad.art/raw/maps/_ai/models/tokenization.md): Text tokenization and encoding
-- [Data Processing](https://lionad.art/raw/maps/_ai/operations/data-processing.md): AI 数据处理技术与最佳实践，包括 NeMo Curator、Ray Data、MinHash + LSH 等工具和方法。
-- [Distributed Training](https://lionad.art/raw/maps/_ai/operations/distributed.md): 分布式训练技术与框架，包括 DeepSpeed、FSDP、Megatron-Core 等大规模模型训练方案。
-- [Infrastructure](https://lionad.art/raw/maps/_ai/operations/infrastructure.md): AI 基础设施与云平台，包括 Modal、Lambda Labs、SkyPilot 等 Serverless GPU 和多云编排方案。
-- [MLOps](https://lionad.art/raw/maps/_ai/operations/mlops.md): 机器学习运维平台与工具，包括 Weights & Biases、MLflow、TensorBoard 等实验跟踪和模型管理方案。
-- [Operations](https://lionad.art/raw/maps/_ai/operations/operations.md): AI 系统运维与工程实践，涵盖数据处理、分布式训练、基础设施和 MLOps 等关键领域。
-- [Context Engineering](https://lionad.art/raw/maps/_ai/prompt/context-engineering.md): Context Engineering 是一种优化与大型语言模型（LLM）交互的技术，旨在通过提供结构化和相关的上下文信息，提高模型生成内容的准确性和相关性。
-- [Prompt](https://lionad.art/raw/maps/_ai/prompt/prompt.md): Prompt 是与 AI 模型交互的指令或问题，旨在引导模型生成特定的响应或执行特定的任务。
-- [Prompt Collections](https://lionad.art/raw/maps/_ai/prompt/prompt-collections.md): Prompt collections for AI models
-- [提示工程](https://lionad.art/raw/maps/_ai/prompt/prompt-engineering.md): 指的是根据所需的任务目标，有意识地设计、优化和调整输入语言（即”提示”）的过程，以引导AI模型输出更高质量、符合期望和语境的内容，包含上下文设置、提示设计、提示调优、多模型适配等核心过程。
-- [提示词分化：描述性 vs 指令性](https://lionad.art/raw/maps/_ai/prompt/prompt-paradigm.md): 图像生成提示词的两种范式及其适用场景
-- [Team based Instructions](https://lionad.art/raw/maps/_ai/prompt/team-based-instructions.md): 为软件团队策划和共享指令（Curated shared instructions for software teams）
-- [设备端信息检索](https://lionad.art/raw/maps/_ai/rag/on-device-info-retrieval.md): 在用户设备上进行信息检索以保障隐私和提升效率
-- [RAG](https://lionad.art/raw/maps/_ai/rag/rag.md): 检索增强生成（Retrieval-Augmented Generation）模型与技术
-- [Recommendation Systems](https://lionad.art/raw/maps/_ai/recommendation/recommendation.md): AI 推荐系统技术与演进，从协同过滤到深度学习的推荐算法实践。
-- [推荐系统演进：从零到上瘾算法](https://lionad.art/raw/maps/_ai/recommendation/recommendation-system.md): 推荐系统演进历程：从流行度排序、协同过滤、矩阵分解到双塔模型与深度学习的完整指南。
-- [AI Safety](https://lionad.art/raw/maps/_ai/safety/safety.md): AI 安全研究、风险治理与相关事件
-- [如何编写 Agent Skills](https://lionad.art/raw/maps/_ai/skills/create-a-skill.md): 如何编写 Agent Skills - 完整指南
-- [D2C](https://lionad.art/raw/maps/_ai/skills/d2c.md): 智能 Design-to-Code 架构实践
-- [Skill 蒸馏的边界与精度阶梯](https://lionad.art/raw/maps/_ai/skills/skill-distillation.md): 从 ACT-R 双记忆模型与 Polanyi 默会知识看 Skill 能蒸馏几分之几 — L1 规则可编码、L1.5 风格扩散有边界、L2 Utility 写不进。
-- [SkillOpt](https://lionad.art/raw/maps/_ai/skills/skillopt.md): 微软开源的 Agent Skill 优化框架，把 markdown skill 文档当作可训练参数，通过 rollout→reflect→aggregate→select→update→evaluate 循环自动迭代。
-- [Agent Skills](https://lionad.art/raw/maps/_ai/skills/skills.md): Skill 是一种能力，作为 Agent 和工具之间的胶水层，帮助 Agent 理解工具以及有控制上下文等优点。
-- [Browser AI Automation](https://lionad.art/raw/maps/_ai/tools/browser-automation.md): AI 驱动的浏览器自动化工具对比
-- [Claude Code](https://lionad.art/raw/maps/_ai/tools/claude-code.md): Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务
-- [Codex](https://lionad.art/raw/maps/_ai/tools/codex.md): OpenAI 的 AI 编程助手，支持代码生成、审查、自动化工作流
-- [Copilot](https://lionad.art/raw/maps/_ai/tools/copilot.md): Copilot 是一种新型人机协作工具
-- [Tools](https://lionad.art/raw/maps/_ai/tools/tools.md): AI 开发工具与平台，包括 Claude Code、浏览器自动化、GitHub Copilot 等编码助手。
-- [Fine-tuning](https://lionad.art/raw/maps/_ai/training/fine-tuning.md): Model fine-tuning techniques and best practices
-- [Post-training](https://lionad.art/raw/maps/_ai/training/post-training.md): Post-training optimization and model alignment
-- [RLVR](https://lionad.art/raw/maps/_ai/training/rlvr.md): Reinforcement Learning with Verifiable Rewards 核心概念与算法
-- [拓扑感知调度](https://lionad.art/raw/maps/_ai/training/topology-aware-scheduling.md): 拓扑感知调度是一种在分布式计算环境中，根据硬件拓扑结构和网络性能来优化任务调度和资源分配的方法，以提高整体系统的效率和性能。
-- [AI Training](https://lionad.art/raw/maps/_ai/training/training.md): Model training, fine-tuning, and post-training techniques
-- [agents.md](https://lionad.art/raw/maps/_ai/vibe/agents-md.md): AGENTS.md 是一种用于向 AI 编码代理提供说明的常用格式
-- [Anchoring coding agents to a ref application](https://lionad.art/raw/maps/_ai/vibe/anchoring.md): 在编码代理时代，通过将其锚定至实时可编译的参考应用，有效应对代码漂移问题
-- [对 AI 生成代码”惰性依赖”的警惕与治理](https://lionad.art/raw/maps/_ai/vibe/complacency.md): AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲”惰性依赖”风险
-- [Loop Engineering](https://lionad.art/raw/maps/_ai/vibe/loop-engineering.md): 从手动提示词工程到自主循环系统的 AI 编程范式迁移，以及其构建块、风险与工程权衡
-- [玩具化设计思维](https://lionad.art/raw/maps/_ai/vibe/playful-ai.md): 将复杂 AI 能力转化为情感化、游戏化体验的包装策略
-- [编码智能体团队](https://lionad.art/raw/maps/_ai/vibe/team-of-agents.md): 通过协作的多个 AI 编码智能体来完成开发任务
-- [Vibe Coding](https://lionad.art/raw/maps/_ai/vibe/vibe.md): Vibe 是一种基于 AI 的代码生成和协作方式，旨在通过自然语言提示帮助开发者快速生成代码片段、自动化任务和提升编程效率。
-- [Workflow](https://lionad.art/raw/maps/_ai/workflow.md): AI 辅助开发工作流与方法论
-- [Agentic Engineering](https://lionad.art/raw/maps/_ai/workflow/agentic-engineering.md): 超越 Vibe Coding 的 AI 辅助工程方法论
-- [Spec-Driven Development (SDD)](https://lionad.art/raw/maps/_ai/workflow/sdd.md): 规格驱动开发方法论与工具对比
-- [应用](https://lionad.art/raw/maps/_apps/apps.md): 应用软件、网络工具及实用程序
-- [邮件工具](https://lionad.art/raw/maps/_apps/email/email.md): 邮件测试、验证与送达率检测工具
-- [macOS 应用](https://lionad.art/raw/maps/_apps/mac/mac.md): macOS 平台应用与工具
-- [VPN（Virtual Private Network）](https://lionad.art/raw/maps/_apps/networking/vpn.md): VPN 是一种通过公共网络建立私人网络的技术。
-- [领域驱动设计（DDD）](https://lionad.art/raw/maps/_architecture/ddd.md): 领域驱动设计（Domain-Driven Design，DDD）是一种软件开发方法论，强调以领域模型为核心，通过与领域专家的紧密合作，构建符合业务需求的软件系统。
-- [架构设计](https://lionad.art/raw/maps/_architecture.md): 顶层架构设计、企业架构、TOGAF 等
-- [技术架构](https://lionad.art/raw/maps/_architecture/tech-architecture.md): 技术架构是指软件系统的整体结构，包括软件组件、子系统、模块之间的关系，以及软件系统的外部特性和行为。技术架构设计是软件开发的重要环节，它决定了软件系统的质量、性能、可维护性和可扩展性。
-- [衰老](https://lionad.art/raw/maps/_biology/aging.md)
-- [注意力](https://lionad.art/raw/maps/_biology/attention.md)
-- [睡觉](https://lionad.art/raw/maps/_biology/sleep.md): 这里记录了一些关于睡眠的知识。
-- [第一篇博客](https://lionad.art/raw/maps/_blog/first-article.md): 仿生狮子的第一篇博客，描述了我建站的初衷。
-- [博客改版碰到的浏览器平滑滚动问题](https://lionad.art/raw/maps/_blog/smooth-scroll.md)
-- [博客精选](https://lionad.art/raw/maps/_blogs/blogs.md): 精选的软件工程和技术博客文章
-- [以图组织内容的技术站点](https://lionad.art/raw/maps/_blogs/software-engineering/graph-based-sites.md): 以交互式图、网络、节点作为核心导航与内容组织形式的英文技术博客与教程站点
-- [Herb Caudill](https://lionad.art/raw/maps/_blogs/software-engineering/herb-caudill.md): 对软件工程的反思
-- [商业分析](https://lionad.art/raw/maps/_business/analysis/business-analysis.md): 商业分析是指通过拆解问题、分析需求、设计解决方案，为业务开展提供更好的数据和决策支持的过程。
-- [商业思维案例笔记@曹雄峰](https://lionad.art/raw/maps/_business/analysis/business-examples.md): 理解商业世界，破解决策难题
-- [商业](https://lionad.art/raw/maps/_business/business.md): 商业分析、风险投资及商业思维
-- [风险投资](https://lionad.art/raw/maps/_business/venture-capital/venture-capital.md): 高风险、高回报的投资行为
-- [CLI](https://lionad.art/raw/maps/_cli/cli.md): 命令行工具、脚本和自动化
-- [CLI 设计哲学与用户体验](https://lionad.art/raw/maps/_cli/engineering/cli-design.md): 命令行工具的设计原则、交互模式与可访问性实践
-- [CLI 技术实现与架构](https://lionad.art/raw/maps/_cli/engineering/cli-implementation.md): 命令行工具的分层架构、框架选择、错误处理与配置管理
-- [CLI 测试、文档与发布](https://lionad.art/raw/maps/_cli/engineering/cli-lifecycle.md): 命令行工具的质量保障、文档规范与自动化发布流程
-- [Terminal Escape Sequences](https://lionad.art/raw/maps/_cli/terminal/escape-sequences.md): ANSI 转义序列与终端颜色输出，涵盖 16 色、256 色和 True Color 模式
-- [ffmpeg & imagemagick](https://lionad.art/raw/maps/_cli/tools/ffmpeg.md): 最常使用的视频和图片处理工具。
-- [pnpm](https://lionad.art/raw/maps/_cli/tools/pnpm.md): pnpm 包管理器的虚拟存储、符号链接结构与常见陷阱
-- [CloudNative](https://lionad.art/raw/maps/_cloud-native/cloud-native.md): 云原生技术概论
-- [Arm 云计算实例 — 建议默认采用](https://lionad.art/raw/maps/_cloud-native/hardware/arm-on-cloud-native.md): 将 Arm 视为云端计算实例的默认选择，除非存在明确的 x86 架构依赖。
-- [云原生硬件](https://lionad.art/raw/maps/_cloud-native/hardware/hardware.md): 云原生环境下的硬件架构选择，包括 Arm 架构应用
-- [Kubernetes](https://lionad.art/raw/maps/_cloud-native/kubernetes/kubernetes.md): K8s，是一个基于容器的集群管理平台，主要用于控制容器
-- [Serverless](https://lionad.art/raw/maps/_cloud-native/serverless/serverless.md): 无服务器计算，是一种云计算架构模式，其中云提供商负责执行代码，并动态分配计算资源
-- [无边车的服务网格](https://lionad.art/raw/maps/_cloud-native/sidecar/service-mesh-without-sidecar.md): 随着基于 sidecar 的服务网格在成本和运维复杂度上的问题持续存在，我们很高兴看到出现了另一种不依赖 sidecar 的服务网格选项：Istio Ambient 模式。
-- [Sidecar Pattern](https://lionad.art/raw/maps/_cloud-native/sidecar/sidecar.md)
-- [Communication](https://lionad.art/raw/maps/_communication/communication.md): Communication is the process of exchanging information, ideas, thoughts, and feelings.
-- [Communication](https://lionad.art/raw/maps/_communication/communication/communication.md): Communication is the process of exchanging information, ideas, thoughts, and feelings.
-- [公司](https://lionad.art/raw/maps/_company/business/company.md): 注册和经营的流程及注意事项
-- [公司](https://lionad.art/raw/maps/_company/company.md): 注册和经营的流程及注意事项
-- [计算机](https://lionad.art/raw/maps/_computer/computer.md): 计算机科学知识图谱，涵盖组成原理、编码技术和计算机网络
-- [Emoji](https://lionad.art/raw/maps/_computer/encoding/emoji.md): Emoji 是一种表情符号，是一种用来在电子通信中传达情感的符号。
-- [编码](https://lionad.art/raw/maps/_computer/encoding/encoding.md): 编码是将信息从一种形式或格式转换为另一种形式或格式的过程。
-- [哈希冲突](https://lionad.art/raw/maps/_computer/encoding/hash-collision.md): 哈希冲突是指两个不同的键值被哈希函数映射到了同一个位置。
-- [计算机基础](https://lionad.art/raw/maps/_computer/fundamentals/fundamentals.md): 计算机基础知识导图，包含进制转换、数字电路设计、原码反码补码等核心概念的详细解析。
-- [数字身份](https://lionad.art/raw/maps/_computer/identity/digital-identity.md): 数字身份系统的脆弱性、武器化风险与意识形态基础
-- [计算机网络](https://lionad.art/raw/maps/_computer/network/network.md): 计算机网络基础知识全览，包含 TCP/IP、HTTP、HTTPS、TLS 等协议的详细解析，以及网络安全、CDN、跨域等实践内容。
-- [Http Request Example](https://lionad.art/raw/maps/_computer/network/segments/http-request-example.md)
-- [Http Response Example](https://lionad.art/raw/maps/_computer/network/segments/http-response-example.md)
-- [系统性能](https://lionad.art/raw/maps/_computer/system-performance.md): 计算机系统性能指标与延迟数字，帮助程序员理解各层级操作的时间量级差异
-- [C++](https://lionad.art/raw/maps/_cpp/cpp.md): C++ 是一种静态类型、编译式、通用、多范式编程语言
-- [Google C++ Standard](https://lionad.art/raw/maps/_cpp/google-cpp-standard.md): Google C++ 编程规范
-- [King Database](https://lionad.art/raw/maps/_cpp/king-db.md): A simple key-value store database
-- [Makefile](https://lionad.art/raw/maps/_cpp/makefile.md): Makefile 构建工具基础教程
-- [跨平台开发](https://lionad.art/raw/maps/_cross-platform/cross-platform.md): 跨平台开发技术与实践，包括 Flutter、Taro 等框架以及设备适配方案。
-- [Device Metrics](https://lionad.art/raw/maps/_cross-platform/device-metrics.md): Understand how device pixels, points, and scale factor work together.
-- [Flutter](https://lionad.art/raw/maps/_cross-platform/flutter.md): Flutter 是 Google 开发的跨平台 UI 框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。
-- [Taro](https://lionad.art/raw/maps/_cross-platform/taro.md): Taro 是一个多端开发解决方案，支持用 React/Vue/Nerv 等框架开发小程序、H5、App 等应用。
-- [数据库](https://lionad.art/raw/maps/_database/database.md): 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL 等
-- [Data Lake](https://lionad.art/raw/maps/_database/datalake/datalake.md): 一种用于存储大量原始数据的系统，支持多种数据格式和类型，适用于大数据分析和处理。
-- [Apache Paimon：湖仓一体中的可变数据与实时更新](https://lionad.art/raw/maps/_database/datalake/paimon.md): 将数据湖格式与 LSM 融合，面向高吞吐更新与低延迟读的实时湖仓存储与管理。
-- [Delta Lake](https://lionad.art/raw/maps/_database/deltalake/deltalake.md): 一个开源的存储层，旨在为数据湖提供 ACID 事务支持、可扩展的元数据处理和统一的批处理与流处理能力。
-- [Delta Lake Liquid Clustering](https://lionad.art/raw/maps/_database/deltalake/liquid-clustering.md): Delta Lake 液体聚类是一种动态数据布局优化技术，通过增量调整数据分布以提升查询性能，适应多变的查询模式，降低维护成本
-- [GraphQL](https://lionad.art/raw/maps/_database/graphql/graphql.md): 一种用于 API 的查询语言和运行时环境，允许客户端精确地请求所需的数据，从而提高数据获取的效率和灵活性。
-- [GraphQL for LLM](https://lionad.art/raw/maps/_database/graphql/graphql-for-llm.md): 将 GraphQL 作为大型语言模型（LLM）数据访问模式的实践
-- [Delta Sharing：跨平台安全数据共享的开放协议（Trial）](https://lionad.art/raw/maps/_database/lakehouse/delta-sharing.md): 以开放协议在多云与本地间共享“在线数据”，集中治理与审计，避免复制；但须管控跨云外网成本。
-- [Lakehouse](https://lionad.art/raw/maps/_database/lakehouse/lakehouse.md): 一种新型的数据管理架构，它结合了数据湖（Data Lake）和数据仓库（Data Warehouse）的优点，为现代数据分析和管理提供了一个统一的平台。
-- [NoSQL](https://lionad.art/raw/maps/_database/nosql/nosql.md): 非关系型数据库技术，包括 Redis 缓存与数据结构
-- [Redis](https://lionad.art/raw/maps/_database/nosql/redis.md): About Redis
-- [数据库索引优化](https://lionad.art/raw/maps/_database/sql/indexing.md): 关系型数据库索引的工作原理、查询优化策略与常见性能陷阱。
-- [Postgres](https://lionad.art/raw/maps/_database/sql/postgres.md): PostgreSQL 是一个强大的开源关系型数据库，通过丰富的插件生态可以覆盖多种数据场景。
-- [SQL](https://lionad.art/raw/maps/_database/sql/sql.md): SQL（Structured Query Language，结构化查询语言）是一种用于管理和操作关系型数据库的编程语言。它用于执行各种数据库操作，如查询数据、插入记录、更新数据和删除记录。
-- [Text to SQL：为何被标记为 Hold，以及应该如何安全使用](https://lionad.art/raw/maps/_database/sql/text-to-sql.md): 解析 Text to SQL 在实际生产中的风险点与可接受的使用边界，为数据与平台团队提供治理思路。
-- [CI/CD](https://lionad.art/raw/maps/_devops/cicd/cicd.md): 持续集成和持续部署（Continuous Integration & Continuous Deployment）
-- [Continues Compliance 持续合规](https://lionad.art/raw/maps/_devops/cicd/continuous-compliance.md): 持续合规是一种跨领域的实践，旨在通过自动化和持续监控确保系统和流程始终符合相关法规和标准。
-- [部署](https://lionad.art/raw/maps/_devops/cicd/deploy.md): 前端部署实践与策略
-- [GitLab](https://lionad.art/raw/maps/_devops/cicd/gitlab.md): GitLab 是一个基于 Git 的 DevOps 平台，提供了代码仓库、CI/CD、Issue 管理等功能
-- [Docker](https://lionad.art/raw/maps/_devops/container/docker.md): Docker 是一种容器管理工具，通过对系统资源的控制与隔离，把软件、软件运行时、系统工具、系统库和配置打包到一个镜像中，运行在有有独立命名空间的容器进程内，可以使软件的所有依赖都标准化。
-- [DevOps](https://lionad.art/raw/maps/_devops/devops.md): DevOps 是一种开发理论，它致力于将大量自动化操作整合进开发到交付过程中，以消除各个团队之间的隔阂，使需求尽快交付，并得到质量反馈。
-- [rotatelogs](https://lionad.art/raw/maps/_devops/logging/rotatelogs.md): Apache 内置的日志轮转工具，通过管道机制实现按时间或大小切割日志文件。
-- [Dorothy](https://lionad.art/raw/maps/_devops/version-control/dorothy.md): Dorothy 是我的 Git Commit Message 的约定。
-- [Git 常用命令](https://lionad.art/raw/maps/_devops/version-control/git-commands.md): Git 日常开发中的常用命令速查，包括分支操作、提交管理、历史查看等
-- [Gitflow](https://lionad.art/raw/maps/_devops/version-control/gitflow.md): Gitflow 是一种使用 Git 合作时使用的工作流程。
-- [GitHub Flow](https://lionad.art/raw/maps/_devops/version-control/github-flow.md): GitHub Flow 是一种基于 PR 的轻量级 Git 工作流，由 GitHub 团队提出。
-- [GitLab Flow](https://lionad.art/raw/maps/_devops/version-control/gitlab-flow.md): GitLab Flow 是介于 GitHub Flow 和 Gitflow 之间的折中方案，以环境分支和 upstream-first 策略为特色。
-- [预提交钩子（Pre-commit hooks）](https://lionad.art/raw/maps/_devops/version-control/pre-commit-hook.md): Git 的 pre-commit hook 用来在提交代码前执行一些检查或操作
-- [版本控制](https://lionad.art/raw/maps/_devops/version-control/version-control.md): 版本控制是一种记录文件内容变化，以便将来查阅特定版本修订情况的系统，包括 Git、版本号管理、工作流等
-- [API 接口文档](https://lionad.art/raw/maps/_docs/api-reference.md): 博客系统提供的 API 接口参考
-- [内容引用示例](https://lionad.art/raw/maps/_docs/content-embedding-demo.md): 展示如何在 Markdown 中嵌入和引用其他文件内容
-- [文档管理](https://lionad.art/raw/maps/_docs/doc-manage/doc-manage.md): 文档管理相关
-- [文档](https://lionad.art/raw/maps/_docs/docs.md): 文档管理与技术写作
-- [Excalidraw 图表使用指南](https://lionad.art/raw/maps/_docs/excalidraw-guide.md): 本文档介绍如何在博客文章中创建和嵌入 Excalidraw 手绘风格图表。
-- [共享配置参考](https://lionad.art/raw/maps/_docs/shared-config.md): 博客系统的通用配置参数，供其他文档引用
-- [知识流优于知识库存](https://lionad.art/raw/maps/_docs/tech-docs/knowledge-flow.md): Knowledge flow is better than knowledge stocks
-- [技术文档](https://lionad.art/raw/maps/_docs/tech-docs/tech-docs.md): 技术文档与知识管理
-- [Iconify](https://lionad.art/raw/maps/_fe-framework/assets/iconify.md): Iconify 是一个图标库，提供了多种图标集合的访问和使用方式。
-- [资源管理](https://lionad.art/raw/maps/_fe-framework/assets.md): 前端资源（图标、图片、字体等）的管理方案。
-- [组件方案](https://lionad.art/raw/maps/_fe-framework/component-solutions.md): 前端组件化解决方案，包括 Web Components 标准和微前端架构。
-- [微前端](https://lionad.art/raw/maps/_fe-framework/component-solutions/micro-frontend.md): 微前端是一种架构风格，是一种将前端应用拆分成更小、更独立的部分，然后将这些部分组合在一起的技术方案。微前端的目标是将单体应用拆分成多个小型应用，每个小型应用都可以独立开发、独立部署。
-- [Web Components](https://lionad.art/raw/maps/_fe-framework/component-solutions/web-components.md): Web Components 是一种 Web 开发技术，它允许开发者创建自定义的、可重用的组件，这些组件可以在不同的 Web 应用中使用。
-- [前端框架](https://lionad.art/raw/maps/_fe-framework/fe-framework.md): 前端开发各阶段的工具集合，包括 UI 框架、元框架、组件方案、动画库等。
-- [元框架](https://lionad.art/raw/maps/_fe-framework/meta-frameworks.md): 基于 UI 框架的全栈开发框架，提供 SSR、SSG、路由等开箱即用功能。
-- [Nuxt](https://lionad.art/raw/maps/_fe-framework/meta-frameworks/nuxt.md): Nuxt 是一个基于 Vue.js 全栈框架
-- [Nuxt Security](https://lionad.art/raw/maps/_fe-framework/meta-frameworks/nuxt-security.md): 自动通过使用 HTTP 头和中间件配置您的应用程序遵循 OWASP 安全模式和原则
-- [Blockies Animation](https://lionad.art/raw/maps/_fe-framework/motion/blockies-animation.md): Designed for performance, ease of use, and seamless integration into any modern project.
-- [GSAP](https://lionad.art/raw/maps/_fe-framework/motion/gsap.md): GreenSock Animation Platform - 专业级 JavaScript 动画库
-- [动画与交互](https://lionad.art/raw/maps/_fe-framework/motion.md): 前端动画库和交互效果解决方案。
-- [Lottie](https://lionad.art/raw/maps/_fe-framework/motion/lottie.md): Lottie 动画格式与资源平台
-- [类型系统](https://lionad.art/raw/maps/_fe-framework/type-system.md): TypeScript 类型工具和 Schema 验证方案。
-- [Utility Types](https://lionad.art/raw/maps/_fe-framework/type-system/utility-types.md): think "lodash" for static types
-- [Zod](https://lionad.art/raw/maps/_fe-framework/type-system/zod.md): Zod 是一个 TypeScript-first 的验证库。
-- [Angular](https://lionad.art/raw/maps/_fe-framework/ui-frameworks/angular.md): Angular 是一个完整的平台级前端框架，提供了构建复杂应用所需的一切工具。
-- [UI 框架](https://lionad.art/raw/maps/_fe-framework/ui-frameworks.md): 主流前端 UI 框架，包括 Vue、React、Angular 等组件化开发工具。
-- [React Mind Map](https://lionad.art/raw/maps/_fe-framework/ui-frameworks/react.md): React 是一个经典的用户界面框架。
-- [Vue](https://lionad.art/raw/maps/_fe-framework/ui-frameworks/vue.md): Vue 是一套用于构建用户界面的渐进式框架，它的核心库只关注视图层，易于上手，同时也便于与第三方库或既有项目整合。
-- [Vue Reactivity API](https://lionad.art/raw/maps/_fe-framework/ui-frameworks/vue-reactive.md): Vue3 响应式系统的核心 API 详解，包含 reactive、ref、computed、effect 等原理与用法
-- [CSS Mind Map](https://lionad.art/raw/maps/_frontend/css/css-mind-map.md)
-- [CSS](https://lionad.art/raw/maps/_frontend/css.md)
-- [BEM](https://lionad.art/raw/maps/_frontend/css/bem.md): Block__Element–-Modifier
-- [CSS](https://lionad.art/raw/maps/_frontend/css/css.md): 层叠样式表（Cascading Style Sheets），用于描述网页的呈现样式
-- [ITCSS（Inverted Triangle CSS）](https://lionad.art/raw/maps/_frontend/css/inverted-triangle-css.md)
-- [CSS Layers](https://lionad.art/raw/maps/_frontend/css/layers.md)
-- [CSS 新特性 2025](https://lionad.art/raw/maps/_frontend/css/new-features-2025.md): Adam Argyle 分享的 25+ 个 CSS 新特性，涵盖视图过渡、容器查询、滚动驱动动画、颜色系统等
-- [sass](https://lionad.art/raw/maps/_frontend/css/sass.md)
-- [CSS Snapshot 2024](https://lionad.art/raw/maps/_frontend/css/snapshot-2024.md): 截止 2024 年底，CSS 规范的状态
-- [CSS Sprite 动画](https://lionad.art/raw/maps/_frontend/css/sprite-animation.md): 使用 CSS object-fit 和 object-position 实现高性能 Sprite 动画的技术方案
-- [CSS Subgrid](https://lionad.art/raw/maps/_frontend/css/subgrid.md): CSS subgrid 布局技术，用于让嵌套网格继承父网格轨道定义
-- [Tailwind CSS](https://lionad.art/raw/maps/_frontend/css/tailwind.md): Tailwind CSS 是一个 utility-first 的 CSS 框架，提供大量小而可组合的类名，用于在标记层面直接控制样式。它关注可定制性（`theme`）、按需构建（content 扫描）与插件生态。
-- [前端技术](https://lionad.art/raw/maps/_frontend/frontend.md): 前端开发技术领域，涵盖 CSS、HTML、JavaScript 和 W3C 标准等核心子领域
-- [HTML Mind Map](https://lionad.art/raw/maps/_frontend/html/html-mind-map.md)
-- [HTML](https://lionad.art/raw/maps/_frontend/html.md)
-- [Emmet](https://lionad.art/raw/maps/_frontend/html/emmet.md)
-- [A Few Things About the Anchor Element’s href You Might Not Have Known](https://lionad.art/raw/maps/_frontend/html/href-value-possibilities.md): 系统梳理 `<a>` 的 `href` 可用值（协议、文本片段、数据 URL、媒体片段、特殊锚点等），并提供实测与验证方法。
-- [HTML](https://lionad.art/raw/maps/_frontend/html/html.md): 超文本标记语言（HTML）是构建 Web 页面的基础，包含语义化标签、元素属性、Emmet 语法等核心知识。
-- [JavaScript](https://lionad.art/raw/maps/_frontend/javascript.md): JavaScript 子领域入口，包含 Promise、Symbol、任务切片等核心主题
-- [JavaScript Index](https://lionad.art/raw/maps/_frontend/javascript.md): JavaScript 主题 A-Z 索引
-- [JavaScript Mind Map](https://lionad.art/raw/maps/_frontend/javascript/javascript-mind-map.md)
-- [JavaScript](https://lionad.art/raw/maps/_frontend/javascript/javascript.md): JavaScript 核心主题导航
-- [Promise](https://lionad.art/raw/maps/_frontend/javascript/promise.md)
-- [Symbol](https://lionad.art/raw/maps/_frontend/javascript/symbol.md): Symbol 是 ES6 新增的一种基本数据类型，它是一种原始值，不是对象，不能使用 new 操作符创建。Symbol 的值是唯一的，可以用作对象属性的键。
-- [任务切片](https://lionad.art/raw/maps/_frontend/javascript/task-slice.md): 任务切片技术能使页面在不使用 Web Worker 的情况下榨干页面性能，并保持 UI 响应。
-- [浏览器文本高亮标注](https://lionad.art/raw/maps/_frontend/text-highlight.md): 使用 Selection API 和 Range API 实现类似笔记软件的文本马克笔标注功能
-- [W3C Standards](https://lionad.art/raw/maps/_frontend/w3c.md)
-- [CSS Color Module](https://lionad.art/raw/maps/_frontend/w3c/css/color-module.md)
-- [CSS Conditional Rules Module](https://lionad.art/raw/maps/_frontend/w3c/css/conditional-rule-module.md)
-- [CSS Scrollbars Styling Module](https://lionad.art/raw/maps/_frontend/w3c/css/scrollbars-styling-module.md)
-- [proposal-defer-import-eval](https://lionad.art/raw/maps/_frontend/w3c/es/proposal-defer-import-eval.md): 延迟导入执行提案允许导入的模块等到使用时才执行
-- [proposal-regexp-v-flag](https://lionad.art/raw/maps/_frontend/w3c/es/proposal-regexp-v-flag.md): 正则的 v 模式兼容 u 模式并带来了 emoji 多码匹配等改进
-- [AI & Web：理解与管理机器学习模型对Web的影响](https://lionad.art/raw/maps/_frontend/w3c/reports/ai-web-impact.md): W3C 对 Web-AI 交叉领域进展的共同理解及标准化路线图
-- [Multi-Screen Window Placement](https://lionad.art/raw/maps/_frontend/w3c/screen/multi-screen-window-lacement.md)
-- [Subresource Integrity](https://lionad.art/raw/maps/_frontend/w3c/security/subresource-integrity.md): 子资源完整性协议允许浏览器通过检查哈希值来判断资源是否经过篡改。
-- [W3C 标准与提案](https://lionad.art/raw/maps/_frontend/w3c/w3c.md): Web 标准组织 W3C 的技术规范、提案与研究报告
-- [游戏](https://lionad.art/raw/maps/_game/game.md): 游戏开发、游戏设计、游戏行业等
-- [AI 与游戏叙事](https://lionad.art/raw/maps/_game/game-design/ai-narrative.md): AI 在游戏叙事中的伦理边界与创作融合
-- [音频设计](https://lionad.art/raw/maps/_game/game-design/audio-design.md): 游戏音效与配乐的主题化创作方法
-- [音频合成](https://lionad.art/raw/maps/_game/game-design/audio-synthesis.md): 游戏开发中的程序化音频合成与 DSP 技术
-- [交互设计](https://lionad.art/raw/maps/_game/game-design/interaction-design.md): 游戏中的交互设计与沉浸感营造
-- [叙事设计](https://lionad.art/raw/maps/_game/game-design/narrative-design.md): 游戏叙事的哲学内核与角色设计方法论
-- [严肃游戏](https://lionad.art/raw/maps/_game/game-design/serious-games.md): 以游戏为载体介入社会议题的设计方法与社群效应
-- [触控设计](https://lionad.art/raw/maps/_game/game-design/touch-controls.md): 移动端游戏触控交互的设计原则与体验优化
-- [游戏](https://lionad.art/raw/maps/_game/game/game.md): 游戏开发、游戏设计、游戏行业等
-- [游戏](https://lionad.art/raw/maps/_games/games.md): 游戏领域知识与攻略，涵盖游戏机制解析、策略指南与相关资源
-- [逃离塔克夫](https://lionad.art/raw/maps/_games/games/escape-from-tarkov.md): 逃离塔克夫是一款由俄罗斯游戏公司 BattleState Games 开发的第一人称射击游戏。
-- [Go](https://lionad.art/raw/maps/_go/go.md): Go 编程语言学习资源与工具集合
-- [Go](https://lionad.art/raw/maps/_go/go/go.md): Go（又称 Golang）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。Go 被誉为是未来的服务器端编程语言。
-- [硬件](https://lionad.art/raw/maps/_hardware/hardware.md): 硬件是指计算机的物理部分，包括 CPU、内存、硬盘、显卡等。
-- [SSD（Solid State Driver）](https://lionad.art/raw/maps/_hardware/ssd.md): SSD 是一种基于闪存技术的硬盘，相比传统的机械硬盘，它具有更快的读写速度、更低的延迟、更小的体积和更低的功耗。
-- [招聘与求职](https://lionad.art/raw/maps/_hire/hire.md): 前端面试、招聘相关问题与经验总结。
-- [前端笔试题库](https://lionad.art/raw/maps/_hire/intern.md): 面向实习生或 B 端 3~5 年经验前端
-- [面试题库](https://lionad.art/raw/maps/_hire/interview/questions/overall.md): 前端开发面试题集合，包含软件工程、算法数据结构等多个技术领域的经典面试题。
-- [面试相关](https://lionad.art/raw/maps/_hire/interview/records/ttx.md)
-- [Amp](https://lionad.art/raw/maps/_ide/amp.md): Amp 是一个 AI 原生的代码编辑器，强调 agentic workflow 和多种 AI 模式。
-- [集成开发环境（IDE）](https://lionad.art/raw/maps/_ide/ide.md): 集成开发环境（IDE）是一种软件应用程序，用于提供开发人员在一个环境中编写、测试和调试代码的功能。它通常包括代码编辑器、调试器、构建工具和其他辅助功能。
-- [VS Code 插件开发](https://lionad.art/raw/maps/_ide/vscode/vscode-plugin-development.md): 记录开发 VS Code 插件相关知识点
-- [行业报告](https://lionad.art/raw/maps/_industry/analytics.md): 行业研究、分析、报告等
-- [数字化](https://lionad.art/raw/maps/_industry/digital.md): 从商业角度而言，数字化是指将业务过程和流程转变为数字形式，以提高效率、创造价值和增加收入。数字化是一个广泛的概念，包括数字化技术、数字化转型、数字化营销等等。
-- [行业](https://lionad.art/raw/maps/_industry/industry.md): 数字化转型、低代码平台及行业分析
-- [低代码](https://lionad.art/raw/maps/_industry/low-code.md): 无代码、低代码、高代码，这是一个围绕人机交互的有趣话题。
-- [Nuxt 面试题](https://lionad.art/raw/maps/_interview/_frontend/nuxt.md): 当前内容使用AI合成，参考时请谨慎甄别
-- [面试技巧](https://lionad.art/raw/maps/_interview/interview.md): 面试准备、技巧与反思记录。
-- [易错题](https://lionad.art/raw/maps/_interview/interview-wrong-notes.md)
-- [感兴趣的问题](https://lionad.art/raw/maps/_interview/reverse-interview.md): 面试反问环节的问题清单，包含职责、技术、团队、待遇、公司等多个维度的深入提问。
-- [口腔健康](https://lionad.art/raw/maps/_life/health/oral-health.md): 正确的刷牙方法与口腔护理知识
-- [Linux](https://lionad.art/raw/maps/_linux/linux.md): Linux 系统基础指南，涵盖系统原理、系统编程、脚本使用、权限管理以及常用软件安装配置等实用内容。
-- [Nginx Config Example](https://lionad.art/raw/maps/_linux/nginx/config-example.md)
-- [文本创作](https://lionad.art/raw/maps/_machine-learning/prompt/novel.md): 使用 AI 辅助进行小说等文本创作的提示词
-- [Prompt Collections](https://lionad.art/raw/maps/_machine-learning/prompt/prompt-collections.md): Prompt collections for AI models
-- [SEO](https://lionad.art/raw/maps/_machine-learning/prompt/seo.md): 传统 SEO、AI SEO、内容优化等
-- [项目管理](https://lionad.art/raw/maps/_manage/manage.md): 项目管理实践与方法论，涵盖项目规划、目标设定、里程碑管理、风险控制等核心领域
-- [项目管理](https://lionad.art/raw/maps/_manage/manage/project-management.md): 项目管理实践指南，涵盖项目类型、目标设定、里程碑规划、风险管理等核心环节的系统性介绍。
-- [0.index](https://lionad.art/raw/maps/_management.md): 管理学领域导航索引
-- [Capacity-driven development（产能驱动开发）](https://lionad.art/raw/maps/_management/capacity-driven-development/capacity-driven-development.md): 警惕用「填满人」替代「保障价值流」的局部最优，建议用系统健康与组织调度来管理空闲产能。
-- [领导力](https://lionad.art/raw/maps/_management/leadership.md): 领导力原则与团队管理智慧
-- [管理](https://lionad.art/raw/maps/_management/management.md): 团队管理、组织架构、开发方法和工程文化
-- [组织](https://lionad.art/raw/maps/_management/organization/organization.md): 团队组织架构、管理方法、沟通方式等。
-- [彼得原理](https://lionad.art/raw/maps/_management/organization/peter-principle.md): 组织内晋升悖论与管理者胜任力陷阱
-- [AI 加速的影子 IT](https://lionad.art/raw/maps/_management/shadow-it/ai-accelerated-shadow-it.md): 讨论生成式 AI 和无代码平台如何催生新一轮影子 IT 现象，其风险与治理建议。
-- [影子 IT](https://lionad.art/raw/maps/_management/shadow-it/shadow-it.md): 影子 IT 现象、风险与治理策略
-- [Shape Up](https://lionad.art/raw/maps/_management/shape-up/shape-up.md): 适合中小团队的一种工作方式。
-- [团队切片](https://lionad.art/raw/maps/_management/slice/slice.md): 团队组织切分模式与反模式
-- [Standalone Data Engineering Teams（独立数据工程团队）](https://lionad.art/raw/maps/_management/slice/standalone-data-engineering-team.md): 为什么将数据工程从业务领域团队中剥离出来是一种组织反模式，以及应该如何用平台 + 领域团队协作来取代它。
-- [Markdown](https://lionad.art/raw/maps/_markdown/markdown.md): Markdown 轻量级标记语言学习资源与工具集合
-- [Markdown](https://lionad.art/raw/maps/_markdown/markdown/markdown.md): Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）和亚伦·斯沃茨（Aaron Swartz）。
-- [医疗](https://lionad.art/raw/maps/_medicine/medicine.md): 常见医疗知识、疾病、药物等。
-- [医疗基础](https://lionad.art/raw/maps/_medicine/medicine/medicine.md): 常见医疗知识、疾病、药物与消毒剂使用指南
-- [面相对象编程](https://lionad.art/raw/maps/_oop/oop.md): 面向对象编程是一种编程范式，它将数据和操作封装在对象中，对象之间通过消息传递进行通信。
-- [OOP 基础](https://lionad.art/raw/maps/_oop/oop/oop.md): 面向对象编程核心概念、UML 与设计原则
-- [人物](https://lionad.art/raw/maps/_person.md): 包括虚拟人物在内的重要人物或角色
-- [阿姆斯特朗](https://lionad.art/raw/maps/_person/historical/armstrong.md): 阿姆斯特朗关于工程的演讲
-- [贝特拉基](https://lionad.art/raw/maps/_person/historical/beltracchi.md): 贝特拉基是一个德国画家，曾以伪造画作闻名。
-- [历史人物](https://lionad.art/raw/maps/_person/historical/historical.md): 各领域具有历史重要意义的人物
-- [姜子牙](https://lionad.art/raw/maps/_person/historical/jiang-zi-ya.md): 周朝的开国功臣，周武王谋士，太公望，武圣
-- [吉姆·琼斯](https://lionad.art/raw/maps/_person/historical/jim-jones.md): 人民圣殿教创始人
-- [人物](https://lionad.art/raw/maps/_person/person.md): 包括虚拟人物在内的重要人物或角色，按领域分类
-- [亚里士多德（BC384~BC322）](https://lionad.art/raw/maps/_person/philosophy/aristotle.md): 古希腊哲学家，亚历山大大帝的老师，西方哲学的集大成者。
-- [伦理学](https://lionad.art/raw/maps/_person/philosophy/ethics.md): 当代伦理学理论，包括脆弱性伦理、承认理论等
-- [存在主义与身份](https://lionad.art/raw/maps/_person/philosophy/existentialism.md): 身份认同、自我与他者、公众形象与私人自我的哲学探讨
-- [哲学人物](https://lionad.art/raw/maps/_person/philosophy/philosophy.md): 哲学家与思想家的传记
-- [技术哲学](https://lionad.art/raw/maps/_person/philosophy/technology-philosophy.md): 海德格尔、埃吕尔等技术哲学家的核心概念与现代技术批判
-- [安东尼奥·埃加斯·莫尼斯](https://lionad.art/raw/maps/_person/science/antonio-egas-moniz.md): 葡萄牙神经外科医生，1949 年因发明前脑白质切除术被授予诺贝尔医学奖。
-- [克罗狄斯·托勒密](https://lionad.art/raw/maps/_person/science/claudius-ptolemaeus.md): 地心说
-- [埃拉托色尼](https://lionad.art/raw/maps/_person/science/eratosthenes.md): 求解地球周长
-- [亨利·莫莱森](https://lionad.art/raw/maps/_person/science/henry-molaison.md): 医学史上最著名的健忘症患者
-- [希波克拉底（BC460~BC370）](https://lionad.art/raw/maps/_person/science/hippocrates.md): 古希腊伯利克时期御用医师，西方医学之父。
-- [约翰·米歇尔](https://lionad.art/raw/maps/_person/science/john-michell.md): 有史以来最伟大的无名科学家之一，是已知的第一个提出黑洞存在的人，也是第一个提出地震以波传播的人。
-- [尼古拉·哥白尼](https://lionad.art/raw/maps/_person/science/mikolaj-kopernik.md): 波兰天文学家、数学家、教会法博士、神父
-- [科学人物](https://lionad.art/raw/maps/_person/science/science.md): 天文学家、医学家、数学家、物理学家等科学领域重要人物
-- [Andrej Karpathy](https://lionad.art/raw/maps/_person/technology/andrej-karpathy.md): AI 研究员、教育家，OpenAI 创始成员，前 Tesla AI 高级总监
-- [Evan Martin](https://lionad.art/raw/maps/_person/technology/evan-martin.md): Chrome 早期开发者（2007-2012），Linux Chrome 负责人，版本控制发烧友
-- [Evan Schwartz](https://lionad.art/raw/maps/_person/technology/evan-schwartz.md): Rust / TypeScript 工程师，信息策展人
-- [Gary Marcus](https://lionad.art/raw/maps/_person/technology/gary-marcus.md): 认知科学家、AI 研究者、作家，以批判性视角关注人工智能发展
-- [Peter Steinberger](https://lionad.art/raw/maps/_person/technology/peter-steinberger.md): PSPDFKit 创始人、Claudebot 创建者，Agentic Engineering 倡导者
-- [Richard Stallman](https://lionad.art/raw/maps/_person/technology/richard-stallman.md): 计算机程序员、软件自由运动的创始人
-- [Ronald G. Wayne](https://lionad.art/raw/maps/_person/technology/ronald-g-wayne.md): Apple 第三位联合创始人，多面手工程师，设计了 Apple 首个 Logo 和原始合同
-- [姚顺雨 (Shunyu Yao)](https://lionad.art/raw/maps/_person/technology/shunyu-yao.md): OpenAI 前研究员、AI Agent 方向核心探索者，现任腾讯首席 AI 科学家
-- [Steve Blank](https://lionad.art/raw/maps/_person/technology/steve-blank.md): 硅谷创业教父、精益创业运动发起人，《四步创业法》作者
-- [技术人物](https://lionad.art/raw/maps/_person/technology/technology.md): 软件工程师、AI 研究员、开源活动家等当代科技领域重要人物
-- [摄影](https://lionad.art/raw/maps/_photography/photography.md): 技术传达情感，摄影记录生活
-- [摄影](https://lionad.art/raw/maps/_photography/techniques/techniques.md): 技术传达情感，摄影记录生活。
-- [PHP](https://lionad.art/raw/maps/_php/php.md): PHP 服务器端脚本语言学习资源与工具集合
-- [PHP](https://lionad.art/raw/maps/_php/php/php.md): PHP 是一种广泛使用的开源服务器端脚本语言，特别适用于Web开发并可以嵌入HTML中。
-- [五年规划](https://lionad.art/raw/maps/_policy/five-years-plan-14.md): 对未来五年内的发展目标、发展方向、发展重点、发展任务等进行系统安排和部署的规划。
-- [工业园区高质量发展指引](https://lionad.art/raw/maps/_policy/industrial-parks-guide.md): 工信部、国家发改委联合印发的工业园区发展政策，明确"特色化、集约化、数智化、绿色化、规范化"五化发展方向
-- [政策](https://lionad.art/raw/maps/_policy/policy.md): 政策研究、五年规划及政策分析
-- [AI 计算资源危机](https://lionad.art/raw/maps/_politics/ai-compute-crunch.md): AI 算力供应紧张对行业 adoption 的影响分析
-- [共和国](https://lionad.art/raw/maps/_politics/republic.md): 一种国家政体形式，国家元首由选举产生而非世袭
-- [游戏化](https://lionad.art/raw/maps/_product/gamification/gamification.md): 游戏化是将游戏元素及游戏设计技术用于非游戏领域的设计
-- [增长](https://lionad.art/raw/maps/_product/growth/growth.md): 产品增长是指通过不断优化产品和服务，提高用户体验，增加用户数量和用户活跃度，从而实现企业的长期发展目标。
-- [运营](https://lionad.art/raw/maps/_product/operation/operation.md): 在产品全生命周期提供支持。
-- [产品](https://lionad.art/raw/maps/_product/product.md)
-- [Product Hunt 发现](https://lionad.art/raw/maps/_product/product-hunt.md)
-- [Product Hunt 产品集](https://lionad.art/raw/maps/_product/product-hunt/product-hunt.md): 从 Product Hunt 发现的有趣产品工具，按官方分类整理
-- [产品经理](https://lionad.art/raw/maps/_product/product-manager/product-manager.md): 产品经理是指负责产品规划、设计、开发、推广、运营等全生命周期管理的专业人员。
-- [Dovetail](https://lionad.art/raw/maps/_product/user-research/dovetail.md): 定性研究证据链与洞察管理：将访谈与主题化洞察集中管理、可追溯地关联至产品假设与ROI，强化定性数据在决策中的作用。
-- [用户研究](https://lionad.art/raw/maps/_product/user-research/user-research.md): 用户研究方法、工具和实践
-- [Bit](https://lionad.art/raw/maps/_products/bit/bit.md): Bit 是一个组件驱动的开发工具，它可以帮助我们更好地管理组件。
-- [Budibase](https://lionad.art/raw/maps/_products/budibase/budibase.md)
-- [Dynamo](https://lionad.art/raw/maps/_products/dynamo/dynamo.md): Dynamo 原本是 Revit 中建筑信息模型 (BIM) 的附加模块，后来发展成熟，成为一个给设计师探索可视化编程、解决问题并自行制作工具的平台。
-- [产品工具](https://lionad.art/raw/maps/_products/products.md): 产品开发工具、低代码平台、可视化编程和集成工具
-- [Zapier](https://lionad.art/raw/maps/_products/zapier/zapier.md): Connectors for APP Ocean
-- [调试技术](https://lionad.art/raw/maps/_programming/debugging/debugging.md): 系统化 Bug 修复方法与调试技术
-- [Developer Experience（DX）](https://lionad.art/raw/maps/_programming/dx/dx.md): 开发者体验（Developer Experience，DX）是指开发者在使用产品、工具、框架等过程中的感受和体验。它是用户体验（User Experience，UX）的一个子集，专注于开发者的需求和体验。
-- [GenAI for Forward Engineering](https://lionad.art/raw/maps/_programming/dx/genai-for-forward-engineering.md): GenAI用于前向工程是一种新兴技术，通过AI生成的遗留代码库描述来实现系统现代化。它引入了一个显式步骤，专注于遗留代码的功能（其规范），同时刻意隐藏当前实现方式。这与规范驱动开发相关，但专门应用于遗留系统现代化。
-- [GenAI for Legacy Codebases](https://lionad.art/raw/maps/_programming/dx/genai-for-legacy-codebases.md): 借助生成式 AI 来理解遗留系统，现在已经是一个实用的默认选择
-- [框架与工具](https://lionad.art/raw/maps/_programming/frameworks/frameworks.md): 开发框架、工具库与 TUI 框架
-- [编程语言](https://lionad.art/raw/maps/_programming/languages/languages.md): 编程语言概览与特性
-- [编程范式](https://lionad.art/raw/maps/_programming/paradigms/paradigms.md): 编程范式与思想，包括函数式编程、面向对象等
-- [编程](https://lionad.art/raw/maps/_programming/programming.md): 编程范式、开发者体验、调试技术、编程语言与框架
-- [Python](https://lionad.art/raw/maps/_python/python.md)
-- [React Native](https://lionad.art/raw/maps/_react-native/react-native.md): React Native 是 Facebook 推出的一款跨平台移动应用开发框架，使用 JavaScript 和 React 来构建原生应用。
-- [React Native](https://lionad.art/raw/maps/_react-native/react-native/react-native.md): React Native 是 Facebook 推出的一款跨平台移动应用开发框架，使用 JavaScript 和 React 来构建原生应用。
-- [重构](https://lionad.art/raw/maps/_refactor/refactoring.md): 代码重构的原则、模式和实践
-- [重构](https://lionad.art/raw/maps/_refactor/refactoring/refactor.md)
-- [正则表达式领域](https://lionad.art/raw/maps/_regex/regex.md): 正则表达式相关的学习笔记和实践案例
-- [正则表达式](https://lionad.art/raw/maps/_regex/regex/regex.md): 正则表达式是一种用来匹配字符串的强有力的工具，它的灵活性、表达力和功能都非常强大。
-- [Cinema 4D](https://lionad.art/raw/maps/_render/c4d.md): C4D 相关的技术和应用
-- [渲染技术](https://lionad.art/raw/maps/_render/render.md): 3D 渲染、着色器与图形编程相关技术。
-- [Shader Art](https://lionad.art/raw/maps/_render/shader.md): Shader Art 是一种使用 Shader 语言进行创作的艺术形式，它可以用来制作动画、图像、音乐等。
-- [Three.js](https://lionad.art/raw/maps/_render/threejs.md): Three.js 高级材质、着色器与实时渲染的实战秘密
-- [WebGL](https://lionad.art/raw/maps/_render/webgl.md): WebGL 基础理论与实战教程资源
-- [复杂科学](https://lionad.art/raw/maps/_science/complex-science/complex-science.md): 复杂科学是一门研究复杂系统的学科，它涉及到多个学科领域，包括物理学、生物学、社会学、经济学等。复杂科学的研究对象是复杂系统，这些系统由大量相互作用的元素组成，这些元素之间的相互作用会导致系统的行为变得难以预测。
-- [系统论](https://lionad.art/raw/maps/_science/complex-science/systems-theory.md): 系统论是一种研究系统的科学，它是一种研究对系统的整体性、结构性、最优化的科学，是一种研究系统的一般规律的科学，是一种研究系统之间相互作用的科学。
-- [文明认知](https://lionad.art/raw/maps/_science/cosmos/civilization-cognition.md): 关于文明发展、繁荣定义与进步衡量的哲学思考
-- [宇宙](https://lionad.art/raw/maps/_science/cosmos/cosmos.md): 宇宙学是研究宇宙的起源、演化、结构和未来的科学。宇宙学家通过观测、实验和理论研究来探索宇宙的奥秘。
-- [宇宙未来时间线](https://lionad.art/raw/maps/_science/cosmos/future-timeline.md): 从恒星纪元到热寂——宇宙演化的五个阶段与前沿研究更新
-- [熵](https://lionad.art/raw/maps/_science/entropy/entropy.md): 熵是热力学的基本概念，是描述物质的有序程度的物理量。
-- [环保](https://lionad.art/raw/maps/_science/environment/environment.md): 低碳 Web 实践指南
-- [神经科学](https://lionad.art/raw/maps/_science/neuroscience/neuroscience.md): 神经科学是一门以脑结构和功能为研究对象的综合学科，横跨了多个学科领域。现代神经科学有三个主流分支：细胞和分子神经科学、认知神经科学和发育神经学。
-- [量子理论](https://lionad.art/raw/maps/_science/quantum/quantum.md): 量子力学是描述微观世界的物理学。
-- [科学](https://lionad.art/raw/maps/_science/science.md): 科学知识图谱，涵盖复杂科学、宇宙学、热力学、环境科学、神经科学和量子力学等领域
-- [搜索引擎优化领域](https://lionad.art/raw/maps/_seo/seo.md): SEO 相关的学习笔记和实践经验
-- [搜索引擎优化](https://lionad.art/raw/maps/_seo/seo/seo.md): 搜索引擎优化包含了对网站内容的基本元素的一系列改动，这些改动通常相互作用，提高用户体验以及增加网站在自然搜索结果中的排名。
-- [自建邮件服务器](https://lionad.art/raw/maps/_server/email/self-hosted-email.md): 自建邮件服务器的实践指南，包括技术要点、权衡分析和适用场景
-- [NodeJS](https://lionad.art/raw/maps/_server/nodejs.md): NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
-- [NodeJS](https://lionad.art/raw/maps/_server/nodejs/nodejs.md): NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
-- [NodeJS Require](https://lionad.art/raw/maps/_server/nodejs/source/require.md): NodeJS 模块导入的源码解析
-- [服务端](https://lionad.art/raw/maps/_server/server.md): 服务端技术、NodeJS 及服务器相关知识
-- [算法](https://lionad.art/raw/maps/_software/algorithm/algorithm.md): 经典算法原理与实现，包含快速排序等常用算法的详细解析和代码示例。
-- [Data Structure](https://lionad.art/raw/maps/_software/data-structure/data-structure.md): 数据结构基础知识，包含二叉树遍历、B 树和 B+树原理等核心概念的详细解析。
-- [设计模式](https://lionad.art/raw/maps/_software/design-patterns/design-patterns.md): 设计模式是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。
-- [开源文化](https://lionad.art/raw/maps/_software/open-source/culture.md): 开源软件的文化基础、礼物经济与创作者动机
-- [开源仓库维护](https://lionad.art/raw/maps/_software/open-source/repo-maintenance.md): 开源项目维护实践、贡献者管理与可持续性策略
-- [软件](https://lionad.art/raw/maps/_software/software.md): 软件工程、数据结构、算法与设计模式
-- [AI 代码评审](https://lionad.art/raw/maps/_software/software-engineering/ai-code-review.md): 阿里 Open Code Review 等 AI 代码评审工具的架构设计与工程实践
-- [技艺学习的认识论](https://lionad.art/raw/maps/_software/software-engineering/learning-craft.md): 技能习得、专家思维与学习的哲学反思
-- [软件工程](https://lionad.art/raw/maps/_software/software-engineering/software-engineering.md): 软件工程（Software Engineering）是指应用工程化的方法和原则来设计、开发、测试和维护软件系统的学科和实践。
-- [Whale Fall](https://lionad.art/raw/maps/_software/whale-fall/whale-fall.md): 大型开源项目死亡后的生态演替，类比海洋中的鲸落现象
-- [Evil.js](https://lionad.art/raw/maps/_source-code/javascript/evil.md)
-- [库和源码](https://lionad.art/raw/maps/_source-code/readme.md)
-- [命令行](https://lionad.art/raw/maps/_system/command.md): 命令行工具使用指南，包含 PowerShell 常用命令及文件操作示例。
-- [并发编程](https://lionad.art/raw/maps/_system/concurrency/concurrency.md): 并发是系统处理多个任务的能力，是现代软件系统的核心概念。
-- [macOS](https://lionad.art/raw/maps/_system/macos.md): macOS 系统知识与实践经验
-- [操作系统](https://lionad.art/raw/maps/_system/os.md): 应用程序与计算机硬件之间的中介，管理计算机的软硬件资源，提供用户与计算机之间的接口。
-- [AI 测试](https://lionad.art/raw/maps/_test/ai/ai.md): AI 驱动的测试技术与方法
-- [AI 驱动测试](https://lionad.art/raw/maps/_test/ai/ai-driven-testing/ai-driven-testing.md): AI 驱动的 UI 测试正在通过与主流测试框架的深度集成，解决早期非确定性带来的不稳定性问题，提升测试自动化的可靠性和效率。
-- [测试方法](https://lionad.art/raw/maps/_test/methods/methods.md): 测试驱动开发与软件测试方法论
-- [TCR（Test && Commit || Revert）](https://lionad.art/raw/maps/_test/methods/tcr/tcr.md): TCR（Test && Commit || Revert）是一种软件开发实践，强调在代码更改后立即运行测试，并根据测试结果决定是提交更改还是回滚到先前的状态，从而确保代码库始终处于可运行状态。
-- [计算机软件测试员](https://lionad.art/raw/maps/_test/software-testing-engineer/software-testing-engineer.md): 计算机软件测试员的职责、技能要求和职业发展路径。
-- [软件测试](https://lionad.art/raw/maps/_test/test.md): 软件测试方法、工具与实践
-- [Playwright](https://lionad.art/raw/maps/_test/tools/playwright/playwright.md): Playwright 自动化测试工具介绍，包含其安装便捷性、先进理念和配套工具等主要特点。
-- [测试工具](https://lionad.art/raw/maps/_test/tools/tools.md): 自动化测试工具与框架
-- [Bills](https://lionad.art/raw/maps/_threads/bills.md): 记录一些账单和开销
-- [Daily Bugs](https://lionad.art/raw/maps/_threads/daily-bugs.md): 追踪一些日常碰到的软件缺陷
-- [引用网站](https://lionad.art/raw/maps/_threads/references.md): 博客中引用过的网站列表（按 A-Z 排序）。
-- [日常记录](https://lionad.art/raw/maps/_threads/threads.md): 日常开发中的问题记录、账单追踪与时间线。
-- [TimeLine](https://lionad.art/raw/maps/_threads/timeline.md): 时间线？
-- [类型体操（Type Gymnastics）](https://lionad.art/raw/maps/_typescript/type-gymnastics/type-gymnastics.md): TypeScript 类型体操指北，包含语法关键字、语句结构、基本运算等内容。
-- [TypeScript](https://lionad.art/raw/maps/_typescript/typescript.md): TypeScript 的核心概念、高级类型、应用实践和工程化经验
-- [TypeScript Changelog](https://lionad.art/raw/maps/_typescript/typescript/changelog.md): TypeScript 版本变更记录与破坏性变更验证
-- [网站的可访问性](https://lionad.art/raw/maps/_ui/accessibility/accessibility.md): 增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用底处理性能或低带宽设备的人
-- [AI 辅助设计](https://lionad.art/raw/maps/_ui/ai-assisted/ai-assisted.md): 生成式 AI 在 UI 设计与原型制作中的应用
-- [自助式UI原型设计与GenAI](https://lionad.art/raw/maps/_ui/ai-assisted/genai-for-ui-prototyping.md): 利用生成式AI工具实现自助式UI原型设计的实践与思考
-- [设计](https://lionad.art/raw/maps/_ui/design/design.md): UI 设计原则、设计哲学与视觉风格
-- [灵感资源](https://lionad.art/raw/maps/_ui/inspiration/inspiration.md): 设计灵感平台、设计资源与参考网站
-- [浮层组件设计模式](https://lionad.art/raw/maps/_ui/patterns/overlay-patterns.md): Modal、Dialog、Overlay 等浮层组件的设计原则、适用场景与决策框架
-- [字体排版](https://lionad.art/raw/maps/_ui/typography/typography.md): 字体设计、排版规范与可变字体技术
-- [用户界面（UI）](https://lionad.art/raw/maps/_ui/ui.md): 用户界面（UI）设计是指设计师设计的用户界面，是用户与产品之间的桥梁。用户界面设计是一个复杂的过程，其中包括设计、测试和改进。设计师必须考虑用户的需求、产品的功能和用户界面的外观。用户界面设计是一个交叉学科，涉及心理学、设计、计算机科学和其他领域。
-- [用户体验（UX）](https://lionad.art/raw/maps/_ui/ux.md): 用户体验设计原则、反模式与交互成本分析
-- [GIS（地理信息系统）](https://lionad.art/raw/maps/_visual/gis/gis.md): 地理信息系统（Geographic Information System，简称 GIS）是一种用于捕获、存储、管理、分析和展示地理空间数据的计算机系统。
-- [信息设计](https://lionad.art/raw/maps/_visual/info-design/info-design.md): 研究如何展示信息。
-- [可视化](https://lionad.art/raw/maps/_visual/visual.md): 可视化技术、信息设计与地理信息系统
-- [可视化](https://lionad.art/raw/maps/_visual/visualization/visualization.md): 可视化是一种通过图表、图形、地图等视觉元素来传达信息的方式。可视化技术是一种将数据转换为可视化图形的技术，是数据分析的重要手段之一。
-- [Github](https://lionad.art/raw/maps/_web-app/github.md): 世界上最知名的开源编程社区
-- [网站推荐](https://lionad.art/raw/maps/_web-pages/bookmarks.md): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
-- [网站推荐](https://lionad.art/raw/maps/_web-pages/web-pages.md): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
-- [浏览器](https://lionad.art/raw/maps/_web/browser/browser.md): 浏览器引擎、原理、新特性与开发技术
-- [浏览器引擎](https://lionad.art/raw/maps/_web/browser/browser-engine.md): Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
-- [Web Crypto API](https://lionad.art/raw/maps/_web/browser/crypto.md): Web Crypto API 是一个 JavaScript 接口，用于在浏览器中执行加密操作。
-- [浏览器新特性](https://lionad.art/raw/maps/_web/browser/new.md): Web.dev 月刊精选，追踪和总结主流浏览器的最新特性更新与时动态。
-- [浏览器相关](https://lionad.art/raw/maps/_web/browser/principle.md): 浏览器相关问题
-- [路由技术](https://lionad.art/raw/maps/_web/browser/router.md): Web 前端路由技术详解，包含 Hash 路由、History 路由的实现原理与最佳实践。
-- [爬虫与反爬虫](https://lionad.art/raw/maps/_web/crawler/crawler.md): 网络爬虫技术指南，包含常见反爬虫策略分析、多线程爬虫设计、增量爬取实现以及性能优化等实践经验。
-- [小程序](https://lionad.art/raw/maps/_web/miniapp/miniapp.md): 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
-- [WebTransport](https://lionad.art/raw/maps/_web/network/webtransport.md): 基于 HTTP/3 + QUIC 的下一代 Web 双向通信技术
-- [页面性能](https://lionad.art/raw/maps/_web/performance/performance.md): 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
-- [Web 安全](https://lionad.art/raw/maps/_web/security/security.md): Web 安全技术、OAuth 协议与加密算法
-- [SM2](https://lionad.art/raw/maps/_web/security/sm2.md): 国密 SM2 椭圆曲线公钥密码算法标准与工程陷阱
-- [软件供应链安全](https://lionad.art/raw/maps/_web/security/supply-chain.md): 开源软件生态中的传递性信任问题与供应链攻击防范
-- [Web 技术](https://lionad.art/raw/maps/_web/web.md): Web 开发技术，包括浏览器原理、性能优化、安全、爬虫和小程序
-- [Windows](https://lionad.art/raw/maps/_windows/windows.md): 记录一些使用 Windows 碰到的问题
-- [构建工具](https://lionad.art/raw/maps/_workflow/build-tools/build-tools.md): 前端构建工具全景图，涵盖 Vite、Webpack、Rspack 等主流工具的特性对比和使用说明
-- [Rspack](https://lionad.art/raw/maps/_workflow/build-tools/rspack.md): Rspack 构建工具的特性分析与生态定位研究。
-- [Vite](https://lionad.art/raw/maps/_workflow/build-tools/vite.md): Vite 前端构建工具的核心特性、插件机制和性能优化指南。
-- [Webpack](https://lionad.art/raw/maps/_workflow/build-tools/webpack.md): Webpack 打包工具的配置指南、优化策略和插件开发教程。
-- [Compiler](https://lionad.art/raw/maps/_workflow/compiler/compiler.md): 编译器原理与实践，重点介绍 Babel 等前端编译工具的工作原理和使用方法。
-- [工程化](https://lionad.art/raw/maps/_workflow/engineering/engineering.md): 软件工程与前端工程化的理论与实践
-- [前端工程化](https://lionad.art/raw/maps/_workflow/engineering/fe-engineering.md): 前端工程化的最佳实践和工具，帮助提升开发效率和代码质量
-- [Code Style](https://lionad.art/raw/maps/_workflow/linter/code-style.md): 代码风格与格式规范的最佳实践
-- [ESLint](https://lionad.art/raw/maps/_workflow/linter/eslint.md): ESLint 是 JavaScript 和 TypeScript 的代码质量检查工具，帮助开发者保持代码风格一致性和减少错误。
-- [代码规范](https://lionad.art/raw/maps/_workflow/linter/linter.md): 代码质量检查工具与风格规范，涵盖 ESLint、Prettier 等工具的配置与最佳实践
-- [Monorepo](https://lionad.art/raw/maps/_workflow/monorepo/monorepo.md): Monorepo 是一种将多个项目放在同一个代码仓库中的管理方式，旨在提高团队协作和代码复用效率
-- [Turborepo](https://lionad.art/raw/maps/_workflow/monorepo/turborepo.md): Turborepo 是 Vercel 推出的 Monorepo 构建系统，提供任务管道、本地和远程缓存等功能
-- [包管理器](https://lionad.art/raw/maps/_workflow/package-manager.md): 用于管理项目依赖的工具
-- [lockfile](https://lionad.art/raw/maps/_workflow/package-manager/lockfile.md): lockfile 是一种用于记录依赖的版本信息的文件
-- [NPM](https://lionad.art/raw/maps/_workflow/package-manager/npm.md): NPM 包管理器完整指南，包含 package.json 配置、镜像源管理、依赖安装等核心功能的详细说明。
-- [包管理器](https://lionad.art/raw/maps/_workflow/package-manager/package-manager.md): 用于管理项目依赖的工具，涵盖 npm、pnpm、yarn 的核心特性和最佳实践
-- [包的角色分类](https://lionad.art/raw/maps/_workflow/package-manager/package-roles.md): Andrew Nesbitt 提出的包角色分类框架——按行为模式而非技术属性理解软件包
-- [pnpm](https://lionad.art/raw/maps/_workflow/package-manager/pnpm.md): pnpm 是一个快速、省空间的包管理器
-- [前端工程化](https://lionad.art/raw/maps/_workflow/workflow.md): 前端工程化工作流的核心工具链，包括包管理器、构建工具、代码规范、Monorepo 管理等
+- [扩展](https://lionad.art/maps/_ai/agents/goose/goose-brief.cn): 您是一种通用型 AI 代理，名为 goose，由 Block（Square、CashApp 与 Tidal 的母公司）创建。goose 正在作为开源软件项目进行开发。
+- [Goose Prompts](https://lionad.art/maps/_ai/agents/goose/prompts): xxx
+- [Harness 工程](https://lionad.art/maps/_ai/agents/harness-engineering): 结合控制论与真实 .codebuddy 配置，探讨 AI 辅助编程中 Harness 的双环控制、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计。
+- [人机协作智能体团队](https://lionad.art/maps/_ai/agents/human-agent-teams): Anthropic 关于构建高效人类与智能体协作团队的经验：公共空间、明确角色、北极星目标与渐进信任
+- [AI 与人性交互](https://lionad.art/maps/_ai/agents/human-ai-interaction)
+- [多智能体架构决策与工程实践](https://lionad.art/maps/_ai/agents/multi-agent-architecture): 单/多智能体架构选择、Anthropic 工程实践、Cognition 上下文工程原则、Claude 官方决策指南
+- [多智能体协作框架对比](https://lionad.art/maps/_ai/agents/multi-agent-frameworks): AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph 等多智能体框架的核心设计、适用场景与选择建议
+- [多智能体构建模式与实践指南](https://lionad.art/maps/_ai/agents/multi-agent-patterns): 四类智能体构建关注点、框架选择决策矩阵、生产环境最佳实践
+- [OpenAI Agents SDK (JavaScript) 发布记录](https://lionad.art/maps/_ai/agents/openai-agents-js-releases): OpenAI Agents SDK JavaScript/TypeScript 版本的完整发布历史与变更日志
+- [智能健身教练 PEAS 模型分析](https://lionad.art/maps/_ai/agents/peas-coach-example): 通过智能健身教练案例深入理解 PEAS 模型的应用，包括性能度量、环境描述、执行器、传感器及环境特性分析
+- [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/maps/_ai/agents/tokenmaxxing): 从 2026 年初 Tokenmaxxing 现象出发，分析 Agentic coding 的成本失控、组织流程瓶颈、Agent 能力错配与需求天花板，并将其置于 J 型增长曲线与生产率悖论的经济学框架中理解。
+- [有毒数据流分析](https://lionad.art/maps/_ai/agents/toxic-flow-analysis): 在多代理系统中识别和缓解敏感数据泄露风险的技术
+- [Workflow 与 Agent 对比：电商退款案例](https://lionad.art/maps/_ai/agents/workflow-vs-agent): 通过电商售后退款场景，对比 Workflow 固定流程与 Agent 智能决策的优劣，及混合架构设计
+- [Artificial Intelligence](https://lionad.art/maps/_ai/ai): Machine learning, large language models, AI agents, and AI engineering
+- [Applications](https://lionad.art/maps/_ai/applications/applications): AI 应用场景与实践，涵盖前端影响、学术论文写作和提示工程等领域应用。
+- [AI 对泛前端领域的影响](https://lionad.art/maps/_ai/applications/frontend-impact): 滴滴技术团队关于 AI 浪潮下泛前端变革的思考与实践
+- [ML 论文写作](https://lionad.art/maps/_ai/applications/paper-writing): 机器学习学术论文写作指南，包括 LaTeX 工具、文献管理与可复现性实践。
+- [提示工程](https://lionad.art/maps/_ai/applications/prompt-engineering): 提示工程框架与工具，包括 DSPy、Instructor、Guidance、Outlines 等声明式提示编程方案。
+- [LLM Benchmark](https://lionad.art/maps/_ai/benchmark/benchmark): 各类大语言模型的基准测试结果与排行榜资源。
+- [CL-Bench](https://lionad.art/maps/_ai/benchmark/cl-bench): LLM 智能体持续学习基准测试框架
+- [Frontend Copy Benchmark](https://lionad.art/maps/_ai/benchmark/frontend-copy): 前端抄代码能力测试
+- [LLM Benchmark 原始任务示例集](https://lionad.art/maps/_ai/benchmark/llm-benchmark-task-examples): SimpleQA、HLE、Apex Shortlist、Codeforces、SWE Verified、Terminal Bench 2.0、Toolathlon 的原始任务示例。
+- [glm-ocr-8bit](https://lionad.art/maps/_ai/benchmark/local/glm-ocr-8bit)
+- [mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit](https://lionad.art/maps/_ai/benchmark/local/mlx-qwen3.5-27b-claude-4.6-opus-reasoning-distilled-4bit)
+- [qwen3-coder-next-mlx-4bit](https://lionad.art/maps/_ai/benchmark/local/qwen3-coder-next-mlx-4bit)
+- [qwen3-coder-next-mlx-4bit](https://lionad.art/maps/_ai/benchmark/local/qwen3-embedding-8b-4bit-dwq)
+- [qwen3.5-9b-mlx-4bit](https://lionad.art/maps/_ai/benchmark/local/qwen3.5-9b-mlx-4bit)
+- [Simple Benchmark](https://lionad.art/maps/_ai/benchmark/simple): 日常使用的简单基准测试
+- [Evaluation](https://lionad.art/maps/_ai/evaluation/evaluation): AI 系统评估与测试方法论，涵盖模型评估框架、可观测性平台和可重复性实践。
+- [Evaluation Framework](https://lionad.art/maps/_ai/evaluation/evaluation-framework): 大语言模型评估框架与基准测试，包括 lm-evaluation-harness、BigCode 等统一评估工具。
+- [Observability](https://lionad.art/maps/_ai/evaluation/observability): LLM 可观测性平台与工具，包括 LangSmith、Phoenix、Langfuse 等追踪、评估和监控方案。
+- [Reproducibility](https://lionad.art/maps/_ai/evaluation/reproducibility): 机器学习可重复性（Reproducibility）的核心价值与实践方法，包括随机种子固定、数据版本控制等关键实践。
+- [AI Architectures](https://lionad.art/maps/_ai/foundations/architectures): System architectures and design patterns for AI systems
+- [AI Core Concepts](https://lionad.art/maps/_ai/foundations/core-concepts): 20个AI核心概念一句话速查
+- [Emerging AI Technologies](https://lionad.art/maps/_ai/foundations/emerging): Emerging technologies and research directions in AI
+- [AI Foundations](https://lionad.art/maps/_ai/foundations/foundations): Fundamental concepts, architectures, and industry dynamics in AI
+- [AI Industry Dynamics](https://lionad.art/maps/_ai/foundations/industry-dynamics): Market trends and industry analysis in AI
+- [AI Frameworks](https://lionad.art/maps/_ai/framework/framework): AI 安全与开发框架，包括 Google SAIF 等安全人工智能框架。
+- [SAIF](https://lionad.art/maps/_ai/framework/saif): Google 安全人工智能框架（Secure AI Framework），管理 AI 安全风险的实用指南。
+- [Agent Governance](https://lionad.art/maps/_ai/governance/agent-governance): 智能体（Agent）相关的政策法规、治理框架与合规要求
+- [Governance](https://lionad.art/maps/_ai/governance/governance): AI 治理、政策法规、合规要求与伦理规范
+- [AIGC 海报生成](https://lionad.art/maps/_ai/image/aigc-poster): 端到端海报生成、多任务编辑与质量评估的技术体系
+- [Image Generation](https://lionad.art/maps/_ai/image/image): AI 图像生成技术与工具，包括 Stable Diffusion 等文生图模型与提示词技巧。
+- [Image Generator](https://lionad.art/maps/_ai/image/stable-diffusion): Stable Diffusion 图像生成提示词与风格指南。
+- [Datadog LLM Observability](https://lionad.art/maps/_ai/llm/datadog/datadog-llm): 为 LLM 与 Agent 工作流提供端到端追踪、监控与诊断，融入 Datadog APM 体系；对已用 Datadog 的团队较友好，但埋点与协同要求高。
+- [Embeddings 入门指南](https://lionad.art/maps/_ai/llm/embeddings): LLM Embeddings 的核心概念、演进历史与实践
+- [Large Language Models](https://lionad.art/maps/_ai/llm/llm): 大语言模型（LLM）相关技术与实践，包括 Embeddings、结构化输出、评估等。
+- [LLM 作为评审者（LLM as a judge）](https://lionad.art/maps/_ai/llm/llm-as-a-judge): 讨论用 LLM 自动评估生成式系统输出的现状、问题与建议
+- [小型语言模型（SLM）](https://lionad.art/maps/_ai/llm/slm): 小型语言模型（SLM）相关技术与应用场景
+- [结构化输出](https://lionad.art/maps/_ai/llm/structured-output): LLM 结构化输出技术，约束模型生成预定义格式的响应。
+- [Model Context Protocol](https://lionad.art/maps/_ai/mcp/mcp): MCP（Model Context Protocol）是 Anthropic 开源的标准协议，用于连接 AI 应用与外部系统，被誉为 AI 应用的 USB-C 接口。
+- [反对「直接把内部 API 暴露成 MCP」的天真做法](https://lionad.art/maps/_ai/mcp/native-api-to-mcp): 原文反对将现有内部 API 直接转换为 MCP，建议为代理场景专门设计安全的 MCP 服务层
+- [GLM-5.2 深度调研报告：为长程任务而生](https://lionad.art/maps/_ai/models/2026-06-17-glm-5.2-deep-research-report)
+- [Inference](https://lionad.art/maps/_ai/models/inference): Model inference and serving techniques
+- [Mechanistic Interpretability](https://lionad.art/maps/_ai/models/mechanistic-interpretability): Understanding model internals and interpretability methods
+- [AI Models](https://lionad.art/maps/_ai/models/models): Model internals, inference, optimization, and interpretability
+- [Multimodal Models](https://lionad.art/maps/_ai/models/multimodal): Vision, language, and multimodal AI systems
+- [Optimization](https://lionad.art/maps/_ai/models/optimization): Model optimization techniques
+- [Tokenization](https://lionad.art/maps/_ai/models/tokenization): Text tokenization and encoding
+- [Data Processing](https://lionad.art/maps/_ai/operations/data-processing): AI 数据处理技术与最佳实践，包括 NeMo Curator、Ray Data、MinHash + LSH 等工具和方法。
+- [Distributed Training](https://lionad.art/maps/_ai/operations/distributed): 分布式训练技术与框架，包括 DeepSpeed、FSDP、Megatron-Core 等大规模模型训练方案。
+- [Infrastructure](https://lionad.art/maps/_ai/operations/infrastructure): AI 基础设施与云平台，包括 Modal、Lambda Labs、SkyPilot 等 Serverless GPU 和多云编排方案。
+- [MLOps](https://lionad.art/maps/_ai/operations/mlops): 机器学习运维平台与工具，包括 Weights & Biases、MLflow、TensorBoard 等实验跟踪和模型管理方案。
+- [Operations](https://lionad.art/maps/_ai/operations/operations): AI 系统运维与工程实践，涵盖数据处理、分布式训练、基础设施和 MLOps 等关键领域。
+- [Context Engineering](https://lionad.art/maps/_ai/prompt/context-engineering): Context Engineering 是一种优化与大型语言模型（LLM）交互的技术，旨在通过提供结构化和相关的上下文信息，提高模型生成内容的准确性和相关性。
+- [Prompt](https://lionad.art/maps/_ai/prompt/prompt): Prompt 是与 AI 模型交互的指令或问题，旨在引导模型生成特定的响应或执行特定的任务。
+- [Prompt Collections](https://lionad.art/maps/_ai/prompt/prompt-collections): Prompt collections for AI models
+- [提示工程](https://lionad.art/maps/_ai/prompt/prompt-engineering): 指的是根据所需的任务目标，有意识地设计、优化和调整输入语言（即”提示”）的过程，以引导AI模型输出更高质量、符合期望和语境的内容，包含上下文设置、提示设计、提示调优、多模型适配等核心过程。
+- [提示词分化：描述性 vs 指令性](https://lionad.art/maps/_ai/prompt/prompt-paradigm): 图像生成提示词的两种范式及其适用场景
+- [Team based Instructions](https://lionad.art/maps/_ai/prompt/team-based-instructions): 为软件团队策划和共享指令（Curated shared instructions for software teams）
+- [设备端信息检索](https://lionad.art/maps/_ai/rag/on-device-info-retrieval): 在用户设备上进行信息检索以保障隐私和提升效率
+- [RAG](https://lionad.art/maps/_ai/rag/rag): 检索增强生成（Retrieval-Augmented Generation）模型与技术
+- [Recommendation Systems](https://lionad.art/maps/_ai/recommendation/recommendation): AI 推荐系统技术与演进，从协同过滤到深度学习的推荐算法实践。
+- [推荐系统演进：从零到上瘾算法](https://lionad.art/maps/_ai/recommendation/recommendation-system): 推荐系统演进历程：从流行度排序、协同过滤、矩阵分解到双塔模型与深度学习的完整指南。
+- [AI Safety](https://lionad.art/maps/_ai/safety/safety): AI 安全研究、风险治理与相关事件
+- [如何编写 Agent Skills](https://lionad.art/maps/_ai/skills/create-a-skill): 如何编写 Agent Skills - 完整指南
+- [D2C](https://lionad.art/maps/_ai/skills/d2c): 智能 Design-to-Code 架构实践
+- [Skill 蒸馏的边界与精度阶梯](https://lionad.art/maps/_ai/skills/skill-distillation): 从 ACT-R 双记忆模型与 Polanyi 默会知识看 Skill 能蒸馏几分之几 — L1 规则可编码、L1.5 风格扩散有边界、L2 Utility 写不进。
+- [SkillOpt](https://lionad.art/maps/_ai/skills/skillopt): 微软开源的 Agent Skill 优化框架，把 markdown skill 文档当作可训练参数，通过 rollout→reflect→aggregate→select→update→evaluate 循环自动迭代。
+- [Agent Skills](https://lionad.art/maps/_ai/skills/skills): Skill 是一种能力，作为 Agent 和工具之间的胶水层，帮助 Agent 理解工具以及有控制上下文等优点。
+- [Browser AI Automation](https://lionad.art/maps/_ai/tools/browser-automation): AI 驱动的浏览器自动化工具对比
+- [Claude Code](https://lionad.art/maps/_ai/tools/claude-code): Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务
+- [Codex](https://lionad.art/maps/_ai/tools/codex): OpenAI 的 AI 编程助手，支持代码生成、审查、自动化工作流
+- [Copilot](https://lionad.art/maps/_ai/tools/copilot): Copilot 是一种新型人机协作工具
+- [Tools](https://lionad.art/maps/_ai/tools/tools): AI 开发工具与平台，包括 Claude Code、浏览器自动化、GitHub Copilot 等编码助手。
+- [Fine-tuning](https://lionad.art/maps/_ai/training/fine-tuning): Model fine-tuning techniques and best practices
+- [Post-training](https://lionad.art/maps/_ai/training/post-training): Post-training optimization and model alignment
+- [RLVR](https://lionad.art/maps/_ai/training/rlvr): Reinforcement Learning with Verifiable Rewards 核心概念与算法
+- [拓扑感知调度](https://lionad.art/maps/_ai/training/topology-aware-scheduling): 拓扑感知调度是一种在分布式计算环境中，根据硬件拓扑结构和网络性能来优化任务调度和资源分配的方法，以提高整体系统的效率和性能。
+- [AI Training](https://lionad.art/maps/_ai/training/training): Model training, fine-tuning, and post-training techniques
+- [agents.md](https://lionad.art/maps/_ai/vibe/agents-md): AGENTS.md 是一种用于向 AI 编码代理提供说明的常用格式
+- [Anchoring coding agents to a ref application](https://lionad.art/maps/_ai/vibe/anchoring): 在编码代理时代，通过将其锚定至实时可编译的参考应用，有效应对代码漂移问题
+- [对 AI 生成代码”惰性依赖”的警惕与治理](https://lionad.art/maps/_ai/vibe/complacency): AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲”惰性依赖”风险
+- [Loop Engineering](https://lionad.art/maps/_ai/vibe/loop-engineering): 从手动提示词工程到自主循环系统的 AI 编程范式迁移，以及其构建块、风险与工程权衡
+- [玩具化设计思维](https://lionad.art/maps/_ai/vibe/playful-ai): 将复杂 AI 能力转化为情感化、游戏化体验的包装策略
+- [编码智能体团队](https://lionad.art/maps/_ai/vibe/team-of-agents): 通过协作的多个 AI 编码智能体来完成开发任务
+- [Vibe Coding](https://lionad.art/maps/_ai/vibe/vibe): Vibe 是一种基于 AI 的代码生成和协作方式，旨在通过自然语言提示帮助开发者快速生成代码片段、自动化任务和提升编程效率。
+- [Workflow](https://lionad.art/maps/_ai/workflow): AI 辅助开发工作流与方法论
+- [Agentic Engineering](https://lionad.art/maps/_ai/workflow/agentic-engineering): 超越 Vibe Coding 的 AI 辅助工程方法论
+- [Spec-Driven Development (SDD)](https://lionad.art/maps/_ai/workflow/sdd): 规格驱动开发方法论与工具对比
+- [应用](https://lionad.art/maps/_apps/apps): 应用软件、网络工具及实用程序
+- [邮件工具](https://lionad.art/maps/_apps/email/email): 邮件测试、验证与送达率检测工具
+- [macOS 应用](https://lionad.art/maps/_apps/mac/mac): macOS 平台应用与工具
+- [VPN（Virtual Private Network）](https://lionad.art/maps/_apps/networking/vpn): VPN 是一种通过公共网络建立私人网络的技术。
+- [领域驱动设计（DDD）](https://lionad.art/maps/_architecture/ddd): 领域驱动设计（Domain-Driven Design，DDD）是一种软件开发方法论，强调以领域模型为核心，通过与领域专家的紧密合作，构建符合业务需求的软件系统。
+- [架构设计](https://lionad.art/maps/_architecture): 顶层架构设计、企业架构、TOGAF 等
+- [技术架构](https://lionad.art/maps/_architecture/tech-architecture): 技术架构是指软件系统的整体结构，包括软件组件、子系统、模块之间的关系，以及软件系统的外部特性和行为。技术架构设计是软件开发的重要环节，它决定了软件系统的质量、性能、可维护性和可扩展性。
+- [衰老](https://lionad.art/maps/_biology/aging)
+- [注意力](https://lionad.art/maps/_biology/attention)
+- [睡觉](https://lionad.art/maps/_biology/sleep): 这里记录了一些关于睡眠的知识。
+- [第一篇博客](https://lionad.art/maps/_blog/first-article): 仿生狮子的第一篇博客，描述了我建站的初衷。
+- [博客改版碰到的浏览器平滑滚动问题](https://lionad.art/maps/_blog/smooth-scroll)
+- [博客精选](https://lionad.art/maps/_blogs/blogs): 精选的软件工程和技术博客文章
+- [以图组织内容的技术站点](https://lionad.art/maps/_blogs/software-engineering/graph-based-sites): 以交互式图、网络、节点作为核心导航与内容组织形式的英文技术博客与教程站点
+- [Herb Caudill](https://lionad.art/maps/_blogs/software-engineering/herb-caudill): 对软件工程的反思
+- [商业分析](https://lionad.art/maps/_business/analysis/business-analysis): 商业分析是指通过拆解问题、分析需求、设计解决方案，为业务开展提供更好的数据和决策支持的过程。
+- [商业思维案例笔记@曹雄峰](https://lionad.art/maps/_business/analysis/business-examples): 理解商业世界，破解决策难题
+- [商业](https://lionad.art/maps/_business/business): 商业分析、风险投资及商业思维
+- [风险投资](https://lionad.art/maps/_business/venture-capital/venture-capital): 高风险、高回报的投资行为
+- [CLI](https://lionad.art/maps/_cli/cli): 命令行工具、脚本和自动化
+- [CLI 设计哲学与用户体验](https://lionad.art/maps/_cli/engineering/cli-design): 命令行工具的设计原则、交互模式与可访问性实践
+- [CLI 技术实现与架构](https://lionad.art/maps/_cli/engineering/cli-implementation): 命令行工具的分层架构、框架选择、错误处理与配置管理
+- [CLI 测试、文档与发布](https://lionad.art/maps/_cli/engineering/cli-lifecycle): 命令行工具的质量保障、文档规范与自动化发布流程
+- [Terminal Escape Sequences](https://lionad.art/maps/_cli/terminal/escape-sequences): ANSI 转义序列与终端颜色输出，涵盖 16 色、256 色和 True Color 模式
+- [ffmpeg & imagemagick](https://lionad.art/maps/_cli/tools/ffmpeg): 最常使用的视频和图片处理工具。
+- [pnpm](https://lionad.art/maps/_cli/tools/pnpm): pnpm 包管理器的虚拟存储、符号链接结构与常见陷阱
+- [CloudNative](https://lionad.art/maps/_cloud-native/cloud-native): 云原生技术概论
+- [Arm 云计算实例 — 建议默认采用](https://lionad.art/maps/_cloud-native/hardware/arm-on-cloud-native): 将 Arm 视为云端计算实例的默认选择，除非存在明确的 x86 架构依赖。
+- [云原生硬件](https://lionad.art/maps/_cloud-native/hardware/hardware): 云原生环境下的硬件架构选择，包括 Arm 架构应用
+- [Kubernetes](https://lionad.art/maps/_cloud-native/kubernetes/kubernetes): K8s，是一个基于容器的集群管理平台，主要用于控制容器
+- [Serverless](https://lionad.art/maps/_cloud-native/serverless/serverless): 无服务器计算，是一种云计算架构模式，其中云提供商负责执行代码，并动态分配计算资源
+- [无边车的服务网格](https://lionad.art/maps/_cloud-native/sidecar/service-mesh-without-sidecar): 随着基于 sidecar 的服务网格在成本和运维复杂度上的问题持续存在，我们很高兴看到出现了另一种不依赖 sidecar 的服务网格选项：Istio Ambient 模式。
+- [Sidecar Pattern](https://lionad.art/maps/_cloud-native/sidecar/sidecar)
+- [Communication](https://lionad.art/maps/_communication/communication): Communication is the process of exchanging information, ideas, thoughts, and feelings.
+- [Communication](https://lionad.art/maps/_communication/communication/communication): Communication is the process of exchanging information, ideas, thoughts, and feelings.
+- [公司](https://lionad.art/maps/_company/business/company): 注册和经营的流程及注意事项
+- [企业信息查询](https://lionad.art/maps/_company/business/company-info-query): 外部第三方查询企业公开信息的法律边界、官方入口与银税互动授权机制
+- [公司](https://lionad.art/maps/_company/company): 注册和经营的流程及注意事项
+- [计算机](https://lionad.art/maps/_computer/computer): 计算机科学知识图谱，涵盖组成原理、编码技术和计算机网络
+- [Emoji](https://lionad.art/maps/_computer/encoding/emoji): Emoji 是一种表情符号，是一种用来在电子通信中传达情感的符号。
+- [编码](https://lionad.art/maps/_computer/encoding/encoding): 编码是将信息从一种形式或格式转换为另一种形式或格式的过程。
+- [哈希冲突](https://lionad.art/maps/_computer/encoding/hash-collision): 哈希冲突是指两个不同的键值被哈希函数映射到了同一个位置。
+- [计算机基础](https://lionad.art/maps/_computer/fundamentals/fundamentals): 计算机基础知识导图，包含进制转换、数字电路设计、原码反码补码等核心概念的详细解析。
+- [数字身份](https://lionad.art/maps/_computer/identity/digital-identity): 数字身份系统的脆弱性、武器化风险与意识形态基础
+- [计算机网络](https://lionad.art/maps/_computer/network/network): 计算机网络基础知识全览，包含 TCP/IP、HTTP、HTTPS、TLS 等协议的详细解析，以及网络安全、CDN、跨域等实践内容。
+- [Http Request Example](https://lionad.art/maps/_computer/network/segments/http-request-example)
+- [Http Response Example](https://lionad.art/maps/_computer/network/segments/http-response-example)
+- [系统性能](https://lionad.art/maps/_computer/system-performance): 计算机系统性能指标与延迟数字，帮助程序员理解各层级操作的时间量级差异
+- [C++](https://lionad.art/maps/_cpp/cpp): C++ 是一种静态类型、编译式、通用、多范式编程语言
+- [Google C++ Standard](https://lionad.art/maps/_cpp/google-cpp-standard): Google C++ 编程规范
+- [King Database](https://lionad.art/maps/_cpp/king-db): A simple key-value store database
+- [Makefile](https://lionad.art/maps/_cpp/makefile): Makefile 构建工具基础教程
+- [跨平台开发](https://lionad.art/maps/_cross-platform/cross-platform): 跨平台开发技术与实践，包括 Flutter、Taro 等框架以及设备适配方案。
+- [Device Metrics](https://lionad.art/maps/_cross-platform/device-metrics): Understand how device pixels, points, and scale factor work together.
+- [Flutter](https://lionad.art/maps/_cross-platform/flutter): Flutter 是 Google 开发的跨平台 UI 框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。
+- [Taro](https://lionad.art/maps/_cross-platform/taro): Taro 是一个多端开发解决方案，支持用 React/Vue/Nerv 等框架开发小程序、H5、App 等应用。
+- [数据库](https://lionad.art/maps/_database/database): 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL 等
+- [Data Lake](https://lionad.art/maps/_database/datalake/datalake): 一种用于存储大量原始数据的系统，支持多种数据格式和类型，适用于大数据分析和处理。
+- [Apache Paimon：湖仓一体中的可变数据与实时更新](https://lionad.art/maps/_database/datalake/paimon): 将数据湖格式与 LSM 融合，面向高吞吐更新与低延迟读的实时湖仓存储与管理。
+- [Delta Lake](https://lionad.art/maps/_database/deltalake/deltalake): 一个开源的存储层，旨在为数据湖提供 ACID 事务支持、可扩展的元数据处理和统一的批处理与流处理能力。
+- [Delta Lake Liquid Clustering](https://lionad.art/maps/_database/deltalake/liquid-clustering): Delta Lake 液体聚类是一种动态数据布局优化技术，通过增量调整数据分布以提升查询性能，适应多变的查询模式，降低维护成本
+- [GraphQL](https://lionad.art/maps/_database/graphql/graphql): 一种用于 API 的查询语言和运行时环境，允许客户端精确地请求所需的数据，从而提高数据获取的效率和灵活性。
+- [GraphQL for LLM](https://lionad.art/maps/_database/graphql/graphql-for-llm): 将 GraphQL 作为大型语言模型（LLM）数据访问模式的实践
+- [Delta Sharing：跨平台安全数据共享的开放协议（Trial）](https://lionad.art/maps/_database/lakehouse/delta-sharing): 以开放协议在多云与本地间共享“在线数据”，集中治理与审计，避免复制；但须管控跨云外网成本。
+- [Lakehouse](https://lionad.art/maps/_database/lakehouse/lakehouse): 一种新型的数据管理架构，它结合了数据湖（Data Lake）和数据仓库（Data Warehouse）的优点，为现代数据分析和管理提供了一个统一的平台。
+- [NoSQL](https://lionad.art/maps/_database/nosql/nosql): 非关系型数据库技术，包括 Redis 缓存与数据结构
+- [Redis](https://lionad.art/maps/_database/nosql/redis): About Redis
+- [数据库索引优化](https://lionad.art/maps/_database/sql/indexing): 关系型数据库索引的工作原理、查询优化策略与常见性能陷阱。
+- [Postgres](https://lionad.art/maps/_database/sql/postgres): PostgreSQL 是一个强大的开源关系型数据库，通过丰富的插件生态可以覆盖多种数据场景。
+- [SQL](https://lionad.art/maps/_database/sql/sql): SQL（Structured Query Language，结构化查询语言）是一种用于管理和操作关系型数据库的编程语言。它用于执行各种数据库操作，如查询数据、插入记录、更新数据和删除记录。
+- [Text to SQL：为何被标记为 Hold，以及应该如何安全使用](https://lionad.art/maps/_database/sql/text-to-sql): 解析 Text to SQL 在实际生产中的风险点与可接受的使用边界，为数据与平台团队提供治理思路。
+- [CI/CD](https://lionad.art/maps/_devops/cicd/cicd): 持续集成和持续部署（Continuous Integration & Continuous Deployment）
+- [Continues Compliance 持续合规](https://lionad.art/maps/_devops/cicd/continuous-compliance): 持续合规是一种跨领域的实践，旨在通过自动化和持续监控确保系统和流程始终符合相关法规和标准。
+- [部署](https://lionad.art/maps/_devops/cicd/deploy): 前端部署实践与策略
+- [GitLab](https://lionad.art/maps/_devops/cicd/gitlab): GitLab 是一个基于 Git 的 DevOps 平台，提供了代码仓库、CI/CD、Issue 管理等功能
+- [BuildKit](https://lionad.art/maps/_devops/container/buildkit): Docker 的下一代构建引擎，负责把 Dockerfile 转换为 LLB 并执行，支持多平台构建、挂载语义与高级缓存策略。
+- [Dev Container](https://lionad.art/maps/_devops/container/devcontainer): 速通指南
+- [Docker](https://lionad.art/maps/_devops/container/docker): Docker 是一种容器管理工具，通过对系统资源的控制与隔离，把软件、软件运行时、系统工具、系统库和配置打包到一个镜像中，运行在有有独立命名空间的容器进程内，可以使软件的所有依赖都标准化。
+- [DevOps](https://lionad.art/maps/_devops/devops): DevOps 是一种开发理论，它致力于将大量自动化操作整合进开发到交付过程中，以消除各个团队之间的隔阂，使需求尽快交付，并得到质量反馈。
+- [rotatelogs](https://lionad.art/maps/_devops/logging/rotatelogs): Apache 内置的日志轮转工具，通过管道机制实现按时间或大小切割日志文件。
+- [Dorothy](https://lionad.art/maps/_devops/version-control/dorothy): Dorothy 是我的 Git Commit Message 的约定。
+- [Git 常用命令](https://lionad.art/maps/_devops/version-control/git-commands): Git 日常开发中的常用命令速查，包括分支操作、提交管理、历史查看等
+- [Gitflow](https://lionad.art/maps/_devops/version-control/gitflow): Gitflow 是一种使用 Git 合作时使用的工作流程。
+- [GitHub Flow](https://lionad.art/maps/_devops/version-control/github-flow): GitHub Flow 是一种基于 PR 的轻量级 Git 工作流，由 GitHub 团队提出。
+- [GitLab Flow](https://lionad.art/maps/_devops/version-control/gitlab-flow): GitLab Flow 是介于 GitHub Flow 和 Gitflow 之间的折中方案，以环境分支和 upstream-first 策略为特色。
+- [Lore](https://lionad.art/maps/_devops/version-control/lore): Epic Games 开源的新一代版本控制系统，针对代码与大型二进制资产混合的项目设计
+- [预提交钩子（Pre-commit hooks）](https://lionad.art/maps/_devops/version-control/pre-commit-hook): Git 的 pre-commit hook 用来在提交代码前执行一些检查或操作
+- [版本控制](https://lionad.art/maps/_devops/version-control/version-control): 版本控制是一种记录文件内容变化，以便将来查阅特定版本修订情况的系统，包括 Git、版本号管理、工作流等
+- [API 接口文档](https://lionad.art/maps/_docs/api-reference): 博客系统提供的 API 接口参考
+- [内容引用示例](https://lionad.art/maps/_docs/content-embedding-demo): 展示如何在 Markdown 中嵌入和引用其他文件内容
+- [文档管理](https://lionad.art/maps/_docs/doc-manage/doc-manage): 文档管理相关
+- [文档](https://lionad.art/maps/_docs/docs): 文档管理与技术写作
+- [Excalidraw 图表使用指南](https://lionad.art/maps/_docs/excalidraw-guide): 本文档介绍如何在博客文章中创建和嵌入 Excalidraw 手绘风格图表。
+- [共享配置参考](https://lionad.art/maps/_docs/shared-config): 博客系统的通用配置参数，供其他文档引用
+- [知识流优于知识库存](https://lionad.art/maps/_docs/tech-docs/knowledge-flow): Knowledge flow is better than knowledge stocks
+- [技术文档](https://lionad.art/maps/_docs/tech-docs/tech-docs): 技术文档与知识管理
+- [Iconify](https://lionad.art/maps/_fe-framework/assets/iconify): Iconify 是一个图标库，提供了多种图标集合的访问和使用方式。
+- [资源管理](https://lionad.art/maps/_fe-framework/assets): 前端资源（图标、图片、字体等）的管理方案。
+- [组件方案](https://lionad.art/maps/_fe-framework/component-solutions): 前端组件化解决方案，包括 Web Components 标准和微前端架构。
+- [微前端](https://lionad.art/maps/_fe-framework/component-solutions/micro-frontend): 微前端是一种架构风格，是一种将前端应用拆分成更小、更独立的部分，然后将这些部分组合在一起的技术方案。微前端的目标是将单体应用拆分成多个小型应用，每个小型应用都可以独立开发、独立部署。
+- [Web Components](https://lionad.art/maps/_fe-framework/component-solutions/web-components): Web Components 是一种 Web 开发技术，它允许开发者创建自定义的、可重用的组件，这些组件可以在不同的 Web 应用中使用。
+- [前端框架](https://lionad.art/maps/_fe-framework/fe-framework): 前端开发各阶段的工具集合，包括 UI 框架、元框架、组件方案、动画库等。
+- [元框架](https://lionad.art/maps/_fe-framework/meta-frameworks): 基于 UI 框架的全栈开发框架，提供 SSR、SSG、路由等开箱即用功能。
+- [Nuxt](https://lionad.art/maps/_fe-framework/meta-frameworks/nuxt): Nuxt 是一个基于 Vue.js 全栈框架
+- [Nuxt Security](https://lionad.art/maps/_fe-framework/meta-frameworks/nuxt-security): 自动通过使用 HTTP 头和中间件配置您的应用程序遵循 OWASP 安全模式和原则
+- [Blockies Animation](https://lionad.art/maps/_fe-framework/motion/blockies-animation): Designed for performance, ease of use, and seamless integration into any modern project.
+- [GSAP](https://lionad.art/maps/_fe-framework/motion/gsap): GreenSock Animation Platform - 专业级 JavaScript 动画库
+- [动画与交互](https://lionad.art/maps/_fe-framework/motion): 前端动画库和交互效果解决方案。
+- [Lottie](https://lionad.art/maps/_fe-framework/motion/lottie): Lottie 动画格式与资源平台
+- [类型系统](https://lionad.art/maps/_fe-framework/type-system): TypeScript 类型工具和 Schema 验证方案。
+- [Utility Types](https://lionad.art/maps/_fe-framework/type-system/utility-types): think "lodash" for static types
+- [Zod](https://lionad.art/maps/_fe-framework/type-system/zod): Zod 是一个 TypeScript-first 的验证库。
+- [Angular](https://lionad.art/maps/_fe-framework/ui-frameworks/angular): Angular 是一个完整的平台级前端框架，提供了构建复杂应用所需的一切工具。
+- [UI 框架](https://lionad.art/maps/_fe-framework/ui-frameworks): 主流前端 UI 框架，包括 Vue、React、Angular 等组件化开发工具。
+- [React Mind Map](https://lionad.art/maps/_fe-framework/ui-frameworks/react): React 是一个经典的用户界面框架。
+- [Vue](https://lionad.art/maps/_fe-framework/ui-frameworks/vue): Vue 是一套用于构建用户界面的渐进式框架，它的核心库只关注视图层，易于上手，同时也便于与第三方库或既有项目整合。
+- [Vue Reactivity API](https://lionad.art/maps/_fe-framework/ui-frameworks/vue-reactive): Vue3 响应式系统的核心 API 详解，包含 reactive、ref、computed、effect 等原理与用法
+- [CSS Mind Map](https://lionad.art/maps/_frontend/css/css-mind-map)
+- [CSS](https://lionad.art/maps/_frontend/css)
+- [BEM](https://lionad.art/maps/_frontend/css/bem): Block__Element–-Modifier
+- [CSS](https://lionad.art/maps/_frontend/css/css): 层叠样式表（Cascading Style Sheets），用于描述网页的呈现样式
+- [ITCSS（Inverted Triangle CSS）](https://lionad.art/maps/_frontend/css/inverted-triangle-css)
+- [CSS Layers](https://lionad.art/maps/_frontend/css/layers)
+- [CSS 新特性 2025](https://lionad.art/maps/_frontend/css/new-features-2025): Adam Argyle 分享的 25+ 个 CSS 新特性，涵盖视图过渡、容器查询、滚动驱动动画、颜色系统等
+- [sass](https://lionad.art/maps/_frontend/css/sass)
+- [CSS Snapshot 2024](https://lionad.art/maps/_frontend/css/snapshot-2024): 截止 2024 年底，CSS 规范的状态
+- [CSS Sprite 动画](https://lionad.art/maps/_frontend/css/sprite-animation): 使用 CSS object-fit 和 object-position 实现高性能 Sprite 动画的技术方案
+- [CSS Subgrid](https://lionad.art/maps/_frontend/css/subgrid): CSS subgrid 布局技术，用于让嵌套网格继承父网格轨道定义
+- [Tailwind CSS](https://lionad.art/maps/_frontend/css/tailwind): Tailwind CSS 是一个 utility-first 的 CSS 框架，提供大量小而可组合的类名，用于在标记层面直接控制样式。它关注可定制性（`theme`）、按需构建（content 扫描）与插件生态。
+- [前端技术](https://lionad.art/maps/_frontend/frontend): 前端开发技术领域，涵盖 CSS、HTML、JavaScript 和 W3C 标准等核心子领域
+- [HTML Mind Map](https://lionad.art/maps/_frontend/html/html-mind-map)
+- [HTML](https://lionad.art/maps/_frontend/html)
+- [Emmet](https://lionad.art/maps/_frontend/html/emmet)
+- [A Few Things About the Anchor Element’s href You Might Not Have Known](https://lionad.art/maps/_frontend/html/href-value-possibilities): 系统梳理 `<a>` 的 `href` 可用值（协议、文本片段、数据 URL、媒体片段、特殊锚点等），并提供实测与验证方法。
+- [HTML](https://lionad.art/maps/_frontend/html/html): 超文本标记语言（HTML）是构建 Web 页面的基础，包含语义化标签、元素属性、Emmet 语法等核心知识。
+- [JavaScript](https://lionad.art/maps/_frontend/javascript): JavaScript 子领域入口，包含 Promise、Symbol、任务切片等核心主题
+- [JavaScript Index](https://lionad.art/maps/_frontend/javascript): JavaScript 主题 A-Z 索引
+- [JavaScript Mind Map](https://lionad.art/maps/_frontend/javascript/javascript-mind-map)
+- [JavaScript](https://lionad.art/maps/_frontend/javascript/javascript): JavaScript 核心主题导航
+- [Promise](https://lionad.art/maps/_frontend/javascript/promise)
+- [Symbol](https://lionad.art/maps/_frontend/javascript/symbol): Symbol 是 ES6 新增的一种基本数据类型，它是一种原始值，不是对象，不能使用 new 操作符创建。Symbol 的值是唯一的，可以用作对象属性的键。
+- [任务切片](https://lionad.art/maps/_frontend/javascript/task-slice): 任务切片技术能使页面在不使用 Web Worker 的情况下榨干页面性能，并保持 UI 响应。
+- [浏览器文本高亮标注](https://lionad.art/maps/_frontend/text-highlight): 使用 Selection API 和 Range API 实现类似笔记软件的文本马克笔标注功能
+- [W3C Standards](https://lionad.art/maps/_frontend/w3c)
+- [CSS Color Module](https://lionad.art/maps/_frontend/w3c/css/color-module)
+- [CSS Conditional Rules Module](https://lionad.art/maps/_frontend/w3c/css/conditional-rule-module)
+- [CSS Scrollbars Styling Module](https://lionad.art/maps/_frontend/w3c/css/scrollbars-styling-module)
+- [proposal-defer-import-eval](https://lionad.art/maps/_frontend/w3c/es/proposal-defer-import-eval): 延迟导入执行提案允许导入的模块等到使用时才执行
+- [proposal-regexp-v-flag](https://lionad.art/maps/_frontend/w3c/es/proposal-regexp-v-flag): 正则的 v 模式兼容 u 模式并带来了 emoji 多码匹配等改进
+- [AI & Web：理解与管理机器学习模型对Web的影响](https://lionad.art/maps/_frontend/w3c/reports/ai-web-impact): W3C 对 Web-AI 交叉领域进展的共同理解及标准化路线图
+- [Multi-Screen Window Placement](https://lionad.art/maps/_frontend/w3c/screen/multi-screen-window-lacement)
+- [Subresource Integrity](https://lionad.art/maps/_frontend/w3c/security/subresource-integrity): 子资源完整性协议允许浏览器通过检查哈希值来判断资源是否经过篡改。
+- [W3C 标准与提案](https://lionad.art/maps/_frontend/w3c/w3c): Web 标准组织 W3C 的技术规范、提案与研究报告
+- [游戏](https://lionad.art/maps/_game/game): 游戏开发、游戏设计、游戏行业等
+- [AI 与游戏叙事](https://lionad.art/maps/_game/game-design/ai-narrative): AI 在游戏叙事中的伦理边界与创作融合
+- [音频设计](https://lionad.art/maps/_game/game-design/audio-design): 游戏音效与配乐的主题化创作方法
+- [音频合成](https://lionad.art/maps/_game/game-design/audio-synthesis): 游戏开发中的程序化音频合成与 DSP 技术
+- [交互设计](https://lionad.art/maps/_game/game-design/interaction-design): 游戏中的交互设计与沉浸感营造
+- [叙事设计](https://lionad.art/maps/_game/game-design/narrative-design): 游戏叙事的哲学内核与角色设计方法论
+- [严肃游戏](https://lionad.art/maps/_game/game-design/serious-games): 以游戏为载体介入社会议题的设计方法与社群效应
+- [触控设计](https://lionad.art/maps/_game/game-design/touch-controls): 移动端游戏触控交互的设计原则与体验优化
+- [游戏](https://lionad.art/maps/_game/game/game): 游戏开发、游戏设计、游戏行业等
+- [游戏](https://lionad.art/maps/_games/games): 游戏领域知识与攻略，涵盖游戏机制解析、策略指南与相关资源
+- [逃离塔克夫](https://lionad.art/maps/_games/games/escape-from-tarkov): 逃离塔克夫是一款由俄罗斯游戏公司 BattleState Games 开发的第一人称射击游戏。
+- [Go](https://lionad.art/maps/_go/go): Go 编程语言学习资源与工具集合
+- [Go](https://lionad.art/maps/_go/go/go): Go（又称 Golang）是 Google 开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。Go 被誉为是未来的服务器端编程语言。
+- [硬件](https://lionad.art/maps/_hardware/hardware): 硬件是指计算机的物理部分，包括 CPU、内存、硬盘、显卡等。
+- [SSD（Solid State Driver）](https://lionad.art/maps/_hardware/ssd): SSD 是一种基于闪存技术的硬盘，相比传统的机械硬盘，它具有更快的读写速度、更低的延迟、更小的体积和更低的功耗。
+- [招聘与求职](https://lionad.art/maps/_hire/hire): 前端面试、招聘相关问题与经验总结。
+- [前端笔试题库](https://lionad.art/maps/_hire/intern): 面向实习生或 B 端 3~5 年经验前端
+- [面试题库](https://lionad.art/maps/_hire/interview/questions/overall): 前端开发面试题集合，包含软件工程、算法数据结构等多个技术领域的经典面试题。
+- [面试相关](https://lionad.art/maps/_hire/interview/records/ttx)
+- [Amp](https://lionad.art/maps/_ide/amp): Amp 是一个 AI 原生的代码编辑器，强调 agentic workflow 和多种 AI 模式。
+- [集成开发环境（IDE）](https://lionad.art/maps/_ide/ide): 集成开发环境（IDE）是一种软件应用程序，用于提供开发人员在一个环境中编写、测试和调试代码的功能。它通常包括代码编辑器、调试器、构建工具和其他辅助功能。
+- [VS Code 插件开发](https://lionad.art/maps/_ide/vscode/vscode-plugin-development): 记录开发 VS Code 插件相关知识点
+- [行业报告](https://lionad.art/maps/_industry/analytics): 行业研究、分析、报告等
+- [数字化](https://lionad.art/maps/_industry/digital): 从商业角度而言，数字化是指将业务过程和流程转变为数字形式，以提高效率、创造价值和增加收入。数字化是一个广泛的概念，包括数字化技术、数字化转型、数字化营销等等。
+- [行业](https://lionad.art/maps/_industry/industry): 数字化转型、低代码平台及行业分析
+- [低代码](https://lionad.art/maps/_industry/low-code): 无代码、低代码、高代码，这是一个围绕人机交互的有趣话题。
+- [Nuxt 面试题](https://lionad.art/maps/_interview/_frontend/nuxt): 当前内容使用AI合成，参考时请谨慎甄别
+- [面试技巧](https://lionad.art/maps/_interview/interview): 面试准备、技巧与反思记录。
+- [易错题](https://lionad.art/maps/_interview/interview-wrong-notes)
+- [感兴趣的问题](https://lionad.art/maps/_interview/reverse-interview): 面试反问环节的问题清单，包含职责、技术、团队、待遇、公司等多个维度的深入提问。
+- [口腔健康](https://lionad.art/maps/_life/health/oral-health): 正确的刷牙方法与口腔护理知识
+- [Linux](https://lionad.art/maps/_linux/linux): Linux 系统基础指南，涵盖系统原理、系统编程、脚本使用、权限管理以及常用软件安装配置等实用内容。
+- [Nginx Config Example](https://lionad.art/maps/_linux/nginx/config-example)
+- [Nginx](https://lionad.art/maps/_linux/nginx/nginx): nginx 配置原理与反向代理/ingress 场景下的常见陷阱
+- [文本创作](https://lionad.art/maps/_machine-learning/prompt/novel): 使用 AI 辅助进行小说等文本创作的提示词
+- [Prompt Collections](https://lionad.art/maps/_machine-learning/prompt/prompt-collections): Prompt collections for AI models
+- [SEO](https://lionad.art/maps/_machine-learning/prompt/seo): 传统 SEO、AI SEO、内容优化等
+- [项目管理](https://lionad.art/maps/_manage/manage): 项目管理实践与方法论，涵盖项目规划、目标设定、里程碑管理、风险控制等核心领域
+- [项目管理](https://lionad.art/maps/_manage/manage/project-management): 项目管理实践指南，涵盖项目类型、目标设定、里程碑规划、风险管理等核心环节的系统性介绍。
+- [0.index](https://lionad.art/maps/_management): 管理学领域导航索引
+- [Capacity-driven development（产能驱动开发）](https://lionad.art/maps/_management/capacity-driven-development/capacity-driven-development): 警惕用「填满人」替代「保障价值流」的局部最优，建议用系统健康与组织调度来管理空闲产能。
+- [领导力](https://lionad.art/maps/_management/leadership): 领导力原则与团队管理智慧
+- [管理](https://lionad.art/maps/_management/management): 团队管理、组织架构、开发方法和工程文化
+- [组织](https://lionad.art/maps/_management/organization/organization): 团队组织架构、管理方法、沟通方式等。
+- [彼得原理](https://lionad.art/maps/_management/organization/peter-principle): 组织内晋升悖论与管理者胜任力陷阱
+- [AI 加速的影子 IT](https://lionad.art/maps/_management/shadow-it/ai-accelerated-shadow-it): 讨论生成式 AI 和无代码平台如何催生新一轮影子 IT 现象，其风险与治理建议。
+- [影子 IT](https://lionad.art/maps/_management/shadow-it/shadow-it): 影子 IT 现象、风险与治理策略
+- [Shape Up](https://lionad.art/maps/_management/shape-up/shape-up): 适合中小团队的一种工作方式。
+- [团队切片](https://lionad.art/maps/_management/slice/slice): 团队组织切分模式与反模式
+- [Standalone Data Engineering Teams（独立数据工程团队）](https://lionad.art/maps/_management/slice/standalone-data-engineering-team): 为什么将数据工程从业务领域团队中剥离出来是一种组织反模式，以及应该如何用平台 + 领域团队协作来取代它。
+- [Markdown](https://lionad.art/maps/_markdown/markdown): Markdown 轻量级标记语言学习资源与工具集合
+- [Markdown](https://lionad.art/maps/_markdown/markdown/markdown): Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）和亚伦·斯沃茨（Aaron Swartz）。
+- [医疗](https://lionad.art/maps/_medicine/medicine): 常见医疗知识、疾病、药物等。
+- [医疗基础](https://lionad.art/maps/_medicine/medicine/medicine): 常见医疗知识、疾病、药物与消毒剂使用指南
+- [面相对象编程](https://lionad.art/maps/_oop/oop): 面向对象编程是一种编程范式，它将数据和操作封装在对象中，对象之间通过消息传递进行通信。
+- [OOP 基础](https://lionad.art/maps/_oop/oop/oop): 面向对象编程核心概念、UML 与设计原则
+- [人物](https://lionad.art/maps/_person): 包括虚拟人物在内的重要人物或角色
+- [阿姆斯特朗](https://lionad.art/maps/_person/historical/armstrong): 阿姆斯特朗关于工程的演讲
+- [贝特拉基](https://lionad.art/maps/_person/historical/beltracchi): 贝特拉基是一个德国画家，曾以伪造画作闻名。
+- [历史人物](https://lionad.art/maps/_person/historical/historical): 各领域具有历史重要意义的人物
+- [姜子牙](https://lionad.art/maps/_person/historical/jiang-zi-ya): 周朝的开国功臣，周武王谋士，太公望，武圣
+- [吉姆·琼斯](https://lionad.art/maps/_person/historical/jim-jones): 人民圣殿教创始人
+- [人物](https://lionad.art/maps/_person/person): 包括虚拟人物在内的重要人物或角色，按领域分类
+- [亚里士多德（BC384~BC322）](https://lionad.art/maps/_person/philosophy/aristotle): 古希腊哲学家，亚历山大大帝的老师，西方哲学的集大成者。
+- [伦理学](https://lionad.art/maps/_person/philosophy/ethics): 当代伦理学理论，包括脆弱性伦理、承认理论等
+- [存在主义与身份](https://lionad.art/maps/_person/philosophy/existentialism): 身份认同、自我与他者、公众形象与私人自我的哲学探讨
+- [哲学人物](https://lionad.art/maps/_person/philosophy/philosophy): 哲学家与思想家的传记
+- [技术哲学](https://lionad.art/maps/_person/philosophy/technology-philosophy): 海德格尔、埃吕尔等技术哲学家的核心概念与现代技术批判
+- [安东尼奥·埃加斯·莫尼斯](https://lionad.art/maps/_person/science/antonio-egas-moniz): 葡萄牙神经外科医生，1949 年因发明前脑白质切除术被授予诺贝尔医学奖。
+- [克罗狄斯·托勒密](https://lionad.art/maps/_person/science/claudius-ptolemaeus): 地心说
+- [埃拉托色尼](https://lionad.art/maps/_person/science/eratosthenes): 求解地球周长
+- [亨利·莫莱森](https://lionad.art/maps/_person/science/henry-molaison): 医学史上最著名的健忘症患者
+- [希波克拉底（BC460~BC370）](https://lionad.art/maps/_person/science/hippocrates): 古希腊伯利克时期御用医师，西方医学之父。
+- [约翰·米歇尔](https://lionad.art/maps/_person/science/john-michell): 有史以来最伟大的无名科学家之一，是已知的第一个提出黑洞存在的人，也是第一个提出地震以波传播的人。
+- [尼古拉·哥白尼](https://lionad.art/maps/_person/science/mikolaj-kopernik): 波兰天文学家、数学家、教会法博士、神父
+- [科学人物](https://lionad.art/maps/_person/science/science): 天文学家、医学家、数学家、物理学家等科学领域重要人物
+- [Andrej Karpathy](https://lionad.art/maps/_person/technology/andrej-karpathy): AI 研究员、教育家，OpenAI 创始成员，前 Tesla AI 高级总监
+- [Evan Martin](https://lionad.art/maps/_person/technology/evan-martin): Chrome 早期开发者（2007-2012），Linux Chrome 负责人，版本控制发烧友
+- [Evan Schwartz](https://lionad.art/maps/_person/technology/evan-schwartz): Rust / TypeScript 工程师，信息策展人
+- [Gary Marcus](https://lionad.art/maps/_person/technology/gary-marcus): 认知科学家、AI 研究者、作家，以批判性视角关注人工智能发展
+- [Peter Steinberger](https://lionad.art/maps/_person/technology/peter-steinberger): PSPDFKit 创始人、Claudebot 创建者，Agentic Engineering 倡导者
+- [Richard Stallman](https://lionad.art/maps/_person/technology/richard-stallman): 计算机程序员、软件自由运动的创始人
+- [Ronald G. Wayne](https://lionad.art/maps/_person/technology/ronald-g-wayne): Apple 第三位联合创始人，多面手工程师，设计了 Apple 首个 Logo 和原始合同
+- [姚顺雨 (Shunyu Yao)](https://lionad.art/maps/_person/technology/shunyu-yao): OpenAI 前研究员、AI Agent 方向核心探索者，现任腾讯首席 AI 科学家
+- [Steve Blank](https://lionad.art/maps/_person/technology/steve-blank): 硅谷创业教父、精益创业运动发起人，《四步创业法》作者
+- [技术人物](https://lionad.art/maps/_person/technology/technology): 软件工程师、AI 研究员、开源活动家等当代科技领域重要人物
+- [摄影](https://lionad.art/maps/_photography/photography): 技术传达情感，摄影记录生活
+- [摄影](https://lionad.art/maps/_photography/techniques/techniques): 技术传达情感，摄影记录生活。
+- [PHP](https://lionad.art/maps/_php/php): PHP 服务器端脚本语言学习资源与工具集合
+- [PHP](https://lionad.art/maps/_php/php/php): PHP 是一种广泛使用的开源服务器端脚本语言，特别适用于Web开发并可以嵌入HTML中。
+- [五年规划](https://lionad.art/maps/_policy/five-years-plan-14): 对未来五年内的发展目标、发展方向、发展重点、发展任务等进行系统安排和部署的规划。
+- [工业园区高质量发展指引](https://lionad.art/maps/_policy/industrial-parks-guide): 工信部、国家发改委联合印发的工业园区发展政策，明确"特色化、集约化、数智化、绿色化、规范化"五化发展方向
+- [政策](https://lionad.art/maps/_policy/policy): 政策研究、五年规划及政策分析
+- [AI 计算资源危机](https://lionad.art/maps/_politics/ai-compute-crunch): AI 算力供应紧张对行业 adoption 的影响分析
+- [共和国](https://lionad.art/maps/_politics/republic): 一种国家政体形式，国家元首由选举产生而非世袭
+- [游戏化](https://lionad.art/maps/_product/gamification/gamification): 游戏化是将游戏元素及游戏设计技术用于非游戏领域的设计
+- [增长](https://lionad.art/maps/_product/growth/growth): 产品增长是指通过不断优化产品和服务，提高用户体验，增加用户数量和用户活跃度，从而实现企业的长期发展目标。
+- [运营](https://lionad.art/maps/_product/operation/operation): 在产品全生命周期提供支持。
+- [产品](https://lionad.art/maps/_product/product)
+- [Product Hunt 发现](https://lionad.art/maps/_product/product-hunt)
+- [Product Hunt 产品集](https://lionad.art/maps/_product/product-hunt/product-hunt): 从 Product Hunt 发现的有趣产品工具，按官方分类整理
+- [产品经理](https://lionad.art/maps/_product/product-manager/product-manager): 产品经理是指负责产品规划、设计、开发、推广、运营等全生命周期管理的专业人员。
+- [Dovetail](https://lionad.art/maps/_product/user-research/dovetail): 定性研究证据链与洞察管理：将访谈与主题化洞察集中管理、可追溯地关联至产品假设与ROI，强化定性数据在决策中的作用。
+- [用户研究](https://lionad.art/maps/_product/user-research/user-research): 用户研究方法、工具和实践
+- [Bit](https://lionad.art/maps/_products/bit/bit): Bit 是一个组件驱动的开发工具，它可以帮助我们更好地管理组件。
+- [Budibase](https://lionad.art/maps/_products/budibase/budibase)
+- [Dynamo](https://lionad.art/maps/_products/dynamo/dynamo): Dynamo 原本是 Revit 中建筑信息模型 (BIM) 的附加模块，后来发展成熟，成为一个给设计师探索可视化编程、解决问题并自行制作工具的平台。
+- [产品工具](https://lionad.art/maps/_products/products): 产品开发工具、低代码平台、可视化编程和集成工具
+- [Zapier](https://lionad.art/maps/_products/zapier/zapier): Connectors for APP Ocean
+- [调试技术](https://lionad.art/maps/_programming/debugging/debugging): 系统化 Bug 修复方法与调试技术
+- [Developer Experience（DX）](https://lionad.art/maps/_programming/dx/dx): 开发者体验（Developer Experience，DX）是指开发者在使用产品、工具、框架等过程中的感受和体验。它是用户体验（User Experience，UX）的一个子集，专注于开发者的需求和体验。
+- [GenAI for Forward Engineering](https://lionad.art/maps/_programming/dx/genai-for-forward-engineering): GenAI用于前向工程是一种新兴技术，通过AI生成的遗留代码库描述来实现系统现代化。它引入了一个显式步骤，专注于遗留代码的功能（其规范），同时刻意隐藏当前实现方式。这与规范驱动开发相关，但专门应用于遗留系统现代化。
+- [GenAI for Legacy Codebases](https://lionad.art/maps/_programming/dx/genai-for-legacy-codebases): 借助生成式 AI 来理解遗留系统，现在已经是一个实用的默认选择
+- [框架与工具](https://lionad.art/maps/_programming/frameworks/frameworks): 开发框架、工具库与 TUI 框架
+- [现代化 WidgetKit 项目工程实践](https://lionad.art/maps/_programming/frameworks/widgetkit): 构建可维护的 WidgetKit 项目所需的工程化决策、运行时约束与测试策略
+- [编程语言](https://lionad.art/maps/_programming/languages/languages): 编程语言概览与特性
+- [编程范式](https://lionad.art/maps/_programming/paradigms/paradigms): 编程范式与思想，包括函数式编程、面向对象等
+- [编程](https://lionad.art/maps/_programming/programming): 编程范式、开发者体验、调试技术、编程语言与框架
+- [Python](https://lionad.art/maps/_python/python)
+- [React Native](https://lionad.art/maps/_react-native/react-native): React Native 是 Facebook 推出的一款跨平台移动应用开发框架，使用 JavaScript 和 React 来构建原生应用。
+- [React Native](https://lionad.art/maps/_react-native/react-native/react-native): React Native 是 Facebook 推出的一款跨平台移动应用开发框架，使用 JavaScript 和 React 来构建原生应用。
+- [重构](https://lionad.art/maps/_refactor/refactoring): 代码重构的原则、模式和实践
+- [重构](https://lionad.art/maps/_refactor/refactoring/refactor)
+- [正则表达式领域](https://lionad.art/maps/_regex/regex): 正则表达式相关的学习笔记和实践案例
+- [正则表达式](https://lionad.art/maps/_regex/regex/regex): 正则表达式是一种用来匹配字符串的强有力的工具，它的灵活性、表达力和功能都非常强大。
+- [Cinema 4D](https://lionad.art/maps/_render/c4d): C4D 相关的技术和应用
+- [渲染技术](https://lionad.art/maps/_render/render): 3D 渲染、着色器与图形编程相关技术。
+- [Shader Art](https://lionad.art/maps/_render/shader): Shader Art 是一种使用 Shader 语言进行创作的艺术形式，它可以用来制作动画、图像、音乐等。
+- [Three.js](https://lionad.art/maps/_render/threejs): Three.js 高级材质、着色器与实时渲染的实战秘密
+- [WebGL](https://lionad.art/maps/_render/webgl): WebGL 基础理论与实战教程资源
+- [复杂科学](https://lionad.art/maps/_science/complex-science/complex-science): 复杂科学是一门研究复杂系统的学科，它涉及到多个学科领域，包括物理学、生物学、社会学、经济学等。复杂科学的研究对象是复杂系统，这些系统由大量相互作用的元素组成，这些元素之间的相互作用会导致系统的行为变得难以预测。
+- [系统论](https://lionad.art/maps/_science/complex-science/systems-theory): 系统论是一种研究系统的科学，它是一种研究对系统的整体性、结构性、最优化的科学，是一种研究系统的一般规律的科学，是一种研究系统之间相互作用的科学。
+- [文明认知](https://lionad.art/maps/_science/cosmos/civilization-cognition): 关于文明发展、繁荣定义与进步衡量的哲学思考
+- [宇宙](https://lionad.art/maps/_science/cosmos/cosmos): 宇宙学是研究宇宙的起源、演化、结构和未来的科学。宇宙学家通过观测、实验和理论研究来探索宇宙的奥秘。
+- [宇宙未来时间线](https://lionad.art/maps/_science/cosmos/future-timeline): 从恒星纪元到热寂——宇宙演化的五个阶段与前沿研究更新
+- [熵](https://lionad.art/maps/_science/entropy/entropy): 熵是热力学的基本概念，是描述物质的有序程度的物理量。
+- [环保](https://lionad.art/maps/_science/environment/environment): 低碳 Web 实践指南
+- [神经科学](https://lionad.art/maps/_science/neuroscience/neuroscience): 神经科学是一门以脑结构和功能为研究对象的综合学科，横跨了多个学科领域。现代神经科学有三个主流分支：细胞和分子神经科学、认知神经科学和发育神经学。
+- [量子理论](https://lionad.art/maps/_science/quantum/quantum): 量子力学是描述微观世界的物理学。
+- [科学](https://lionad.art/maps/_science/science): 科学知识图谱，涵盖复杂科学、宇宙学、热力学、环境科学、神经科学和量子力学等领域
+- [搜索引擎优化领域](https://lionad.art/maps/_seo/seo): SEO 相关的学习笔记和实践经验
+- [搜索引擎优化](https://lionad.art/maps/_seo/seo/seo): 搜索引擎优化包含了对网站内容的基本元素的一系列改动，这些改动通常相互作用，提高用户体验以及增加网站在自然搜索结果中的排名。
+- [自建邮件服务器](https://lionad.art/maps/_server/email/self-hosted-email): 自建邮件服务器的实践指南，包括技术要点、权衡分析和适用场景
+- [消息队列与异步任务](https://lionad.art/maps/_server/message-queue): 消息队列模型对比、顺序性保证、异步任务处理方案谱系
+- [NodeJS](https://lionad.art/maps/_server/nodejs): NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
+- [NodeJS](https://lionad.art/maps/_server/nodejs/nodejs): NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
+- [NodeJS Require](https://lionad.art/maps/_server/nodejs/source/require): NodeJS 模块导入的源码解析
+- [服务端](https://lionad.art/maps/_server/server): 服务端技术、NodeJS 及服务器相关知识
+- [算法](https://lionad.art/maps/_software/algorithm/algorithm): 经典算法原理与实现，包含快速排序等常用算法的详细解析和代码示例。
+- [选择算法与中位数](https://lionad.art/maps/_software/algorithm/selection-algorithm): 顺序统计量（第 k 小元素与中位数）的选择算法演化、偶数长度与 NaN 下的数值语义，以及崩溃点与截尾均值等稳健统计根因
+- [Data Structure](https://lionad.art/maps/_software/data-structure/data-structure): 数据结构基础知识，包含二叉树遍历、B 树和 B+树原理等核心概念的详细解析。
+- [设计模式](https://lionad.art/maps/_software/design-patterns/design-patterns): 设计模式是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。
+- [开源文化](https://lionad.art/maps/_software/open-source/culture): 开源软件的文化基础、礼物经济与创作者动机
+- [开源仓库维护](https://lionad.art/maps/_software/open-source/repo-maintenance): 开源项目维护实践、贡献者管理与可持续性策略
+- [软件](https://lionad.art/maps/_software/software): 软件工程、数据结构、算法与设计模式
+- [AI 代码评审](https://lionad.art/maps/_software/software-engineering/ai-code-review): 阿里 Open Code Review 等 AI 代码评审工具的架构设计与工程实践
+- [技艺学习的认识论](https://lionad.art/maps/_software/software-engineering/learning-craft): 技能习得、专家思维与学习的哲学反思
+- [软件工程](https://lionad.art/maps/_software/software-engineering/software-engineering): 软件工程（Software Engineering）是指应用工程化的方法和原则来设计、开发、测试和维护软件系统的学科和实践。
+- [Whale Fall](https://lionad.art/maps/_software/whale-fall/whale-fall): 大型开源项目死亡后的生态演替，类比海洋中的鲸落现象
+- [Evil.js](https://lionad.art/maps/_source-code/javascript/evil)
+- [库和源码](https://lionad.art/maps/_source-code/readme)
+- [命令行](https://lionad.art/maps/_system/command): 命令行工具使用指南，包含 PowerShell 常用命令及文件操作示例。
+- [并发编程](https://lionad.art/maps/_system/concurrency/concurrency): 并发是系统处理多个任务的能力，是现代软件系统的核心概念。
+- [macOS](https://lionad.art/maps/_system/macos): macOS 系统知识与实践经验
+- [操作系统](https://lionad.art/maps/_system/os): 应用程序与计算机硬件之间的中介，管理计算机的软硬件资源，提供用户与计算机之间的接口。
+- [AI 测试](https://lionad.art/maps/_test/ai/ai): AI 驱动的测试技术与方法
+- [AI 驱动测试](https://lionad.art/maps/_test/ai/ai-driven-testing/ai-driven-testing): AI 驱动的 UI 测试正在通过与主流测试框架的深度集成，解决早期非确定性带来的不稳定性问题，提升测试自动化的可靠性和效率。
+- [测试方法](https://lionad.art/maps/_test/methods/methods): 测试驱动开发与软件测试方法论
+- [TCR（Test && Commit || Revert）](https://lionad.art/maps/_test/methods/tcr/tcr): TCR（Test && Commit || Revert）是一种软件开发实践，强调在代码更改后立即运行测试，并根据测试结果决定是提交更改还是回滚到先前的状态，从而确保代码库始终处于可运行状态。
+- [计算机软件测试员](https://lionad.art/maps/_test/software-testing-engineer/software-testing-engineer): 计算机软件测试员的职责、技能要求和职业发展路径。
+- [软件测试](https://lionad.art/maps/_test/test): 软件测试方法、工具与实践
+- [Playwright](https://lionad.art/maps/_test/tools/playwright/playwright): Playwright 自动化测试工具介绍，包含其安装便捷性、先进理念和配套工具等主要特点。
+- [测试工具](https://lionad.art/maps/_test/tools/tools): 自动化测试工具与框架
+- [Bills](https://lionad.art/maps/_threads/bills): 记录一些账单和开销
+- [Daily Bugs](https://lionad.art/maps/_threads/daily-bugs): 追踪一些日常碰到的软件缺陷
+- [引用网站](https://lionad.art/maps/_threads/references): 博客中引用过的网站列表（按 A-Z 排序）。
+- [日常记录](https://lionad.art/maps/_threads/threads): 日常开发中的问题记录、账单追踪与时间线。
+- [TimeLine](https://lionad.art/maps/_threads/timeline): 时间线？
+- [类型体操（Type Gymnastics）](https://lionad.art/maps/_typescript/type-gymnastics/type-gymnastics): TypeScript 类型体操指北，包含语法关键字、语句结构、基本运算等内容。
+- [TypeScript](https://lionad.art/maps/_typescript/typescript): TypeScript 的核心概念、高级类型、应用实践和工程化经验
+- [TypeScript Changelog](https://lionad.art/maps/_typescript/typescript/changelog): TypeScript 版本变更记录与破坏性变更验证
+- [网站的可访问性](https://lionad.art/maps/_ui/accessibility/accessibility): 增强页面的可访问目的是使网页能够被更多的人使用，包括残障人士、使用底处理性能或低带宽设备的人
+- [AI 辅助设计](https://lionad.art/maps/_ui/ai-assisted/ai-assisted): 生成式 AI 在 UI 设计与原型制作中的应用
+- [自助式UI原型设计与GenAI](https://lionad.art/maps/_ui/ai-assisted/genai-for-ui-prototyping): 利用生成式AI工具实现自助式UI原型设计的实践与思考
+- [设计](https://lionad.art/maps/_ui/design/design): UI 设计原则、设计哲学与视觉风格
+- [灵感资源](https://lionad.art/maps/_ui/inspiration/inspiration): 设计灵感平台、设计资源与参考网站
+- [浮层组件设计模式](https://lionad.art/maps/_ui/patterns/overlay-patterns): Modal、Dialog、Overlay 等浮层组件的设计原则、适用场景与决策框架
+- [字体排版](https://lionad.art/maps/_ui/typography/typography): 字体设计、排版规范与可变字体技术
+- [用户界面（UI）](https://lionad.art/maps/_ui/ui): 用户界面（UI）设计是指设计师设计的用户界面，是用户与产品之间的桥梁。用户界面设计是一个复杂的过程，其中包括设计、测试和改进。设计师必须考虑用户的需求、产品的功能和用户界面的外观。用户界面设计是一个交叉学科，涉及心理学、设计、计算机科学和其他领域。
+- [用户体验（UX）](https://lionad.art/maps/_ui/ux): 用户体验设计原则、反模式与交互成本分析
+- [GIS（地理信息系统）](https://lionad.art/maps/_visual/gis/gis): 地理信息系统（Geographic Information System，简称 GIS）是一种用于捕获、存储、管理、分析和展示地理空间数据的计算机系统。
+- [信息设计](https://lionad.art/maps/_visual/info-design/info-design): 研究如何展示信息。
+- [可视化](https://lionad.art/maps/_visual/visual): 可视化技术、信息设计与地理信息系统
+- [可视化](https://lionad.art/maps/_visual/visualization/visualization): 可视化是一种通过图表、图形、地图等视觉元素来传达信息的方式。可视化技术是一种将数据转换为可视化图形的技术，是数据分析的重要手段之一。
+- [Github](https://lionad.art/maps/_web-app/github): 世界上最知名的开源编程社区
+- [网站推荐](https://lionad.art/maps/_web-pages/bookmarks): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
+- [网站推荐](https://lionad.art/maps/_web-pages/web-pages): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
+- [浏览器](https://lionad.art/maps/_web/browser/browser): 浏览器引擎、原理、新特性与开发技术
+- [浏览器引擎](https://lionad.art/maps/_web/browser/browser-engine): Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
+- [Web Crypto API](https://lionad.art/maps/_web/browser/crypto): Web Crypto API 是一个 JavaScript 接口，用于在浏览器中执行加密操作。
+- [浏览器新特性](https://lionad.art/maps/_web/browser/new): Web.dev 月刊精选，追踪和总结主流浏览器的最新特性更新与时动态。
+- [浏览器相关](https://lionad.art/maps/_web/browser/principle): 浏览器相关问题
+- [路由技术](https://lionad.art/maps/_web/browser/router): Web 前端路由技术详解，包含 Hash 路由、History 路由的实现原理与最佳实践。
+- [爬虫与反爬虫](https://lionad.art/maps/_web/crawler/crawler): 网络爬虫技术指南，包含常见反爬虫策略分析、多线程爬虫设计、增量爬取实现以及性能优化等实践经验。
+- [小程序](https://lionad.art/maps/_web/miniapp/miniapp): 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
+- [WebTransport](https://lionad.art/maps/_web/network/webtransport): 基于 HTTP/3 + QUIC 的下一代 Web 双向通信技术
+- [页面性能](https://lionad.art/maps/_web/performance/performance): 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
+- [Web 安全](https://lionad.art/maps/_web/security/security): Web 安全技术、OAuth 协议与加密算法
+- [SM2](https://lionad.art/maps/_web/security/sm2): 国密 SM2 椭圆曲线公钥密码算法标准与工程陷阱
+- [软件供应链安全](https://lionad.art/maps/_web/security/supply-chain): 开源软件生态中的传递性信任问题与供应链攻击防范
+- [Web 技术](https://lionad.art/maps/_web/web): Web 开发技术，包括浏览器原理、性能优化、安全、爬虫和小程序
+- [Windows](https://lionad.art/maps/_windows/windows): 记录一些使用 Windows 碰到的问题
+- [构建工具](https://lionad.art/maps/_workflow/build-tools/build-tools): 前端构建工具全景图，涵盖 Vite、Webpack、Rspack 等主流工具的特性对比和使用说明
+- [Rspack](https://lionad.art/maps/_workflow/build-tools/rspack): Rspack 构建工具的特性分析与生态定位研究。
+- [Vite](https://lionad.art/maps/_workflow/build-tools/vite): Vite 前端构建工具的核心特性、插件机制和性能优化指南。
+- [Webpack](https://lionad.art/maps/_workflow/build-tools/webpack): Webpack 打包工具的配置指南、优化策略和插件开发教程。
+- [Compiler](https://lionad.art/maps/_workflow/compiler/compiler): 编译器原理与实践，重点介绍 Babel 等前端编译工具的工作原理和使用方法。
+- [工程化](https://lionad.art/maps/_workflow/engineering/engineering): 软件工程与前端工程化的理论与实践
+- [前端工程化](https://lionad.art/maps/_workflow/engineering/fe-engineering): 前端工程化的最佳实践和工具，帮助提升开发效率和代码质量
+- [Code Style](https://lionad.art/maps/_workflow/linter/code-style): 代码风格与格式规范的最佳实践
+- [ESLint](https://lionad.art/maps/_workflow/linter/eslint): ESLint 是 JavaScript 和 TypeScript 的代码质量检查工具，帮助开发者保持代码风格一致性和减少错误。
+- [代码规范](https://lionad.art/maps/_workflow/linter/linter): 代码质量检查工具与风格规范，涵盖 ESLint、Prettier 等工具的配置与最佳实践
+- [Monorepo](https://lionad.art/maps/_workflow/monorepo/monorepo): Monorepo 是一种将多个项目放在同一个代码仓库中的管理方式，旨在提高团队协作和代码复用效率
+- [Turborepo](https://lionad.art/maps/_workflow/monorepo/turborepo): Turborepo 是 Vercel 推出的 Monorepo 构建系统，提供任务管道、本地和远程缓存等功能
+- [包管理器](https://lionad.art/maps/_workflow/package-manager): 用于管理项目依赖的工具
+- [lockfile](https://lionad.art/maps/_workflow/package-manager/lockfile): lockfile 是一种用于记录依赖的版本信息的文件
+- [NPM](https://lionad.art/maps/_workflow/package-manager/npm): NPM 包管理器完整指南，包含 package.json 配置、镜像源管理、依赖安装等核心功能的详细说明。
+- [包管理器](https://lionad.art/maps/_workflow/package-manager/package-manager): 用于管理项目依赖的工具，涵盖 npm、pnpm、yarn 的核心特性和最佳实践
+- [包的角色分类](https://lionad.art/maps/_workflow/package-manager/package-roles): Andrew Nesbitt 提出的包角色分类框架——按行为模式而非技术属性理解软件包
+- [pnpm](https://lionad.art/maps/_workflow/package-manager/pnpm): pnpm 是一个快速、省空间的包管理器
+- [前端工程化](https://lionad.art/maps/_workflow/workflow): 前端工程化工作流的核心工具链，包括包管理器、构建工具、代码规范、Monorepo 管理等
 
 ## Tools
 
-- [🧰 工具收集](https://lionad.art/raw/tools.md): 一些有趣的工具收集。
-- [📕 博客](https://lionad.art/raw/tools/blog.md): 仿生狮子的博客
-- [🌐 AnySort](https://lionad.art/raw/tools/anysort.md): 符合直觉、类型完备的多属性排序方法
-- [⛸️ UseScrollbar](https://lionad.art/raw/tools/use-scrollbar.md): 给第三方表格等复杂组件设置自定义滚动条的库
-- [👓 Crapto](https://lionad.art/raw/tools/crypto-inline.md): 一款可以给代码中部分内容加密的 VSCode 插件
-- [🥥 Coconut](https://lionad.art/raw/tools/coconut.md): 5分钟建站，永久免费！
-- [🧶 网易云音乐歌单排序](https://lionad.art/raw/tools/netease-sorter.md): 使用 PRay 搭建歌单排序应用
-- [Git 工具与学习资源](https://lionad.art/raw/tools/git.md): Git 版本控制相关的工具与学习资源
+- [🧰 工具收集](https://lionad.art/tools): 一些有趣的工具收集。
+- [📕 博客](https://lionad.art/tools/blog): 仿生狮子的博客
+- [🌐 AnySort](https://lionad.art/tools/anysort): 符合直觉、类型完备的多属性排序方法
+- [⛸️ UseScrollbar](https://lionad.art/tools/use-scrollbar): 给第三方表格等复杂组件设置自定义滚动条的库
+- [👓 Crapto](https://lionad.art/tools/crypto-inline): 一款可以给代码中部分内容加密的 VSCode 插件
+- [🥥 Coconut](https://lionad.art/tools/coconut): 5分钟建站，永久免费！
+- [🧶 网易云音乐歌单排序](https://lionad.art/tools/netease-sorter): 使用 PRay 搭建歌单排序应用
+- [Git 工具与学习资源](https://lionad.art/tools/git): Git 版本控制相关的工具与学习资源
 
 ## SourceCode
 
-- [Awade](https://lionad.art/raw/source-code/_architecture/awade.md): 中兴的一套低码系统。Jigsaw 是其前端组件库。
-- [KingDB](https://lionad.art/raw/source-code/_cpp/kingdb.md)
-- [Array.prototype.slice](https://lionad.art/raw/source-code/_es/array-slice.md)
-- [Object.prototype.assign](https://lionad.art/raw/source-code/_es/object-assign.md)
-- [Canvas Blocker](https://lionad.art/raw/source-code/_js/browser-extension/canvas-blocker.md): Canvas Blocker 是一个浏览器扩展，能够拦截多种类型的指纹追踪。
-- [Element Plus](https://lionad.art/raw/source-code/_js/element-plus.md): A Vue.js 3 UI Library made by Element team
-- [Element UI](https://lionad.art/raw/source-code/_js/element-ui.md): Element，一套为开发者、设计师和产品经理准备的基于Vue 2.0 的桌面端组件库.
-- [jQuery](https://lionad.art/raw/source-code/_js/jquery.md)
-- [jQuery.noConflict](https://lionad.art/raw/source-code/_js/jquery/no-conflict.md): 工具函数无冲突处理
-- [Lodash.js](https://lionad.art/raw/source-code/_js/lodash.md)
-- [Lodash.template](https://lionad.art/raw/source-code/_js/lodash/template.md)
-- [nuxt-ui v2](https://lionad.art/raw/source-code/_js/nuxt-ui-v2.md)
-- [Nuxt UI v3](https://lionad.art/raw/source-code/_js/nuxt-ui-v3.md): Nuxt UI v3
-- [Reka UI](https://lionad.art/raw/source-code/_js/reka-ui.md): 一个用于使用 Vue.js 构建高质量、可访问的设计系统和 Web 应用的开源组件库。
-- [vue-error-boundary](https://lionad.art/raw/source-code/_js/vue-error-boundary.md): 错误边界最早是由 React 提出的概念，但偶然发现 vue 有对应实现，那就来看看吧
-- [Vue2 Source](https://lionad.art/raw/source-code/_js/vue2-source.md): deprecated warning
-- [Vue2 Observer](https://lionad.art/raw/source-code/_js/vue2-source/observer.md): deprecated warning
-- [Vue2 Parser](https://lionad.art/raw/source-code/_js/vue2-source/parser.md): deprecated warning
-- [Vue2 Global API](https://lionad.art/raw/source-code/_js/vue2-source/global-api.md): deprecated warning
-- [Vue2 Scoped CSS](https://lionad.art/raw/source-code/_js/vue2-source/scoped-css.md): deprecated warning
-- [Vue2 Test Kit](https://lionad.art/raw/source-code/_js/vue2-source/test-kit.md): deprecated warning
-- [Vue2 Utils](https://lionad.art/raw/source-code/_js/vue2-source/utils.md): deprecated warning
-- [判断两个变量相等](https://lionad.art/raw/source-code/_module/fast-deep-equal.md)
-- [get-intrinsic](https://lionad.art/raw/source-code/_module/get-intrinsic.md): JavaScript Intrinsics 缓存与防御性编程，ljharb 的 es-shims 生态系统核心库
-- [🛠 低版本浏览器兼容HTML5标签原理](https://lionad.art/raw/source-code/_module/html5shiv.md)
-- [判断 NodeJS 是否在线](https://lionad.art/raw/source-code/_module/is-online.md): 之前被组长问道要如何判断 NodeJS 是否在线，我不假思索回答：“Ping 百度试试。”。调用 Ping 需要 child_process，那还不如直接改用内置的 DNS 试试是否在线更简单一些。不过会不会碰到缓存等问题，没往下细想了。
+- [Awade](https://lionad.art/source-code/_architecture/awade): 中兴的一套低码系统。Jigsaw 是其前端组件库。
+- [KingDB](https://lionad.art/source-code/_cpp/kingdb)
+- [Array.prototype.slice](https://lionad.art/source-code/_es/array-slice)
+- [Object.prototype.assign](https://lionad.art/source-code/_es/object-assign)
+- [Canvas Blocker](https://lionad.art/source-code/_js/browser-extension/canvas-blocker): Canvas Blocker 是一个浏览器扩展，能够拦截多种类型的指纹追踪。
+- [Element Plus](https://lionad.art/source-code/_js/element-plus): A Vue.js 3 UI Library made by Element team
+- [Element UI](https://lionad.art/source-code/_js/element-ui): Element，一套为开发者、设计师和产品经理准备的基于Vue 2.0 的桌面端组件库.
+- [jQuery](https://lionad.art/source-code/_js/jquery)
+- [jQuery.noConflict](https://lionad.art/source-code/_js/jquery/no-conflict): 工具函数无冲突处理
+- [Lodash.js](https://lionad.art/source-code/_js/lodash)
+- [Lodash.template](https://lionad.art/source-code/_js/lodash/template)
+- [nuxt-ui v2](https://lionad.art/source-code/_js/nuxt-ui-v2)
+- [Nuxt UI v3](https://lionad.art/source-code/_js/nuxt-ui-v3): Nuxt UI v3
+- [Reka UI](https://lionad.art/source-code/_js/reka-ui): 一个用于使用 Vue.js 构建高质量、可访问的设计系统和 Web 应用的开源组件库。
+- [vue-error-boundary](https://lionad.art/source-code/_js/vue-error-boundary): 错误边界最早是由 React 提出的概念，但偶然发现 vue 有对应实现，那就来看看吧
+- [Vue2 Source](https://lionad.art/source-code/_js/vue2-source): deprecated warning
+- [Vue2 Observer](https://lionad.art/source-code/_js/vue2-source/observer): deprecated warning
+- [Vue2 Parser](https://lionad.art/source-code/_js/vue2-source/parser): deprecated warning
+- [Vue2 Global API](https://lionad.art/source-code/_js/vue2-source/global-api): deprecated warning
+- [Vue2 Scoped CSS](https://lionad.art/source-code/_js/vue2-source/scoped-css): deprecated warning
+- [Vue2 Test Kit](https://lionad.art/source-code/_js/vue2-source/test-kit): deprecated warning
+- [Vue2 Utils](https://lionad.art/source-code/_js/vue2-source/utils): deprecated warning
+- [判断两个变量相等](https://lionad.art/source-code/_module/fast-deep-equal)
+- [get-intrinsic](https://lionad.art/source-code/_module/get-intrinsic): JavaScript Intrinsics 缓存与防御性编程，ljharb 的 es-shims 生态系统核心库
+- [🛠 低版本浏览器兼容HTML5标签原理](https://lionad.art/source-code/_module/html5shiv)
+- [判断 NodeJS 是否在线](https://lionad.art/source-code/_module/is-online): 之前被组长问道要如何判断 NodeJS 是否在线，我不假思索回答：“Ping 百度试试。”。调用 Ping 需要 child_process，那还不如直接改用内置的 DNS 试试是否在线更简单一些。不过会不会碰到缓存等问题，没往下细想了。
 今天正好在别人的博客看到了 NodeJS DNS 模块，突然想起这个问题，于是就搜了一下相关库。找到了 internet-available 这个玩意儿。这里一起来看看他们的实现。
-- [node-watch](https://lionad.art/raw/source-code/_node/node-watch.md): node-watch 是在 fs.watch 的基础上封装而来的库，能监听文件变化
-- [TypeScript Type Challenges](https://lionad.art/raw/source-code/_ts/type-challenges.md): TypeScript type challenges
-- [TypeScript 编译器](https://lionad.art/raw/source-code/_ts/typescript-compiler.md): TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder 建立符号体系并理顺作用域，Program 汇集全局视角，TypeChecker 完成类型推断和诊断，最终由 Emitter 生成输出文件。
-- [Utility Types](https://lionad.art/raw/source-code/_ts/utility-types.md): TypeScript 内置的工具类型和高级类型，包括 Partial、Required、Readonly、Record、Pick、Omit、Exclude、Extract、NonNullable、Parameters、ReturnType 等。
+- [node-watch](https://lionad.art/source-code/_node/node-watch): node-watch 是在 fs.watch 的基础上封装而来的库，能监听文件变化
+- [TypeScript Type Challenges](https://lionad.art/source-code/_ts/type-challenges): TypeScript type challenges
+- [TypeScript 编译器](https://lionad.art/source-code/_ts/typescript-compiler): TypeScript 的整个编译流程层层递进，分工明确：预处理器确定文件范围，解析器生成抽象语法结构，Binder 建立符号体系并理顺作用域，Program 汇集全局视角，TypeChecker 完成类型推断和诊断，最终由 Emitter 生成输出文件。
+- [Utility Types](https://lionad.art/source-code/_ts/utility-types): TypeScript 内置的工具类型和高级类型，包括 Partial、Required、Readonly、Record、Pick、Omit、Exclude、Extract、NonNullable、Parameters、ReturnType 等。
 
 ## Hire
 
-- [📬 技术简历](https://lionad.art/raw/hire.md): WIP
+- [📬 技术简历](https://lionad.art/hire): WIP
 
 ## Links
 
-- [友链](https://lionad.art/raw/links.md): 与我联络 & 友链
+- [友链](https://lionad.art/links): 与我联络 & 友链
 
 ## Notes
 
