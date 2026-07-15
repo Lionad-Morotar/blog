@@ -271,6 +271,7 @@ goose is being developed as an open-source software project.
 - [Device Metrics](https://lionad.art/maps/_cross-platform/device-metrics): Understand how device pixels, points, and scale factor work together.
 - [Flutter](https://lionad.art/maps/_cross-platform/flutter): Flutter 是 Google 开发的跨平台 UI 框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。
 - [Taro](https://lionad.art/maps/_cross-platform/taro): Taro 是一个多端开发解决方案，支持用 React/Vue/Nerv 等框架开发小程序、H5、App 等应用。
+- [Tauri](https://lionad.art/maps/_cross-platform/tauri): Tauri 2 跨平台桌面应用开发框架
 - [数据库](https://lionad.art/maps/_database/database): 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL 等
 - [Data Lake](https://lionad.art/maps/_database/datalake/datalake): 一种用于存储大量原始数据的系统，支持多种数据格式和类型，适用于大数据分析和处理。
 - [Apache Paimon：湖仓一体中的可变数据与实时更新](https://lionad.art/maps/_database/datalake/paimon): 将数据湖格式与 LSM 融合，面向高吞吐更新与低延迟读的实时湖仓存储与管理。
@@ -389,6 +390,7 @@ goose is being developed as an open-source software project.
 - [面试相关](https://lionad.art/maps/_hire/interview/records/ttx)
 - [Amp](https://lionad.art/maps/_ide/amp): Amp 是一个 AI 原生的代码编辑器，强调 agentic workflow 和多种 AI 模式。
 - [集成开发环境（IDE）](https://lionad.art/maps/_ide/ide): 集成开发环境（IDE）是一种软件应用程序，用于提供开发人员在一个环境中编写、测试和调试代码的功能。它通常包括代码编辑器、调试器、构建工具和其他辅助功能。
+- [CodeTour](https://lionad.art/maps/_ide/vscode/codetour): 使用 VS Code CodeTour 插件为代码库制作交互式导览
 - [VS Code 插件开发](https://lionad.art/maps/_ide/vscode/vscode-plugin-development): 记录开发 VS Code 插件相关知识点
 - [行业报告](https://lionad.art/maps/_industry/analytics): 行业研究、分析、报告等
 - [数字化](https://lionad.art/maps/_industry/digital): 从商业角度而言，数字化是指将业务过程和流程转变为数字形式，以提高效率、创造价值和增加收入。数字化是一个广泛的概念，包括数字化技术、数字化转型、数字化营销等等。
