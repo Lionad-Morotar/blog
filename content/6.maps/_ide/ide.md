@@ -39,4 +39,5 @@ cp "/Users/username/Library/Application Support/Code - Insiders/User/globalStora
 ## 插件开发
 
 * [插件开发](/maps/_ide/vscode/vscode-plugin-development)
+* [CodeTour](/maps/_ide/vscode/codetour) - 为代码库制作交互式导览
 

@@ -105,6 +105,25 @@ React 经历了多次架构变革。早期使用 mixins 实现代码复用，ES6
 Redux 因样板代码较多而在社区中受到批评，导致一些本应放在 Thunk 或 Saga 中的异步逻辑和副作用被硬塞进组件 render() 中，反而让视图层承担了本不该承担的控制职责。正确做法是把副作用留在 store 层，
 让组件只负责渲染。
 
+#### 用 ref 缓存上次 payload 避免相同数据重复渲染
+
+React 中当父组件频繁收到来自后端的轮询数据时，即使数据内容没有变化，也可能触发重新渲染。
+可以用 `useRef` 保存上一次 payload，在 setState 前做浅比较或结构化比较：
+
+```ts
+const lastPayload = useRef(data);
+
+useEffect(() => {
+  if (shallowEqual(lastPayload.current, data)) return;
+  lastPayload.current = data;
+  setPorts(data);
+}, [data]);
+```
+
+这比在组件层面用 `React.memo` 更精准：它直接在数据入口截断冗余更新，避免下游整棵树进入 diff。
+
+见：[React useRef](https://react.dev/reference/react/useRef)
+
 #### Thunk 和 Saga 如何隔离 React 副作用？
 
 Redux Thunk 和 Redux Saga 都是把副作用从组件 render() 中抽离到 store 层的方案，但抽象层级不同。
