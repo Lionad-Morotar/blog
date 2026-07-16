@@ -39,6 +39,13 @@ Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：
 
 见：[Connect Claude Code to tools via MCP](https://code.claude.com/docs/en/mcp)
 
+#### tweakcc 对 Claude Code 的扩展与解锁
+
+* [tweakcc v4 发布](https://piebald.ai/blog/tweakcc-v4)：第三方 Claude Code 定制工具，v4 新增 Node.js API、`adhoc-patch` 临时补丁、`unpack`/`repack` 原生二进制 JS、AGENTS.md 支持、swarm mode 解锁、输入框正则高亮、MCP 并行启动优化等
+* [Session Memory 与 /remember](https://piebald.ai/blog/session-memory-is-coming-to-claude-code)：Claude Code 会在会话达到 10k tokens + 3 次工具调用后，自动在 `~/.claude/projects/.../session-memory/summary.md` 维护高密度笔记；`/remember` 技能据此更新 `CLAUDE.md`
+* [tweakcc 源码](https://github.com/Piebald-AI/tweakcc)：安装检测优先用 `which('claude')` 查 PATH，失败后回退到覆盖 npm/pnpm/Yarn/Bun/Volta/fnm/nvm/nodenv/nvs/asdf/mise 及多平台系统目录的硬编码候选路径表
+* [node-lief](https://www.npmjs.com/package/node-lief)：tweakcc 用于修改原生 Claude Code 可执行文件的 Node.js 绑定，支持在 ELF/PE/Mach-O 二进制中抽取和重新嵌入 JS bundle
+
 ## 内置指令
 
 #### 新会话中执行 `Compact` 的结果
