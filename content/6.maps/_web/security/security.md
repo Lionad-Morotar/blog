@@ -8,6 +8,7 @@ original_path: content/6.maps/_web/security.md
 
 * [Web Crypto API](/maps/_web/browser/crypto) - Web 加密 API
 * [国密 SM2](/maps/_web/security/sm2) - 椭圆曲线公钥密码算法标准与工程陷阱
+* [HMAC](/maps/_web/security/hmac) - 基于哈希的消息认证码原理与验签工程实践
 
 ## 安全概念
 
