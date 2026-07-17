@@ -15,3 +15,16 @@ description: 移动端游戏触控交互的设计原则与体验优化
 
 见：[I built the best virtual joystick for PhaserJS, then went to bed](https://medium.com/@renatocassino/i-built-the-best-virtual-joystick-for-phaserjs-then-went-to-bed-ab4ac09d1265)
 
+#### RTS 触控的延迟提交状态机
+
+把鼠标驱动的 RTS 映射到触屏，核心是一个“延迟提交”手势状态机：手指按下时不向游戏发任何事件，因为一个过早
+发出的“鼠标按下”即使后来被取消，对游戏来说已经是一次真实点击（实际 bug：每次双指平移，第一根手指都在地上
+设了集结点）。等手势自我识别后再提交：直接抬起是点按（在原位置补发完整按下+抬起，密集 UI 按钮才不会漏）；
+移动超过约 8pt 死区是框选拖拽（按下锚定在初始触点）；第二根手指落下是双指平移（映射为右键拖拽，左键从未
+存在过）；静止按住约 600ms 是长按右键（取消选择）。两个实现要点：静止的手指不产生任何事件，长按检测必须从
+帧循环轮询而不能纯事件驱动；合成的触摸事件必须携带有效 windowID，否则鼠标层找不到窗口会静默跳过坐标缩放，
+症状是点击位置越靠近屏幕边缘偏得越多。架构上把触摸翻译成合成鼠标事件、注入与真鼠标相同的代码路径，游戏逻辑
+保持 1:1 不动。
+
+见：[Generals-Mac-iOS-iPad PORTING_PLAYBOOK](https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/blob/main/docs/port/PORTING_PLAYBOOK.md)
+

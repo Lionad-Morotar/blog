@@ -50,3 +50,14 @@ original_path: content/6.maps/_game/game.md
 
 见：[2D Web Game Framework Comparison](https://www.youtube.com/watch?v=fv4KhkjMr34)
 
+#### 游戏代码体量的演进锚点
+
+从开源或官方披露的数字可以看到游戏代码体量的演进：Doom（1993）约 10 万行，Quake III（1999）约 30 万行，
+Doom 3（2004）约 60 万行，《命令与征服：将军》（2003）约 160 万行（含 SAGE 引擎与工具链）。现代 3A 的确切
+数字几乎没有官方披露（代码是商业机密），业界共识量级是含引擎与工具链数千万行；2022 年 GTA V 源码泄露后社区
+流传的“约 1 亿行”说法来源非官方，仅供参考。比代码增长更猛的是资产：《将军》全部数据约 2.7GB，现代 3A 普遍
+100–150GB，增长约 50 倍——体量的主要维度早已从代码转向美术、音频、动画内容，代码侧膨胀的大头在引擎和资产
+管线工具而非游戏逻辑。行数（LOC）本身是粗糙度量：现代代码库有大量生成代码与多平台分支，数字仅供感受量级。
+
+见：[Generals-Mac-iOS-iPad PORTING_PLAYBOOK](https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/blob/main/docs/port/PORTING_PLAYBOOK.md)
+

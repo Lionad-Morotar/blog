@@ -42,6 +42,7 @@ Lusion 通过 Lusion Labs 和月度实验系列进行内部研发，用小周期
 - [Shader](shader.md) - 着色器编程
 - [Three.js](threejs.md) - WebGL 三维渲染库
 - [WebGL](webgl.md) - WebGL 基础与实战
+- [图形 API](graphics-api.md) - DirectX、Vulkan、Metal 与 DXVK、MoltenVK 翻译层
 
 #### DLSS 5：实时光线追踪后的下一个图形突破
 

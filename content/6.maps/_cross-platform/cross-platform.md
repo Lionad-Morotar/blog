@@ -10,3 +10,4 @@ original_path: content/6.maps/_cross-platform/
 - [Taro](taro.md) - 多端统一开发解决方案
 - [Tauri](tauri.md) - 用 Web 技术构建跨平台原生桌面应用
 - [设备参数](device-metrics.md) - 移动设备屏幕参数参考
+- [经典游戏移植](game-porting.md) - 经典 Windows 游戏移植 macOS/iOS 的工程方法
