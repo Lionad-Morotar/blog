@@ -23,6 +23,12 @@ original_path: content/6.maps/_ui/font.md
 
 和大家理解的不太一样，line-height：middle 并不是指父元素的中线位置，而是父元素的 base-line + half-x-height。
 
+#### font-size-adjust 统一多字体视觉大小
+
+* [font-size-adjust Is Useful](https://matklad.github.io/2025/07/16/font-size-adjust.html)：matklad 认为 font-size 是
+  em-box 尺寸而非字形尺寸，主张把 `font-size-adjust: ex-height 0.53` 放入 CSS reset 统一多字体视觉大小，
+  而非仅用于 fallback；并指出 line-height 因基线对齐被等宽字体撑高的陷阱（hack：`p > code { line-height: 0 }`）
+
 ## 免费商用字体
 
 https://www.figma.com/file/mtPPLBBq4p3RFKucX47wFW/%E5%85%8D%E8%B4%B9%E5%95%86%E7%94%A8%E5%AD%97%E4%BD%93%E5%BA%93-(Community)?type=design&node-id=1-177&mode=design&t=NBLaDAXojVu6beVl-0
