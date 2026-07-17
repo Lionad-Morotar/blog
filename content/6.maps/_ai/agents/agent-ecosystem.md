@@ -122,6 +122,7 @@ Nous Research 于 2026 年 2 月发布 Hermes Agent（最新 v0.10.0，2026.4.16
 | **MCP** | Anthropic | 工具与数据连接 | ★★★★★ 300万+周下载 |
 | **A2A** | Google | Agent 间协作 | ★★★★☆ 50+企业支持 |
 | **AP2** | Google | 支付授权 | ★★★☆☆ 60+机构 |
+| **x402** | Coinbase | HTTP 原生支付 | ★★★★☆ 50M+ 笔交易 |
 | **AG-UI** | CopilotKit | 前端交互 | ★★★★☆ 主流框架支持 |
 | **ANP** | 开源社区 | 智能体互联网 | ★★★☆☆ 早期阶段 |
 | **[gitagent](https://github.com/open-gitagent/gitagent)** | 开源社区 | git 原生的 Agent 定义标准 | ★★☆☆☆ 早期阶段 |
@@ -152,6 +153,26 @@ Agent 之间的"HTTP 协议"，解决跨框架、跨厂商 Agent 的互操作性
 **生态支持：**
 - 50+ 企业联合签署（Atlassian、Salesforce、SAP、ServiceNow 等）
 - 已贡献给 Linux Foundation
+
+### x402 (Agent 支付协议)
+
+Coinbase 提出的 agent 支付协议，复活 HTTP 1991 年预留却从未启用的
+`402 Payment Required` 状态码，让任意 HTTP 端点声明"调用需付费"。与 Google AP2、
+社区 ACP/TAP 同属 agent 支付协议竞争阵营；x402 的差异点是复用 HTTP 协议本身——
+agent 不用学新协议，用现有重试机制即可完成支付。
+
+握手四步：agent 首次请求不带支付头 → 服务端返回 402 + 挑战体（含收款地址 payTo、
+金额、USDC 合约地址）→ agent 用 EIP-3009 对 USDC 转账签名授权后重试 → 服务端验签
+并在 Base 链结算，返回业务数据 + Ed25519 签名收据。
+
+#### EIP-3009：把签名授权与链上执行解耦
+
+x402 让 agent 无感支付的底层原语是 EIP-3009（TransferWithAuthorization）。它允许
+payer 用 EIP-712 签名授权一笔转账，由任意第三方代为提交上链。agent 因此只需签一个
+消息（轻），不必自己持有 ETH 付 gas 或广播交易（重）。结算走 Base（Coinbase L2）
+上的 USDC，手续费低、秒级确认，支撑 micropayment（可低至 $0.001）。
+
+见：[x402 协议规范](https://www.x402.org/)
 
 ## 选型建议
 
