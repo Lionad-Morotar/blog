@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-07-18
+
+似乎是从 Overview 页面重新进入触发的 Bug，新增代码段变成了黑底的。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260718122203653.png)
+
 #### 2026-07-10
 
 这是什么原理？
