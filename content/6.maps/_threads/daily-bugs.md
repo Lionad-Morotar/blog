@@ -5,7 +5,7 @@ description: 追踪一些日常碰到的软件缺陷
 
 #### 2026-07-18
 
-似乎是从 Overview 页面重新进入触发的 Bug，新增代码段变成了黑底的。
+也许是从 Overview 页面重新进入触发的 Bug，新增代码段变成了黑底的。会话还在继续运行，继续运行生成的新的新增代码段仍然是绿色的，只是进退 Overview 不能复现。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260718122203653.png)
 
