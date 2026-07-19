@@ -7,6 +7,7 @@ description: 代码质量检查工具与风格规范，涵盖 ESLint、Prettier 
 
 * [ESLint](/maps/_workflow/linter/eslint)
 * [Code Style](/maps/_workflow/linter/code-style) - 代码风格与格式规范
+* [tsgolint](/maps/_workflow/linter/tsgolint) - OXC 类型感知 lint 引擎，Oxlint 的 TypeScript 语义后端
 
 ## ESLint 9.x Flat Config
 

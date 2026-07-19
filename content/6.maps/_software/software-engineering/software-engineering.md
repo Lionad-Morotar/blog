@@ -4,6 +4,11 @@ description: 软件工程（Software Engineering）是指应用工程化的方�
 original_path: content/6.maps/_software/software-engineering.md
 ---
 
+## Topics
+
+* [AI 代码评审](/maps/_software/software-engineering/ai-code-review) - 阿里 Open Code Review 等 AI 代码评审工具的架构设计与工程实践
+* [技艺学习的认识论](/maps/_software/software-engineering/learning-craft) - 技能习得、专家思维与学习的哲学反思
+
 ## Tour
 
 * [Awesome Engineering Articles](https://github.com/ashishps1/awesome-engineering-articles)：精选的软件工程领域高质量技术文章合集，涵盖系统设计、架构、性能优化等主题
