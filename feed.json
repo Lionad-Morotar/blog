@@ -464,6 +464,18 @@
             "date_published": "2019-06-04T00:00:00.000Z"
         },
         {
+            "id": "https://lionad.art/articles/leader-line",
+            "content_html": "一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。",
+            "url": "https://lionad.art/articles/leader-line",
+            "title": "🔗 @lionad/leader-line：在网页元素之间绘制引导线",
+            "image": {
+                "url": "https://lionad.art/images/cover-placeholder.png",
+                "type": "image/png"
+            },
+            "date_modified": "2026-07-19T00:00:00.000Z",
+            "date_published": "2026-07-19T00:00:00.000Z"
+        },
+        {
             "id": "https://lionad.art/articles/archive",
             "content_html": "这里会收录几乎不再更新的内容，请注意其时效性",
             "url": "https://lionad.art/articles/archive",

@@ -79,6 +79,7 @@
 - [💫 CSS 幻术 | 抗锯齿](https://lionad.art/articles/css-poaa): 传统网页的渲染是基于像素的，所以常出现锯齿。本文简单介绍了锯齿出现的成因，以及CSS中相关锯齿处理的字体平滑、图片渲染属性，并通过实践创造了一种类似FXAA原理的background背景图案抗锯齿技术poaa（pixel-offset-anti-aliasing）。
 - [❓ 用纯CSS判断鼠标进入的方向](https://lionad.art/articles/css-judge-direction): 本文介绍了使用CSS判断鼠标进入区域方向的原理，并且在codepen笑脸demo的基础上实现了一个眼睛跟随鼠标位置进行转动的效果。
 - [📝 你本可以少写些 if-else](https://lionad.art/articles/no-more-if-else): 本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。
+- [🔗 @lionad/leader-line：在网页元素之间绘制引导线](https://lionad.art/articles/leader-line): 一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。
 - [📝 技术博客归档](https://lionad.art/articles/archive): 这里会收录几乎不再更新的内容，请注意其时效性
 
 ## Books
@@ -270,6 +271,7 @@ goose is being developed as an open-source software project.
 - [跨平台开发](https://lionad.art/maps/_cross-platform/cross-platform): 跨平台开发技术与实践，包括 Flutter、Taro 等框架以及设备适配方案。
 - [Device Metrics](https://lionad.art/maps/_cross-platform/device-metrics): Understand how device pixels, points, and scale factor work together.
 - [Flutter](https://lionad.art/maps/_cross-platform/flutter): Flutter 是 Google 开发的跨平台 UI 框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。
+- [经典游戏移植](https://lionad.art/maps/_cross-platform/game-porting): 经典 Windows 游戏移植 macOS/iOS 的工程方法与平台陷阱
 - [Taro](https://lionad.art/maps/_cross-platform/taro): Taro 是一个多端开发解决方案，支持用 React/Vue/Nerv 等框架开发小程序、H5、App 等应用。
 - [Tauri](https://lionad.art/maps/_cross-platform/tauri): Tauri 2 跨平台桌面应用开发框架
 - [数据库](https://lionad.art/maps/_database/database): 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL 等
@@ -496,6 +498,7 @@ goose is being developed as an open-source software project.
 - [正则表达式领域](https://lionad.art/maps/_regex/regex): 正则表达式相关的学习笔记和实践案例
 - [正则表达式](https://lionad.art/maps/_regex/regex/regex): 正则表达式是一种用来匹配字符串的强有力的工具，它的灵活性、表达力和功能都非常强大。
 - [Cinema 4D](https://lionad.art/maps/_render/c4d): C4D 相关的技术和应用
+- [图形 API](https://lionad.art/maps/_render/graphics-api): DirectX、Vulkan、Metal 图形 API 与 DXVK、MoltenVK 翻译层，渲染管线的演进
 - [渲染技术](https://lionad.art/maps/_render/render): 3D 渲染、着色器与图形编程相关技术。
 - [Shader Art](https://lionad.art/maps/_render/shader): Shader Art 是一种使用 Shader 语言进行创作的艺术形式，它可以用来制作动画、图像、音乐等。
 - [Three.js](https://lionad.art/maps/_render/threejs): Three.js 高级材质、着色器与实时渲染的实战秘密
@@ -577,6 +580,7 @@ goose is being developed as an open-source software project.
 - [小程序](https://lionad.art/maps/_web/miniapp/miniapp): 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
 - [WebTransport](https://lionad.art/maps/_web/network/webtransport): 基于 HTTP/3 + QUIC 的下一代 Web 双向通信技术
 - [页面性能](https://lionad.art/maps/_web/performance/performance): 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
+- [HMAC](https://lionad.art/maps/_web/security/hmac): 基于哈希的消息认证码 HMAC 的双层结构、长度扩展攻击防御与验签工程实践
 - [Web 安全](https://lionad.art/maps/_web/security/security): Web 安全技术、OAuth 协议与加密算法
 - [SM2](https://lionad.art/maps/_web/security/sm2): 国密 SM2 椭圆曲线公钥密码算法标准与工程陷阱
 - [软件供应链安全](https://lionad.art/maps/_web/security/supply-chain): 开源软件生态中的传递性信任问题与供应链攻击防范

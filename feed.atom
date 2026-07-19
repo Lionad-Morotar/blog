@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lionad.art</id>
     <title>仿生狮子</title>
-    <updated>2026-07-16T13:37:45.360Z</updated>
+    <updated>2026-07-19T09:15:40.395Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>lionad</name>
@@ -352,6 +352,15 @@
         <updated>2019-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。]]></summary>
         <published>2019-06-04T00:00:00.000Z</published>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[🔗 @lionad/leader-line：在网页元素之间绘制引导线]]></title>
+        <id>https://lionad.art/articles/leader-line</id>
+        <link href="https://lionad.art/articles/leader-line"/>
+        <link rel="enclosure" href="https://lionad.art/images/cover-placeholder.png" type="image/png"/>
+        <updated>2026-07-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。]]></summary>
+        <published>2026-07-19T00:00:00.000Z</published>
     </entry>
     <entry>
         <title type="html"><![CDATA[📝 技术博客归档]]></title>

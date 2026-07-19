@@ -4,7 +4,7 @@
         <title>仿生狮子</title>
         <link>https://lionad.art</link>
         <description>Lionad 的博客，关于前端、科学、Flow 与笔记</description>
-        <lastBuildDate>Thu, 16 Jul 2026 13:37:45 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 19 Jul 2026 09:15:40 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>CC BY-NC-SA 4.0</copyright>
@@ -310,6 +310,14 @@
             <guid isPermaLink="false">https://lionad.art/articles/no-more-if-else</guid>
             <pubDate>Tue, 04 Jun 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。]]></description>
+            <enclosure length="0" type="image/png" url="https://lionad.art/images/cover-placeholder.png"/>
+        </item>
+        <item>
+            <title><![CDATA[🔗 @lionad/leader-line：在网页元素之间绘制引导线]]></title>
+            <link>https://lionad.art/articles/leader-line</link>
+            <guid isPermaLink="false">https://lionad.art/articles/leader-line</guid>
+            <pubDate>Sun, 19 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。]]></description>
             <enclosure length="0" type="image/png" url="https://lionad.art/images/cover-placeholder.png"/>
         </item>
         <item>
