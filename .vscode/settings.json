@@ -163,5 +163,5 @@
       "zoomable",
       "ztunnel"
     ],
-    "explorer.excludeGitIgnore": true
+    "explorer.excludeGitIgnore": false
 }
