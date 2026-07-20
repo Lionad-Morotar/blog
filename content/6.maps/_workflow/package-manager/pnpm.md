@@ -40,7 +40,24 @@ element-plus 2.2.20
 
 #### pnpm pack
 
-将项目打包为 tarball 压缩包（.tgz）。打包的文件范围和 pnpm publish 一样。
+将项目打包为 tarball 压缩包（.tgz）。pnpm 12 之前，打包的文件范围和 pnpm publish 一样。
+
+#### pnpm 12 publish 打包向上叠加 monorepo 根 .gitignore
+
+pnpm 12 的 publish 在真实打包时会向上查找并叠加 workspace 根 .gitignore：若根目录忽略了
+`dist`、`types` 等产物目录，各包 `files` 字段命中的文件会被排除，tarball 只剩 `main`
+入口文件（npm 规范强制包含）、README/LICENSE 等顶层文件与未被忽略的目录。pnpm 10 与
+npm 只读取包目录自身的 ignore 文件，无此行为。
+
+更隐蔽的是验证陷阱：`pnpm pack` 与 `publish --dry-run` 输出的文件清单都与真实打包
+不一致，二者均显示完整产物；pnpm 10 的真实发布也正常。凡是不经过"pnpm 12 真实
+publish"路径的验证都是假绿灯。本地预演手段：verdaccio 起本地 registry 真实 publish，
+再用 npm pack 拉回 tarball 检查文件清单。
+
+修复是在每个发布包目录放置空 `.npmignore`：npm 系打包实现中 `.npmignore` 会完全替代
+`.gitignore`（二者不合并），包内规则就位后打包器不再向上查找。
+
+见：[Package Manager Magic Files](https://nesbitt.io/2026/03/05/package-manager-magic-files.html)
 
 #### shared-workspace-lockfile
 
