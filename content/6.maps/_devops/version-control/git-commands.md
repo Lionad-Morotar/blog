@@ -371,3 +371,27 @@ git clone --depth=<n> git@github.com:vuejs/vue.git
 
 见：[《Git clone 原理》](https://juejin.cn/post/6969206858179411982)
 
+## 目录与执行位置
+
+#### `git -C` 与其他 CLI 的 `--dir` 工作目录切换
+
+`git -C <dir>` 会在执行子命令前切换到指定目录，等价于 `cd <dir> && git ...`，
+但不会改变当前 shell 的工作目录，脚本中更安全：
+
+```bash
+git -C ./packages/foo status
+git -C ~/Github/Local/local-link/skills/flow rev-parse --is-inside-work-tree
+```
+
+同类选项也存在于其他 CLI 工具。pnpm 使用 `-C` 或 `--dir`：
+
+```bash
+pnpm -C ./packages/foo run build
+pnpm --dir ./packages/foo run build
+```
+
+这种"先切目录再执行"的模式适合在 monorepo 脚本或自动化流程中操作子目录，
+避免 `cd` 造成的路径状态残留或相对路径解析错误。
+
+见：[git-rev-parse Documentation](https://git-scm.com/docs/git-rev-parse)
+
