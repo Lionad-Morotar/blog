@@ -1,6 +1,6 @@
 ---
 title: 数据库
-description: 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL 等
+description: 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL、图数据库等
 ---
 
 ## 子领域
@@ -11,6 +11,7 @@ description: 数据库技术，包括关系型数据库、NoSQL、数据湖、La
 * [Lakehouse](/maps/_database/lakehouse/lakehouse) - 湖仓一体架构
 * [SQL](/maps/_database/sql/sql) - SQL 查询与关系型数据库
 * [GraphQL](/maps/_database/graphql/graphql) - GraphQL 查询语言与数据访问
+* [图数据库](/maps/_database/graph-database/knowledge-graph) - 本体、知识图谱与图存储
 
 ## 概述
 
@@ -20,5 +21,6 @@ description: 数据库技术，包括关系型数据库、NoSQL、数据湖、La
 - **NoSQL 数据库**：面向特定场景的灵活数据模型（键值、文档、列族、图）
 - **数据湖与 Lakehouse**：大规模数据存储与分析架构
 - **GraphQL**：现代数据查询与 API 设计范式
+- **图数据库**：以节点和边存储实体与关系，支撑知识图谱与多跳遍历查询
 
 通过系统化的知识组织，帮助开发者理解不同数据库技术的适用场景、设计原则和最佳实践。
