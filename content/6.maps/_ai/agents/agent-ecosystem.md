@@ -125,7 +125,13 @@ Nous Research 于 2026 年 2 月发布 Hermes Agent（最新 v0.10.0，2026.4.16
 | **x402** | Coinbase | HTTP 原生支付 | ★★★★☆ 50M+ 笔交易 |
 | **AG-UI** | CopilotKit | 前端交互 | ★★★★☆ 主流框架支持 |
 | **ANP** | 开源社区 | 智能体互联网 | ★★★☆☆ 早期阶段 |
+| **AIP** | 全国信标委（北邮 ACPs） | 智能体互联国标 | ★★★☆☆ 报批阶段，50+ 企业试点 |
 | **[gitagent](https://github.com/open-gitagent/gitagent)** | 开源社区 | git 原生的 Agent 定义标准 | ★★☆☆☆ 早期阶段 |
+
+#### AIP（智能体互联协议，国标）
+
+* [AIP 智能体互联社区](https://aip.openatom.tech/)：开放原子基金会托管的官方社区，含身份码、发现、交互、工具调用等六大核心模块
+* [ACPs 协议族规范（GitCode）](https://gitcode.com/zkxw2008/aip)：北邮牵头的 AIP 技术源头，含 01~07 共 7 份 ACPs-spec 规范，2025 年发布 v01.00
 
 ### MCP (Model Context Protocol)
 
