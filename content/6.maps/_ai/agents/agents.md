@@ -44,6 +44,10 @@ original_path: _ai/agents.md
 * [Agent 架构设计原则与最佳实践](/maps/_ai/agents/agent-architecture)：工作流与智能体的区别、技术选型金字塔、五种工作流模式、工具设计、长时运行 Agent 的 Harness 设计
 * [Agent 分类学](/maps/_ai/agents/agent-taxonomy)：Russell & Norvig 五大智能体类型、三个互补分类维度
 
+## 编码 Agent 实现
+
+* [Pi Agent 源码解析](/maps/_ai/agents/pi-agent)：事件同步屏障、半轮压缩前缀、会话树状态回滚与工具流更新截止门
+
 ## 人机协作团队
 
 * [人机协作智能体团队](/maps/_ai/agents/human-agent-teams)：Anthropic 关于构建高效人类与智能体协作团队的经验
