@@ -56,3 +56,14 @@ MATS 与 Anthropic Alignment Science team、Redwood Research、ARC 直接合作�
 
 见：[I looked at 1,680 Anthropic resumes. Here's who they actually hire.](https://www.linkedin.com/pulse/i-looked-1680-anthropic-resumes-heres-who-actually-hire-cuadros-f34qe/)
 
+#### 泛化能力是 AI Native 公司的核心人才筛选标准
+
+月之暗面把机器学习中的泛化（generalization）与过拟合（overfitting）直接映射到人才评估上：
+在大厂特定 KPI 体系、汇报话术与资源博弈规则中训练太久的资深专家，类似过拟合局部最优解的专用模型——环境变量彻底改变时，能力在新分布下可能失效。
+该公司偏好"基础模型式"个体：通过监督微调（SFT）掌握基本规则后，用强化学习（RL）在多元任务中自我对弈，最终获得跨域迁移能力。
+映射到工程实践，就是拒绝"我只管这块"的单点专家——顶级模型的训练要求同一人把算法架构、分布式系统与数据策展三个世界融会贯通。
+这一标准的另一面是履历贬值：其受访员工中约八成做着与上一份工作完全不同的事，且曾有多位大厂中高层入职适应失败后离开。
+其机制在于，AI 行业的变化速度使经验半衰期极短，学习速度比存量知识更稀缺。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug)
+

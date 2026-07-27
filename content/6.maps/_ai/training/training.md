@@ -11,6 +11,7 @@ Model training paradigms, fine-tuning strategies, and post-training optimization
 - [Post-training](post-training) — Post-training optimization and alignment
 - [RLVR](rlvr) — Reinforcement Learning with Verifiable Rewards core concepts
 - [Topology-aware Scheduling](topology-aware-scheduling) — Distributed training scheduling
+- [Training Stability](training-stability) — 大规模预训练的监控巡检、数值精度切换与长上下文攻关实践
 
 ## Brief
 
