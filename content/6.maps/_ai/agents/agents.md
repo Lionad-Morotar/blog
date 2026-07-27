@@ -48,6 +48,10 @@ original_path: _ai/agents.md
 
 * [Pi Agent 源码解析](/maps/_ai/agents/pi-agent)：事件同步屏障、半轮压缩前缀、会话树状态回滚与工具流更新截止门
 
+## 沙箱与运行时安全
+
+* [Agent 沙箱的 Egress 管控](/maps/_ai/agents/agent-sandbox)：受控可信 MITM、SNI 策略锚点、逃生门代价与推理独立执法域
+
 ## 人机协作团队
 
 * [人机协作智能体团队](/maps/_ai/agents/human-agent-teams)：Anthropic 关于构建高效人类与智能体协作团队的经验
