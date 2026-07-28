@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-07-28
+
+不知道是什么问题。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260728223712205.png)
+
 #### 2026-07-21
 
 点一下就恢复了。
