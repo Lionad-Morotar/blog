@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-07-29
+
+Qwen3.8-max-preview 偶发工具调用失败。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260729093958482.png)
+
 #### 2026-07-28
 
 不知道是什么问题。
