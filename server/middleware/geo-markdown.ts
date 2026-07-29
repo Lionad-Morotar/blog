@@ -117,6 +117,13 @@ export default defineEventHandler(async (event) => {
     return
   }
 
+  // 数据与静态资源请求（_payload.json、favicon、图片、字体等）不参与 Markdown 协商。
+  // 这类请求的 Accept 通常只带 */* 通配，会在显式类型的平分判定中被误判成想要
+  // Markdown，进而被转发到只服务内容页的 /raw 路由，产生无意义的 404。
+  if (/\.(json|xml|html?|txt|ico|svg|css|m?js|map|png|jpe?g|gif|webp|avif|woff2?|ttf|otf|webmanifest|pdf|zip|mp4|webm|mp3|wav)$/i.test(pathname)) {
+    return
+  }
+
   const { wants, unsupported } = wantsMarkdown(event)
 
   // 所有响应都声明随 Accept 变化
