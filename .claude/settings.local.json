@@ -7,5 +7,9 @@
       "Bash(mkdir -p ~/Documents/Prompt_Engineering_Structured_Research_20260421)",
       "Bash(mkdir -p ~/.claude/research_output)"
     ]
+  },
+  "skillOverrides": {
+    "pptx": "off",
+    "xlsx": "off"
   }
 }
