@@ -79,7 +79,6 @@
 - [💫 CSS 幻术 | 抗锯齿](https://lionad.art/articles/css-poaa): 传统网页的渲染是基于像素的，所以常出现锯齿。本文简单介绍了锯齿出现的成因，以及CSS中相关锯齿处理的字体平滑、图片渲染属性，并通过实践创造了一种类似FXAA原理的background背景图案抗锯齿技术poaa（pixel-offset-anti-aliasing）。
 - [❓ 用纯CSS判断鼠标进入的方向](https://lionad.art/articles/css-judge-direction): 本文介绍了使用CSS判断鼠标进入区域方向的原理，并且在codepen笑脸demo的基础上实现了一个眼睛跟随鼠标位置进行转动的效果。
 - [📝 你本可以少写些 if-else](https://lionad.art/articles/no-more-if-else): 本文介绍了使用Map、双数组等结构仿制类似策略模式的写法以达成简化逻辑判断的效果，探讨了配置数据与业务逻辑分离这种写法的优势。
-- [🔗 @lionad/leader-line：在网页元素之间绘制引导线](https://lionad.art/articles/leader-line): 一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。
 - [📝 技术博客归档](https://lionad.art/articles/archive): 这里会收录几乎不再更新的内容，请注意其时效性
 
 ## Books
@@ -105,6 +104,7 @@
 - [A2UI](https://lionad.art/maps/_ai/agents/a2ui): Google 推出的声明式 UI 协议，让 AI Agent 能生成富交互界面
 - [Agent 架构第一性原理](https://lionad.art/maps/_ai/agents/agent-architecture): Agent 架构设计的核心原则、工作流模式、工具设计与最佳实践
 - [Agent 生态系统全景](https://lionad.art/maps/_ai/agents/agent-ecosystem): AI Agent 框架、平台、协议和基础设施的全面调研
+- [Agent 沙箱的 Egress 管控](https://lionad.art/maps/_ai/agents/agent-sandbox): Agent 沙箱出口流量的受控 MITM、DNS 信任、协议边界与推理路由等进阶机制。
 - [Agent 分类学](https://lionad.art/maps/_ai/agents/agent-taxonomy): Russell & Norvig 经典智能体分类体系及三个互补分类维度
 - [Agents](https://lionad.art/maps/_ai/agents/agents): AI 代理（Agents）是能够自主执行任务并与环境交互的智能实体，通常基于大语言模型（LLM）构建。
 - [AgentScope](https://lionad.art/maps/_ai/agents/agentscope): 阿里巴巴开源的生产级多智能体框架，支持 ReAct Agent、强化学习训练、实时语音交互和 MCP/A2A 协议
@@ -119,13 +119,14 @@ goose is being developed as an open-source software project.
 - [扩展](https://lionad.art/maps/_ai/agents/goose/goose-brief.cn): 您是一种通用型 AI 代理，名为 goose，由 Block（Square、CashApp 与 Tidal 的母公司）创建。goose 正在作为开源软件项目进行开发。
 - [Goose Prompts](https://lionad.art/maps/_ai/agents/goose/prompts): xxx
 - [Harness 工程](https://lionad.art/maps/_ai/agents/harness-engineering): 结合控制论与真实 .codebuddy 配置，探讨 AI 辅助编程中 Harness 的双环控制、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计。
-- [人机协作智能体团队](https://lionad.art/maps/_ai/agents/human-agent-teams): Anthropic 关于构建高效人类与智能体协作团队的经验：公共空间、明确角色、北极星目标与渐进信任
+- [人机协作智能体团队](https://lionad.art/maps/_ai/agents/human-agent-teams): 前沿 AI 公司（Anthropic、月之暗面）构建人类与智能体协作团队的经验：公共空间、明确角色、北极星目标、渐进信任与多智能体分工
 - [AI 与人性交互](https://lionad.art/maps/_ai/agents/human-ai-interaction)
 - [多智能体架构决策与工程实践](https://lionad.art/maps/_ai/agents/multi-agent-architecture): 单/多智能体架构选择、Anthropic 工程实践、Cognition 上下文工程原则、Claude 官方决策指南
 - [多智能体协作框架对比](https://lionad.art/maps/_ai/agents/multi-agent-frameworks): AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph 等多智能体框架的核心设计、适用场景与选择建议
 - [多智能体构建模式与实践指南](https://lionad.art/maps/_ai/agents/multi-agent-patterns): 四类智能体构建关注点、框架选择决策矩阵、生产环境最佳实践
 - [OpenAI Agents SDK (JavaScript) 发布记录](https://lionad.art/maps/_ai/agents/openai-agents-js-releases): OpenAI Agents SDK JavaScript/TypeScript 版本的完整发布历史与变更日志
 - [智能健身教练 PEAS 模型分析](https://lionad.art/maps/_ai/agents/peas-coach-example): 通过智能健身教练案例深入理解 PEAS 模型的应用，包括性能度量、环境描述、执行器、传感器及环境特性分析
+- [Pi Agent 源码解析](https://lionad.art/maps/_ai/agents/pi-agent): 从 Pi Agent 源码中提炼的 Agent 循环、上下文压缩、会话管理与工具执行等进阶实现细节。
 - [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/maps/_ai/agents/tokenmaxxing): 从 2026 年初 Tokenmaxxing 现象出发，分析 Agentic coding 的成本失控、组织流程瓶颈、Agent 能力错配与需求天花板，并将其置于 J 型增长曲线与生产率悖论的经济学框架中理解。
 - [有毒数据流分析](https://lionad.art/maps/_ai/agents/toxic-flow-analysis): 在多代理系统中识别和缓解敏感数据泄露风险的技术
 - [Workflow 与 Agent 对比：电商退款案例](https://lionad.art/maps/_ai/agents/workflow-vs-agent): 通过电商售后退款场景，对比 Workflow 固定流程与 Agent 智能决策的优劣，及混合架构设计
@@ -206,6 +207,7 @@ goose is being developed as an open-source software project.
 - [RLVR](https://lionad.art/maps/_ai/training/rlvr): Reinforcement Learning with Verifiable Rewards 核心概念与算法
 - [拓扑感知调度](https://lionad.art/maps/_ai/training/topology-aware-scheduling): 拓扑感知调度是一种在分布式计算环境中，根据硬件拓扑结构和网络性能来优化任务调度和资源分配的方法，以提高整体系统的效率和性能。
 - [AI Training](https://lionad.art/maps/_ai/training/training): Model training, fine-tuning, and post-training techniques
+- [训练稳定性](https://lionad.art/maps/_ai/training/training-stability): 大规模预训练的监控巡检、数值精度切换与长上下文攻关等稳定性工程实践
 - [agents.md](https://lionad.art/maps/_ai/vibe/agents-md): AGENTS.md 是一种用于向 AI 编码代理提供说明的常用格式
 - [Anchoring coding agents to a ref application](https://lionad.art/maps/_ai/vibe/anchoring): 在编码代理时代，通过将其锚定至实时可编译的参考应用，有效应对代码漂移问题
 - [对 AI 生成代码”惰性依赖”的警惕与治理](https://lionad.art/maps/_ai/vibe/complacency): AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲”惰性依赖”风险
@@ -274,11 +276,13 @@ goose is being developed as an open-source software project.
 - [经典游戏移植](https://lionad.art/maps/_cross-platform/game-porting): 经典 Windows 游戏移植 macOS/iOS 的工程方法与平台陷阱
 - [Taro](https://lionad.art/maps/_cross-platform/taro): Taro 是一个多端开发解决方案，支持用 React/Vue/Nerv 等框架开发小程序、H5、App 等应用。
 - [Tauri](https://lionad.art/maps/_cross-platform/tauri): Tauri 2 跨平台桌面应用开发框架
-- [数据库](https://lionad.art/maps/_database/database): 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL 等
+- [数据库](https://lionad.art/maps/_database/database): 数据库技术，包括关系型数据库、NoSQL、数据湖、Lakehouse、GraphQL、图数据库等
 - [Data Lake](https://lionad.art/maps/_database/datalake/datalake): 一种用于存储大量原始数据的系统，支持多种数据格式和类型，适用于大数据分析和处理。
 - [Apache Paimon：湖仓一体中的可变数据与实时更新](https://lionad.art/maps/_database/datalake/paimon): 将数据湖格式与 LSM 融合，面向高吞吐更新与低延迟读的实时湖仓存储与管理。
 - [Delta Lake](https://lionad.art/maps/_database/deltalake/deltalake): 一个开源的存储层，旨在为数据湖提供 ACID 事务支持、可扩展的元数据处理和统一的批处理与流处理能力。
 - [Delta Lake Liquid Clustering](https://lionad.art/maps/_database/deltalake/liquid-clustering): Delta Lake 液体聚类是一种动态数据布局优化技术，通过增量调整数据分布以提升查询性能，适应多变的查询模式，降低维护成本
+- [图数据库](https://lionad.art/maps/_database/graph-database/graph-database): 以图结构存储与查询数据的数据库技术，包括知识图谱、RDF、属性图与图遍历查询
+- [知识图谱](https://lionad.art/maps/_database/graph-database/knowledge-graph): 本体与知识图谱的概念体系，及其与图数据库的关系
 - [GraphQL](https://lionad.art/maps/_database/graphql/graphql): 一种用于 API 的查询语言和运行时环境，允许客户端精确地请求所需的数据，从而提高数据获取的效率和灵活性。
 - [GraphQL for LLM](https://lionad.art/maps/_database/graphql/graphql-for-llm): 将 GraphQL 作为大型语言模型（LLM）数据访问模式的实践
 - [Delta Sharing：跨平台安全数据共享的开放协议（Trial）](https://lionad.art/maps/_database/lakehouse/delta-sharing): 以开放协议在多云与本地间共享“在线数据”，集中治理与审计，避免复制；但须管控跨云外网成本。
@@ -560,6 +564,8 @@ goose is being developed as an open-source software project.
 - [设计](https://lionad.art/maps/_ui/design/design): UI 设计原则、设计哲学与视觉风格
 - [灵感资源](https://lionad.art/maps/_ui/inspiration/inspiration): 设计灵感平台、设计资源与参考网站
 - [浮层组件设计模式](https://lionad.art/maps/_ui/patterns/overlay-patterns): Modal、Dialog、Overlay 等浮层组件的设计原则、适用场景与决策框架
+- [实体交互](https://lionad.art/maps/_ui/patterns/tangible-interaction): 实体交互（Tangible Interaction / TUI）范式：物理物体与数字信息的耦合设计，含设计原则、流程与学术源流
+- [UI 元素术语](https://lionad.art/maps/_ui/patterns/ui-elements): NN/g 图形界面控件术语表，按功能分类归纳约 60 个 UI 元素的定义、别名与适用场景
 - [字体排版](https://lionad.art/maps/_ui/typography/typography): 字体设计、排版规范与可变字体技术
 - [用户界面（UI）](https://lionad.art/maps/_ui/ui): 用户界面（UI）设计是指设计师设计的用户界面，是用户与产品之间的桥梁。用户界面设计是一个复杂的过程，其中包括设计、测试和改进。设计师必须考虑用户的需求、产品的功能和用户界面的外观。用户界面设计是一个交叉学科，涉及心理学、设计、计算机科学和其他领域。
 - [用户体验（UX）](https://lionad.art/maps/_ui/ux): 用户体验设计原则、反模式与交互成本分析
@@ -596,6 +602,7 @@ goose is being developed as an open-source software project.
 - [Code Style](https://lionad.art/maps/_workflow/linter/code-style): 代码风格与格式规范的最佳实践
 - [ESLint](https://lionad.art/maps/_workflow/linter/eslint): ESLint 是 JavaScript 和 TypeScript 的代码质量检查工具，帮助开发者保持代码风格一致性和减少错误。
 - [代码规范](https://lionad.art/maps/_workflow/linter/linter): 代码质量检查工具与风格规范，涵盖 ESLint、Prettier 等工具的配置与最佳实践
+- [tsgolint](https://lionad.art/maps/_workflow/linter/tsgolint): OXC 生态的类型感知 lint 引擎，以 typescript-go 为底座为 Oxlint 提供 TypeScript 语义分析能力
 - [Monorepo](https://lionad.art/maps/_workflow/monorepo/monorepo): Monorepo 是一种将多个项目放在同一个代码仓库中的管理方式，旨在提高团队协作和代码复用效率
 - [Turborepo](https://lionad.art/maps/_workflow/monorepo/turborepo): Turborepo 是 Vercel 推出的 Monorepo 构建系统，提供任务管道、本地和远程缓存等功能
 - [包管理器](https://lionad.art/maps/_workflow/package-manager): 用于管理项目依赖的工具
@@ -609,12 +616,15 @@ goose is being developed as an open-source software project.
 ## Tools
 
 - [🧰 工具收集](https://lionad.art/tools): 一些有趣的工具收集。
-- [📕 博客](https://lionad.art/tools/blog): 仿生狮子的博客
 - [🌐 AnySort](https://lionad.art/tools/anysort): 符合直觉、类型完备的多属性排序方法
 - [⛸️ UseScrollbar](https://lionad.art/tools/use-scrollbar): 给第三方表格等复杂组件设置自定义滚动条的库
 - [👓 Crapto](https://lionad.art/tools/crypto-inline): 一款可以给代码中部分内容加密的 VSCode 插件
+- [🔁 Break Dead Loop](https://lionad.art/tools/cc-break-dead-loop): 检测并打断 Claude Code agent 死循环的插件
+- [🪟 Close Host Window](https://lionad.art/tools/vscode-for-extension): 让终端里的 Claude Code 自己关掉 VSCode 窗口的插件
+- [🔗 LeaderLine：在网页元素之间绘制引导线](https://lionad.art/tools/leader-line): 一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。
 - [🥥 Coconut](https://lionad.art/tools/coconut): 5分钟建站，永久免费！
 - [🧶 网易云音乐歌单排序](https://lionad.art/tools/netease-sorter): 使用 PRay 搭建歌单排序应用
+- [📕 博客](https://lionad.art/tools/blog): 仿生狮子的博客
 - [Git 工具与学习资源](https://lionad.art/tools/git): Git 版本控制相关的工具与学习资源
 
 ## SourceCode

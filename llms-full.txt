@@ -1306,24 +1306,24 @@ Agent 正确调用工具的概率仅有 70%，那么为什么在编程等简单�
 
 Claude Code 之父 Boris Cherny 给出的答案是五种工作原型：原型者、建造者、清扫者、增长者与守护者。
 
-本文从他的观察出发，聊聊 AI 原生团队分工形态的重排吧。
+本文从他的观察出发，聊聊 AI 原生团队分工形态的重排。
 
 ## 你的职位还剩几年保质期
 
-最近一个月，产研圈的组织调整信号密集得让人没法忽视。
+最近一个月，产研圈的组织调整消息很密集。
 
 美团 CLC 食杂零售 Keemart 研发团队完成架构调整，前端与后端正式合并。新架构已经生效，相关前端同学提前一个多月就开始接受后端训练[1](https://lionad.art/#user-content-fn-infoq){#user-content-fnref-infoq ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。蚂蚁网商宣布推动测试岗整体转向研发岗，给了半年缓冲期。过渡期一结束，原测试同学就转成全栈工程师[1](https://lionad.art/#user-content-fn-infoq){#user-content-fnref-infoq-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。招聘市场上，全栈工程师的 JD 也在明显变多。
 
-更令人兴奋，也可能更令人担忧的，是 AI 数字员工真的开始「入职」了。
+AI 数字员工也真的开始「入职」了。
 
-Shopify 内部有个 AI 同事叫 River。它是真的「同事」——住在公司的 Slack 公共频道里，会读代码、跑测试、提 PR，偶尔还会在方案有问题时公开反对。据 Shopify 自己披露，
+Shopify 内部有个 AI 同事叫 River。它是真「同事」：住在公司的 Slack 公共频道里，会读代码、跑测试、提 PR，偶尔还会在方案有问题时公开反对。据 Shopify 自己披露，
 如今全公司每 8 个合并进主干的 PR，就有 1 个由 River 合作完成[2](https://lionad.art/#user-content-fn-river){#user-content-fnref-river ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。数字员工已经直接参与了生产级别的软件开发。
 
-当有一天你上班，发现对面工位坐的是一个 Agent 时，你会不会怀疑——自己的职位，还剩下多少保质期。
+当有一天你上班，发现对面工位坐的是一个 Agent 时，你会不会怀疑，自己的职位还剩下多少保质期。
 
 ## 瀑布流，还撑得住吗
 
-这个问题先按下不表。要回答职位还能撑多久，不妨先回头看看，今天这些职位当初是怎么被切出来的。
+要回答职位还能撑多久，不妨先回头看看，今天这些职位当初是怎么被切出来的。
 
 企业内部的协作依赖专业分工。八年前我刚做前端时，向更早入行的同事请教。他们当年在国内最早那批前端团队里干活的方式，和我今天习以为常的一切几乎一模一样：专业按职能切，需求从市场来，交给产品打磨，由设计审核 UI/UX，再交给前后端开发，最后由数据团队提供支持或运营能力。
 
@@ -1331,29 +1331,28 @@ Shopify 内部有个 AI 同事叫 River。它是真的「同事」——住在�
 
 ## 观点的源头：Claude Code 之父 Boris Cherny
 
-回答「团队阵型该怎么变」这个问题，Boris Cherny 的观察直接来自 Claude Code 团队本身——他是这个产品的缔造者。
+回答「团队阵型该怎么变」这个问题，Boris Cherny 的观察直接来自 Claude Code 团队本身。他是这个产品的缔造者。
 
 在 Anthropic 内部有类似孵化器的实验室机制。Boris 和几个同事组成了一个非常小型的项目制团队，
 在不长的时间里创造了 Claude Code、CC Desktop 以及模型上下文协议（Model Context Protocol，MCP）等内容，随后团队解散。
-这种项目制的工作方式，深刻影响了他看待产品和工程的视角。他也是近期热度很高的循环工程（Loop Engineering）话题的提出者之一——
-他在多个访谈里讲过，Claude Code 一直在朝「以 loop 为 harness（执行外壳）核心」的方向走，目标是更低成本、更高效地跑起更多智能体。
+这种项目制的工作方式，深刻影响了他看待产品和工程的视角。他也是近期热度很高的循环工程（Loop Engineering）话题的提出者之一。他在多个访谈里讲过，Claude Code 一直在朝「以 loop 为 harness（执行外壳）核心」的方向走，目标是更低成本、更高效地跑起更多智能体。
 
 用过 Claude Code 的人会注意到，他观点的核心假设是：传统流程型工作会通过左移（Shift Left）被重构。工作尽量提前，人从技术流程节点里解放出来，更多任务交给 Agent 自动化完成。
 
-2026 年 6 月底，他在 X 上写了一段被大量转载的话。他先问：当工程、产品、设计、数据科学等职能熔合成一种新角色时，未来的角色会是什么样子？随后他给出自己的答案——观察 Claude Code 团队，他看到的是五种原型[3](https://lionad.art/#user-content-fn-five){#user-content-fnref-five ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+2026 年 6 月底，他在 X 上写了一段被大量转载的话。他先问：当工程、产品、设计、数据科学等职能熔合成一种新角色时，未来的角色会是什么样子？随后他给出自己的答案：观察 Claude Code 团队，他看到的是五种原型[3](https://lionad.art/#user-content-fn-five){#user-content-fnref-five ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
 
 ## 五种原型，五种工作模式
 
 Boris 给出的五种原型是：原型者（Prototyper）、建造者（Builder）、清扫者（Sweeper）、增长者（Grower）和守护者（Maintainer）。
 
-它们描述的是工作模式，同一个职位下可能同时出现多种原型。在 Claude Code 团队里，有的设计师表现得像原型者，有的像清扫者，工程师、PM、数据科学家同样如此[3](https://lionad.art/#user-content-fn-five){#user-content-fnref-five-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}——
+它们描述的是工作模式，同一个职位下可能同时出现多种原型。在 Claude Code 团队里，有的设计师表现得像原型者，有的像清扫者，工程师、PM、数据科学家同样如此[3](https://lionad.art/#user-content-fn-five){#user-content-fnref-five-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
 这也是 Anthropic 内部大部分人共用 Member of Technical Staff 这一个 title 的原因。
 
 **Prototyper：「我有一个想法」**
 
 原型者是能大量产出全新想法的人。大部分 idea 会自然淘汰，这并不要紧。
 
-Boris 有一个公开判断：编码已经是被解决的问题[4](https://lionad.art/#user-content-fn-lenny){#user-content-fnref-lenny ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。如果编码已经被解决，那么一个人借助 AI，把一个模糊的念头在几小时或者一天内，变成可以摸、可以点、可以直接上手玩的东西——这种人就是原型者。
+Boris 有一个公开判断：编码已经是被解决的问题[4](https://lionad.art/#user-content-fn-lenny){#user-content-fnref-lenny ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。如果编码已经被解决，那么一个人借助 AI，把一个模糊的念头在几小时或者一天内，变成可以摸、可以点、可以直接上手玩的东西，这种人就是原型者。
 
 假设你有一周时间做出了 7 个原型，扔掉其中 6 个，剩下一个交给下一阶段的建造者快速落地成产品，这就是原型者的工作节奏。
 
@@ -1361,13 +1360,13 @@ Boris 有一个公开判断：编码已经是被解决的问题[4](https://liona
 
 建造者接手原型和想法，把它真正在生产环境落地成能运行的东西。
 
-程序员看似天然适合 Builder，真正关键的品质是落地能力——产品只有真正进入生产环境、拿到数据反馈，才算进入了循环。
+程序员看似天然适合 Builder，真正关键的品质是落地能力：产品只有真正进入生产环境、拿到数据反馈，才算进入了循环。
 
 建造者的工作也可以从非零起点开始。假设一位设计师用 AI 生成了一整套设计语言，并在某个代码库里成功地进入了生产环境，那这一刻她就是建造者。重点在于，Builder 是能把东西跑起来的人，这通常需要一些工程上的直觉。
 
 **Sweeper：「把它变好」**
 
-据 Boris 自己披露，今年到现在他有 40 万行代码新增，另外还有 25 万行代码删减。这 25 万行删减里，有相当一部分就是把没用的东西清掉——而这正好对应第三种原型：清扫者。
+据 Boris 自己披露，今年到现在他有 40 万行代码新增，另外还有 25 万行代码删减。这 25 万行删减里，有相当一部分就是把没用的东西清掉。这正好对应第三种原型：清扫者。
 
 清扫者持续地清理和简化系统。在 Boris 的原话里，他们的工作包括清理 UI、简化代码和系统、下线功能（un-ship）、优化性能[3](https://lionad.art/#user-content-fn-five){#user-content-fnref-five-3 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。把没有用的系统下线，让产品和平台变得更干净，这需要很强的产品感和工程品味。
 
@@ -1383,7 +1382,7 @@ Boris 有一个公开判断：编码已经是被解决的问题[4](https://liona
 
 最后是守护者。他们是专家群体，有扎实的理论知识和实际运营经验，守着成熟系统，让它安全、可靠、高效地向外扩展。
 
-AI 能帮守护者更快地定位问题，但系统边界、数据风险、架构取舍、业务正确性这些地方，仍然需要资深工程师兜底——他们是最懂某一个系统的人。而判断「什么不能动」这种直觉，至少现在的 AI 还没有。
+AI 能帮守护者更快地定位问题，但系统边界、数据风险、架构取舍、业务正确性这些地方，仍然需要资深工程师兜底：他们是最懂某一个系统的人。而判断「什么不能动」这种直觉，至少现在的 AI 还没有。
 
 ## 团队阵型：按产品阶段配人
 
@@ -1397,36 +1396,34 @@ Boris 不只给了角色原型，还给了团队配置的思路。他按产品�
 
 ## 与「全栈工程师」的区别
 
-Boris 也提到，具体的人和某一种角色原型之间是动态映射——一个人的能力模型会随着阶段、兴趣和项目需求发生变化。
+Boris 也提到，具体的人和某一种角色原型之间是动态映射：一个人的能力模型会随着阶段、兴趣和项目需求发生变化。
 
 这里容易混淆的是：跨多种能力的角色原型，和全栈工程师（Full-Stack Engineer）到底有什么区别？
 
-两者的切入点不同。这要回到 Boris 的判断——编码已经是被解决的问题。
+两者的切入点不同。这要回到 Boris 的判断：编码已经是被解决的问题。
 他认为工程师的大量时间耗在编码之外：和客户交流、与产品和设计碰撞想法、做技术决策、规划任务、观察数据、写文档、做迭代 0（Iteration 0）的准备[4](https://lionad.art/#user-content-fn-lenny){#user-content-fnref-lenny-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
 这些编码上游和下游的杂务，当下的编程智能体很难直接接手。
 
-Boris 的角色原型是一种从产品视角切入、关于「如何创建和运营产品」的能力模型。经典的全栈工程师则是技术栈导向的：理解如何设计精美的页面、创建 API、理解数据库结构、了解如何规模部署和数据运营——关注的是端到端的交付能力。
+Boris 的角色原型是一种从产品视角切入、关于「如何创建和运营产品」的能力模型。经典的全栈工程师则是技术栈导向的：理解如何设计精美的页面、创建 API、理解数据库结构、了解如何规模部署和数据运营。它关注的是端到端的交付能力。
 
 一个回答「用什么姿态创造价值」，一个回答「用什么技术栈交付价值」。这是两个独立维度的问题。
 
 ## 回到开头：职位还剩多少保质期
 
-绕了一圈，回到最开始的问题。
+我的结论是：**AI 原生团队面对的问题，是分工形态的重排**：从按职能切，变成按原型配。
 
-我的结论是：**AI 原生团队真正要面对的问题，是分工形态的重排**——从按职能切，变成按原型配。
+第一，AI 进入团队，先改变的是效率；而人与人、人与 AI 之间的分工形态，是更深一层的变化。
 
-第一，AI 进入团队，改变的首先是效率，更深层的则是人与人、人与 AI 之间的分工形态。
+第二，原型本来就不绑职能。同一种原型，无论你是设计师、工程师还是 PM，都可能展现出来。网上常听到 PM 动手改代码的故事，就是这一点的翻版：PM 一旦上手、做成了，就成了原型者，甚至建造者。
 
-第二，原型本来就不绑职能。同一种原型，无论你是设计师、工程师还是 PM，都可能展现出来。网上常听到 PM 动手改代码的故事，就是这一点的翻版——PM 一旦上手、做成了，就成了原型者，甚至建造者。
-
-职称标签仍然影响场上位置。我自己做前端这几年，光是职称就变过好几轮——H5 前端、Web 前端、前端工程师——这背后反映的是不同公司对职能的理解在变化。但「Web 前端」这种固定称谓，作为标签的描述力正在瓦解：
+职称标签仍然影响场上位置。我自己做前端这几年，光是职称就变过好几轮（H5 前端、Web 前端、前端工程师），不同公司对职能的理解也一直在变。但「Web 前端」这种固定称谓，作为标签的描述力正在瓦解：
 它既衡量不了一个人在组织里的真实影响，也跟不上他动态变化的角色。
 
 ## 所以，你是哪种角色
 
-从 Boris 的观点来看，一支健康的团队不必人人全能，而是按产品阶段把原型配齐——就像一支好球队，不需要十一个梅西。
+从 Boris 的观点来看，一支健康的团队不必人人全能，而是按产品阶段把原型配齐，就像一支好球队，不需要十一个梅西。
 
-不妨观察一下自己以及身边的同事：大家在做事的时候，是一种什么样的姿态？或许你会发现，自己在某个瞬间正把一个 idea 打磨到落地、眼睛一亮——那也许就是你的优势原型在显现。
+不妨观察一下自己以及身边的同事：大家在做事的时候，是一种什么样的姿态？或许你会发现，自己在某个瞬间正把一个 idea 打磨到落地、眼睛一亮，那也许就是你的优势原型在显现。
 
 顺着这个思路，「我会不会被 AI 替代」这个普遍令人焦虑的问题，也可以换一种问法：
 
@@ -5880,142 +5877,6 @@ const handler = [
 - [MDN: Map](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map){rel="&#x22;nofollow&#x22;"}
 
 
-# 🔗 @lionad/leader-line：在网页元素之间绘制引导线
-
-在需要表达元素之间关系的界面里，引导线（Leader Line）是一种便宜又直观的可视化手段。流程图、表单联动、节点编辑器、看板依赖……只要两个 DOM 元素需要被“连起来”，就会用到它。
-
-最近把 [anseki/leader-line](https://anseki.github.io/leader-line/){rel="&#x22;nofollow&#x22;"} fork 成了一个现代维护版 [`@lionad/leader-line`](https://github.com/Lionad-Morotar/leader-line){rel="&#x22;nofollow&#x22;"}，顺手补上了类型、ESM/CJS/IIFE 三产物，以及一个可以批量合并重排的渲染调度器。这篇文章简单介绍它解决了什么问题、怎么用、以及在 Vue / Nuxt 中的集成方式。
-
-## 基础用法
-
-安装：
-
-```bash
-pnpm add @lionad/leader-line
-```
-
-ESM 或 CommonJS 都能直接导入，也支持 `<script>` 标签直载：
-
-```js
-import LeaderLine from '@lionad/leader-line'
-
-const line = new LeaderLine(
-  document.getElementById('start'),
-  document.getElementById('end'),
-  { color: 'coral', endPlug: 'arrow2' }
-)
-```
-
-API 与上游基本兼容，所以旧项目迁移时通常只改包名即可。
-
-## Vue / Nuxt 集成
-
-命令式 API 直接塞进 Vue 的响应式系统会比较啰嗦，所以另外提供了两个平行子包：
-
-- `@lionad/leader-line-vue`：composable + 组件
-- `@lionad/leader-line-nuxt`：Nuxt 4 模块（包含 vue 包）
-
-### 单线响应式
-
-```vue
-<script setup>
-import { ref, useTemplateRef } from 'vue'
-import { useLeaderLine } from '@lionad/leader-line-vue'
-
-const a = useTemplateRef('a')
-const b = useTemplateRef('b')
-const color = ref('coral')
-
-const { line, position, show, hide, remove } = useLeaderLine(a, b, {
-  color,
-  endPlug: 'arrow2'
-})
-</script>
-```
-
-`color` 是 `ref` 时，修改 `color.value` 会自动调用 `setOptions`，不会重建整条线。组件卸载时也会自动 `remove`，不用手动清理。
-
-### 批量连线
-
-```ts
-import { useLeaderLines } from '@lionad/leader-line-vue'
-
-const edges = ref([
-  { key: 'a→b', start: elA, end: elB, color: 'coral', data: { fieldId: 'x' } }
-])
-
-const { lines, getLine, findWhere, removeWhere } = useLeaderLines(edges, {
-  preventSame: true
-})
-```
-
-`edges` 的 `push` / `splice` / 同 key 属性修改 / 重排都会按最小代价更新，避免频繁重建 SVG。
-
-### Nuxt 零配置模块
-
-```ts
-export default defineNuxtConfig({
-  modules: ['@lionad/leader-line-nuxt'],
-  leaderLine: {
-    defaults: { color: '#4a9eff', size: 2 }
-  }
-})
-```
-
-之后所有 composable 和 `<LeaderLine>` 组件都免 import 直接使用，且 SSR 安全（client-only）。
-
-## 渲染调度
-
-上游的 `position()` 是同步的。如果一帧内更新 N 条线，每条线都先读布局再写 DOM，会触发 N 次强制同步 reflow。在拖拽或窗口 resize 这种高频场景里，代价很明显。
-
-这个版本把一帧内的 `position()` 更新合并为“全部读 → 全部写”，reflow 次数降到至多 1 次。用法有两种：
-
-```js
-// 方式 A：逐调用调度（拖拽等高频场景推荐）
-lines.forEach(line => line.requestPosition())
-
-// 方式 B：全局开关，position() 自动走调度
-LeaderLine.deferPositionUpdate = true
-lines.forEach(line => line.position())
-```
-
-`position()` 默认保持同步语义以兼容旧代码，`LeaderLine.positionByWindowResize` 内部已经走调度。
-
-## 相比上游的新增与修复
-
-**功能**
-
-- ESM 默认导出
-- `options.svgContainer`：指定 SVG 挂载容器，默认 `document.body`
-- 完整 TypeScript 类型定义
-- 三产物：`dist/leader-line.mjs`、`dist/leader-line.cjs`、`dist/leader-line.min.js`
-
-**修复**
-
-- `aplStats.position_plugOverheadSE is not defined`
-- `@micro-zoe/micro-app` 中的 `getFrame error`
-
-## 迁移
-
-从旧 `leader-line` 包迁移：
-
-```diff
-- "leader-line": "^1.1.0"
-+ "@lionad/leader-line": "^1.0.0"
-```
-
-- 不再支持 IE11 与旧 Edge
-- 产物路径变为 `dist/` 下三格式
-- Bower 已移除
-- API 完全兼容，`requestPosition()` / `deferPositionUpdate` 为纯新增
-
-## 结语
-
-`@lionad/leader-line` 没有重新发明引导线，只是把上游库搬到了一个更现代的维护轨道上：类型完整、构建产物齐全、渲染有调度、Vue / Nuxt 有封装。如果你的项目里正好需要画几根线，可以试试看。
-
-仓库地址：[Lionad-Morotar/leader-line](https://github.com/Lionad-Morotar/leader-line){rel="&#x22;nofollow&#x22;"}
-
-
 # 📝 技术博客归档
 
 ## 2022-10
@@ -8135,15 +7996,21 @@ Nous Research 于 2026 年 2 月发布 Hermes Agent（最新 v0.10.0，2026.4.16
 
 ### 核心协议对比
 
-| 协议                                                                                    | 提出方        | 核心定位               | 成熟度            |
-| ------------------------------------------------------------------------------------- | ---------- | ------------------ | -------------- |
-| **MCP**                                                                               | Anthropic  | 工具与数据连接            | ★★★★★ 300万+周下载 |
-| **A2A**                                                                               | Google     | Agent 间协作          | ★★★★☆ 50+企业支持  |
-| **AP2**                                                                               | Google     | 支付授权               | ★★★☆☆ 60+机构    |
-| **x402**                                                                              | Coinbase   | HTTP 原生支付          | ★★★★☆ 50M+ 笔交易 |
-| **AG-UI**                                                                             | CopilotKit | 前端交互               | ★★★★☆ 主流框架支持   |
-| **ANP**                                                                               | 开源社区       | 智能体互联网             | ★★★☆☆ 早期阶段     |
-| **[gitagent](https://github.com/open-gitagent/gitagent){rel="&#x22;nofollow&#x22;"}** | 开源社区       | git 原生的 Agent 定义标准 | ★★☆☆☆ 早期阶段     |
+| 协议                                                                                    | 提出方            | 核心定位               | 成熟度                 |
+| ------------------------------------------------------------------------------------- | -------------- | ------------------ | ------------------- |
+| **MCP**                                                                               | Anthropic      | 工具与数据连接            | ★★★★★ 300万+周下载      |
+| **A2A**                                                                               | Google         | Agent 间协作          | ★★★★☆ 50+企业支持       |
+| **AP2**                                                                               | Google         | 支付授权               | ★★★☆☆ 60+机构         |
+| **x402**                                                                              | Coinbase       | HTTP 原生支付          | ★★★★☆ 50M+ 笔交易      |
+| **AG-UI**                                                                             | CopilotKit     | 前端交互               | ★★★★☆ 主流框架支持        |
+| **ANP**                                                                               | 开源社区           | 智能体互联网             | ★★★☆☆ 早期阶段          |
+| **AIP**                                                                               | 全国信标委（北邮 ACPs） | 智能体互联国标            | ★★★☆☆ 报批阶段，50+ 企业试点 |
+| **[gitagent](https://github.com/open-gitagent/gitagent){rel="&#x22;nofollow&#x22;"}** | 开源社区           | git 原生的 Agent 定义标准 | ★★☆☆☆ 早期阶段          |
+
+#### AIP（智能体互联协议，国标）
+
+- [AIP 智能体互联社区](https://aip.openatom.tech/){rel="&#x22;nofollow&#x22;"}：开放原子基金会托管的官方社区，含身份码、发现、交互、工具调用等六大核心模块
+- [ACPs 协议族规范（GitCode）](https://gitcode.com/zkxw2008/aip){rel="&#x22;nofollow&#x22;"}：北邮牵头的 AIP 技术源头，含 01\~07 共 7 份 ACPs-spec 规范，2025 年发布 v01.00
 
 ### MCP (Model Context Protocol)
 
@@ -8232,6 +8099,61 @@ payer 用 EIP-712 签名授权一笔转账，由任意第三方代为提交上�
 - [A2A 协议规范](https://google.github.io/A2A/){rel="&#x22;nofollow&#x22;"}
 - [Agentic AI Foundation](https://www.agentic.ai/){rel="&#x22;nofollow&#x22;"}
 - [Anthropic - Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents){rel="&#x22;nofollow&#x22;"}
+
+
+# Agent 沙箱的 Egress 管控
+
+Agent 沙箱真正难的不是隔离计算，而是管控出口流量（egress）：Agent 生成的代码要立即运行、要调外部 API、要拿凭据。
+Gondolin（microVM 沙箱）与 NVIDIA OpenShell（gateway 策略运行时）两个独立项目在这一问题上收敛到了同一组机制，
+各自的边界与代价也值得记录。
+
+#### Agent 沙箱的 Egress 收敛于受控可信 MITM
+
+两个独立的 Agent 沙箱项目在出口代理上收敛到同一架构：沙箱启动时生成临时 CA 写进 guest 信任根，
+出口代理先以 CONNECT 隧道接住流量，再终止 TLS 恢复明文，在明文层执行策略后自行向上游发起新的 TLS 连接。
+凭据也走这条管道：guest 环境变量里只有占位符，真值由代理在转发前替换，秘密因此从不进入沙箱文件系统。
+这一模式的关键失败模式发生在 TLS 终止失败时：OpenShell 选择 fail-closed，宁可断连也不退回裸隧道，
+因为 fail-open 意味着占位符和未审计流量直接漏出。
+评估任何沙箱 egress 方案的第一问，就是它 MITM 失败时是 fail-open 还是 fail-closed。
+代价同样具体：MITM CA 私钥成为皇冠宝石，Gondolin 的 ca.key 落在 \~/.cache/gondolin/ssl/，
+任何能读到它的进程都能伪造该 VM 信任的任意站点证书。
+
+见：[OpenShell Network Policy Proxy - Zread](https://zread.ai/NVIDIA/OpenShell/12-network-policy-proxy){rel="&#x22;nofollow&#x22;"}
+
+#### Egress 策略的主机名锚点是 SNI 而非 DNS
+
+按域名白名单管控出口时，DNS 应答本身不可信：沙箱内的恶意代码可以伪造解析结果，把 evil.com 解析成白名单主机的 IP 穿透策略。
+Gondolin 的默认 synthetic DNS 模式干脆不发出真实 DNS 查询——所有主机名都解析到固定保留地址（192.0.2.1），
+真实主机名由宿主机从 TLS ClientHello 的 SNI 扩展直接观测，策略以 SNI 为锚点，同时顺手堵死子域名编码式的 DNS 隧道外泄。
+需要反查主机名的功能（SSH 出站、mapped TCP）依赖 per-host synthetic mapping，给每个域名分配独立合成 IP 维持双向映射。
+针对 DNS 重绑定（检查时解析成公网 IP、连接时换成 127.0.0.1），Gondolin 在预获取策略检查和 undici 连接时 lookup guard
+两处重复校验，堵住检查与连接之间的时间窗口。
+推论是：凡以域名为主体的 egress 策略，主机名必须取自连接元数据（SNI、CONNECT 目标），而非解析结果。
+
+见：[Gondolin TLS MITM 与 DNS 设计 - Zread](https://zread.ai/earendil-works/gondolin/13-tls-mitm-and-dns-design){rel="&#x22;nofollow&#x22;"}
+
+#### 绕过 MITM 的逃生门会让管控退回四层
+
+受控 MITM 只覆盖能被它终止的流量，两类负载天然落在管道外：Gondolin 的网络中介只实现 HTTP/1.x，
+gRPC 这类强制 HTTP/2 的负载在 MITM 点直接失败；做了证书固定（certificate pinning）的客户端拒绝代理现场签发的叶证书，
+同样被断连。官方给出的替代通道是 mapped TCP 或 SSH 出站，但这类例外路径不经过 HTTP 钩子链——
+没有 L7 方法级策略、没有秘密替换、没有请求审计，每开一条，egress 管控就从七层退回四层，
+必须用精确的目标白名单（如 tcp.hosts）锁死。
+OpenShell 有同构设计：按 endpoint 配置 tls: Skip 可关闭 TLS 终止（用于 mTLS 场景），代价同样是该 endpoint 失去 L7 管控。
+给沙箱开逃生门前要先想清楚：这条通道上剩下的唯一防线就是目标地址本身。
+
+见：[Gondolin Limitations](https://github.com/earendil-works/gondolin/blob/main/docs/limitations.md){rel="&#x22;nofollow&#x22;"}
+
+#### Inference 是独立于网络策略的执法域
+
+OpenShell 把模型推理流量做成独立的执法域：沙箱内的 <https://inference.local>{rel="&#x22;nofollow&#x22;"} 是特殊端点，绕过 OPA 网络策略引擎，
+走专门的 inference 拦截路径——剥离调用方凭据、注入后端凭据、转发到托管模型后端。
+反直觉的后果是：网络策略全 deny 的沙箱照样能调模型，因为推理流量根本不经过网络策略管道。
+策略判定还叠加 binary identity：首次见到某个发起进程的二进制指纹时按 Trust-on-First-Use 记录，
+之后 agent 用 curl 伪装成已授权二进制调端点会被识别。
+但 TOFU 的信任起点是首次使用——如果供应链投毒发生在沙箱首次启动之前，恶意二进制拿到的就是“合法身份”。
+
+见：[OpenShell Sandbox Supervisor - Zread](https://zread.ai/NVIDIA/OpenShell/9-sandbox-supervisor){rel="&#x22;nofollow&#x22;"}
 
 
 # Agent 分类学
@@ -8355,6 +8277,14 @@ payer 用 EIP-712 签名授权一笔转账，由任意第三方代为提交上�
 
 - [Agent 架构设计原则与最佳实践](https://lionad.art/maps/_ai/agents/agent-architecture)：工作流与智能体的区别、技术选型金字塔、五种工作流模式、工具设计、长时运行 Agent 的 Harness 设计
 - [Agent 分类学](https://lionad.art/maps/_ai/agents/agent-taxonomy)：Russell & Norvig 五大智能体类型、三个互补分类维度
+
+## 编码 Agent 实现
+
+- [Pi Agent 源码解析](https://lionad.art/maps/_ai/agents/pi-agent)：事件同步屏障、半轮压缩前缀、会话树状态回滚与工具流更新截止门
+
+## 沙箱与运行时安全
+
+- [Agent 沙箱的 Egress 管控](https://lionad.art/maps/_ai/agents/agent-sandbox)：受控可信 MITM、SNI 策略锚点、逃生门代价与推理独立执法域
 
 ## 人机协作团队
 
@@ -14788,6 +14718,15 @@ Routines 把管理从“实时聊天”变成“异步编排”。Fiona 过去�
 
 见：[Building the most AI-pilled engineering team in the world | Fiona Fung (Anthropic)](https://www.bestblogs.dev/video/2f4fa0a){rel="&#x22;nofollow&#x22;"}
 
+#### 多智能体分工把产品经理从信息处理中解放出来
+
+月之暗面产品团队展示了"人类制定规则，硅基执行规则"的具体形态：一位产品经理要整理全球 5 个市场 24 小时内的用户反馈并确定迭代优先级——过去这需要 3 人花 2 天。
+他并行启动三个专职智能体：策略 Agent 从 3000 条反馈中筛出高优需求，翻译 Agent 实时解析日语方言与韩语敬语并标记真实情绪强度，竞品 Agent 抓取 Cursor 与 ChatGPT 当日更新生成技术对比。
+人类只保留三类判断：否决误判项（如讽刺性评论）、标记特殊证据（如含未发布 UI 的截图）、确认智能体推荐的 TOP3 需求，一个半小时即产出 PRD，随后代码 Agent 自动生成约 70% 的基础框架。
+其机制在于，当信息吞吐量远超人类带宽时，瓶颈不在执行而在验证——人类角色从"处理信息的人"变成"否决与确认的人"。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
+
 
 # AI 与人性交互
 
@@ -17218,6 +17157,52 @@ Agent 的核心价值在于**将静态规则转化为动态智能**——不是�
 - [智能体(Agent)核心技术解析：从PEAS模型到主流框架实战](https://zhuanlan.zhihu.com/p/1982412289576546663){rel="&#x22;nofollow&#x22;"}
 
 
+# Pi Agent 源码解析
+
+Pi Agent 是 earendil-works 开源的终端编码 Agent，包结构从底向上分为 pi-ai、pi-agent-core、pi-coding-agent。
+它的实现里有几处很容易被文档“跳过”但会直接决定系统行为的细节，下面按源码逐条记录。
+
+#### Agent 事件派发是同步屏障
+
+多数事件总线采用“派发即放手”的语义：触发事件后不必等待监听器完成，单个监听器的异常通常被框架吞掉。
+Pi 的 `Agent.processEvents` 则不同，它会用 `await` 顺序等待每一个监听器返回，所有监听器完成后才退出事件处理。
+这种同步屏障意味着任何外部监听器的同步或异步抛错都会直接冒泡到当前 Agent Run，进而把循环拉停。
+如果你在 UI 层或日志扩展里写一个可能抛异常的事件监听器，必须自己包 try/catch，否则一次渲染失败就会让整个 Agent 停摆。
+反过来说，这种设计也保证了同一事件的所有副作用在下一行代码开始前已经落定，不会出现“事件发了但状态还没更新”的竞态。
+
+见：[Pi Agent agent.ts#L574](https://github.com/earendil-works/pi/blob/main/packages/agent/src/agent.ts#L574){rel="&#x22;nofollow&#x22;"}
+
+#### 上下文压缩需保留半轮 Turn 前缀
+
+上下文超长时，常见的截断策略是“从旧消息开始删”，但简单的删除会破坏 Tool Use 协议的配对关系。
+Pi 的 `findCutPoint` 允许切在 assistant 消息和它对应的 toolResult 之间：assistant 消息被纳入保留区，
+而它的工具结果因为更靠近当前轮次被保留下来。如果直接把 assistant 丢掉，LLM 就会看到没有对应 toolCall 的 toolResult。
+为了修复这种“半轮”状态，Pi 会额外生成一段 `turnPrefix` 摘要，把触发这轮的用户消息和被截断的 assistant 消息一起压缩进上下文，
+让模型仍然知道“这一轮最初发生了什么”。这在实现上意味着压缩不是单纯的丢消息，而是要维护调用-结果链条的完整性。
+
+见：[Pi Agent compaction.ts#L845-L882](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/src/core/compaction/compaction.ts#L845-L882){rel="&#x22;nofollow&#x22;"}
+
+#### 会话树让状态随回滚自动还原
+
+Pi 把模型切换和思考级别也存成 Session Tree 上的 Entry，而不是放在全局变量里。
+`buildSessionContext` 从当前 leaf 沿着 parentId 走回根，一路上用最新值覆盖 `model` 和 `thinkingLevel`。
+因此当用户回退到某个节点时，运行时参数会自动恢复到那个时间点的状态；如果模型切换是全局变量，回退后调用的仍然是新模型。
+这种设计同时解释了为什么 Session Tree 只维护 parentId 而不维护 children 列表：只要父节点不变，追加新分支就永远不需要修改旧节点，
+回退也只是移动 `leafId`，整套分支操作都是 O(1)。
+
+见：[Pi Agent session-manager.ts#L362-L377](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/src/core/session-manager.ts#L362-L377){rel="&#x22;nofollow&#x22;"}
+
+#### 工具执行流式更新有截止门
+
+工具执行可能持续很久，期间会不断产生 `tool_execution_update` 部分结果事件。
+`executePreparedToolCall` 内部用 `acceptingUpdates` 做一道截止门：工具还在跑时，partial-result 回调被收集进 Promise 队列；
+一旦 execute 完成或抛错，这个标志立刻置 false，后续回调直接忽略，然后统一 `await Promise.all(updateEvents)` 清场。
+这避免了工具承诺已经 settle 之后，延迟到达的流式更新被错误地塞进下一轮 Turn，造成 UI 或状态机看到“已经结束的工具还在冒事件”。
+对于需要实时反馈的长工具，这个模式是个关键的安全网。
+
+见：[Pi Agent agent-loop.ts#L671-L706](https://github.com/earendil-works/pi/blob/main/packages/agent/src/agent-loop.ts#L671-L706){rel="&#x22;nofollow&#x22;"}
+
+
 # Tokenmaxxing：三个月必然失败的 AI 应用层泡沫
 
 ## Brief
@@ -18831,6 +18816,20 @@ BigCode 项目专注于代码大模型的评估，提供 HumanEval（手写函�
 
 见：[自定义评估基准构建](https://blog.csdn.net/gitblog_00326/article/details/151852170){rel="&#x22;nofollow&#x22;"}
 
+#### Agent 基准的任务质量筛选方法论
+
+构建高质量 Agent 评测集的核心难点不是找到难题，而是区分"真正难"和"题目本身有缺陷"。
+Harbor-Index 从 54 个基准的 6627 个候选题中，通过三级漏斗筛选出 82 题：
+(1) 难度过滤——3 个模型 × 2 种工具 × 3 次重复共 18 次试验，通过率低于 34% 才保留；
+(2) AI 审计——LLM 评审按"测试-指令对齐"和"本质难度"两条标准筛查坏题；
+(3) 人工审计——14 位评审独立复审 + 3 位高级评审终审。
+筛选后还需反复的审计修复循环：LLM 评审在隔离沙箱中重跑验证器，标记 TP/FP/FN/TN，
+修复后重跑前沿模型直到集合稳定。约三分之一的"最难"题目实际是坏的——
+环境不触发事件、验证器断言指令未规定的格式、参考解法签名过于刚性等。
+工程上应将"坏题检测"视为基准构建的核心环节而非事后补丁。
+
+见：[Harbor-Index](https://harbor-index.org/){rel="&#x22;nofollow&#x22;"}
+
 ## 效用问题（Utility Problem）
 
 #### 为什么 AI 如此聪明却不实用
@@ -18911,6 +18910,33 @@ Stanford HAI 论文，2026年3月
 [L3] 若将 perplexity 作为生产监控指标，可能系统性地误判对齐后的优质输出为"质量退化"。监控体系需要按任务阶段和模型类型分别设定基线，而非使用统一阈值。
 
 见：[Perplexity in NLP](https://huggingface.co/docs/transformers/perplexity){rel="&#x22;nofollow&#x22;"}
+
+## Agent 评测的方法论挑战
+
+#### 固定失败分类在前沿 Agent 评测中的失效
+
+传统的 Agent 失败分析遵循"预定义分类 → 标注金集 → 校准 LLM 评审 → 规模化"流程，
+但在前沿 Agent 评测中两次失败：自底向上聚类的 18 种失败模式在 200 条轨迹上
+仅 6 种存活；文献综合的 34 种行为分类同样崩塌。根源在于三重困难：
+约 30% 的题目需要 CS 以外的领域知识才能读懂提示；软件工程轨迹长达 63 轮、
+113K token；前沿模型的错误极其微妙（单个错误事实或隐藏测试回归），
+评审读不同片段会得出不同结论。替代方案是自由形式的 Agent 评审——
+让生产级编码 Agent 在任务容器内运行，持有轨迹、验证器输出和参考解法，
+可重跑验证器。失败模式从预设标签变为有根据的假设，且能顺带发现题目缺陷。
+
+见：[Harbor-Index](https://harbor-index.org/){rel="&#x22;nofollow&#x22;"}
+
+#### Harness 选择对 Agent 评测结果的系统性影响
+
+同一模型在原生 CLI 和通用跨厂商 harness（如 Terminus-2）上的表现差异显著：
+原生工具每次运行少约 1/3 的工具调用、少 40% 以上的输出 token，超时率 26% vs 42%。
+主要驱动因素是通用 harness 的 bash-only 动作空间——缺少图像读取和网页搜索工具，
+模型陷入 OCR 循环和手写爬虫。此外通用 harness 的 JSON 协议对弱模型不友好，
+7.3% 的开源模型运行出现格式错误。强模型跨 harness 的解题重合度达 42%，
+弱模型仅 7%，说明能力越强的模型越不依赖特定工具。
+评测设计中 harness 选择是系统性偏差源，报告结果时应注明工具链。
+
+见：[Harbor-Index](https://harbor-index.org/){rel="&#x22;nofollow&#x22;"}
 
 
 # Observability
@@ -19498,6 +19524,10 @@ Karpathy 由此判断“我整个 MenuGen 都是多余的，那个 App 不应该
 《实施意见》是落实国务院《关于深入实施"人工智能+"行动的意见》的具体举措。国务院文件提出到 2027 年，新一代智能终端、智能体等应用普及率超 70% 的阶段性目标。
 
 答记者问中明确，《实施意见》旨在统筹发展与安全——既促进智能体规范应用和创新发展，又应对智能体高自主性、高权限带来的隐私泄露、越权操作、行为失控等安全风险。
+
+#### 《智能体规范应用与创新发展实施意见》原文
+
+- [智能体规范应用与创新发展实施意见（cac.gov.cn）](https://www.cac.gov.cn/2026-05/08/c_1779979789523320.htm){rel="&#x22;nofollow&#x22;"}：网信办等三部门 2026-05-08 发布，推广 AIP 国标、布局智能互联网的一手来源
 
 
 # Governance
@@ -25749,6 +25779,7 @@ Model training paradigms, fine-tuning strategies, and post-training optimization
 - [Post-training](https://lionad.art/post-training) — Post-training optimization and alignment
 - [RLVR](https://lionad.art/rlvr) — Reinforcement Learning with Verifiable Rewards core concepts
 - [Topology-aware Scheduling](https://lionad.art/topology-aware-scheduling) — Distributed training scheduling
+- [Training Stability](https://lionad.art/training-stability) — 大规模预训练的监控巡检、数值精度切换与长上下文攻关实践
 
 ## Brief
 
@@ -25783,6 +25814,37 @@ Model training paradigms, fine-tuning strategies, and post-training optimization
 1. 将训练好的模型部署到生产环境，确保其稳定性和响应速度。
 2. 持续监控模型性能，及时更新和重新训练模型以适应新的数据和需求。
 3. 收集用户反馈，进一步优化模型和提升用户体验。
+
+
+# 训练稳定性
+
+#### 旗舰训练 Run 的日常巡检：十几万指标与梯度极值 token 审问
+
+顶级模型的训练（业界常称"炼丹"）本质上是持续修 BUG 的过程。
+月之暗面团队启动旗舰训练任务（Flagship Run）后，每天第一件事是刷新十几万个内部监控指标，任何一条曲线的异常上扬都要归因：优化器问题、架构缺陷还是数值精度未对齐。
+数据侧同样有调试手段：从训练语料中筛出梯度极值过大的 token，逐个打印出来审问其跳动剧烈的原因——异常 token 往往是语料脏污、格式错误或分布偏移的信号。
+这反映了大规模训练工程的一个常识：loss 曲线只是最终症状，定位问题需要把监控粒度下沉到分指标面板与原始 token 两个层级。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
+
+#### 训练中途的数值精度热切换：bf16 → fp32
+
+月之暗面在一次旗舰训练中遇到关键参数数值异常飙升：这些参数一直以半精度（bf16）存储，眼看训练失控，团队在训练中途切换到全精度（fp32）才稳住局面——如同马拉松跑到一半换跑鞋，代价是显存占用与训练速度，收益是避免整个 Run 崩盘。
+工程上应认识到，半精度的累积舍入误差会在超长训练中持续放大，对数值敏感的关键参数应预留精度切换（或关键层保持 fp32 的混合精度）预案，而不是等到 loss spike 不可挽回才处理。
+这与 OPT-175B 公开训练日志中多次因 loss spike 回滚 checkpoint 的记录互为印证：数值稳定性是大模型训练的一等问题，而非事后补救项。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
+
+#### 长上下文能力攻关的三次回撤：MoBA 案例
+
+月之暗面 2023 年攻关 128K 长文本（当时业界普遍仅支持 4K）的过程，展示了架构级改动的典型代价。
+第一版 MoBA（Mixture of Block Attention，块混合注意力）v0.5 因需重写底层训练框架、且主模型已训练过半，成本过高被迫搁置。
+v1 改为可基于现有模型继续训练的方案，小模型验证成功，但在大模型上遭遇 loss spike，调试无果后项目第二次退回，长达半年；
+公司随后启动"饱和救援"，调动多路技术专家集体攻关、重写底层逻辑，v2 才稳定通过"大海捞针"（needle in a haystack）检索测试。
+上线前的第三次回撤出现在 SFT 阶段：长文本总结任务因训练信号过于稀疏导致模型表现不佳，最终通过调整最后几层注意力机制解决。
+这反映了长上下文能力的真实成本结构：架构创新（稀疏注意力）、训练稳定性（loss spike）、后训练信号设计（稀疏监督）是三道独立的坎，每一道都可能让整个项目回撤数月。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
 
 
 # agents.md
@@ -31727,6 +31789,7 @@ command 函数本身保持 `async`，用 `.await` 等待 blocking 任务结果�
 - [Lakehouse](https://lionad.art/maps/_database/lakehouse/lakehouse) - 湖仓一体架构
 - [SQL](https://lionad.art/maps/_database/sql/sql) - SQL 查询与关系型数据库
 - [GraphQL](https://lionad.art/maps/_database/graphql/graphql) - GraphQL 查询语言与数据访问
+- [图数据库](https://lionad.art/maps/_database/graph-database/knowledge-graph) - 本体、知识图谱与图存储
 
 ## 概述
 
@@ -31736,6 +31799,7 @@ command 函数本身保持 `async`，用 `.await` 等待 blocking 任务结果�
 - **NoSQL 数据库**：面向特定场景的灵活数据模型（键值、文档、列族、图）
 - **数据湖与 Lakehouse**：大规模数据存储与分析架构
 - **GraphQL**：现代数据查询与 API 设计范式
+- **图数据库**：以节点和边存储实体与关系，支撑知识图谱与多跳遍历查询
 
 通过系统化的知识组织，帮助开发者理解不同数据库技术的适用场景、设计原则和最佳实践。
 
@@ -31916,6 +31980,66 @@ Delta Lake 液体聚类是一种针对 Delta Lake 表的优化技术，作为分
 - **误判风险**：自动分析可能忽略冷查询或噪声数据，导致聚类低效。防范措施：配置人工审核点，设置性能回滚机制。
 - **元数据膨胀**：频繁聚类更新可能增大元数据存储。防范策略：定期清理历史元数据，限制自动聚类频率（如每 24 小时一次）。
 - **安全合规**：聚类可能暴露敏感字段分布。防范措施：在策略中加入数据脱敏检查，确保聚类键符合隐私规范。
+
+
+# 图数据库
+
+## 主题
+
+- [知识图谱](https://lionad.art/knowledge-graph) - 本体、TBox/ABox 分层与图存储两大流派
+
+## 概述
+
+图数据库（Graph Database）以节点和边直接存储实体与关系，擅长多对多关联与多跳遍历查询。
+主流路线分为遵循 W3C 语义网标准的 RDF 三元组库，与工程化的属性图（Property Graph）两类，
+典型应用包括知识图谱、社交网络、依赖分析等。
+
+
+# 知识图谱
+
+## 本体与图模型
+
+#### 本体是对概念化的显式规范说明
+
+本体论（Ontology）原为哲学术语，研究"什么东西存在、存在之物如何分类"。
+知识工程领域借用了这个词：Gruber 在 1993 年给出经典定义——本体是对概念化的显式规范说明
+（an explicit specification of a conceptualization），即把某个领域的知识形式化为机器可处理的体系。
+一个本体通常包含四类要素：类（Class，概念类型）、实例（Instance，具体个体）、
+关系（Relation，类之间的连接方式）、公理（Axiom，推理规则与约束）。
+与普通数据库 Schema 的差别在于，Schema 只约束结构，本体还承载语义，支持逻辑推理。
+
+见：[Portable Ontology Specifications @Tom Gruber, 1993](https://tomgruber.org/writing/ontolingua-kaj-1993.htm){rel="&#x22;nofollow&#x22;"}
+
+#### 知识图谱分为本体层（TBox）与实例层（ABox）
+
+知识图谱（Knowledge Graph）在结构上分为两层：本体层（TBox，术语层）定义
+"这个世界有哪些类型的实体和关系"，相当于图谱的 Schema；实例层（ABox，断言层）填充具体事实，
+如"parseQuery 这个函数定义于 query.ts"。本体层通常用 OWL（Web Ontology Language）等语言表达，
+实例层以 RDF 三元组（主语—谓语—宾语）存储。两层分离让同一份本体可复用到不同数据集，
+也让推理引擎能基于本体规则从显式事实推出隐含事实。
+
+见：[OWL 2 Web Ontology Language Document Overview @W3C](https://www.w3.org/TR/owl2-overview/){rel="&#x22;nofollow&#x22;"}
+
+#### 本体的天然形态是图，图数据库是其载体
+
+类与实例是节点，关系是边，一组三元组拼起来就是一张图。多对多关系
+（如一个函数调用 N 个函数、被 M 个模块引用）在关系型数据库里需要中间表加递归 JOIN，
+在图数据库里只是加几条边、一次遍历。图查询语言（SPARQL、Cypher）也以图遍历为核心，
+"找出 A 调用链三跳内的所有函数"这类沿本体关系展开的查询可以一步到位。更重要的是，
+本体定义的公理（传递性、类继承）让推理沿图的边进行，可推出未显式存储的事实。
+
+见：[What is a Graph Database? @Neo4j](https://neo4j.com/docs/getting-started/graph-database/){rel="&#x22;nofollow&#x22;"}
+
+#### RDF 三元组库与属性图两大流派
+
+图数据库有两大流派。RDF 三元组库（Triple Store）严格遵循 W3C 语义网技术栈：
+数据以三元组存储，用 OWL 定义本体、SPARQL 查询，配套推理引擎可从公理推出隐含事实，
+适合需要形式化语义与跨数据集互联的场景。属性图（Property Graph，如 Neo4j）更工程化：
+节点和边都能携带属性，查询用 Cypher，不内置本体推理，"推理"靠应用层遍历实现。
+多数工程型图谱工具（代码图谱、依赖分析等）采用属性图思路；
+需要语义互操作与自动推理的知识库则走 RDF 路线。
+
+见：[RDF 1.1 Concepts and Abstract Syntax @W3C](https://www.w3.org/TR/rdf11-concepts/){rel="&#x22;nofollow&#x22;"}
 
 
 # GraphQL
@@ -34266,6 +34390,30 @@ git clone --depth=<n> git@github.com:vuejs/vue.git
 ```
 
 见：[《Git clone 原理》](https://juejin.cn/post/6969206858179411982){rel="&#x22;nofollow&#x22;"}
+
+## 目录与执行位置
+
+#### `git -C` 与其他 CLI 的 `--dir` 工作目录切换
+
+`git -C <dir>` 会在执行子命令前切换到指定目录，等价于 `cd <dir> && git ...`，
+但不会改变当前 shell 的工作目录，脚本中更安全：
+
+```bash
+git -C ./packages/foo status
+git -C ~/Github/Local/local-link/skills/flow rev-parse --is-inside-work-tree
+```
+
+同类选项也存在于其他 CLI 工具。pnpm 使用 `-C` 或 `--dir`：
+
+```bash
+pnpm -C ./packages/foo run build
+pnpm --dir ./packages/foo run build
+```
+
+这种"先切目录再执行"的模式适合在 monorepo 脚本或自动化流程中操作子目录，
+避免 `cd` 造成的路径状态残留或相对路径解析错误。
+
+见：[git-rev-parse Documentation](https://git-scm.com/docs/git-rev-parse){rel="&#x22;nofollow&#x22;"}
 
 
 # Gitflow
@@ -41350,6 +41498,17 @@ MATS 与 Anthropic Alignment Science team、Redwood Research、ARC 直接合作�
 
 见：[I looked at 1,680 Anthropic resumes. Here's who they actually hire.](https://www.linkedin.com/pulse/i-looked-1680-anthropic-resumes-heres-who-actually-hire-cuadros-f34qe/){rel="&#x22;nofollow&#x22;"}
 
+#### 泛化能力是 AI Native 公司的核心人才筛选标准
+
+月之暗面把机器学习中的泛化（generalization）与过拟合（overfitting）直接映射到人才评估上：
+在大厂特定 KPI 体系、汇报话术与资源博弈规则中训练太久的资深专家，类似过拟合局部最优解的专用模型——环境变量彻底改变时，能力在新分布下可能失效。
+该公司偏好"基础模型式"个体：通过监督微调（SFT）掌握基本规则后，用强化学习（RL）在多元任务中自我对弈，最终获得跨域迁移能力。
+映射到工程实践，就是拒绝"我只管这块"的单点专家——顶级模型的训练要求同一人把算法架构、分布式系统与数据策展三个世界融会贯通。
+这一标准的另一面是履历贬值：其受访员工中约八成做着与上一份工作完全不同的事，且曾有多位大厂中高层入职适应失败后离开。
+其机制在于，AI 行业的变化速度使经验半衰期极短，学习速度比存量知识更稀缺。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
+
 
 # 前端笔试题库
 
@@ -44903,6 +45062,16 @@ python prompt_optimize.py --api_key "智谱 AI API Key" --prompt {你的提示�
 这反映了 AI 对组织形态的深刻影响：小团队的生产力正在被重新定义。
 
 > \#周刊摘录 见：[科技周刊第385期](https://www.ruanyifeng.com/blog/2026/02/weekly-issue-385.html){rel="&#x22;nofollow&#x22;"}
+
+#### 极致扁平组织需要超级大脑支撑，且存在规模上限
+
+月之暗面实践了一种比"两个披萨"更激进的组织形态：无部门、无职级、无 Title、无 OKR/KPI，300 余人的公司里每位联合创始人直接对接 40 到 50 名一线同事，跨人协作只需"直接问"，不需要批示与协调会。
+其机制在于用超级大脑替代中间管理层——联创深入技术和业务一线以保证决策与执行一致；同时通过熟人内推（一年超百人）构建天然信任，把组织管理的难度前置转嫁到人才招募环节。
+这一结构的脆弱性同样清晰：历史上极端扁平化实验（Holacracy、海尔链群合约）多在规模突破 500 人后遭遇决策瓶颈，"直接沟通"会随信息节点增多演变为信息过载。
+更直接的痛点是个体失重感——缺乏职级缓冲与考核节点意味着方向混沌直接传导给个人，没有自上而下的反馈，部分员工反而怀念大厂程式提供的确定性底线（目标在哪、做到什么程度算完成、绩效如何评估）。
+工程上应认识到，大厂的繁琐程式并非纯粹内耗，而是组织为个体提供的兜底机制；取消它之前需要回答替代性的反馈与确定性从何而来。
+
+见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
 
 ## Agent Teams 与组织架构
 
@@ -52962,6 +53131,11 @@ LLM 可以在这些方面提供帮助，但它们本身无法解决这些核心�
 
 # 软件工程
 
+## Topics
+
+- [AI 代码评审](https://lionad.art/maps/_software/software-engineering/ai-code-review) - 阿里 Open Code Review 等 AI 代码评审工具的架构设计与工程实践
+- [技艺学习的认识论](https://lionad.art/maps/_software/software-engineering/learning-craft) - 技能习得、专家思维与学习的哲学反思
+
 ## Tour
 
 - [Awesome Engineering Articles](https://github.com/ashishps1/awesome-engineering-articles){rel="&#x22;nofollow&#x22;"}：精选的软件工程领域高质量技术文章合集，涵盖系统设计、架构、性能优化等主题
@@ -53858,6 +54032,24 @@ Testing tools and frameworks for automated testing. Playwright for cross-browser
 
 
 # Daily Bugs
+
+#### 2026-07-29
+
+Qwen3.8-max-preview 偶发工具调用失败。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260729093958482.png)
+
+#### 2026-07-28
+
+不知道是什么问题。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260728223712205.png)
+
+#### 2026-07-21
+
+点一下就恢复了。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260721093725525.png)
 
 #### 2026-07-18
 
@@ -56307,6 +56499,157 @@ Ryan Neufeld 提出的四步决策流程，页面是默认选择，Modal 仅保�
 见：[Modal vs Page: A Decision Making Framework](https://uxplanet.org/modal-vs-page-a-decision-making-framework-34453e911129){rel="&#x22;nofollow&#x22;"}：Ryan Neufeld 的详细决策指南与 cheatsheet
 
 
+# 实体交互
+
+实体交互（Tangible Interaction）是一种把物理物体与数字信息关联的交互范式，
+其实体用户界面（TUI）让用户通过触摸、移动、操控真实物品与数字系统交互。
+
+#### 实体交互把数字数据转化为可触摸的物理形态
+
+TUI 的本质是把 bits（数字数据）变成 atoms（物理形态）：数据获得物理载体后，用户能以更自然、
+更可记忆的方式操控它。与 GUI 依赖视觉线索和 2D 空间不同，实体界面调动触觉、运动与空间感知；
+与手势交互（无实物、身体即控制器）也不同，实体交互中被操控的物体本身就是界面的一部分。
+经典实例：鼠标、Wii Remote 等体感手柄、手写笔、Nest 恒温器旋钮、Reactable 音乐桌。
+
+见：[What is Tangible Interaction?](https://ixdf.org/literature/topics/tangible-interaction){rel="&#x22;nofollow&#x22;"}
+
+#### 实体交互有效的原因是复用了人类固有的物理世界经验
+
+人类天生会转旋钮、推滑杆、堆积木，这些动作几乎无需学习，且比触屏更细腻——旋转可以分快慢、
+可以边按边转。认知层面，熟悉的物理操作让用户少依赖短时记忆，转而利用空间记忆；
+具身认知（embodied cognition）理论认为身体参与时学习效果更好，多感官参与强化记忆保持。
+社交层面，物理物体天然邀请群体协作：角色与动作对所有人可见，支持非语言沟通。
+可达性层面，形状、纹理、位置加上多模态反馈，为运动、视觉或认知障碍用户提供更多入口。
+
+见：[What is Tangible Interaction?](https://ixdf.org/literature/topics/tangible-interaction){rel="&#x22;nofollow&#x22;"}
+
+#### 实体交互设计的五条核心原则
+
+- 物理-数字耦合（Physical–Digital Coupling）：每个物理动作必须有清晰的数字反应，即时建立因果感
+- 空间表征（Spatial Representation）：用物理布局表达数字结构，如排队成序列、聚拢成分组
+- 具身交互（Embodied Interaction）：调动全身而非仅手指，扭转、推压、倾斜均可传达意图
+- 实体反馈（Tangible Feedback）：利用纹理、重量、阻力，辅以灯光、震动、声音确认动作
+- 尊重物理规则（Respect for Physical Rules）：物体行为须符合真实预期，如方向盘不能无限旋转，
+  否则会让用户怀疑失去控制
+
+见：[What is Tangible Interaction?](https://ixdf.org/literature/topics/tangible-interaction){rel="&#x22;nofollow&#x22;"}
+
+#### 实体交互的设计流程：先用纸板验证直觉性，再加传感器
+
+先在用户情境中观察其现有物理工具与自然手势，再定义交互模型——约定动作语义，
+如 rotate for change、stack for hierarchy、group for selection。原型阶段用纸板、磁铁、
+积木等日常材料做低保真验证，确认用户不看说明也能直觉操作后，才引入 RFID、加速度计、
+摄像头等传感手段；响应必须低延迟，瞬间的迟疑都会瓦解信任。映射设计依赖 affordance
+（颜色、形状、摆放暗示用途），反馈需多模态。测试须在真实环境中进行，并预先考虑磨损、
+存储、清洁等物理约束；物体过多或手势语义不清会淹没用户，应保持简单。
+
+见：[What is Tangible Interaction?](https://ixdf.org/literature/topics/tangible-interaction){rel="&#x22;nofollow&#x22;"}
+
+#### 实体交互的学术源流：从 Tangible Bits 到 Radical Atoms
+
+范式奠基是 Ishii 与 Ullmer 1997 年 CHI 论文《Tangible Bits: Towards Seamless Interfaces
+between People, Bits and Atoms》，提出 metaDESK 数字桌与 ambientROOM 等原型。后续方向包括
+Radical Atoms（可改变形状与刚度的材料，构成可变形界面）、Ultrahaptics（无接触空中触觉反馈）、
+混合现实叠加、响应式家具与墙面构成的智能环境。工程侧可参考 Sensors 期刊 2021 年
+TUI 技术综述（RFID、Arduino 等组件选型与系统架构）。
+
+见：[What is Tangible Interaction?](https://ixdf.org/literature/topics/tangible-interaction){rel="&#x22;nofollow&#x22;"}
+
+
+# UI 元素术语
+
+图形界面控件（Control）是允许用户执行动作或输入数据的交互元素总称。
+以下按功能分类归纳 NN/g 术语表中的常见控件，作为设计与开发沟通的术语基准。
+
+#### 动作按钮
+
+- Button（按钮）：点击执行特定动作，由可点区域与描述动作的标签构成
+- Floating Button / FAB（浮动按钮）：悬于内容之上，承载页面最常用动作，滚动时持续可见
+- Split Button（拆分按钮）：菜单与按钮混合体，标签触发默认动作，箭头展开备选动作
+- Back-to-Top Button（返回顶部按钮）：常置右下角的浮动按钮，快速回页顶，适合长移动页
+- State-Switch Control（状态切换控件）：在两个互斥状态间切换系统，如静音/取消静音
+- Toggle（开关）：滑块式状态切换控件，需以颜色与标签明确指示当前状态
+- Segmented Button（分段按钮）：水平相连按钮组，切换同一数据的不同视图或筛选内容
+
+见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary/){rel="&#x22;nofollow&#x22;"}
+
+#### 输入控件
+
+- Input Control（输入控件）：允许用户向系统输入信息的组件总称
+- Textbox（文本框）：单行或多行文本输入区域，表单的基本构件
+- Checkbox（复选框）：独立两态选择；成组时从列表选子集，各项互不影响
+- Radio Button（单选按钮）：互斥选项集中单选，选中一个即取消同组其他项
+- Combo Box（组合框）：下拉列表与文本框混合，可选预定义项也可输入自定义值
+- Listbox（列表框）：容器内垂直展示可选项，支持单选或多选
+- Dropdown List（下拉列表）：默认收起，点击箭头展开选项，仅单选，选中后回填标签
+- Input Stepper（步进器）：以固定步长增减数值，部分允许在文本框中直接改值
+- Picker（选择器）：从选项集合选单个值的元素总称，含下拉、单选列表、滚轮等
+- Range Control（范围控件）：在预定义范围内选任意值，如 Slider 与 Knob
+- Slider（滑块）：沿轨道拖动 handle 调整值，适合音量、亮度等难以精确量化的场景
+- Knob（虚拟旋钮）：值分布在圆弧上的范围控件，拟物自音频设备旋钮
+- 2D Matrix（二维矩阵）：拖曲线上的点同时修改两个相关参数，用于照片曲线等场景
+- Date Picker（日期选择器）：选日期的输入控件总称，分日历式与滚轮式两类
+- Calendar Picker（日历选择器）：月视图日历中导航选择日、月、年
+- Wheel Picker（滚轮选择器）：iOS 特有，以滚轮界面展示选项
+- Wheel-Style Date Picker（滚轮式日期选择器）：iOS 特有，日/月/年分列滚轮，可用性低于日历式
+
+见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary/){rel="&#x22;nofollow&#x22;"}
+
+#### 菜单与导航
+
+- Menu（菜单）：选项或命令集合，可常显（菜单栏）或可展开
+- Menu Bar（菜单栏）：选项始终可见的条形菜单，工具栏与导航栏皆属此类
+- Navigation Menu / Navigation Bar（导航菜单/导航栏）：承载导航选项的菜单及其常显条形实现
+- Expandable Menu（可展开菜单）：点击 handle 才暴露选项集合的菜单总称
+- Dropdown Menu（下拉菜单）：选项在 handle 下方以线性列表展开
+- Megamenu（大菜单）：选项以矩形面板展开，主要用于站点导航
+- Pie Menu（饼菜单/径向菜单）：选项环绕 handle 均布圆周、等距可达，始终小众
+- Drawer Menu（抽屉菜单）：从屏幕左右缘滑出的侧边栏菜单，移动端常见导航形式
+- Contextual Menu（上下文菜单）：右键等触发，只含与当前对象相关的小集合动作
+- Submenu（子菜单）：主菜单项悬停或点击展开的次级菜单，承载层级而不膨胀主菜单
+- Breadcrumbs（面包屑）：展示当前页在站点信息架构中从大到小的层级路径
+- Link / Anchor Link（链接/锚点链接）：页间或页内跳转；锚点链接常用于页内目录
+- Tab Bar（标签栏）：水平标签列表切换内容面板，组织内容；区别于组织命令的 Ribbon
+- Ribbon（功能区）：选项卡分组的命令工具区，微软 Office 推广，Web 等价物是 Tab Bar
+- Accordion（手风琴）：原地展开隐藏内容，压缩长页面，移动端尤其实用
+
+见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary/){rel="&#x22;nofollow&#x22;"}
+
+#### 浮层与弹层
+
+- Overlay（浮层）：在页面内容之上显示内容，可模态或非模态、全屏或部分
+- Dialog（对话框）：打断流程、要求立即决策的小窗口，可模态或非模态
+- Popup / Popover（弹出层）：不占全屏的浮层，Apple 生态称 Popover
+- Lightbox（灯箱）：不占全屏的浮层，多用于展示图片、视频等多媒体内容
+- Bottom Sheet（底部面板）：锚定移动屏幕底缘的浮层，展示附加详情或动作
+- Side Sheet / Drawer / Flyout（侧边栏）：从左右缘滑出、覆盖大部的浮层
+- Snackbar / Toast（轻提示）：短暂出现后自动消失的非模态提示，可带撤销按钮
+- Tooltip（工具提示）：鼠标或键盘悬停触发的简短说明小浮层
+- Popup Tip（弹出提示）：触屏无悬停场景下点击 i/? 图标触发的 Tooltip 等价物
+
+见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary/){rel="&#x22;nofollow&#x22;"}
+
+#### 内容容器
+
+- Container（容器）：承载并组织相关元素的图形区域，以边框、阴影或间距界定
+- Card（卡片）：扑克牌大小的相关信息容器，一个概念单元的简短表示
+- Carousel（轮播）：旋转展示一组内容，手动或自动切换，节省屏幕空间
+- Scrollbar（滚动条）：指示并控制可见区域，含轨道与可拖 handle，现代 UI 按需出现
+
+见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary/){rel="&#x22;nofollow&#x22;"}
+
+#### 反馈与指示
+
+- Progress Indicator（进度指示器）：反馈进行中任务的状态，降低不确定感
+- Progress Bar（进度条）：水平填充显示完成百分比，超过 10 秒的任务建议使用
+- Spinner（加载动画）：旋转圆圈表示任务进行中，无进度信息，仅适合 3 秒内短任务
+- Skeleton Screen（骨架屏）：整页加载专用，以线框模拟页面布局的进度指示
+- Badge（徽标）：图标上的圆点或数字，提示通知或未读计数
+- Icon（图标）：视觉传达对象、动作或概念的小图形，多数应与文字配合使用
+
+见：[User-Interface Elements: Glossary](https://www.nngroup.com/articles/ui-elements-glossary/){rel="&#x22;nofollow&#x22;"}
+
+
 # 字体排版
 
 #### 《深入理解：line-height、vertical-align》
@@ -56360,7 +56703,8 @@ Ryan Neufeld 提出的四步决策流程，页面是默认选择，Modal 仅保�
 - [字体排版](https://lionad.art/maps/_ui/typography/typography) - 字体设计与排版规范
 - [灵感资源](https://lionad.art/maps/_ui/inspiration/inspiration) - 设计灵感与参考资源
 - [AI 辅助设计](https://lionad.art/maps/_ui/ai-assisted/ai-assisted) - 生成式 AI 在 UI 设计中的应用
-- [设计模式](https://lionad.art/maps/_ui/patterns/overlay-patterns) - 浮层组件、交互模式与 UX 决策框架
+- [设计模式](https://lionad.art/maps/_ui/patterns/overlay-patterns) - 浮层组件、交互模式与 UX 决策框架；
+  另见 [UI 元素术语](https://lionad.art/maps/_ui/patterns/ui-elements)、[实体交互](https://lionad.art/maps/_ui/patterns/tangible-interaction)
 - [用户体验](https://lionad.art/maps/_ui/ux) - UX 反模式、交互成本与敌对架构分析
 
 ## 概述
@@ -58626,6 +58970,7 @@ Flat Config 配置不存在向上级目录寻找的情况。
 
 - [ESLint](https://lionad.art/maps/_workflow/linter/eslint)
 - [Code Style](https://lionad.art/maps/_workflow/linter/code-style) - 代码风格与格式规范
+- [tsgolint](https://lionad.art/maps/_workflow/linter/tsgolint) - OXC 类型感知 lint 引擎，Oxlint 的 TypeScript 语义后端
 
 ## ESLint 9.x Flat Config
 
@@ -58654,6 +58999,50 @@ Prettier 的自动换行策略使代码 diff 变得难以阅读，并且没有�
 - 更好的性能（无需在 ESLint 和 Prettier 之间来回传递）
 - 更灵活的规则定制能力
 - 更好的编辑器集成体验
+
+
+# tsgolint
+
+#### tsgolint 以 typescript-go 为底座实现类型感知 lint
+
+tsgolint 是 Oxlint 的类型感知（type-aware）lint 后端，用 Go 编写，直接运行在微软官方的 TypeScript 编译器 Go 移植版
+typescript-go（TypeScript 7，代号 Project Corsa）之上，因此类型推导行为与 TypeScript 官方完全一致。项目 fork 自
+typescript-eslint/tsgolint，现由 oxc-project 维护。规则覆盖对齐 typescript-eslint 类型感知规则的 59/61（仅缺
+naming-convention、prefer-destructuring），典型规则如 no-floating-promises 可捕获未处理的 Promise 拒绝。
+性能上对比 ESLint + typescript-eslint 在大仓库快 20-40 倍（vscode 仓库 167.8s → 4.89s，约 34x）。
+使用时要求 TypeScript 7.0+，TS 6.0 已废弃的 tsconfig 选项（如 baseUrl）不再支持。
+
+见：[oxc-project/tsgolint](https://github.com/oxc-project/tsgolint){rel="&#x22;nofollow&#x22;"}
+
+#### Rust 语法层与 Go 语义层分离的双层 lint 架构
+
+OXC 的类型感知 lint 采用职责分离的双层设计：Oxlint（Rust）负责文件遍历、忽略逻辑、配置解析、语法类规则与报告输出，
+保持"即开即用"的速度；tsgolint（Go）只在 --type-aware 开启时介入，构建 TypeScript program 并执行语义规则，
+把结构化诊断回传给 Oxlint。这一架构的关键决策是不在 Rust 里重写类型系统（那是数年工程量），而是直接复用微软官方
+typescript-go——规则逻辑对着官方 type checker API 编写，语义兼容由微软背书。对比两条竞争路线：
+typescript-eslint 把 TS 编译器嵌入 JS linter，承受 AST 转换、单线程与高内存开销；Biome 自研类型推断，
+不追求全量 TS 语义兼容。tsgolint 的规则策略是先对齐存量标准（59/61）而非自创新规则，让团队以最小迁移成本
+从 ESLint 切换。
+
+见：[Oxlint Type-Aware Linting 官方文档](https://oxc.rs/docs/guide/usage/linter/type-aware){rel="&#x22;nofollow&#x22;"}
+
+#### oxlint --type-aware 与 Vite+ 的类型感知集成
+
+tsgolint 不作为独立 CLI 使用，而是集成进 Oxlint：安装 oxlint-tsgolint 包后以 oxlint --type-aware 启用语义规则，
+追加 --type-check 可顺带输出 typescript-go 的类型错误，一条命令替代 CI 中 tsc --noEmit + eslint 两步。
+在 Vite+（VoidZero 统一工具链）中，vp lint 基于 Oxlint 构建，vp check 一把完成 format + lint + type-check
+（Oxfmt + Oxlint + tsgolint/tsgo）；类型感知通过 vite.config.ts 的 lint 配置块开启：
+
+```ts
+export default defineConfig({
+  lint: { options: { typeAware: true, typeCheck: true } },
+})
+```
+
+monorepo 中使用类型感知 lint 需先构建被依赖包以生成 .d.ts；若性能异常，可用 OXC\_LOG=debug 定位
+是否因 tsconfig include 过宽把 node\_modules、构建产物拉进了 program。
+
+见：[Vite+ Lint 文档](https://viteplus.dev/guide/lint){rel="&#x22;nofollow&#x22;"}
 
 
 # Monorepo
@@ -59340,7 +59729,24 @@ element-plus 2.2.20
 
 #### pnpm pack
 
-将项目打包为 tarball 压缩包（.tgz）。打包的文件范围和 pnpm publish 一样。
+将项目打包为 tarball 压缩包（.tgz）。pnpm 12 之前，打包的文件范围和 pnpm publish 一样。
+
+#### pnpm 12 publish 打包向上叠加 monorepo 根 .gitignore
+
+pnpm 12 的 publish 在真实打包时会向上查找并叠加 workspace 根 .gitignore：若根目录忽略了
+`dist`、`types` 等产物目录，各包 `files` 字段命中的文件会被排除，tarball 只剩 `main`
+入口文件（npm 规范强制包含）、README/LICENSE 等顶层文件与未被忽略的目录。pnpm 10 与
+npm 只读取包目录自身的 ignore 文件，无此行为。
+
+更隐蔽的是验证陷阱：`pnpm pack` 与 `publish --dry-run` 输出的文件清单都与真实打包
+不一致，二者均显示完整产物；pnpm 10 的真实发布也正常。凡是不经过"pnpm 12 真实
+publish"路径的验证都是假绿灯。本地预演手段：verdaccio 起本地 registry 真实 publish，
+再用 npm pack 拉回 tarball 检查文件清单。
+
+修复是在每个发布包目录放置空 `.npmignore`：npm 系打包实现中 `.npmignore` 会完全替代
+`.gitignore`（二者不合并），包内规则就位后打包器不再向上查找。
+
+见：[Package Manager Magic Files](https://nesbitt.io/2026/03/05/package-manager-magic-files.html){rel="&#x22;nofollow&#x22;"}
 
 #### shared-workspace-lockfile
 
@@ -59629,22 +60035,6 @@ symlink=false
 ## 营销工具
 
 - [媒介盒子](https://meijiehezi.com/){rel="&#x22;nofollow&#x22;"}：软文营销自助发稿平台，覆盖权威媒体、自媒体、短视频及媒体直播等推广资源，提供按套餐计费的发稿服务。
-
-
-# 📕 博客
-
-这里存放本站的元信息和开发问题等。
-
-- [第一篇博客](https://lionad.art/maps/_blog/first-article)，描述了本站建站的初衷。
-- [博客改版碰到的浏览器平滑滚动问题](https://lionad.art/maps/_blog/smooth-scroll)
-
-#### Nuxt 博客打开页面报错 export useId 错误？
-
-一直使用 Mac 开发，今天尝试换回 Windows 写两行代码时发现项目不能启动了。.. 报错信息如下。
-
-![vue export useId error](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/d01f9a588e425831580c258dc727cde9.png)
-
-估计和依赖版本有关系，但是删除 lockfile 以及黑洞、缓存等文件夹都没有效果，最后还是在 Github 同名 Issue 下，根据大佬的建议尝试锁定 Vue 的最新版本再重新安装才解决。
 
 
 # 🌐 AnySort
@@ -60098,6 +60488,228 @@ Normal text...
 ```
 
 
+# 🔁 Break Dead Loop
+
+## 简介
+
+[Break Dead Loop](https://github.com/Lionad-Morotar/cc-break-dead-loop){rel="&#x22;nofollow&#x22;"} 是一个 Claude Code 插件，自动检测并打断两类 agent 死循环：主 agent 对同一未改动文件的连续 Read，以及子 agent 连续重复调用同一工具。
+
+原本是给 CC + Kimi（K2.5 \~ K2.7）准备的。现在模型能力上来了，这类约束插件基本用不到，留档自用。
+
+## 为什么要两条线
+
+两类死循环的拦截难度不一样：
+
+- 主 agent Read 死循环：Read 返回 `file_unchanged` 时模型不理解信号，继续重读。Hook 能直接拦，好处理
+- 子 agent 工具死循环：子 agent 会无视 Hook 的 `permissionDecision: deny`（Claude Code 已知 bug #25000/#34692），常规 Hook 拦不住
+
+所以插件分两条线。线 1 用双 Hook：PostToolUse 检测 wasted call 并计数，PreToolUse 检查计数器，到 3 次注入警告，到 5 次直接 deny。
+线 2 起一个 watcher 常驻进程，每 5 秒扫一遍子 agent 的 transcript，发现尾部连续重复调用同一工具 ≥ 5 次就写 alerts.json，
+再经 Stop / PostToolUse Hook 引导主 agent 调 TaskStop 终止它。绕过对子 agent 的 deny，从根上避开那个 bug。
+
+参数指纹用的是稳定序列化（对象键排序），键序不同的等价参数视为同一次调用。状态按 project + session + agent 隔离，告警按 sessionId 过滤。
+
+## 安装
+
+```bash
+# 添加 marketplace（首次）
+/plugin marketplace add Lionad-Morotar/claude-plugins
+
+# 安装插件
+/plugin install cc-break-dead-loop@lionad-morotar
+```
+
+## 已知限制
+
+前台同步子代理（`run_in_background: false`）死循环时，主 agent 阻塞在 Agent 工具里等返回，turn 不结束，Hook 不触发，插件够不到主 agent。这是架构硬限制，只能缓解：
+
+- SessionStart 注入规则，要求子代理一律后台运行，让线 2 能正常拦截
+- watcher 检测到活跃死循环时弹桌面通知，提醒手动 Esc 中断（设 `CC_BREAK_NOTIFY=0` 关闭）
+
+插件自身加了多重错误边界：handler try/catch、watcher 崩溃自愈。插件出 bug 不会阻断正常 Read，也不会影响 Claude Code 启动。
+
+> <https://github.com/Lionad-Morotar/cc-break-dead-loop>{rel="&#x22;nofollow&#x22;"}
+
+
+# 🪟 Close Host Window
+
+## 简介
+
+[Close Host Window](https://github.com/Lionad-Morotar/vscode-extension-for-agent){rel="&#x22;nofollow&#x22;"} 是一个 VSCode 插件，让集成终端里的进程（比如 Claude Code）能关闭承载它的那个窗口，全程不抢焦点、不切 Space。
+
+使用场景：让 Agent 在后台并行干活，干完各自关掉自己的窗口，不用我一个个手动收。
+
+## 为什么需要插件
+
+外部进程想关 VSCode 窗口，常规路径都走不通：
+
+- AppleScript / Accessibility API：关窗前必须把窗口激活，焦点被抢，macOS 还会切 Space
+- 直接杀进程：绕过 VSCode 的状态保存，脏编辑器可能丢数据
+- CDP（Chrome DevTools Protocol）：需要 VSCode 以 debug 参数启动，日常环境不可用
+
+只有扩展内部能调 `workbench.action.closeWindow` 这个官方命令，安静地关窗。所以只能自己写一个。
+
+## 用法
+
+插件激活后，新开的终端自带环境变量 `$VSC_WINDOW_CLOSE_HOOK`，指向一个 Unix socket。终端里的进程想关窗时，往 socket 写一行自己的 PID：
+
+```bash
+echo $$ | nc -U "$VSC_WINDOW_CLOSE_HOOK"
+```
+
+拿到 PID 后，插件先给目标进程组发 SIGTERM，等 5 秒让 Claude Code 跑完 SessionEnd hooks（保存会话、清理状态），再执行关窗。
+
+老终端拿不到环境变量的话，可以在 workspace 根目录 touch 一个哨兵文件触发，精度差一些（同 workspace 多窗口会广播），能拿 socket 就别用哨兵。
+
+我在 shell rc 里常驻了一个 `vsc-close` 函数封装这两种通道，Agent 的 prompt 里直接告诉它"干完活调用 vsc-close"就行。
+
+## 已知限制
+
+- 仅 macOS / Linux（依赖 Unix domain socket 和 `nc -U`）
+- tmux 里的进程不在终端进程组，关窗时杀不到
+- 同窗口多个 Claude 会话会被一起杀掉，所以一个窗口只跑一个会话
+
+项目没发 marketplace，`vsce package` 打成 vsix 本地安装，自用足够。
+
+> <https://github.com/Lionad-Morotar/vscode-extension-for-agent>{rel="&#x22;nofollow&#x22;"}
+
+
+# 🔗 LeaderLine：在网页元素之间绘制引导线
+
+在需要表达元素之间关系的界面里，引导线（Leader Line）是一种便宜又直观的可视化手段。流程图、表单联动、节点编辑器、看板依赖……只要两个 DOM 元素需要被“连起来”，就会用到它。
+
+最近把 [anseki/leader-line](https://anseki.github.io/leader-line/){rel="&#x22;nofollow&#x22;"} fork 成了一个现代维护版 [`@lionad/leader-line`](https://github.com/Lionad-Morotar/leader-line){rel="&#x22;nofollow&#x22;"}，顺手补上了类型、ESM/CJS/IIFE 三产物，以及一个可以批量合并重排的渲染调度器。这篇文章简单介绍它解决了什么问题、怎么用、以及在 Vue / Nuxt 中的集成方式。
+
+## 基础用法
+
+安装：
+
+```bash
+pnpm add @lionad/leader-line
+```
+
+ESM 或 CommonJS 都能直接导入，也支持 `<script>` 标签直载：
+
+```js
+import LeaderLine from '@lionad/leader-line'
+
+const line = new LeaderLine(
+  document.getElementById('start'),
+  document.getElementById('end'),
+  { color: 'coral', endPlug: 'arrow2' }
+)
+```
+
+API 与上游基本兼容，所以旧项目迁移时通常只改包名即可。
+
+## Vue / Nuxt 集成
+
+命令式 API 直接塞进 Vue 的响应式系统会比较啰嗦，所以另外提供了两个平行子包：
+
+- `@lionad/leader-line-vue`：composable + 组件
+- `@lionad/leader-line-nuxt`：Nuxt 4 模块（包含 vue 包）
+
+### 单线响应式
+
+```vue
+<script setup>
+import { ref, useTemplateRef } from 'vue'
+import { useLeaderLine } from '@lionad/leader-line-vue'
+
+const a = useTemplateRef('a')
+const b = useTemplateRef('b')
+const color = ref('coral')
+
+const { line, position, show, hide, remove } = useLeaderLine(a, b, {
+  color,
+  endPlug: 'arrow2'
+})
+</script>
+```
+
+`color` 是 `ref` 时，修改 `color.value` 会自动调用 `setOptions`，不会重建整条线。组件卸载时也会自动 `remove`，不用手动清理。
+
+### 批量连线
+
+```ts
+import { useLeaderLines } from '@lionad/leader-line-vue'
+
+const edges = ref([
+  { key: 'a→b', start: elA, end: elB, color: 'coral', data: { fieldId: 'x' } }
+])
+
+const { lines, getLine, findWhere, removeWhere } = useLeaderLines(edges, {
+  preventSame: true
+})
+```
+
+`edges` 的 `push` / `splice` / 同 key 属性修改 / 重排都会按最小代价更新，避免频繁重建 SVG。
+
+### Nuxt 零配置模块
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@lionad/leader-line-nuxt'],
+  leaderLine: {
+    defaults: { color: '#4a9eff', size: 2 }
+  }
+})
+```
+
+之后所有 composable 和 `<LeaderLine>` 组件都免 import 直接使用，且 SSR 安全（client-only）。
+
+## 渲染调度
+
+上游的 `position()` 是同步的。如果一帧内更新 N 条线，每条线都先读布局再写 DOM，会触发 N 次强制同步 reflow。在拖拽或窗口 resize 这种高频场景里，代价很明显。
+
+这个版本把一帧内的 `position()` 更新合并为“全部读 → 全部写”，reflow 次数降到至多 1 次。用法有两种：
+
+```js
+// 方式 A：逐调用调度（拖拽等高频场景推荐）
+lines.forEach(line => line.requestPosition())
+
+// 方式 B：全局开关，position() 自动走调度
+LeaderLine.deferPositionUpdate = true
+lines.forEach(line => line.position())
+```
+
+`position()` 默认保持同步语义以兼容旧代码，`LeaderLine.positionByWindowResize` 内部已经走调度。
+
+## 相比上游的新增与修复
+
+**功能**
+
+- ESM 默认导出
+- `options.svgContainer`：指定 SVG 挂载容器，默认 `document.body`
+- 完整 TypeScript 类型定义
+- 三产物：`dist/leader-line.mjs`、`dist/leader-line.cjs`、`dist/leader-line.min.js`
+
+**修复**
+
+- `aplStats.position_plugOverheadSE is not defined`
+- `@micro-zoe/micro-app` 中的 `getFrame error`
+
+## 迁移
+
+从旧 `leader-line` 包迁移：
+
+```diff
+- "leader-line": "^1.1.0"
++ "@lionad/leader-line": "^1.0.0"
+```
+
+- 不再支持 IE11 与旧 Edge
+- 产物路径变为 `dist/` 下三格式
+- Bower 已移除
+- API 完全兼容，`requestPosition()` / `deferPositionUpdate` 为纯新增
+
+## 结语
+
+`@lionad/leader-line` 没有重新发明引导线，只是把上游库搬到了一个更现代的维护轨道上：类型完整、构建产物齐全、渲染有调度、Vue / Nuxt 有封装。如果你的项目里正好需要画几根线，可以试试看。
+
+仓库地址：[Lionad-Morotar/leader-line](https://github.com/Lionad-Morotar/leader-line){rel="&#x22;nofollow&#x22;"}
+
+
 # 🥥 Coconut
 
 WIP
@@ -60106,6 +60718,22 @@ WIP
 # 🧶 网易云音乐歌单排序
 
 wip
+
+
+# 📕 博客
+
+这里存放本站的元信息和开发问题等。
+
+- [第一篇博客](https://lionad.art/maps/_blog/first-article)，描述了本站建站的初衷。
+- [博客改版碰到的浏览器平滑滚动问题](https://lionad.art/maps/_blog/smooth-scroll)
+
+#### Nuxt 博客打开页面报错 export useId 错误？
+
+一直使用 Mac 开发，今天尝试换回 Windows 写两行代码时发现项目不能启动了。.. 报错信息如下。
+
+![vue export useId error](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/d01f9a588e425831580c258dc727cde9.png)
+
+估计和依赖版本有关系，但是删除 lockfile 以及黑洞、缓存等文件夹都没有效果，最后还是在 Github 同名 Issue 下，根据大佬的建议尝试锁定 Vue 的最新版本再重新安装才解决。
 
 
 # Git 工具与学习资源
