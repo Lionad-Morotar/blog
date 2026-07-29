@@ -60488,6 +60488,67 @@ Normal text...
 ```
 
 
+# 🔤 Fontize
+
+## 简介
+
+[Fontize](https://github.com/Lionad-Morotar/fontize){rel="&#x22;nofollow&#x22;"} 是字体子集工具包：组件里声明哪些文本会被渲染，它就把字体裁到只含这些字符。
+CJK 字体通常从 \~17MB 裁到 \~50KB，剩 0.3%。有[在线演示](https://lionad-morotar.github.io/fontize/){rel="&#x22;nofollow&#x22;"}。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260729193748431.png)
+
+pnpm monorepo，三个包：`@fontize/core`（文本收集、子集化引擎、内容寻址缓存）、
+`@fontize/vue`（`useFontSubset` 组合式函数）、`@fontize/nuxt`（Nuxt 模块，收集端点、产物输出、HTML 注入）。要求 Nuxt 4.5+。
+
+## 用法
+
+`nuxt.config.ts` 注册模块和字体，同别名可以挂多个字重：
+
+```ts
+export default defineNuxtConfig({
+  modules: ['@fontize/nuxt'],
+  fontize: {
+    fonts: [
+      { alias: 'noto-serif', src: './fonts/NotoSansSC.ttf' },
+      { alias: 'noto-serif', src: './fonts/NotoSansSC-Bold.ttf', weight: 700 },
+    ],
+  },
+})
+```
+
+组件里用 `useFontSubset` 声明文本，支持 getter 形式接异步数据：
+
+```vue
+<script setup lang="ts">
+const { data } = useAsyncData('txt', () => $fetch('/api/title'))
+const { text } = useFontSubset(() => data.value ?? '', 'noto-serif')
+</script>
+
+<template>
+  <h1 style="font-family: 'noto-serif', serif" v-text="text" />
+</template>
+```
+
+文本变化按防抖重新收集（默认 300ms 可配）：dev 下重建子集并热更新，SSG 下由渲染完成后的重估兜底。
+
+## 工作原理
+
+dev 下 SSR 跑在 vite module runner 的隔离 realm，进程内桥不可用，所以 SSR 和浏览器统一走 HTTP 回环上报文本。
+更新走 HMR 而非整页刷新：client 收到 `fontize:updated` 后热替换 fonts.css 的 link href，
+新 @font-face 指向新 hash woff2（内容寻址规避缓存），组件状态不丢。
+
+build / SSG 时 prerender 在主进程执行，进程内直接收集。字符集在 prerender 完成时达终态，
+此刻生成 hash 命名的最终产物进 `.output/public`。
+
+## 使用边界
+
+- 生产 SSR 的动态文本（如 CMS 新文章）不在构建期收集范围内，会缺字；兜底是 `include` 配置注入常用字表
+- 同一 alias 的字符集是全站页面并集，不按路由拆分
+- 浏览器端生产环境 `useFontSubset` 是 noop，运行时新文本不会扩展子集
+
+> <https://github.com/Lionad-Morotar/fontize>{rel="&#x22;nofollow&#x22;"}
+
+
 # 🔁 Break Dead Loop
 
 ## 简介

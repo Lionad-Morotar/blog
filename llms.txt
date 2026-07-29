@@ -619,6 +619,7 @@ goose is being developed as an open-source software project.
 - [🌐 AnySort](https://lionad.art/tools/anysort): 符合直觉、类型完备的多属性排序方法
 - [⛸️ UseScrollbar](https://lionad.art/tools/use-scrollbar): 给第三方表格等复杂组件设置自定义滚动条的库
 - [👓 Crapto](https://lionad.art/tools/crypto-inline): 一款可以给代码中部分内容加密的 VSCode 插件
+- [🔤 Fontize](https://lionad.art/tools/fontize): 按实际渲染文本裁剪字体的 Nuxt 工具，CJK 字体从 17MB 裁到 50KB
 - [🔁 Break Dead Loop](https://lionad.art/tools/cc-break-dead-loop): 检测并打断 Claude Code agent 死循环的插件
 - [🪟 Close Host Window](https://lionad.art/tools/vscode-for-extension): 让终端里的 Claude Code 自己关掉 VSCode 窗口的插件
 - [🔗 LeaderLine：在网页元素之间绘制引导线](https://lionad.art/tools/leader-line): 一个基于 Vite 8 + TypeScript 7 的 SVG 引导线库，提供现代化构建产物、完整类型定义与读写分离的渲染调度。
