@@ -8,6 +8,7 @@ description: 服务端技术、NodeJS 及服务器相关知识
 * [NodeJS](/maps/_server/nodejs/nodejs)
 * [邮件服务](/maps/_server/email/self-hosted-email) - 自建邮件服务器实践
 * [消息队列与异步任务](/maps/_server/message-queue) - MQ 模型对比、顺序性保证、异步任务方案谱系
+* [对象存储](/maps/_server/object-storage) - MinIO 基础速通与业务系统接入姿势
 
 ## 概述
 
