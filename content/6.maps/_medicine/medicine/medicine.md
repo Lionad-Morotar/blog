@@ -26,3 +26,27 @@ original_path: /maps/_medicine/medicine.md
 比方说，孤独会改变大脑的激素水平，它使人产生大量应激作用的皮质醇。孤独是导致抑郁和焦虑的导火索。尽管孤独不是直接原因，但是它确实产生抑郁的关键条件之一，所以改变生活方式——接触大自然、与人合作、
 寻求归属感等诸如此类的手段对抑郁的治疗效果非常好，甚至要比药物有效。
 
+#### 什么是 BFRB（身体聚焦重复行为）？
+
+BFRB（Body-Focused Repetitive Behaviors）是一组反复针对自己身体、造成组织损伤或明显困扰且难以自控的行为。
+常见类型包括拔毛癖（Trichotillomania，拔头发、眉毛、睫毛）、抠皮障碍（Excoriation Disorder，反复抠抓皮肤）、
+咬甲癖（Onychophagia）以及咬唇、咬颊等。DSM-5 将拔毛癖与抠皮障碍列在强迫及相关障碍章节下。
+
+BFRB 不等于强迫症（OCD）。OCD 的强迫行为由强迫思维驱动，是为中和焦虑而做的仪式化动作；BFRB 通常没有
+前置的侵入性思维，行为本身直接带来满足感或紧张释放，且常在无意识状态下发生，比如看书、刷手机时手就摸上去了。
+其机制在于一个负强化循环：行为前紧张感上升，行为中获得缓解，事后羞耻懊恼。功能上这反映了情绪调节、
+感觉寻求或自我安抚的需求，多起病于青春期前后，与 ADHD、焦虑障碍的共病率较高。
+
+见：[Body-Focused Repetitive Behaviors - IOCDF](https://iocdf.org/about-ocd/related-disorders/body-focused-repetitive-behaviors/)
+
+#### BFRB 如何干预？
+
+一线方法是习惯逆转训练（HRT, Habit Reversal Training），三件套为觉察训练（识别行为发生的前兆与情境）、
+竞争反应（用不相容动作替代，如握拳、把手压在大腿下）与社会支持。ComB 模型（Comprehensive Behavioral
+Model）则把触发链条拆成感觉、认知、情绪、动作、场所五个维度，逐点设计替代方案。环境改造是低成本的
+辅助手段：指套、fidget 玩具、手套、遮挡镜子等物理屏障能直接抬高行为的执行门槛。药物方面，
+N-乙酰半胱氨酸（NAC）在部分随机对照试验中显示有效，SSRI 的疗效证据不一致。
+
+见：[Expert Consensus Treatment Guidelines for BFRBs - TLC Foundation](https://www.bfrb.org/health-education-library/expert-consensus-treatment-guidelines-for-body-focused-repetitive-behaviors)
+
+
