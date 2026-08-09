@@ -157,6 +157,42 @@ Cognition 认为这些原则如此关键，以至于默认应排除任何不遵�
 
 在考虑多智能体之前，可尝试的缓解措施：让 Claude 动态发现工具而非预先加载所有定义，可将 Token 使用量减少多达 85%，同时提高工具选择准确性。
 
+## 子代理执行模式：前台与后台
+
+#### 前台/后台之分源于主循环的单线程性
+
+LLM 主循环是单线程的：主代理一次只能推进一步，要么自己调工具，要么等子代理。想并行干活，唯一途径是再 spawn 一个实例。
+前台（Foreground）与后台（Background）分的不是子代理本身，而是主代理 spawn 之后站在原地等、还是转身干别的——即调用方与被调用方之间的时间耦合（Temporal Coupling）。
+
+另一重约束是上下文经济学：子代理的核心价值在于把海量中间过程（几十次检索、读取）隔离在自己的上下文窗口里，只把结论回传主代理。
+前台/后台决定了这个结论何时、以何种方式进入主代理的上下文。
+
+见：[Create custom subagents - Claude Code Docs](https://code.claude.com/docs/en/sub-agents)
+
+#### 前台同步阻塞，后台异步通知
+
+前台模式下主代理阻塞，直到子代理的最终报告作为工具结果直接返回：控制流线性、错误立现、上下文无缝衔接，
+适合下一步强依赖结果的单任务场景（如探索完代码库才能动手改）；代价是等待期间主代理完全闲置，无法并行。
+
+后台模式下 spawn 立即返回任务句柄，子代理完成后以任务通知的形式回投：真并行把 wall-clock 从"总和"降为"最慢者"，
+适合多个互相独立的扇出（Fan-out）任务、长耗时任务与发射后不管（Fire-and-Forget）的旁路任务；
+代价是控制流复杂——结果送达时机不可控、错误发现滞后、多个后台代理并发写同一批文件会互相冲突（worktree 隔离就是为这个准备的）。
+在 Claude Code 中，命名队友（Named Teammate）被强制转为后台模式，走邮箱投递的 Actor 模型，
+其最终文本不会自动回传主代理，必须显式发消息索取。
+
+见：[Create custom subagents - Claude Code Docs](https://code.claude.com/docs/en/sub-agents)
+
+#### 按结果依赖选择执行模式
+
+选择标准归结为一个判断：主代理的下一步是否依赖该子任务的结果。依赖且只有这一个任务——前台同步等待最省事；
+依赖但有多个互相独立的子任务——全部后台发出再统一等通知；不依赖——后台发射后不管。
+
+这不是 Agent 系统的独创，而是并发编程的经典二分：Unix shell 的 `cmd` 与 `cmd &`、JS 的 `await` 与不 await 的 Promise、
+Actor 模型的 ask（请求-响应）与 tell（发射后不管）。在此之上还有汇聚策略的变体：Claude Code Workflow 编排的 `parallel()`
+是 barrier（等所有人到齐），`pipeline()` 无 barrier（每个条目独立流过各阶段）——本质都是以后台子代理为原料，只是汇合方式不同。
+
+见：[Create custom subagents - Claude Code Docs](https://code.claude.com/docs/en/sub-agents)
+
 ## 未来发展趋势
 
 #### 融合趋势
