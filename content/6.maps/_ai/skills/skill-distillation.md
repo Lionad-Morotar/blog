@@ -102,6 +102,19 @@ arxiv 2604.03964）给出 6 步自进化 pipeline，扫 GitHub / API / Notebook 
 见：[SKILLFOUNDRY: Building Self-Evolving Agent Skill Libraries from Heterogeneous Scientific Resources](https://arxiv.org/abs/2604.03964)：CMU 团队
 
 
+#### Performance Hints：把专家优化流程蒸馏成 Skill 驱动自我改进
+
+Jeff Dean 与 Sanjay Ghemawat 把人类的性能优化流程（测量 → 修改 → 重新测量 → 扩大测试范围 → 检查缓存占用 → 迭代）
+写成一个 Skill 教给模型——本质是把专家做性能优化的方法以模型能使用的方式编码。模型随后开始自我改进：
+跑基准测试、改进代码、测量改善、继续迭代。两人将此方法论整理成 30 页文档《Performance Hints》，
+有人把它总结后喂给各种模型，模型在推理代码性能问题上的表现随之变好。
+
+这是流程性专家知识可蒸馏的正面案例：优化流程的规则结构清晰、每步可验证，恰好落在 Skill 能精确编码的区域；
+而「优化什么、何时停止」这类判断仍留在流程之外。
+
+见：[Jeff Dean YC Startup School 2026 炉边谈话（中文整理）](https://mp.weixin.qq.com/s/RQMxO9rr89V3ZH8grzmEZg)
+
+
 #### 扩散激活解释 Skill 的领域分化
 
 为什么 Skill 在医疗健康 +51.9pp，在软件工程只有 +4.5pp？认知科学的 ACT-R 双系统记忆模型（Anderson 1970s）给出解释。

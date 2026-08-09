@@ -10,6 +10,7 @@ description: 软件工程师、AI 研究员、开源活动家等当代科技领�
 * [Andrej Karpathy](/maps/_person/technology/andrej-karpathy) - AI 研究员、教育家，OpenAI 创始成员，前 Tesla AI 高级总监
 * [Gary Marcus](/maps/_person/technology/gary-marcus) - 认知科学家、AI 研究者，以批判性视角关注人工智能发展
 * [姚顺雨 (Shunyu Yao)](/maps/_person/technology/shunyu-yao) - OpenAI 前研究员、AI Agent 方向核心探索者，现任腾讯首席 AI 科学家
+* [Jeff Dean](/maps/_person/technology/jeff-dean) - Google 首席科学家，MapReduce、TPU、TensorFlow、Gemini 主导者
 
 ### 软件工程师
 

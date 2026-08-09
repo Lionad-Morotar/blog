@@ -34,3 +34,19 @@ L1 缓存访问比主内存快约 100 倍，而内存又比磁盘随机访问快
 
 见：[Numbers Every Programmer Should Know By Year](https://colin-scott.github.io/personal_website/research/interactive_latency.html)
 
+#### 餐巾纸数学：数量级估算驱动架构决策
+
+延迟数字的实战形态是 Jeff Dean 的「餐巾纸数学」（Napkin Math）——在脑海中用一个数量级估算，
+发现被所有人忽视的巨大机会。两个经典案例：
+
+- **2001 年搜索全量载入内存**：当时 Google 搜索运行在硬盘上，Dean 与 Sanjay Ghemawat 估算发现整个搜索索引
+恰好能装进所有服务器内存的总和，于是花几天重写系统让其在内存中运行——这是 Google 搜索质变加速的来源。
+- **2013 年 TPU 立项**：深度学习语音识别刚突破，他估算如果每个用户每天说 3 分钟语音，Google 需要把服务器
+集群规模翻倍——太贵了，必须造专用芯片。第一代 TPU 比同期 CPU/GPU 节能 30-80 倍、延迟降低 20-30 倍。
+
+TPU 的设计哲学体现了估算的边界意识：专用芯片跑不了 Chrome 或 Word，但如果目标就是低精度稠密线性代数
+（几乎所有现代 ML 算法的核心），专用化就能换来数量级优势。因此 TPU 被做成通用线性代数系统，
+而非某种算法的固化——不过度专用化，但足够专用化以吃掉性能收益。
+
+见：[Jeff Dean YC Startup School 2026 炉边谈话（中文整理）](https://mp.weixin.qq.com/s/RQMxO9rr89V3ZH8grzmEZg)
+
