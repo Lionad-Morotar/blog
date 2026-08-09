@@ -4,6 +4,10 @@ description: 编程范式与思想，包括函数式编程、面向对象等
 original_path: content/6.maps/_programming/functional.md
 ---
 
+## Topics
+
+* [Actor 模型](/maps/_programming/paradigms/actor-model)：以异步消息为唯一交互的并发计算模型
+
 ## 函数式是什么
 
 如何通过列表 $[1、2、3]$ 得到列表 $[2、4、6]$？
