@@ -292,6 +292,44 @@ git diff > diff.patch
 git apply diff.patch
 ```
 
+#### 目录被忽略后为什么救不回里面的文件？
+
+Git 判定忽略时按优先级链查找规则，从高到低依次是：命令行参数、深层目录的 .gitignore、浅层
+.gitignore、.git/info/exclude、core.excludesFile 指定的全局文件；同一来源内最后匹配的 pattern 生效。
+取反规则因此可以跨层级救回文件，例如全局忽略了 *.tmp，在单个仓库的 info/exclude 写 !keep.tmp 即可。
+但这条路径有一个硬性断点：pattern 一旦排除目录本身（如 build/），Git 出于性能不会列出该目录内容，
+后续的 !build/keep.o 根本不会被评估。正确写法是先救目录再救文件：
+
+    build/
+    !build/
+    build/*
+    !build/keep.o
+
+三行缺一不可，漏掉 build/* 那行目录依然不可达。此时 pattern 语法全部合法、check-ignore 也能匹配到规则，但文件始终挂在 untracked 列表里，这是「ignore 不生效」类问题最常见的根因。
+
+见：[Git - gitignore Documentation](https://git-scm.com/docs/gitignore)
+
+#### git check-ignore 的退出码为什么不可靠？
+
+check-ignore 的退出码语义是「路径匹配到了 exclude 机制中的某条 pattern」，取反 pattern 也算匹配。
+一个被 !keep.tmp 救回、在 git status 里显示为 untracked（??）的文件，check-ignore -v 依然会打印
+.git/info/exclude:1:!keep.tmp 并返回 0。在 CI 或钩子脚本里用 git check-ignore -q <file> 判断忽略状态，
+会把这类文件误判为已忽略。可靠的做法是解析 -v 输出中 pattern 是否以 ! 开头，或直接以
+git status --ignored 的 !! 标记作为事实来源。
+
+见：[Git - git-check-ignore Documentation](https://git-scm.com/docs/git-check-ignore)
+
+#### skip-worktree 和 assume-unchanged 该用哪个？
+
+两个 flag 常被混用来隐藏已追踪文件的本地修改，但设计意图完全不同。assume-unchanged 是大仓库的性能优化，
+告诉 Git 跳过 stat 调用，它假定文件不会变化；一旦上游有更新，pull 或 checkout 可能自动清除该 flag
+并覆盖本地修改，用来藏配置存在静默丢改动的风险。skip-worktree 是 sparse checkout 的配套机制，
+内部优先级更高、不易被静默重置，是相对安全的选择，但 merge 需要更新该文件时 Git 依然会写入。
+两者都治不了本：本地配置覆盖的长期方案是仓库内放 tracked 的模板文件（如 config.example.yml），
+把真实配置（如 config.yml）加入 ignore，完全绕开 index flag。
+
+见：[Difference Between assume-unchanged and skip-worktree](https://stackoverflow.com/questions/13630849/git-difference-between-assume-unchanged-and-skip-worktree)
+
 ## 配置
 
 #### 如何解决下载超时问题？
