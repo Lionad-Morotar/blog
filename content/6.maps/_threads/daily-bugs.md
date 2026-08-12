@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-08-11
+
+多了个括号不知道怎么来的。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260812165037719.png)
+
 #### 2026-08-03
 
 这个 “M” 不会是因为我用的非等宽字体出的问题吧？
