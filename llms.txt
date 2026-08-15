@@ -158,6 +158,7 @@ goose is being developed as an open-source software project.
 - [SAIF](https://lionad.art/maps/_ai/framework/saif): Google 安全人工智能框架（Secure AI Framework），管理 AI 安全风险的实用指南。
 - [Agent Governance](https://lionad.art/maps/_ai/governance/agent-governance): 智能体（Agent）相关的政策法规、治理框架与合规要求
 - [Governance](https://lionad.art/maps/_ai/governance/governance): AI 治理、政策法规、合规要求与伦理规范
+- [Open Weights](https://lionad.art/maps/_ai/governance/open-weights): 开放权重模型（Open Weight Models）的生态价值主张、安全论证与政策争议
 - [AIGC 海报生成](https://lionad.art/maps/_ai/image/aigc-poster): 端到端海报生成、多任务编辑与质量评估的技术体系
 - [Image Generation](https://lionad.art/maps/_ai/image/image): AI 图像生成技术与工具，包括 Stable Diffusion 等文生图模型与提示词技巧。
 - [Image Generator](https://lionad.art/maps/_ai/image/stable-diffusion): Stable Diffusion 图像生成提示词与风格指南。
@@ -456,6 +457,7 @@ goose is being developed as an open-source software project.
 - [Evan Martin](https://lionad.art/maps/_person/technology/evan-martin): Chrome 早期开发者（2007-2012），Linux Chrome 负责人，版本控制发烧友
 - [Evan Schwartz](https://lionad.art/maps/_person/technology/evan-schwartz): Rust / TypeScript 工程师，信息策展人
 - [Gary Marcus](https://lionad.art/maps/_person/technology/gary-marcus): 认知科学家、AI 研究者、作家，以批判性视角关注人工智能发展
+- [Jeff Dean](https://lionad.art/maps/_person/technology/jeff-dean): Google 首席科学家，MapReduce、BigTable、TensorFlow、TPU、Gemini 等系统的主导者
 - [Peter Steinberger](https://lionad.art/maps/_person/technology/peter-steinberger): PSPDFKit 创始人、Claudebot 创建者，Agentic Engineering 倡导者
 - [Richard Stallman](https://lionad.art/maps/_person/technology/richard-stallman): 计算机程序员、软件自由运动的创始人
 - [Ronald G. Wayne](https://lionad.art/maps/_person/technology/ronald-g-wayne): Apple 第三位联合创始人，多面手工程师，设计了 Apple 首个 Logo 和原始合同
@@ -492,6 +494,7 @@ goose is being developed as an open-source software project.
 - [框架与工具](https://lionad.art/maps/_programming/frameworks/frameworks): 开发框架、工具库与 TUI 框架
 - [现代化 WidgetKit 项目工程实践](https://lionad.art/maps/_programming/frameworks/widgetkit): 构建可维护的 WidgetKit 项目所需的工程化决策、运行时约束与测试策略
 - [编程语言](https://lionad.art/maps/_programming/languages/languages): 编程语言概览与特性
+- [Actor 模型](https://lionad.art/maps/_programming/paradigms/actor-model): Actor 并发计算模型的核心结构、消息语义、工程价值与代表实现
 - [编程范式](https://lionad.art/maps/_programming/paradigms/paradigms): 编程范式与思想，包括函数式编程、面向对象等
 - [编程](https://lionad.art/maps/_programming/programming): 编程范式、开发者体验、调试技术、编程语言与框架
 - [Python](https://lionad.art/maps/_python/python)
@@ -524,12 +527,14 @@ goose is being developed as an open-source software project.
 - [NodeJS](https://lionad.art/maps/_server/nodejs): NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
 - [NodeJS](https://lionad.art/maps/_server/nodejs/nodejs): NodeJS 是一个非阻塞 IO、事件驱动的服务端 JS 运行环境。
 - [NodeJS Require](https://lionad.art/maps/_server/nodejs/source/require): NodeJS 模块导入的源码解析
+- [对象存储](https://lionad.art/maps/_server/object-storage): 对象存储核心概念、MinIO 基础与业务系统接入姿势
 - [服务端](https://lionad.art/maps/_server/server): 服务端技术、NodeJS 及服务器相关知识
 - [算法](https://lionad.art/maps/_software/algorithm/algorithm): 经典算法原理与实现，包含快速排序等常用算法的详细解析和代码示例。
 - [选择算法与中位数](https://lionad.art/maps/_software/algorithm/selection-algorithm): 顺序统计量（第 k 小元素与中位数）的选择算法演化、偶数长度与 NaN 下的数值语义，以及崩溃点与截尾均值等稳健统计根因
 - [Data Structure](https://lionad.art/maps/_software/data-structure/data-structure): 数据结构基础知识，包含二叉树遍历、B 树和 B+树原理等核心概念的详细解析。
 - [设计模式](https://lionad.art/maps/_software/design-patterns/design-patterns): 设计模式是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。
 - [开源文化](https://lionad.art/maps/_software/open-source/culture): 开源软件的文化基础、礼物经济与创作者动机
+- [开源法律风险](https://lionad.art/maps/_software/open-source/legal): 雇佣关系下开源软件的著作权归属、许可证合规与商业秘密边界
 - [开源仓库维护](https://lionad.art/maps/_software/open-source/repo-maintenance): 开源项目维护实践、贡献者管理与可持续性策略
 - [软件](https://lionad.art/maps/_software/software): 软件工程、数据结构、算法与设计模式
 - [AI 代码评审](https://lionad.art/maps/_software/software-engineering/ai-code-review): 阿里 Open Code Review 等 AI 代码评审工具的架构设计与工程实践
