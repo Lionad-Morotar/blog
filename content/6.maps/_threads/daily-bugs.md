@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-08-14
+
+墙纸显示成黄色，系统设置也打不开。Mac 天天出问题。
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260815120523445.png)
+
 #### 2026-08-11
 
 多了个括号不知道怎么来的。
