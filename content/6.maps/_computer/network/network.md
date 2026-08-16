@@ -6,6 +6,10 @@ original_path: content/6.maps/_computer/network.md
 
 * [Beej's Guide to Network Concepts](https://beej.us/guide/bgnet0/html/split/index.html)
 
+## 领域
+
+* [RESTful](/maps/_computer/network/restful) - REST 架构风格的实用主义落地与成熟度模型
+
 ## 网络模型
 
 #### 各网络层有哪些代表性的协议？
