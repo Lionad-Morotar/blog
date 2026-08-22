@@ -9,6 +9,8 @@ original_path: content/6.maps/_computer/network.md
 ## 领域
 
 * [RESTful](/maps/_computer/network/restful) - REST 架构风格的实用主义落地与成熟度模型
+* [WebSocket](/maps/_computer/network/websocket) - WebSocket 的协议迁移现实与实时通道的优化落点
+* [undici](/maps/_computer/network/undici) - Node 官方 HTTP 客户端的 h2 演进与 pipelining 配置陷阱
 
 ## 网络模型
 
@@ -115,6 +117,21 @@ TODO，[https://imweb.io/topic/55c6f9bac222e3af6ce235b9](https://imweb.io/topic/
 #### no-store 和 no-cache 的区别？
 
 no-store 告诉客户端每次都在服务器取最新的资源。no-cache 也要求每次都要重新请求，但服务器可能返回 304 告诉客户端资源未改变。
+
+#### HTTP pipelining 的适用性由流量画像决定
+
+HTTP/1.1 pipelining 允许在一条 keep-alive 连接上不等响应返回就连续发出多个请求，
+省掉串行问答之间的往返空窗；代价是响应必须按请求顺序返回——顺序约束正是它的阿喀琉斯之踵：
+首个响应慢，后续响应全部堵死在管线里（HTTP 层队头阻塞）。
+它成立需要三个前提同时满足：链路两端实现可控（没有会拆散管线的老旧中间盒）、
+响应快且耗时均匀、请求幂等可安全重试。浏览器时代三个前提全不成立，
+于是全面弃用 pipelining，转向每 origin 六条并行 TCP 连接的笨办法
+——正是这份浪费催生了 HTTP/2 用流编号取代顺序约束的多路复用。
+服务端到服务端的短 RPC 场景三前提成立，undici 因而保留 `pipelining` 选项（默认 1 即关闭）。
+反面画像的典型是 LLM 流式调用：响应长达数十秒到数分钟且耗时不可预测，
+开 pipelining 等于主动制造队头阻塞，一条慢流会精确堵住排在其后的所有请求。
+
+见：[HTTP pipelining - Wikipedia](https://en.wikipedia.org/wiki/HTTP_pipelining)
 
 #### HTTP2 的改进在哪里？
 
