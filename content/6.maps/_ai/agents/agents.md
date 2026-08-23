@@ -59,6 +59,7 @@ original_path: _ai/agents.md
 ## Harness 工程
 
 * [Harness 工程](/maps/_ai/agents/harness-engineering)：控制论前馈/反馈、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计
+* [模型与 Harness 的训练耦合](/maps/_ai/agents/model-harness-coupling)：新模型在第三方 harness 编造工具参数、后训练过拟合机制与约束采样对策
 
 ## 企业落地
 

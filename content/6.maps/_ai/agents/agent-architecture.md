@@ -206,6 +206,31 @@ Agent 容易"未经充分测试就标记功能完成"。显式提示使用浏览
 
 见：[Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)（Anthropic Engineering）
 
+#### 意图先行提交：把 Agent 执行做成数据库事务
+
+Agent 连续运行数小时，进程可能在任意一步崩溃，而外部效果（写文件、调 API、计费）已经真实发生。重启后要精确回答
+"哪些做了、哪些没做"，唯一可靠的方式是把执行过程做成数据库事务。
+
+骨架有三件。其一是原子提交：唯一写原语是把一组写入 all-or-none 地提交，事务内部不存在崩溃中间态。其二是意图先行：
+每次外部效果前先提交一条"我即将做 X，产出将使用 id R 和 U"，执行效果，再提交结果与下一状态——意图永远先于效果落盘。
+其三是持久程序计数器：每步把当前操作的全量状态整体覆写进一个寄存器，恢复就是读这一个寄存器并按其分派，
+不需要回放日志，也不需要从缺失中推断位置。操作结束时，终端事务删掉该操作的全部状态寄存器，
+会话里只剩对话、账单与少量游标寄存器——没有死状态需要回收。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md)
+
+#### 工具声明可重放性，崩溃恢复按声明处置
+
+进程恰好死在工具执行到一半，是长时 Agent 唯一真正的不确定窗口：效果可能已部分发生，盲目重跑会重复副作用，
+直接丢弃又让对话缺失结果。可靠做法是把处置策略从恢复逻辑里拿出来，改由工具自己声明：
+有副作用、不可重跑的工具声明 never，只读、可重跑的工具声明 safe。
+
+崩溃重启后，声明 never 的调用绝不重跑——系统在效果开始前预留的结果 id 下补一条合成的 "interrupted" 错误结果，
+对话保持连贯且没有任何效果被执行两次；声明 safe 的调用则用已持久化的参数重新执行。
+幂等性由此变成工具声明的一部分，运行时明确放弃外部效果的 exactly-once，但换来"每个调用必有结果"的不变量。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md)
+
 ## Claude Agent SDK 的核心设计原则？
 
 Claude Agent SDK（原 Claude Code SDK）的设计哲学是**给 Claude 一台计算机**——让它能够使用程序员日常使用的工具（终端、文件系统、代码执行），从而像人类一样工作。
@@ -306,6 +331,18 @@ Bash 作为通用工具，让 Agent 能够灵活地使用计算机完成各种�
 
 更棘手的是，这种信息损失不会在日志中暴露为明显错误。每一轮的摘要都独立地「合理」，但关键约束在逐轮传递中被系统性地稀释。工程上的可靠做法不是简单做摘要，而是对安全约束、用户明确否定等关键信息做结构化标记，在回写时强制保留原句而非摘要形式——
 或者直接用上下文重置替代渐进式压缩。
+
+#### 超大工具输出应落盘溢写做无损裁剪
+
+对超大工具输出做头尾裁剪是不可逆损失：测试日志被掐头去尾后，埋在中段的关键报错永久丢失，后续推理无法从空气里读回。
+无损做法是 prune + spill：裁剪时把完整输出写入磁盘缓存目录，上下文只留摘要与文件定位符，定位符携带精确的省略区间偏移，
+模型可以用 slice、grep、sed 确定性恢复原文。
+
+两个工程细节决定成败。定位标记必须放在结果开头且足够短——压缩流程通常把工具结果截断到 2000 字符量级，
+标记放在中段会在压缩后连同恢复路径一起静默消失。其次要防恢复死循环：模型读溢写文件取回内容时，这次读取的结果不能再经过裁剪器。
+19 个真实会话（GLM-5.3 与 DeepSeek V4 Flash）的实测中，该模式把上下文占用降低 26%~35%、未缓存 prefill 降低 72%~88%，且信息完全可恢复。
+
+见：[example: tool-result pruner + spill extension](https://github.com/earendil-works/pi/pull/8172)
 
 #### 推理时质询：把 Agent 当用户研究
 

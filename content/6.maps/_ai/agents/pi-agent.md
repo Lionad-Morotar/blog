@@ -36,6 +36,19 @@ Pi 把模型切换和思考级别也存成 Session Tree 上的 Entry，而不是
 
 见：[Pi Agent session-manager.ts#L362-L377](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/src/core/session-manager.ts#L362-L377)
 
+#### 会话树、Lane 游标与操作状态的分离存储
+
+Pi v4 harness 把会话持久化严格分成三种存储：条目树（对话内容，一次写入永不修改）、寄存器（当前可变状态，
+命名空间化的键值单元）、追加式用量账本。每一份数据只落在三者之一，没有第四处；分支索引、全文检索等投影
+可随时重建、不携带权威。
+
+Lane 是树中的命名游标：每个会话默认有 main，每条 lane 拥有自己的叶子位置、模型配置、消息队列与至多一个在途操作，
+多条 lane 共享同一棵树并行推进（如并行线程、子代理各占一条），且永不删除、永不改名。
+关键的分离在于操作状态不进对话树：op.* 寄存器随操作生灭，操作终态事务将其整体删除；条目随会话永生。
+对话历史与编排状态生命周期不同、变更频率不同，分开存放让树保持干净、恢复只需读寄存器。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md)
+
 #### 工具执行流式更新有截止门
 
 工具执行可能持续很久，期间会不断产生 `tool_execution_update` 部分结果事件。
