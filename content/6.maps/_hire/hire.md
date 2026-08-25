@@ -67,3 +67,13 @@ MATS 与 Anthropic Alignment Science team、Redwood Research、ARC 直接合作�
 
 见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug)
 
+#### 初级岗位的消失方式是"从未被雇用"
+
+Alasdair Allan 观察到，在受 AI 影响较大的职业中，年轻员工的招聘速度已经放缓，而 25 岁以上员工的工作量并未减少。
+这意味着初级岗位的消失方式不是裁员——"人们并不是遭到解雇；他们从一开始就没有被雇用"。
+
+其机制在于组织行为的短期一致性：各组织在争相采用 AI 编程工具的同时，也在削弱培养能够监督这些工具的人才通道。
+能够为 AI 构建良好上下文的人，是那些通过多年实践在头脑中积累了上下文的人，而曾经培养出这些人才的通道正在断裂。
+
+见：[AI Disrupts Engineering Career Progression](https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/)
+

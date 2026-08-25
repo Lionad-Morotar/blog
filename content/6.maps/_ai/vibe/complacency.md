@@ -236,3 +236,13 @@ original_path: _ai/vibe/complacency.md
 
 见：Denis Stetskov, “The Snake That Ate Itself”（2026-04-01）
 
+#### METR 随机对照试验揭示 AI 生产力的感知偏差
+
+METR 2025 年 7 月的随机对照试验发现，经验丰富的开源开发者使用 AI 工具完成任务反而多花 19% 的时间，
+但事后他们自我估计 AI 让自己快了约 20%——感知收益与实际收益方向相反。Alasdair Allan 在 QCon London
+援引该研究时补充了两个边界观察：AI 对简短、定义明确的任务确实有用，但随着复杂性增加收益迅速消失，
+瓶颈向上游转移至代码审查环节，而这恰恰是高级工程师判断力发挥作用的地方；在真实的开源项目中，
+AI 生成的 15 个 PR 没有一个可以合并，尽管它们都通过了自动化测试——AI 可以实现功能，却无法胜任工程技艺。
+
+见：[Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/)
+

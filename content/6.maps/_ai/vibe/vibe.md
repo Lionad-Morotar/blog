@@ -58,6 +58,8 @@ API 设计和逐行 code review；AI 处理所有繁琐实现（fs 方法的 syn
 
 ### 暗面与风险
 
+- [AI 时代的工程师技能形成](/maps/_ai/vibe/skill-formation) — AI 接管初级工作导致成长阶梯断裂，以及组织层面的应对
+
 #### VibeScamming：AI 降低了诈骗的技术门槛
 
 Vibe coding 不仅被用于正当开发，也正被滥用为"VibeScamming"——
