@@ -8,6 +8,7 @@ description: 前端构建工具全景图，涵盖 Vite、Webpack、Rspack 等主
 * [Vite](/maps/_workflow/build-tools/vite)
 * [Webpack](/maps/_workflow/build-tools/webpack)
 * [Rspack](/maps/_workflow/build-tools/rspack)
+* [Bun](/maps/_workflow/build-tools/bun)
 
 ## 工具对比
 
