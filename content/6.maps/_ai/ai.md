@@ -43,6 +43,7 @@ Machine learning, large language models, AI agents, and AI engineering practices
 - [Image](image/image.md) — AI image generation
 - [AIGC 海报生成](image/aigc-poster.md) — 端到端海报生成、多任务编辑与质量评估
 - [Recommendation](recommendation/recommendation.md) — Recommendation systems
+- [Video](video/video-prompt.md) — AI 视频生成与提示词术语体系
 
 ## Tour
 
