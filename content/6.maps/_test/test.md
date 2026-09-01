@@ -17,6 +17,7 @@ description: 软件测试方法、工具与实践
 ## 工具
 
 * [Playwright](/maps/_test/tools/playwright/playwright)
+* [Vitest](/maps/_test/tools/vitest/vitest)
 
 ## 资格
 
