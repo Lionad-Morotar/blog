@@ -3,6 +3,12 @@ title: Daily Bugs
 description: 追踪一些日常碰到的软件缺陷
 ---
 
+#### 2026-09-06
+
+谷歌搜索的智能回答也没什么容错啊
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260906162629109.png)
+
 #### 2026-08-14
 
 墙纸显示成黄色，系统设置也打不开。Mac 天天出问题。
