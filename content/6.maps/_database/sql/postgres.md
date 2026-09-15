@@ -25,3 +25,21 @@ pgvector 则是独立的第三方扩展，给 PG 加向量类型与 HNSW/IVFFlat
 小项目可借此替代 ES + Milvus 的双组件架构。
 
 见：[PostgreSQL Full Text Search](https://www.postgresql.org/docs/current/textsearch.html)、[pgvector](https://github.com/pgvector/pgvector)
+
+## 运维操作
+
+#### 修改生产库密码：密码属于角色，不属于库
+
+PG 的密码存在角色属性里，不属于某个数据库，一条 `ALTER USER x WITH PASSWORD` 对该角色可访问的所有库同时生效。
+应用 env 里的 `DATABASE_URL` 只是客户端连接串：改 env 不改库，改库不改 env，
+两处必须在同一次变更内同步，否则应用持旧密码持续报错。
+
+平滑顺序（利用 PG 改密码不踢已认证连接的特性）：① `ALTER USER`（存量连接不断，应用无感）→
+② 全量替换内嵌密码的连接串（env、compose、健康检查、跑批脚本）→
+③ 重建应用容器读新 env，中断窗口仅重启几秒；数据库容器与镜像不动。
+
+两个易错点：compose 的 `POSTGRES_PASSWORD` 只在首次初始化空数据目录时生效，
+已初始化实例改它不动库密码，但要同步更新，避免重建 volume 时初始化出错位密码。
+验证改密是否成功用新密码连接——报「库不存在」而非「密码认证失败」即认证已过。
+
+见：[ALTER USER](https://www.postgresql.org/docs/current/sql-alteruser.html)
