@@ -10,6 +10,7 @@ description: AI 系统评估与测试方法论，涵盖模型评估框架、可�
 ## Observability
 
 * [可观测性](/maps/_ai/evaluation/observability) - LangSmith、Phoenix、Langfuse 等 LLM 可观测性平台
+* [Langfuse OTel](/maps/_ai/evaluation/langfuse-otel) - Langfuse 的 OpenTelemetry 接入机制与契约层桥接
 
 ## Reproducibility
 
