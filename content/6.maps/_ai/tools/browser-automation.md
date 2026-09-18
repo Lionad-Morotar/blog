@@ -38,6 +38,37 @@ AI Model → OpenDia Server → Browser Extension → Your Browser → Any Websi
 
 ---
 
+## Tencent BrowserSkill
+
+#### 架构：从调试端口到扩展入口
+
+腾讯开源的面向 AI Agent 的浏览器操作框架，链路为 bsk CLI（Rust daemon）→ WebSocket 类型化帧协议
+（bsk-protocol）→ Chrome 扩展 ToolDispatcher → chrome.debugger API。最底层虽是 CDP（协议版本钉死
+1.3，与 Playwright 相同），但入口从 Playwright/Puppeteer 式的 --remote-debugging-port 换成了扩展侧
+chrome.debugger 附加，因此直接复用用户已登录的真实浏览器，登录态、Cookie、浏览器指纹都是真的。扩展
+层还提供 CDP 之外的抽象：Agent Window、借用标签页（borrow/return）、元素引用存储（@e1）与会话销毁
+时的归还序列。代价是 debugger 附加期间 Chrome 常驻「正在调试此浏览器」信息栏，且 MV3 ServiceWorker
+需要双层保活策略（30s chrome.alarms）。支持 Chrome、Edge、Brave。
+
+见：[Tencent/BrowserSkill](https://github.com/Tencent/BrowserSkill)
+
+---
+
+## Kimi WebBridge
+
+#### 定位与 isTrusted 边界
+
+月之暗面的浏览器扩展 + 本地 daemon（127.0.0.1:10086），Agent 通过 HTTP POST JSON 指令操控用户
+真实浏览器，协议就是一份 SKILL.md 里的 curl 约定，session 与浏览器标签组一一对应，轻量。执行层与
+CDP 派根本不同：click/fill 由注入页面的 content script 派发 DOM 合成事件（原生 setter +
+execCommand），事件 isTrusted=false。这带来零调试提示、无 debugger 权限的轻量优势，代价是严格校验
+事件可信度的站点（银行、验证码）必然失败——官方文档明确承认这是产品边界而非 bug。快照走
+accessibility tree 配 @e 引用，CSS 类名变化不失效；跨域 iframe 内元素不可操作。
+
+见：[Kimi WebBridge](https://kimi.com/features/webbridge)
+
+---
+
 ## Browser-use
 
 #### 定位？
@@ -151,3 +182,15 @@ const { author, title } = await stagehand.extract(
 | **Playwright MCP** | MCP Server | 微软官方，可访问性树，无需视觉模型 | 精确控制，测试场景 |
 | **Steel.dev** | 浏览器 API | 开源浏览器 API，为 AI 设计 | 构建 AI 应用和代理 |
 | **Nanobrowser** | 浏览器扩展 | OpenAI Operator 的免费替代品 | 浏览器内 AI 自动化 |
+| **BrowserSkill** | 浏览器扩展 + Rust daemon | 扩展侧 CDP，复用真实登录态，内核层可信输入事件 | 强风控站点的 Agent 自动化 |
+| **Kimi WebBridge** | 浏览器扩展 + 本地 daemon | content script 合成事件，零调试提示 | 低风控场景的轻量登录态自动化 |
+
+#### 执行层两条路线：注入派 vs 调试协议派
+
+「本地 daemon + 浏览器扩展」拓扑相同的框架，执行层可能完全不同。注入派（Kimi WebBridge）在页面
+JS 层派发合成事件，轻、快、无调试提示，但 isTrusted=false 会被严格风控一票否决；调试协议派
+（BrowserSkill、Playwright）经 CDP Input 域在浏览器内核层派发可信输入事件，能过硬反自动化检测，
+代价是 debugger 黄条与更重的会话管理。选型上，操作自家后台等低风控场景注入派足够，强风控站点
+（isTrusted 校验、验证码）只有调试协议派可用。
+
+见：[Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/)
