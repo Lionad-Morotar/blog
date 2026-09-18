@@ -37,6 +37,50 @@ MCP 采用 host-client-server 三层架构。host 是容器与协调者，负责
 
 见：[MCP Architecture](https://modelcontextprotocol.io/specification/2025-03-26/architecture)
 
+#### MCP 的能力原语全景
+
+server 侧暴露的能力按「谁控制」三分：Tools（模型控制，可执行动作）、Resources（应用控制，URI 寻址的只读上下文）、
+Prompts（用户控制，模板，通常映射为斜杠命令）。client 侧有反向原语：Sampling（server 请宿主的 LLM 生成内容）、
+Elicitation（server 向用户要结构化输入）、Roots（声明工作区边界）、Logging。MCP 是双向的：server 不是被动工具仓库，
+它能向 client 反向发请求，这正是它与「带 schema 的 function calling」的本质区别（其中 Roots/Sampling/Logging 已于
+2026 修订进入废弃窗口期，见下一节）。
+
+见：[MCP Architecture](https://modelcontextprotocol.io/specification/2025-06-18/architecture)
+
+#### MCP 与 Function Calling 是串联关系
+
+两者不在同一层、不构成竞争：Function Calling 是模型推理层能力，决定「调什么工具、传什么参数」；MCP 是应用层协议，
+解决「工具怎么被发现、描述、连接、调用」。执行链路是串联的：Agent 执行任务，模型经 FC 输出调用意图，宿主按意图
+经 MCP 路由到对应 server，server 执行并返回。「要不要从 FC 换成 MCP」是范畴错误，两者共存。MCP 属于过度工程的
+场景：工具只给单一应用内部用（直接函数调用）、高频低延迟（JSON-RPC 序列化开销比本地调用高一到两个数量级）、
+工具逻辑与内部状态高度耦合（抽独立 server 反而带来状态同步复杂度）。MCP 真正发光是工具被多个 AI 应用复用、
+或需要统一管理工具生命周期（版本、权限、日志集中在 server 侧）时。
+
+见：[MCP Server 工程避坑指南](https://juejin.cn/post/7642329168471293992)：文末「MCP 的边界在哪里」讨论
+
+#### 传输层两种形态与信任边界
+
+stdio 以本地子进程承载逐行 JSON-RPC；Streamable HTTP 用于远程，POST 为主、响应可选 SSE 流
+（旧的 HTTP+SSE 双端点方案自 2025-03 起废弃）。两种形态的信任不对称是安全判断的钥匙：本地 stdio server
+等同任意代码执行，信任边界就在点「安装」那一刻；远程 MCP server 在 OAuth 2.1 里定位为 Resource Server，
+令牌用 RFC 8707 resource indicators 绑定 audience，禁止宿主凭证透传。
+
+见：[MCP Transports](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports)
+
+#### 2026-07-28 修订让协议整体无状态化
+
+MCP 自发布以来最大的一次修订，2026 年之前绝大多数教程描述的「有状态 1:1 会话 + initialize 握手」模型被推翻：
+`initialize`/`notifications/initialized` 握手、`Mcp-Session-Id` 头、`ping`、`logging/setLevel` 全部移除，
+协议版本与 client 能力改为内嵌在每个请求的 `_meta`（`io.modelcontextprotocol/protocolVersion`、`clientCapabilities`），
+server MUST 实现 `server/discover` 用于公告版本与能力（SEP-2575/2567）。
+server-initiated 请求（sampling、elicitation）改为 MRTR（Multi Round-Trip Requests）：server 返回
+`resultType: "input_required"` + `inputRequests`，client 用重试原请求并携带 `inputResponses` 的方式补信息。
+Roots、Sampling、Logging 整体进入废弃窗口期（最短 12 个月）；SSE 断线重投递（Last-Event-ID）移除，断流后须重发请求。
+根因是部署经济学：有状态模型要求 session 粘滞与长连接，MCP server 无法放到普通负载均衡或 serverless 之后，
+网关化部署诉求推动协议无状态化。另外协议修订用日期而非 semver 标识（2024-11-05 → 2026-07-28），与 SDK 版本号解耦。
+
+见：[MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog)
+
 ## Tour
 
 ## Examples
@@ -125,6 +169,37 @@ Tool 应该像 Unix 管道一样良好组合，而非像命令链一样互相依
 | Integration | 如何连接外部系统？ |
 
 见：[54 Patterns for Building Better MCP Tools](https://www.arcade.dev/blog/mcp-tool-patterns)：Arcade 团队基于 8000+ 工具实践总结的设计模式
+
+#### Tool 定义是上下文的预扣税
+
+接入 MCP server 的成本在用户开口前就全额支付：client 把所有已连接 server 的 `tools/list` schema 序列化进 system
+prompt，20 个 server × 30 个工具即可预扣数万 token，且工具精度随数量衰减（不只是钱的问题）。工程推论：工具描述
+50 字内、参数字段 ≤5，细节挪去 resource；超大工具集靠宿主动态启停或 Anthropic 提出的 code execution 模式
+（模型写代码编排工具，中间结果不进上下文）。最隐蔽的耦合是工具列表顺序不稳定会击穿 prompt cache——工具定义在
+system prompt 前部，顺序一变整段缓存失效，每轮多付一截输入价。官方 2026-07-28 修订补上了这一坑：`tools/list`
+SHOULD 返回确定性顺序，并经 `CacheableResult` 新增 `ttlMs`/`cacheScope` 缓存契约。
+
+见：[MCP Server 工程避坑指南](https://juejin.cn/post/7642329168471293992)：5 个线上 MCP Server 的 8 个生产级陷阱复盘
+
+#### 两类错误：isError 给模型看，JSON-RPC error 给 client 看
+
+工具执行失败（SQL 报错、API 超时）必须包在正常 result 的 content 里并置 `isError: true`；只有「工具不存在」
+「server 不支持调用」这类协议级异常才返回 JSON-RPC error。两种错误的消费者不同：协议层错误被 client 拦截处理，
+永远进不了模型视野，LLM 不知道调用失败过，于是不自我纠正而是停下来或编造结果。反过来把协议错误伪装成 isError
+会让 client 的重试/鉴权逻辑失去触发信号。症状识别：agent 用某个 server 后行为变傻但 transcript 里看不到任何
+报错，先查 server 是否把异常 throw 成了协议错误。
+
+见：[MCP schema.ts](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-11-25/schema.ts) 中 `CallToolResult.isError` 的规范注释
+
+#### stdio 模式下 stdout 就是协议管道
+
+stdio 传输用 stdout 逐行承载 JSON-RPC，任何一行杂散输出都会污染协议流，日志必须走 stderr。但真正的事故来源通常
+不是自己的 print，而是第三方库的意外 stdout 输出（初始化 banner、进度条、deprecation warning）。最阴险的是
+「我机器上没事」效应：宽容的 client 跳过非 JSON 行继续工作，严格的 client 则表现为工具调用后永久挂起且无错误——
+解析器没把它当错误，只是在等一个永远不来的合法响应。工程解法不是 code review 而是在入口劫持 sys.stdout 装
+guard：只放行以 `{"` 开头的行，其余重定向 stderr 并告警，把协议完整性从开发纪律变成运行时断言。
+
+见：[MCP Server 工程避坑指南](https://juejin.cn/post/7642329168471293992)
 
 ## WebMCP
 
