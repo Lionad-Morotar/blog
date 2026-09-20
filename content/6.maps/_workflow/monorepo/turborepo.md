@@ -42,6 +42,17 @@ turbo login
 turbo link
 ```
 
+#### Turbo 2.x 原生 boundaries 可检出幽灵导入与 tag 越界
+
+选型资料常说 Turborepo 没有边界约束能力，要治理模块边界只能自配 ESLint 规则或转投 Nx，这是 1.x 时代的印象。
+Turbo 2.x 提供 `turbo boundaries` 命令：在 `turbo.json` 中给包声明 tags 并配置 boundaries 规则后，
+它能检出两类违规——导入包目录之外的文件，以及导入未在 package.json 声明的依赖。规则对传递依赖同样生效：
+A 引用 B、B 又引用被禁止 tag 的 C 时，A 自身也会报违规。与 Nx 走 ESLint 插件
+（enforce-module-boundaries）的路线不同，检查由构建工具自身静态扫描源码 import，不依赖 lint 配置；
+覆盖面也相应更窄，不提供 CODEOWNERS 式的写权限隔离。
+
+见：[Boundaries | Turborepo](https://turborepo.dev/docs/reference/boundaries)
+
 ## 最佳实践
 
 #### 如何避免幽灵依赖问题？

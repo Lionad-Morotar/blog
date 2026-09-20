@@ -6,6 +6,16 @@ original_path: "/_workflow/package-manager/pnpm.md"
 
 ## API 细节和配置项
 
+#### catalogs 与 catalogMode strict 提供原生版本单例
+
+「要锁全仓单一依赖版本就得用 Rush」的选型动机已过时。pnpm 在 pnpm-workspace.yaml 中维护 catalog
+版本目录，各包用 catalog: 协议引用依赖，版本真源只存在一处；pnpm update 对 catalog 依赖只改写
+catalog 条目，不动各包 package.json。v10.12.1 引入的 catalogMode: strict 更进一步：pnpm add 到
+不在 catalog 版本范围内的依赖直接报错，把版本漂移的发现点从 code review 前移到安装时。
+它不提供 Rush 式的依赖视图重建，但覆盖了统一版本这个最常见的单例诉求。
+
+见：[Catalogs | pnpm](https://pnpm.io/catalogs)
+
 #### pnpm import
 
 使用 `pnpm import` 可以将 package-lock、npm-shrinkwrap 和 yarn.lock 转换为 pnpm-lock 文件。

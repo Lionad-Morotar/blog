@@ -33,10 +33,21 @@ monorepo 对应 multi-repo，是"把多个仓库放到一个仓库中来管理"�
 ### Monorepo 工具
 
 * [Turborepo](/maps/_workflow/monorepo/turborepo) - Vercel 推出的 Monorepo 构建系统，提供任务管道和远程缓存
+* [Monorepo 工具横评：pnpm、Turborepo、Nx、Rush](https://mp.weixin.qq.com/s/iOMaCN3n6h8e8g2o6JNOjw) - 按严格依赖布局、受影响分析、任务编排与缓存、发布编排、导航与边界、AI 友好度六项能力逐项对照的选型分析
 
 ## Rush
 
 * [Rush 工具详解：概念、使用场景与优势分析](https://blog.csdn.net/i042416/article/details/145900916)
+
+#### subspaces 拆分 lockfile 是冲突面转移而非消除
+
+subspaces 把单个大 lockfile 拆成多个子空间各自管理，常被当作超大仓的无痛分治手段。
+Rush 的 RFC-4230 自己写明：拆分确实缓解了单点协调问题（不相关包的依赖升级互相牵制、lockfile
+合并冲突），但会引入新的协调成本，且麻烦随子空间数量增长——跨子空间仍共享同一个 workspace，
+workspace: 协议仍可跨子空间依赖，版本约定与公共依赖升级仍需全局治理。选型时应把它理解为
+「把冲突面从一份文件转移到多份文件的边界上」，而不是冲突的消除。
+
+见：[RFC-4230: Rush Subspaces](https://github.com/microsoft/rushstack/blob/main/common/docs/rfcs/rfc-4230-rush-subspaces.md)
 
 ## Lerna
 
