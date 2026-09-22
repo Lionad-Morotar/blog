@@ -4,6 +4,10 @@ description: 游戏开发、游戏设计、游戏行业等
 original_path: content/6.maps/_game/game.md
 ---
 
+## 主题
+
+* [贪吃蛇必胜算法](/maps/_game/game/snake-ai) - 可证明必胜框架：哈密顿圈不变量、安全短路、启发式退化与复杂度边界
+
 #### 中国游戏版号简史？
 
 以下是按照时间线对中国游戏版号发展历程的总结：
