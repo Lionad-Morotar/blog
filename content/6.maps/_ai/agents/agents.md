@@ -64,6 +64,7 @@ original_path: _ai/agents.md
 ## 企业落地
 
 * [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](/maps/_ai/agents/tokenmaxxing)：Agentic coding 成本失控、组织流程瓶颈、能力错配与 J 型曲线下探
+* [软件工厂（Software Factory）](/maps/_ai/agents/software-factory)：事件驱动多 Agent 工程流程的定义与边界、注入攻击面、失败即代码库体检、隔离 subagent 与标签状态机
 
 ## 参考
 
