@@ -60,6 +60,7 @@ original_path: _ai/agents.md
 
 * [Harness 工程](/maps/_ai/agents/harness-engineering)：控制论前馈/反馈、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计
 * [模型与 Harness 的训练耦合](/maps/_ai/agents/model-harness-coupling)：新模型在第三方 harness 编造工具参数、后训练过拟合机制与约束采样对策
+* [SoL-Pi：auto-research 搜出的效率机制集](/maps/_ai/agents/sol-pi)：四类 token 浪费的机制归因、压缩投资回收、组合损失累积、自动研究局部盆地与一次性编排循环
 
 ## 企业落地
 
