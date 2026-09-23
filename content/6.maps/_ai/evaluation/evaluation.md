@@ -6,6 +6,7 @@ description: AI 系统评估与测试方法论，涵盖模型评估框架、可�
 ## Evaluation Framework
 
 * [评估框架](/maps/_ai/evaluation/evaluation-framework) - lm-evaluation-harness、BigCode 等统一评估框架
+* [Agent DLC](/maps/_ai/evaluation/agent-dlc) - 评估驱动的生产放行：黄金标准、裁判校准与轨迹评估
 
 ## Observability
 
