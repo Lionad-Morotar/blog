@@ -3,9 +3,9 @@ title: 🎨 实现近乎免费之后，设计还剩什么
 description: GitHub Next 设计工程师 Maggie Appleton 的 AI 时代工作流：纸笔、Jig、spec 前置，以及 agent 吞不掉的那部分判断。
 ---
 
-![实现近乎免费之后，设计还剩什么](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-sketch-to-jig.jpg)
+![实现近乎免费之后，设计还剩什么](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-sketch-to-jig-v2.jpg)
 
-*配图：纸上线稿越过纸页，长成可以拖动的活界面（AI 生成，Rio·Night 系列）*
+*配图：纸上线稿越过纸页，长成可以拖动的活界面（AI 生成）*
 
 「作为工程师，我让 Claude 生成 20 个高保真设计稿，反复迭代到满意为止。比和设计团队打交道快得多，也更享受。」
 
@@ -57,7 +57,7 @@ Maggie 的一天里已经几乎没有写代码这件事。一旦想清楚要造�
 
 ![别再问了，给我看图](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-decision-card.jpg)
 
-*配图：左边是第二十个 A/B/C 问题，右边是一张带架构图的决策卡（AI 生成，Rio·Night 系列）*
+*配图：左边是第二十个 A/B/C 问题，右边是一张带架构图的决策卡（AI 生成）*
 
 她的诊断是：agent 天生爱输出成篇的文字，这对 agent 是理想输出，对人却是最差的输入。更麻烦的是，很多问题本身就是视觉的——「边框用 10% 还是 15% 的灰」该展示色板，「架构怎么分层」该展示架构图。所以她正在原型的规划界面里，
 让每个决策自带对应的载体：简单决策是三选一的卡片，视觉决策内嵌 HTML 原型，架构决策内嵌数据流图；每个决策卡还记录决策人和当时可用的信息，留一份「为什么当时这么定」的审计轨迹。
@@ -80,7 +80,7 @@ Maggie 自造了一个词：能力煤气灯（capability gaslighting）。模型
 
 ![一眼 agent](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-agent-tell.jpg)
 
-*配图：同款界面的流水线末端，质检员只放行那张带手绘痕迹的（AI 生成，Rio·Night 系列）*
+*配图：同款界面的流水线末端，质检员只放行那张带手绘痕迹的（AI 生成）*
 
 判断的价值在她自己的故事里最清楚。ChatGPT 发布前一年，她在 AI 创业公司 Elicit 做第一位设计师，团队花几个月打造「AI 的新界面」：无限画布、卡片流、Notion 式可组合文档。每一场用户访谈，科学家用户都在说「太混乱了，
 给我一张表格行吗」——他们原本就是在 Excel 里一行一篇论文地提取数据。最后团队回到表格，再把新能力一点点长在表格周围和里面。她的教训是：哪怕在创新，也要从用户熟悉的基本形（primitive）出发，聊天窗也不是 AI 的最终形态——
