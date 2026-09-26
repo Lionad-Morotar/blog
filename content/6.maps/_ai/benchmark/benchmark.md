@@ -104,3 +104,7 @@ Anthropic 技术博客，2026年3月
 * [qwen3-embedding-8b-4bit-dwq](./local/qwen3-embedding-8b-4bit-dwq.md)
 * [glm-ocr-8bit](./local/glm-ocr-8bit.md)
 
+## Topics
+
+* [伪造基准文梯鉴](./fake-benchmark-triage.md)：created_at 取证、REPL 验码与算术自查，判别"X 任务实测"类文章是否编造
+
