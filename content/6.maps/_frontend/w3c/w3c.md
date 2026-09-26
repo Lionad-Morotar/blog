@@ -13,6 +13,7 @@ CSS 相关技术规范与模块：
 * [Color Module](/maps/_frontend/w3c/css/color-module) - 颜色与透明度属性规范
 * [Conditional Rule Module](/maps/_frontend/w3c/css/conditional-rule-module) - 条件规则与媒体查询
 * [Scrollbars Styling Module](/maps/_frontend/w3c/css/scrollbars-styling-module) - 滚动条样式控制
+* [CSSOM View Module](/maps/_frontend/w3c/css/cssom-view) - 视图对象模型与元素可见性判定
 
 ### ECMAScript 提案
 
