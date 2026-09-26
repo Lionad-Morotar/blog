@@ -57,6 +57,15 @@ AutoGen 模拟人类圆桌会议，智能体之间自由对话达成共识。对
 - 探讨复杂伦理问题
 - 无标准答案、需要碰撞出新想法的场景
 
+#### 2026 换代：AutoGen 让位 Microsoft Agent Framework
+
+Microsoft 已指定 Microsoft Agent Framework（MAF，支持 Python 与 .NET）为 AutoGen 的官方后继者并给出迁移指南；AutoGen 仓库未归档但主要开发已停
+（最后 push 停在 2026 年 4 月，同期 CrewAI 与 MAF 仍逐日活跃），`pip install pyautogen` 如今只是转发 `autogen-agentchat` 的代理包。
+工程上真正咬人的是三代互不兼容 API 并存：0.2 的 `AssistantAgent/GroupChat`、0.4 事件驱动重写的 `RoundRobinGroupChat`、MAF 的第三代接口，
+网上旧教程与 StackOverflow 答案约半数对当前装包无效，判别只需把示例 import 贴进 REPL 跑一次。2026 年新项目先评估 MAF，选 AutoGen 等于预支迁移债。
+
+见：[AutoGen to Microsoft Agent Framework Migration Guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
+
 ## DeepAgents
 
 #### 项目经理模式
@@ -88,6 +97,15 @@ AutoGen 模拟人类圆桌会议，智能体之间自由对话达成共识。对
 - 市场报告自动生成
 - 数据分析流水线
 - 快速搭建原型验证多智能体价值的项目
+
+#### 与 LangChain 脱钩及其断代用法
+
+"CrewAI 基于 LangChain" 只在 2024 年前的时间窗内为真：官方已移除硬依赖（社区论坛原话 "Langchain is not a hard dependency at all"），
+仅保留对 LangChain 工具的兼容层。脱钩初期另有一个依赖轴错位坑：core 与 tools 分属两个包又各自 pin langchain 约束
+（crewai 要 <0.3、crewai-tools 要 >0.2、embedchain 要 >=0.3.1），存在无解组合，只有特定旧版本对能干净共存。
+这个依附关系可反向给二手资料断代：仍把 CrewAI 写成 LangChain 之上的框架的文章，材料至少停在 2024 年前，或系 LLM 消化旧教程生成。
+
+见：[Langchain dependency - CrewAI Community Support](https://community.crewai.com/t/langchain-dependency/1763)
 
 ## 三框架对比
 
@@ -239,6 +257,17 @@ LangGraph 不抽象提示词或架构，而是提供底层基础设施支持**�
 - 需要人机协作介入的 Agent 系统
 - 企业级生产环境中的 Agent 部署
 
+#### 环是本性：LangGraph 不是 DAG
+
+一批二手文章（连术语表都算）把 LangGraph 的编排结构说成"有向无环图（DAG）"，恰好讲反：支持环（重试、反思、人审回环）正是它区别于 Airflow 一类 DAG 引擎的存在理由，"DAG 是 LangGraph 的结构"一句话
+足以判定作者没有用过这个框架。
+
+配套陷阱是循环保险丝：agent 失控时抛 `GraphRecursionError`，其 `recursion_limit` 的默认值不可依赖——教程长期宣传默认 25（0.2 时代值），
+当前 main 源码实为 `int(getenv("LANGGRAPH_DEFAULT_RECURSION_LIMIT", "10007"))`，文档同步滞后于代码。
+生产图应显式 `graph.invoke(state, {"recursion_limit": N})` 或用 `with_config` 烘入默认值，否则调用成本与失控行为随版本静默漂移。
+
+见：[Graph API overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/graph-api)
+
 ## 框架选型参考
 
 #### 快速选型决策框架
@@ -251,6 +280,17 @@ LangGraph 不抽象提示词或架构，而是提供底层基础设施支持**�
 | Token 资源受限 | DeepAgents | 严格资源控制，分层隔离 |
 | Web3/区块链场景 | ElizaOS | 原生支持，多模型，社交代理友好 |
 | 需要强化学习优化 | AgentScope | 内置 Agentic RL，支持模型微调 |
+
+#### 2026 现状的真实选型轴
+
+流行"107 任务实测"类文章给出的任务数阈值（任务数 <10 用 CrewAI、10-45 用 LangGraph 之类）没有任何来源支撑；
+其宣称的"同一基准"在源头就崩了：dev.to 同作者两篇博文对同一仓库给出冠军相反的结论，中文转抄版又长出与任何上游都不匹配的第三套数字
+（判别方法见[伪造基准文梯鉴](/maps/_ai/benchmark/fake-benchmark-triage)）。可辩护的选型轴是四层：
+控制流所有权（显式图 LangGraph → 声明式角色流程 CrewAI → 涌现式对话 AutoGen，可控性递减、起步速度递增）、
+状态与恢复（LangGraph checkpointer 原生一等公民；CrewAI 任务间上下文传递历来弱项；AutoGen 状态即聊天历史）、
+成本机制（token 大头在群聊广播与提示重述，机制清楚就不必背"每任务成本"表）、团队生态（LangSmith / CrewAI AMP / Azure-MAF）。
+
+边界同样是第一性的：单次调用、简单 RAG、一条工具链就不要上编排框架，框架是负载不是资产。
 
 #### 演进趋势观察
 
