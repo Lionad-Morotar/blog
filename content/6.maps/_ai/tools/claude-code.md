@@ -42,6 +42,24 @@ Background Tasks、Agent Teams 等核心机制。
 }
 ```
 
+#### 十七个工具按四类问题分组：用法检索、官方快照、版本影响、模板与安全
+
+该 MCP 把 Claude Code Ultimate Guide（2 万+ 行策展文档、1809 条索引、29 类目）接入任意 MCP 客户端。与 Context7 的通用文档检索及官方原始文档不同，它是策展层：观点性最佳实践、官方文档快照 diff、可抄模板与安全威胁库的打包。十七个工具按要回答的问题分四组：查用法与最佳实践走 `search_guide` 语义检索加 `read_section` 锚点精读，`list_topics` 先看全景（deep dive 独占 1636 条）；核对官方文档现状走 `search_official_docs` 加 `init/refresh/diff_official_docs` 快照三件套；评估版本升级影响走 `get_release`、`compare_versions`、`get_changelog`、`get_digest` 四个时间轴工具；找可抄模板与安全评估走 `list/search/get_example`（agents、commands、hooks、skills、scripts 五类生产模板，语义搜索按意图匹配）和 `list/get_threats` 威胁库（CVE 与技法 ID 双索引）。
+
+见：[mcp-server README](https://github.com/FlorianBruniaux/claude-code-ultimate-guide/blob/main/mcp-server/README.md)：工具表由 machine-readable/mcp-product.json 渲染
+
+#### 能力面不止工具清单：还有 Resources、Prompt 与伴生命令
+
+server 实际暴露的能力远大于「17 个工具」：6 个 MCP Resource（`claude-code-guide://` 前缀的 agent-harnesses、distribution-channels、llms、reference、releases、translations）、1 个 `claude-code-expert` Prompt 与 5 个 `/ccguide:*` 斜杠命令（daily、diff-docs、init-docs、refresh-docs、search-docs）。Resources 是被动数据端点，成本只在被列出或读取时产生，但宿主若自动列出资源清单，token 账本里就多一笔不算进工具 schema 的隐性预扣；伴生命令则把最常用的调用序列固化为入口，省去每次手拼工具参数。
+
+见：[mcp-server README](https://github.com/FlorianBruniaux/claude-code-ultimate-guide/blob/main/mcp-server/README.md)「Generated capabilities」节
+
+#### 离线索引加按需联网的混合架构：搜索与精读是两条可用性曲线
+
+包内只捆绑约 130KB 压缩的结构化索引，`search_guide`、`list_topics`、`get_cheatsheet` 纯离线可跑；但 `read_section` 读大文件需从 GitHub 按需拉取（24h 本地缓存），`init/refresh_official_docs` 需从 Anthropic 拉约 1.2MB 的 llms-full.txt。断网或 GitHub 不可达的会话里，检索结果照常返回、精读却可能超时失败，表现为工具调用挂起而非干净报错；挂载前先手测一次 `read_section` 再决定去留。
+
+见：[npm 包描述](https://www.npmjs.com/package/claude-code-ultimate-guide-mcp)：结构化索引随包分发，正文按需拉取带 24h 本地缓存
+
 #### Claude Code 的 MCP 扩展与远程连接
 
 Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：HTTP（推荐远程）、SSE、WebSocket 和 stdio。
