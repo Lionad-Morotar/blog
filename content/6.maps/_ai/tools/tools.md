@@ -7,6 +7,7 @@ original_path: _ai/tools.md
 ## Claude Code
 
 * [Claude Code](/maps/_ai/tools/claude-code) - Anthropic 官方 AI 编码助手
+* [Claude Code 子智能体](/maps/_ai/tools/claude-code-subagents) - 独立上下文窗口的委托机制、配置现状与委托经济学
 
 ## Browser Automation
 
