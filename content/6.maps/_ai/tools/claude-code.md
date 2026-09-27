@@ -30,6 +30,18 @@ Background Tasks、Agent Teams 等核心机制。
 * [Straion](https://straion.com/?ref=producthunt)：AI Coding Agent 规则管理工具，统一管理编码规范，支持 Claude Code、Cursor 和 GitHub Copilot
 * [Ruflo](https://github.com/ruvnet/ruflo)：Claude 多智能体编排平台，支持分布式智能体集群、RAG 集成、原生 Claude Code / Codex 集成
 
+#### claude-code-ultimate-guide-mcp（已从全局下线，备份配置）
+
+[Claude Code Ultimate Guide](https://cc.bruniaux.com/guide/) 的 MCP server，提供 Claude Code 用法速查（cheatsheet、官方文档快照 diff、示例模板、安全威胁库等约 30 个工具）。全局接入后工具 schema 预扣 token 太多，2026-09 已从 `~/.claude.json` 顶层 `mcpServers` 移除，需要时按会话临时挂载：
+
+```json
+"claude-code-guide": {
+  "type": "stdio",
+  "command": "npx",
+  "args": ["-y", "claude-code-ultimate-guide-mcp"]
+}
+```
+
 #### Claude Code 的 MCP 扩展与远程连接
 
 Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：HTTP（推荐远程）、SSE、WebSocket 和 stdio。
