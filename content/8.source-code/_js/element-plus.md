@@ -35,7 +35,7 @@ ElementPlus（以下简称 EP）是一个基于 Vue 3 的 UI 组件库，其立�
 
 这里尝试给出我的一些看法和总结。前端工程化泛指将自动化、标准化、流程化等工程领域思想应用于前端开发全过程，以达到提升开发效率、提高代码质量与可维护性、协同团队合作的目的。
 
-见：[什么是前端工程化？](/maps/_workflow/fe-engineering)
+见：[什么是前端工程化？](/maps/_workflow/engineering/fe-engineering)
 
 ## 项目结构
 
