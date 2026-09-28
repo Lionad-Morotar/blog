@@ -10,6 +10,7 @@ original_path: content/6.maps/_web/security.md
 * [国密 SM2](/maps/_web/security/sm2) - 椭圆曲线公钥密码算法标准与工程陷阱
 * [HMAC](/maps/_web/security/hmac) - 基于哈希的消息认证码原理与验签工程实践
 * [存储介质数据清除](/maps/_web/security/data-sanitization) - 删除与清除分界、GB 46864-2025 强制国标与介质级擦除陷阱
+* [天御滑块验证码逆向](/maps/_web/security/tcaptcha-slider-reverse) - TCaptcha 三段式协议取证、缺口识别与求解工程结构
 
 ## 安全概念
 
