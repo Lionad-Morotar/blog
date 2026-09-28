@@ -60,6 +60,7 @@ Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特
 ## 浏览器开发
 
 * [AbortSignal](/maps/_web/browser/abort-signal) - Web 平台协作取消协议：信号组合、检查点响应与生命周期语义
+* [Shadow DOM](/maps/_web/browser/shadow-dom) - 浏览器原生封装边界：样式与事件跨界、:host 级联地位、closed 真实语义与样式性能杠杆
 
 #### 事件捕获机制？
 
