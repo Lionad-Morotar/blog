@@ -102,8 +102,10 @@
 - [Agents](https://lionad.art/maps/agents): 笔记系统智能体档案，记录知识管理规范与系统结构
 - [A2A Protocol](https://lionad.art/maps/_ai/agents/a2a): Agent-to-Agent 协议，Google 推出的多智能体协同开放标准
 - [A2UI](https://lionad.art/maps/_ai/agents/a2ui): Google 推出的声明式 UI 协议，让 AI Agent 能生成富交互界面
+- [Agent 算法迭代方法论](https://lionad.art/maps/_ai/agents/agent-algo-methodology): 从 Agent 开发到 Agent 算法的升级路径：先验后验闭环、评测四级 scaling 链、策略升级与训练阶段的风险暗面。
 - [Agent 架构第一性原理](https://lionad.art/maps/_ai/agents/agent-architecture): Agent 架构设计的核心原则、工作流模式、工具设计与最佳实践
 - [Agent 生态系统全景](https://lionad.art/maps/_ai/agents/agent-ecosystem): AI Agent 框架、平台、协议和基础设施的全面调研
+- [Agent 输出优秀案例](https://lionad.art/maps/_ai/agents/agent-good-cases): 收集 agent 输出超出预期智能的 good case：可复用的行为模式，可当作 prompt 与 skill 设计的模板。
 - [Agent 沙箱的 Egress 管控](https://lionad.art/maps/_ai/agents/agent-sandbox): Agent 沙箱出口流量的受控 MITM、DNS 信任、协议边界与推理路由等进阶机制。
 - [Agent 分类学](https://lionad.art/maps/_ai/agents/agent-taxonomy): Russell & Norvig 经典智能体分类体系及三个互补分类维度
 - [Agents](https://lionad.art/maps/_ai/agents/agents): AI 代理（Agents）是能够自主执行任务并与环境交互的智能实体，通常基于大语言模型（LLM）构建。
@@ -121,12 +123,15 @@ goose is being developed as an open-source software project.
 - [Harness 工程](https://lionad.art/maps/_ai/agents/harness-engineering): 结合控制论与真实 .codebuddy 配置，探讨 AI 辅助编程中 Harness 的双环控制、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计。
 - [人机协作智能体团队](https://lionad.art/maps/_ai/agents/human-agent-teams): 前沿 AI 公司（Anthropic、月之暗面）构建人类与智能体协作团队的经验：公共空间、明确角色、北极星目标、渐进信任与多智能体分工
 - [AI 与人性交互](https://lionad.art/maps/_ai/agents/human-ai-interaction)
+- [模型与 Harness 的训练耦合](https://lionad.art/maps/_ai/agents/model-harness-coupling): 模型后训练日益适配特定 Harness 的工具 Schema，导致第三方 Harness 上工具调用退化、Schema 不再中性的现象、机制与对策。
 - [多智能体架构决策与工程实践](https://lionad.art/maps/_ai/agents/multi-agent-architecture): 单/多智能体架构选择、Anthropic 工程实践、Cognition 上下文工程原则、Claude 官方决策指南
 - [多智能体协作框架对比](https://lionad.art/maps/_ai/agents/multi-agent-frameworks): AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph 等多智能体框架的核心设计、适用场景与选择建议
 - [多智能体构建模式与实践指南](https://lionad.art/maps/_ai/agents/multi-agent-patterns): 四类智能体构建关注点、框架选择决策矩阵、生产环境最佳实践
 - [OpenAI Agents SDK (JavaScript) 发布记录](https://lionad.art/maps/_ai/agents/openai-agents-js-releases): OpenAI Agents SDK JavaScript/TypeScript 版本的完整发布历史与变更日志
 - [智能健身教练 PEAS 模型分析](https://lionad.art/maps/_ai/agents/peas-coach-example): 通过智能健身教练案例深入理解 PEAS 模型的应用，包括性能度量、环境描述、执行器、传感器及环境特性分析
 - [Pi Agent 源码解析](https://lionad.art/maps/_ai/agents/pi-agent): 从 Pi Agent 源码中提炼的 Agent 循环、上下文压缩、会话管理与工具执行等进阶实现细节。
+- [软件工厂（Software Factory）](https://lionad.art/maps/_ai/agents/software-factory): 从事件出发协同多个 Agent 的结构化工程流程范式：定义与边界、注入攻击面、失败即体检、隔离 subagent 与标签状态机
+- [SoL-Pi](https://lionad.art/maps/_ai/agents/sol-pi): NVIDIA 基于 Pi 的 auto-research 效率机制集，四类 token 浪费的机制归因与自动研究方法论。
 - [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/maps/_ai/agents/tokenmaxxing): 从 2026 年初 Tokenmaxxing 现象出发，分析 Agentic coding 的成本失控、组织流程瓶颈、Agent 能力错配与需求天花板，并将其置于 J 型增长曲线与生产率悖论的经济学框架中理解。
 - [有毒数据流分析](https://lionad.art/maps/_ai/agents/toxic-flow-analysis): 在多代理系统中识别和缓解敏感数据泄露风险的技术
 - [Workflow 与 Agent 对比：电商退款案例](https://lionad.art/maps/_ai/agents/workflow-vs-agent): 通过电商售后退款场景，对比 Workflow 固定流程与 Agent 智能决策的优劣，及混合架构设计
@@ -137,6 +142,7 @@ goose is being developed as an open-source software project.
 - [提示工程](https://lionad.art/maps/_ai/applications/prompt-engineering): 提示工程框架与工具，包括 DSPy、Instructor、Guidance、Outlines 等声明式提示编程方案。
 - [LLM Benchmark](https://lionad.art/maps/_ai/benchmark/benchmark): 各类大语言模型的基准测试结果与排行榜资源。
 - [CL-Bench](https://lionad.art/maps/_ai/benchmark/cl-bench): LLM 智能体持续学习基准测试框架
+- [伪造基准文梯鉴](https://lionad.art/maps/_ai/benchmark/fake-benchmark-triage): 用 created_at 取证、REPL 验码与算术自查三步，在几分钟内判别"X 个真实任务实测"类文章及其 GitHub 数据源是否为编造
 - [Frontend Copy Benchmark](https://lionad.art/maps/_ai/benchmark/frontend-copy): 前端抄代码能力测试
 - [LLM Benchmark 原始任务示例集](https://lionad.art/maps/_ai/benchmark/llm-benchmark-task-examples): SimpleQA、HLE、Apex Shortlist、Codeforces、SWE Verified、Terminal Bench 2.0、Toolathlon 的原始任务示例。
 - [glm-ocr-8bit](https://lionad.art/maps/_ai/benchmark/local/glm-ocr-8bit)
@@ -145,8 +151,10 @@ goose is being developed as an open-source software project.
 - [qwen3-coder-next-mlx-4bit](https://lionad.art/maps/_ai/benchmark/local/qwen3-embedding-8b-4bit-dwq)
 - [qwen3.5-9b-mlx-4bit](https://lionad.art/maps/_ai/benchmark/local/qwen3.5-9b-mlx-4bit)
 - [Simple Benchmark](https://lionad.art/maps/_ai/benchmark/simple): 日常使用的简单基准测试
+- [Agent DLC](https://lionad.art/maps/_ai/evaluation/agent-dlc): 评估驱动的 Agent 生产放行方法论：六环节门禁与黄金标准、LLM 裁判偏差校准、根因归因与轨迹评估的失效方式。
 - [Evaluation](https://lionad.art/maps/_ai/evaluation/evaluation): AI 系统评估与测试方法论，涵盖模型评估框架、可观测性平台和可重复性实践。
 - [Evaluation Framework](https://lionad.art/maps/_ai/evaluation/evaluation-framework): 大语言模型评估框架与基准测试，包括 lm-evaluation-harness、BigCode 等统一评估工具。
+- [Langfuse OTel](https://lionad.art/maps/_ai/evaluation/langfuse-otel): Langfuse 的 OpenTelemetry 接入机制：OTLP 端点、v4 摄入头、属性映射与契约层桥接的踩坑与选型。
 - [Observability](https://lionad.art/maps/_ai/evaluation/observability): LLM 可观测性平台与工具，包括 LangSmith、Phoenix、Langfuse 等追踪、评估和监控方案。
 - [Reproducibility](https://lionad.art/maps/_ai/evaluation/reproducibility): 机器学习可重复性（Reproducibility）的核心价值与实践方法，包括随机种子固定、数据版本控制等关键实践。
 - [AI Architectures](https://lionad.art/maps/_ai/foundations/architectures): System architectures and design patterns for AI systems
@@ -193,6 +201,7 @@ goose is being developed as an open-source software project.
 - [Recommendation Systems](https://lionad.art/maps/_ai/recommendation/recommendation): AI 推荐系统技术与演进，从协同过滤到深度学习的推荐算法实践。
 - [推荐系统演进：从零到上瘾算法](https://lionad.art/maps/_ai/recommendation/recommendation-system): 推荐系统演进历程：从流行度排序、协同过滤、矩阵分解到双塔模型与深度学习的完整指南。
 - [AI Safety](https://lionad.art/maps/_ai/safety/safety): AI 安全研究、风险治理与相关事件
+- [Claude Code 技能运行时机制](https://lionad.art/maps/_ai/skills/claude-skills-runtime): 技能清单的零和预算、调用后的驻留与压缩重挂载、调用控制字段的决策分野。
 - [如何编写 Agent Skills](https://lionad.art/maps/_ai/skills/create-a-skill): 如何编写 Agent Skills - 完整指南
 - [D2C](https://lionad.art/maps/_ai/skills/d2c): 智能 Design-to-Code 架构实践
 - [Skill 蒸馏的边界与精度阶梯](https://lionad.art/maps/_ai/skills/skill-distillation): 从 ACT-R 双记忆模型与 Polanyi 默会知识看 Skill 能蒸馏几分之几 — L1 规则可编码、L1.5 风格扩散有边界、L2 Utility 写不进。
@@ -200,6 +209,7 @@ goose is being developed as an open-source software project.
 - [Agent Skills](https://lionad.art/maps/_ai/skills/skills): Skill 是一种能力，作为 Agent 和工具之间的胶水层，帮助 Agent 理解工具以及有控制上下文等优点。
 - [Browser AI Automation](https://lionad.art/maps/_ai/tools/browser-automation): AI 驱动的浏览器自动化工具对比
 - [Claude Code](https://lionad.art/maps/_ai/tools/claude-code): Anthropic 官方的 AI 编码助手，支持从描述构建功能、调试问题、导航代码库和自动化繁琐任务
+- [Claude Code 子智能体](https://lionad.art/maps/_ai/tools/claude-code-subagents): 子智能体的隔离本质与委托决策规则、配置体系现状、描述双角色与输出格式设计要领、委托经济学与冷启动税。
 - [Codex](https://lionad.art/maps/_ai/tools/codex): OpenAI 的 AI 编程助手，支持代码生成、审查、自动化工作流
 - [Copilot](https://lionad.art/maps/_ai/tools/copilot): Copilot 是一种新型人机协作工具
 - [Tools](https://lionad.art/maps/_ai/tools/tools): AI 开发工具与平台，包括 Claude Code、浏览器自动化、GitHub Copilot 等编码助手。
@@ -214,8 +224,10 @@ goose is being developed as an open-source software project.
 - [对 AI 生成代码”惰性依赖”的警惕与治理](https://lionad.art/maps/_ai/vibe/complacency): AI 编程助手提高效率的同时，会放大重复代码、代码 churn 和审查难度，需要用工程实践和流程设计来对冲”惰性依赖”风险
 - [Loop Engineering](https://lionad.art/maps/_ai/vibe/loop-engineering): 从手动提示词工程到自主循环系统的 AI 编程范式迁移，以及其构建块、风险与工程权衡
 - [玩具化设计思维](https://lionad.art/maps/_ai/vibe/playful-ai): 将复杂 AI 能力转化为情感化、游戏化体验的包装策略
+- [AI 时代的工程师技能形成](https://lionad.art/maps/_ai/vibe/skill-formation): AI 接管了过去用于培养工程师的初级工作，成长阶梯的台阶正在消失；监督 AI 所需的判断力恰恰来自这些被接管的经验
 - [编码智能体团队](https://lionad.art/maps/_ai/vibe/team-of-agents): 通过协作的多个 AI 编码智能体来完成开发任务
 - [Vibe Coding](https://lionad.art/maps/_ai/vibe/vibe): Vibe 是一种基于 AI 的代码生成和协作方式，旨在通过自然语言提示帮助开发者快速生成代码片段、自动化任务和提升编程效率。
+- [视频生成提示词](https://lionad.art/maps/_ai/video/video-prompt): AI 视频生成模型的提示词术语体系，覆盖镜头运动、景别焦段、光线色彩、角色一致性、剪辑语法与物理动力学六个术语域。
 - [Workflow](https://lionad.art/maps/_ai/workflow): AI 辅助开发工作流与方法论
 - [Agentic Engineering](https://lionad.art/maps/_ai/workflow/agentic-engineering): 超越 Vibe Coding 的 AI 辅助工程方法论
 - [Spec-Driven Development (SDD)](https://lionad.art/maps/_ai/workflow/sdd): 规格驱动开发方法论与工具对比
@@ -236,7 +248,9 @@ goose is being developed as an open-source software project.
 - [Herb Caudill](https://lionad.art/maps/_blogs/software-engineering/herb-caudill): 对软件工程的反思
 - [商业分析](https://lionad.art/maps/_business/analysis/business-analysis): 商业分析是指通过拆解问题、分析需求、设计解决方案，为业务开展提供更好的数据和决策支持的过程。
 - [商业思维案例笔记@曹雄峰](https://lionad.art/maps/_business/analysis/business-examples): 理解商业世界，破解决策难题
-- [商业](https://lionad.art/maps/_business/business): 商业分析、风险投资及商业思维
+- [商业](https://lionad.art/maps/_business/business): 商业分析、风险投资、创业方法论及商业思维
+- [MVP 之死与 IUP](https://lionad.art/maps/_business/startup/mvp-to-iup): AI 时代精益创业证据体系重构：从最小可行产品到初始未测试产品
+- [创业](https://lionad.art/maps/_business/startup/startup): 创业方法论：精益创业、客户发展与验证体系
 - [风险投资](https://lionad.art/maps/_business/venture-capital/venture-capital): 高风险、高回报的投资行为
 - [CLI](https://lionad.art/maps/_cli/cli): 命令行工具、脚本和自动化
 - [CLI 设计哲学与用户体验](https://lionad.art/maps/_cli/engineering/cli-design): 命令行工具的设计原则、交互模式与可访问性实践
@@ -264,8 +278,11 @@ goose is being developed as an open-source software project.
 - [计算机基础](https://lionad.art/maps/_computer/fundamentals/fundamentals): 计算机基础知识导图，包含进制转换、数字电路设计、原码反码补码等核心概念的详细解析。
 - [数字身份](https://lionad.art/maps/_computer/identity/digital-identity): 数字身份系统的脆弱性、武器化风险与意识形态基础
 - [计算机网络](https://lionad.art/maps/_computer/network/network): 计算机网络基础知识全览，包含 TCP/IP、HTTP、HTTPS、TLS 等协议的详细解析，以及网络安全、CDN、跨域等实践内容。
+- [RESTful](https://lionad.art/maps/_computer/network/restful): REST 架构风格的实用主义落地：朴素 RESTful 核心约定、理查德森成熟度模型与 RPC 风格的工程取舍
 - [Http Request Example](https://lionad.art/maps/_computer/network/segments/http-request-example)
 - [Http Response Example](https://lionad.art/maps/_computer/network/segments/http-response-example)
+- [undici](https://lionad.art/maps/_computer/network/undici): Node 官方 HTTP 客户端 undici 的协议演进：v7 选项化 h2、v8 默认化与 Node 捆绑节奏，及 pipelining 参数在 h2 连接上的配置陷阱
+- [WebSocket](https://lionad.art/maps/_computer/network/websocket): WebSocket 的协议迁移现实：RFC 8441/9220 的实现矩阵与机会式触发条件链，实时通道的优化空间在应用层而非传输层版本
 - [系统性能](https://lionad.art/maps/_computer/system-performance): 计算机系统性能指标与延迟数字，帮助程序员理解各层级操作的时间量级差异
 - [C++](https://lionad.art/maps/_cpp/cpp): C++ 是一种静态类型、编译式、通用、多范式编程语言
 - [Google C++ Standard](https://lionad.art/maps/_cpp/google-cpp-standard): Google C++ 编程规范
@@ -290,7 +307,9 @@ goose is being developed as an open-source software project.
 - [Lakehouse](https://lionad.art/maps/_database/lakehouse/lakehouse): 一种新型的数据管理架构，它结合了数据湖（Data Lake）和数据仓库（Data Warehouse）的优点，为现代数据分析和管理提供了一个统一的平台。
 - [NoSQL](https://lionad.art/maps/_database/nosql/nosql): 非关系型数据库技术，包括 Redis 缓存与数据结构
 - [Redis](https://lionad.art/maps/_database/nosql/redis): About Redis
+- [数据删除策略](https://lionad.art/maps/_database/sql/data-deletion): 软删除与硬删除的取舍依据、常见陷阱与归档清理方案
 - [数据库索引优化](https://lionad.art/maps/_database/sql/indexing): 关系型数据库索引的工作原理、查询优化策略与常见性能陷阱。
+- [jsonb](https://lionad.art/maps/_database/sql/jsonb): PostgreSQL 的 jsonb 类型：规范化存储模型、查询与索引语义、更新写放大与版本边界。
 - [Postgres](https://lionad.art/maps/_database/sql/postgres): PostgreSQL 是一个强大的开源关系型数据库，通过丰富的插件生态可以覆盖多种数据场景。
 - [SQL](https://lionad.art/maps/_database/sql/sql): SQL（Structured Query Language，结构化查询语言）是一种用于管理和操作关系型数据库的编程语言。它用于执行各种数据库操作，如查询数据、插入记录、更新数据和删除记录。
 - [Text to SQL：为何被标记为 Hold，以及应该如何安全使用](https://lionad.art/maps/_database/sql/text-to-sql): 解析 Text to SQL 在实际生产中的风险点与可接受的使用边界，为数据与平台团队提供治理思路。
@@ -369,6 +388,7 @@ goose is being developed as an open-source software project.
 - [W3C Standards](https://lionad.art/maps/_frontend/w3c)
 - [CSS Color Module](https://lionad.art/maps/_frontend/w3c/css/color-module)
 - [CSS Conditional Rules Module](https://lionad.art/maps/_frontend/w3c/css/conditional-rule-module)
+- [CSSOM View Module](https://lionad.art/maps/_frontend/w3c/css/cssom-view)
 - [CSS Scrollbars Styling Module](https://lionad.art/maps/_frontend/w3c/css/scrollbars-styling-module)
 - [proposal-defer-import-eval](https://lionad.art/maps/_frontend/w3c/es/proposal-defer-import-eval): 延迟导入执行提案允许导入的模块等到使用时才执行
 - [proposal-regexp-v-flag](https://lionad.art/maps/_frontend/w3c/es/proposal-regexp-v-flag): 正则的 v 模式兼容 u 模式并带来了 emoji 多码匹配等改进
@@ -385,6 +405,7 @@ goose is being developed as an open-source software project.
 - [严肃游戏](https://lionad.art/maps/_game/game-design/serious-games): 以游戏为载体介入社会议题的设计方法与社群效应
 - [触控设计](https://lionad.art/maps/_game/game-design/touch-controls): 移动端游戏触控交互的设计原则与体验优化
 - [游戏](https://lionad.art/maps/_game/game/game): 游戏开发、游戏设计、游戏行业等
+- [贪吃蛇必胜算法](https://lionad.art/maps/_game/game/snake-ai): 贪吃蛇 AI 的可证明必胜框架：哈密顿圈不变量、安全短路、启发式退化与复杂度边界
 - [游戏](https://lionad.art/maps/_games/games): 游戏领域知识与攻略，涵盖游戏机制解析、策略指南与相关资源
 - [逃离塔克夫](https://lionad.art/maps/_games/games/escape-from-tarkov): 逃离塔克夫是一款由俄罗斯游戏公司 BattleState Games 开发的第一人称射击游戏。
 - [Go](https://lionad.art/maps/_go/go): Go 编程语言学习资源与工具集合
@@ -420,8 +441,10 @@ goose is being developed as an open-source software project.
 - [Capacity-driven development（产能驱动开发）](https://lionad.art/maps/_management/capacity-driven-development/capacity-driven-development): 警惕用「填满人」替代「保障价值流」的局部最优，建议用系统健康与组织调度来管理空闲产能。
 - [领导力](https://lionad.art/maps/_management/leadership): 领导力原则与团队管理智慧
 - [管理](https://lionad.art/maps/_management/management): 团队管理、组织架构、开发方法和工程文化
+- [入场券零和](https://lionad.art/maps/_management/organization/entry-ticket-zero-sum): 有后果的犯错资格作为位置性稀缺资源的分配机制与竞争策略
 - [组织](https://lionad.art/maps/_management/organization/organization): 团队组织架构、管理方法、沟通方式等。
 - [彼得原理](https://lionad.art/maps/_management/organization/peter-principle): 组织内晋升悖论与管理者胜任力陷阱
+- [IPD 与研发流程分层](https://lionad.art/maps/_management/rd-process/ipd): 集成产品开发（IPD）视角下的研发流程体系：技术预研、平台开发、产品开发、定制项目的分层机制与判据
 - [AI 加速的影子 IT](https://lionad.art/maps/_management/shadow-it/ai-accelerated-shadow-it): 讨论生成式 AI 和无代码平台如何催生新一轮影子 IT 现象，其风险与治理建议。
 - [影子 IT](https://lionad.art/maps/_management/shadow-it/shadow-it): 影子 IT 现象、风险与治理策略
 - [Shape Up](https://lionad.art/maps/_management/shape-up/shape-up): 适合中小团队的一种工作方式。
@@ -469,6 +492,7 @@ goose is being developed as an open-source software project.
 - [PHP](https://lionad.art/maps/_php/php): PHP 服务器端脚本语言学习资源与工具集合
 - [PHP](https://lionad.art/maps/_php/php/php): PHP 是一种广泛使用的开源服务器端脚本语言，特别适用于Web开发并可以嵌入HTML中。
 - [五年规划](https://lionad.art/maps/_policy/five-years-plan-14): 对未来五年内的发展目标、发展方向、发展重点、发展任务等进行系统安排和部署的规划。
+- [高标准数字园区](https://lionad.art/maps/_policy/high-standard-digital-park): 工信部高标准数字园区建设政策（工信厅规函〔2025〕466 号指南），四高门槛、联文遴选机制与首批 91 个建设对象名单研判要点
 - [工业园区高质量发展指引](https://lionad.art/maps/_policy/industrial-parks-guide): 工信部、国家发改委联合印发的工业园区发展政策，明确"特色化、集约化、数智化、绿色化、规范化"五化发展方向
 - [政策](https://lionad.art/maps/_policy/policy): 政策研究、五年规划及政策分析
 - [AI 计算资源危机](https://lionad.art/maps/_politics/ai-compute-crunch): AI 算力供应紧张对行业 adoption 的影响分析
@@ -555,6 +579,7 @@ goose is being developed as an open-source software project.
 - [软件测试](https://lionad.art/maps/_test/test): 软件测试方法、工具与实践
 - [Playwright](https://lionad.art/maps/_test/tools/playwright/playwright): Playwright 自动化测试工具介绍，包含其安装便捷性、先进理念和配套工具等主要特点。
 - [测试工具](https://lionad.art/maps/_test/tools/tools): 自动化测试工具与框架
+- [Vitest](https://lionad.art/maps/_test/tools/vitest/vitest): Vitest 测试框架进阶知识，涵盖 server.deps 内联与外置机制、mock 传导与版本迁移陷阱。
 - [Bills](https://lionad.art/maps/_threads/bills): 记录一些账单和开销
 - [Daily Bugs](https://lionad.art/maps/_threads/daily-bugs): 追踪一些日常碰到的软件缺陷
 - [引用网站](https://lionad.art/maps/_threads/references): 博客中引用过的网站列表（按 A-Z 排序）。
@@ -581,6 +606,7 @@ goose is being developed as an open-source software project.
 - [Github](https://lionad.art/maps/_web-app/github): 世界上最知名的开源编程社区
 - [网站推荐](https://lionad.art/maps/_web-pages/bookmarks): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
 - [网站推荐](https://lionad.art/maps/_web-pages/web-pages): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
+- [AbortSignal](https://lionad.art/maps/_web/browser/abort-signal): Web 平台的协作取消协议：信号的产生与组合、检查点响应、生命周期语义与取消的分布式边界。
 - [浏览器](https://lionad.art/maps/_web/browser/browser): 浏览器引擎、原理、新特性与开发技术
 - [浏览器引擎](https://lionad.art/maps/_web/browser/browser-engine): Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
 - [Web Crypto API](https://lionad.art/maps/_web/browser/crypto): Web Crypto API 是一个 JavaScript 接口，用于在浏览器中执行加密操作。
@@ -591,6 +617,7 @@ goose is being developed as an open-source software project.
 - [小程序](https://lionad.art/maps/_web/miniapp/miniapp): 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
 - [WebTransport](https://lionad.art/maps/_web/network/webtransport): 基于 HTTP/3 + QUIC 的下一代 Web 双向通信技术
 - [页面性能](https://lionad.art/maps/_web/performance/performance): 全面的网页性能优化指南，涵盖性能指标、监控方案、优化策略，以及 SSR、PWA 等现代 Web 应用的性能优化实践。
+- [存储介质数据清除](https://lionad.art/maps/_web/security/data-sanitization): 删除与清除的分界、按介质选方法的物理依据、GB 46864-2025 强制国标责任框架与 NIST 对标、擦除命令的工程陷阱。
 - [HMAC](https://lionad.art/maps/_web/security/hmac): 基于哈希的消息认证码 HMAC 的双层结构、长度扩展攻击防御与验签工程实践
 - [Web 安全](https://lionad.art/maps/_web/security/security): Web 安全技术、OAuth 协议与加密算法
 - [SM2](https://lionad.art/maps/_web/security/sm2): 国密 SM2 椭圆曲线公钥密码算法标准与工程陷阱
@@ -598,6 +625,7 @@ goose is being developed as an open-source software project.
 - [Web 技术](https://lionad.art/maps/_web/web): Web 开发技术，包括浏览器原理、性能优化、安全、爬虫和小程序
 - [Windows](https://lionad.art/maps/_windows/windows): 记录一些使用 Windows 碰到的问题
 - [构建工具](https://lionad.art/maps/_workflow/build-tools/build-tools): 前端构建工具全景图，涵盖 Vite、Webpack、Rspack 等主流工具的特性对比和使用说明
+- [Bun](https://lionad.art/maps/_workflow/build-tools/bun): Bun 构建工具与运行时知识，聚焦字节码缓存（Bytecode Caching）的原理、用法与取舍
 - [Rspack](https://lionad.art/maps/_workflow/build-tools/rspack): Rspack 构建工具的特性分析与生态定位研究。
 - [Vite](https://lionad.art/maps/_workflow/build-tools/vite): Vite 前端构建工具的核心特性、插件机制和性能优化指南。
 - [Webpack](https://lionad.art/maps/_workflow/build-tools/webpack): Webpack 打包工具的配置指南、优化策略和插件开发教程。
@@ -616,6 +644,7 @@ goose is being developed as an open-source software project.
 - [包管理器](https://lionad.art/maps/_workflow/package-manager/package-manager): 用于管理项目依赖的工具，涵盖 npm、pnpm、yarn 的核心特性和最佳实践
 - [包的角色分类](https://lionad.art/maps/_workflow/package-manager/package-roles): Andrew Nesbitt 提出的包角色分类框架——按行为模式而非技术属性理解软件包
 - [pnpm](https://lionad.art/maps/_workflow/package-manager/pnpm): pnpm 是一个快速、省空间的包管理器
+- [pnpm 模块原理](https://lionad.art/maps/_workflow/package-manager/pnpm-modules): pnpm 的 node_modules 层次结构与符号链接机制，解释其如何避免幽灵依赖和依赖分身
 - [前端工程化](https://lionad.art/maps/_workflow/workflow): 前端工程化工作流的核心工具链，包括包管理器、构建工具、代码规范、Monorepo 管理等
 
 ## Tools

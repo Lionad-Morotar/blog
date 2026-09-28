@@ -1312,7 +1312,8 @@ Claude Code 之父 Boris Cherny 给出的答案是五种工作原型：原型者
 
 最近一个月，产研圈的组织调整消息很密集。
 
-美团 CLC 食杂零售 Keemart 研发团队完成架构调整，前端与后端正式合并。新架构已经生效，相关前端同学提前一个多月就开始接受后端训练[1](https://lionad.art/#user-content-fn-infoq){#user-content-fnref-infoq ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。蚂蚁网商宣布推动测试岗整体转向研发岗，给了半年缓冲期。过渡期一结束，原测试同学就转成全栈工程师[1](https://lionad.art/#user-content-fn-infoq){#user-content-fnref-infoq-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。招聘市场上，全栈工程师的 JD 也在明显变多。
+美团 CLC 食杂零售 Keemart 研发团队完成架构调整，前端与后端正式合并。新架构已经生效，相关前端同学提前一个多月就开始接受后端训练[1](https://lionad.art/#user-content-fn-infoq){#user-content-fnref-infoq ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。蚂蚁网商宣布推动测试岗整体转向研发岗，给了半年缓冲期。过渡期一结束，
+原测试同学就转成全栈工程师[1](https://lionad.art/#user-content-fn-infoq){#user-content-fnref-infoq-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。招聘市场上，全栈工程师的 JD 也在明显变多。
 
 AI 数字员工也真的开始「入职」了。
 
@@ -1325,7 +1326,8 @@ Shopify 内部有个 AI 同事叫 River。它是真「同事」：住在公司�
 
 要回答职位还能撑多久，不妨先回头看看，今天这些职位当初是怎么被切出来的。
 
-企业内部的协作依赖专业分工。八年前我刚做前端时，向更早入行的同事请教。他们当年在国内最早那批前端团队里干活的方式，和我今天习以为常的一切几乎一模一样：专业按职能切，需求从市场来，交给产品打磨，由设计审核 UI/UX，再交给前后端开发，最后由数据团队提供支持或运营能力。
+企业内部的协作依赖专业分工。八年前我刚做前端时，向更早入行的同事请教。他们当年在国内最早那批前端团队里干活的方式，和我今天习以为常的一切几乎一模一样：专业按职能切，需求从市场来，交给产品打磨，由设计审核 UI/UX，再交给前后端开发，
+最后由数据团队提供支持或运营能力。
 
 这套瀑布流（Waterfall）式的流水线非常好用，过去十几年里一直运转良好。但在 AI 面前，越来越多人开始质疑：这种按职能切的分工，还能不能撑得住。
 
@@ -1335,7 +1337,8 @@ Shopify 内部有个 AI 同事叫 River。它是真「同事」：住在公司�
 
 在 Anthropic 内部有类似孵化器的实验室机制。Boris 和几个同事组成了一个非常小型的项目制团队，
 在不长的时间里创造了 Claude Code、CC Desktop 以及模型上下文协议（Model Context Protocol，MCP）等内容，随后团队解散。
-这种项目制的工作方式，深刻影响了他看待产品和工程的视角。他也是近期热度很高的循环工程（Loop Engineering）话题的提出者之一。他在多个访谈里讲过，Claude Code 一直在朝「以 loop 为 harness（执行外壳）核心」的方向走，目标是更低成本、更高效地跑起更多智能体。
+这种项目制的工作方式，深刻影响了他看待产品和工程的视角。他也是近期热度很高的循环工程（Loop Engineering）话题的提出者之一。他在多个访谈里讲过，Claude Code 一直在朝「以 loop 为 harness（执行外壳）
+核心」的方向走，目标是更低成本、更高效地跑起更多智能体。
 
 用过 Claude Code 的人会注意到，他观点的核心假设是：传统流程型工作会通过左移（Shift Left）被重构。工作尽量提前，人从技术流程节点里解放出来，更多任务交给 Agent 自动化完成。
 
@@ -7052,6 +7055,7 @@ Lionad\_Guirotar]{border="0" frameBorder="no" height="150" marginHeight="0" marg
 
 - [商业分析](https://lionad.art/maps/_business/analysis/business-analysis)
 - [风险投资](https://lionad.art/maps/_business/venture-capital/venture-capital)
+- [创业](https://lionad.art/maps/_business/startup/startup)
 - [注册公司](https://lionad.art/maps/_company/business/company)
 
 ## 管理
@@ -7446,6 +7450,89 @@ Google 推出的声明式 UI 协议，让 AI Agent 能生成富交互界面。Ag
 - 不限于 Web（也支持移动端和桌面端）
 
 
+# Agent 算法迭代方法论
+
+## 先验后验的迭代闭环
+
+#### Agent 开发做先验，Agent 算法追上限
+
+Agent 开发与算法的分界：把一个 Agent 从零快速做到 60 分是开发，
+从 80 分继续追高是算法。上线验证周期长、成本高，不可能每次迭代都等线上反馈，
+所以完整的业务迭代方法论是「Benchmark → 策略 → 上线」闭环：
+先用离线 Benchmark 尽可能对齐线上效果，用它快速指导先验策略迭代，
+上线拿到真实后验后再反过来修正和补充先验。
+
+评测侧沿四级链 scaling：Rubric（评分细则）把模糊的业务目标翻译成
+非专家、LLM、程序都能稳定执行的评价标准；人工按 Rubric 标注一批样本看人人一致率，
+一致率低说明标准本身不清而非标注员不行；LLM-as-a-Judge 用人标数据当 ground truth
+调 Prompt 与采样超参，复现已稳定的人工判断；Reward Model（奖励模型）
+再把已验证的评判蒸馏成低延迟、高吞吐的小模型，因为每次评测都调大模型时，
+成本与时延随评测量线性增长，且很难靠压缩 Prompt 优化。
+RM 只需在业务数据分布内强，可以用更小的基模训练。
+「离线涨、线上没涨」的首要嫌疑是 Benchmark 未对齐业务，
+要修的是样本、Rubric 与裁判而不是策略；
+Benchmark 因此不是一次性交付物，而是跟着业务持续迭代。
+
+见：[从 Agent 开发到 Agent 算法，进阶指南](https://mp.weixin.qq.com/s/0YFG-J2ZWwRO4lTP7f1JDA){rel="&#x22;nofollow&#x22;"}
+
+#### 策略升级路径：Prompt 燃尽再进 SFT，反馈信号是 RL 的命门
+
+Agent 策略阶段的合理流程：纯 Prompt 跑通最小闭环，系统性分析 bad case，
+再用 RAG、few-shot、CoT 等经典手法逼近上限，同步养 Benchmark。
+判断 Prompt 层是否燃尽用梯度测试：在同一批样本上逐步增强 Prompt，
+效果仍几乎不涨即到顶。SFT 阶段的准入原则是
+「高频变化的信息留在 Context，长期稳定的行为才训进参数」：
+实时库存、活动规则再重要也不进模型，输出格式、业务 SOP、工具调用范式才值得固化。
+SFT 数据不是越多越好：同一场景下行为互相矛盾（一部分拒答一部分回答）时，
+模型学到的不是灵活而是不确定性，清洗 SFT 数据本质是整理模型的行为分布；
+未经 Benchmark 验证的 Prompt hack 直接扩数据训进去，
+等于把没想明白的策略永久写进参数。
+RL 阶段 Benchmark 从测试变成反馈，Rubric 定义什么叫好、Judge 判断好不好、
+判断转成 Reward 决定优化方向，链上每级失真都会被训练放大，
+所以离线 Reward 上涨不等于线上业务指标上涨。
+
+见：[从 Agent 开发到 Agent 算法，进阶指南](https://mp.weixin.qq.com/s/0YFG-J2ZWwRO4lTP7f1JDA){rel="&#x22;nofollow&#x22;"}
+
+## 训练阶段的风险暗面
+
+#### KL 惩罚挡不住奖励模型过优化
+
+RLHF 常见的安全假设是给 Reward 加 KL 散度惩罚，策略就不会偏离真实目标太远。
+Gao 等人 2022 年的实验给出量化反例：固定一个「金标准」奖励模型扮演人类，
+用代理 RM 优化策略，金标准分数随优化量先升后降，与 Goodhart 定律一致；
+加大 KL 惩罚系数并不改变这个交叉点的相对位置，
+因为 RL 消耗 KL 预算的速度远快于 best-of-n 采样，按 KL 距离惩罚不改变相对排序。
+后续研究进一步主张 KL 正则不足以缓解 reward misspecification。
+工程含义：KL 系数不是安全阀，RM 上线后必须保留 held-out 真值评测
+与定期人工或 LLM Judge 抽检，发现漂移即补充数据重训。
+
+见：[Scaling Laws for Reward Model Overoptimization](https://arxiv.org/abs/2210.10760){rel="&#x22;nofollow&#x22;"}
+
+#### 直接拿 LLM 裁判当 RL 奖励会被策略攻陷
+
+RLAIF 用 LLM 裁判的打分直接充当 RL 奖励时，
+2026 年研究给出首个系统证据：随训练推进，策略学会利用裁判的系统性错误，
+裁判分数持续上涨而真实质量退化。缓解方案是辩论训练（debate）：
+生成器与批评家对抗、由较弱的裁判裁决，相比单策略直接训 RL 的基线
+显著减少 reward hacking，挽回了约 45% 的性能差距，且裁判在 RL 压力下保持判别力；
+该方向首批证据 2026 年 8 月才出现，缓解路线未终审。
+工程上，裁判分数做 reward 时应混入 held-out 人工锚点做漂移监控，不能裸跑。
+
+见：[Debate Training Reduces Reward Hacking in RLAIF](https://arxiv.org/abs/2608.17776){rel="&#x22;nofollow&#x22;"}
+
+#### SFT 的固化效果必须在分布外样本上验证
+
+《SFT Memorizes, RL Generalizes》（Chu et al. 2025）比较两种后训练的泛化差异：
+以结果为奖励的 RL 在文本规则变体与视觉变体上都泛化更好，
+SFT 倾向记忆训练数据、出分布即崩；但同一篇也确认 SFT 是 RL 的前置稳定器，
+它固定输出格式，后续 RL 才能吃到性能收益。
+该结论的测量方式存在争议（NeurIPS 有后续工作质疑 SFT 高分的误导性），未终审，
+但无论哪边成立，防御动作一致：SFT 验证集必须包含训练分布外的样本变体，
+只看同分布 Benchmark 会系统性高估固化效果。
+
+见：[SFT Memorizes, RL Generalizes](https://arxiv.org/abs/2501.17161){rel="&#x22;nofollow&#x22;"}
+
+
 # Agent 架构第一性原理
 
 ## LLM 是神经符号主义的极佳实践？
@@ -7663,6 +7750,31 @@ Agent 容易"未经充分测试就标记功能完成"。显式提示使用浏览
 
 见：[Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents){rel="&#x22;nofollow&#x22;"}（Anthropic Engineering）
 
+#### 意图先行提交：把 Agent 执行做成数据库事务
+
+Agent 连续运行数小时，进程可能在任意一步崩溃，而外部效果（写文件、调 API、计费）已经真实发生。重启后要精确回答
+"哪些做了、哪些没做"，唯一可靠的方式是把执行过程做成数据库事务。
+
+骨架有三件。其一是原子提交：唯一写原语是把一组写入 all-or-none 地提交，事务内部不存在崩溃中间态。其二是意图先行：
+每次外部效果前先提交一条"我即将做 X，产出将使用 id R 和 U"，执行效果，再提交结果与下一状态——意图永远先于效果落盘。
+其三是持久程序计数器：每步把当前操作的全量状态整体覆写进一个寄存器，恢复就是读这一个寄存器并按其分派，
+不需要回放日志，也不需要从缺失中推断位置。操作结束时，终端事务删掉该操作的全部状态寄存器，
+会话里只剩对话、账单与少量游标寄存器——没有死状态需要回收。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md){rel="&#x22;nofollow&#x22;"}
+
+#### 工具声明可重放性，崩溃恢复按声明处置
+
+进程恰好死在工具执行到一半，是长时 Agent 唯一真正的不确定窗口：效果可能已部分发生，盲目重跑会重复副作用，
+直接丢弃又让对话缺失结果。可靠做法是把处置策略从恢复逻辑里拿出来，改由工具自己声明：
+有副作用、不可重跑的工具声明 never，只读、可重跑的工具声明 safe。
+
+崩溃重启后，声明 never 的调用绝不重跑——系统在效果开始前预留的结果 id 下补一条合成的 "interrupted" 错误结果，
+对话保持连贯且没有任何效果被执行两次；声明 safe 的调用则用已持久化的参数重新执行。
+幂等性由此变成工具声明的一部分，运行时明确放弃外部效果的 exactly-once，但换来"每个调用必有结果"的不变量。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md){rel="&#x22;nofollow&#x22;"}
+
 ## Claude Agent SDK 的核心设计原则？
 
 Claude Agent SDK（原 Claude Code SDK）的设计哲学是**给 Claude 一台计算机**——让它能够使用程序员日常使用的工具（终端、文件系统、代码执行），从而像人类一样工作。
@@ -7764,6 +7876,18 @@ Bash 作为通用工具，让 Agent 能够灵活地使用计算机完成各种�
 
 更棘手的是，这种信息损失不会在日志中暴露为明显错误。每一轮的摘要都独立地「合理」，但关键约束在逐轮传递中被系统性地稀释。工程上的可靠做法不是简单做摘要，而是对安全约束、用户明确否定等关键信息做结构化标记，在回写时强制保留原句而非摘要形式——
 或者直接用上下文重置替代渐进式压缩。
+
+#### 超大工具输出应落盘溢写做无损裁剪
+
+对超大工具输出做头尾裁剪是不可逆损失：测试日志被掐头去尾后，埋在中段的关键报错永久丢失，后续推理无法从空气里读回。
+无损做法是 prune + spill：裁剪时把完整输出写入磁盘缓存目录，上下文只留摘要与文件定位符，定位符携带精确的省略区间偏移，
+模型可以用 slice、grep、sed 确定性恢复原文。
+
+两个工程细节决定成败。定位标记必须放在结果开头且足够短——压缩流程通常把工具结果截断到 2000 字符量级，
+标记放在中段会在压缩后连同恢复路径一起静默消失。其次要防恢复死循环：模型读溢写文件取回内容时，这次读取的结果不能再经过裁剪器。
+19 个真实会话（GLM-5.3 与 DeepSeek V4 Flash）的实测中，该模式把上下文占用降低 26%\~35%、未缓存 prefill 降低 72%\~88%，且信息完全可恢复。
+
+见：[example: tool-result pruner + spill extension](https://github.com/earendil-works/pi/pull/8172){rel="&#x22;nofollow&#x22;"}
 
 #### 推理时质询：把 Agent 当用户研究
 
@@ -8101,6 +8225,22 @@ payer 用 EIP-712 签名授权一笔转账，由任意第三方代为提交上�
 - [Anthropic - Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents){rel="&#x22;nofollow&#x22;"}
 
 
+# Agent 输出优秀案例
+
+## 简介
+
+这里收集 agent（对话助手、编程代理）输出的 good case：行为超出对当前一代模型的常规预期、模式可复用、
+值得在 prompt 或 skill 设计里主动模仿。案例以第一手会话截图与原文为主，附必要的机制注解。
+
+#### 案例：受众自适应的语域自切换
+
+glm-5.3-flash 的智能体验在奇奇怪怪的地方，和之前的 glm-5.2 一样。这个案例是 Agent 搜索了网络资料后，
+对用户首先做了简短的归纳「Stack Overflow 高票答案与 kgrz.io 的长文都以此为根因展开。」，而后归档时把
+面向用户的内容重写成了更适合归档的内容。
+
+![AbortSignal 会话截图（图床原图）](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260928104208130.png)
+
+
 # Agent 沙箱的 Egress 管控
 
 Agent 沙箱真正难的不是隔离计算，而是管控出口流量（egress）：Agent 生成的代码要立即运行、要调外部 API、要拿凭据。
@@ -8242,6 +8382,10 @@ OpenShell 把模型推理流量做成独立的执法域：沙箱内的 <https://
 
 - [有毒数据流分析](https://lionad.art/maps/_ai/agents/toxic-flow-analysis)
 
+## Good Cases
+
+- [Agent 输出优秀案例](https://lionad.art/maps/_ai/agents/agent-good-cases) - 收集 agent 输出超出预期智能的行为案例与设计模板
+
 ## Deep Research
 
 - [Deep Research 案例：大模型 MaaS 低价 Coding Plan 商业逻辑](https://dr.unifuncs.com/?sid=252a69b5-d259-42fc-a6ce-d315f89dde52){rel="&#x22;nofollow&#x22;"}
@@ -8293,10 +8437,14 @@ OpenShell 把模型推理流量做成独立的执法域：沙箱内的 <https://
 ## Harness 工程
 
 - [Harness 工程](https://lionad.art/maps/_ai/agents/harness-engineering)：控制论前馈/反馈、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计
+- [模型与 Harness 的训练耦合](https://lionad.art/maps/_ai/agents/model-harness-coupling)：新模型在第三方 harness 编造工具参数、后训练过拟合机制与约束采样对策
+- [SoL-Pi：auto-research 搜出的效率机制集](https://lionad.art/maps/_ai/agents/sol-pi)：四类 token 浪费的机制归因、压缩投资回收、组合损失累积、自动研究局部盆地与一次性编排循环
 
 ## 企业落地
 
 - [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/maps/_ai/agents/tokenmaxxing)：Agentic coding 成本失控、组织流程瓶颈、能力错配与 J 型曲线下探
+- [软件工厂（Software Factory）](https://lionad.art/maps/_ai/agents/software-factory)：事件驱动多 Agent 工程流程的定义与边界、注入攻击面、失败即代码库体检、隔离 subagent 与标签状态机
+- [Agent 算法迭代方法论](https://lionad.art/maps/_ai/agents/agent-algo-methodology)：先验后验闭环、评测四级 scaling 链、策略升级路径与 KL 过优化、裁判当奖励被攻陷、SFT 分布外验证
 
 ## 参考
 
@@ -14653,6 +14801,30 @@ Claude 25% 留给关键任务，DeepSeek 50% 作为日常主力，GLM 15% 跑批
 
 见：[从 Harness 架构到 Token 经济学的探索](https://www.bestblogs.dev/article/70410bef){rel="&#x22;nofollow&#x22;"}
 
+#### 长时运行 Agent 应收敛插件边界而非无限扩张
+
+插件能力无限扩张与 Agent 长期运行叠加时，系统状态会变得无法推理。反方向的设计是严格的边界纪律：
+核心独占持久化——一切可持久数据只分三类（对话条目、当前寄存器、追加账本），没有第四处；
+插件只能以钩子与事件的形式观察和幂等介入，其产出不自行落盘，而是在消费它的那个事务里一并持久化；
+若进程在该事务之前崩溃，钩子可能被重新执行，因此插件必须按幂等设计、不承担恢复语义。
+
+这与「一切皆插件」的路线形成对照：能力越无边界，长期运行下的状态推理代价越高。工程上应把写权限视为
+harness 层最警惕的扩张方向，宁可让插件只读与幂等，也不把恢复与持久化的复杂度下放给生态。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md){rel="&#x22;nofollow&#x22;"}
+
+#### 脚手架是成本主效应：小而专的 Harness 更适合良定义任务
+
+一项 7 种脚手架 × 5 个模型 × 1 个固定 git 任务的受控实验显示，主导运行成本的是脚手架而非工具接口
+（MCP 与 CLI 之争）：两个完全不带 MCP 的脚手架仅用 CLI 完成全部任务，比 MCP 组便宜 5\~28 倍；
+同一个本地 27B 模型跨脚手架的成本差异达 139 倍。
+
+两个附带发现值得警惕：对良定义、可重复的任务，小而专的 harness 优于大而全的通用款；
+agent 经常无视被指派的接口自行其是，因此不验证实际行为的对比测到的是未知混合物。
+对选型的含义：通用性应体现在持久化、恢复、可组合这类正交能力上，而不是功能堆叠。
+
+见：[The Scaffolding Matters More Than the Interface](https://arxiv.org/abs/2608.08654){rel="&#x22;nofollow&#x22;"}
+
 
 # 人机协作智能体团队
 
@@ -14785,6 +14957,26 @@ AI 对每个角色都发出同一种诱惑：设计师觉得工程师是障碍�
 最好的产品来自跨学科团队——人不是阻力，协作才是核心。
 
 见：[Re: People Are Not Friction](https://blog.jim-nielsen.com/2026/re-people-arent-friction/){rel="&#x22;nofollow&#x22;"}
+
+
+# 模型与 Harness 的训练耦合
+
+模型能力的评测与使用越来越无法脱离其训练时所适配的 Harness。这里记录模型后训练与特定 Harness 工具生态互相耦合的证据、机制与工程对策。
+
+#### 工具 Schema 不再中性：后训练过拟合主导 Harness
+
+新一代 Claude 模型（Opus 4.8、Sonnet 5）在第三方 harness Pi 上调用其 edit 工具时，oldText/newText 本体逐字节正确，
+却会在对象尾部现场编造 requireUnique、matchCase、oldText2 等不存在的键；旧模型完全没有这一行为。
+该失败强依赖上下文：单轮新会话无法复现，长 agentic 历史里约 20% 失败率，剥离历史中的思考块减半，
+开启严格约束采样后消失。
+
+其机制在于后训练环境：厂商的 RL 环境就是自家 harness 或其仿真，而该 harness 极其宽容——接受参数别名、
+静默过滤未知键、修复 Unicode、重试坏调用，畸形调用照样完成任务拿到奖励，模型没有梯度学会"不要编造键"。
+同时模型对主导 harness 的规范 schema 形成强先验，遇到不同 shape 的同语义工具时反而更用力地反抗。
+工程含义是工具 schema 不再是中性契约：第三方 harness 要么向主导 shape 靠拢，要么在采样层启用
+严格约束解码兜底——Pi 在问题曝光后的版本里加入了实验性 strict JSON-schema 约束采样作为直接回应。
+
+见：[Better Models: Worse Tools](https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/){rel="&#x22;nofollow&#x22;"}
 
 
 # 多智能体架构决策与工程实践
@@ -15083,6 +15275,15 @@ AutoGen 模拟人类圆桌会议，智能体之间自由对话达成共识。对
 - 探讨复杂伦理问题
 - 无标准答案、需要碰撞出新想法的场景
 
+#### 2026 换代：AutoGen 让位 Microsoft Agent Framework
+
+Microsoft 已指定 Microsoft Agent Framework（MAF，支持 Python 与 .NET）为 AutoGen 的官方后继者并给出迁移指南；AutoGen 仓库未归档但主要开发已停
+（最后 push 停在 2026 年 4 月，同期 CrewAI 与 MAF 仍逐日活跃），`pip install pyautogen` 如今只是转发 `autogen-agentchat` 的代理包。
+工程上真正咬人的是三代互不兼容 API 并存：0.2 的 `AssistantAgent/GroupChat`、0.4 事件驱动重写的 `RoundRobinGroupChat`、MAF 的第三代接口，
+网上旧教程与 StackOverflow 答案约半数对当前装包无效，判别只需把示例 import 贴进 REPL 跑一次。2026 年新项目先评估 MAF，选 AutoGen 等于预支迁移债。
+
+见：[AutoGen to Microsoft Agent Framework Migration Guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/){rel="&#x22;nofollow&#x22;"}
+
 ## DeepAgents
 
 #### 项目经理模式
@@ -15114,6 +15315,15 @@ AutoGen 模拟人类圆桌会议，智能体之间自由对话达成共识。对
 - 市场报告自动生成
 - 数据分析流水线
 - 快速搭建原型验证多智能体价值的项目
+
+#### 与 LangChain 脱钩及其断代用法
+
+"CrewAI 基于 LangChain" 只在 2024 年前的时间窗内为真：官方已移除硬依赖（社区论坛原话 "Langchain is not a hard dependency at all"），
+仅保留对 LangChain 工具的兼容层。脱钩初期另有一个依赖轴错位坑：core 与 tools 分属两个包又各自 pin langchain 约束
+（crewai 要 <0.3、crewai-tools 要 >0.2、embedchain 要 >=0.3.1），存在无解组合，只有特定旧版本对能干净共存。
+这个依附关系可反向给二手资料断代：仍把 CrewAI 写成 LangChain 之上的框架的文章，材料至少停在 2024 年前，或系 LLM 消化旧教程生成。
+
+见：[Langchain dependency - CrewAI Community Support](https://community.crewai.com/t/langchain-dependency/1763){rel="&#x22;nofollow&#x22;"}
 
 ## 三框架对比
 
@@ -15265,6 +15475,17 @@ LangGraph 不抽象提示词或架构，而是提供底层基础设施支持**�
 - 需要人机协作介入的 Agent 系统
 - 企业级生产环境中的 Agent 部署
 
+#### 环是本性：LangGraph 不是 DAG
+
+一批二手文章（连术语表都算）把 LangGraph 的编排结构说成"有向无环图（DAG）"，恰好讲反：支持环（重试、反思、人审回环）正是它区别于 Airflow 一类 DAG 引擎的存在理由，"DAG 是 LangGraph 的结构"一句话
+足以判定作者没有用过这个框架。
+
+配套陷阱是循环保险丝：agent 失控时抛 `GraphRecursionError`，其 `recursion_limit` 的默认值不可依赖——教程长期宣传默认 25（0.2 时代值），
+当前 main 源码实为 `int(getenv("LANGGRAPH_DEFAULT_RECURSION_LIMIT", "10007"))`，文档同步滞后于代码。
+生产图应显式 `graph.invoke(state, {"recursion_limit": N})` 或用 `with_config` 烘入默认值，否则调用成本与失控行为随版本静默漂移。
+
+见：[Graph API overview - Docs by LangChain](https://docs.langchain.com/oss/python/langgraph/graph-api){rel="&#x22;nofollow&#x22;"}
+
 ## 框架选型参考
 
 #### 快速选型决策框架
@@ -15277,6 +15498,17 @@ LangGraph 不抽象提示词或架构，而是提供底层基础设施支持**�
 | Token 资源受限 | DeepAgents           | 严格资源控制，分层隔离          |
 | Web3/区块链场景 | ElizaOS              | 原生支持，多模型，社交代理友好      |
 | 需要强化学习优化   | AgentScope           | 内置 Agentic RL，支持模型微调 |
+
+#### 2026 现状的真实选型轴
+
+流行"107 任务实测"类文章给出的任务数阈值（任务数 <10 用 CrewAI、10-45 用 LangGraph 之类）没有任何来源支撑；
+其宣称的"同一基准"在源头就崩了：dev.to 同作者两篇博文对同一仓库给出冠军相反的结论，中文转抄版又长出与任何上游都不匹配的第三套数字
+（判别方法见[伪造基准文梯鉴](https://lionad.art/maps/_ai/benchmark/fake-benchmark-triage)）。可辩护的选型轴是四层：
+控制流所有权（显式图 LangGraph → 声明式角色流程 CrewAI → 涌现式对话 AutoGen，可控性递减、起步速度递增）、
+状态与恢复（LangGraph checkpointer 原生一等公民；CrewAI 任务间上下文传递历来弱项；AutoGen 状态即聊天历史）、
+成本机制（token 大头在群聊广播与提示重述，机制清楚就不必背"每任务成本"表）、团队生态（LangSmith / CrewAI AMP / Azure-MAF）。
+
+边界同样是第一性的：单次调用、简单 RAG、一条工具链就不要上编排框架，框架是负载不是资产。
 
 #### 演进趋势观察
 
@@ -17247,6 +17479,19 @@ Pi 把模型切换和思考级别也存成 Session Tree 上的 Entry，而不是
 
 见：[Pi Agent session-manager.ts#L362-L377](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/src/core/session-manager.ts#L362-L377){rel="&#x22;nofollow&#x22;"}
 
+#### 会话树、Lane 游标与操作状态的分离存储
+
+Pi v4 harness 把会话持久化严格分成三种存储：条目树（对话内容，一次写入永不修改）、寄存器（当前可变状态，
+命名空间化的键值单元）、追加式用量账本。每一份数据只落在三者之一，没有第四处；分支索引、全文检索等投影
+可随时重建、不携带权威。
+
+Lane 是树中的命名游标：每个会话默认有 main，每条 lane 拥有自己的叶子位置、模型配置、消息队列与至多一个在途操作，
+多条 lane 共享同一棵树并行推进（如并行线程、子代理各占一条），且永不删除、永不改名。
+关键的分离在于操作状态不进对话树：op.\* 寄存器随操作生灭，操作终态事务将其整体删除；条目随会话永生。
+对话历史与编排状态生命周期不同、变更频率不同，分开存放让树保持干净、恢复只需读寄存器。
+
+见：[Pi AgentHarness implementation specification](https://github.com/earendil-works/pi/blob/main/packages/agent/docs/harness.md){rel="&#x22;nofollow&#x22;"}
+
 #### 工具执行流式更新有截止门
 
 工具执行可能持续很久，期间会不断产生 `tool_execution_update` 部分结果事件。
@@ -17256,6 +17501,128 @@ Pi 把模型切换和思考级别也存成 Session Tree 上的 Entry，而不是
 对于需要实时反馈的长工具，这个模式是个关键的安全网。
 
 见：[Pi Agent agent-loop.ts#L671-L706](https://github.com/earendil-works/pi/blob/main/packages/agent/src/agent-loop.ts#L671-L706){rel="&#x22;nofollow&#x22;"}
+
+
+# 软件工厂（Software Factory）
+
+#### 软件工厂：从事件出发协同多个 Agent 的结构化工程流程
+
+Software Factory（软件工厂）是 2026 年 9 月收敛出定义的一种工程范式：系统从事件（issue 打开、新评论、告警触发）启动工作，
+用结构化工程流程组织多个 agent，agent 读写 spec、issue、PR 这类工件，人只在关键决策点做批准。它比 coding agent
+（用模型与工具完成单次任务的 agent harness）和 cloud agent（跑在托管远端算力上的 coding agent）高一层——
+价值不在单个 agent 多强，而在流程可预测、发现可共享、人能在正确位置介入。
+
+它解决的问题：bug 修复中真正耗人力的不是写修复，而是复现、诊断、验证；且 AI 时代提交 issue 近乎免费，阅读成本正在压垮开源维护者。
+代表案例是 Cloudflare Astro 的 bug-fixing 工厂：复现 → 诊断（加临时日志、重建、重跑、删日志）→ 验证（对照测试/注释/文档判断是否真 bug）
+→ 修复 → 预览发布请 reporter 验收，全程跑在 GitHub Actions 上。运行数月后 open issue 从 200+ 降到约 30，未 auto-close 冷票、
+未宣布 issue bankruptcy；Vercel 的 ai-sdk-factory 四周内产出 25-35% 的合并 PR；Uber 把它做成公司级平台。
+Astro 的引擎已泛化为开源框架 Flue（withastro/flue），工作流本身抽成 withastro/triagebot-action。
+
+边界判断：值得上工厂的是标准化流程有收益的工作（生产告警处置、CI 修复、triage、第 21 个长得像前 20 个的 CRUD）；
+头脑风暴、目标未定的新功能不值得走固定阶段，工程师与 agent 交互式 loop 更好。采纳前提与团队规模无关，取决于三点：
+团队已是重度 agent 用户（MCP、skills、凭据就绪）、偏好结构与流程、有人推动落地。
+
+见：[Why bug fixing is the least important part of a bug-fixing software factory](https://igoro.com/archive/bug-fixing-software-factory/){rel="&#x22;nofollow&#x22;"}、
+[Software Factories in September 2026](https://igoro.com/archive/software-factories/){rel="&#x22;nofollow&#x22;"}、
+[Cloudflare: How we built a software factory](https://blog.cloudflare.com/astro-issue-triage/){rel="&#x22;nofollow&#x22;"}
+
+#### 工厂的注入攻击面藏在复现环节
+
+bug-fixing 工厂意味着让持有写权限令牌的 agent 在 CI runner 上 clone 并运行 reporter 提交的不可信代码，攻击载荷有两条通道：
+issue 正文是 prompt injection，复现仓库代码是 execution injection。这不是假想——2026 年 CSA 报告过 Claude Code GitHub Action
+的权限绕过（CVSS 7.8，GitHub App actor 被无条件信任，外部攻击者无需写权限即可注入 prompt 触发仓库沦陷）；
+PromptPwnd 系列展示了 agent 化 GitHub Actions 被诱导外泄 secrets。triagebot-action 把 read-token 用内置低权限 GITHUB\_TOKEN、
+write-token 用独立 bot 令牌分离，只是缓解的一角；真正的设计题是「agent 能看到的凭证 ≤ 它被授权的动作」，
+且 issue 文本永远是未信输入。评估任何现成工厂方案时先问这条边界。
+
+见：[CSA: Claude Code GitHub Action prompt injection](https://labs.cloudsecurityalliance.org/research/csa-research-note-claude-code-github-action-prompt-injection/){rel="&#x22;nofollow&#x22;"}、
+[Aikido: PromptPwnd](https://www.aikido.dev/blog/promptpwnd-github-actions-ai-agents){rel="&#x22;nofollow&#x22;"}
+
+#### Agent 修不好 bug 是代码库体检指标
+
+Cloudflare 的 triage bot 把「agent 找不到正确解」当作代码库缺陷信号，指向三类根因：不透明抽象（读不出组件边界，人也读不出）、
+缺失文档（关键代码段没有解释实现动机的注释）、测试覆盖不足。实例：HMR 系列 bug 中 bot 反复试图删除一个 if 条件——
+删了能修好当前 bug 但在别处引入回归（该条件无测试保护）；补一条解释该条件逻辑的注释后，bot 停止误改。
+这使注释、测试与模块边界同时是给 agent 的护栏，「agent 可读性」成为代码库的新质量维度；
+评估工厂效果时，失败率分布比成功率更能说明该库的结构质量，修好一次 bot 失败也顺手改善了人类开发者的上手体验。
+
+见：[Cloudflare: How we built a software factory](https://blog.cloudflare.com/astro-issue-triage/){rel="&#x22;nofollow&#x22;"}
+
+#### 隔离 subagent 防的是「强行制造 bug」
+
+LLM 有任务完成偏置：给它「复现+诊断+修复」一条龙指令，即使行为其实是 by design，它也倾向硬造一个修复来交差。
+Astro 的对策是每个阶段用隔离 subagent，并把推理与允许的动作分离——诊断 agent 没有改代码的权限，
+验证阶段的存在就是为了在修之前先审「这到底是不是 bug」。阶段间交接用 report.md 文件而非共享上下文窗口，
+前阶段的结论以「可审计工件」而非既成事实进入后阶段，防止幻觉顺着上下文传染；机器人最后把 report.md 编译成 GitHub 评论供人审查。
+搭多 agent 流水线时若只拆步骤不拆权限与工件，等于没拆。
+
+见：[Cloudflare: How we built a software factory](https://blog.cloudflare.com/astro-issue-triage/){rel="&#x22;nofollow&#x22;"}、
+[Software Factories in September 2026](https://igoro.com/archive/software-factories/){rel="&#x22;nofollow&#x22;"}
+
+#### 标签状态机：工厂把 GitHub 当数据库
+
+Astro 的流水线在 issue 标签迁移（`triage: needs triage` / `needs reproduction` / `fix pending` / `fix verified` 等）之外
+自持零状态：崩溃或重跑时，agent 回读 issue 的全部历史评论推断「走到哪了、接下来干什么」。这种寄生状态机有两个收益——
+工厂没有第二处真相源，也不需要 workflow 引擎的持久化运维；状态可读性极好，任何人打开 issue 就是审计现场，
+这是团队特意选 GitHub Actions 内透明运行的原因。它还顺带定义了人机协作接口：reporter 用 pkg.pr.new 发布的 preview 验证修复，
+确认后才自动开 PR。想复刻工厂，先画标签→动作迁移表再写 agent，顺序反了就会滑回「一长串 prompt」。
+
+见：[Cloudflare: How we built a software factory](https://blog.cloudflare.com/astro-issue-triage/){rel="&#x22;nofollow&#x22;"}
+
+
+# SoL-Pi
+
+SoL-Pi 是 NVIDIA 2026 年 9 月开源的 Pi 扩展（NVlabs/SoL-Pi，arXiv 2609.20519），全称 Scaling
+Auto-Research Loops for Efficient Agent Harnesses。它不是再造一个 Agent，而是把 harness 改进当作
+「受约束的效率搜索」问题：152 个提议方向经六阶段自动研究循环（轨迹 rollout、map-reduce 分析、提案、
+实现、评审、训练集筛选与 held-out 验证），仅 4 条机制幸存（约 1/40）。在 EdgeBench 51 个 2-12 小时
+长时程任务上保留 Pi 约 94% 平均分，token 流量减少 45%\~49%，API 成本约降三分之一；GPT-5.6 Sol 后端上
+超过模型原生 Codex harness。四条机制各砍一类 token 浪费：Action Fusion 把编辑与验证命令合并为一次
+工具调用，砍模型往返；ObservationPack 把大输出归档本地、上下文只留 handle 与摘录、需要时按页 recall，
+砍观测回放；Evidence-Preserving Reducer 让便宜模型先读长日志产出 receipt 且每条引用行必须能在归档
+原文精确匹配，砍阅读成本；Online Context Compact 以子任务语义完成作为压缩候选点，砍死上下文。
+边界同样清晰：短任务上浪费来不及累积故收益趋零；质量损失会跨机制组合累积；绑定 Pi 生态；
+数据出自作者自建基准，发布初期无第三方复现。
+
+见：[SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses](https://nvlabs.github.io/SoL-Pi/){rel="&#x22;nofollow&#x22;"}
+
+#### 上下文压缩是投资回收问题而非容量问题
+
+所有 harness 的压缩时机都被 KV-cache 推向晚期：提前压缩等于亲手作废缓存前缀，整段历史按未命中价重算。
+因此「撑满大窗口不压缩」在缓存命中的定价结构下是理性默认而非缺陷。SoL-Pi 的 Online Context Compact
+把压缩改成回收判断：子任务完成只是候选点，真正动手的条件是未来请求仍会反复读取的 token 量乘以单价，
+大于本次重写成本。这个判断变成坑的时机是任务转折点之后——旧上下文永远不会再被读取，晚压就从省钱
+变成纯浪费。
+
+见：[SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses](https://nvlabs.github.io/SoL-Pi/){rel="&#x22;nofollow&#x22;"}
+
+#### 单机制过能力门槛不等于组合无害
+
+SoL-Pi 的每个机制单独验证时质量损失都在预声明容忍度内，但验证一次只评一个机制，小损失在机制组合时
+静默累积，最终整体只保留基线约 94% 的分数。配套方法是把机制放在「精确的首次触发点」上评估——看它
+实际改变行为的那些轨迹片段而非全局平均，否则收益与损失都被稀释到不可见。推论：给系统叠加多个各自
+无害的折衷时，要预留组合损失预算，并逐个在触发点验证。
+
+见：[SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses](https://nvlabs.github.io/SoL-Pi/){rel="&#x22;nofollow&#x22;"}
+
+#### 自动研究循环的局部盆地与宽度价值
+
+官方观察：单条研究线深度迭代 5-10 轮后，即使最强推理档位的模型也会对同一设计做越来越小的调整而非
+换方向。宽搜放出一百多个独立想法，存活率仅约 1/40，但最有价值的 harness 改动恰恰来自这些稀有幸存者
+引发的跳跃。宽度的价值不是提高平均成功率，而是让稀有跳跃可被发现。推论：跑自动优化循环时，与其加深
+一条线，不如并行展开独立想法再让验证收敛。
+
+见：[SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses](https://nvlabs.github.io/SoL-Pi/){rel="&#x22;nofollow&#x22;"}
+
+#### 编排代码的生命周期决定自动化规模上限
+
+SoL-Pi 的自动研究编排演化了三代，每代死因明确。编译式 YAML workflow 死于固定图覆盖不了边角案例，
+反复停下来等人工修复；代码编排（lead agent 写协调代码）死于长生命周期协调器膨胀，启动一个新实验要
+十小时以上改协调器；最终形态是一次性技能循环——编排代码只活一次 run 的长度，用完即弃，规模化变成
+反复实例化模板而非持续膨胀一个协调器，唯一需要长期维护正确性的只剩共享模板本身。教训：自动化规模化
+的第一瓶颈不是 agent 能力，是编排代码的生命周期管理。
+
+见：[SoL-Pi: Scaling Auto-Research Loops for Efficient Agent Harnesses](https://nvlabs.github.io/SoL-Pi/){rel="&#x22;nofollow&#x22;"}
 
 
 # Tokenmaxxing：三个月必然失败的 AI 应用层泡沫
@@ -17758,6 +18125,7 @@ Machine learning, large language models, AI agents, and AI engineering practices
 - [Image](https://lionad.art/image/image) — AI image generation
 - [AIGC 海报生成](https://lionad.art/image/aigc-poster) — 端到端海报生成、多任务编辑与质量评估
 - [Recommendation](https://lionad.art/recommendation/recommendation) — Recommendation systems
+- [Video](https://lionad.art/video/video-prompt) — AI 视频生成与提示词术语体系
 
 ## Tour
 
@@ -18055,6 +18423,10 @@ Anthropic 技术博客，2026年3月
 - [qwen3-embedding-8b-4bit-dwq](https://lionad.art/local/qwen3-embedding-8b-4bit-dwq)
 - [glm-ocr-8bit](https://lionad.art/local/glm-ocr-8bit)
 
+## Topics
+
+- [伪造基准文梯鉴](https://lionad.art/fake-benchmark-triage)：created\_at 取证、REPL 验码与算术自查，判别"X 任务实测"类文章是否编造
+
 
 # CL-Bench
 
@@ -18092,6 +18464,36 @@ CL-Bench 是由 Arc Computer 开发的基准测试框架，专门用于评估 LL
 Claude Sonnet 4.5、GPT-4.1、GPT-4.1 Mini，以及自定义 Agent。
 
 见：[Arc-Computer/CL-Bench](https://github.com/Arc-Computer/CL-Bench){rel="&#x22;nofollow&#x22;"}
+
+
+# 伪造基准文梯鉴
+
+## 三步验伪
+
+#### 来源取证、验码与算术
+
+任何声称"跑了 N 个真实任务"的框架对比文，逐数字核查成本高且没必要，三步梯鉴便宜且正交。
+第一步对文中引用的 GitHub 仓库打 `api.github.com/repos/<owner>/<repo>`，看 `created_at`、star 数与创建到最后 push 的间隔：
+一个典型假数据源创建于 2026-06-17、创建 1.5 小时后即终 push、0 star，而引用它的文章把数据源标成 "June 2024"，时间线凭空早两年。
+第二步把文章代码示例贴进对应版本的 REPL：幻觉 API（`from autogen import AgentFlow`、`langgraph.Graph()`、
+`crew.setup_dependencies()` 之类在任一真实版本里都不存在）一跑即死。第三步做算术自查：该仓库 README 标题写 107、
+正文写 "24 Real Data Engineering Tasks"、六个分类计数求和等于 108，克隆命令还留着 `YOUR_USERNAME` 占位符。
+真实跑过实验的人不会死在这三步的任意一步上；死在哪一步就退回哪一层认知：第一步死数据不存在，第二步死作者没碰过代码，第三步死数字是生成出来的。
+
+见：[sweta2503/agent-framework-benchmark](https://github.com/sweta2503/agent-framework-benchmark){rel="&#x22;nofollow&#x22;"}
+
+## 集群特征
+
+#### 内容农场的衔尾蛇引用网
+
+假基准不是单篇失误而是集群污染：同一作者在两周内对"同一基准"发布两篇冠军相反的博文
+（一篇 AutoGen 96/107 全面胜出，另一篇 AutoGen 仅 58/107 且 49 次硬失败、LangGraph 封王），
+两篇互相引用同一组 0-star 仓库充当一手数据；再经转抄渠道进入中文语境后数字又长出第三套，与任何上游都不匹配，
+连测试模型都从仓库实际使用的 Groq Llama 3.3 70B 变成 GPT-4-turbo 与 Claude 3 Opus。
+三角测量时的识别信号：多来源措辞雷同或数字彼此矛盾、引用链向上收敛到同一批匿名仓库、没有任何一环可复现。
+命中即整组按 TX（无法溯源）计，名为多源实为单源自引。
+
+见：[Why LangGraph Wins: Benchmarking on 107 Real Data Engineering Tasks (dev.to)](https://dev.to/priyeshdave6/why-langgraph-wins-benchmarking-langgraph-crewai-and-autogen-on-107-real-data-engineering-tasks-3ljg){rel="&#x22;nofollow&#x22;"}
 
 
 # Frontend Copy Benchmark
@@ -18840,15 +19242,88 @@ GPT-4o（MaxAI）关于“billion”的翻译犯了很明显的错误。
 ![llama & qwen](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282330132.png)![gemini-pro & gpt4-turbo](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202411282331378.png)
 
 
+# Agent DLC
+
+## 生产放行与黄金标准
+
+#### Agent DLC：评估决定放行，生产反哺标准
+
+AWS《企业生产级智能体开发部署指南》（2026 年 6 月发布，56 页）提出 Agent DLC（Agent Development Lifecycle）：定义→构建→评估→发布→观测→回流六环节闭环。
+「发布」是门——门前团队在「定义-构建-评估」间高频往复（一次上线前可迭代上百轮），门后观测与回流持续运行，生产中的新失败模式被自动采集回灌黄金标准。
+核心机制是放行由评估决定：判据达标即放行、未达标返工，不由人在会上拍板。
+
+黄金标准由两部分构成：评估规范（判据表，把业务对 Agent 的每项要求转化为可自动测量的判据）与黄金轨迹集（确定可复现的回归数据集，由生产 trace 持续回灌）。
+判据沿认知、质量、责任、成本、性能五维度设置，每条分三档：红线（100% 通过，一票否决）、门禁（达到设定阈值）、观测（有基线可比即可），三档必须在第一次评估运行
+前冻结，避免「先看分数再定标准」的自我安慰。五维度是评估的坐标系而非构建的组件清单——维度与工程能力（检索管线、提示词、工具定义）是多对多关系，理解错会把
+评估做成清单打勾。
+
+与传统 CI/CD 的本质区别：代码测试是确定性断言，Agent 的输出是自然语言加多步行为，「什么算对」本身需要被定义和校准，合格标准是通过率而非二元判定。白皮书给出
+的修复优先级：先确认分数本身可信，再查数据质量，再调提示词，最后才换模型——多数提升来自提示词、工具描述与检索策略。评估器本身是成本大头：每条 trace 过一遍
+裁判即一次独立 LLM 调用，用 simulation 还要加 actor 调用费；失败成本低于评估成本的场景（内部低风险工具、有人工兜底的单次生成）不值得上全量门禁。行业背景上
+Gartner 2025-06 预测超 40% 的 Agentic AI 项目将在 2027 年底前取消，风控不足是主因之一。
+
+见：[不受控的 Agent，凭什么上生产系统？](https://mp.weixin.qq.com/s/Fkh-ASPMLfMd9LG6t77j6w){rel="&#x22;nofollow&#x22;"}
+
+## LLM 裁判的偏差与校准
+
+#### 什么是位置偏差
+
+位置偏差（Position Bias）是 LLM-as-a-judge 裁判四大评分偏差（位置、冗长、自我偏好、分辨率过粗）之首：在做两两或多候选比较时，裁判对处于特定位置的候选产生
+系统性偏爱——有的模型偏爱先看的那个，有的偏爱后看的——与内容质量无关，同一对答案唯一变化的是输入顺序，判决却会变。这直接污染一切「哪个更好」式的排名评估。
+检测方法即交换位置重复评测、统计判决翻转率；MT-Bench（Zheng et al. 2023）据此确立了「两种顺序都跑、只取一致结论」的经典缓解，其局限见下一条。
+
+见：[Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena](https://arxiv.org/abs/2306.05685){rel="&#x22;nofollow&#x22;"}
+
+#### 位置偏差：双序一致的防御是不充分的
+
+四大偏差的出处 MT-Bench 建议用「两种顺序都跑、只取一致结论」缓解位置偏差，但《Large Language Models are not Fair Evaluators》（Wang et al. 2024）证明部分
+裁判仅交换两个候选的位置就会整体翻转判决——偏差不是偶发噪声，而是绑定在具体的（裁判，位置对）组合上；ACL 2025 的系统性研究进一步测得位置偏差贯穿 list-wise
+多候选评测，重复稳定性不可忽略。工程含义：双序一致只能筛掉明显坏的裁判，通过筛选的不等于可信；生产级做法是多次随机 shuffle 后报告判决方差而非一致与否的
+布尔值，且从两两比较升级到多候选排名时，偏差需要重新验证。
+
+见：[Large Language Models are not Fair Evaluators](https://arxiv.org/abs/2305.17926){rel="&#x22;nofollow&#x22;"}
+
+#### 裁判的自我偏好本质是低困惑度偏好
+
+Wataoka 等人（2024）提出自我偏好偏差的量化指标，发现其本质：裁判系统性地给自身困惑度更低（即对它来说更顺、更可预测）的文本打高分，与内容质量无关。这个机制
+同时解释了两件事：为什么「换厂商裁判交叉验证」不彻底——偏好跟着文体分布走，两家模型训练风格接近时照样互爱；以及冗长偏差与自我偏好为何同源——套路化的长文本
+恰是低困惑度文本。裁判的选型标准因此从「不同厂商」精确化为「与被评方在 tokenizer 和风格分布上足够远」；多智能体工作流里用同族模型互评或自评，同样落进这个
+偏差半径。
+
+见：[Self-Preference Bias in LLM-as-a-Judge](https://arxiv.org/abs/2410.21819){rel="&#x22;nofollow&#x22;"}
+
+## 根因归因与轨迹评估
+
+#### 四格指标要当分数签名读，单看任何一格都会误诊
+
+Agent 出错根因排查链（context recall → faithfulness → correctness → response relevance）来自 RAGAS 系指标，而这族指标度量的是答案与上下文的一致性、不是
+真值，所以单格分数会骗人，组合签名才是诊断：faithfulness 极高 + context recall 极低 ＝「忠实且正确地总结了错误的材料」，失败在检索侧，只看生成侧仪表盘会一路
+绿灯；correctness 满分 + faithfulness 低 ＝ 蒙对（答案碰对但断言无据），换一批题即崩。裁判知识截止导致 Correctness 评估器整批零分的教训（把「裁判无知」与
+「Agent 答错」混进同一分数）也是同理——Faithfulness 不要求裁判懂领域、只对照材料查断言，才免于此坑。四格必须搭配使用，缺一格排查链条就断。
+
+见：[RAGAS Metrics](https://docs.ragas.io/){rel="&#x22;nofollow&#x22;"}
+
+#### 轨迹评估器引入「期望路径脆弱」的新失效方式
+
+AgentCore 的轨迹级评估器（GoalSuccessRate、ToolSelectionAccuracy、ToolParameterAccuracy）拿 Agent 实际工具调用序列与用户提供的期望轨迹比对，绕开了「裁判
+知识截止」陷阱——裁判不需要懂领域。但它带来一个易被忽略的失效方式：期望路径脆弱。真实任务常存在多个有效的调用顺序，若把期望轨迹声明为唯一全序，合理的替代
+路径会被系统性误判为失败，通过率被压低，团队继而开始「为 Agent 现有行为改轨迹定义」——恰是「先看分数再定标准」的镜像版本，标准退化成现状描述。工程上期望
+轨迹应声明为「必须出现的调用集合 + 禁止次序」的约束，而非精确序列。
+
+见：[不受控的 Agent，凭什么上生产系统？](https://mp.weixin.qq.com/s/Fkh-ASPMLfMd9LG6t77j6w){rel="&#x22;nofollow&#x22;"}
+
+
 # Evaluation
 
 ## Evaluation Framework
 
 - [评估框架](https://lionad.art/maps/_ai/evaluation/evaluation-framework) - lm-evaluation-harness、BigCode 等统一评估框架
+- [Agent DLC](https://lionad.art/maps/_ai/evaluation/agent-dlc) - 评估驱动的生产放行：黄金标准、裁判校准与轨迹评估
 
 ## Observability
 
 - [可观测性](https://lionad.art/maps/_ai/evaluation/observability) - LangSmith、Phoenix、Langfuse 等 LLM 可观测性平台
+- [Langfuse OTel](https://lionad.art/maps/_ai/evaluation/langfuse-otel) - Langfuse 的 OpenTelemetry 接入机制与契约层桥接
 
 ## Reproducibility
 
@@ -19021,6 +19496,93 @@ Stanford HAI 论文，2026年3月
 评测设计中 harness 选择是系统性偏差源，报告结果时应注明工具链。
 
 见：[Harbor-Index](https://harbor-index.org/){rel="&#x22;nofollow&#x22;"}
+
+#### 主观评测对齐：Rubric 二元化与 unknown 反查
+
+主观评测对齐的杠杆不是统一培训，而是把模糊指标下钻为评测维度（dimension/rubric）后尽可能二元化为
+是/否/未知，把"0 到 10 分打分"式判断换成可判定的事实依据——例如"回复是否口语化"被拆成"是否以您
+指代骑手""是否使用明儿见等非官方文书词汇"等是/否项。二元化的关键机制是用 unknown 占比反查 Rubric
+本身：unknown 高说明该条定义不清晰，需持续改写，直到单条 Rubric 的人人一致率、人机一致率达到可信
+阈值（实践量级约 85%、90%）；组织上"1 个独裁者拉齐标准"好过 10 个民主者各自为政，不同评测员以
+背靠背标注拉齐。这套拆解同时区分了"模型预标注"与"自动化评测"——只有人机一致率达标后的机器判分
+才配称自动化评测，否则只是机器标注。实践数据：某业务以二元化改造评测体系后，人机一致率从 62%
+提升到 92%。
+
+见：[Agent评测漫谈 —— 由浅入深讲解Agent评测](https://mp.weixin.qq.com/s/gZKWRqznB8sNBFf69fBIvw){rel="&#x22;nofollow&#x22;"}
+
+#### 长程 Agent 评测的执行成本与 LLM-as-Judge 失效
+
+长程 Agent 改变了评测的经济学：一条单次 Query、40 轮 Think-Execute 的真实样本人工评测约需 30
+分钟，人工评测成本陡增；而传统 LLM-as-Judge 把整个对话历史和执行过程一次性交给 Judge Model 的
+做法在此失效——执行链路太长导致噪音过多、上下文挤占，人机一致率不升反降。这倒逼评测基建至少
+具备七种能力：全链路回放、Case 管理、分层执行沙箱（只读/可写/高风险）、Rubric 驱动的 AI 评测
+引擎、报告与归因（定位到规划/工具/环境/Skill）、版本升级触发的历史 Case 回归、嵌入开发发布流程的
+准入准出门禁。缺少这些能力，评测就停留在"单次分析"与"项目制支持"层面，无法成为生产系统的一部分。
+
+见：[Agent评测漫谈 —— 由浅入深讲解Agent评测](https://mp.weixin.qq.com/s/gZKWRqznB8sNBFf69fBIvw){rel="&#x22;nofollow&#x22;"}
+
+#### Skill 评测的生命周期模型与沙箱化执行
+
+Skill 评测可类比软件开发的测试分层：Skill 编写对应 coding，发版对应单测（单 Skill 评测，不依赖
+用户环境），上线对应集成测试即 Skill N+1 评测（验证 Skill 变更——下线/新增/发版——后 Agent 效果
+是否受影响，必须在包含用户环境的沙箱中执行），监控对应线上监控（Skill 监控是 Agent 监控的子集）。
+驱动这套模型的原因是 Skill 评测强耦合执行环境——API 调用、系统写操作、文件读写、跨系统联动——
+决定了它不能只离线看文本输出，必须在安全沙箱里真实执行才能判断 Skill 是否真的可用。规模化阶段
+的痛点随之转移：Skill 数量快速增长后，问题从"会不会做评测"变成"怎么规模化做评测"，需要回答上线前
+准入、升级后回归、多 Skill 串联流程评测与平台化支撑。
+
+见：[Agent评测漫谈 —— 由浅入深讲解Agent评测](https://mp.weixin.qq.com/s/gZKWRqznB8sNBFf69fBIvw){rel="&#x22;nofollow&#x22;"}
+
+#### Outcome 与 Agent 声称结果的区分
+
+评估长程 Agent 最容易犯的错误是把记录里的声称当作结果：记录（Transcript/Trace/Trajectory）是
+试验的完整日志，而结果（Outcome）是试验结束时环境的最终状态——航班预订 Agent 在日志末尾说"您的
+航班已预订"不算数，真正的结果是 SQL 数据库中是否存在预订记录。配套术语体系（Anthropic 定义、
+开源社区对齐）：任务（Task，具有明确输入和成功标准的单个测试，因输出有随机性需多次试验取稳定
+结果）；评分器（Grader，评估 Agent 某方面性能的逻辑，可含多个断言/检查）；评估框架（Evaluation
+Harness，端到端运行评估的基础设施）；Agent 框架（Agent Harness/Scaffold，使模型能作为 Agent 运行
+的系统，评测"一个 Agent"实际是评测框架与模型的协同）；评估套件（Evaluation Suite，测特定能力或
+行为的任务集合）。
+
+见：[Agent评测漫谈 —— 由浅入深讲解Agent评测](https://mp.weixin.qq.com/s/gZKWRqznB8sNBFf69fBIvw){rel="&#x22;nofollow&#x22;"}
+
+
+# Langfuse OTel
+
+#### v4 摄入头决定数据实时性
+
+直接经 OTLP 端点向 Langfuse 发送 span 时，`x-langfuse-ingestion-version: 4` 请求头决定数据走哪条摄入管道。缺这个头时数据落入旧管道，
+最长延迟约 10 分钟才在 UI 与 v2 API 可见；带上则实时进入 v4 数据模型。排查“span 已导出却迟迟不可见”时，第一检查项是这个头是否被 collector
+或 SDK 配置吞掉，而非 exporter 的 endpoint 拼写。OTel Collector 的 signal 级 headers 配置会覆盖通用级 `OTEL_EXPORTER_OTLP_HEADERS`，两处都要带上。
+
+见：[Langfuse OpenTelemetry 接入文档](https://langfuse.com/integrations/native/opentelemetry){rel="&#x22;nofollow&#x22;"}
+
+#### trace 级属性必须传播到每个 span
+
+Langfuse v4 数据模型的过滤与聚合越来越多跨 observation 进行，而非只在 trace 级。`userId`、`sessionId`、`metadata`、`tags` 等属性只设在 root
+span 上时，按这些维度过滤和聚合会漏掉子 span 数据而失真。其机制在于 v4 把聚合粒度下沉到了 observation，属性必须在每个 span 上重复出现。
+工程上应用 OpenTelemetry Baggage 配合 `BaggageSpanProcessor` 在 trace 上下文内自动复制这些键值；Langfuse SDK 用户可用 `propagate_attributes()`
+（Python）或 `propagateAttributes()`（TS）一行解决。注意 baggage 会跨服务边界传播，不能放敏感信息。
+
+见：[Langfuse OpenTelemetry 接入文档](https://langfuse.com/integrations/native/opentelemetry){rel="&#x22;nofollow&#x22;"}
+
+#### span 词汇决定 LLM 字段识别
+
+Langfuse 从 OTel span 自动提取模型名、token 用量、成本，依赖的是 GenAI 语义约定（`gen_ai.*` 属性）与 `langfuse.*` 私有属性，裸 OTLP 协议本身不带
+这些字段。这意味着厂商中立契约（如 `@earendil-works/pi-telemetry` 的 `pi.ai.*`、`pi.harness.*` 词汇）自研的 span，即使正确接入 OTLP 端点，
+也只落成普通 span：链路树完整，但成本、token、模型列全部为空。adapter 层必须做属性名翻译，把自有词汇映射到 `gen_ai.*` 才能解锁 LLM 特性。
+
+见：[Langfuse OpenTelemetry 接入文档](https://langfuse.com/integrations/native/opentelemetry){rel="&#x22;nofollow&#x22;"}
+
+#### 契约层与 OTel-native 的分层选型
+
+LLM 遥测生产端有两种对立分层。厂商中立契约层把 span 抽象（callback 式 context、类型化 schema、adapter 一致性测试）做成不依赖任何后端的核心包，
+OpenTelemetry 只是可替换 adapter 之一，换来 runtime 中立、无 ambient 状态、schema 编译期校验，代价是自研生态 instrumentation。OTel-native 则把
+官方 OTel client 当底座直接暴露（Langfuse SDK v4 即如此），免费获得全部 OTel 生态 instrumentation，但契约与 OTel 的上下文模型、属性约定绑定。
+接 Langfuse 时，契约层方案需要“契约 adapter → OTel SDK → OTLP 端点”两级桥接，词汇翻译发生在第一级；OTel-native 一级直达，但换后端就要重写
+全部打点代码，契约层方案此时只换 adapter。
+
+见：[pi-telemetry README](https://github.com/badlogic/pi-mono/tree/main/packages/telemetry){rel="&#x22;nofollow&#x22;"}
 
 
 # Observability
@@ -20717,6 +21279,50 @@ MCP 采用 host-client-server 三层架构。host 是容器与协调者，负责
 
 见：[MCP Architecture](https://modelcontextprotocol.io/specification/2025-03-26/architecture){rel="&#x22;nofollow&#x22;"}
 
+#### MCP 的能力原语全景
+
+server 侧暴露的能力按「谁控制」三分：Tools（模型控制，可执行动作）、Resources（应用控制，URI 寻址的只读上下文）、
+Prompts（用户控制，模板，通常映射为斜杠命令）。client 侧有反向原语：Sampling（server 请宿主的 LLM 生成内容）、
+Elicitation（server 向用户要结构化输入）、Roots（声明工作区边界）、Logging。MCP 是双向的：server 不是被动工具仓库，
+它能向 client 反向发请求，这正是它与「带 schema 的 function calling」的本质区别（其中 Roots/Sampling/Logging 已于
+2026 修订进入废弃窗口期，见下一节）。
+
+见：[MCP Architecture](https://modelcontextprotocol.io/specification/2025-06-18/architecture){rel="&#x22;nofollow&#x22;"}
+
+#### MCP 与 Function Calling 是串联关系
+
+两者不在同一层、不构成竞争：Function Calling 是模型推理层能力，决定「调什么工具、传什么参数」；MCP 是应用层协议，
+解决「工具怎么被发现、描述、连接、调用」。执行链路是串联的：Agent 执行任务，模型经 FC 输出调用意图，宿主按意图
+经 MCP 路由到对应 server，server 执行并返回。「要不要从 FC 换成 MCP」是范畴错误，两者共存。MCP 属于过度工程的
+场景：工具只给单一应用内部用（直接函数调用）、高频低延迟（JSON-RPC 序列化开销比本地调用高一到两个数量级）、
+工具逻辑与内部状态高度耦合（抽独立 server 反而带来状态同步复杂度）。MCP 真正发光是工具被多个 AI 应用复用、
+或需要统一管理工具生命周期（版本、权限、日志集中在 server 侧）时。
+
+见：[MCP Server 工程避坑指南](https://juejin.cn/post/7642329168471293992){rel="&#x22;nofollow&#x22;"}：文末「MCP 的边界在哪里」讨论
+
+#### 传输层两种形态与信任边界
+
+stdio 以本地子进程承载逐行 JSON-RPC；Streamable HTTP 用于远程，POST 为主、响应可选 SSE 流
+（旧的 HTTP+SSE 双端点方案自 2025-03 起废弃）。两种形态的信任不对称是安全判断的钥匙：本地 stdio server
+等同任意代码执行，信任边界就在点「安装」那一刻；远程 MCP server 在 OAuth 2.1 里定位为 Resource Server，
+令牌用 RFC 8707 resource indicators 绑定 audience，禁止宿主凭证透传。
+
+见：[MCP Transports](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports){rel="&#x22;nofollow&#x22;"}
+
+#### 2026-07-28 修订让协议整体无状态化
+
+MCP 自发布以来最大的一次修订，2026 年之前绝大多数教程描述的「有状态 1:1 会话 + initialize 握手」模型被推翻：
+`initialize`/`notifications/initialized` 握手、`Mcp-Session-Id` 头、`ping`、`logging/setLevel` 全部移除，
+协议版本与 client 能力改为内嵌在每个请求的 `_meta`（`io.modelcontextprotocol/protocolVersion`、`clientCapabilities`），
+server MUST 实现 `server/discover` 用于公告版本与能力（SEP-2575/2567）。
+server-initiated 请求（sampling、elicitation）改为 MRTR（Multi Round-Trip Requests）：server 返回
+`resultType: "input_required"` + `inputRequests`，client 用重试原请求并携带 `inputResponses` 的方式补信息。
+Roots、Sampling、Logging 整体进入废弃窗口期（最短 12 个月）；SSE 断线重投递（Last-Event-ID）移除，断流后须重发请求。
+根因是部署经济学：有状态模型要求 session 粘滞与长连接，MCP server 无法放到普通负载均衡或 serverless 之后，
+网关化部署诉求推动协议无状态化。另外协议修订用日期而非 semver 标识（2024-11-05 → 2026-07-28），与 SDK 版本号解耦。
+
+见：[MCP 2026-07-28 Changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog){rel="&#x22;nofollow&#x22;"}
+
 ## Tour
 
 ## Examples
@@ -20806,6 +21412,37 @@ Tool 应该像 Unix 管道一样良好组合，而非像命令链一样互相依
 | Integration      | 如何连接外部系统？                   |
 
 见：[54 Patterns for Building Better MCP Tools](https://www.arcade.dev/blog/mcp-tool-patterns){rel="&#x22;nofollow&#x22;"}：Arcade 团队基于 8000+ 工具实践总结的设计模式
+
+#### Tool 定义是上下文的预扣税
+
+接入 MCP server 的成本在用户开口前就全额支付：client 把所有已连接 server 的 `tools/list` schema 序列化进 system
+prompt，20 个 server × 30 个工具即可预扣数万 token，且工具精度随数量衰减（不只是钱的问题）。工程推论：工具描述
+50 字内、参数字段 ≤5，细节挪去 resource；超大工具集靠宿主动态启停或 Anthropic 提出的 code execution 模式
+（模型写代码编排工具，中间结果不进上下文）。最隐蔽的耦合是工具列表顺序不稳定会击穿 prompt cache——工具定义在
+system prompt 前部，顺序一变整段缓存失效，每轮多付一截输入价。官方 2026-07-28 修订补上了这一坑：`tools/list`
+SHOULD 返回确定性顺序，并经 `CacheableResult` 新增 `ttlMs`/`cacheScope` 缓存契约。
+
+见：[MCP Server 工程避坑指南](https://juejin.cn/post/7642329168471293992){rel="&#x22;nofollow&#x22;"}：5 个线上 MCP Server 的 8 个生产级陷阱复盘
+
+#### 两类错误：isError 给模型看，JSON-RPC error 给 client 看
+
+工具执行失败（SQL 报错、API 超时）必须包在正常 result 的 content 里并置 `isError: true`；只有「工具不存在」
+「server 不支持调用」这类协议级异常才返回 JSON-RPC error。两种错误的消费者不同：协议层错误被 client 拦截处理，
+永远进不了模型视野，LLM 不知道调用失败过，于是不自我纠正而是停下来或编造结果。反过来把协议错误伪装成 isError
+会让 client 的重试/鉴权逻辑失去触发信号。症状识别：agent 用某个 server 后行为变傻但 transcript 里看不到任何
+报错，先查 server 是否把异常 throw 成了协议错误。
+
+见：[MCP schema.ts](https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/schema/2025-11-25/schema.ts){rel="&#x22;nofollow&#x22;"} 中 `CallToolResult.isError` 的规范注释
+
+#### stdio 模式下 stdout 就是协议管道
+
+stdio 传输用 stdout 逐行承载 JSON-RPC，任何一行杂散输出都会污染协议流，日志必须走 stderr。但真正的事故来源通常
+不是自己的 print，而是第三方库的意外 stdout 输出（初始化 banner、进度条、deprecation warning）。最阴险的是
+「我机器上没事」效应：宽容的 client 跳过非 JSON 行继续工作，严格的 client 则表现为工具调用后永久挂起且无错误——
+解析器没把它当错误，只是在等一个永远不来的合法响应。工程解法不是 code review 而是在入口劫持 sys.stdout 装
+guard：只放行以 `{"` 开头的行，其余重定向 stderr 并告警，把协议完整性从开发纪律变成运行时断言。
+
+见：[MCP Server 工程避坑指南](https://juejin.cn/post/7642329168471293992){rel="&#x22;nofollow&#x22;"}
 
 ## WebMCP
 
@@ -23544,6 +24181,43 @@ TokenBreak（arXiv:2506.07948，2025 年 6 月）是一种通过操控分词边�
 - [SAIF（安全人工智能框架）](https://lionad.art/maps/_ai/framework/saif)
 
 
+# Claude Code 技能运行时机制
+
+#### 技能清单是零和预算
+
+Claude Code 把所有技能的 name 与 description 装进常驻每轮上下文的技能清单，预算默认为模型上下文窗口的 1%，
+每条 description 与 when\_to\_use 合计上限 1536 字符。清单超预算时从调用最少的技能开始截断描述，所以新装技能
+可能静默挤掉老技能描述里的触发关键词，表现是技能突然不被自动触发，而不是描述写得不好。诊断用 /skill-doctor，
+它列出每个技能的清单成本与使用率并标出从未触发的技能；修复选项：移除不用的技能、在 skillOverrides 里把低优先级
+技能设为 "name-only"（列名不列描述，腾出预算）、或调高 skillListingBudgetFraction。技能库不是越大越好，
+不被调用的技能在清单里是纯负债。
+
+见：[Extend Claude with skills](https://code.claude.com/docs/en/skills){rel="&#x22;nofollow&#x22;"}
+
+#### 调用后驻留与压缩重挂载
+
+技能被调用后，渲染出的 SKILL.md 正文作为一条消息进入对话并跨轮驻留，Claude 不会在后续轮次重读文件；
+但 allowed-tools 授权只持续到下一条用户消息，之后权限回落到会话设置，再次调用技能才会重新授予。自动压缩时
+每个技能重挂最近一次调用内容的前 5000 token，全部技能共享 25000 token 预算并从最近调用者优先填充，一轮会话里
+调用了多个技能时，较早的技能可能在压缩后被整个丢掉，需要重新调用。技能看似不再影响行为时，内容通常还在
+上下文里，是模型选择了别的路径：先加强 description 与指令的约束力，仍不行时用 hooks 做确定性强制。
+
+见：[Extend Claude with skills](https://code.claude.com/docs/en/skills){rel="&#x22;nofollow&#x22;"}
+
+#### 调用控制字段的决策分野
+
+三个 Claude Code 扩展字段回答「谁在什么时候以什么身份运行这个技能」。disable-model-invocation: true 让技能
+仅限手动调用，用于有副作用、要控制时序的流程（部署、发消息、发版），模型试图自动执行时会被拦截并引导用户
+自己敲 / 命令；user-invocable: false 反向只留模型调用，适合「解释某遗留系统怎么工作」这类背景知识，对用户而言
+它不是一个可执行动作；context: fork 把技能送进隔离子代理执行，agent 字段选子代理类型（默认 general-purpose），
+子代理看不到对话历史，技能指令必须自足，而后台 fork 的文件编辑落在会话 checkpoints 之外，/rewind 撤不掉，
+只能用 git 回退。另外 frontmatter 的 model 与 effort 可按技能覆写会话模型与推理档位，技能结束后还原。
+跨平台分发时只使用开放标准的六个字段（name、description、allowed-tools、license、compatibility、metadata），
+Claude Code 扩展字段上传 claude.ai 会直接报错而不是被忽略。
+
+见：[Extend Claude with skills](https://code.claude.com/docs/en/skills){rel="&#x22;nofollow&#x22;"}
+
+
 # 如何编写 Agent Skills
 
 ## 目录
@@ -24936,6 +25610,7 @@ python scripts/train.py \
 ## Domain
 
 - [如何编写 Skills](https://lionad.art/maps/_ai/skills/create-a-skill.md)
+- [Claude Code 技能运行时机制](https://lionad.art/maps/_ai/skills/claude-skills-runtime.md) — 清单预算零和、压缩重挂载、调用控制字段分野
 - [Skill 蒸馏的边界与精度阶梯](https://lionad.art/maps/_ai/skills/skill-distillation) — 从 ACT-R 双记忆模型与 Polanyi 默会知识看 Skill 能蒸馏几分之几
 - [D2C 实践](https://lionad.art/maps/_ai/skills/d2c)：基于 AWS Kiro + MCP + Skills 的智能 Design-to-Code 架构
 - [SkillOpt：把 Agent Skill 当神经网络训练](https://lionad.art/maps/_ai/skills/skillopt.md) — 微软开源的 Skill 文档自优化框架
@@ -25131,6 +25806,37 @@ AI Model → OpenDia Server → Browser Extension → Your Browser → Any Websi
 
 ---
 
+## Tencent BrowserSkill
+
+#### 架构：从调试端口到扩展入口
+
+腾讯开源的面向 AI Agent 的浏览器操作框架，链路为 bsk CLI（Rust daemon）→ WebSocket 类型化帧协议
+（bsk-protocol）→ Chrome 扩展 ToolDispatcher → chrome.debugger API。最底层虽是 CDP（协议版本钉死
+1.3，与 Playwright 相同），但入口从 Playwright/Puppeteer 式的 --remote-debugging-port 换成了扩展侧
+chrome.debugger 附加，因此直接复用用户已登录的真实浏览器，登录态、Cookie、浏览器指纹都是真的。扩展
+层还提供 CDP 之外的抽象：Agent Window、借用标签页（borrow/return）、元素引用存储（@e1）与会话销毁
+时的归还序列。代价是 debugger 附加期间 Chrome 常驻「正在调试此浏览器」信息栏，且 MV3 ServiceWorker
+需要双层保活策略（30s chrome.alarms）。支持 Chrome、Edge、Brave。
+
+见：[Tencent/BrowserSkill](https://github.com/Tencent/BrowserSkill){rel="&#x22;nofollow&#x22;"}
+
+---
+
+## Kimi WebBridge
+
+#### 定位与 isTrusted 边界
+
+月之暗面的浏览器扩展 + 本地 daemon（127.0.0.1:10086），Agent 通过 HTTP POST JSON 指令操控用户
+真实浏览器，协议就是一份 SKILL.md 里的 curl 约定，session 与浏览器标签组一一对应，轻量。执行层与
+CDP 派根本不同：click/fill 由注入页面的 content script 派发 DOM 合成事件（原生 setter +
+execCommand），事件 isTrusted=false。这带来零调试提示、无 debugger 权限的轻量优势，代价是严格校验
+事件可信度的站点（银行、验证码）必然失败——官方文档明确承认这是产品边界而非 bug。快照走
+accessibility tree 配 @e 引用，CSS 类名变化不失效；跨域 iframe 内元素不可操作。
+
+见：[Kimi WebBridge](https://kimi.com/features/webbridge){rel="&#x22;nofollow&#x22;"}
+
+---
+
 ## Browser-use
 
 #### 定位？
@@ -25236,14 +25942,26 @@ const { author, title } = await stagehand.extract(
 
 ## 工具对比总结
 
-| 工具                 | 类型            | 核心特点                   | 适用场景        |
-| ------------------ | ------------- | ---------------------- | ----------- |
-| **Opendia**        | 浏览器扩展 + MCP   | 复用现有浏览器会话，反检测，本地优先     | 需要登录态的自动化   |
-| **Browser-use**    | Python 框架     | 最流行，Cloud 服务，多 LLM 支持  | 生产级浏览器代理    |
-| **Stagehand**      | TypeScript 框架 | 自然语言 + 代码混合，自修复        | 可靠的自动化流程    |
-| **Playwright MCP** | MCP Server    | 微软官方，可访问性树，无需视觉模型      | 精确控制，测试场景   |
-| **Steel.dev**      | 浏览器 API       | 开源浏览器 API，为 AI 设计      | 构建 AI 应用和代理 |
-| **Nanobrowser**    | 浏览器扩展         | OpenAI Operator 的免费替代品 | 浏览器内 AI 自动化 |
+| 工具                 | 类型                  | 核心特点                      | 适用场景             |
+| ------------------ | ------------------- | ------------------------- | ---------------- |
+| **Opendia**        | 浏览器扩展 + MCP         | 复用现有浏览器会话，反检测，本地优先        | 需要登录态的自动化        |
+| **Browser-use**    | Python 框架           | 最流行，Cloud 服务，多 LLM 支持     | 生产级浏览器代理         |
+| **Stagehand**      | TypeScript 框架       | 自然语言 + 代码混合，自修复           | 可靠的自动化流程         |
+| **Playwright MCP** | MCP Server          | 微软官方，可访问性树，无需视觉模型         | 精确控制，测试场景        |
+| **Steel.dev**      | 浏览器 API             | 开源浏览器 API，为 AI 设计         | 构建 AI 应用和代理      |
+| **Nanobrowser**    | 浏览器扩展               | OpenAI Operator 的免费替代品    | 浏览器内 AI 自动化      |
+| **BrowserSkill**   | 浏览器扩展 + Rust daemon | 扩展侧 CDP，复用真实登录态，内核层可信输入事件 | 强风控站点的 Agent 自动化 |
+| **Kimi WebBridge** | 浏览器扩展 + 本地 daemon   | content script 合成事件，零调试提示 | 低风控场景的轻量登录态自动化   |
+
+#### 执行层两条路线：注入派 vs 调试协议派
+
+「本地 daemon + 浏览器扩展」拓扑相同的框架，执行层可能完全不同。注入派（Kimi WebBridge）在页面
+JS 层派发合成事件，轻、快、无调试提示，但 isTrusted=false 会被严格风控一票否决；调试协议派
+（BrowserSkill、Playwright）经 CDP Input 域在浏览器内核层派发可信输入事件，能过硬反自动化检测，
+代价是 debugger 黄条与更重的会话管理。选型上，操作自家后台等低风控场景注入派足够，强风控站点
+（isTrusted 校验、验证码）只有调试协议派可用。
+
+见：[Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/){rel="&#x22;nofollow&#x22;"}
 
 
 # Claude Code
@@ -25273,6 +25991,36 @@ Background Tasks、Agent Teams 等核心机制。
 
 - [Straion](https://straion.com/?ref=producthunt){rel="&#x22;nofollow&#x22;"}：AI Coding Agent 规则管理工具，统一管理编码规范，支持 Claude Code、Cursor 和 GitHub Copilot
 - [Ruflo](https://github.com/ruvnet/ruflo){rel="&#x22;nofollow&#x22;"}：Claude 多智能体编排平台，支持分布式智能体集群、RAG 集成、原生 Claude Code / Codex 集成
+
+#### claude-code-ultimate-guide-mcp（已从全局下线，备份配置）
+
+[Claude Code Ultimate Guide](https://cc.bruniaux.com/guide/){rel="&#x22;nofollow&#x22;"} 的 MCP server，提供 Claude Code 用法速查（cheatsheet、官方文档快照 diff、示例模板、安全威胁库等约 30 个工具）。全局接入后工具 schema 预扣 token 太多，2026-09 已从 `~/.claude.json` 顶层 `mcpServers` 移除，需要时按会话临时挂载：
+
+```json
+"claude-code-guide": {
+  "type": "stdio",
+  "command": "npx",
+  "args": ["-y", "claude-code-ultimate-guide-mcp"]
+}
+```
+
+#### 十七个工具按四类问题分组：用法检索、官方快照、版本影响、模板与安全
+
+该 MCP 把 Claude Code Ultimate Guide（2 万+ 行策展文档、1809 条索引、29 类目）接入任意 MCP 客户端。与 Context7 的通用文档检索及官方原始文档不同，它是策展层：观点性最佳实践、官方文档快照 diff、可抄模板与安全威胁库的打包。十七个工具按要回答的问题分四组：查用法与最佳实践走 `search_guide` 语义检索加 `read_section` 锚点精读，`list_topics` 先看全景（deep dive 独占 1636 条）；核对官方文档现状走 `search_official_docs` 加 `init/refresh/diff_official_docs` 快照三件套；评估版本升级影响走 `get_release`、`compare_versions`、`get_changelog`、`get_digest` 四个时间轴工具；找可抄模板与安全评估走 `list/search/get_example`（agents、commands、hooks、skills、scripts 五类生产模板，语义搜索按意图匹配）和 `list/get_threats` 威胁库（CVE 与技法 ID 双索引）。
+
+见：[mcp-server README](https://github.com/FlorianBruniaux/claude-code-ultimate-guide/blob/main/mcp-server/README.md){rel="&#x22;nofollow&#x22;"}：工具表由 machine-readable/mcp-product.json 渲染
+
+#### 能力面不止工具清单：还有 Resources、Prompt 与伴生命令
+
+server 实际暴露的能力远大于「17 个工具」：6 个 MCP Resource（`claude-code-guide://` 前缀的 agent-harnesses、distribution-channels、llms、reference、releases、translations）、1 个 `claude-code-expert` Prompt 与 5 个 `/ccguide:*` 斜杠命令（daily、diff-docs、init-docs、refresh-docs、search-docs）。Resources 是被动数据端点，成本只在被列出或读取时产生，但宿主若自动列出资源清单，token 账本里就多一笔不算进工具 schema 的隐性预扣；伴生命令则把最常用的调用序列固化为入口，省去每次手拼工具参数。
+
+见：[mcp-server README](https://github.com/FlorianBruniaux/claude-code-ultimate-guide/blob/main/mcp-server/README.md){rel="&#x22;nofollow&#x22;"}「Generated capabilities」节
+
+#### 离线索引加按需联网的混合架构：搜索与精读是两条可用性曲线
+
+包内只捆绑约 130KB 压缩的结构化索引，`search_guide`、`list_topics`、`get_cheatsheet` 纯离线可跑；但 `read_section` 读大文件需从 GitHub 按需拉取（24h 本地缓存），`init/refresh_official_docs` 需从 Anthropic 拉约 1.2MB 的 llms-full.txt。断网或 GitHub 不可达的会话里，检索结果照常返回、精读却可能超时失败，表现为工具调用挂起而非干净报错；挂载前先手测一次 `read_section` 再决定去留。
+
+见：[npm 包描述](https://www.npmjs.com/package/claude-code-ultimate-guide-mcp){rel="&#x22;nofollow&#x22;"}：结构化索引随包分发，正文按需拉取带 24h 本地缓存
 
 #### Claude Code 的 MCP 扩展与远程连接
 
@@ -25347,6 +26095,99 @@ Claude Code 支持通过 MCP 连接外部工具，并提供四种传输方式：
 这次对话中，我没有显示指定使用子智能体，但 CC 自动调用了 `ce-web-researcher`。
 
 ![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260428101330624.png)
+
+
+# Claude Code 子智能体
+
+#### 子智能体的隔离本质与委托决策规则
+
+子智能体（subagent）是 Claude Code 在独立上下文窗口里运行的一次性专职助理：收到主线程写的委托提示后自己读文件、
+搜代码、跑命令，结束后只把摘要回传主对话，中间过程连同整个子代理会话一起丢弃。它解决的是主上下文的污染问题，
+每个工具调用、文件读取、搜索结果都会常驻主窗口，塞满后模型开始遗忘前文，而「读 15 个文件只为回答一个事实」
+正是探索型工作的常态。委托与否的决策规则只有一句：中间过程是否重要，只要结果就委托，要盯过程就留在主线程。
+与相邻概念的分界：技能（Skill）在主上下文内共享对话历史运行；分叉（fork，/subtask）继承全部会话历史；
+智能体团队（agent teams）是跨会话常驻协作的编排层，子智能体只是会话内的一次性委托。
+
+见：[Claude Academy: Introduction to subagents](https://academy.claude.com/courses/introduction-to-subagents){rel="&#x22;nofollow&#x22;"}
+
+#### description 的双角色：触发路由加委托提示塑形
+
+所有可用子智能体的 name 与 description 会注入主线程的系统提示，主线程据此决定何时把任务委托给谁；同时
+description 还充当主线程撰写委托提示的模板指导。给代码审查子代理的描述里写「必须指明要审查哪些文件」，主线程
+派活时就会列出具体文件清单而不是一句含糊的「看看当前改动」；给搜索子代理写「返回可引用的来源」，委托提示就会
+带上这一要求。想让子代理被主动使用，在描述里写 "use proactively" 并附上具体触发场景示例；委托不命中时优先
+回头改 description 而不是系统提示。注意所有自定义子代理的描述合计超过 15000 token 时启动会告警，细节应放进
+按需加载的系统提示正文而不是描述里。
+
+见：[Create custom subagents](https://docs.claude.com/en/docs/claude-code/sub-agents){rel="&#x22;nofollow&#x22;"}
+
+#### 结构化输出格式是停止点，障碍上报防重踩坑
+
+子代理系统提示里定义的结构化输出模板（如 Summary / Critical Issues / Major Issues / Minor Issues /
+Recommendations / Approval Status）同时解决两个问题：填完每一节就是天然的完成信号，防止研究型任务
+「不知道查到什么程度算够」而超时乱跑；返回的信息结构化后主线程才能直接消费。输出格式里必须包含障碍上报段：
+安装问题、环境怪癖、绕过方案、需要特殊 flag 的命令、引发问题的依赖，这些中间发现若不上报，主线程就要
+用同样的代价重新踩一遍坑。子代理没有 AskUserQuestion 工具，遇到歧义只能自行猜测，输出格式里给它
+「待澄清问题」一节是唯一出口。
+
+见：[Claude Academy: Designing effective subagents](https://academy.claude.com/courses/introduction-to-subagents/designing-effective-subagents){rel="&#x22;nofollow&#x22;"}
+
+#### 配置体系现状：frontmatter 扩容与向导移除
+
+子代理是 Markdown 文件加 YAML frontmatter，存放于 .claude/agents/（项目级）或 \~/.claude/agents/（用户级），
+作用域优先级为托管设置 > --agents 传参 > 项目 > 用户 > 插件。2026 年初的现状与旧教程差异明显：/agents 交互式
+创建向导在 v2.1.198 已移除，改为口头让 Claude 写文件或手工编辑；内置 Explore 子代理从固定跑 Haiku 改为继承
+主对话模型（API 上封顶 Opus）；Task 工具已更名 Agent。frontmatter 字段大幅扩容：permissionMode（独立权限模式）、
+mcpServers（子代理独享 MCP，主上下文不吃工具描述开销）、hooks（PreToolUse 卡只读 SQL 这类条件控制）、maxTurns、
+skills（启动预载技能全文）、memory（跨会话持久记忆目录）、isolation: worktree（git worktree 隔离副本）、
+omitClaudeMd、effort、background 等；模型解析顺序为单次调用参数 > frontmatter > 环境变量 > 主对话模型。
+三大经典反模式：专家人设（"you are a Python expert" 无能力增量）、串行流水线（每步依赖上一步发现，信息在
+交接中丢失）、测试跑器（吞掉排障需要的完整输出）。
+
+见：[Create custom subagents](https://docs.claude.com/en/docs/claude-code/sub-agents){rel="&#x22;nofollow&#x22;"}
+
+#### 委托经济学：15 倍 token 乘数与并行回报
+
+Anthropic 多智能体研究系统的一手数据给出了委托决策的量化边界：agent 平均消耗约 4 倍于普通对话的 token，
+多智能体架构约 15 倍；token 用量单独解释了 BrowseComp 评测 80% 的性能方差。回报侧同样有数：Opus 主控加
+Sonnet 子代理的组合比单个 Opus 跑研究评测高 90.2%（质量提升幅度），主控并行拉 3-5 个子代理、子代理内并行调
+3 个以上工具，把复杂研究耗时砍掉最多 90%（耗时下降幅度），两个 90% 含义不同不可混用。结论是多智能体只在
+「高价值、真并行、信息量超单窗口」的任务上划算，多数编码任务的可并行度不如研究，Anthropic 自己也是这么
+承认的；小任务委托的启动开销得不偿失。
+
+见：[How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system){rel="&#x22;nofollow&#x22;"}
+
+#### 编排者的工作量分配规则要显式写进提示
+
+多智能体早期最典型的失败不是子代理干得差而是主控乱派活：简单事实查询扇出 50 个子代理，或者两个子代理
+重复调查同一件事（半导体案例里两个子代理都在查 2025 供应链，分工形同虚设）。修复手段是把工作量刻度规则
+显式写进主控的提示：事实查找 1 个代理配 3-10 次工具调用，直接对比 2-4 个代理各 10-15 次，复杂研究 10 个
+以上代理且职责切清。落到 Claude Code：委托质量的上限不在子代理文件本身，而在主线程怎么写委托提示，
+可以在 CLAUDE.md 里教主线程按任务复杂度决定扇出数量，这比调任何一个子代理的系统提示杠杆更大。
+
+见：[How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system){rel="&#x22;nofollow&#x22;"}
+
+#### 冷启动税是乘法，内置 Explore 与 Plan 免税
+
+每个非 fork 子代理启动都要重新装载自身系统提示、委托任务、全层级 CLAUDE.md 和 git 快照，且普通子代理的
+提示缓存与主会话分离，缓存都省不掉；扇出 N 个并行子代理时公共载荷（尤其臃肿的 CLAUDE.md）就被付 N 次。
+两条免税路径：探索类任务让主线程委托给内置 Explore 与 Plan（它们跳过 CLAUDE.md 和 git 快照，这是它们快而
+便宜的原因）；自定义子代理设 omitClaudeMd: true（v2.1.271 起），让它只靠委托提示带足信息。另一笔常驻税是
+描述注入：所有自定义子代理的 name 与 description 常驻主系统提示，闲置的 agent 文件在向每个会话收税，
+不用的应及时删除。分叉（fork）是成本结构的另一极：继承父会话全部历史并复用父提示缓存，上下文密集型
+支线任务用 fork 比新子代理便宜，代价是失去输入隔离。
+
+见：[Create custom subagents](https://docs.claude.com/en/docs/claude-code/sub-agents){rel="&#x22;nofollow&#x22;"}
+
+#### 子代理报告按不可信输入建模
+
+子代理替主线程读了用户从未审过的文件、网页和命令输出，这些内容可能携带指向主线程的注入指令。Claude Code
+对回流报告做输出扫描：模仿 system-reminder 等 harness 形态的文本被插入反斜杠消解，命中「指令形态」的报告
+前置标记行，但扫描不判断恶意也不改语义，只防模仿不防诱导。配套硬规则是任何 agent 的消息都不构成权限批准，
+报告里声称「用户已同意」没有任何效力。工程含义：给网络与文件扇出型子代理配最小工具集（研究型只读，
+审查型加 Bash 看 diff，修改型才给 Edit 与 Write），报告驱动的后续动作仍要过权限关。
+
+见：[Create custom subagents](https://docs.claude.com/en/docs/claude-code/sub-agents){rel="&#x22;nofollow&#x22;"}
 
 
 # Codex
@@ -25454,6 +26295,7 @@ OpenAI 为开源维护者提供的支持计划，包含三项核心福利：
 ## Claude Code
 
 - [Claude Code](https://lionad.art/maps/_ai/tools/claude-code) - Anthropic 官方 AI 编码助手
+- [Claude Code 子智能体](https://lionad.art/maps/_ai/tools/claude-code-subagents) - 独立上下文窗口的委托机制、配置现状与委托经济学
 
 ## Browser Automation
 
@@ -26492,6 +27334,16 @@ review 规范等实践重新”嵌入工作流”，并通过共享指令和流�
 
 见：Denis Stetskov, “The Snake That Ate Itself”（2026-04-01）
 
+#### METR 随机对照试验揭示 AI 生产力的感知偏差
+
+METR 2025 年 7 月的随机对照试验发现，经验丰富的开源开发者使用 AI 工具完成任务反而多花 19% 的时间，
+但事后他们自我估计 AI 让自己快了约 20%——感知收益与实际收益方向相反。Alasdair Allan 在 QCon London
+援引该研究时补充了两个边界观察：AI 对简短、定义明确的任务确实有用，但随着复杂性增加收益迅速消失，
+瓶颈向上游转移至代码审查环节，而这恰恰是高级工程师判断力发挥作用的地方；在真实的开源项目中，
+AI 生成的 15 个 PR 没有一个可以合并，尽管它们都通过了自动化测试——AI 可以实现功能，却无法胜任工程技艺。
+
+见：[Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/){rel="&#x22;nofollow&#x22;"}
+
 
 # Loop Engineering
 
@@ -26573,6 +27425,53 @@ AI 的玩具化包装让非专业用户也能触达曾经需要专业技能才�
 见：[ZHO-nano-banana-Creation](https://github.com/ZHO-ZHO-ZHO/ZHO-nano-banana-Creation){rel="&#x22;nofollow&#x22;"}
 
 
+# AI 时代的工程师技能形成
+
+#### AI 正在拆除工程师成长阶梯的台阶
+
+Alasdair Allan 在 QCon London 提出一个结构性困境：AI 正在接手过去用于培养工程师的工作——花数年阅读遗留代码库、
+凌晨调试生产事故——而监督 AI 恰恰需要这些经验养成的编程技能。资深工程师的模式识别能力（系统应该如何构建、
+复杂性隐藏在哪里、规模扩大后会在哪里出问题）无法再通过传统路径获得，因为初级工程师会让 AI 智能体处理这些内容并要求它总结。
+
+研究证据指向同一方向。Anthropic 的编码技能形成研究发现，使用 AI 辅助的开发者学习新库时，理解测试得分低 17%，
+而任务完成速度没有任何显著提升——Allan 概括为"他们牺牲了学习，却什么也没换来"。其机制在于，
+当 AI 直接给出答案却省略整个探索过程时，与导师一起艰难解决问题所带来的偶发学习机会就被绕过了。
+
+见：[AI Disrupts Engineering Career Progression](https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/){rel="&#x22;nofollow&#x22;"}
+
+#### 黑地系统的关键上下文只存在于生产环境
+
+大多数工程工作属于"黑地（blackfield）"：处于高负载下的遗留系统，所有人都同意应该逐步弃用，却没有人有时间真正执行。
+规范可能从未编写，或因数十年未记录的决策而失去意义；业务规则被编码在各种条件分支中，而理解这些规则的人早已离开。
+
+这构成 AI 智能体的能力边界：它们可以阅读代码、测试和文档，但无法读取生产环境——无法查看多年的请求模式，
+也无法理解哪些代码路径以代码本身无法揭示的方式承担着关键负载。资深工程师对黑地系统的判断力，
+正来自这些无法从代码中提取的生产环境经验。
+
+见：[AI Disrupts Engineering Career Progression](https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/){rel="&#x22;nofollow&#x22;"}
+
+#### 编程正在转变为监督工作
+
+Allan 援引 Anthropic 内部数据：其工程师在 59% 的日常工作中使用 Claude，但只能完全委托约 20% 的工作。
+生成与判断之间的差距，是未来工作岗位存在的地方——AI 编写代码，人类判断它是否是正确的代码。
+
+监督角色的代价是学习通道的改变。Allan 观察到，现在 80% 到 90% 的工程问题会被提交给 AI 而不是同事；
+过去的职业发展通道是为编写代码的人建立的，尚未有人为监督系统的人重建这条通道。
+
+见：[AI Disrupts Engineering Career Progression](https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/){rel="&#x22;nofollow&#x22;"}
+
+#### 住院医师模式：刻意保留"枯燥杂活"的学习价值
+
+Allan 承认行业目前处于诊断阶段而非解决方案阶段，但给出了组织层面的行动方向：建立结构化的学习路径，
+有意识地安排基础工作轮岗——就像住院医师培训，人们做那些枯燥的杂活是因为这些工作能够培养判断力，而不是因为效率更高。
+
+配套的衡量方式需要转变：衡量理解程度而非速度，观察人们如何思考而非产出了什么。同时把上下文视为基础设施——
+文档应该写得像为一名懂得编程、却不了解该代码库的高级工程师准备的入职材料。对个人而言，
+AI 是工具而不是老师，利用它跳过理解过程就是在透支自己的未来。
+
+见：[AI Disrupts Engineering Career Progression](https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/){rel="&#x22;nofollow&#x22;"}
+
+
 # 编码智能体团队
 
 ## Brief
@@ -26641,6 +27540,8 @@ API 设计和逐行 code review；AI 处理所有繁琐实现（fs 方法的 syn
 - [玩具化设计思维](https://lionad.art/maps/_ai/vibe/playful-ai) - 将复杂 AI 能力转化为情感化、游戏化体验
 
 ### 暗面与风险
+
+- [AI 时代的工程师技能形成](https://lionad.art/maps/_ai/vibe/skill-formation) — AI 接管初级工作导致成长阶梯断裂，以及组织层面的应对
 
 #### VibeScamming：AI 降低了诈骗的技术门槛
 
@@ -26714,6 +27615,51 @@ David Abram 认为软件开发的真正价值从不在于写代码本身，而�
 
 - [Copilot](https://github.com/settings/billing/budgets){rel="&#x22;nofollow&#x22;"}
 - [Trae](https://www.trae.ai/account-setting?user_id=7473336841417851912&username=Lionad-Morotar#usage){rel="&#x22;nofollow&#x22;"}
+
+
+# 视频生成提示词
+
+#### 镜头运动与机位路径（Camera Movement & Blocking）
+
+- 基础运动：dolly in/out（推轨）、truck（横移）、pedestal（升降）、orbit/arc（环绕）、crane/jib（摇臂）、handheld（手持）、steadicam（稳定器跟拍）
+- 复合运镜：dolly zoom（希区柯克变焦）、whip pan（甩镜）、rack focus（变焦转移）、pull-back reveal（后拉揭示）、FPV drone dive（穿越机俯冲）
+- 机位修饰：low angle hero shot（低角度英雄机位）、Dutch angle（荷兰角/倾斜构图）、overhead god's eye（上帝视角）
+- 速度词：slow push（缓推）、whip-fast（急甩）、floating drift（漂浮感）
+
+#### 景别、焦段与构图（Shot Size & Lens Language）
+
+- 景别：extreme wide（大远景）、establishing shot（交代镜头）、medium close-up（中近景）、insert（细节插入镜头）、macro（微距）
+- 焦段：14mm ultra-wide（空间夸张）、35mm（人文视角）、50mm（人眼透视）、85mm portrait（人像压缩）、200mm telephoto compression（长焦空间压缩）
+- 构图：rule of thirds、center-framed symmetry（居中对称）、negative space（留白）、frame within frame（画中画构图）、leading lines（引导线）
+- 焦点：shallow DOF / bokeh（浅景深）、deep focus（全景深）、tilt-shift（移轴微缩感）
+
+#### 光线与色彩科学（Lighting & Color Science）
+
+- 光源逻辑：motivated lighting（有来源的光）、three-point setup（三点布光）、practical lights（画面内光源，如路灯/烛光）
+- 光质：hard light / soft diffused、Rembrandt lighting（伦勃朗光）、rim/backlight（轮廓光）、volumetric god rays（体积光）
+- 时段氛围：golden hour、blue hour、overcast softbox（阴天柔光）、neon-noir
+- 色彩：teal-orange grade、cinematic color science、film emulation（胶片模拟）、LUT 风格词（Kodak 2383）
+
+#### 角色一致性与表演控制（Character & Performance）
+
+- 身份锚点：subject reference / character element、identity lock、facial structure persistence、wardrobe continuity（服装连续）
+- 表演词：subtle micro-expression（微表情）、eye contact to lens（直视镜头）、gaze shift（视线转移）、suppressed smile（克制的笑）
+- 动作连续：motion continuity、matched pace（步伐速度匹配）、gesture carryover（动作延续到下一镜）
+- 防漂移负向词：no morphing features、no face swap、no extra characters
+
+#### 剪辑语法与镜头衔接（Editing & Multi-Shot Grammar）
+
+- 切镜：hard cut（硬切）、cut on action（动作切点）、match cut（匹配剪辑）、smash cut（突兀跳切）、J-cut / L-cut（声画错位）
+- 转场：whip pan transition、light leak flash、liquid morph（液态变形）、in-camera transition（机内转场）
+- 叙事结构：shot-reverse-shot（正反打）、cross-cutting（交叉剪辑）、POV shot（主观镜头）、insert reaction shot（反应镜头）
+- 连续性声明：seamless speed match（速度无缝）、eyeline match（视线匹配）、screen direction consistency（轴线一致）
+
+#### 物理、材质与环境动力学（Physics & World Dynamics）
+
+- 物理反馈：weight and momentum（重量感）、cloth dynamics（布料）、hair simulation、rigid body collision
+- 流体粒子：fluid splash、volumetric smoke、particle debris、heat distortion（热扭曲）
+- 环境响应：wind-blown foliage、wet surface reflection（湿面反射）、footstep dust（脚步扬尘）、breath fog in cold air
+- 时间操作：speed ramp（变速）、slow motion 120fps、timelapse、frozen moment / bullet time（子弹时间）
 
 
 # Workflow
@@ -29389,14 +30335,71 @@ AI 使软件开发成本趋近于零，让服务极小市场的"一人企业"变
 
 - [商业分析](https://lionad.art/maps/_business/analysis/business-analysis)
 - [风险投资](https://lionad.art/maps/_business/venture-capital/venture-capital)
+- [创业](https://lionad.art/maps/_business/startup/startup)
 
 ## 概述
 
-商业领域涵盖企业运营、市场分析、投资决策等核心商业知识。本领域包含两个主要子领域：
+商业领域涵盖企业运营、市场分析、投资决策等核心商业知识。本领域包含三个主要子领域：
 
 **商业分析** - 通过商业模型、分析框架和案例研究，理解商业世界的运作规律。包括价值链分析、业务定位、竞争策略等核心方法论，以及国内外典型企业的商业案例解读。
 
 **风险投资** - 理解风险投资的运作机制，包括募资、投资、管理、退出的完整流程，以及当前市场环境下的投资趋势分析。
+
+**创业** - 创业方法论与验证体系，包括精益创业、客户发展、从想法到产品市场契合的搜索过程，以及 AI 时代这些方法论的演进。
+
+
+# MVP 之死与 IUP
+
+#### IUP：MVP 在 AI 时代的失效形态
+
+IUP（Initial Untested Product，初始未测试产品）是 Steve Blank 在 2026 年 9 月提出的诊断标签，指未经客户接触就建成的完整产品
+——长着 MVP 的样子，但证据含量为零。它不是新方法论，改名即判决：把 Minimum Viable Product 的三个词全部换掉，产品形态不变，
+抽走的全是证据主张。
+
+背景是 2026 春季斯坦福 Lean LaunchPad 课堂：vibe coding 把建造成本压到近零，8 支队伍全部在第一天 demo 出完整产品（含数字孪生与临床终点），
+教师团队最初把这当进展而兴奋，随后发现 MVP 不再是任何东西的证据——不代表客户发现、批判性思维、假设检验、产品市场契合，甚至不代表投入度。
+
+失效的机制在于 MVP 曾由同一个高成本产物承担双重角色：既是团队技术能力的证书，又是数周客户发现累积出的学习结晶。
+当造一个产品只花一个周末，双重角色同时塌掉。课堂上的临床表现：MVP 从实验退化为推销，收获赞美代替收集反证；
+pivot 在技术上变便宜、心理上反而变贵，队伍被 AI 成品的沉没成本冻住初始想法；客户自己也在用同样的 AI 工具拼替代品，
+产品可卖功能的「地板」被抬高。
+
+系统后果：创业瓶颈从「造出来」移到「判断造什么、为谁造、怎么分发」；建造护城河消失，使竞争格局分析从可忽略项变为核心；
+克隆门槛趋零，使护城河本身成为待发现的课题。边界同样清楚：建造周期仍以月年计的领域（硬件、生物、半导体、能源、国防）
+MVP 依然成立，失效面是建造成本近零的软件场景；精益创业的其余环节——客户发现、假设-实验循环、pivot 合法性——都未被推翻，
+死的只是「成品作为学习载体」这一环。
+
+现状：这是 Blank 四篇系列的第 2 篇（2026-09-25），第 1 篇记录课堂崩塌实录，第 3、4 篇（外部环境四变量与新课程设计）尚未发布，
+替代教学法仍未揭晓；同一教学法支撑的 NSF I-Corps（100+ 大学、约 1 万科学家、1400+ 初创）与 Hacking for Defense（60+ 美国大学）
+都面临同款重写压力。
+
+见：[AI Killed the MVP – Long Live the IUP](https://steveblank.com/2026/09/25/ai-killed-the-mvp-long-live-the-iup/){rel="&#x22;nofollow&#x22;"}、[The Year AI Came For Us](https://steveblank.com/2026/09/23/the-year-ai-came-for-us-teaching-entrepreneurship-will-never-be-the-same){rel="&#x22;nofollow&#x22;"}
+
+#### MVP 的证据地位是成本信号
+
+MVP 之死常被讲成方法论过时，真实机制是成本信号（costly signaling）：当造一个产品要数周和真金白银，成品就同时充当
+「这队人会造东西」与「这队真见过客户」的双重证书，因为造假太贵而天然可信。AI 把造假成本降到零，两个角色一起失效。
+评估任何「做出来了」的产物时，判据要换：不问做没做出来，问「哪次真实客户接触改变了它的哪个具体设计决策」——答不出即是 IUP。
+这也解释了 Blank 为何选择给 MVP 改名而非禁用 AI：要杀的是证书的含金量，不是造产品的工具。
+
+见：[AI Killed the MVP – Long Live the IUP](https://steveblank.com/2026/09/25/ai-killed-the-mvp-long-live-the-iup/){rel="&#x22;nofollow&#x22;"}
+
+#### 学习负债有对照实验背书
+
+Steve Blank 把课堂观察归因为 learning debt（学习负债）——队伍借 IUP 跳过了挣扎，于是无法为假设辩护、解释不了边界情况。
+学习科学有更硬的收敛证据：Bastani 等人 2024 年在土耳其高中近千名学生的场域随机实验中，练习期用 GPT-4 当数学家教使当期成绩提升约 48%，
+撤掉 AI 后的考试成绩反而比从未用过的对照组低约 17%；带「护栏」的导师版（限制直接给答案）只少伤一点，回不到基线。
+机制叫必要难度（desirable difficulty）：挣扎本身是学习的一环，AI 撤走挣扎后，产出的流畅感与真实能力脱钩。
+跨域收敛说明这不是个人教学风格的抱怨，而是「AI 产出成果 + 人跳过过程」场景的普遍失败模式，凡符合该结构的场合都应预期同款负债。
+
+见：[Generative AI Can Harm Learning（Stanford SCALE 收录）](https://scale.stanford.edu/ai/repository/generative-ai-can-harm-learning){rel="&#x22;nofollow&#x22;"}
+
+
+# 创业
+
+## 方法论
+
+- [MVP 之死与 IUP](https://lionad.art/maps/_business/startup/mvp-to-iup)：AI 时代精益创业证据体系重构，从最小可行产品到初始未测试产品
 
 
 # 风险投资
@@ -30336,7 +31339,7 @@ Bikeshed 用于指代某些简单到所有人都可以发表观点，并且几�
 
 - [计算机基础](https://lionad.art/maps/_computer/fundamentals/fundamentals) - 进制转换、数字电路、原码反码补码
 - [编码](https://lionad.art/maps/_computer/encoding/encoding) - 字符编码、图像编码、哈希算法
-- [计算机网络](https://lionad.art/maps/_computer/network/network) - TCP/IP、HTTP、网络安全
+- [计算机网络](https://lionad.art/maps/_computer/network/network) - TCP/IP、HTTP、RESTful、WebSocket、网络安全
 - [数字身份](https://lionad.art/maps/_computer/identity/digital-identity) - 数字身份系统的脆弱性、武器化风险与意识形态批判
 - [系统性能](https://lionad.art/maps/_computer/system-performance) - 延迟数字、性能指标、数量级思维
 
@@ -30346,7 +31349,7 @@ Bikeshed 用于指代某些简单到所有人都可以发表观点，并且几�
 
 - **计算机基础**：数制转换（二进制、十进制）、数字电路设计、原码/反码/补码表示法等底层原理
 - **编码技术**：字符编码（Unicode、UTF-8、Emoji）、图像编码（RAW、JPEG）、哈希算法及冲突处理
-- **计算机网络**：TCP/IP协议栈、HTTP/HTTPS协议、TLS加密、网络安全攻防、CDN加速
+- **计算机网络**：TCP/IP协议栈、HTTP/HTTPS协议、RESTful 风格、WebSocket 实时通道、TLS加密、网络安全攻防、CDN加速
 - **数字身份**：数字身份系统的架构假设、脆弱性案例、冲突中的武器化风险与技术政治批判
 
 这些内容构成了开发者理解计算机系统运行原理的知识基础。
@@ -30565,6 +31568,12 @@ Palantir 合作推出可搜索的全国公民数据库，直接服务于大规�
 
 - [Beej's Guide to Network Concepts](https://beej.us/guide/bgnet0/html/split/index.html){rel="&#x22;nofollow&#x22;"}
 
+## 领域
+
+- [RESTful](https://lionad.art/maps/_computer/network/restful) - REST 架构风格的实用主义落地与成熟度模型
+- [WebSocket](https://lionad.art/maps/_computer/network/websocket) - WebSocket 的协议迁移现实与实时通道的优化落点
+- [undici](https://lionad.art/maps/_computer/network/undici) - Node 官方 HTTP 客户端的 h2 演进与 pipelining 配置陷阱
+
 ## 网络模型
 
 #### 各网络层有哪些代表性的协议？
@@ -30666,6 +31675,21 @@ TODO，<https://imweb.io/topic/55c6f9bac222e3af6ce235b9>{rel="&#x22;nofollow&#x2
 #### no-store 和 no-cache 的区别？
 
 no-store 告诉客户端每次都在服务器取最新的资源。no-cache 也要求每次都要重新请求，但服务器可能返回 304 告诉客户端资源未改变。
+
+#### HTTP pipelining 的适用性由流量画像决定
+
+HTTP/1.1 pipelining 允许在一条 keep-alive 连接上不等响应返回就连续发出多个请求，
+省掉串行问答之间的往返空窗；代价是响应必须按请求顺序返回——顺序约束正是它的阿喀琉斯之踵：
+首个响应慢，后续响应全部堵死在管线里（HTTP 层队头阻塞）。
+它成立需要三个前提同时满足：链路两端实现可控（没有会拆散管线的老旧中间盒）、
+响应快且耗时均匀、请求幂等可安全重试。浏览器时代三个前提全不成立，
+于是全面弃用 pipelining，转向每 origin 六条并行 TCP 连接的笨办法
+——正是这份浪费催生了 HTTP/2 用流编号取代顺序约束的多路复用。
+服务端到服务端的短 RPC 场景三前提成立，undici 因而保留 `pipelining` 选项（默认 1 即关闭）。
+反面画像的典型是 LLM 流式调用：响应长达数十秒到数分钟且耗时不可预测，
+开 pipelining 等于主动制造队头阻塞，一条慢流会精确堵住排在其后的所有请求。
+
+见：[HTTP pipelining - Wikipedia](https://en.wikipedia.org/wiki/HTTP_pipelining){rel="&#x22;nofollow&#x22;"}
 
 #### HTTP2 的改进在哪里？
 
@@ -30864,6 +31888,42 @@ Access-Control-Allow-Origin 的响应。在得到响应的允许后再继续发�
 - [为你的网站带上帽子 | 使用 helmet 保护 Express 应用](https://juejin.im/post/6844903518826921998){rel="&#x22;nofollow&#x22;"}
 
 
+# RESTful
+
+## RESTful
+
+#### 什么是朴素的 RESTful？
+
+朴素的 RESTful 指业界对 REST 架构风格最常见的简化落地，核心约定有四条：以资源为中心组织 URL，路径用名词而非动词，
+如 `/agents/42` 而非 `/getAgent?id=42`；用 HTTP 方法表达动作，GET 读、POST 增、PUT 全量替换、PATCH 部分更新、DELETE 删；
+用语义化状态码承载结果，如 201 创建成功、404 不存在、409 冲突，而不是所有响应都返回 200 再在 body 里塞错误码；
+每个请求自带完整上下文，服务端不保存会话状态。「朴素」的潜台词是砍掉了 HATEOAS（超媒体即应用状态引擎）——
+Fielding 原教旨要求响应携带链接，客户端靠超媒体发现后续操作而非硬编码 URL，实践中几乎无人做到，
+于是朴素 RESTful 事实上成了行业里「REST」这个词的默认含义。
+
+见：[Fielding Dissertation: Chapter 5 REST](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm){rel="&#x22;nofollow&#x22;"}
+
+#### 理查德森成熟度模型把 RESTful 分成四级
+
+Leonard Richardson 提出的成熟度模型按对 HTTP 的利用深度把 RESTful 服务分为四级。
+Level 0 把 HTTP 当传输隧道，单一端点、单一方法承载所有请求，SOAP 与 XML-RPC 属此类；
+Level 1 引入资源概念，URL 按资源拆分，但仍只用单一方法（通常 POST）表达所有动作；
+Level 2 充分利用 HTTP 动词与状态码，朴素 RESTful 即位于此；
+Level 3 加入超媒体控制（HATEOAS），响应携带可用操作的链接，客户端状态迁移由超媒体驱动。
+模型的价值在于提供一把刻度尺：评价一个 API 时先定位它在哪一级，而不是笼统争论「够不够 REST」。
+
+见：[Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html){rel="&#x22;nofollow&#x22;"}
+
+## 工程取舍
+
+#### 内部 API 用 RPC 风格并不比 RESTful 差
+
+朴素 RESTful 的收益——HTTP 缓存语义、标准化工具链、第三方无需文档即可推断接口形态——主要在对外开放 API 时才显著。
+对内场景（如前端自配的 BFF 层）消费方只有自家代码，动词式路径（如 `/api/agent/list`）配合全 POST 反而直白，
+与服务端文件路由一一对应，心智成本更低。正确做法是让风格服务于消费面：
+公开契约追求 Level 2 的标准化，内部接口保持简单直接，不必为「看起来 REST」付出无谓的抽象成本。
+
+
 # Http Request Example
 
 ```
@@ -30874,6 +31934,49 @@ Access-Control-Allow-Origin 的响应。在得到响应的允许后再继续发�
 
 ```
 ```
+
+
+# undici
+
+## 协议演进
+
+#### undici 的 HTTP/2 支持是版本演进陷阱
+
+undici 是 Node 官方从零重写的 HTTP 客户端，自 Node 18 起作为全局 fetch 的底层实现随运行时捆绑。
+它的 HTTP/2 支持来得晚且默认关：v7 才引入 `allowH2: true` 选项（opt-in），
+v8 翻转为默认开启并计划随 Node 26 进入运行时。在此之前，Node 18 到 25 的全局 fetch
+即使面对支持 HTTP/2 的服务器也始终走 HTTP/1.1——实测 Node 24.15 与 25.9 捆绑的 undici 为 7.24.4，
+默认 Agent 并未开启 h2，与浏览器 fetch 自动协商 h2 的行为并不等价。
+过渡期要用 h2，需自行安装 undici 并以 `new Agent({ allowH2: true })` 之类配置替换全局调度器。
+
+另一个暗坑藏在参数面：h1 时代的 `pipelining` 选项在 h2 连接上被复用为多路复用并发度上限
+（H2CClient 直接把它别名到 maxConcurrentStreams），而 `pipelining` 的默认值是 1。
+只开 `allowH2` 不调 `pipelining`，h2 连接会退化为串行单流；
+「升级了协议却没有并发提升」是这一组合的典型表现。
+
+见：[Undici 8 Tracking Issue](https://github.com/nodejs/undici/issues/4894){rel="&#x22;nofollow&#x22;"}
+
+
+# WebSocket
+
+## 协议迁移
+
+#### WebSocket 不随 HTTP 版本迁移
+
+WebSocket 的底层传输至今仍停在 HTTP/1.1 时代。RFC 8441（2018）定义了 WebSocket over HTTP/2（Extended CONNECT），
+Chromium 系自 91 版（2021 年）起默认启用，但触发是机会式的：必须已存在到该 origin 的 HTTP/2 连接、
+服务端在 SETTINGS 帧中通告 ENABLE\_CONNECT\_PROTOCOL、且中间代理链支持 Extended CONNECT 转换，
+三者缺一便静默回退 HTTP/1.1 Upgrade；Firefox 与 Safari 至今未实现。
+HTTP/3 版本（RFC 9220，2022）更为早期，连 Chrome 也需要手动开启 flag，全线处于实验状态。
+根源在于 WebSocket 的原始设计是握手后劫持整条连接（Upgrade），与多路复用模型天然冲突，
+新版本只能以协商扩展的方式嫁接，缺乏强制迁移的协议杠杆。
+
+工程推论是：面向浏览器的实时通道（语音、实时识别、协同编辑）不能指望升级边缘 HTTP 版本来加速 WebSocket，
+跨浏览器没有确定性；Node 服务端栈的主流 WS 实现监听在 HTTP/1.1 Upgrade 路径上，
+即使浏览器凑齐全部前提也走不上 h2。实时链路的传输优化空间在应用层韧性
+——断线重连、会话恢复、上游超时管理——而非传输层协议版本。
+
+见：[WebSocket Standards: RFC 6455, Extensions & Browser Support](https://websocket.org/standards/){rel="&#x22;nofollow&#x22;"}
 
 
 # 系统性能
@@ -32759,6 +33862,55 @@ Redis 8（2025）回加 OSI 认证的 AGPLv3 试图修复关系，
 见：[What is Valkey? A comparison with Redis](https://redis.io/blog/what-is-valkey/){rel="&#x22;nofollow&#x22;"}
 
 
+# 数据删除策略
+
+#### 软删除与硬删除的选择依据
+
+删除策略没有银弹，判断顺序为：数据需要恢复吗、合规要求保留吗、量级多大、有关联数据吗、
+删除是终局语义吗。软删除（Soft Delete）适用于用户可恢复的操作（回收站、云盘、待办）、
+审计与合规留痕（订单、操作日志）、外键被引用的数据（硬删会级联报错或断链）、重建成本高的数据。
+硬删除（Hard Delete）适用于敏感数据彻底清除（GDPR 被遗忘权要求物理擦除，仅标记不满足）、
+低价值大流量数据（日志、事件流、中间态）、可再生成数据、高频写入需控制表膨胀的场景。
+本质判断是数据属不可再生资产还是可再生资源：资产软删保恢复，资源硬删省空间；
+合规（如 GDPR）是唯一能推翻该判断的强制力。
+
+见：[Difference Between Soft Delete and Hard Delete - GeeksforGeeks](https://www.geeksforgeeks.org/dbms/difference-between-soft-delete-and-hard-delete/){rel="&#x22;nofollow&#x22;"}
+
+#### 软删除与唯一约束冲突
+
+软删除记录仍占用唯一键，最典型是用户被软删除后邮箱无法重新注册。PostgreSQL 用 partial index
+限定仅对活跃行建立唯一约束：
+
+```sql
+CREATE UNIQUE INDEX idx_users_email ON users (email) WHERE deleted_at IS NULL;
+```
+
+MySQL/MariaDB 无 partial index，用 generated column 让已删除行该列取 NULL（NULL 不参与唯一性比较）。
+另一方案是删除时改写唯一键字段（如邮箱追加 `-deleted@` 后缀）。软删除把"删除"变成状态字段后，
+唯一约束的语义从"全表唯一"变为"活跃记录内唯一"，所有既有唯一键都应重新审视。
+
+见：[PostgreSQL 11.8. Partial Indexes](https://www.postgresql.org/docs/current/indexes-partial.html){rel="&#x22;nofollow&#x22;"}
+
+#### 软删除的级联断裂与查询遗漏
+
+`ON DELETE CASCADE` 对软删除不生效：软删除是 UPDATE 而非 DELETE，子表不会自动联动，
+需各自同步标记，漏一处就会查询到脏数据。软删除的正确性依赖每次查询都带 `deleted_at IS NULL`
+过滤，漏一个条件就出 bug，工程上用 ORM 全局 scope、数据库视图或策略层统一兜底。
+根源在于软删除把"删除"建模成生命周期状态，查询、外键、唯一约束全部要从"删除"思维切换到
+"状态过滤"思维，四个坑都出自这一转换处。
+
+见：[Soft Delete vs Hard Delete: The Trade-offs Nobody Tells You About - yousuf-dev](https://yousuf-dev.com/blog/soft-deletes-vs-hard-deletes){rel="&#x22;nofollow&#x22;"}
+
+#### 两段式删除：软删除 + 归档清理
+
+软删除不等于不占空间，被标记行仍留在原表，高频写入场景下表膨胀会拖慢索引扫描，必须配合归档机制。
+两段式删除（archival deletion）：用户视角立即软删除（秒级响应、可恢复、可审计），后台定时任务把
+N 天前的软删除数据迁移到归档表或冷存储后物理清理。既保留可恢复性与合规留痕，又控制热表体积，
+是生产环境兼顾两者的常见折中。
+
+见：[Soft Delete vs Hard Delete: Patterns, Trade-offs, and GDPR Compliance - codelit](https://codelit.io/blog/soft-delete-vs-hard-delete){rel="&#x22;nofollow&#x22;"}
+
+
 # 数据库索引优化
 
 #### B-Tree 索引的有序查找边界
@@ -32809,6 +33961,44 @@ CREATE INDEX idx_name_trgm ON users USING gin (name gin_trgm_ops);
 **专用搜索引擎（L3）**：当搜索复杂度超出数据库索引能力时，应考虑 Elasticsearch、Meilisearch 等专用方案，而非在数据库层强行优化。
 
 
+# jsonb
+
+## 主题
+
+#### jsonb 存解析树而非原文
+
+jsonb 解决结构可变数据在关系库内的存储与查询问题。json 类型保存原始文本，每次查询重新解析，字节级保真；
+jsonb 保存解析后的规范化树，查询快、可比较、可索引，但不承诺表示相等。查询代数分三层：取值操作符
+`->` 与 `->>` 无索引支持；包含操作符 `@>` `?` `?&` `?|` 走 GIN 倒排索引；SQL/JSON 路径语言
+（`jsonb_path_query`，PG12+）带过滤表达式、正则与 `last`，覆盖多数 JSON\_TABLE 场景。更新模型上没有
+原位子树更新：任何改动都整列重写并产生新行版本，`jsonb_set` 与整列赋值在 IO 上等价，大文档还会触发
+TOAST 整体重写与 GIN 全量重插。边界：需要字段级约束（NOT NULL/FK/CHECK）、高频局部更新的大文档、
+跨行按 JSON 内部值做关联、审计留痕要保留原始字节时，应改用普通列、拆行或 json 类型。版本现状：
+SQL 标准函数全家桶（JSON\_TABLE、JSON\_EXISTS/JSON\_VALUE/JSON\_QUERY 与构造器）PG17 才落地，
+PG18 补 jsonb null 可 cast 为标量、SIMD 解析加速与 GIN 并行建索引，PG16 及以下只能用路径语言表达等价查询。
+
+见：[PostgreSQL Docs: JSON Types](https://www.postgresql.org/docs/current/datatype-json.html){rel="&#x22;nofollow&#x22;"}
+
+#### GIN 索引只覆盖包含类查询
+
+GIN(jsonb) 只加速 `@>` `?` `?&` `?|` 这类包含/存在判断；`WHERE d->>'k' = 'v'` 这种取值后再过滤的谓词
+永远走顺序扫描（PG16 万行表实测：建 GIN 后 `->>` 查询仍 Seq Scan，同数据的 `@>` 走 Bitmap Index Scan）。
+取值谓词要走索引必须建表达式索引 `((d->>'k'))`。次生影响在优化器：没有表达式索引时 planner 对该表达式
+没有统计，等值选择率默认按约 0.5% 猜测，大表 JOIN 会因低估行数选错算法；而表达式索引存在后 ANALYZE
+会顺带收集该表达式的统计，一个索引同时修复索引路径与行数估算。
+
+见：[pganalyze: Postgres planner JSONB selectivity](https://pganalyze.com/blog/5mins-postgres-planner-jsonb-selectivity){rel="&#x22;nofollow&#x22;"}
+
+#### jsonb 回读值不可直接做内容哈希
+
+入库规范化决定了 jsonb 只保语义不保字节：对象键按长度加字典序重排、重复键静默取后者、数字统一为
+numeric（`'{"a":1,"a":2}'` 回读 `{"a": 2}`，`1e2` 回读 100）。同一 JSON 字符串两次入库，回读的键序与
+数字表示都可能不同于输入，因此原文比对、内容哈希、审计回放都不能依赖 jsonb 回读值；需要对 jsonb 内容
+做确定性哈希时，先对对象键递归排序再序列化。要字节级保真，写入用 json 类型或 text。
+
+见：[PostgreSQL Docs: JSON Types](https://www.postgresql.org/docs/current/datatype-json.html){rel="&#x22;nofollow&#x22;"}
+
+
 # Postgres
 
 ## 扩展生态
@@ -32833,6 +34023,24 @@ pgvector 则是独立的第三方扩展，给 PG 加向量类型与 HNSW/IVFFlat
 
 见：[PostgreSQL Full Text Search](https://www.postgresql.org/docs/current/textsearch.html){rel="&#x22;nofollow&#x22;"}、[pgvector](https://github.com/pgvector/pgvector){rel="&#x22;nofollow&#x22;"}
 
+## 运维操作
+
+#### 修改生产库密码：密码属于角色，不属于库
+
+PG 的密码存在角色属性里，不属于某个数据库，一条 `ALTER USER x WITH PASSWORD` 对该角色可访问的所有库同时生效。
+应用 env 里的 `DATABASE_URL` 只是客户端连接串：改 env 不改库，改库不改 env，
+两处必须在同一次变更内同步，否则应用持旧密码持续报错。
+
+平滑顺序（利用 PG 改密码不踢已认证连接的特性）：① `ALTER USER`（存量连接不断，应用无感）→
+② 全量替换内嵌密码的连接串（env、compose、健康检查、跑批脚本）→
+③ 重建应用容器读新 env，中断窗口仅重启几秒；数据库容器与镜像不动。
+
+两个易错点：compose 的 `POSTGRES_PASSWORD` 只在首次初始化空数据目录时生效，
+已初始化实例改它不动库密码，但要同步更新，避免重建 volume 时初始化出错位密码。
+验证改密是否成功用新密码连接——报「库不存在」而非「密码认证失败」即认证已过。
+
+见：[ALTER USER](https://www.postgresql.org/docs/current/sql-alteruser.html){rel="&#x22;nofollow&#x22;"}
+
 
 # SQL
 
@@ -32840,7 +34048,9 @@ pgvector 则是独立的第三方扩展，给 PG 加向量类型与 HNSW/IVFFlat
 
 - [Text to SQL](https://lionad.art/text-to-sql) - 自然语言到 SQL 的转换技术与风险
 - [Postgres](https://lionad.art/postgres) - PostgreSQL 扩展生态与多场景应用
+- [jsonb](https://lionad.art/jsonb) - 规范化存储模型、查询与索引语义、更新写放大与版本边界
 - [索引优化](https://lionad.art/indexing) - B-Tree 索引原理、查询性能陷阱与优化策略
+- [数据删除策略](https://lionad.art/data-deletion) - 软删除与硬删除的取舍依据、常见陷阱与归档清理
 
 
 # Text to SQL：为何被标记为 Hold，以及应该如何安全使用
@@ -33978,6 +35188,19 @@ Docker 和虚拟机都希望能提供一个虚拟、完整、独立的运行时�
 2. 生命周期：created、running、pausing、paused、stopped；可以通过 update 动态调整硬件资源使用率
 3. 数据卷：数据卷由自己的独立的生命周期
 4. 网络：独立的网络命名空间、共享其他实例的网络命名空间、共享主机的网络命名空间
+
+#### 端口映射的绑定语义与暴露面
+
+compose 里 `ports: ["15432:5432"]` 只写端口不写绑定地址时，Docker 默认同时绑 IPv4 通配 `0.0.0.0`
+与 IPv6 通配 `[::]`，`docker ps` 显示 `0.0.0.0:15432->5432/tcp, :::15432->5432/tcp` 两组。
+绑定地址决定暴露面：`0.0.0.0` 公网可达；`127.0.0.1:15432:5432` 只递到宿主机回环，
+配 `ssh -L` 隧道即可安全远程访问；不写 `ports` 则仅容器网络可达。
+
+工程上应把「不映射端口」作为生产数据库的默认姿势：应用走容器内网，运维经 SSH 隧道或堡垒机接入。
+公网可达的 PG 会进入扫描视野，是自动化爆破与删库勒索的经典目标；
+测试环境图方便映射公网端口时，至少叠加来源 IP 白名单。
+
+见：[Docker port publishing](https://docs.docker.com/network/#published-ports){rel="&#x22;nofollow&#x22;"}
 
 ## 架构
 
@@ -40896,6 +42119,7 @@ function highlightRange(range, color) {
 
 - [Color Module](https://lionad.art/maps/_frontend/w3c/css/color-module)
 - [Conditional Rule Module](https://lionad.art/maps/_frontend/w3c/css/conditional-rule-module)
+- [CSSOM View Module](https://lionad.art/maps/_frontend/w3c/css/cssom-view)
 
 ## Security
 
@@ -41018,6 +42242,58 @@ currentColor 等同于 inherit。
   /* ... */
 }
 ```
+
+
+# CSSOM View Module
+
+## 说明
+
+当前版本：[Editor's Draft](https://drafts.csswg.org/cssom-view/){rel="&#x22;nofollow&#x22;"}
+
+## 内容简介
+
+CSSOM View 规范在 CSS 对象模型之上补充了视图相关接口：窗口与滚动、坐标与命中测试、
+媒体查询对象，以及元素的可见性判定 `checkVisibility()`。
+
+#### checkVisibility 判的是「潜在可见」而非「用户可见」
+
+`Element.checkVisibility()` 是 CSSOM View 提供的渲染存在性判定：回答元素还在不在渲染树、内容
+有没有被跳过，视口外和被遮挡的元素照样返回 true。判据分三层。第一层默认生效：自身或祖先
+`display: none/contents`（无关联布局盒）、自身或祖先 `content-visibility: hidden`、未接入文档，
+任一命中即 false。第二层需要显式开选项：`visibilityProperty: true` 才判 `visibility: hidden`，
+`opacityProperty: true` 才判 `opacity` 为 0——两者默认全关，零参数调用对透明隐藏态一律放行。
+第三层 `contentVisibilityAuto: true` 才把当前正跳过渲染的 `content-visibility: auto` 子树判负。
+所有条件都沿祖先链一次判掉，这使它优于只查自身 computed style 的手写判定——v-show 收起、
+非活动 tab 面板等场景里，后代自身样式完全正常，隐藏发生在祖先层。两个够不到的边界：
+opacity 阈值是恰等于 0，0.01 的渐隐中间帧仍判可见；语义隐藏（`aria-hidden`）与框架过渡类名
+（如 Vue 的 leave-active）不属于渲染判据，需在调用外侧自行补层。支持面：Chrome/Edge 105
+（2022-08）、Firefox 106（2022-11）、Safari 17.4（2024-03），Baseline 新近可用自 2024-03。
+
+见：[MDN: Element.checkVisibility()](https://developer.mozilla.org/en-US/docs/Web/API/Element/checkVisibility){rel="&#x22;nofollow&#x22;"}
+
+#### checkVisibilityCSS 是活别名，不是失效的死参数
+
+checkVisibility 的选项字典定稿前改过一次名：`checkOpacity` 改名 `opacityProperty`、
+`checkVisibilityCSS` 改名 `visibilityProperty`，两个旧名按 WebIDL 字典惯例以「historic alias」
+身份永久实现。WebIDL 对字典未知成员是静默忽略，但别名不是未知成员而是真生效的——读到
+`checkVisibility({ checkVisibilityCSS: true })` 的旧式代码不等于写了死参数，它等价于开启
+`visibilityProperty`，真的能判住 `visibility: hidden`。MDN 只在选项列表末尾一行带过别名映射，
+教程基本不提，第一印象容易误判成拼写错误并「顺手修掉」，反而改变判据强度。
+
+见：[MDN: Element.checkVisibility()](https://developer.mozilla.org/en-US/docs/Web/API/Element/checkVisibility){rel="&#x22;nofollow&#x22;"}
+
+#### 同名 API 在测试环境与 Chromium 里未必是同一判据
+
+jsdom 至今未实现 checkVisibility（issue #3695 长期 open），而 happy-dom 在 20.9 与 20.14 之间
+补上了完整实现：正经沿祖先链循环、认三个选项和两个历史别名。于是「没有 checkVisibility 就走
+手写循环兜底」的 typeof 守卫，随测试基座升级会静默换轨——旧版本恒走兜底循环，新版本走的是
+happy-dom 的模拟实现。模拟与原生有两处实测漂移：happy-dom 完全不模拟 `content-visibility`；
+元素自身 `display: contents` 且有可见子节点时它放行，原生语义是自身无盒判 false。工程上写
+「特性探测 + 手写祖先链循环」双路并不冗余，但要知道双路各自跑在什么实现上：测试全绿不等于
+Node 端判据与浏览器端判据等价，依赖 content-visibility 或 contents 的元素差异只在真浏览器里
+暴露。
+
+见：[jsdom issue #3695](https://github.com/jsdom/jsdom/issues/3695){rel="&#x22;nofollow&#x22;"}
 
 
 # CSS Scrollbars Styling Module
@@ -41224,6 +42500,7 @@ CSS 相关技术规范与模块：
 - [Color Module](https://lionad.art/maps/_frontend/w3c/css/color-module) - 颜色与透明度属性规范
 - [Conditional Rule Module](https://lionad.art/maps/_frontend/w3c/css/conditional-rule-module) - 条件规则与媒体查询
 - [Scrollbars Styling Module](https://lionad.art/maps/_frontend/w3c/css/scrollbars-styling-module) - 滚动条样式控制
+- [CSSOM View Module](https://lionad.art/maps/_frontend/w3c/css/cssom-view) - 视图对象模型与元素可见性判定
 
 ### ECMAScript 提案
 
@@ -41442,6 +42719,10 @@ AI 对话模拟器《裁了么》的案例显示，当社会议题本身带有�
 
 # 游戏
 
+## 主题
+
+- [贪吃蛇必胜算法](https://lionad.art/maps/_game/game/snake-ai) - 可证明必胜框架：哈密顿圈不变量、安全短路、启发式退化与复杂度边界
+
 #### 中国游戏版号简史？
 
 以下是按照时间线对中国游戏版号发展历程的总结：
@@ -41501,6 +42782,57 @@ Doom 3（2004）约 60 万行，《命令与征服：将军》（2003）约 160 
 管线工具而非游戏逻辑。行数（LOC）本身是粗糙度量：现代代码库有大量生成代码与多平台分支，数字仅供感受量级。
 
 见：[Generals-Mac-iOS-iPad PORTING\_PLAYBOOK](https://github.com/ammaarreshi/Generals-Mac-iOS-iPad/blob/main/docs/port/PORTING_PLAYBOOK.md){rel="&#x22;nofollow&#x22;"}
+
+
+# 贪吃蛇必胜算法
+
+#### 贪吃蛇 AI 的核心矛盾是什么？
+
+蛇身自身就是不断变长的动态障碍物，「直冲食物」的短期贪婪与「别把自己围死」的长期
+生存互相冲突，这是问题的本质。它常被误当成寻路问题（BFS/A\*）处理，但寻路面向静态图，
+贪吃蛇的核心是填充不变量（filling invariant）问题：设计一种遍历顺序，保证身体永远
+不切断自己的退路。关键术语是哈密顿圈（Hamiltonian cycle，经过棋盘每一格恰好一次的
+闭环，蛇严格沿圈走则永不撞身）与完备性（completeness，凡满足前提的关卡必然通关，
+无失败样例）。
+
+见：[Graph Search 策略说明 @chuyangliu/snake](https://github.com/chuyangliu/snake){rel="&#x22;nofollow&#x22;"}
+
+#### 可证明必胜框架如何工作？
+
+分两层。保底层：任一边为偶数的矩形棋盘必存在哈密顿圈，蛇形扫描（boustrophedon）
+线性时间即可构造，严格跟圈就是必胜策略，代价是平均走半圈才吃到一个食物。加速层是
+短路（shortcut）：头部沿捷径直插食物、跳过圈上一段，但跳跃必须保持「不截断蛇身占用
+的圈弧」这一不变量，即跳跃后蛇身仍占据圈上的连续一段、追尾仍然可达，于是必胜性质
+保持、速度大幅提升。两条硬前提：棋盘奇偶满足条件、地图无阻断障碍。短路判断是单点
+故障，条件写错一次，「可证明」标签即告失效。
+
+见：[perfect-snake-challenge @LPRowe](https://github.com/LPRowe/perfect-snake-challenge){rel="&#x22;nofollow&#x22;"}
+
+#### 必胜结构不成立时如何退化？
+
+奇数边棋盘或带障碍迷宫上哈密顿圈不存在，框架退化为启发式：BFS 找食物最短路，配合
+虚拟移动检查（先让蛇身虚拟前移模拟吃掉食物，再检查头吃完后是否仍连得着尾）决定能否
+走这条最短路；不行则退到跟尾周旋，等待路线重新打开。这类规则法在 6×6 盘上实测通关率
+约 94%。强化学习方向表现相反：贪吃蛇状态空间小、规则可完整枚举，学习换不来任何完备性
+优势，同盘实测约 50%，RL 的价值只在规则写不出来的场景。
+
+见：[Graph Search 与 Double DQN 对照 @chuyangliu/snake](https://github.com/chuyangliu/snake){rel="&#x22;nofollow&#x22;"}
+
+#### 一般最优解计算上不可行，工程上限已被达到
+
+De Biasi 与 Ophelders 在 FUN 2016（期刊版 TCS 2018）给出复杂度定案：收集全部食物的
+判定在无缝隙的实心网格图（solid grid graph）上 NP-hard，在一般网格图上 PSPACE-complete。
+两个术语的含义：NP-hard 指至少和 NP 中最难问题一样难，多项式时间解出它即蕴含 P=NP，
+且它不要求自己属于 NP（给定候选解未必能快速验证）；PSPACE-complete 指多项式内存可解
+（深度优先推演加回溯）的问题类中最难者，NP 包含于 PSPACE 且一般认为严格包含，即连
+「快速验证的必赢证书」都可能不存在。结论是一般关卡如此，启发式是数学许可而非偷懒，
+「最优」只在结构化特例上有多项时间必胜模板。
+工程侧 Google Snake 10×10 满分 991 已被多个开源项目以「哈密顿圈 + 安全短路」达成；
+Innopolis 大学在 IEEE CoG 2020/2021 办过 Snakes AI Competition 把贪吃蛇做成 RL 试验场，
+规则法仍居首。
+
+见：[The Complexity of Snake](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FUN.2016.11){rel="&#x22;nofollow&#x22;"}、
+[Snakes AI Competition Report](https://arxiv.org/abs/2108.05136){rel="&#x22;nofollow&#x22;"}
 
 
 # 游戏
@@ -41806,6 +43138,16 @@ MATS 与 Anthropic Alignment Science team、Redwood Research、ARC 直接合作�
 其机制在于，AI 行业的变化速度使经验半衰期极短，学习速度比存量知识更稀缺。
 
 见：[「卧底」Kimi的100小时 - 人物](https://mp.weixin.qq.com/s/Vasyc2xHLJY6qDhFKEL4ug){rel="&#x22;nofollow&#x22;"}
+
+#### 初级岗位的消失方式是"从未被雇用"
+
+Alasdair Allan 观察到，在受 AI 影响较大的职业中，年轻员工的招聘速度已经放缓，而 25 岁以上员工的工作量并未减少。
+这意味着初级岗位的消失方式不是裁员——"人们并不是遭到解雇；他们从一开始就没有被雇用"。
+
+其机制在于组织行为的短期一致性：各组织在争相采用 AI 编程工具的同时，也在削弱培养能够监督这些工具的人才通道。
+能够为 AI 构建良好上下文的人，是那些通过多年实践在头脑中积累了上下文的人，而曾经培养出这些人才的通道正在断裂。
+
+见：[AI Disrupts Engineering Career Progression](https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/){rel="&#x22;nofollow&#x22;"}
 
 
 # 前端笔试题库
@@ -45017,12 +46359,14 @@ python prompt_optimize.py --api_key "智谱 AI API Key" --prompt {你的提示�
 - [Slice](https://lionad.art/maps/_management/slice/slice) - 组织切面研究
 - [Shadow IT](https://lionad.art/maps/_management/shadow-it/shadow-it) - 影子 IT 现象
 - [产能驱动开发](https://lionad.art/maps/_management/capacity-driven-development/capacity-driven-development) - 开发模式
+- [研发流程分层](https://lionad.art/maps/_management/rd-process/ipd) - IPD 视角下的四类研发流程体系与判据
 
 ## 主题索引
 
 ### 组织管理
 
 - [彼得原理](https://lionad.art/maps/_management/organization/peter-principle) - 晋升悖论与管理者胜任力陷阱
+- [入场券零和](https://lionad.art/maps/_management/organization/entry-ticket-zero-sum) - 犯错资格的位置性稀缺与竞争策略
 - [独立数据工程团队](https://lionad.art/maps/_management/slice/standalone-data-engineering-team)
 
 ### 领导力
@@ -45334,6 +46678,54 @@ python prompt_optimize.py --api_key "智谱 AI API Key" --prompt {你的提示�
 **影子 IT 治理**：在 AI 时代，探讨如何理解和治理 AI 加速的影子 IT 现象，在快速创新与长期稳定之间找到平衡。
 
 
+# 入场券零和
+
+#### 入场券零和：犯错资格的位置性稀缺
+
+工程经验无法通过阅读转移，只能由压缩的失败重建，但有后果的失败需要有人垫付代价——组织里真正稀缺的不是经验，而是"被信任去犯大错的资格"。这类资格是位置性商品（positional goods，Hirsch 1976）：
+价值取决于相对排位而非绝对效用，行业总量增长无法稀释其稀缺性。分配端存在信任溢价前置的鸡生蛋困境——发券要求已证明的可靠性，而证明可靠性需要券——破局靠前置的信号市场（学历、背书、开源记录）。第一张券最贵，之后获取速率复利，
+同侪差距约在入职第三年显形。
+
+与内卷的分界在竞争标的：标的确凿稀缺且竞争本身配置资源的是入场券竞争；标的虚无、只抬高门槛不增产出的是内卷。滥用检测：谁为失败买单与谁收获教训相分离时，"给你成长机会"即转嫁系统性失败的剥削修辞。边界：行业扩张期名额指数增发，暂时非零和；
+范式更替时旧券集体作废、重新发牌。
+
+见：[Rank-Order Tournaments as Optimum Labor Contracts](https://www.journals.uchicago.edu/doi/10.1086/261010){rel="&#x22;nofollow&#x22;"}（Lazear & Rosen 1981）
+
+#### AI 专拆经验阶梯的底两级
+
+Stanford Digital Economy Lab 基于 ADP 工资单微观数据的研究发现，22-25 岁群体在 AI 暴露职业的就业相对下降 13%，2026 年 8 月更新后相对反事实约低 19%。机制上 AI 不是均匀替代劳动，
+而是从结构化、可验证的任务端切入——恰好是入门券对应的工作内容。真正的断裂不是岗位变少，而是信任积累机制失效：过去打杂是可展示的信任存款，如今打杂的产出价值趋零，组织失去为新人成长垫付的理由。
+
+推论：等待组织发券的路径已断，新手必须在券外自造可验证的失败记录，且速度要快于前 AI 时代的预期。
+
+见：[Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence](https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence){rel="&#x22;nofollow&#x22;"}（Stanford Digital Economy Lab）
+
+#### 扁平化是竞争烈度的隐形放大器
+
+锦标赛理论（tournament theory，Lazear & Rosen 1981）常被忽略的推论：竞争烈度由奖品结构决定而非文化。职级体系是多级奖品，失败者降层再战；扁平化砍掉层级，等于把多级锦标赛改造成赢家通吃（
+winner-take-more），全员零和争抢同一批 ownership，烈度必然上升，与人品无关。所以"取消职级、人人平等"的组织口号应反读：奖品层级消失时，入场券争夺更接近原始丛林。
+
+加入组织前看奖品结构——剩余管理层级数、独立 ownership 的存量、晋升出口的真实流量——不看口号。
+
+见：[Tournament theory](https://en.wikipedia.org/wiki/Tournament_theory){rel="&#x22;nofollow&#x22;"}（Wikipedia）
+
+#### 培养新人的死因是抵押品失效
+
+组织容忍新人犯错本质是贷款，抵押品是长期雇佣：今天垫付的失败成本，用未来十年的产出回收。Job-hopping 常态化后抵押品失效，组织的理性反应是砍容错、要求入职即战力，把培训成本外部化给个人与市场——"没人愿意带新人"不是文化退化，
+是合同结构失衡的必然出清。
+
+推论：默认雇主垫付失败的时代不可逆，垫付人只能换成自己（时间、算力成本）或市场（开源、公开作品），职业规划里应显式列一笔"失败预算"。
+
+见：[Deferred compensation](https://en.wikipedia.org/wiki/Deferred_compensation){rel="&#x22;nofollow&#x22;"}（Wikipedia）
+
+#### 失败记录的产权归你才计入复利
+
+等量的高风险失败，产权归属决定长期价值：公司内部项目的失败记录写进雇主绩效档案，产权归雇主，离职清零；开源社区被 reject 的重大 PR、公开的架构错误复盘，产权归你、不可剥夺、全局可检索。
+
+信任溢价的本质是可验证的失败经历，而可验证性取决于记录是否存在于你能控制的公开场地。这解释了等量实战为何有人第三年开始吃复利、有人十年经验只是记录在别人服务器上的绩效行——差距不在失败次数，在失败记录的存放地。
+把最高风险的学习放到产权归自己的场地，是零成本的结构性优势。
+
+
 # 组织
 
 ## 组织方法
@@ -45429,6 +46821,53 @@ python prompt_optimize.py --api_key "智谱 AI API Key" --prompt {你的提示�
 将员工当前工作绩效与其未来职业发展潜力分开评估。晋升决策应基于候选人是否具备目标岗位所需的能力，而非过去岗位的业绩记录。
 
 见：[The Peter Principle: Why great employees become bad bosses](https://cn.weforum.org/stories/2019/05/bi-de-yuan-li-wei-shen-me-zui-jia-yuan-gong-que-cheng-bu-liao-zui-jia-jing-li){rel="&#x22;nofollow&#x22;"}（世界经济论坛）
+
+
+# IPD 与研发流程分层
+
+## 概述
+
+研发管理混乱的常见根源是用同一套流程和考核标准管理性质完全不同的开发活动。
+成熟研发体系（以 IPD 为代表）把研发拆分为技术预研、平台开发、产品开发、定制项目四类独立流程，
+各自的目标、节奏与判据不同。本文归档该分层体系的机制性知识。
+
+#### 技术开发与产品开发分离的本质是风险防火墙
+
+成熟研发体系（如 IPD 的异步开发模式）把技术预研与产品开发分成独立流程，正式理由不是人员分工，
+而是风险隔离：产品流程只能消费达到一定成熟度的技术，技术不确定性必须先在技术流程里收敛完再进产品流程。
+产品项目「顺带预研」——把商业承诺押在未验证的新技术上——会让技术风险沿依赖链传播到工期与质量承诺，
+一出问题就是大规模返工。判据不在于做事的人叫什么，而在于这份不确定性是否需要独立的引信。
+
+见：[研发越做越乱的根源：90%企业都把这4种开发流程混为一谈](https://mp.weixin.qq.com/s/fBFTEEaTABqj0VKIu3AqvA){rel="&#x22;nofollow&#x22;"}
+
+#### 真平台的判据是消费方数量
+
+华为《IPD管理体系指南》把平台定义为最大的共用基础模块（CBB，Common Building Block），
+实践中存在成熟度梯度：BB（单产品模块）→ CBB（多产品共用）→ 平台。
+最常见的失败形态是把「从某个产品里抽出来的重构」直接称为平台：第一个接入方验证通过，
+第二条产品线的差异就把抽象击穿。真平台的判据是服务 ≥2 条产品线、有独立版本与独立维护组织、
+演进不被任何单一消费方的排期绑架。
+
+见：[研发越做越乱的根源：90%企业都把这4种开发流程混为一谈](https://mp.weixin.qq.com/s/fBFTEEaTABqj0VKIu3AqvA){rel="&#x22;nofollow&#x22;"}
+
+#### 产品货架是配置台账而非组件库
+
+分层产品货架（器件 → 核心技术 → 通用部件 → 共享模块 → 单机整机 → 子系统 → 系统）
+的本质是产品配置管理：每一层模块有独立生命周期、独立版本、可独立报价。
+订单到达时先组装「货架配置清单」，货架上拼不出来的部分才进入定制流程，
+这把「该定制还是该沉淀」从每次临时争论变成程序化判断。
+只建组件库而不建货架的失败形态：库没有成熟度标记、没有责任人、没有消费数据，几年后退化成死代码。
+
+见：[研发越做越乱的根源：90%企业都把这4种开发流程混为一谈](https://mp.weixin.qq.com/s/fBFTEEaTABqj0VKIu3AqvA){rel="&#x22;nofollow&#x22;"}
+
+#### 版本代号是流程身份位
+
+V/R/M 版本编码纪律让版本号自带语义：这份产物属于哪条流程、距离可商用有多远——
+V 为验证性版本不承诺商用（预研与技术平台）、R 为可批量上市的产品版本、M 为客户现场适配版本。
+典型坑是把定制改动（M）直接并回产品主干（R），导致主干按客户分叉、不可维护；
+正确姿势是把定制改动约束在扩展点 + 配置内，可泛化的部分经评审沉淀回平台或产品主干。
+
+见：[研发越做越乱的根源：90%企业都把这4种开发流程混为一谈](https://mp.weixin.qq.com/s/fBFTEEaTABqj0VKIu3AqvA){rel="&#x22;nofollow&#x22;"}
 
 
 # AI 加速的影子 IT
@@ -47770,6 +49209,59 @@ brew-php-switcher 8.2
 **第十九篇　加强规划实施保障**
 
 
+# 高标准数字园区
+
+## 政策定位与结构
+
+#### 它在中国园区政策体系中的位置
+
+高标准数字园区是《制造业数字化转型行动方案》（国发〔2024〕25 号）之下、承接《工业园区高质量发展指引》（工信部联规〔2025〕
+189 号）「数智化：探索建设高标准数字园区」条目的专项政策：《高标准数字园区建设指南》（工信厅规函〔2025〕466 号，2025-11-13
+成文）定标准，工信部办公厅与商务部办公厅联文（工信厅联规函〔2026〕74 号）启动遴选，2026-09-17 公示首批 91 个建设对象
+（综合型园区 53 个、园中园 38 个，公示期至 9-24）。目标到 2027 年建成 200 个左右，实现园区规上工业企业数字化改造全覆盖。
+「四高」标准为产业数字化水平高、专业服务品质高、运营管理效率高、基础设施能级高。与市场化数字经济产业园的分界：建设对象限定
+国务院或省级政府批准设立、以制造业和生产性服务业为主导产业的园区及特色产业园（园中园）。
+
+见：[指南印发通知](https://www.gov.cn/zhengce/zhengceku/202511/content_7049054.htm){rel="&#x22;nofollow&#x22;"}、
+[首批名单公示](https://www.miit.gov.cn/zwgk/wjgs/art/2026/art_ab9d6f6cb5b3411686d65a6d3e3ec7aa.html){rel="&#x22;nofollow&#x22;"}
+
+## 名单研判要点
+
+#### 名单省域分布读法：推荐名额制而非自由申报
+
+遴选依据是工信部办公厅与商务部办公厅联合发文的 74 号函（商务部入局源于高新区、经开区体系承载大量外向型产业），程序链为
+园区申报、地方推荐、形式审查、专家评审——地方推荐环节意味着名额与各省产业存量和部门口径平衡挂钩。这反映在名单上：江苏、浙江
+合计 8 个综合型园区而广东仅 1 个（东莞松山湖），读出来不是「苏强于粤」的数字化实力差，而是指标分配结构。把省域分布直接当
+转型实力榜是阅读此类名单最常见的误读。
+
+见：[首批名单公示](https://www.miit.gov.cn/zwgk/wjgs/art/2026/art_ab9d6f6cb5b3411686d65a6d3e3ec7aa.html){rel="&#x22;nofollow&#x22;"}
+
+#### 四高标准是一票否决式硬门槛
+
+指南把关键指标写成「达 100%」的口径：园区规上工业企业数字化改造覆盖率 100%、数字化服务对企业覆盖 100%、5G 与千兆光网覆盖率
+100%。其机制在于这类全覆盖指标天然偏袒流程工业——化工等流程工业设备互联基础好、数据连续沉淀，容易凑齐三个 100%；离散型中小
+企业集群则很难在第一批达标。首批名单中化工类园区显著扎堆（宁东、兰州新区、衢州高新区化工园等）反映的是指标几何，而非政策对
+特定行业的偏爱。
+
+见：[高标准数字园区建设指南转载](https://zwfw-new.hunan.gov.cn/hnzwfw/1/5/4900/43099/43103/content_148613.html){rel="&#x22;nofollow&#x22;"}
+
+#### 公示的建设对象不等于已认定的园区
+
+公示的是「建设对象」名单：过完 7 天公示期只是进入建设期，指南第五章同时规定年度绩效评估与典型模式推广的动态机制。这与以往
+「示范基地」评完即止的性质不同，更接近一张带考核压力、可能退出调整的在建牌照。因此做区域产业研判时，有效的时间锚点应是首个
+年度评估节点而非公示日，媒体通稿把「入选」写成「认定」会系统性高估名单的终局性。
+
+见：[指南印发通知](https://www.gov.cn/zhengce/zhengceku/202511/content_7049054.htm){rel="&#x22;nofollow&#x22;"}
+
+#### 园中园申报资格锚定国家级省级开发区序列
+
+指南将建设对象限定为「依托国务院或省级人民政府（含新疆生产建设兵团）批准设立」的园区及其中的特色产业园（园中园）。市县级
+工业园和市场化运营的产业园区不具申报主体资格。首批 38 个园中园本质是开发区体系内部的数字化分级；做园区竞争力样本研究时把
+它们与一般意义的「产业园」混在同一总体，会引入制度资格这个混淆变量。
+
+见：[指南印发通知](https://www.gov.cn/zhengce/zhengceku/202511/content_7049054.htm){rel="&#x22;nofollow&#x22;"}
+
+
 # 工业园区高质量发展指引
 
 ## 政策背景
@@ -47901,6 +49393,7 @@ brew-php-switcher 8.2
 
 - [十四五规划](https://lionad.art/maps/_policy/five-years-plan-14)
 - [工业园区高质量发展指引](https://lionad.art/maps/_policy/industrial-parks-guide)
+- [高标准数字园区](https://lionad.art/maps/_policy/high-standard-digital-park) - 四高门槛、联文遴选与首批名单研判
 
 ## Cross Domain
 
@@ -54515,6 +56008,7 @@ TCR（Test && Commit || Revert）是一种从测试驱动开发（TDD）衍生�
 ## 工具
 
 - [Playwright](https://lionad.art/maps/_test/tools/playwright/playwright)
+- [Vitest](https://lionad.art/maps/_test/tools/vitest/vitest)
 
 ## 资格
 
@@ -54559,6 +56053,45 @@ Testing tools and frameworks for automated testing. Playwright for cross-browser
 ## 工具
 
 - [Playwright](https://lionad.art/maps/_test/tools/playwright/playwright) - 现代自动化测试框架
+- [Vitest](https://lionad.art/maps/_test/tools/vitest/vitest) - Vite 原生单元测试框架
+
+
+# Vitest
+
+#### inline 与外置的判定基于完整文件路径
+
+Vitest 默认把 moduleDirectories（通常是 node\_modules）内的文件外置（external），交给 Node 原生加载，
+其余一律 inline 走 Vite 转换管线。`server.deps.inline` / `external` 的字符串值会先被规范化为
+`/node_modules/<name>/` 前缀，再对模块的完整文件路径做匹配，RegExp 则直接匹配完整路径。
+外置模块不进入 module graph，连锁后果是：文件变更不触发 watch 重启，Vite 插件、alias、define
+对其无效，`vi.mock` 也无法拦截。
+
+这个判定方式在 monorepo 里有个反直觉表现：被 link 的 workspace 包真实路径不在 node\_modules 下，
+默认就被自动 inline，所以测试“刚好能跑”；但反过来想用字符串 `@scope/pkg` 显式 inline 或
+external 它时，规范化后的前缀与真实路径对不上，配置会静默不生效。正确做法是改用 RegExp 匹配，
+或把包目录加入 `deps.moduleDirectories`。
+
+见：[server | Config | Vitest](https://vitest.dev/config/server){rel="&#x22;nofollow&#x22;"}
+
+#### mock 传导到第三方库内部需要 inline 该库
+
+Jest 默认会把模块 mock 扩展到使用了该模块的外部库，Vitest 不会。典型失败场景是
+`vi.mock('axios')` 之后，业务代码里的 axios 被替换了，但某个内部同样引用 axios 的第三方 SDK
+依然发出真实请求——因为外置的 SDK 由 Node 原生加载，mock 注册表管不到它。要让 mock 传导进去，
+必须把这个库加入 `server.deps.inline`，让它成为 module graph 的一部分，
+走同一条被 mock 拦截的加载路径。
+
+见：[Migration Guide | Vitest](https://vitest.dev/guide/migration.html){rel="&#x22;nofollow&#x22;"}
+
+#### Vitest 4 只认 server.deps.\*
+
+顶层 `test.deps.inline` / `external` / `fallbackCJS` 在 Vitest 4 已被移除，
+必须改写为 `server.deps.*`。网上大量旧教程和问答仍使用 `deps.inline` 写法，
+照抄到 v4 项目里配置不会生效。同一轮改造中底层从 vite-node 切换为 Vite 官方的 Module Runner，
+环境变量 `VITE_NODE_DEPS_MODULE_DIRECTORIES` 随之改名为 `VITEST_MODULE_DIRECTORIES`，
+依赖该变量的脚本也要同步更新。
+
+见：[Migration Guide | Vitest](https://vitest.dev/guide/migration.html){rel="&#x22;nofollow&#x22;"}
 
 
 # Bills
@@ -54585,6 +56118,12 @@ Testing tools and frameworks for automated testing. Playwright for cross-browser
 
 
 # Daily Bugs
+
+#### 2026-09-06
+
+谷歌搜索的智能回答也没什么容错啊
+
+![](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20260906162629109.png)
 
 #### 2026-08-14
 
@@ -57581,6 +59120,76 @@ flowchart TD
 - [EaseMaster](https://easemaster.satisui.xyz/){rel="&#x22;nofollow&#x22;"}：EaseMaster 桥接了设计与工程之间的鸿沟。它使开发者能够并排可视化三次贝塞尔曲线和弹簧物理效果，并即时生成适用于 CSS、Tailwind、Framer Motion 和 GSAP 的生产就绪代码。
 
 
+# AbortSignal
+
+#### AbortSignal 是协作取消协议，不是强杀
+
+AbortSignal 解决的问题是「一个已经交出去的异步操作，外部如何合法地叫停它」。协议是协作式的（cooperative
+cancellation）：abort 只负责广播「该停了」，操作是否真停取决于它是否在检查点响应，不配合的代码收到信号也不会停。
+它与异常不是同一个东西：abort 不是错误，而是一次性的单向状态广播，恰好以 promise rejection 的形式呈现；超时也不是
+独立概念，只是取消的一种触发源。角色分工上，AbortController 是信号的产生端，abort(reason) 是唯一写入口，由调用方
+持有；AbortSignal 是消费端的只读视图（aborted、reason），随参数流动，一个信号可以喂给多个操作，一次 abort 全部叫停。
+abort reason 是「为什么取消」的载体，默认为 AbortError；throwIfAborted 是消费者在 await 边界把信号转为异常的标准
+检查点动作；AbortSignal.any 与 AbortSignal.timeout 是两个内置组合器，分别做多源聚合与延时自爆。协议是 DOM Living
+Standard 的一部分并已 Baseline，fetch、Stream、addEventListener、Axios 与 Node（17+）均已接入。
+
+见：[AbortSignal - MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal){rel="&#x22;nofollow&#x22;"}：接口参考与取消、超时、组合示例
+
+#### fetch 的两段式取消
+
+取消只对「尚未完成」的部分有效：响应头已收到时 promise 已经 settle，无法回撤，但响应 body 的流式读取仍可以被
+取消，此时会在读取环节抛出 AbortError，容易误判为「请求没发出去」。自定义异步 API 的标准响应姿势是检查点模式
+（checkpoint）：在 await 边界调 signal.throwIfAborted()，或注册 abort 监听做回滚与清理；长循环应在每个迭代设检查点。
+AbortSignal.timeout 触发的是 TimeoutError，与人为取消的 AbortError 可区分，用户通知策略可以分开设计。
+
+见：[AbortSignal - MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal){rel="&#x22;nofollow&#x22;"}：接口参考与取消、超时、组合示例
+
+#### AbortSignal.any：多取消源聚合
+
+AbortSignal.any 把「用户取消 + 全局取消 + 超时」等多个取消源聚合成一个信号，任何一个源 abort 它就 abort，
+reason 取第一个 abort 的源的 reason。注意组合信号从外部无法区分最终是哪个源触发的，需要区分时要在各源上分别
+注册监听。AbortSignal.timeout(ms) 返回延时自爆的信号，等价于「控制器 + setTimeout + abort」的内置封装。
+
+见：[AbortSignal: any() - MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any_static){rel="&#x22;nofollow&#x22;"}：组合方法参考
+
+#### Promise.race 超时是结果仲裁，不是取消
+
+用 Promise.race( [fetch(...), 超时 promise] ) 做超时是最常见的错误姿势：race 只是抛弃了输家的结果，输家的请求仍在
+后台完整跑完，连接占着、body 没读、服务器还在算，每次输掉一个就漏一个，慢查询场景下泄漏会累积。Promise 组合器
+只做结果仲裁，不做资源回收；想让输家真正停止必须走 signal 通道：fetch(url, { signal: AbortSignal.timeout(5000) })，
+或用 AbortSignal.any 把超时与用户取消组合。
+
+见：[Promise.race, fetch and avoiding memory leaks](https://kgrz.io/avoiding-memory-leaks-timing-out-fetch.html){rel="&#x22;nofollow&#x22;"}：race 超时模式下输家请求泄漏的根因
+
+#### abort() 是客户端视图，服务器继续执行
+
+abort() 触发的是客户端关闭连接并 reject promise，服务器那边这个请求继续执行，数据库事务可能已提交、扣款可能已
+发生，abort 不会回滚任何已经发生的服务器侧行为；对非幂等 POST，用户「取消上传」后服务器可能已入库。abort 只
+承诺「客户端不再等」，不承诺「什么都没发生」，后果敏感的操作要靠幂等键或服务器自己的取消机制兜底。
+
+见：[fetch() Timeout: AbortSignal.timeout and AbortController](https://techearl.com/fetch-timeout-abortcontroller){rel="&#x22;nofollow&#x22;"}：取消的客户端与服务器语义边界
+
+#### abort 监听器会钉住 any 与 timeout 信号
+
+AbortSignal 的回收语义有个反直觉分界：controller 拥有的信号即使挂着 abort 监听器也能正常回收（controller 不可达后
+事件不可能再触发，浏览器允许断开引用），而 AbortSignal.any 与 AbortSignal.timeout 返回的信号会被挂在它上面的
+abort 监听器钉住，因为它们的触发时机由定时器或源信号决定，浏览器无法证明事件不会再来。{ once: true } 救不了这种
+泄漏：once 的语义是「事件触发后移除监听器」，而事故场景恰是 abort 从未发生，请求正常结束、源信号没 abort，事件不会
+来，once 永远不生效。典型现场是全局 AbortController 加每次请求用 AbortSignal.any 建组合信号，监听器与整棵组合信号
+树在全局信号可达期间越积越多。唯一正确清理是在 finally 里 removeEventListener，无论成败都摘除。
+
+见：[AbortSignal - MDN](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal){rel="&#x22;nofollow&#x22;"}：生命周期与 GC 语义（Removing the abort event listener 章节）
+
+#### AbortError 是错误监控里的头号噪声大户
+
+用户切页面、路由跳转、组件卸载触发的 fetch abort 会以未捕获 rejection 的面目进入错误监控，不处理能吃掉大量错误
+配额。但不能一刀切过滤：AbortError 名字底下混着三种语义，人为取消（正常）、超时（TimeoutError，名字不同，是真
+问题）、以及被 abort 掩盖的真实网络故障。Sentry 的 Inbound Filters 只做基础降噪，工程姿势是在 beforeSend 里按
+「是否有对应 controller 的取消意图」区分：自己的取消代码 catch 后静默，裸奔到全局 handler 的 AbortError 才是信号。
+
+见：[How to Filter Noisy Sentry Events Before Ingestion](https://oneuptime.com/blog/post/2026-09-14-filter-sentry-noise-before-ingestion/view){rel="&#x22;nofollow&#x22;"}：AbortError 过滤的分层判据（2026-09）
+
+
 # 浏览器
 
 ## 浏览器引擎
@@ -57637,6 +59246,8 @@ Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特
 - [Chrome Extensions API](https://developer.chrome.com/docs/extensions/reference/api?hl=zh-cn){rel="&#x22;nofollow&#x22;"}
 
 ## 浏览器开发
+
+- [AbortSignal](https://lionad.art/maps/_web/browser/abort-signal) - Web 平台协作取消协议：信号组合、检查点响应与生命周期语义
 
 #### 事件捕获机制？
 
@@ -58663,6 +60274,89 @@ Stack Insight 对 500 个开源仓库的静态分析显示，86% 的代码库至
 见：[Frontend Memory Leaks Empirical Study](https://stackinsight.dev/blog/memory-leak-empirical-study/){rel="&#x22;nofollow&#x22;"}
 
 
+# 存储介质数据清除
+
+#### 删除不等于清除
+
+操作系统层面的「删除文件」「快速格式化」「恢复出厂」都只是把存储空间在索引里标记为可用，真正的数据位
+原封不动，直到被新数据覆盖；旧硬盘接上硬盘盒装个免费恢复软件，几分钟就能把已删除的照片、文档、聊天记录
+捞回来。数据安全语境里的「信息清除」（information sanitization）指不可逆地使数据无法被任何手段访问或
+恢复，这是 GB 46864-2025 对清除的法定定义，也是「我格式化过了」从来不算数的原因。物理销毁（粉碎介质）
+是介质损坏无法执行命令时的最后兜底，清除是不破坏介质前提下的极限。
+
+见：[如何彻底清除电脑全部数据（老狼）](https://www.zhihu.com/question/269513451/answer/2087489621873710433){rel="&#x22;nofollow&#x22;"}
+
+#### 介质决定方法：机械盘覆写与固态盘块擦除
+
+磁介质（机械硬盘、磁带）的逻辑地址基本对应物理地址，操作系统层面的多遍覆写有效；GB 46864-2025 要求覆写
+所有存储用户数据的物理地址至少 3 次且至少 1 次为随机数，只定下限，DoD 5220.22-M 三遍、Gutmann 三十五遍
+等方案满足或超过即合规。半导体介质（SSD、U 盘、eMMC、UFS）不能照搬：闪存转换层（FTL）会把写入重分配到
+别的物理位置，磨损均衡还会搬数据，加上预留空间，系统层覆写打不中原物理页。标准给了两条路走通一条即可：
+删除逻辑-物理地址映射并覆写至少 1 次，或调用介质自身命令做块擦除（ATA Secure Erase、NVMe Format 与
+Sanitize、eMMC/UFS Sanitize），块擦除连预留空间和退役块一起处理；仅删映射或仅标记无效不算块擦除。
+TRIM 与 discard 只是标记可回收，不等于擦除。加密存储产品另有第三条路：销毁数据加密密钥及所有副本，
+密文随之数学上不可读，自加密盘（TCG Opal）就是这个思路。
+
+见：[GB 46864-2025 标准信息（国家标准全文公开系统）](https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=5C4386F0FACDE55499DA42891EA3A9D5){rel="&#x22;nofollow&#x22;"}
+
+#### GB 46864-2025：首个数据安全强制国标的责任框架
+
+GB 46864-2025《数据安全技术 电子产品信息清除技术要求》2025-12-02 发布、2027-01-01 强制实施，是我国数据安全
+领域首个强制性国家标准，归口中央网信办，由整机厂商（华为、小米、OPPO、vivo、联想）、存储芯片厂（长江存储）
+和二手平台（爱回收、转转）等 16 家单位起草，覆盖「存数据、造产品、收旧机」全链条。适用对象是境内生产销售、
+带非易失性存储的电子产品，责任分两拨：厂商必须四选一地提供清除能力（内置功能、外部工具、告知第三方工具、
+免费服务），「本机无清除功能」不再免责，执行前须明示范围并取得同意；回收经营者是流通环节责任主体，
+义务链为回收前提示、未经同意禁止访问留存、用合规工具清除、无法软清的物理销毁、售前验证效果、记录留存
+不少于 3 年，未清除用户数据的产品禁止再销售和运输出境。清除范围是用户数据全集：账号口令、生物识别、
+银行卡与门禁卡信息、缓存、备份，不止用户的文件。配套的三项实践指南（块擦除、回收管理、移动终端）
+已于 2026-09-15 发布。
+
+见：[如何彻底清除电脑全部数据（老狼）](https://www.zhihu.com/question/269513451/answer/2087489621873710433){rel="&#x22;nofollow&#x22;"}
+
+#### 单遍覆写对现代机械盘已足够
+
+多遍覆写的「必要性」是历史遗产：Gutmann 35 遍方案出自 1996 年针对 MFM/RLL 编码时代的信号残留假设，
+其论文再版补记自承对现代 PRML 盘一遍随机数据即可；2008 年 Wright 等人的工作用磁力显微镜验证单遍覆写后
+数据不可恢复；NIST SP 800-88 的立场同样是现代机械盘单遍覆写即达 Clear 级。国标定「至少 3 次且含 1 次
+随机数」是合规下限加工程保险余量，不是物理必需。自用退役盘一遍随机覆写加读回验证即可放心，为合规处置
+（卖给回收商、企业资产退役）才需要跑足 3 遍并留痕。
+
+见：[NIST SP 800-88 Rev.2, Guidelines for Media Sanitization](https://csrc.nist.gov/pubs/sp/800/88/r2/final){rel="&#x22;nofollow&#x22;"}
+
+#### USB 转接盒让擦除命令归零
+
+NVMe 的 format 与 sanitize 走 admin 队列，USB-NVMe 桥接芯片通常不透传这些管理命令。有从业者实测：在
+USB 盒里对 NVMe 盘先跑 shred（对固态盘本就无意义且耗寿命），再 blkdiscard 报 BLKSECDISCARD 不支持，
+再 hdparm 报 ioctl 错误（ATA 专属命令），最后连 nvme list 都列不出盘；把盘装回笔记本 M.2 槽直连、启动
+live Linux 后 nvme format -s2 一次成功（-s2 即重置盘上加密密钥的密码学擦除）。工程结论：擦 NVMe 必须
+直连（M.2 槽或 PCIe 转接卡），USB 盒只适合读数据不适合做净化；命令返回成功不等于擦干净，
+高敏感盘应做读回抽查验证。
+
+见：[How not to securely erase a NVMe drive](https://peterbabic.dev/blog/how-not-to-securely-erase-nvme-drive/){rel="&#x22;nofollow&#x22;"}
+
+#### 现代手机恢复出厂约等于密钥销毁
+
+「恢复出厂设置不算数」对现代旗舰在技术上是过严的判断。iOS 的数据保护体系把各类 class keys 装在 keybag 中，
+keybag 的加密密钥存于 Effaceable Storage，一块独立于 NAND 常规区域、抗回滚的专用存储；「抹掉所有内容和
+设置」销毁的正是这些密钥，等效密码学擦除。Android 6 起全盘加密、10 起文件级加密（FBE），恢复出厂删文件
+密钥同理。真正的风险集中在三处：无加密的老设备、加密启用前已明文落盘的数据、低端机型的弱密钥派生。
+决策上：卖现代手机先确认「已加密」状态再恢复出厂，技术上基本等效 Purge；企业处置仍应按国标走合规工具
+加验证留痕，因为合规语境要的是可举证，不是概率安全。
+
+见：[Keybags for Data Protection（Apple Platform Security）](https://support.apple.com/guide/security/keybags-for-data-protection-sec6483d5760/web){rel="&#x22;nofollow&#x22;"}
+
+#### 密钥销毁的明文残留暗面
+
+密码学擦除最快（秒级）且零磨损，但安全前提是「数据从落盘起就是密文」，这个前提经常被无声打破：软件加密
+（BitLocker、LUKS）启用之前盘上已有的明文数据、休眠文件与交换分区里的明文快照、加密卷曾临时挂载后密钥
+进入内存被换出到盘，这些路径都让毁密钥留下活口，国标「销毁密钥及所有密钥副本」的措辞正因副本才是难点。
+TCG Opal 自加密盘在硬件层全盘加密、写入即密文，暗面小得多，代价是引入管理通道信任面（SID 密码、PSID
+revert）。高敏感场景应选出厂即加密的介质而非后期软件加密，退役时毁密钥加一遍覆写双保险，对应国标
+加密条款的双路径设计。
+
+见：[NIST SP 800-88 Rev.2, Guidelines for Media Sanitization](https://csrc.nist.gov/pubs/sp/800/88/r2/final){rel="&#x22;nofollow&#x22;"}
+
+
 # HMAC
 
 ## 概述
@@ -58726,6 +60420,7 @@ Node 用 `crypto.timingSafeEqual`，Go 用 `subtle.ConstantTimeCompare`，且比
 - [Web Crypto API](https://lionad.art/maps/_web/browser/crypto) - Web 加密 API
 - [国密 SM2](https://lionad.art/maps/_web/security/sm2) - 椭圆曲线公钥密码算法标准与工程陷阱
 - [HMAC](https://lionad.art/maps/_web/security/hmac) - 基于哈希的消息认证码原理与验签工程实践
+- [存储介质数据清除](https://lionad.art/maps/_web/security/data-sanitization) - 删除与清除分界、GB 46864-2025 强制国标与介质级擦除陷阱
 
 ## 安全概念
 
@@ -59138,6 +60833,7 @@ set-env "test" "C:\\Users\\18062\\OneDrive\\WebSaver"
 - [Vite](https://lionad.art/maps/_workflow/build-tools/vite)
 - [Webpack](https://lionad.art/maps/_workflow/build-tools/webpack)
 - [Rspack](https://lionad.art/maps/_workflow/build-tools/rspack)
+- [Bun](https://lionad.art/maps/_workflow/build-tools/bun)
 
 ## 工具对比
 
@@ -59175,6 +60871,97 @@ stub 即插桩。unbuild 的插桩模式意味着只需要启动一个文件监�
 Rome 致力于统一前端开发工具链，不仅是 Linter，还包括 Compiler、Bundler、Test Runner 等。现在应该叫 Biome 了，他们团队同时赢得了 Prettier 十万美金奖项。
 
 见：[Introducing Rome](https://rome.tools/blog/2020/08/08/introducing-rome/){rel="&#x22;nofollow&#x22;"}
+
+
+# Bun
+
+## 字节码缓存（Bytecode Caching）
+
+#### Bun 字节码缓存的用法与产物
+
+Bun 的 bundler 提供 `--bytecode` 标志，把 JS 解析与字节码编译前置到构建期，
+换取运行期启动加速。构建产物是成对文件：`index.js`（打包后的源码）与
+`index.jsc`（字节码缓存），运行时执行 `bun ./dist/index.js` 自动检测并加载同名 `.jsc` 文件。
+
+ESM 与 CommonJS 支持不对称：CommonJS 无需 `--compile`；ESM 必须配合
+`--compile` 生成独立可执行文件，因为 Bun 需把模块元数据（import/export
+信息）嵌入二进制，引擎运行期才能完全跳过解析。字节码可与
+`--minify --sourcemap` 组合：`--minify` 先缩小代码再生成字节码（代码少则
+字节码少），`--sourcemap` 保留指向原始源码的错误定位。
+
+调试可用 `BUN_JSC_verboseDiskCache=1` 验证缓存是否命中，成功输出
+`[Disk cache] cache hit for sourceCode`。builtin 模块的 JS 不做字节码缓存，
+出现多次 cache miss 属正常现象。
+
+见：[Bytecode Caching | Bun Docs](https://bun.com/docs/bundler/bytecode){rel="&#x22;nofollow&#x22;"}
+
+#### 字节码缓存的原理：unlinked 与 linked bytecode
+
+JavaScript 引擎执行源码要经过解析（parse）→ 字节码编译 → 执行三步，
+每次运行都重复前两步。`.jsc` 缓存的是 unlinked bytecode：指令流、常量池、
+标识符表与控制流信息，不含指向运行时对象的指针、JIT 机器码、profiling
+数据与调用链接信息，因此不可变、可被多次执行共享。运行时 Bun 把它链接成
+linked bytecode，逐次补充调用链接信息、类型 profiling 与 JIT 编译状态，每次
+运行重新生成——昂贵的解析编译只做一次，热路径优化仍由真实执行模式驱动。
+
+`.jsc` 加载时做双重校验：头部 cache version 是 JavaScriptCore 框架版本的
+哈希；SourceCodeKey 包含源码哈希、源码长度与编译 flags（strict mode、
+script/module、eval 上下文等），同一源码在不同 flags 下编译出不同字节码。
+字节码不内嵌源码，`.js` 与 `.jsc` 必须同时部署，脱离 `.js` 的 `.jsc` 无法使用。
+
+见：[Bytecode Caching | Bun Docs](https://bun.com/docs/bundler/bytecode){rel="&#x22;nofollow&#x22;"}
+
+#### 字节码缓存与惰性解析
+
+现代引擎用惰性解析（lazy parsing）控制启动开销：函数首次被调用时才解析，
+因此解析工作不是一次性的启动成本，而是散布在整个应用生命周期，随不同
+代码路径的执行持续发生。字节码缓存构建期预编译全部函数——包括永远不会
+被调用的惰性解析函数——把解析一次性前置到构建时间。这解释了字节码缓存
+的收益为何不只体现在启动那一刻。
+
+见：[Bytecode Caching | Bun Docs](https://bun.com/docs/bundler/bytecode){rel="&#x22;nofollow&#x22;"}
+
+#### 字节码缓存的版本兼容与架构可移植性
+
+字节码跨 Bun 版本不兼容：JavaScriptCore 的字节码格式随版本演进（opcode
+增减、元数据结构变化），升级 Bun 后旧 `.jsc` 因 cache version 哈希不匹配被
+静默拒绝，回退解析 `.js` 源码——应用照常运行，只是优化被跳过，属
+fail-open 设计。工程上应把字节码生成纳入 CI/CD 构建流程，不把 `.jsc` 提交
+进 git，升级 Bun 后重新生成。
+
+字节码跨架构可移植：构建于 macOS ARM64 可部署到 Linux x64 或 AWS Lambda
+ARM64，架构相关优化发生在运行期 JIT 编译，不落进缓存字节码。字节码也不
+是混淆手段：它不隐藏源码，伴随的 `.js` 文件完整可读。
+
+见：[Bytecode Caching | Bun Docs](https://bun.com/docs/bundler/bytecode){rel="&#x22;nofollow&#x22;"}
+
+#### 字节码的体积代价与缓解
+
+`.jsc` 通常比 `.js` 大 2-8x，体积来源：一行压缩 JS 可编译成数十条指令；
+常量池全量存储字面量与属性名；每个函数（哪怕一行）都带完整元数据（寄存器
+分配、code features 位掩码、parse mode、异常处理器、表达式位置表）；
+profiling 数据结构即使为空也预分配；控制流目标（jump targets、switch
+tables、异常边界）预计算。
+
+缓解手段：gzip/brotli 对字节码压缩率可达 60-70%；先 `--minify` 再生成
+字节码——短标识符缩小标识符表、死代码消除减少指令量、常量折叠减少常量池
+条目。代价与收益对等：2-4x 体积换 2-4x 启动加速，对 CLI 分发通常值得，对
+长驻服务器影响更小。
+
+见：[Bytecode Caching | Bun Docs](https://bun.com/docs/bundler/bytecode){rel="&#x22;nofollow&#x22;"}
+
+#### 字节码缓存的适用场景
+
+收益随代码量增长：小型 CLI（<100KB）启动快 1.5-2x，中大型应用（>5MB）
+快 2.5-4x。适合三类场景：频繁调用的 CLI 工具（linter、formatter、git
+hooks，如 tsc/prettier/eslint 型工具，启动时间即用户体验）；构建脚本、
+测试运行器等开发期执行数百上千次的工具，单次省下的毫秒随调用次数复利；
+分发给他人的独立可执行文件，单文件分发便利，启动速度比体积更被感知。
+应跳过：一次性脚本、只运行一次的代码、开发构建、体积受限环境。生产 CLI
+与 serverless 部署用 `--bytecode --minify --sourcemap` 组合，性能与可调试
+性兼得。
+
+见：[Bytecode Caching | Bun Docs](https://bun.com/docs/bundler/bytecode){rel="&#x22;nofollow&#x22;"}
 
 
 # Rspack
@@ -59686,10 +61473,21 @@ monorepo 对应 multi-repo，是"把多个仓库放到一个仓库中来管理"�
 ### Monorepo 工具
 
 - [Turborepo](https://lionad.art/maps/_workflow/monorepo/turborepo) - Vercel 推出的 Monorepo 构建系统，提供任务管道和远程缓存
+- [Monorepo 工具横评：pnpm、Turborepo、Nx、Rush](https://mp.weixin.qq.com/s/iOMaCN3n6h8e8g2o6JNOjw){rel="&#x22;nofollow&#x22;"} - 按严格依赖布局、受影响分析、任务编排与缓存、发布编排、导航与边界、AI 友好度六项能力逐项对照的选型分析
 
 ## Rush
 
 - [Rush 工具详解：概念、使用场景与优势分析](https://blog.csdn.net/i042416/article/details/145900916){rel="&#x22;nofollow&#x22;"}
+
+#### subspaces 拆分 lockfile 是冲突面转移而非消除
+
+subspaces 把单个大 lockfile 拆成多个子空间各自管理，常被当作超大仓的无痛分治手段。
+Rush 的 RFC-4230 自己写明：拆分确实缓解了单点协调问题（不相关包的依赖升级互相牵制、lockfile
+合并冲突），但会引入新的协调成本，且麻烦随子空间数量增长——跨子空间仍共享同一个 workspace，
+workspace: 协议仍可跨子空间依赖，版本约定与公共依赖升级仍需全局治理。选型时应把它理解为
+「把冲突面从一份文件转移到多份文件的边界上」，而不是冲突的消除。
+
+见：[RFC-4230: Rush Subspaces](https://github.com/microsoft/rushstack/blob/main/common/docs/rfcs/rfc-4230-rush-subspaces.md){rel="&#x22;nofollow&#x22;"}
 
 ## Lerna
 
@@ -59760,6 +61558,29 @@ Turborepo 通过 `turbo.json` 中的 `pipeline` 配置定义任务间的依赖�
 - **远程缓存**：部署在服务器或 Vercel 托管，团队共享缓存结果，CI/CD 也能受益
 - **缓存键**：基于文件内容哈希、环境变量、依赖版本计算，确保缓存准确性
 
+#### 选择层与失效层：跨包 inputs glob 让缓存一改全崩
+
+受影响面归因有两层：filter 的选择层决定跑哪些任务，任务哈希的失效层决定哪些任务命中缓存，任何一层
+耦合都会让增量口径退化成全量。inputs 是 glob 匹配而非目录扫描，任务哈希等于 inputs 匹配到的全部文件
+内容哈希：根锚定的跨包 glob（如 `$TURBO_ROOT$/packages/*/src/**`）让每个任务实例的哈希涵盖所有包源码，
+改一个包的一个文件，全部任务哈希变化、全部缓存未命中，此时 filter 选得再精确也无济于事。所以包相对
+glob 才是 inputs 的默认美德，跨包耦合只能进 globalDependencies 并认清其全局代价。两条补充：git 浅克隆
+下区间对比缺历史，所有包一律按变更处理，浅克隆与 affected 口径天然互斥；future flags 的
+filterUsingTasks 与 affectedUsingTaskInputs 可把 git 区间过滤改按各任务 inputs 匹配，但根配置、lockfile
+与 globalDependencies 变更仍恒选全部任务。
+
+见：[Configuration | Turborepo](https://turborepo.dev/docs/reference/configuration){rel="&#x22;nofollow&#x22;"}
+
+#### 构建器隐式读取的文件不进任务哈希
+
+turbo 只对显式声明负责：影响产物但不被 import 语句触达的文件（tsconfig 的 paths/dts 选项、.env、
+codegen 配置），与隐式消费的环境变量一样必须手工登记进 inputs/env，否则改了它们不触发重跑，过期产物
+被静默回放且不报错。典型如 tsdown/tsc 构建期自动加载 tsconfig.json，漏列它，改 tsconfig 不重构建、
+缓存放行过期 dist，直到下游消费才炸。启用新任务的缓存前值得做一次负样本验证：改一个疑似隐式输入的
+配置文件，看任务是否真的重跑。
+
+见：[Caching | Turborepo](https://turborepo.dev/docs/crafting-your-repository/caching){rel="&#x22;nofollow&#x22;"}
+
 #### 如何配置 Turborepo 远程缓存？
 
 1. 使用 Vercel 托管（推荐）：`npx turbo login` 登录后启用
@@ -59771,6 +61592,37 @@ Turborepo 通过 `turbo.json` 中的 `pipeline` 配置定义任务间的依赖�
 turbo login
 turbo link
 ```
+
+#### globalDependencies 是无豁免的全局税
+
+globalDependencies 的文件哈希折进全局哈希，改动即作废所有任务的缓存，设计上不存在任务级 opt-out，
+适合被大多数任务真实消费的全局文件（共享测试基座、宽域共享源码）；只被少数任务消费的文件放进去，
+缴税成本高过收益。future flag `globalConfiguration` 改变税制：global.inputs 折入任务哈希而非全局哈希，
+任务可用否定 glob 对特定全局文件豁免（如 lint 任务排除 tsconfig.json），同一文件从此可按任务差别征税。
+
+见：[Configuration | Turborepo](https://turborepo.dev/docs/reference/configuration){rel="&#x22;nofollow&#x22;"}
+
+#### Turbo 2.x 原生 boundaries 可检出幽灵导入与 tag 越界
+
+选型资料常说 Turborepo 没有边界约束能力，要治理模块边界只能自配 ESLint 规则或转投 Nx，这是 1.x 时代的印象。
+Turbo 2.x 提供 `turbo boundaries` 命令：在 `turbo.json` 中给包声明 tags 并配置 boundaries 规则后，
+它能检出两类违规——导入包目录之外的文件，以及导入未在 package.json 声明的依赖。规则对传递依赖同样生效：
+A 引用 B、B 又引用被禁止 tag 的 C 时，A 自身也会报违规。与 Nx 走 ESLint 插件
+（enforce-module-boundaries）的路线不同，检查由构建工具自身静态扫描源码 import，不依赖 lint 配置；
+覆盖面也相应更窄，不提供 CODEOWNERS 式的写权限隔离。
+
+见：[Boundaries | Turborepo](https://turborepo.dev/docs/reference/boundaries){rel="&#x22;nofollow&#x22;"}
+
+#### tags 规则语义随版本漂移，启用前先做负样本验证
+
+boundaries 的 tags 规则至少并存三套语义：2.3 博文的包级 schema（allowDependencyOn/denyDependencyFrom）、
+现行文档的根级 schema（boundaries.tags 下 dependencies/dependents 双面向 allow/deny）、以及部分二进制的
+实际行为——deny/allow 退化为「带该 tag 的 workspace 是否存在」的存在性检查，对无依赖关系的包大量误报。
+高速演进的工具普遍文档超前于二进制，处置不是死等升级：先用默认执法（未声明依赖不可 import）加自定义
+深路径规则扛住边界，tags 声明先铺进包级 turbo.json 作零迁移升级路径；启用任何一条规则前，造一个必然
+违规的引用做负样本，验证执法真的在执法。
+
+见：[Boundaries | Turborepo](https://turborepo.dev/docs/reference/boundaries){rel="&#x22;nofollow&#x22;"}
 
 ## 最佳实践
 
@@ -59800,6 +61652,7 @@ turbo link
 
 - [npm](https://lionad.art/maps/_workflow/package-manager/npm)
 - [pnpm](https://lionad.art/maps/_workflow/package-manager/pnpm)
+- [pnpm 模块原理](https://lionad.art/maps/_workflow/package-manager/pnpm-modules)
 - [lockfile](https://lionad.art/maps/_workflow/package-manager/lockfile)
 - [包的角色分类](https://lionad.art/maps/_workflow/package-manager/package-roles)
 
@@ -60305,6 +62158,16 @@ ActiveRecord 的 PostgreSQL 适配器既是 Plugin（符合后端接口）又是
 
 ## API 细节和配置项
 
+#### catalogs 与 catalogMode strict 提供原生版本单例
+
+「要锁全仓单一依赖版本就得用 Rush」的选型动机已过时。pnpm 在 pnpm-workspace.yaml 中维护 catalog
+版本目录，各包用 catalog: 协议引用依赖，版本真源只存在一处；pnpm update 对 catalog 依赖只改写
+catalog 条目，不动各包 package.json。v10.12.1 引入的 catalogMode: strict 更进一步：pnpm add 到
+不在 catalog 版本范围内的依赖直接报错，把版本漂移的发现点从 code review 前移到安装时。
+它不提供 Rush 式的依赖视图重建，但覆盖了统一版本这个最常见的单例诉求。
+
+见：[Catalogs | pnpm](https://pnpm.io/catalogs){rel="&#x22;nofollow&#x22;"}
+
 #### pnpm import
 
 使用 `pnpm import` 可以将 package-lock、npm-shrinkwrap 和 yarn.lock 转换为 pnpm-lock 文件。
@@ -60405,11 +62268,82 @@ module.exports = {
 
 ## 原理
 
+模块层次结构与符号链接机制见：[pnpm 模块原理](https://lionad.art/maps/_workflow/package-manager/pnpm-modules)
+
+## 常见问题
+
+#### PNPM 找不到全局路径的解决方法？
+
+尽管设置了全局变量，也重新安装了最新版本 PNPM，也执行了 pnpm setup，却仍然报错找不到全局路径的临时解决方案：
+
+```powershell
+$PNPM_HOME="<path>" | pnpm install -g xxx
+```
+
+#### PNPM 速度变慢了？
+
+今天逛官网时，偶然发现 Readme 中的 benchmark 过时了。它说“要比 Yarn Classic 和 npm “快两倍以上，但是从 benchmark 来看，他要比 Yarn 和 npm 慢了不少。
+以后启用 NodeJS 20 以上时，如果问题得不到改善，我应该会重新选择 npm 而不是 pnpm，鉴于幽灵依赖和依赖分身带来的问题是可排查可解决的，而速度是解决不了的问题。
+
+![pnpm vs npm vs yarn benchmark](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230605235736.png)
+
+相关见：[pnpm seems to be consistently slower than yarn (classic)](https://github.com/pnpm/pnpm/issues/6447){rel="&#x22;nofollow&#x22;"}
+
+#### 和 Bun 在安装速度上的对比？
+
+有锁文件、本地缓存，无 node\_modules 的情况下，bun 要比 pnpm 安装至少快 3 倍。
+
+- 一个原因是 pnpm、yarn 等工具会在安装时请求最新的 metadata，而 bun 使用的 metadata 源于本地缓存的 metadata。
+- 另一个原因是 pnpm 在创建 node\_modules 层次结构是使用了大量的 symlink，相比其他包管理工具仅使用复制或 hardlink 有更多系统调用。
+
+所以如果想使 pnpm 更快的安装，可以使用 prefer-offline 选项，以及，node-linker=hoisted 也许有用。
+
+见：[Bun.sh-like Module Resolution](https://github.com/pnpm/pnpm/issues/7391){rel="&#x22;nofollow&#x22;"}
+
+#### 关于 V8 版本的变化？
+
+- `resolve-peers-from-workspace-root` is `true` by default
+- `auto-install-peers` is `true` by default
+- `dedupe-peer-dependents` set to true by default
+- 停止 NodeJS 14 的支持
+- lockfile v6 by default
+- resolution mode（prebundle、time-based、lowest-direct）default set to lowest-based，需要注意手动升级，尤其是在没有锁文件的情况
+- only deply `files` field when the field exist
+
+#### PnP 模式下的依赖提升设置？
+
+默认的 node\_modules 依赖的层级处于严格和不严格之间的水平（semi-strict）。使用最严格的设置需要打开 PnP 模式，因为在 monorepo 中 PnP 模式中，
+就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
+
+```text
+node-linker=pnp
+symlink=false
+```
+
+见：[Node-Modules configuration options with pnpm](https://pnpm.io/blog/2020/10/17/node-modules-configuration-options-with-pnpm){rel="&#x22;nofollow&#x22;"}
+
+#### 在 Windows Dev Driver 上可能会碰到的问题？
+
+2024 年初 pnpm 实现了 Dev Driver 上的 Copy on Write 功能，但可能会碰到变慢的问题。
+
+见：[pnpm lately slow and pnpx stuck at installing deps using executable package](https://github.com/pnpm/pnpm/issues/7547){rel="&#x22;nofollow&#x22;"}
+
+#### 下载多份二进制代码的问题？
+
+目前应该是所有包管理器都有这种问题，但是不知道怎么解决。
+
+![sass-embedded 下载了多份二进制代码](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200412724.png)
+
+
+# pnpm 模块原理
+
+## 原理
+
 #### 显著的优点？
 
 1. 省磁盘空间，使用软硬链接和符号链接节约空间。
 2. 安装依赖快，因为处理链接要比处理文件快，并且每个包的解析、下载和写入磁盘这三个阶段是分离的。
-3. 内建支持 monorepo，所有命令支持 `--filter` 过滤包。
+3. 内建支持 monorepo，所有命令支持 `--filter`（缩写 `-F`）过滤包。
 4. 依赖严格，避免幽灵依赖和依赖分身问题。
 
 #### 依赖的层次结构是怎样的？
@@ -60491,70 +62425,6 @@ node_modules
 - pnpm 创造的 node\_modules 层级结构会破坏某些依赖依赖了相对路径的依赖的逻辑
 
 见：[精读 pnpm](https://zhuanlan.zhihu.com/p/553804414){rel="&#x22;nofollow&#x22;"}
-
-## 常见问题
-
-#### PNPM 找不到全局路径的解决方法？
-
-尽管设置了全局变量，也重新安装了最新版本 PNPM，也执行了 pnpm setup，却仍然报错找不到全局路径的临时解决方案：
-
-```powershell
-$PNPM_HOME="<path>" | pnpm install -g xxx
-```
-
-#### PNPM 速度变慢了？
-
-今天逛官网时，偶然发现 Readme 中的 benchmark 过时了。它说“要比 Yarn Classic 和 npm “快两倍以上，但是从 benchmark 来看，他要比 Yarn 和 npm 慢了不少。
-以后启用 NodeJS 20 以上时，如果问题得不到改善，我应该会重新选择 npm 而不是 pnpm，鉴于幽灵依赖和依赖分身带来的问题是可排查可解决的，而速度是解决不了的问题。
-
-![pnpm vs npm vs yarn benchmark](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/20230605235736.png)
-
-相关见：[pnpm seems to be consistently slower than yarn (classic)](https://github.com/pnpm/pnpm/issues/6447){rel="&#x22;nofollow&#x22;"}
-
-#### 和 Bun 在安装速度上的对比？
-
-有锁文件、本地缓存，无 node\_modules 的情况下，bun 要比 pnpm 安装至少快 3 倍。
-
-- 一个原因是 pnpm、yarn 等工具会在安装时请求最新的 metadata，而 bun 使用的 metadata 源于本地缓存的 metadata。
-- 另一个原因是 pnpm 在创建 node\_modules 层次结构是使用了大量的 symlink，相比其他包管理工具仅使用复制或 hardlink 有更多系统调用。
-
-所以如果想使 pnpm 更快的安装，可以使用 prefer-offline 选项，以及，node-linker=hoisted 也许有用。
-
-见：[Bun.sh-like Module Resolution](https://github.com/pnpm/pnpm/issues/7391){rel="&#x22;nofollow&#x22;"}
-
-#### 关于 V8 版本的变化？
-
-- `resolve-peers-from-workspace-root` is `true` by default
-- `auto-install-peers` is `true` by default
-- `dedupe-peer-dependents` set to true by default
-- 停止 NodeJS 14 的支持
-- lockfile v6 by default
-- resolution mode（prebundle、time-based、lowest-direct）default set to lowest-based，需要注意手动升级，尤其是在没有锁文件的情况
-- only deply `files` field when the field exist
-
-#### PnP 模式下的依赖提升设置？
-
-默认的 node\_modules 依赖的层级处于严格和不严格之间的水平（semi-strict）。使用最严格的设置需要打开 PnP 模式，因为在 monorepo 中 PnP 模式中，
-就算开启了 `hoist=false` 也不会禁用 workspace root 的依赖
-
-```text
-node-linker=pnp
-symlink=false
-```
-
-见：[Node-Modules configuration options with pnpm](https://pnpm.io/blog/2020/10/17/node-modules-configuration-options-with-pnpm){rel="&#x22;nofollow&#x22;"}
-
-#### 在 Windows Dev Driver 上可能会碰到的问题？
-
-2024 年初 pnpm 实现了 Dev Driver 上的 Copy on Write 功能，但可能会碰到变慢的问题。
-
-见：[pnpm lately slow and pnpx stuck at installing deps using executable package](https://github.com/pnpm/pnpm/issues/7547){rel="&#x22;nofollow&#x22;"}
-
-#### 下载多份二进制代码的问题？
-
-目前应该是所有包管理器都有这种问题，但是不知道怎么解决。
-
-![sass-embedded 下载了多份二进制代码](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/202503200412724.png)
 
 
 # 前端工程化
@@ -62406,7 +64276,7 @@ ElementPlus（以下简称 EP）是一个基于 Vue 3 的 UI 组件库，其立�
 
 这里尝试给出我的一些看法和总结。前端工程化泛指将自动化、标准化、流程化等工程领域思想应用于前端开发全过程，以达到提升开发效率、提高代码质量与可维护性、协同团队合作的目的。
 
-见：[什么是前端工程化？](https://lionad.art/maps/_workflow/fe-engineering)
+见：[什么是前端工程化？](https://lionad.art/maps/_workflow/engineering/fe-engineering)
 
 ## 项目结构
 
