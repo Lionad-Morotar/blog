@@ -59,6 +59,8 @@ Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特
 
 ## 浏览器开发
 
+* [AbortSignal](/maps/_web/browser/abort-signal) - Web 平台协作取消协议：信号组合、检查点响应与生命周期语义
+
 #### 事件捕获机制？
 
 浏览器的事件传播分为三个阶段：Capturing、Targeting、Bubbling，顺序上来说是先从根元素一直向目标元素传播，然后再由目标元素向根元素传播。事件捕获默认发生在冒泡阶段，
