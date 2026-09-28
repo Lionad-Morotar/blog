@@ -8,6 +8,10 @@ original_path: _ai/agents.md
 
 * [有毒数据流分析](/maps/_ai/agents/toxic-flow-analysis)
 
+## Good Cases
+
+* [Agent 输出优秀案例](/maps/_ai/agents/agent-good-cases) - 收集 agent 输出超出预期智能的行为案例与设计模板
+
 ## Deep Research
 
 * [Deep Research 案例：大模型 MaaS 低价 Coding Plan 商业逻辑](https://dr.unifuncs.com/?sid=252a69b5-d259-42fc-a6ce-d315f89dde52)
