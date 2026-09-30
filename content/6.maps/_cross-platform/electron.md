@@ -65,3 +65,64 @@ Windows/Linux 深链走 `second-instance` 事件的 commandLine，里面同时�
 里混着协议 URL，且深链解析要在环境判定之后执行，否则一次从深链冷启动就会把应用带进错误环境。
 
 见：[Launch app from URL in another app](https://www.electronjs.org/docs/latest/tutorial/launch-app-from-url-in-another-app)
+
+#### 薄壳骨架的装配顺序、会话分区与可测性切分
+
+一个最小可用的薄壳骨架，装配顺序有四条原则：`crashReporter.start` 放最前（它只监控其后创建的进程，
+晚装就漏掉更早创建的 renderer/GPU 子进程的崩溃）；单实例锁在 app ready 前裁决，抢不到直接退出，
+不付 ready 成本；logger 不 import electron、日志目录由入口注入，锁失败的退出路径上日志依然可用；
+权限守卫先于起窗，远程内容第一个请求到达时裁决已就位。
+
+远程内容走 `session.fromPartition('persist:xxx')` 独立分区，与默认会话隔离。可测性的切法是把
+「导航白名单判定」「权限裁决」「日志保留期」提炼成与 electron 解耦的纯函数入 vitest 套件，
+依赖 electron 运行时的装配层不自动化测试，策略层全测、装配层靠运行验证。构建出双目标产物：
+main 打 ESM，preload 打 CJS，`.cjs` 后缀在 `"type":"module"` 包体内强制按 CJS 解析，因为 sandbox
+渲染进程不支持 ESM preload。桥 API 未定型前 preload 宁可空占位：半截 API 会进站点特性探测面造成误判。
+
+见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security)
+
+#### 导航白名单有三个静默盲区
+
+`will-navigate` 只在「用户或页面发起导航」时触发，三个盲区都藏在这个限定里。其一，服务端 302
+重定向发生在导航进行中，走的是 `will-redirect` 事件：只挂 `will-navigate` 的白名单，会被可信页面
+的一跳 302 静默带到外域。其二，壳自身的程序化 `loadURL`（起窗、恢复会话）同样不触发
+`will-navigate`，首屏 URL 天然免检，必须按受信输入对待。其三，官方文档明确：对任一可取消事件调用
+`preventDefault()` 后，后续导航事件链不再触发，双事件各自的裁决缺一不可。解法是 `will-navigate` 与
+`will-redirect` 各挂一份同白名单裁决。
+
+见：[webContents navigation events](https://www.electronjs.org/docs/latest/api/web-contents)
+
+#### 权限白名单要两层执法：request 与 check handler 缺一不可
+
+站点和权限打交道有两种动作：真要权限（`getUserMedia`、`Notification.requestPermission`）触发授权
+流程，走 `setPermissionRequestHandler`；只是打听状态（`navigator.permissions.query`）走同步的
+`setPermissionCheckHandler`。check handler 未设置时，Electron 对查询默认返回 granted：站点 UI 显示
+「通知已开启」，实际发通知又被 request handler 拒掉，前端拿着假状态做出一连串误判（社区 issue 记录
+`permissions.query` 恒返回 granted，且裁决 API 只有布尔、没有 prompt 态）。解法是两个 handler 共用
+同一个裁决纯函数，两层答案天然一致。另一个粒度事实：media 的授权单位是整个 permission 而非单个设备，
+audio+video 组合请求拆不开、只能整体拒，请求里缺 `mediaTypes` 时按拒绝处理。
+
+见：[session.setPermissionCheckHandler](https://www.electronjs.org/docs/latest/api/session#sessetpermissioncheckhandlerhandler)
+
+#### 纯本地落盘的 crashReporter 仍有外泄面，用不可达域焊死
+
+应用只想把崩溃 minidump 存本地时，常规做法是 `crashReporter.start` 设 `uploadToServer: false`。
+但这是运行期开关而不是封印：后续任何代码调 `crashReporter.setUploadToServer(true)`，本地积累的
+minidump（含进程内存快照，属敏感数据）就开始往 `submitURL` POST。占位解法是给 `submitURL` 填一个
+`.invalid` 伪域（IANA 保留的永不可达顶级域，同族还有 `.test`、`.example`）：文档虽标注
+`uploadToServer: false` 时 `submitURL` 可省，伪域把「不上报」从约定升级为网络层不可能，将来误开
+上传包也发不到任何真实服务器。两个装配事实：`start()` 只监控其后创建的进程，必须最先装配；
+minidump 落盘目录的文件布局是官方明说的实现细节，别写代码去读，将来要传数据应自建 `submitURL` 接收端。
+
+见：[Crash Reporting](https://www.electronjs.org/docs/latest/tutorial/crash-reporting)
+
+#### 日志器要防 EPIPE 反杀主进程
+
+开发期 dev runner（父进程）退出后，接着主进程 stdout 的管道随之关闭，主进程还在打日志，就会撞上
+EPIPE（向已关闭管道写数据的错误码）。EPIPE 有两种抵达方式：同步 throw，`try/catch` 能抓住；异步
+`error` 事件，`try/catch` 早就执行过去了抓不住。而 Node 有条铁律：EventEmitter 发出 `error` 事件
+而没有任何监听器时进程直接崩溃，默认没人监听 stdout 的 error 事件，一条日志就能杀掉主进程，症状是
+「应用莫名退出」。防御必须两层各防一种抵达方式：`process.stdout`/`process.stderr` 各挂 error 监听
+选择性吞 EPIPE（其余照抛，真错误不掩盖），`console` 调用外再包一层同步 `try/catch` 只吞 EPIPE。
+
+见：[Note on process I/O](https://nodejs.org/api/process.html#a-note-on-process-io)
