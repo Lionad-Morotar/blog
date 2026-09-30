@@ -1,6 +1,6 @@
 ---
 title: Electron
-description: Electron 桌面应用开发，重点是薄壳加载远程站点的安全基线、系统集成与分发更新
+description: Electron 桌面应用开发：薄壳架构、环境与构建、窗口与运行时行为
 ---
 
 #### Electron 薄壳是什么：可分发的自定义浏览器
@@ -17,25 +17,6 @@ OS 能力面（托盘、通知、深链、开机自启、全局快捷键、下�
 
 见：[Process Model](https://www.electronjs.org/docs/latest/tutorial/process-model)
 
-#### 加载远程内容的安全清单：默认放行与导航接管才是硬门
-
-隔离三件套（`contextIsolation`、`sandbox`、`nodeIntegration: false`）在新版已是默认值，显式钉死即可；
-真正出事故的是清单后半：`setPermissionRequestHandler` 对远程内容的权限请求默认自动批准，通知、地理位置、
-摄像头都会直接放行；`will-navigate` 与 `setWindowOpenHandler` 不接管时，站点可以把窗口导航到任意 URL
-或弹出新窗；所有 IPC 消息必须校验 sender；`shell.openExternal` 只喂白名单 URL。官方清单共 20 条，
-对加载远程内容的壳可收敛为五组：隔离、导航接管、权限审批、IPC 校验、fuses。
-
-见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security)
-
-#### 深链与自定义启动参数共用 argv 通道
-
-应用自定义命令行参数（如环境切换）后，深链处理会与之打架：macOS 深链走 `open-url` 事件、不进 argv；
-Windows/Linux 深链走 `second-instance` 事件的 commandLine，里面同时躺着自定义参数、Electron 内部参数
-和深链 URL，「取最后一个元素」的官方示例写法在加入自定义参数后不再可靠。环境类参数解析必须容忍 argv
-里混着协议 URL，且深链解析要在环境判定之后执行，否则一次从深链冷启动就会把应用带进错误环境。
-
-见：[Launch app from URL in another app](https://www.electronjs.org/docs/latest/tutorial/launch-app-from-url-in-another-app)
-
 #### 薄壳骨架的装配顺序、会话分区与可测性切分
 
 一个最小可用的薄壳骨架，装配顺序有四条原则：`crashReporter.start` 放最前（它只监控其后创建的进程，
@@ -50,52 +31,6 @@ main 打 ESM，preload 打 CJS，`.cjs` 后缀在 `"type":"module"` 包体内强
 渲染进程不支持 ESM preload。桥 API 未定型前 preload 宁可空占位：半截 API 会进站点特性探测面造成误判。
 
 见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security)
-
-#### 导航白名单有三个静默盲区
-
-`will-navigate` 只在「用户或页面发起导航」时触发，三个盲区都藏在这个限定里。其一，服务端 302
-重定向发生在导航进行中，走的是 `will-redirect` 事件：只挂 `will-navigate` 的白名单，会被可信页面
-的一跳 302 静默带到外域。其二，壳自身的程序化 `loadURL`（起窗、恢复会话）同样不触发
-`will-navigate`，首屏 URL 天然免检，必须按受信输入对待。其三，官方文档明确：对任一可取消事件调用
-`preventDefault()` 后，后续导航事件链不再触发，双事件各自的裁决缺一不可。解法是 `will-navigate` 与
-`will-redirect` 各挂一份同白名单裁决。
-
-见：[webContents navigation events](https://www.electronjs.org/docs/latest/api/web-contents)
-
-#### 权限白名单要两层执法：request 与 check handler 缺一不可
-
-站点和权限打交道有两种动作：真要权限（`getUserMedia`、`Notification.requestPermission`）触发授权
-流程，走 `setPermissionRequestHandler`；只是打听状态（`navigator.permissions.query`）走同步的
-`setPermissionCheckHandler`。check handler 未设置时，Electron 对查询默认返回 granted：站点 UI 显示
-「通知已开启」，实际发通知又被 request handler 拒掉，前端拿着假状态做出一连串误判（社区 issue 记录
-`permissions.query` 恒返回 granted，且裁决 API 只有布尔、没有 prompt 态）。解法是两个 handler 共用
-同一个裁决纯函数，两层答案天然一致。另一个粒度事实：media 的授权单位是整个 permission 而非单个设备，
-audio+video 组合请求拆不开、只能整体拒，请求里缺 `mediaTypes` 时按拒绝处理。
-
-见：[session.setPermissionCheckHandler](https://www.electronjs.org/docs/latest/api/session#sessetpermissioncheckhandlerhandler)
-
-#### 纯本地落盘的 crashReporter 仍有外泄面，用不可达域焊死
-
-应用只想把崩溃 minidump 存本地时，常规做法是 `crashReporter.start` 设 `uploadToServer: false`。
-但这是运行期开关而不是封印：后续任何代码调 `crashReporter.setUploadToServer(true)`，本地积累的
-minidump（含进程内存快照，属敏感数据）就开始往 `submitURL` POST。占位解法是给 `submitURL` 填一个
-`.invalid` 伪域（IANA 保留的永不可达顶级域，同族还有 `.test`、`.example`）：文档虽标注
-`uploadToServer: false` 时 `submitURL` 可省，伪域把「不上报」从约定升级为网络层不可能，将来误开
-上传包也发不到任何真实服务器。两个装配事实：`start()` 只监控其后创建的进程，必须最先装配；
-minidump 落盘目录的文件布局是官方明说的实现细节，别写代码去读，将来要传数据应自建 `submitURL` 接收端。
-
-见：[Crash Reporting](https://www.electronjs.org/docs/latest/tutorial/crash-reporting)
-
-#### 日志器要防 EPIPE 反杀主进程
-
-开发期 dev runner（父进程）退出后，接着主进程 stdout 的管道随之关闭，主进程还在打日志，就会撞上
-EPIPE（向已关闭管道写数据的错误码）。EPIPE 有两种抵达方式：同步 throw，`try/catch` 能抓住；异步
-`error` 事件，`try/catch` 早就执行过去了抓不住。而 Node 有条铁律：EventEmitter 发出 `error` 事件
-而没有任何监听器时进程直接崩溃，默认没人监听 stdout 的 error 事件，一条日志就能杀掉主进程，症状是
-「应用莫名退出」。防御必须两层各防一种抵达方式：`process.stdout`/`process.stderr` 各挂 error 监听
-选择性吞 EPIPE（其余照抛，真错误不掩盖），`console` 调用外再包一层同步 `try/catch` 只吞 EPIPE。
-
-见：[Note on process I/O](https://nodejs.org/api/process.html#a-note-on-process-io)
 
 #### 薄壳多环境协议与壳内静态页
 
@@ -151,3 +86,38 @@ dev server 已起但路由未就绪时，HEAD 请求返回 404，对任意路径
 同一套代码拿去探生产健康检查，口径要反过来：200 且校验响应体内容。
 
 见：[fetch() redirect option](https://developer.mozilla.org/en-US/docs/Web/API/fetch#redirect)
+
+#### 日志器要防 EPIPE 反杀主进程
+
+开发期 dev runner（父进程）退出后，接着主进程 stdout 的管道随之关闭，主进程还在打日志，就会撞上
+EPIPE（向已关闭管道写数据的错误码）。EPIPE 有两种抵达方式：同步 throw，`try/catch` 能抓住；异步
+`error` 事件，`try/catch` 早就执行过去了抓不住。而 Node 有条铁律：EventEmitter 发出 `error` 事件
+而没有任何监听器时进程直接崩溃，默认没人监听 stdout 的 error 事件，一条日志就能杀掉主进程，症状是
+「应用莫名退出」。防御必须两层各防一种抵达方式：`process.stdout`/`process.stderr` 各挂 error 监听
+选择性吞 EPIPE（其余照抛，真错误不掩盖），`console` 调用外再包一层同步 `try/catch` 只吞 EPIPE。
+
+见：[Note on process I/O](https://nodejs.org/api/process.html#a-note-on-process-io)
+
+#### tsup 的 external 默认值会在 sandbox preload 里炸桥
+
+sandbox 模式下 preload 脚本的 `require` 只能加载 electron 自身的一小部分 API，没有加载 node_modules
+任意包的能力；而 tsup 打包时对 package.json `dependencies` 与 `peerDependencies` 声明的包一律
+external 化（产物保留裸包名引用，假设来自发 npm 库场景：使用方安装时会自动带上）。两者相撞：桥代码
+import 的依赖若放在 dependencies，产物在 sandbox 里解析裸包名失败，**整个 preload 脚本顶层抛错死亡**，
+`window` 上的桥注入从未发生。症状不是构建报错也不是崩溃，而是桥静默消失、站点特性检测探不到壳，
+无栈可查。解法：两端产物 external 只留 electron，被打包的依赖归位 devDependencies（tsup 只 bundle
+devDependencies），这在壳包里反转了「devDependencies 是构建期依赖」的常规语义。
+
+见：[tsup Excluding packages](https://tsup.egoist.dev/#excluding-packages)
+
+#### getAllWindows()[0] 不是你的主窗
+
+`BrowserWindow.getAllWindows()` 返回所有窗口的数组，主窗、关于窗混在一起，「主窗」在 Electron 眼里
+没有任何特殊标记，谁是主窗是业务概念。两层坏法：其一，深链投递或前置聚焦写 `getAllWindows()[0]`，
+关于窗开着时数组首位可能就是它，消息发给没有订阅的窗口石沉大海；其二，用 `getAllWindows().length
+=== 0` 判断「无窗才重建主窗」，主窗已关、关于窗存活时长度是 1，误判为有窗，主窗永不重建，订阅者永不
+出现，深链在缓冲队列里永无补投触发点，用户点击静默落空，全程无报错。解法是模块级变量显式跟踪主窗
+引用，`closed` 时清掉、用前查 `isDestroyed()`，投递、聚焦、activate 复活语义只认它；macOS 拉起另需
+应用级 `app.show()`，窗口级 show/focus 不足以把应用带到前台。
+
+见：[BrowserWindow](https://www.electronjs.org/docs/latest/api/browser-window#class-browserwindow)
