@@ -13,5 +13,6 @@ original_path: content/6.maps/_cross-platform/
 - [Electron 分发与签名](electron-distribution.md) - Gatekeeper、Squirrel 自启 stub 与 asar/fuses 防护
 - [Electron 安全基线](electron-security.md) - 加载远程内容的安全清单、导航盲区与权限双层执法
 - [Electron 深链与桥](electron-deep-link.md) - 自定义协议深链三通道、恒等翻译、缓冲投递与壳站桥契约
+- [Electron 通知桥](electron-notification.md) - 主进程通知守卫链、增量基线播种与轮询挂载义务
 - [设备参数](device-metrics.md) - 移动设备屏幕参数参考
 - [经典游戏移植](game-porting.md) - 经典 Windows 游戏移植 macOS/iOS 的工程方法
