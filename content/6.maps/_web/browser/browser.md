@@ -62,6 +62,7 @@ Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特
 * [AbortSignal](/maps/_web/browser/abort-signal) - Web 平台协作取消协议：信号组合、检查点响应与生命周期语义
 * [Shadow DOM](/maps/_web/browser/shadow-dom) - 浏览器原生封装边界：样式与事件跨界、:host 级联地位、closed 真实语义与样式性能杠杆
 * [HTML Head](/maps/_web/browser/html-head) - HTML 文档骨架：opt-in 元素机制与 head 排序性能，CSP meta、text-scale、charset 嗅探等陷阱
+* [Ambilight 视频辉光管线](/maps/_web/browser/ambilight) - 实时视频辉光工程：帧同步三模式、WebGL 环形投影、黑边检测与宿主对抗降级
 
 #### 事件捕获机制？
 
