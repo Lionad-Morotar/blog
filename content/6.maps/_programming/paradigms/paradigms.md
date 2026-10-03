@@ -7,6 +7,7 @@ original_path: content/6.maps/_programming/functional.md
 ## Topics
 
 * [Actor 模型](/maps/_programming/paradigms/actor-model)：以异步消息为唯一交互的并发计算模型
+* [结构化并发](/maps/_programming/paradigms/structured-concurrency)：生命周期成树、子不比父活得久的并发模型，含 Effection v4 机制与 cordis 分界
 
 ## 函数式是什么
 
