@@ -8,6 +8,7 @@ description: 顶层架构设计、企业架构、TOGAF 等
 * [软件架构](./software-architecture) - 架构定义、复杂度三轴、质量属性、结构决策与技术债务
 * [架构师角色](./architect-role) - 日常职责（选挡记）、ADR 实践与风险排序
 * [质量属性](./quality-attributes) - 非功能需求量化、SLI/SLO/SLA 治理、错误预算燃烧率与观测盲区
+* [C4 模型](./c4-model) - 四层抽象焦距、4+3 图型全集、静态结构边界与 model as code 工具生态
 
 #### 什么是架构思维？
 
