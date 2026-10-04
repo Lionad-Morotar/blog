@@ -85,3 +85,57 @@ TRL（Transformer Reinforcement Learning）是 Hugging Face 生态中的后训�
 
 见：[LLM 微调全指南](https://www.53ai.com/news/finetuning/2026010417029.html)
 
+#### 专家标注数据让小模型胜过前沿大模型，标签清洗靠模型筛分歧
+
+Bridgewater AIA Labs 与 Thinking Machines 的实验把「业务判断能否教给模型」量化了：判断财经文章对投资人是否值得读，
+前沿模型裸提示词约 50% 准确率（掷硬币水平），专家改写提示词加自动优化只能推到 78% 附近触顶，够不到可信赖的
+80% 门槛；用投资专家标注的数据微调 Qwen3-235B 后达到 84.7%，比最强前沿模型少 29.8% 的错误，推理成本低 13.8 倍。
+提示词只能传达专家说得出口的直觉，最有价值的判断恰恰最难言说，微调让模型自己长出判断；基座换代也带不来红利，
+GPT-5.4 比 5.2 贵 43% 但准确率只有边际提升。配套的教训是标签质量：非专家标注的标签本身可能是错的，模型会忠实
+学进错误答案。清洗方案是先拿脏数据训一版模型，让它在同一份训练集上自测，与标注分歧的样本只有两种可能，题目
+真难或原标签有错，分歧样本送专家复核，模型筛分歧、专家做裁决。业务判断类任务的标注者必须真懂业务，廉价众包
+等于批量生产「看起来像答案的错误答案」。
+
+见：[Learning to Replicate Expert Judgment in Financial Tasks](https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/)
+
+#### 持续训练闭环：模型上线是训练的起点，评测是方向盘，资产在基座之外
+
+模型研发正从一次性交付项目变成持续交付软件：Cursor 把真实用户是否采纳生成代码当奖励信号，最快每五小时推送一个
+新 checkpoint。一轮完整闭环是：业务 Benchmark 自动评测定位问题，失败案例整理成训练数据，训练后用同一套 Benchmark
+验收并对比新旧版本，再上线采集下一轮信号。评测因此不是训练结束后的验收环节，而是循环的方向盘：问题没有被准确
+定位时，增加数据只会放大规模，不会改善结果。基座是消耗品，真正的资产是四件可迁移物：评测标准、标注数据、LoRA
+专家（可插拔的附加参数）、关联版本可回退的训练配置，基座换代时四件资产无损迁移才算「拥有自己的模型」，Mind Lab
+的 Macaron V1.1 用两周把基座从 GLM-5.2 换到 GLM-5.3 并保留四个 LoRA 专家即是演示。产业层面，后训练平台（Fireworks
+Training API、Baseten Loops、Mint Recursive、Tinker）正成为开源模型与应用公司之间的中间层。
+
+见：[Improving Composer through real-time RL](https://cursor.com/blog/real-time-rl-for-composer) | [只用 2 周完成模型升级，最适合应用公司的后训练平台来了](https://mp.weixin.qq.com/s/F7dVtWDZpHUBLI6DuI4PEw)
+
+#### 训推失配（TIM）：工程误差会被训练系统误读为模型进步
+
+训练引擎（FSDP、Megatron 等直接输出 bf16 概率）与推理引擎（vLLM、SGLang 等为吞吐做了聚合优化）对同一份权重、
+同一输入会给出不同的 token 概率。RL 训练中这个数值分歧经 importance sampling ratio 混入梯度更新，训练系统把纯
+工程误差当成「进步」，症状是 reward 曲线莫名上涨但真实评测不变，或训练中途突然崩溃，模型越大越难发现。对策：
+两侧数值行为对齐（如统一 FP16）；验收走上线那套推理引擎而非训练引擎自测；选型时可直接问平台「同权重下两侧的
+KL 散度是多少」，答不上来说明对方自己没测过。
+
+见：[Defeating the Training-Inference Mismatch via FP16](https://arxiv.org/html/2510.26788v1) | [Diagnosing Training-Inference Mismatch in LLM RL](https://arxiv.org/pdf/2605.14220)
+
+#### 权重同步是多节点 RL 的隐形瓶颈
+
+每轮 RL 更新完要把数千亿参数（数百 GB）的新权重送进推理引擎才能开始下一轮 rollout，训练跨到多节点后这一步取代
+算力成为主要等待。Modal 实测：同集群走 RDMA（3.2 Tbps）对比 TCP（50 Gbps）快约 100 倍，跨集群用 delta compression
+只传权重变化量可省 98% 传输量。LoRA、异步 RL、trainer 与 rollout 同址部署是三种减压手段，各有取舍：LoRA 省带宽
+但限制方法选择，异步 RL 提吞吐但引入轻度 off-policy。评估后训练平台时，「权重同步怎么做、有无 RDMA、支持 LoRA
+热更新吗」比「支持多少张卡」更能筛掉外行。
+
+见：[Reinforcement learning is an infrastructure problem](https://modal.com/blog/reinforcement-learning-infrastructure-problem)
+
+#### GRPO 的成本红利止步于可验证边界
+
+GRPO 砍掉价值模型、用组内相对排名当优势估计所以便宜，但红利只属于结果可验证的任务：奖励能靠规则或可执行验证算出，
+组内排名才有意义。任务没有客观对错时硬套 RLVR，模型会学会钻奖励函数的空子（reward hacking），分数涨了真实能力
+没涨。品味、风险偏好这类判断题的出路是专家偏好数据加改良算法，Bridgewater 用 CISPO 损失加在线策略蒸馏把
+Qwen3-235B 从 73.5% 推到 84.7%，而非硬造机械判分规则。
+
+见：[Post-Training in 2026: GRPO, DAPO, RLVR & Beyond](https://llm-stats.com/blog/research/post-training-techniques-2026) | [Reinforcement Learning for LLM Post-Training: A Survey](https://arxiv.org/abs/2407.16216)
+
