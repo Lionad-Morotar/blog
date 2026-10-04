@@ -11,6 +11,7 @@ description: 顶层架构设计、企业架构、TOGAF 等
 * [C4 模型](./c4-model) - 四层抽象焦距、4+3 图型全集、静态结构边界与 model as code 工具生态
 * [经典分层架构的痛点](./layered-architecture-pain) - 三层病灶因果链（贫血、渗漏、反转、膨胀）、领域模型成本账、不变量强制点与 Vertical Slice 替代
 * [模块化单体](./modular-monolith) - 拆分时机与 MonolithFirst、Package-by-Feature 内聚判据、边界三档防御、通信三道闸与数据所有权、事件解耦事务陷阱、回单体案例
+* [六边形与洋葱架构](./hexagonal-onion-architecture) - 依赖倒置端口收核心、双几何画法、可测性利息与假整洁自检、内外不对称本体、洋葱环名谱系、CI 架构守门、mock 所有权
 
 #### 什么是架构思维？
 
