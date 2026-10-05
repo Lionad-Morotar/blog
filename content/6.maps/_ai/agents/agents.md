@@ -32,6 +32,7 @@ original_path: _ai/agents.md
 * [框架对比：AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph](/maps/_ai/agents/multi-agent-frameworks)
 * [架构决策与工程实践](/maps/_ai/agents/multi-agent-architecture)
 * [构建模式与实践指南](/maps/_ai/agents/multi-agent-patterns)
+* [自组织多智能体](/maps/_ai/agents/self-organized-multi-agent)：无编排器五步协作循环、三件组织基础设施、prompt 即组织协议、规模收益拐点与涌现层级
 
 ## Agent SDK
 
