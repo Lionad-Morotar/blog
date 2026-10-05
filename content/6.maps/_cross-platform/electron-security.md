@@ -1,6 +1,6 @@
 ---
 title: Electron 安全基线
-description: 加载远程内容的安全清单、导航白名单盲区与权限双层执法
+description: 加载远程内容的安全清单、导航白名单盲区、回环域判定形态与权限双层执法
 ---
 
 #### 加载远程内容的安全清单：默认放行与导航接管才是硬门
@@ -23,6 +23,59 @@ description: 加载远程内容的安全清单、导航白名单盲区与权限�
 `will-redirect` 各挂一份同白名单裁决。
 
 见：[webContents navigation events](https://www.electronjs.org/docs/latest/api/web-contents)
+
+#### 回环白名单认不全形态：URL 层与解析层各自维护必然漂移
+
+白名单条目本身之外，同一份清单在两个消费层各自抄写也会静默失守。WHATWG URL 解析后
+`url.hostname` 对 IPv6 字面量恒输出带方括号形态（`http://[::1]:1886/` 的 hostname 是 `[::1]`），
+而 DNS 解析、hosts 文件、手写配置里出现的是裸 `::1`，同一台回环机两种拼写。Electron 壳的典型事故：
+URL 层白名单只认带括号形态，下载链路的解析层豁免清单却只写裸形态，两处各自维护漂移后，IPv6 回环
+在 URL 层即被拒；白名单判定的失败模式是 return false 而非 throw，形态失配静默变现为「功能不通」，
+没有任何报错。更深的坑是 IPv4-mapped 形态：URL 里写 `http://[::ffff:127.0.0.1]:1886/`，hostname
+出来是 `[::ffff:7f00:1]`，WHATWG 规范要求 IPv6 按压缩规则重序列化，dotted 形态被改写成纯十六进制词，
+手写清单放哪种拼写都只能匹配一半来源。回环等价形态全集不可枚举（带括号/裸/dotted-mapped/hex-mapped
+至少四种），清单式判定注定漏网；完备解是语义判定（ipaddr.js 的 `range() === 'loopback'`），
+Chromium 内部用 IsLoopbackIp 而非字符串比对正是此因。工程纪律：回环判定做成单一导出纯函数，
+URL 层白名单与解析层豁免面消费同一份，物理上杜绝两处清单漂移。
+
+见：[URL Standard](https://url.spec.whatwg.org/)
+
+#### localhost 第一跳常是 ::1：Node 17 的 verbatim 解析顺序
+
+回环清单必须认 ::1 不是锦上添花，而是 Node 17 之后的常态要求。Node 17 起 `dns.lookup` 默认
+`verbatim: true`，解析结果按 OS 返回顺序直出、不再重排成 IPv4 优先；macOS/Linux 开 IPv6 的机器上
+`localhost` 第一条常是 `::1`（实测 `dns.lookup('localhost', {all: true})` 返回 `[::1, 127.0.0.1]`）。
+当年大量项目踩坑：服务端只 bind 127.0.0.1，客户端按名字连 localhost 拿到 ::1，直接 `ECONNREFUSED ::1`
+（vercel/vercel#7306 是典型现场，社区绕法是删 hosts 里的 ::1 条目）。对白名单的决策影响：::1 是现代
+Node 环境回环流量的常态第一形态，任何「本机回环」判定的清单少了它，默认拓扑下第一个被拒的就是正常流量。
+
+见：[nodejs/node#40702](https://github.com/nodejs/node/pull/40702)
+
+#### 0.0.0.0 双面性：dev server 的入口形态与浏览器的 bypass 载体
+
+与 ::1 相对，0.0.0.0 要不要进白名单是更细的裁决。连接语义侧：0.0.0.0 是 RFC 1122 的「本网络」
+占位符，各 OS 的 connect 把它路由到本机回环，macOS 实测 `curl http://0.0.0.0:1886/` 与 127.0.0.1
+同样返回 200，这正是 dev server 监听通配地址时框架把它打印为 Local 入口的原因。安全语义侧：
+Oligo Security 2024 年披露的 "0.0.0.0 Day"（存在 18 年）证明公网恶意页面可经 `http://0.0.0.0/`
+直连本机 API，当时绕过了 Chromium 专为此设的 PNA（Private Network Access）；各浏览器其后陆续收口，
+macOS Sequoia 也对浏览器访问加了确认，但 curl 等非浏览器路径不受影响。决策含义：把 0.0.0.0 纳入
+可信清单必须带环境门，本地 dev 环境下它是入口形态，进入生产白名单等于把一个公网页面也能触达的
+本机别名放进可信域族。同族裁决：局域网私网段（RFC1918）不要顺手放宽，白名单的语义边界是
+「本机」而非「同网段」，放宽只增加攻击面。
+
+见：[0.0.0.0 Day: Exploiting Localhost APIs From the Browser](https://www.oligo.security/blog/0-0-0-0-day-exploiting-localhost-apis-from-the-browser)
+
+#### 整个 .localhost 顶级域都是本机：RFC 6761 的保留语义
+
+除地址形态外，名字域也有整块保留区。RFC 6761 把 `localhost` 及其一切子域保留给回环，
+Chrome/Firefox/Safari 均实现：`build-a.localhost` 不经 DNS、不看 hosts 文件，直接解析到 127.0.0.1
+（draft-west-let-localhost-be-localhost 进一步要求 stub resolver 必须如此）。这制造了「浏览器视为本机、
+清单不认」的形态：dev 场景用子域拆环境（`app.localhost` / `api.localhost` 是 Vite 生态常见实践）时，
+白名单若只精确匹配 `localhost` 会把这些同机域名全部拒绝，且拒绝点在导航守卫、症状是页面打不开
+而非报错。若需支持，匹配形态是 `endsWith('.localhost')` 而非追加清单条目，它是域级保留语义，
+与地址级枚举是两种粒度。
+
+见：[RFC 6761](https://datatracker.ietf.org/doc/html/rfc6761)
 
 #### 权限白名单要两层执法：request 与 check handler 缺一不可
 
