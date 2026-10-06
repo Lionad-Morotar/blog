@@ -12,6 +12,7 @@ description: 顶层架构设计、企业架构、TOGAF 等
 * [经典分层架构的痛点](./layered-architecture-pain) - 三层病灶因果链（贫血、渗漏、反转、膨胀）、领域模型成本账、不变量强制点与 Vertical Slice 替代
 * [模块化单体](./modular-monolith) - 拆分时机与 MonolithFirst、Package-by-Feature 内聚判据、边界三档防御、通信三道闸与数据所有权、事件解耦事务陷阱、回单体案例
 * [单体拆分时机](./monolith-split-timing) - 四种不同步与分布式税、四信号量化与黄红灯阈值、最疼优先与绞杀者渐进、逆康威操作、故障形态从全挂到级联、共享表收编顺序、Prime Video 拆错对象
+* [康威定律与微服务拆分](./conways-law) - 沟通复印机制与四法则、三种错拆与交付单元正解、变化轴与粒度两数判据、切前三问与三条规矩、Bezos API Mandate 组织级接口化、Spotify Model 名义图陷阱
 * [六边形与洋葱架构](./hexagonal-onion-architecture) - 依赖倒置端口收核心、双几何画法、可测性利息与假整洁自检、内外不对称本体、洋葱环名谱系、CI 架构守门、mock 所有权
 * [微服务](./microservices) - 组织扩展标的与 monolith first、数据所有权分水岭、Saga 隔离反制、可用性乘法与重试风暴、Outbox 至少一次、共享库分布式单体、sidecar-less 网格
 
