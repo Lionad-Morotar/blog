@@ -139,3 +139,29 @@ Qwen3-235B 从 73.5% 推到 84.7%，而非硬造机械判分规则。
 
 见：[Post-Training in 2026: GRPO, DAPO, RLVR & Beyond](https://llm-stats.com/blog/research/post-training-techniques-2026) | [Reinforcement Learning for LLM Post-Training: A Survey](https://arxiv.org/abs/2407.16216)
 
+#### SFT 数据稀缺的四步分诊：训练信号的可获得性决定路线
+
+「微调缺高质量数据」的第一反应不该是造数据，而是判断任务该走哪条训练路线。分水岭是任务核心成败能否完全由
+程序判定，注意这是全称判定：几乎任何任务都能找出几条格式规则（限字数、必含工单号），但共情回复写得好不好
+这类核心质量仍无标准答案，任务归属看核心而非边角。按可验证性递减分四步。任务有 ground truth（数学、代码、
+抽取、分类）直接跑 RLVR，数据需求比 SFT 低一个量级。没有标准答案但评分细则写得出来（写作、诊断、咨询、
+风格对齐），写 rubric 当 reward 跑 RFT，细则设计能力直接替代标注预算。连细则都写不出的隐式偏好任务，才回
+传统路径：千条级精标 SFT（LIMA 风格）叠 RLAIF 扩偏好对。数据少到 SFT 都跑不动，用 data attribution 工具
+（DATE-LM、AirRep）从公开数据挑对目标能力贡献最大的子集，而不是花钱标新数据。
+
+工程纪律是前两步能解决的事不下到后两步，大量团队的问题不是数据不够，是默认从第三、四步开始想问题。该框架
+有一条边界：RL 只能放大模型已有能力分布里的行为，需要注入模型没有的私有知识或新事实时，出路仍是 SFT 或 RAG。
+
+见：[大模型微调缺少高质量数据怎么办，有没有新思路新办法？（Lei Tian）](https://www.zhihu.com/question/1947214261916008826/answer/2043700631735636794)
+
+#### 同样预算下 RLVR 的收益高于 SFT，且优势随模型规模放大
+
+Tulu 3 405B 是公开可查的证据：Ai2 把后训练配方推到 405B 规模，模型卡上综合均分从 SFT 阶段的 76.3 经 DPO 的
+79.0 涨到 RLVR 阶段的 80.0，官方博客明确 RLVR 对 MATH 的增益在 405B 上比 70B 与 8B 更显著，与小模型受益于
+多样化数据的结论相反，RLVR 的收益随规模放大。产品层同向印证：OpenAI 把 Reinforcement Fine-Tuning 定位为
+经典 SFT 的替代品，要求用户提供 grader（判分器）而非标注数据；Anthropic 旗舰模型至今未开放公共微调 API，
+厂商用产品决策投票用户侧经典 SFT 的价值。行业预算分配还有一个未完全坐实的方向性信号：post-training compute
+已超过 pretraining compute 成为性能提升的主要来源，DeepSeek 披露的后训练投入已超预训练成本的一成。
+
+见：[Scaling the Tülu 3 post-training recipes](https://allenai.org/blog/tulu-3-405B) | [Reinforcement fine-tuning（OpenAI）](https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning)
+

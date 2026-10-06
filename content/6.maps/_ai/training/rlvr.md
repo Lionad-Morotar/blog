@@ -101,3 +101,14 @@ k≥128 时梯度范数出现 burst，优化震荡。因此 k 应该匹配正样
 导致梯度方差增大。若忽视这些配套设计，直接取消 KL 很可能让策略在长程推理中发散或利用回复长度。
 
 见：[ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning](https://arxiv.org/abs/2605.00380)
+
+#### RLVR 的收益附带多样性税：策略熵坍缩
+
+GRPO 等常用 RLVR 算法存在探索与利用的失衡，训练中策略熵（policy entropy）快速下降：reward 还在涨，模型却过早
+收敛到确定性输出，同一道题的正确解法种类明显变少，训练目标外的泛化随之受损，后续优化也因失去探索能力而不稳定。
+前文 DAPO 的 clip-higher 与 CBS 的 entropy penalty 各管一个方向：前者防熵降得过快，后者防 scheduler 偏爱高熵
+低质量 rollout 导致熵升得过高；而熵正则与各类 clipping 启发式作为通用缓解收效有限，尚无银弹。评估 RL 训练因此
+不能只看平均 reward，奖励上涨的同时要盯策略熵或采样多样性；任务恰恰依赖多样输出（创意生成、探索型 agent）时，
+满打满算的 RLVR 可能正好伤害最在乎的性质。
+
+见：[Understanding and Preventing Entropy Collapse in RLVR](https://arxiv.org/abs/2605.11491) | [Rethinking Entropy Interventions in RLVR](https://arxiv.org/abs/2510.10150)
