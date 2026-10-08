@@ -103,14 +103,55 @@ URL 可能出现在浏览器历史、服务器日志、Referer 头中，导致�
 
 #### PKCE
 
-对于纯前端或移动端应用，client secret 无法保密（可被提取或反编译）。
+对于纯前端或移动端应用，client secret 无法保密（可被提取或反编译），授权码在回跳路上被截获后，
+截获者可以直接去 token 端点兑换。
 
-PKCE（Proof Key for Code Exchange，发音"pixie"）通过以下方式解决：
+PKCE（Proof Key for Code Exchange，代码交换的证明密钥）是一个预承诺机制：客户端生成高熵随机串
+code_verifier（43~128 个字符，只允许 `A-Z a-z 0-9 - . _ ~`），先随授权请求送出其派生值 code_challenge，
+交换 token 时才交出 verifier 原像，授权服务器校验 SHA256(verifier) 与 challenge 一致后才签发 token。
+verifier 只存在于发起方内存、从不出现在授权请求里，截获 code 者拿不到 verifier 就换不出 token：
+
 1. 客户端生成临时密钥对（code verifier + code challenge）
 2. 授权请求时发送 code challenge
 3. 交换 token 时验证 code verifier
 
+```mermaid
+sequenceDiagram
+    participant C as 客户端
+    participant AS as 授权服务器
+    note over C: 生成 code_verifier<br>派生 code_challenge
+    C->>AS: GET /authorize<br>code_challenge + code_challenge_method=S256
+    AS-->>C: 302 回跳 + authorization code
+    note over C: code 可能被截获<br>但截获者没有 code_verifier
+    C->>AS: POST /token<br>code + code_verifier
+    AS->>AS: 校验 SHA256(code_verifier) == code_challenge
+    AS-->>C: access token
+```
+
 这是**零信任架构**在 OAuth 中的早期实践——不依赖持久化 secret，每次授权独立验证。
+RFC 9700 已把 PKCE 升级为所有客户端（含机密客户端）的强制要求，OAuth 2.1 草案将 RFC 7636 收编进核心规范。
+
+见：[RFC 7636: Proof Key for Code Exchange](https://www.rfc-editor.org/rfc/rfc7636)
+
+#### PKCE 降级攻击：把 PKCE 当可选项等于没有
+
+授权服务器支持 PKCE 但实现成「授权请求带 code_challenge 就校验、不带就放行」时，攻击者可以把客户端
+授权请求里的 code_challenge 参数剥掉再提交，服务器照常签发无需 PKCE 的授权码，截获后顺利兑换。
+这是 RFC 9700 §4.8 写明全流程的 PKCE 降级攻击（PKCE Downgrade Attack），两个前提：服务器把 PKCE 当可选项、
+客户端不校验 state。对应的强制条款：token 请求携带 code_verifier、但当初授权请求里没有 code_challenge 的，
+必须直接拒绝。服务器侧 PKCE 必须无条件强制，不能做成「来了就验、不来就算」的礼貌选项。
+
+见：[RFC 9700 §4.8 PKCE Downgrade Attack](https://www.rfc-editor.org/rfc/rfc9700#section-4.8)
+
+#### plain 挑战方法：challenge 走日志等于裸奔
+
+plain 模式下 code_challenge 就是 code_verifier 本身，而授权请求 URL 会进浏览器历史、授权服务器日志与
+反向代理日志，等于把兑换凭证写进所有日志。S256 是唯一让 verifier 不暴露于授权请求的变换——哈希不可逆，
+日志里的 challenge 换不出 token。RFC 7636 规定 plain 仅限「因技术原因无法支持 S256 且带外确认服务器支持」
+的客户端使用，实践中这个前提几乎不存在，RFC 9700 明言 S256 是当前唯一认可的方法。
+看到还在演示 plain 方法的库或文档，视为过期产物。
+
+见：[RFC 7636 §4.2 Code Challenge](https://www.rfc-editor.org/rfc/rfc7636#section-4.2)
 
 #### OIDC
 
