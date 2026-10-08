@@ -128,6 +128,12 @@ sequenceDiagram
     AS-->>C: access token
 ```
 
+截获者拿 code 换不出 token 的机制是通道不对称：code 走前通道（front channel，授权回跳 URL，途经浏览器、
+URL scheme 与日志，防护最弱）；verifier 走后通道（back channel，客户端到 token 端点的 TLS 直连），
+全程只在这里出现一次。没有 PKCE 时公共客户端的 token 请求是 code 单票，服务器认票不认人；
+PKCE 就是给票据加兑付条件：出票绑 challenge，兑付出示原像，verifier 既没在截获位置出现过、
+SHA256 又不可逆，编造不出来。
+
 这是**零信任架构**在 OAuth 中的早期实践——不依赖持久化 secret，每次授权独立验证。
 RFC 9700 已把 PKCE 升级为所有客户端（含机密客户端）的强制要求，OAuth 2.1 草案将 RFC 7636 收编进核心规范。
 
