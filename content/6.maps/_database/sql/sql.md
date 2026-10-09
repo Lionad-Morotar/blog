@@ -10,3 +10,4 @@ description: SQL（Structured Query Language，结构化查询语言）是一种
 * [jsonb](./jsonb) - 规范化存储模型、查询与索引语义、更新写放大与版本边界
 * [索引优化](./indexing) - B-Tree 索引原理、查询性能陷阱与优化策略
 * [数据删除策略](./data-deletion) - 软删除与硬删除的取舍依据、常见陷阱与归档清理
+* [视图](./views) - 存起来的查询：定义不存数据、结果随底表而活、与底表的依赖关系

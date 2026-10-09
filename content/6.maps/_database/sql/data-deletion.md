@@ -40,6 +40,17 @@ MySQL/MariaDB 无 partial index，用 generated column 让已删除行该列取 
 
 见：[Soft Delete vs Hard Delete: The Trade-offs Nobody Tells You About - yousuf-dev](https://yousuf-dev.com/blog/soft-deletes-vs-hard-deletes)
 
+#### DROP TABLE 的 RESTRICT 与 CASCADE
+
+删除被其他对象依赖的表时，PostgreSQL 默认是 RESTRICT 语义：直接报错拒绝，要求先自行处理依赖。
+追加 CASCADE 则把连带对象一起删除：基于该表定义的视图被一并删除，其他表指向它的外键约束也被移除，
+但对方表的数据不动。注意 DDL 的 DROP CASCADE 与外键的 ON DELETE CASCADE 是两回事：
+前者作用于对象依赖（删视图、删约束），后者是数据级行为（父表行被删时连带删子表引用行），
+DROP CASCADE 永远不会删别的表里的行。依赖对象被静默连带删除且执行前看不到清单，
+生产环境执行前值得先确认依赖面。
+
+见：[PostgreSQL: DROP TABLE](https://www.postgresql.org/docs/current/sql-droptable.html)
+
 #### 两段式删除：软删除 + 归档清理
 
 软删除不等于不占空间，被标记行仍留在原表，高频写入场景下表膨胀会拖慢索引扫描，必须配合归档机制。

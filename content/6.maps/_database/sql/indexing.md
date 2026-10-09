@@ -10,6 +10,17 @@ B-Tree（平衡多路查找树）的核心特性是数据有序存储。查找�
 
 > 关联知识：[Data Structure / 彻底理解 B 树和 B+树](/maps/_software/data-structure/data-structure)
 
+#### 复合索引与左前缀原则
+
+多列组成的索引称复合索引（composite index）。PostgreSQL 的复合主键（composite primary key）
+底层就是一条多列唯一 B-Tree 索引，因此天然具备复合索引的查询能力，只是额外多了
+「组合值唯一 + 各列 NOT NULL」的约束语义。B-Tree 按列声明顺序排序，类比电话簿先按姓再按名：
+从最左列开始的连续前缀查询都能高效命中，跳过首列的查询（如只按第二列过滤）则用不上该索引，
+这称左前缀原则（leftmost prefix）。索引列序应按最高频查询路径安排，
+低频维度的查询单独补索引，而不是为它调整主键列序。
+
+见：[PostgreSQL: Multicolumn Indexes](https://www.postgresql.org/docs/current/indexes-multicolumn.html)
+
 #### LIKE 查询的前导通配符陷阱
 
 `LIKE` 模式匹配中，通配符 `%` 的位置直接决定索引是否可用：
