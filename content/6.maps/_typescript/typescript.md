@@ -273,6 +273,18 @@ void process<int>(int val) { /* 针对 int 的高效实现 */ }
 
 * [工具类型](/source-code/_ts/utility-types) - 内置工具类型实现解析
 
+#### ORM schema 类型推导：幽灵类型 + typeof 提取实现单一事实源
+
+Drizzle 这类库在 schema 对象上挂一个「幽灵类型」（phantom type，只存在于类型世界、运行时并无
+对应值），使用方用 `typeof schema.$inferSelect` 把行类型提取出来。价值在单一事实源：行形状完全
+由 schema 推导，加一列或改类型自动跟随，不会「改了表却忘了改手写 interface」而漂移。注意区分
+$inferSelect（「查出来」的形状，所有列都有值、default 已填）与 $inferInsert（「插进去」的形状，
+带 default 或应用层生成的列变成可选）——同一张表两个类型不同。再进一步，用 Omit 从行类型剥掉
+敏感列（如 secret 密文）得到「对外投影类型」，能让对外返回数据的代码在类型层面就摸不到敏感字段，
+编译器先于运行时拦住。这与「凭证不下发浏览器」是同一思路：让危险的东西结构上不可达，而非靠自觉。
+
+见：[Drizzle ORM: Schema declaration](https://orm.drizzle.team/docs/sql-schema-declaration)
+
 #### 什么是类型体操？
 
 TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种"实现"的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，

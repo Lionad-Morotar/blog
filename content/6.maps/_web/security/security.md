@@ -59,6 +59,19 @@ Security through obscurity 不应被完全否定：
 
 见：[Kerckhoffs's principle - Wikipedia](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle)
 
+#### KDF 的 salt 不是秘密，是域隔离标签
+
+密钥派生函数（scrypt / PBKDF2 / Argon2）里的 salt 不需要保密，它靠「固定且公开」才能工作。
+其机制在于域隔离：同一 password 配不同 salt 派生出不同密钥，让不同域的密文跨域不可互解，
+防止把 A 域密文搬到 B 域上下文重放。真正的秘密是派生用的 password / 主密钥（通常在 env），
+salt 公开的安全性建立在「password 保密」与 KDF 本身抗暴破（scrypt 是 memory-hard）之上。
+所以把 salt 放进 env 零收益反而有害：salt 必须稳定，谁误改或丢了这条 env，派生密钥就变了、
+历史密文全解不开，等于自毁数据。工程上应让它待在代码里、进 git、改动经 review；结尾的版本号
+（如 `:v1`）是版本化域标识，需要轮转该域密钥时升到 v2 并迁移重加密，而非偷改 env。这正是
+Kerckhoffs 原则（除密钥外一切公开仍安全）的具体落地。
+
+见：[Salt (cryptography) - Wikipedia](https://en.wikipedia.org/wiki/Salt_(cryptography))
+
 ## 用户追踪技术
 
 #### LinkedIn 如何使用浏览器指纹追踪用户？
@@ -158,6 +171,22 @@ plain 模式下 code_challenge 就是 code_verifier 本身，而授权请求 URL
 看到还在演示 plain 方法的库或文档，视为过期产物。
 
 见：[RFC 7636 §4.2 Code Challenge](https://www.rfc-editor.org/rfc/rfc7636#section-4.2)
+
+#### state 防 CSRF 靠什么：不可预测随机 + 服务端一次性比对
+
+state 参数防的 CSRF 特指授权码注入（login CSRF）：攻击者想让受害者浏览器用攻击者搞到的授权码
+完成回调，使受害者会话被绑到攻击者身份，后续操作全落进攻击者账号。防住它的不是随机数本身，
+而是随机数参与的协议闭环——发起授权时生成随机 state 存进服务端中间态，随 authorize 请求发出，
+授权服务器原样回传，回调时拿它比对中间态并即刻删除（一次性），比对不上就拒绝；攻击者无法凭空
+构造出能通过比对的回调。基石是 state 必须来自 CSPRNG（如 crypto.randomBytes）：不可预测、
+无法据已见值反推。不能用 Math.random()——V8 用 xorshift128+，观测几个输出即可反推内部状态、
+预测后续全部值，等于可预测。state 与 PKCE verifier 分工：state 防 CSRF（证明回调对应本流程
+自己发起的授权），PKCE 防授权码窃听（code 泄漏也无 verifier 换不出 token），两条正交防线缺一不可。
+存储形态上「服务端中间态 Map + 一次性删除」挡的是捏造 / 重放不存在的 state；RFC 6749 §10.12 的
+标准做法还把 state 绑进浏览器 cookie，回调比对 URL 与 cookie 中的 state，可再防「攻击者自己
+走完授权、截下未消费的回调注入受害者」的边角（攻击者无法在受害者浏览器种下匹配 cookie）。
+
+见：[RFC 6749 §10.12 Cross-Site Request Forgery](https://www.rfc-editor.org/rfc/rfc6749#section-10.12)
 
 #### OIDC
 

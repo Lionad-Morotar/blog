@@ -61,3 +61,14 @@ CREATE INDEX idx_name_trgm ON users USING gin (name gin_trgm_ops);
 
 **专用搜索引擎（L3）**：当搜索复杂度超出数据库索引能力时，应考虑 Elasticsearch、Meilisearch 等专用方案，而非在数据库层强行优化。
 
+#### UNIQUE 约束隐式创建索引，别再重复建同键
+
+给一列加 UNIQUE 约束时，PostgreSQL 会在背后自动创建一个同键的唯一 B-Tree 索引——约束要 enforce
+「值不重复」就必须能快速判定「这个值是否已存在」，这个能力正是索引给的，所以约束与索引是一体两面。
+由此，在已有 UNIQUE 的列上再显式 CREATE INDEX 是纯写放大：每次写入都要维护两棵几乎相同的索引树，
+查询却毫无收益。二者的分工是：UNIQUE 既保证不重复又加速查找，普通 index 只加速不约束唯一，
+选哪个取决于这列允不允许重复值。另一处易忽略：UNIQUE 列默认允许多个 NULL（PG 认为 NULL 之间
+互不相等），要「必有值且互不相同」需再叠加 NOT NULL。
+
+见：[PostgreSQL: Unique Indexes](https://www.postgresql.org/docs/current/indexes-unique.html)
+

@@ -17,7 +17,7 @@ original_path: content/6.maps/_database/postgres/index.md
 #### tsvector 与 pgvector 互不依赖
 
 PostgreSQL 的 `tsvector` 是内置的全文检索数据类型（PG 核心自带，PG 8.3/2008 年就有），
-把文本分词成词位，配合 `tsquery` 匹配、`ts_rank` 排序、GIN 索引加速，
+把文本分词成词位，配合 `tsquery` 匹配、`ts_rank` 评分、GIN 索引加速，
 相当于把轻量 ES 嵌入数据库，`ts` 即 Text Search。
 pgvector 则是独立的第三方扩展，给 PG 加向量类型与 HNSW/IVFFlat 索引做语义检索，
 相当于把 Milvus 能力嵌入 PG。两者完全独立、可共存——组合起来在单一 PG 实例上
@@ -43,3 +43,22 @@ PG 的密码存在角色属性里，不属于某个数据库，一条 `ALTER USE
 验证改密是否成功用新密码连接——报「库不存在」而非「密码认证失败」即认证已过。
 
 见：[ALTER USER](https://www.postgresql.org/docs/current/sql-alteruser.html)
+
+## 并发与锁
+
+#### 事务级 advisory lock 串行化同键并发写
+
+pg_advisory_xact_lock(key) 对一个整数键加排他锁，拿不到就阻塞等待，持有到事务结束。它常用于给
+「先 UPDATE 轮换旧行、再 INSERT 新行」这类逻辑补上并发互斥——例如要保证「同一用户同一来源任意
+时刻至多一行活动会话」，移除 DB 唯一约束后，两个并发事务会各自跑完轮换 UPDATE（都没看到对方的
+新行）再各自 INSERT，结果两行活动并存。advisory lock 以 user+来源为键把同键签发排成一队：后到者
+进锁时已能看到先到者提交的行，轮换 UPDATE 便覆盖它，最终只剩最新一行。
+
+advisory lock 只接受整数，文本键需经 hashtext() 哈希成 int4。用多字段拼键时必须以一个数据里
+绝不出现的字符分隔（如码点 0 的 NUL 字节），否则 ("ab","cd") 与 ("abc","d") 会拼成同一串、
+撞到同一把锁，让无关操作错误互斥。选事务级（_xact_）而非会话级：前者事务结束自动释放，配合事务块
+天然防锁泄漏——会话级锁若忘记解、连接归还连接池后仍持锁，会锁死后续复用该连接的请求。hashtext
+返回 32 位存在碰撞，但撞锁最多让两个无关操作假串行一次，不破坏正确性，是「小概率假串行换免用
+bigint 双键」的可接受取舍。
+
+见：[PostgreSQL: Advisory Locks](https://www.postgresql.org/docs/current/explicit-locking.html)
