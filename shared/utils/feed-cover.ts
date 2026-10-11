@@ -1,10 +1,10 @@
 /**
- * 解析 RSS feed 封面图相关的工具函数
+ * 封面图解析工具，RSS enclosure 与页面 og:image 共用（位于 shared/，客户端与服务端均可导入）
  *
  * 优先级：
  * 1. frontmatter 中的 image 字段
  * 2. 正文内容中第一张图片的 src
- * 3. 站点默认封面图（og:image）
+ * 3. 站点默认封面图
  */
 
 export interface CoverSource {

@@ -4,7 +4,7 @@ import {
   inferImageMimeType,
   resolveCoverImage,
   toAbsoluteUrl
-} from '../../server/utils/feed-cover'
+} from '../../shared/utils/feed-cover'
 
 const BASE_URL = 'https://lionad.art'
 const DEFAULT_COVER = '/images/cover-placeholder.png'

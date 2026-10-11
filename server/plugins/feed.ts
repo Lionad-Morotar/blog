@@ -1,5 +1,5 @@
 import type { NitroApp } from 'nitropack'
-import { resolveCoverImage } from '../utils/feed-cover'
+import { resolveCoverImage } from '#shared/utils/feed-cover'
 
 export default defineNitroPlugin((nitroApp: NitroApp) => {
   // 处理 content feed 生成前的数据
