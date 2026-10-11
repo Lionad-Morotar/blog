@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
+import { resolveCoverImage, type ParsedContentLike } from '#shared/utils/feed-cover'
 import { getLocaleFromPath, stripEnPrefix, withLocalePath, type PreferredLocale } from '~/utils/locale'
 
 // 根据路径确定 collection
@@ -95,6 +96,19 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () =>
   })
 )
 
+const baseUrl = 'https://lionad.art'
+const { public: publicConfig } = useRuntimeConfig()
+
+/**
+ * 每页封面图，与 RSS enclosure 共用同一套解析优先级（frontmatter image → 正文首图 → 站点默认图）。
+ * og:image 必须是绝对 URL，否则 Twitter 等爬虫不解析分享卡片。
+ */
+const cover = resolveCoverImage(
+  page.value as unknown as ParsedContentLike,
+  publicConfig.defaultCover,
+  baseUrl
+)
+
 useSeoMeta({
   titleTemplate: `%s - ${seo?.siteName}`,
   title: page.value.title,
@@ -102,11 +116,12 @@ useSeoMeta({
   description: page.value.description,
   ogDescription: page.value.description,
   // Mark English pages as machine-translated
-  ogLocale: currentLocale.value === 'en' ? 'en_US' : 'zh_CN'
+  ogLocale: currentLocale.value === 'en' ? 'en_US' : 'zh_CN',
+  ogImage: cover?.url,
+  twitterImage: cover?.url
 })
 
 // hreflang for multilingual SEO (only if English version exists)
-const baseUrl = 'https://lionad.art'
 
 /**
  * 当前页面对应的 Markdown 同源 URL，供 AI 智能体发现。
