@@ -130,6 +130,8 @@ goose is being developed as an open-source software project.
 - [OpenAI Agents SDK (JavaScript) 发布记录](https://lionad.art/maps/_ai/agents/openai-agents-js-releases): OpenAI Agents SDK JavaScript/TypeScript 版本的完整发布历史与变更日志
 - [智能健身教练 PEAS 模型分析](https://lionad.art/maps/_ai/agents/peas-coach-example): 通过智能健身教练案例深入理解 PEAS 模型的应用，包括性能度量、环境描述、执行器、传感器及环境特性分析
 - [Pi Agent 源码解析](https://lionad.art/maps/_ai/agents/pi-agent): 从 Pi Agent 源码中提炼的 Agent 循环、上下文压缩、会话管理与工具执行等进阶实现细节。
+- [Pi Durable](https://lionad.art/maps/_ai/agents/pi-durable): Earendil 的持久化 Agent Harness 库：先落盘再展示的事务内核、崩溃恢复的副作用分级、fork 指针语义与持久化折衷边界。
+- [自组织多智能体](https://lionad.art/maps/_ai/agents/self-organized-multi-agent): 无中心编排器的多智能体协作系统（Agensh/DeLM）：五步协作循环、三件组织基础设施、prompt 即组织协议、规模收益拐点与涌现层级。
 - [软件工厂（Software Factory）](https://lionad.art/maps/_ai/agents/software-factory): 从事件出发协同多个 Agent 的结构化工程流程范式：定义与边界、注入攻击面、失败即体检、隔离 subagent 与标签状态机
 - [SoL-Pi](https://lionad.art/maps/_ai/agents/sol-pi): NVIDIA 基于 Pi 的 auto-research 效率机制集，四类 token 浪费的机制归因与自动研究方法论。
 - [Tokenmaxxing：三个月必然失败的 AI 应用层泡沫](https://lionad.art/maps/_ai/agents/tokenmaxxing): 从 2026 年初 Tokenmaxxing 现象出发，分析 Agentic coding 的成本失控、组织流程瓶颈、Agent 能力错配与需求天花板，并将其置于 J 型增长曲线与生产率悖论的经济学框架中理解。
@@ -216,6 +218,7 @@ goose is being developed as an open-source software project.
 - [Fine-tuning](https://lionad.art/maps/_ai/training/fine-tuning): Model fine-tuning techniques and best practices
 - [Post-training](https://lionad.art/maps/_ai/training/post-training): Post-training optimization and model alignment
 - [RLVR](https://lionad.art/maps/_ai/training/rlvr): Reinforcement Learning with Verifiable Rewards 核心概念与算法
+- [Rubrics as Rewards](https://lionad.art/maps/_ai/training/rubrics-as-rewards): 用评分细则作奖励信号，把 RLVR 扩展到不可验证领域
 - [拓扑感知调度](https://lionad.art/maps/_ai/training/topology-aware-scheduling): 拓扑感知调度是一种在分布式计算环境中，根据硬件拓扑结构和网络性能来优化任务调度和资源分配的方法，以提高整体系统的效率和性能。
 - [AI Training](https://lionad.art/maps/_ai/training/training): Model training, fine-tuning, and post-training techniques
 - [训练稳定性](https://lionad.art/maps/_ai/training/training-stability): 大规模预训练的监控巡检、数值精度切换与长上下文攻关等稳定性工程实践
@@ -235,8 +238,18 @@ goose is being developed as an open-source software project.
 - [邮件工具](https://lionad.art/maps/_apps/email/email): 邮件测试、验证与送达率检测工具
 - [macOS 应用](https://lionad.art/maps/_apps/mac/mac): macOS 平台应用与工具
 - [VPN（Virtual Private Network）](https://lionad.art/maps/_apps/networking/vpn): VPN 是一种通过公共网络建立私人网络的技术。
+- [架构师角色](https://lionad.art/maps/_architecture/architect-role): 架构师的日常职责（选挡记）、ADR 实践与风险排序
+- [C4 模型](https://lionad.art/maps/_architecture/c4-model): 架构可视化的四层抽象焦距、三张补充图、静态结构边界与 model as code 工具生态
+- [康威定律与微服务拆分](https://lionad.art/maps/_architecture/conways-law): 沟通复印机制与四法则同构、三种错拆与交付单元正解、变化轴与粒度两数判据、切前三问与三条规矩、Bezos API Mandate 组织级接口化、Spotify Model 名义图陷阱
 - [领域驱动设计（DDD）](https://lionad.art/maps/_architecture/ddd): 领域驱动设计（Domain-Driven Design，DDD）是一种软件开发方法论，强调以领域模型为核心，通过与领域专家的紧密合作，构建符合业务需求的软件系统。
+- [六边形与洋葱架构](https://lionad.art/maps/_architecture/hexagonal-onion-architecture): 依赖倒置端口收进核心、六边形与洋葱同一原则双画法、可测性利息与假整洁自检、内外不对称本体、洋葱环名谱系澄清、CI 架构测试守门、mock 所有权
 - [架构设计](https://lionad.art/maps/_architecture): 顶层架构设计、企业架构、TOGAF 等
+- [经典分层架构的痛点](https://lionad.art/maps/_architecture/layered-architecture-pain): 三层与 MVC 的病灶因果链、贫血模型的成本账、不变量强制点与 Vertical Slice 替代方案
+- [微服务](https://lionad.art/maps/_architecture/microservices): 组织扩展标的与 monolith first、数据所有权分水岭、Saga 隔离性反制、可用性乘法与重试风暴、Outbox 至少一次、共享库分布式单体、sidecar-less 网格
+- [模块化单体](https://lionad.art/maps/_architecture/modular-monolith): 拆分时机与 MonolithFirst、Package-by-Feature 内聚判据、边界三档防御、通信三道闸与数据所有权、事件解耦事务陷阱、回单体案例
+- [单体拆分时机](https://lionad.art/maps/_architecture/monolith-split-timing): 四种不同步与分布式税、四信号量化与黄红灯阈值、最疼优先与绞杀者渐进、逆康威操作、故障形态从全挂到级联、共享表收编顺序、Prime Video 拆错对象
+- [质量属性](https://lionad.art/maps/_architecture/quality-attributes): 非功能需求的量化体系：百分位延迟、停机预算、SLI/SLO/SLA 治理、错误预算燃烧率与观测盲区
+- [软件架构](https://lionad.art/maps/_architecture/software-architecture): 软件架构的定义、复杂度三轴、质量属性、结构决策与技术债务
 - [技术架构](https://lionad.art/maps/_architecture/tech-architecture): 技术架构是指软件系统的整体结构，包括软件组件、子系统、模块之间的关系，以及软件系统的外部特性和行为。技术架构设计是软件开发的重要环节，它决定了软件系统的质量、性能、可维护性和可扩展性。
 - [衰老](https://lionad.art/maps/_biology/aging)
 - [注意力](https://lionad.art/maps/_biology/attention)
@@ -290,6 +303,13 @@ goose is being developed as an open-source software project.
 - [Makefile](https://lionad.art/maps/_cpp/makefile): Makefile 构建工具基础教程
 - [跨平台开发](https://lionad.art/maps/_cross-platform/cross-platform): 跨平台开发技术与实践，包括 Flutter、Taro 等框架以及设备适配方案。
 - [Device Metrics](https://lionad.art/maps/_cross-platform/device-metrics): Understand how device pixels, points, and scale factor work together.
+- [Electron](https://lionad.art/maps/_cross-platform/electron): Electron 桌面应用开发：薄壳架构、环境与构建、窗口与运行时行为
+- [Electron 深链与桥](https://lionad.art/maps/_cross-platform/electron-deep-link): 自定义协议深链的三通道接入、恒等翻译、缓冲投递与壳站桥契约
+- [Electron 分发与签名](https://lionad.art/maps/_cross-platform/electron-distribution): Electron 应用分发面的签名、Gatekeeper、开机自启与 asar 防护
+- [Electron 受控下载](https://lionad.art/maps/_cross-platform/electron-download): 壳代下载的守卫链、SSRF 双层防线与反馈预算契约
+- [Electron 通知桥](https://lionad.art/maps/_cross-platform/electron-notification): 主进程通知守卫链、增量通知基线播种与轮询挂载义务归属
+- [Electron 发行与更新链](https://lionad.art/maps/_cross-platform/electron-release): 出包矩阵、manifest 三方契约、mac/win 双更新策略与差分下载的隐式契约
+- [Electron 安全基线](https://lionad.art/maps/_cross-platform/electron-security): 加载远程内容的安全清单、导航白名单盲区、回环域判定形态与权限双层执法
 - [Flutter](https://lionad.art/maps/_cross-platform/flutter): Flutter 是 Google 开发的跨平台 UI 框架，可以快速在 iOS 和 Android 上构建高质量的原生用户界面。
 - [经典游戏移植](https://lionad.art/maps/_cross-platform/game-porting): 经典 Windows 游戏移植 macOS/iOS 的工程方法与平台陷阱
 - [Taro](https://lionad.art/maps/_cross-platform/taro): Taro 是一个多端开发解决方案，支持用 React/Vue/Nerv 等框架开发小程序、H5、App 等应用。
@@ -313,6 +333,7 @@ goose is being developed as an open-source software project.
 - [Postgres](https://lionad.art/maps/_database/sql/postgres): PostgreSQL 是一个强大的开源关系型数据库，通过丰富的插件生态可以覆盖多种数据场景。
 - [SQL](https://lionad.art/maps/_database/sql/sql): SQL（Structured Query Language，结构化查询语言）是一种用于管理和操作关系型数据库的编程语言。它用于执行各种数据库操作，如查询数据、插入记录、更新数据和删除记录。
 - [Text to SQL：为何被标记为 Hold，以及应该如何安全使用](https://lionad.art/maps/_database/sql/text-to-sql): 解析 Text to SQL 在实际生产中的风险点与可接受的使用边界，为数据与平台团队提供治理思路。
+- [视图](https://lionad.art/maps/_database/sql/views): 视图是存起来的查询语句，像表一样使用但每次现算，数据是活的
 - [CI/CD](https://lionad.art/maps/_devops/cicd/cicd): 持续集成和持续部署（Continuous Integration & Continuous Deployment）
 - [Continues Compliance 持续合规](https://lionad.art/maps/_devops/cicd/continuous-compliance): 持续合规是一种跨领域的实践，旨在通过自动化和持续监控确保系统和流程始终符合相关法规和标准。
 - [部署](https://lionad.art/maps/_devops/cicd/deploy): 前端部署实践与策略
@@ -520,6 +541,7 @@ goose is being developed as an open-source software project.
 - [编程语言](https://lionad.art/maps/_programming/languages/languages): 编程语言概览与特性
 - [Actor 模型](https://lionad.art/maps/_programming/paradigms/actor-model): Actor 并发计算模型的核心结构、消息语义、工程价值与代表实现
 - [编程范式](https://lionad.art/maps/_programming/paradigms/paradigms): 编程范式与思想，包括函数式编程、面向对象等
+- [结构化并发](https://lionad.art/maps/_programming/paradigms/structured-concurrency): 结构化并发模型与 Effection：Await 事件视界、生命周期三原则、v4 调度与 API 收敛，及与 cordis 的分界
 - [编程](https://lionad.art/maps/_programming/programming): 编程范式、开发者体验、调试技术、编程语言与框架
 - [Python](https://lionad.art/maps/_python/python)
 - [React Native](https://lionad.art/maps/_react-native/react-native): React Native 是 Facebook 推出的一款跨平台移动应用开发框架，使用 JavaScript 和 React 来构建原生应用。
@@ -607,12 +629,15 @@ goose is being developed as an open-source software project.
 - [网站推荐](https://lionad.art/maps/_web-pages/bookmarks): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
 - [网站推荐](https://lionad.art/maps/_web-pages/web-pages): 收藏一些好用的网站。不使用书签是因为书签难以管理且不易分享。
 - [AbortSignal](https://lionad.art/maps/_web/browser/abort-signal): Web 平台的协作取消协议：信号的产生与组合、检查点响应、生命周期语义与取消的分布式边界。
+- [Ambilight 视频辉光管线](https://lionad.art/maps/_web/browser/ambilight): 浏览器内实时视频辉光的完整工程实现：双 world 注入、帧同步调度、GPU 渲染通路、Worker 像素分析与宿主对抗降级。
 - [浏览器](https://lionad.art/maps/_web/browser/browser): 浏览器引擎、原理、新特性与开发技术
 - [浏览器引擎](https://lionad.art/maps/_web/browser/browser-engine): Web 浏览器引擎相关知识，包括主流引擎和新兴引擎项目
 - [Web Crypto API](https://lionad.art/maps/_web/browser/crypto): Web Crypto API 是一个 JavaScript 接口，用于在浏览器中执行加密操作。
+- [HTML Head](https://lionad.art/maps/_web/browser/html-head): HTML 文档骨架（boilerplate）：head 元素的 opt-in 开关机制与排序性能，CSP meta、text-scale、charset 嗅探等深层机制与陷阱。
 - [浏览器新特性](https://lionad.art/maps/_web/browser/new): Web.dev 月刊精选，追踪和总结主流浏览器的最新特性更新与时动态。
 - [浏览器相关](https://lionad.art/maps/_web/browser/principle): 浏览器相关问题
 - [路由技术](https://lionad.art/maps/_web/browser/router): Web 前端路由技术详解，包含 Hash 路由、History 路由的实现原理与最佳实践。
+- [Shadow DOM](https://lionad.art/maps/_web/browser/shadow-dom): 浏览器原生封装边界：样式与事件如何跨界、:host 的级联地位、closed 模式的真实语义与批量样式的性能杠杆。
 - [爬虫与反爬虫](https://lionad.art/maps/_web/crawler/crawler): 网络爬虫技术指南，包含常见反爬虫策略分析、多线程爬虫设计、增量爬取实现以及性能优化等实践经验。
 - [小程序](https://lionad.art/maps/_web/miniapp/miniapp): 微信小程序开发指南，包含双线程模型、Exparser 组件框架、分包异步化等技术原理和最佳实践。
 - [WebTransport](https://lionad.art/maps/_web/network/webtransport): 基于 HTTP/3 + QUIC 的下一代 Web 双向通信技术
@@ -622,6 +647,7 @@ goose is being developed as an open-source software project.
 - [Web 安全](https://lionad.art/maps/_web/security/security): Web 安全技术、OAuth 协议与加密算法
 - [SM2](https://lionad.art/maps/_web/security/sm2): 国密 SM2 椭圆曲线公钥密码算法标准与工程陷阱
 - [软件供应链安全](https://lionad.art/maps/_web/security/supply-chain): 开源软件生态中的传递性信任问题与供应链攻击防范
+- [天御滑块验证码逆向](https://lionad.art/maps/_web/security/tcaptcha-slider-reverse): 腾讯天御 TCaptcha 滑块验证码的协议取证、缺口识别与求解工程结构
 - [Web 技术](https://lionad.art/maps/_web/web): Web 开发技术，包括浏览器原理、性能优化、安全、爬虫和小程序
 - [Windows](https://lionad.art/maps/_windows/windows): 记录一些使用 Windows 碰到的问题
 - [构建工具](https://lionad.art/maps/_workflow/build-tools/build-tools): 前端构建工具全景图，涵盖 Vite、Webpack、Rspack 等主流工具的特性对比和使用说明
@@ -703,6 +729,12 @@ goose is being developed as an open-source software project.
 ## Links
 
 - [友链](https://lionad.art/links): 与我联络 & 友链
+
+## External
+
+- [🎨 实现近乎免费之后，设计工程师还剩什么](https://lionad.art/external/202609/24/design-engineering-maggie-appleton): GitHub Next 设计工程师 Maggie Appleton 的 AI 时代工作流：纸笔、Jig、spec 前置，以及她仍然自己拿在手里的那部分判断。
+- [她花 1980 元，学怎么使用我](https://lionad.art/external/202609/28/paid-to-learn-me): 以 Agent 的第一视角，讲述上班族 Monica 花 1980 元报「Agent 变现训练营」，两周只等来一单 12 元商单，最终在退费协议前沉默的故事。
+- [OpenAI 攻下千禧年难题之后，开发者似乎无动于衷](https://lionad.art/external/202610/11/openai-math-dev-privacy): OpenAI 宣布突破纳维-斯托克斯问题，却被数学家巴克马斯特指控拿他未发表的研究去训练模型。一年积累一周被复制的恐惧，开发者其实太熟悉了。
 
 ## Notes
 

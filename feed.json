@@ -474,6 +474,42 @@
             },
             "date_modified": "2024-02-16T00:00:00.000Z",
             "date_published": "2024-02-16T00:00:00.000Z"
+        },
+        {
+            "id": "https://lionad.art/external/202609/24/design-engineering-maggie-appleton",
+            "content_html": "GitHub Next 设计工程师 Maggie Appleton 的 AI 时代工作流：纸笔、Jig、spec 前置，以及她仍然自己拿在手里的那部分判断。",
+            "url": "https://lionad.art/external/202609/24/design-engineering-maggie-appleton",
+            "title": "🎨 实现近乎免费之后，设计工程师还剩什么",
+            "image": {
+                "url": "https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-sketch-to-jig-v2.jpg",
+                "type": "image/jpeg"
+            },
+            "date_modified": "2026-09-23T00:00:00.000Z",
+            "date_published": "2026-09-23T00:00:00.000Z"
+        },
+        {
+            "id": "https://lionad.art/external/202609/28/paid-to-learn-me",
+            "content_html": "以 Agent 的第一视角，讲述上班族 Monica 花 1980 元报「Agent 变现训练营」，两周只等来一单 12 元商单，最终在退费协议前沉默的故事。",
+            "url": "https://lionad.art/external/202609/28/paid-to-learn-me",
+            "title": "她花 1980 元，学怎么使用我",
+            "image": {
+                "url": "https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260929-paid-learn-01.jpg",
+                "type": "image/jpeg"
+            },
+            "date_modified": "2026-09-29T00:00:00.000Z",
+            "date_published": "2026-09-29T00:00:00.000Z"
+        },
+        {
+            "id": "https://lionad.art/external/202610/11/openai-math-dev-privacy",
+            "content_html": "OpenAI 宣布突破纳维-斯托克斯问题，却被数学家巴克马斯特指控拿他未发表的研究去训练模型。一年积累一周被复制的恐惧，开发者其实太熟悉了。",
+            "url": "https://lionad.art/external/202610/11/openai-math-dev-privacy",
+            "title": "OpenAI 攻下千禧年难题之后，开发者似乎无动于衷",
+            "image": {
+                "url": "https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/261011-openai-math-cover.jpg",
+                "type": "image/jpeg"
+            },
+            "date_modified": "2026-10-10T00:00:00.000Z",
+            "date_published": "2026-10-10T00:00:00.000Z"
         }
     ]
 }

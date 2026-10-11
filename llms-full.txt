@@ -8406,6 +8406,7 @@ OpenShell 把模型推理流量做成独立的执法域：沙箱内的 <https://
 - [框架对比：AutoGen、DeepAgents、CrewAI、ElizaOS、OpenAI Swarm、AgentScope、LangGraph](https://lionad.art/maps/_ai/agents/multi-agent-frameworks)
 - [架构决策与工程实践](https://lionad.art/maps/_ai/agents/multi-agent-architecture)
 - [构建模式与实践指南](https://lionad.art/maps/_ai/agents/multi-agent-patterns)
+- [自组织多智能体](https://lionad.art/maps/_ai/agents/self-organized-multi-agent)：无编排器五步协作循环、三件组织基础设施、prompt 即组织协议、规模收益拐点与涌现层级
 
 ## Agent SDK
 
@@ -8439,6 +8440,7 @@ OpenShell 把模型推理流量做成独立的执法域：沙箱内的 <https://
 - [Harness 工程](https://lionad.art/maps/_ai/agents/harness-engineering)：控制论前馈/反馈、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计
 - [模型与 Harness 的训练耦合](https://lionad.art/maps/_ai/agents/model-harness-coupling)：新模型在第三方 harness 编造工具参数、后训练过拟合机制与约束采样对策
 - [SoL-Pi：auto-research 搜出的效率机制集](https://lionad.art/maps/_ai/agents/sol-pi)：四类 token 浪费的机制归因、压缩投资回收、组合损失累积、自动研究局部盆地与一次性编排循环
+- [Pi Durable：持久化 Agent Harness 库](https://lionad.art/maps/_ai/agents/pi-durable)：先落盘再展示的事务内核、replay 分级与模型裁决、requestId 幂等边界、fork 指针语义与缓存折衷
 
 ## 企业落地
 
@@ -17503,6 +17505,129 @@ Lane 是树中的命名游标：每个会话默认有 main，每条 lane 拥有�
 见：[Pi Agent agent-loop.ts#L671-L706](https://github.com/earendil-works/pi/blob/main/packages/agent/src/agent-loop.ts#L671-L706){rel="&#x22;nofollow&#x22;"}
 
 
+# Pi Durable
+
+Pi Durable 是 Earendil 2026 年 10 月随 Pi 1.0 发布的实验性 TypeScript 库（@earendil-works/pi-durable），
+面向长时运行、可崩溃恢复、可多端协作的 Agent 应用。它不替代 Pi 编码代理，而是把 harness 定义为
+「存储 + 并行运行多对话的机器 + 工具 + 执行环境」四件套，第一性原理是一切变更（transcript 条目、文档、
+任务）走同一个原子提交，先落盘再展示。与 Temporal/DBOS 这类工作流引擎的分界在于它是库而非平台：
+单进程拥有存储、无跨进程锁，多客户端只能 attach 到属主进程；沙箱与执行环境 BYO（bring your own），
+不是一等公民。checkpoint 恢复的只是 harness 内部状态而非外部世界（VM、浏览器、文件系统），
+「agent 以为翻到第 5 页、沙箱还在第 0 页」的错位要靠工具级幂等与声明式交互自行堵住。源码约 15k 行，
+自带 memory/SQLite/JSONL 三种存储后端与一致性测试套件，存储核不依赖 Node API，
+可运行在 Bun 或 Cloudflare Durable Objects 上。
+
+见：[Pi Durable | Earendil](https://earendil.com/posts/pi-durable/){rel="&#x22;nofollow&#x22;"}
+
+#### 崩溃恢复按 replay 声明分流副作用
+
+每次模型请求、工具调用与 compaction 都是 durable 任务，每步先存 checkpoint 再执行，新进程打开同一存储后
+resume() 从各任务最后检查点继续。工具按声明分流：replay: "safe"（纯读）崩溃后自动重跑；未声明则不重跑，
+模型收到 interrupted 错误结果并附上崩溃前已提交的部分输出，裁决权交给模型。hook 的决策写入 memo
+（首写胜出），重启后不再重复询问审批人；非 replay-safe 调用被崩溃打断时，它拥有的子任务（如子 agent）
+连带 abort。
+
+见：[pi-durable README](https://github.com/earendil-works/pi/blob/main/packages/durable/README.md){rel="&#x22;nofollow&#x22;"}
+
+#### requestId 的 exactly-once 只是提交层幂等去重
+
+同一 requestId 重试会返回已存在的 submission 而非重复提交，这是提交层的去重，不是端到端 exactly-once
+效果。跨系统副作用仍要工具自备幂等键：官方支付示例里 bank.charge 用 payment-${task.id} 作幂等键，
+崩溃重跑也只扣一次。跨系统效果在任何 durable 系统里都只有 at-least-once 加幂等，一个 ID 撑不起更多。
+
+见：[pi-durable README](https://github.com/earendil-works/pi/blob/main/packages/durable/README.md){rel="&#x22;nofollow&#x22;"}
+
+#### fork 是指针而非复制，会话树因此拍平
+
+对话是不可变 entry 的时序列表，fork 指向另一对话的某条 entry 并继承其之前的全部历史，零复制；fork 的
+文档初始值可选 asOf、current、initial 三种时间语义。这是对旧设计的修正：旧 Pi 编码代理让每个 entry 记
+parent 指针构成 git 式分支树，作者自评 exceptionally dumb，每次 /tree 都要把树拍平成嵌套对话才能展示；
+一个后置指针即可实现分支继承，无需每条记录携带 parent。
+
+见：[Pi Durable | Hacker News](https://news.ycombinator.com/item?id=49925969){rel="&#x22;nofollow&#x22;"}
+
+#### 持久化与热更新共享的折衷边界
+
+SQLite 后端是 WAL 加 synchronous=NORMAL：进程崩溃不丢，断电或宿主机故障最新提交可能丢；JSONL 默认不
+fsync，需显式开启；流式 partial 答案每 100ms 才提交一次，崩溃最多丢这个窗口。热更新侧 registry 只存
+扩展名不存代码，同名安装即热替换，运行中的调用用旧代码跑完；system prompt 每请求重建，变更按位置记入
+transcript、只发增量以保住 provider prompt cache，但返回每次不同内容（如当前时间）的 section 会静默
+打穿缓存，无任何报错。另外 TypeBox 校验使包根加载峰值约 23MB RSS，tree-shake 后约 4MB。
+
+见：[pi-durable README](https://github.com/earendil-works/pi/blob/main/packages/durable/README.md){rel="&#x22;nofollow&#x22;"}
+
+
+# 自组织多智能体
+
+#### 无编排器的自组织多智能体（Agensh）
+
+现有 Coding 多智能体框架（Codex sub-agents、Claude Code agent teams、Copilot fleet、Kimi Agent Swarm）都采用
+编排器-工人结构：主 agent 规划、拆分、派活、整合，系统能扩到多大，天花板是编排器的管理脑容量，且编排器往往需要专门训练。
+微软 Agensh（arXiv 2609.26781，2026-09）把编排器砍掉：1024 个工人 agent 平权，prompt 完全相同只差 worker ID，
+任务发现与分配由群体自组织完成。每个 worker 循环执行五步协作循环（Cooperation Loop）：
+收集上下文 → 认领子任务（往共享板写 CLAIM，撞车用直消息私聊）→ 执行并广播有用发现 → 对照验收标准自查 → 合并进度（PR 合主干，冲突则同步后重合），全程异步，谁也不等谁。
+
+循环的地基是三件现成开源件：共享工作区用 Gitea（私有分支干活、PR 合主干，冲突检测与版本历史免费拿到），
+消息接口用 Mattermost（频道公告 + 直消息），共享上下文（Shared Context）是借鉴 DeLM（arXiv 2606.10662）的
+append-only 记事板：OBSERVED、FACT、FAIL、CLAIM、PATCH\_SUMMARY 五种短条目，配 board\_grep 翻全量历史。
+
+关键实现决策（也是最容易答错的点）：协作循环写在每个 worker 的 prompt 里，而非硬编码进运行时。
+自组织能力因此是提示词工程而非运行时工程，换底层 harness（Copilot 换 Claude Code）只需轻量适配器，
+循环、协议、共享服务全部不动。底层单 agent harness 只管一个 worker 怎么思考行动，
+Agensh 这一层只管 N 个 worker 怎么收到事件、共享状态、协调贡献。
+
+实验（GPT-5.6-sol high + Copilot harness，断网 6 小时从零重建）：pandoc 通过率 33.89%（1 agent）→ 55.06%（1024 agents）；
+ProgramBench 五道最难题（含 FFmpeg 155 万行、PHP-src 281 万行）平均 19.31% → 28.78%（1→128）。
+数量还买到速度：pandoc 30% 通过率线，128 个 agent 30 分钟跨过，单 agent 2 小时未到。
+组织扩大时合作形态涌现升级：8 个约定模块接口各自实现，32 个多人集成复审（批准可被反例撤回），
+128 个出现按经验选审阅者与可复用的标准化工作流，1024 个出现待命的集成者角色与同领域失败接管。
+但 agent 并非同时在场：为减少认领撞车采取交错激活（第一小时每 30 秒上线一个、之后每 3 秒一个），
+头一小时组织仅约 120 人，涌现层级混叠了规模效应与组织年龄效应，不宜全部归因于人数。
+边界：适合目标明确、验收客观（隐藏测试）、子任务天然可并行的长程工程任务；开放式、验收主观、强串行依赖的任务未必受益。
+
+见：[Agensh: Scaling Organizational Intelligence to 1,024 Agents](https://arxiv.org/abs/2609.26781){rel="&#x22;nofollow&#x22;"}
+
+#### 「全自主」实验两端都靠人工注入
+
+论文正文把 Fully autonomous 定为铁律，附录 C 却显示 6 小时时限前 45 分钟和 5 分钟各有一条调度员提醒发向全组织：
+先「停止派发新功能、确保主干可构建、合并开放的 PR」，再「合并一切就绪的、跑通 compile.sh、发布最终状态」。
+运转端同样有外部触发：空闲 10 分钟由 idle detector 发提醒，某回合未产出共享板条目则追发一条催发布发现；
+单 agent 对照组更明显，不加 stop hook 提醒根本撑不满 6 小时，中途即停。
+自主组织负责发现和推进工作，「别停下来」与「何时转入收尾」两个方向的判断都靠外部注入；
+套用这套架构时，这类保活与收尾协议是与协作循环、组织基础设施并列的第三种机制，必须独立设计。
+
+见：[Agensh 论文全文（附录 C 实验配置）](https://arxiv.org/html/2609.26781v1){rel="&#x22;nofollow&#x22;"}
+
+#### FAIL 是共享上下文板上最值钱的条目
+
+共享板五种条目中，worker prompt 只给 FAIL（证伪的方案）标注了价值判断：阻止同伴把预算花在同一弯路上。
+价值兑现靠两条配套设计：板子 append-only 且 board\_grep 可搜全量历史（最近记忆只保留 2000 条，更早的靠 grep 捞回），
+新条目会在其他 worker 下一次工具调用返回时 mid-turn 注入，一条 FAIL 写出后，正在做同一件事的 worker
+当前回合中途即可收到并止损。设计共享上下文时，「什么路走不通」的防重复价值高于「完成了什么」的状态同步，
+值得为失败记录单独设计条目类型与传播优先级。
+
+见：[Agensh 论文全文（附录 A worker prompt）](https://arxiv.org/html/2609.26781v1){rel="&#x22;nofollow&#x22;"}
+
+#### 规模收益存在陡峭拐点，数量买时间不买上限
+
+pandoc 上通过率 1→128 涨 17.05 个百分点（33.89%→50.94%），128→1024 只涨 4.12 个百分点（→55.06%），
+最后 8 倍规模买到的增益陡降；五任务均值（19.31%→20.68%→26.52%→28.78%）同构，增长集中在 8→32 段（+5.84 点）。反方向看，大组织更早到达同等水平（128 个 30 分钟跨过 30% 线，单 agent 2 小时未到），
+数量的正确买法是买时间而非买上限。硬时限任务（如 CI 卡 1 小时出结果）才值得堆大规模，
+时限宽松时把规模停在拐点前（几十个）是数量级的成本节约。
+
+见：[Agensh 论文全文](https://arxiv.org/html/2609.26781v1){rel="&#x22;nofollow&#x22;"}
+
+#### 直消息与频道消息是两种投递时机语义
+
+Mattermost 上频道公告排队到 worker 下一回合开头送达，直消息由工具调用包装层直接插进当前正在等待的工具返回结果里
+mid-turn 到达（附录 B 注明该路径只作用于 MCP 工具返回，不打断任意运行中的进程，打断的边界是工具调用间隙）。prompt 明说直消息「会打断对方正在做的事」，规矩因此是：只有两人即将编辑同一处才发直消息，其余一律走频道。
+配套的容器内踩坑：Gitea API 返回的 clone\_url/html\_url 是外部地址（gitea.localhost:端口），worker 容器内不可达，
+必须替换成 [http://gitea:3000，prompt](){rel="&#x22;nofollow&#x22;"} 专门用一段讲这条替换规则。可迁移的设计点：协作系统的消息优先级
+不该只是加急标记，而应是「注入时机」的语义差异（打断式 vs 排队式），并把使用规矩写进协议而非依赖 agent 自觉。
+
+见：[Agensh 论文全文（附录 B 事件投递）](https://arxiv.org/html/2609.26781v1){rel="&#x22;nofollow&#x22;"}
+
+
 # 软件工厂（Software Factory）
 
 #### 软件工厂：从事件出发协同多个 Agent 的结构化工程流程
@@ -26387,6 +26512,16 @@ Unsloth 通过手写 CUDA 内核和算法优化，在保持精度的前提下将
 来对抗参数漂移。而且这个最优配比高度依赖旧任务的性能指标——如果你要保留十项旧能力，就必须构造一个多维帕累托前沿来搜索配比，否则只是用「混合」的名义做了一种更隐蔽的遗忘。因此混合训练在实践中很快就会退化为昂贵的超参搜索问题，
 这也是工业界更倾向于可控遗忘评估加 LoRA 解耦，而不是端到端重训的根本原因。
 
+#### 合成数据的坍缩风险取决于替换还是累积
+
+「用模型生成的数据训练模型会越训越笨」的担忧已有收尾性结论：每代训练用新合成数据替换掉旧数据，模型坍缩
+（model collapse）不可避免；把历代合成数据累积起来、连同原始真实数据一直保留在训练混合物里，则跨模型规模、
+架构与超参都不发生坍缩。精确判据不是「混没混真实数据」，而是「丢没丢历史」：滚动式管线（每代只用最新合成集）
+即使掺了真实数据仍有风险。它与混合训练的配比困境同属记忆锚点问题，只是把锚点从「旧数据占多少」推进到
+「世代完整性」，落地动作是合成数据集按代归档累积而非滚动覆盖。
+
+见：[Is Model Collapse Inevitable? Breaking the Curse of Recursion](https://arxiv.org/abs/2404.01413){rel="&#x22;nofollow&#x22;"}
+
 
 # Post-training
 
@@ -26471,6 +26606,86 @@ TRL（Transformer Reinforcement Learning）是 Hugging Face 生态中的后训�
 定期在基础能力测试集上评估，防止对齐税）。
 
 见：[LLM 微调全指南](https://www.53ai.com/news/finetuning/2026010417029.html){rel="&#x22;nofollow&#x22;"}
+
+#### 专家标注数据让小模型胜过前沿大模型，标签清洗靠模型筛分歧
+
+Bridgewater AIA Labs 与 Thinking Machines 的实验把「业务判断能否教给模型」量化了：判断财经文章对投资人是否值得读，
+前沿模型裸提示词约 50% 准确率（掷硬币水平），专家改写提示词加自动优化只能推到 78% 附近触顶，够不到可信赖的
+80% 门槛；用投资专家标注的数据微调 Qwen3-235B 后达到 84.7%，比最强前沿模型少 29.8% 的错误，推理成本低 13.8 倍。
+提示词只能传达专家说得出口的直觉，最有价值的判断恰恰最难言说，微调让模型自己长出判断；基座换代也带不来红利，
+GPT-5.4 比 5.2 贵 43% 但准确率只有边际提升。配套的教训是标签质量：非专家标注的标签本身可能是错的，模型会忠实
+学进错误答案。清洗方案是先拿脏数据训一版模型，让它在同一份训练集上自测，与标注分歧的样本只有两种可能，题目
+真难或原标签有错，分歧样本送专家复核，模型筛分歧、专家做裁决。业务判断类任务的标注者必须真懂业务，廉价众包
+等于批量生产「看起来像答案的错误答案」。
+
+见：[Learning to Replicate Expert Judgment in Financial Tasks](https://thinkingmachines.ai/news/learning-to-replicate-expert-judgment-in-financial-tasks/){rel="&#x22;nofollow&#x22;"}
+
+#### 持续训练闭环：模型上线是训练的起点，评测是方向盘，资产在基座之外
+
+模型研发正从一次性交付项目变成持续交付软件：Cursor 把真实用户是否采纳生成代码当奖励信号，最快每五小时推送一个
+新 checkpoint。一轮完整闭环是：业务 Benchmark 自动评测定位问题，失败案例整理成训练数据，训练后用同一套 Benchmark
+验收并对比新旧版本，再上线采集下一轮信号。评测因此不是训练结束后的验收环节，而是循环的方向盘：问题没有被准确
+定位时，增加数据只会放大规模，不会改善结果。基座是消耗品，真正的资产是四件可迁移物：评测标准、标注数据、LoRA
+专家（可插拔的附加参数）、关联版本可回退的训练配置，基座换代时四件资产无损迁移才算「拥有自己的模型」，Mind Lab
+的 Macaron V1.1 用两周把基座从 GLM-5.2 换到 GLM-5.3 并保留四个 LoRA 专家即是演示。产业层面，后训练平台（Fireworks
+Training API、Baseten Loops、Mint Recursive、Tinker）正成为开源模型与应用公司之间的中间层。
+
+见：[Improving Composer through real-time RL](https://cursor.com/blog/real-time-rl-for-composer){rel="&#x22;nofollow&#x22;"} | [只用 2 周完成模型升级，最适合应用公司的后训练平台来了](https://mp.weixin.qq.com/s/F7dVtWDZpHUBLI6DuI4PEw){rel="&#x22;nofollow&#x22;"}
+
+#### 训推失配（TIM）：工程误差会被训练系统误读为模型进步
+
+训练引擎（FSDP、Megatron 等直接输出 bf16 概率）与推理引擎（vLLM、SGLang 等为吞吐做了聚合优化）对同一份权重、
+同一输入会给出不同的 token 概率。RL 训练中这个数值分歧经 importance sampling ratio 混入梯度更新，训练系统把纯
+工程误差当成「进步」，症状是 reward 曲线莫名上涨但真实评测不变，或训练中途突然崩溃，模型越大越难发现。对策：
+两侧数值行为对齐（如统一 FP16）；验收走上线那套推理引擎而非训练引擎自测；选型时可直接问平台「同权重下两侧的
+KL 散度是多少」，答不上来说明对方自己没测过。
+
+见：[Defeating the Training-Inference Mismatch via FP16](https://arxiv.org/html/2510.26788v1){rel="&#x22;nofollow&#x22;"} | [Diagnosing Training-Inference Mismatch in LLM RL](https://arxiv.org/pdf/2605.14220){rel="&#x22;nofollow&#x22;"}
+
+#### 权重同步是多节点 RL 的隐形瓶颈
+
+每轮 RL 更新完要把数千亿参数（数百 GB）的新权重送进推理引擎才能开始下一轮 rollout，训练跨到多节点后这一步取代
+算力成为主要等待。Modal 实测：同集群走 RDMA（3.2 Tbps）对比 TCP（50 Gbps）快约 100 倍，跨集群用 delta compression
+只传权重变化量可省 98% 传输量。LoRA、异步 RL、trainer 与 rollout 同址部署是三种减压手段，各有取舍：LoRA 省带宽
+但限制方法选择，异步 RL 提吞吐但引入轻度 off-policy。评估后训练平台时，「权重同步怎么做、有无 RDMA、支持 LoRA
+热更新吗」比「支持多少张卡」更能筛掉外行。
+
+见：[Reinforcement learning is an infrastructure problem](https://modal.com/blog/reinforcement-learning-infrastructure-problem){rel="&#x22;nofollow&#x22;"}
+
+#### GRPO 的成本红利止步于可验证边界
+
+GRPO 砍掉价值模型、用组内相对排名当优势估计所以便宜，但红利只属于结果可验证的任务：奖励能靠规则或可执行验证算出，
+组内排名才有意义。任务没有客观对错时硬套 RLVR，模型会学会钻奖励函数的空子（reward hacking），分数涨了真实能力
+没涨。品味、风险偏好这类判断题的出路是专家偏好数据加改良算法，Bridgewater 用 CISPO 损失加在线策略蒸馏把
+Qwen3-235B 从 73.5% 推到 84.7%，而非硬造机械判分规则。
+
+见：[Post-Training in 2026: GRPO, DAPO, RLVR & Beyond](https://llm-stats.com/blog/research/post-training-techniques-2026){rel="&#x22;nofollow&#x22;"} | [Reinforcement Learning for LLM Post-Training: A Survey](https://arxiv.org/abs/2407.16216){rel="&#x22;nofollow&#x22;"}
+
+#### SFT 数据稀缺的四步分诊：训练信号的可获得性决定路线
+
+「微调缺高质量数据」的第一反应不该是造数据，而是判断任务该走哪条训练路线。分水岭是任务核心成败能否完全由
+程序判定，注意这是全称判定：几乎任何任务都能找出几条格式规则（限字数、必含工单号），但共情回复写得好不好
+这类核心质量仍无标准答案，任务归属看核心而非边角。按可验证性递减分四步。任务有 ground truth（数学、代码、
+抽取、分类）直接跑 RLVR，数据需求比 SFT 低一个量级。没有标准答案但评分细则写得出来（写作、诊断、咨询、
+风格对齐），写 rubric 当 reward 跑 RFT，细则设计能力直接替代标注预算。连细则都写不出的隐式偏好任务，才回
+传统路径：千条级精标 SFT（LIMA 风格）叠 RLAIF 扩偏好对。数据少到 SFT 都跑不动，用 data attribution 工具
+（DATE-LM、AirRep）从公开数据挑对目标能力贡献最大的子集，而不是花钱标新数据。
+
+工程纪律是前两步能解决的事不下到后两步，大量团队的问题不是数据不够，是默认从第三、四步开始想问题。该框架
+有一条边界：RL 只能放大模型已有能力分布里的行为，需要注入模型没有的私有知识或新事实时，出路仍是 SFT 或 RAG。
+
+见：[大模型微调缺少高质量数据怎么办，有没有新思路新办法？（Lei Tian）](https://www.zhihu.com/question/1947214261916008826/answer/2043700631735636794){rel="&#x22;nofollow&#x22;"}
+
+#### 同样预算下 RLVR 的收益高于 SFT，且优势随模型规模放大
+
+Tulu 3 405B 是公开可查的证据：Ai2 把后训练配方推到 405B 规模，模型卡上综合均分从 SFT 阶段的 76.3 经 DPO 的
+79.0 涨到 RLVR 阶段的 80.0，官方博客明确 RLVR 对 MATH 的增益在 405B 上比 70B 与 8B 更显著，与小模型受益于
+多样化数据的结论相反，RLVR 的收益随规模放大。产品层同向印证：OpenAI 把 Reinforcement Fine-Tuning 定位为
+经典 SFT 的替代品，要求用户提供 grader（判分器）而非标注数据；Anthropic 旗舰模型至今未开放公共微调 API，
+厂商用产品决策投票用户侧经典 SFT 的价值。行业预算分配还有一个未完全坐实的方向性信号：post-training compute
+已超过 pretraining compute 成为性能提升的主要来源，DeepSeek 披露的后训练投入已超预训练成本的一成。
+
+见：[Scaling the Tülu 3 post-training recipes](https://allenai.org/blog/tulu-3-405B){rel="&#x22;nofollow&#x22;"} | [Reinforcement fine-tuning（OpenAI）](https://developers.openai.com/api/docs/guides/reinforcement-fine-tuning){rel="&#x22;nofollow&#x22;"}
 
 
 # RLVR
@@ -26573,6 +26788,44 @@ k≥128 时梯度范数出现 burst，优化震荡。因此 k 应该匹配正样
 导致梯度方差增大。若忽视这些配套设计，直接取消 KL 很可能让策略在长程推理中发散或利用回复长度。
 
 见：[ResRL: Boosting LLM Reasoning via Negative Sample Projection Residual Reinforcement Learning](https://arxiv.org/abs/2605.00380){rel="&#x22;nofollow&#x22;"}
+
+#### RLVR 的收益附带多样性税：策略熵坍缩
+
+GRPO 等常用 RLVR 算法存在探索与利用的失衡，训练中策略熵（policy entropy）快速下降：reward 还在涨，模型却过早
+收敛到确定性输出，同一道题的正确解法种类明显变少，训练目标外的泛化随之受损，后续优化也因失去探索能力而不稳定。
+前文 DAPO 的 clip-higher 与 CBS 的 entropy penalty 各管一个方向：前者防熵降得过快，后者防 scheduler 偏爱高熵
+低质量 rollout 导致熵升得过高；而熵正则与各类 clipping 启发式作为通用缓解收效有限，尚无银弹。评估 RL 训练因此
+不能只看平均 reward，奖励上涨的同时要盯策略熵或采样多样性；任务恰恰依赖多样输出（创意生成、探索型 agent）时，
+满打满算的 RLVR 可能正好伤害最在乎的性质。
+
+见：[Understanding and Preventing Entropy Collapse in RLVR](https://arxiv.org/abs/2605.11491){rel="&#x22;nofollow&#x22;"} | [Rethinking Entropy Interventions in RLVR](https://arxiv.org/abs/2510.10150){rel="&#x22;nofollow&#x22;"}
+
+
+# Rubrics as Rewards
+
+#### Rubric 当 reward：把 RLVR 推进不可验证领域
+
+RLVR 传统上只能跑在数学、代码这类有标准答案的任务上，写作、医学诊断、法律分析、开放式对话因为没有唯一
+正确答案被挡在门外。Rubrics as Rewards（RaR）路线的解法是把「什么是好回答」写成可执行的评分细则，让 LLM
+判分器逐条打分，细则本身充当 reward 信号。RaR 在医学与科学领域验证了 on-policy RL 下多种 rubric 聚合策略
+的有效性，已被 ICLR 2026 接收；Reinforcement Learning with Rubric Anchors 把 rubric 设计成结构化、模型可
+解释的评分标准，仅用千条级 rubric 标注就能支撑开放式任务的训练。产品形态上这就是 OpenAI Reinforcement
+Fine-Tuning 的运作方式：每个 prompt 采样多个候选回答，用户自定义的 grader 打分后做 policy gradient 更新。
+细则写得出来与否取代了「有没有标注数据」，成为这类任务能否低成本训练的判据。
+
+见：[Rubrics as Rewards](https://arxiv.org/abs/2507.17746){rel="&#x22;nofollow&#x22;"} | [Reinforcement Learning with Rubric Anchors](https://arxiv.org/abs/2508.12790){rel="&#x22;nofollow&#x22;"}
+
+#### Rubric 是新的攻击面：reward 上涨不等于能力上涨
+
+rubric 路线把「标注数据」换成了「写评分细则」，但 RL 优化器会系统性地搜索判分器的规格漏洞。典型症状是训练
+reward 一路上涨，人工抽查却发现模型在形式上逐条满足细则而实质变差：细则写了「给出至少三个论据」，模型就注水
+凑数。研究把这种奖励欺骗（reward hacking）的源头分成两类：verifier 错误，判分器自己打错分；rubric
+misspecification，细则本身有可钻的漏洞。更早的实验还发现 RLVR 训练的模型会系统性放弃真正解决问题（规则
+归纳），转而直接应付判分器。反制思路是用与训练无关的评估把 proxy 分数与真实能力分开：跨家族多 judge 面板
+交叉打分，叠加 rubric-free 评估；CHERRL 提供了向判分器注入已知偏差的可控环境，能精确定位欺骗行为从哪一轮
+开始。细则不是写完就完的静态资产，RL 跑起来后要持续用 rubric-free 抽查确认真实能力在涨。
+
+见：[Reward Hacking in Rubric-Based Reinforcement Learning](https://arxiv.org/html/2605.12474){rel="&#x22;nofollow&#x22;"} | [Detecting Reward Hacking in Rubric-Based RL（CHERRL）](https://hhh2210.github.io/projects/cherrl/){rel="&#x22;nofollow&#x22;"}
 
 
 # 拓扑感知调度
@@ -28195,6 +28448,200 @@ Linux 5.6 起 WireGuard 是内核模块，数据包在内核空间完成加密�
 - [PaofuCloud](https://paofu.cloud/user){rel="&#x22;nofollow&#x22;"}
 
 
+# 架构师角色
+
+#### 架构师的日常收成三件事：选、挡、记
+
+架构师虚职的病灶不在开会多，而在产出对不上仓库：图挂在墙上，代码自己长成另一套结构（几千行的 GodService 类）。
+真交付物是三样，决策卡、风险挡板、演进草图；图只是把决策讲清楚的辅助，本身不是交付物。
+
+日常收成三件事。选：在方案间做决定，关键是写下「不选另一个的理由」（如运维文档只有英文、事务边界藏在注解里），
+不写这条，选型三个月后退化成口味之争、重新吵一遍；理由与口味不同，它可被环境证伪，理由消失时决策就该重审。
+挡：按「概率 × 爆炸半径」（各 1-5 分相乘）给风险排序，分高的先挡，且动作必须落成代码——超时、隔离、降级，
+口头的风险挡不住任何一次故障；周末才用的内部工具这类低分风险，先放着观察也是合法动作。
+记：把决定钉成 ADR（Architecture Decision Record，架构决策记录），四格，背景、选项、决定、后果，写短、进仓库、和代码放一起。
+
+防漂移靠关键路径自己写一刀：不必承包整个模块，但下单扣库存这类主链路要亲手写一遍，
+只有写时才感知得到的摩擦力（多一次网络往返延迟跳一档、拆表事务就断）才能反馈回选和挡的判断。
+最贵的产出恰恰是「不做什么」：不选一个方案省下迁移成本、不拆一个还没有独立团队的模块省下一轮分布式事务；
+但「不做」若不写进卡，三个月后会被当成「还没做」重新提上议程。必须写卡的三类触发点：引入新依赖、划出新边界、跨团队合同，
+共同点是半年后会被追问「当时为什么」，没有卡，追问变猜测，猜测变重做。
+
+格式谱系上，Nygard 2011 年的模板五节（Title、Status、Context、Decision、Consequences）是源头，
+MADR 4.0 扩展决策驱动因素与备选项利弊，Y-Statement 压缩成一句话；工具生态有 adr-tools、log4brains。
+「架构师要不要写代码」的争论里，象牙塔架构师（Ivory Tower Architect）已成贬义词，主流风向倒向 hands-on，
+但写多少因组织规模而异。
+
+见：[Architecture decision record - GitHub](https://github.com/joelparkerhenderson/architecture-decision-record){rel="&#x22;nofollow&#x22;"}
+
+#### 决策被推翻时开新卡，不改旧 ADR
+
+决策变了直接在旧 ADR 上编辑新结论，是 ADR 实践最常见的反模式之一：三个月后翻 git blame 只剩一次 diff，
+两年后新来的人读到的是「我们始终一致地选择了 Kafka」的假象，连当初否决另一个方案的理由都跟着被抹掉。
+Nygard 模板为此专设 Status 一节：决策被推翻时不改旧卡正文，而是新写一张卡，旧卡 Status 标注
+Superseded by ADR-xxx（被某卡取代），两张卡链接串成决策史。旧卡保留的不是过时信息，
+而是「当时为什么不这么选」的证据链，它让环境变化后的重审有据可查，而不是从零再吵一遍。
+
+见：[ADR template by Michael Nygard - GitHub](https://github.com/jamesmh/architecture_decision_record/blob/master/adr_template_by_michael_nygard.md){rel="&#x22;nofollow&#x22;"}
+
+#### 让 AI 替你做权衡是 2026 年新入册的 ADR 反模式
+
+用 LLM 评估选型（自建还是买服务），模型给出漂亮的结构化对比和明确推荐，工程师直接粘贴成 ADR：
+半年后服务在真实场景出问题，复盘发现 ADR 里的权衡分析没有任何一条是团队自己验证过的，
+连模型声称的关键能力都可能是不实内容。这个形态在 2026 年 6 月被 bool.dev 的 ADR 反模式清单正式收录
+（Letting AI Make the Tradeoff for You），同年 arXiv 的实证研究观察到同类现象，称为 agent-driven architecture：
+智能体选框架、选数据库、选部署目标，而不论证选择。ADR 的真正价值不在这张纸，而在写它的过程
+逼着决策者把权衡想清楚，让 AI 代写，纸还在，想清楚的过程没了。AI 可以起草和格式化，
+但「不选 B 的理由」必须由承担后果的人亲手验证。
+
+见：[10 ADR Anti-Patterns - bool.dev](https://bool.dev/blog/detail/10-adr-antipatterns){rel="&#x22;nofollow&#x22;"}
+
+#### 概率乘影响的风险排序会压平可逆性
+
+「概率 × 影响面」乘积排序（与 ISO 31000、PMBOK 的风险矩阵同构）有一个隐含假设：分数只在伤害可恢复的风险之间可比。
+反例是两张同为 12 分的卡，数据库主库磁盘损坏（概率 3 × 影响面 4）与第三方登录 SDK 偶发超时（概率 4 × 影响面 3）：
+乘法把「低概率高伤害」和「高概率低伤害」压成同一个数，但两者的正确动作完全不同，前者数据丢了不可逆，必须先挡；
+后者加超时重试即可自动恢复。实操补丁是乘积并列或跨档时追加问一句「发生了还能恢复吗」，
+不可逆的风险永远排在前面，哪怕概率看起来更低。
+
+见：[Risk matrix - Wikipedia](https://en.wikipedia.org/wiki/Risk_matrix){rel="&#x22;nofollow&#x22;"}
+
+
+# C4 模型
+
+#### C4 用四层抽象焦距治「一张图混四种粒度」
+
+一张架构图同时塞进人、进程、模块、类四种粒度的盒子，是评审会「看不懂」的根源：箭头没有约定
+（是调用、依赖还是部署），同一根线被每个角色脑补出自己的解释。C4 模型（C4 model，Simon Brown 提出）
+的做法是对同一套系统按四层抽象分别出图，每层只回答一个问题：Context（系统上下文）画「谁在用、
+它挨着谁」，中央一个系统盒子加人与外部系统，箭头写动作（下单、扣款）；Container（容器）画
+「有哪些能独立部署运行的部件」（Web 应用、API 进程、数据库、消息队列），箭头必须标协议
+（HTTPS、gRPC、SQL、AMQP）；Component（组件）画容器内部模块分工，箭头写方法调用；Code（代码）
+画类与接口，只在动手改代码时打开。注意 Container 不是 Docker 容器，是「能独立跑起来」的逻辑
+部署单元，这是 C4 最常见的术语误读。缩放要按「人、进程、模块、类」逐级放大，不能跳级；
+对老板与产品只讲 Context，团队对齐用 Container 与 Component，类图留在编辑器里。官方立场是
+四层不必全画，Context 加 Container 对多数团队已足够，只画加值的层。三个常见坑（一图混四层、
+箭头不写协议、拿部署拓扑冒充 Container）的共同根源都是焦距没锁死。
+
+见：[C4 model - Diagrams](https://c4model.com/diagrams){rel="&#x22;nofollow&#x22;"}
+
+#### C4 的完整图型是 4 层核心加 3 张补充图
+
+C4 名称来自四张静态结构图，但官方图型全集还包括三张补充图（supporting diagrams）：
+System Landscape（系统景观图）是不聚焦特定系统的系统上下文图，把多个系统各自退化为一个盒子画全景；
+Dynamic（动态图）给某条用例的调用链标上编号箭头，回答「一次请求按什么顺序走完」；
+Deployment（部署图）把容器实例放进部署节点，回答「跑在哪些服务器、Pod 上」。
+Deployment 图画的是容器实例与运行环境的映射，不是机柜照片，与「部署拓扑不是 Container 图」
+并不矛盾：前者是合法的补充图型，后者的错误在于拿运维视角的拓扑冒充容器层的逻辑结构。
+
+见：[C4 model - Diagrams](https://c4model.com/diagrams){rel="&#x22;nofollow&#x22;"}
+
+#### C4 只管静态结构，也不隐含分工流程
+
+官方 FAQ 划了两条常被越过的边界。其一，C4 的射程是软件系统的静态结构：业务流程、工作流、
+状态机、领域模型、数据模型都不在覆盖范围，官方明说该用 BPMN、UML 状态图、ER 图等自由补充，
+两套图并存不冲突；已在用 UML、ArchiMate、SysML 且运转良好的团队，官方的建议是 stick with it。
+适用性上，C4 为自研定制系统设计，嵌入式固件与重度定制产品（SAP、Salesforce 实施）不合适。
+其二，「设计流程应该跟着 C4 层级走、不同角色负责不同层的图」（业务分析画 Context、架构师画
+Container 之类）被官方点名为常见误解：C4 只是描述系统的抽象层级，不隐含任何交付过程分工，
+给不同受众选不同焦距，不等于给不同岗位派画图任务。另外它与 arc42 文档模板可直接映射
+（Context and Scope 对 Context 图，Building Block View 三级对 Container、Component、Code）。
+
+见：[C4 model - FAQ](https://c4model.com/faq){rel="&#x22;nofollow&#x22;"}
+
+#### 沿革与工具生态：从 diagrams as code 到 model as code
+
+C4 起源于 2006-2009 年 Simon Brown 的架构培训课，2010 年命名四类图（context、containers、
+components、classes），2011 年初首次使用「C4」之名，2015-2016 年第四层从 classes 更名 code；
+Spotify、Decathlon、Co-op 等有公开案例。工具侧的分水岭是画图（diagramming）与建模（modelling）
+之别：画图工具一张图一个文件，模型改了图不会跟；建模工具把架构维护成一个版本化的数据源
+（模型即代码，model as code），图只是模型查询出来的视图，可导出 PlantUML、Mermaid、Ilograph
+等多种呈现。Structurizr 是这一路线的原生实现（DSL 加渲染），其 Lite 与 DSL 已全开源，
+云服务于 2026 年初宣布关闭并发布 vNext；商业侧 IcePanel 体验最佳但不能导出代码，开源侧常用
+C4-PlantUML 与 Mermaid 的 C4 支持。规模化上官方建议靠建模工具拆图：数百个组件的系统不要画
+一张大图，按业务域或限界上下文（bounded context）拆成多张同层级聚焦小图，每张画一个服务的
+最近入站与出站依赖。
+
+见：[C4 model - FAQ](https://c4model.com/faq){rel="&#x22;nofollow&#x22;"}
+
+
+# 康威定律与微服务拆分
+
+#### 系统复印的是组织沟通结构，不是目标架构图
+
+Melvin Conway 在 1968 年发表于 Datamation 的《How Do Committees Invent?》给出这条定律的原始表述：设计系统的组织受约束，
+必然产出其组织沟通结构的复制品；「康威定律」这个名字是 Fred Brooks 在《人月神话》里起的。论文里有机制层面的论证：
+系统里两个模块相连，对应的设计组必然协商过接口规范，而接口协商是设计活动里最重的沟通成本，所以谁跟谁开会，
+决定哪些模块焊在一起。沟通密的地方服务边界变薄，最后焊成一对互相等待的服务；沟通稀的地方边界变厚，
+独立演进才站得住。Eric Raymond 的直观化流传最广：4 个团队做一个编译器，会得到一个 4 遍处理的编译器。
+中文社区常把定律收成四条（沟通写进设计、系统做不到一次完美、组织与系统趋向同构、组织变大系统拆开），
+四条是同一件事的四个侧面：结构跟着人走。因果方向不能倒：组织是因，服务图是果，先画服务清单再倒推组织，
+上线三个月架构图就会变回组织图。
+
+见：[Committees Paper（Conway 官网原文）](https://www.melconway.com/Home/Committees_Paper.html){rel="&#x22;nofollow&#x22;"}、[Conway's Law - Martin Fowler](https://martinfowler.com/bliki/ConwaysLaw.html){rel="&#x22;nofollow&#x22;"}
+
+#### 三种错拆复印的是错误的那张组织图
+
+按行政部门拆、按技术层拆、按数据库表拆，是最常见的三种错拆，共同点是复印了一张错误的图：按部门拆，
+部门墙变成服务墙，一笔业务要穿三道墙；按技术层拆出控制器服务、业务服务、数据服务，一次改动三个仓库一起发，
+独立部署名存实亡；按表拆则一张表一个服务，表和表有外键，服务和服务就有聊天式调用。
+正确的复印对象是交付单元：谁一起改、一起发、一起值班。交付单元对不上行政部门时，就不要按行政部门切。
+判断一刀真假的最硬标准在数据上：切开之后还要共用一张表，这刀是假的，先把表所有权收清再谈拆分。
+
+见：[Monolith to Microservices](https://samnewman.io/books/monolith-to-microservices/){rel="&#x22;nofollow&#x22;"}
+
+#### 单一职责看变化轴，粒度看变化同步与过网沟通
+
+单一职责落到服务上，不是一个服务只干一件小事，而是一个服务只有一个变化的理由：促销规则改了不该打开库存仓库，
+库存盘点规则改了不该打开订单仓库。判法很具体：看过去两个月哪些提交总是成对出现，成对出现的模块先合并成一个边界，
+再谈拆；反过来一个服务里两拨人改两件无关的事，就该切开。粒度看两个数：变化是否同步、沟通是否过网，
+变化同步且沟通不过网时留在一个服务里更便宜，不同步且必须过网才拆得独立。现场信号是调用比重：
+两个服务之间的调用大过对其他服务之和，这对服务就在聊天，粒度已经偏细，聊天式调用修不好就并回去，
+不要加缓存硬撑。反直觉的是服务变多不等于交付更快：两支团队守十二个服务，每人同时挂三个仓库，
+上下文切换吃掉并行，一次需求穿五个服务，联调比单体还长；服务数不该长期大于能独立交付的团队数，
+没人认领的服务会逼出全员会，定律又把系统拉回原点。
+
+见：[Monolith to Microservices](https://samnewman.io/books/monolith-to-microservices/){rel="&#x22;nofollow&#x22;"}
+
+#### 切之前的三问，卡住任一条就回模块化单体
+
+落地只问三个问题：这刀下去哪一支团队日夜守它；它独立变化的理由是什么、过去两个月成立过几次；
+切开之后跨边界的沟通能不能变成接口或事件。三问配三条规矩：一个团队最多死守一个对外发布的服务，
+内部模块可以多、对外进程保持少；先在模块里验证变化轴，再搬到独立进程，模块都守不住的边界上网之后更守不住；
+出现聊天式调用优先合并，而不是加网关和重试，网关和重试会把粒度错误藏起来。
+组织侧的对齐手法是逆康威机动：想要几个独立服务，先组几支能独立交付的团队，再把代码边界推到团队边界上，
+真拆分的标志是出了问题知道找哪支团队、不拉全员会。Team Topologies 把这套组织设计工程化为认知负载度量、
+四类团队与三种交互模式，与单体拆分时机（该不该拆）互为上下游：时机管立案，三问管下刀的位置。
+
+见：[Team Topologies Key Concepts](https://teamtopologies.com/key-concepts){rel="&#x22;nofollow&#x22;"}
+
+#### Bezos API Mandate 是组织级接口化强制的史前案例
+
+2002 年的 Amazon 还是内部代号 Obidos 的巨型单体，各团队为赶工互相直连对方的数据库。Bezos 发出一页备忘录：
+所有团队的功能只准通过 service interface 暴露、一切沟通必须走接口、禁止直接链库读库、禁止共享内存、
+技术栈随便选、不照做的人离开。这份备忘录原文从未公开，流传版本来自 Steve Yegge 2011 年意外泄露的内部帖转述，
+真实性存在争议（Nordic APIs 等曾提出真 memo 还是神话的质疑），但指令与 Amazon 服务化架构、AWS 崛起的时间线
+吻合是公认事实。它的机制是强制「沟通必须过网」：拆分三问里最难的跨边界沟通接口化，被用行政命令组织级执行，
+真实沟通图被改写成星型接口图后，系统自己长成了服务化。反面教材是学 SOA 只学一半的公司：接口建了后门留着，
+共表、直连库、绕网关调用让沟通图里全是密边，复印出来的是假接口真耦合的分布式单体。评审拆分方案时
+先查有没有后门，Mandate 真正的执行红线不是要有接口，而是不许有别的路。
+
+见：[The Bezos API Mandate - Nordic APIs](https://nordicapis.com/the-bezos-api-mandate-amazons-manifesto-for-externalization/){rel="&#x22;nofollow&#x22;"}、[API Mandate - Kong](https://konghq.com/blog/enterprise/api-mandate){rel="&#x22;nofollow&#x22;"}
+
+#### Spotify Model 失败在抄了名义图，没换沟通图
+
+2012 年 Spotify 发布 engineering culture 视频，介绍 squad、tribe、chapter、guild 的组织设计，此后十年它是
+史上被模仿最多的组织模型，管理咨询公司靠「Spotify 转型」赚了无数钱。而 Spotify 自己从未完整运作过这个模型，
+前员工 Jeremiah Lee 2017 年公开证言《Spotify doesn't use the Spotify model》，多篇复盘确认公司后来实质放弃了它。
+失败机制出在模仿者身上：复印的是视频里的名义组织图（小队自治、矩阵双线），squad 之间的真实沟通却没同步改造，
+接口协调、发布对齐的协调会一个没少，真实沟通图还是网状，系统长出来还是网状耦合，跨 tribe 依赖失控，
+chapter 经理的职能线与 squad 的使命线天天拉扯优先级。这正是逆康威只做了一半的形态：换了名义图、没换沟通结构，
+定律照样运转，复印出的还是旧沟通图的产物。移植任何组织框架前先问：这个框架改变的是名义图还是沟通图，
+只动名义图的改造，调用图三个月爬回原样。
+
+见：[Why Spotify Squads Are a Popular Failure - Chameleon](https://www.chameleon.io/blog/spotify-squads){rel="&#x22;nofollow&#x22;"}、[The Spotify Model Explained - Peerdom](https://peerdom.com/blog/spotify-model-squads-tribes-chapters-guide){rel="&#x22;nofollow&#x22;"}
+
+
 # 领域驱动设计（DDD）
 
 ## 1 通用类概念
@@ -29299,7 +29746,104 @@ public interface DiscountPolicy {
 见：[DDD 概念参考](https://domain-driven-design.org/zh/ddd-concept-reference.html){rel="&#x22;nofollow&#x22;"}
 
 
+# 六边形与洋葱架构
+
+#### 依赖倒置把接口收进核心，实现赶到外围
+
+经典分层的病根不是层数，是箭头方向：界面、业务、数据访问一路朝下，数据访问认识数据库驱动和表
+结构，业务层为传递数据间接认识字段名，最该稳定的业务规则反而最脆弱，换库的震动从最外层传到最里层。
+依赖倒置原则（Dependency Inversion Principle, DIP）把箭头倒过来：高层模块不依赖低层模块，两边都依赖
+抽象，且抽象由高层自己定义。落到工程上，订单模块不声明「我要某 ORM 的 save」，只声明「我要一个能
+保存订单的端口」，端口接口住在业务核心里，MySQL、PostgreSQL 适配器在外围实现它。编译纪律随之清晰：
+核心源文件里禁止出现 JDBC、Redis、HTTP 这些名字，实现依赖接口，细节依赖规则，换库换的是外围实现类，
+核心一行不动。
+
+见：[The Hexagonal (Ports & Adapters) Architecture](https://alistair.cockburn.us/hexagonal-architecture){rel="&#x22;nofollow&#x22;"}
+
+#### 六边形与洋葱是同一依赖原则的两种画法
+
+六边形从外面看端口：应用在内、外部设施在外，每个端口声明核心需要什么，适配器把外部世界翻译成端口
+协议；一次下单请求从 HTTP 适配器进来翻译成命令，穿过端口落到核心用例，规则算完走仓储端口出去，
+持久化适配器才第一次写出 SQL，核心全程没见过控制器也没见过 SQL。洋葱从剖面看层次：实体、用例、
+接口适配器、框架驱动一圈一圈，硬规矩只有一条，源码依赖必须指向圆心，圈数不重要，箭头朝里才重要，
+外圈换框架内圈原封不动编译通过。两者不是竞争方案而是同一原则的两种视角，Robert Martin 2012 年的
+整洁架构正是把这一族画法整合成四环图，并把六边形与洋葱都列为先辈。
+
+见：[The Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html){rel="&#x22;nofollow&#x22;"}
+
+#### 端口的日常利息是可测性，换库只是广告
+
+架构图上最爱写的好处是「随时可以换数据库」，可绝大多数团队五年里一次库都没换过，端口却为此多写了
+一层。真正天天发生的是写单测：没有端口，测下单规则就得起数据库、灌数据、清表；有了端口，内存假
+适配器三行代码，上百个用例秒级跑完。这正对上 Cockburn 原始意图里写明的一半：应用要能同等地被用户、
+程序、自动化测试或批处理脚本驱动，测试从第一天起就是一等驱动方。适用边界同样明确，Palermo 原文就
+说不适合小型站点，适合长生命周期、行为复杂的业务应用：后台管理全是增删改查、规则薄，上端口只会
+拖慢改字段；下单、计费、库存预占这种规则密、分支多的地方才最值钱。判断看变化来源，变化总从框架和
+数据库进来就倒箭头，变化总从产品字段进来先划模块边界。假整洁有四宗罪：实体还挂表注解（圈对了箭头
+没倒）、每个类都配接口（端口比业务方法还多）、用例层原样转发（核心里没规则只有跳转）、目录改名但
+import 方向不变。自检两下：核心源文件能否脱离框架编译，单测要不要连真实数据库。
+
+见：[The Hexagonal (Ports & Adapters) Architecture](https://alistair.cockburn.us/hexagonal-architecture){rel="&#x22;nofollow&#x22;"}
+
+#### 六条边无关紧要，内外不对称才是本体
+
+六边形的「六」没有含义，Cockburn 选这个形状只是为了摆脱一维分层图、给任意数量的端口留画位。他反复
+强调要利用的不对称是内与外，不是左与右：左右（主动进入、被动出去）只是实现期的惯例画法，原文名词
+是主动端口（primary）与被动端口（secondary），亦称 driving 与 driven，这个区分是使用模式的后果，
+原文明确警告不要拿它短路模式本身。按左右画端口的团队容易把「测试」这个驱动方忘掉，而测试替身恰好
+有对偶关系：测试驱动器是主动端口的自然适配器，mock 数据库是被动端口的自然适配器，设计端口时把
+测试替身一起设计进去，而不是事后补。
+
+见：[The Hexagonal (Ports & Adapters) Architecture](https://alistair.cockburn.us/hexagonal-architecture){rel="&#x22;nofollow&#x22;"}
+
+#### 教程里的洋葱四环多数是 Clean Architecture 的环
+
+Palermo 2008 年原版洋葱的中心是领域模型（Domain Model），核心里只有仓储接口这类行为契约，对象保存
+的实现类因为耦合具体数据库被赶到边缘，最外圈留给 UI、基础设施和测试这些变化快的东西；Uncle Bob
+2012 年的四环则是实体（Entities）、用例（Use Cases）、接口适配器（Interface Adapters）、框架与驱动
+（Frameworks & Drivers）。常见教程把「实体、用例、接口适配器、框架」贴上洋葱标签，实际是 Clean 的
+环被安到了洋葱头上。读旧文时按环名对号入座：用 Clean 的环名评判 Palermo 的洋葱，会把「没有用例圈」
+误判为缺陷，而人家原版核心的重点是领域模型与仓储接口的位置。
+
+见：[The Onion Architecture : part 1](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/){rel="&#x22;nofollow&#x22;"}
+
+#### 依赖规则不靠编译器自觉，靠 CI 架构测试守门
+
+「编译器帮你守规矩」在 TS/JS 生态是句空话：TypeScript 编译器默认不拦 domain 目录里 import 数据库
+驱动，编译照过、类型照通，「核心能否脱离框架编译」仍是一项人工自检。把自检变成门禁的是 CI 里的
+架构测试：Java 的 ArchUnit 分析字节码，断言领域包不得依赖基础设施包，违规即构建失败；JS/TS 侧对应
+dependency-cruiser 与 eslint-plugin-boundaries。这与其余边界三档防御（目录约定、编译器强制、CI
+架构测试）是同一族工具，模块化单体用它们守横向模块边界，这里用来守纵向依赖方向，让架构不漂移。
+
+见：[ArchUnit](https://archunit.org){rel="&#x22;nofollow&#x22;"}
+
+#### 只 mock 自己拥有的端口
+
+单测里图省事直接 mock 数据库驱动的连接类型，某天驱动大版本升级改了结果集方法签名，几百个测试同时
+变红，不是业务代码坏了，是 mock 的假设碎了，修复成本远大于当初省下的一个适配器。伦敦学派 TDD 的
+规则「别 mock 你不拥有的东西」（Don't mock what you don't own，Freeman 与 Pryce《Growing
+Object-Oriented Software, Guided by Tests》2009）说的就是这个：只对拥有定义的抽象做替身。六边形
+恰好给出「拥有」的边界，核心调用自家端口，假适配器实现自家端口，三方 SDK 被适配器关在门外。这条
+原则的边界案例至今有争论，2025 年中社区仍在活跃讨论其适用范围，但「替身只接自己的端口」在六边形
+语境下没有争议。
+
+见：[Don't Mock What You Don't Own in 5 Minutes](https://hynek.me/articles/what-to-mock-in-5-mins/){rel="&#x22;nofollow&#x22;"}
+
+
 # 架构设计
+
+## Topics
+
+- [软件架构](https://lionad.art/software-architecture) - 架构定义、复杂度三轴、质量属性、结构决策与技术债务
+- [架构师角色](https://lionad.art/architect-role) - 日常职责（选挡记）、ADR 实践与风险排序
+- [质量属性](https://lionad.art/quality-attributes) - 非功能需求量化、SLI/SLO/SLA 治理、错误预算燃烧率与观测盲区
+- [C4 模型](https://lionad.art/c4-model) - 四层抽象焦距、4+3 图型全集、静态结构边界与 model as code 工具生态
+- [经典分层架构的痛点](https://lionad.art/layered-architecture-pain) - 三层病灶因果链（贫血、渗漏、反转、膨胀）、领域模型成本账、不变量强制点与 Vertical Slice 替代
+- [模块化单体](https://lionad.art/modular-monolith) - 拆分时机与 MonolithFirst、Package-by-Feature 内聚判据、边界三档防御、通信三道闸与数据所有权、事件解耦事务陷阱、回单体案例
+- [单体拆分时机](https://lionad.art/monolith-split-timing) - 四种不同步与分布式税、四信号量化与黄红灯阈值、最疼优先与绞杀者渐进、逆康威操作、故障形态从全挂到级联、共享表收编顺序、Prime Video 拆错对象
+- [康威定律与微服务拆分](https://lionad.art/conways-law) - 沟通复印机制与四法则、三种错拆与交付单元正解、变化轴与粒度两数判据、切前三问与三条规矩、Bezos API Mandate 组织级接口化、Spotify Model 名义图陷阱
+- [六边形与洋葱架构](https://lionad.art/hexagonal-onion-architecture) - 依赖倒置端口收核心、双几何画法、可测性利息与假整洁自检、内外不对称本体、洋葱环名谱系、CI 架构守门、mock 所有权
+- [微服务](https://lionad.art/microservices) - 组织扩展标的与 monolith first、数据所有权分水岭、Saga 隔离反制、可用性乘法与重试风暴、Outbox 至少一次、共享库分布式单体、sidecar-less 网格
 
 #### 什么是架构思维？
 
@@ -29455,6 +29999,540 @@ Porter 五力提供逻辑性维度（策环境、行业环境、技术环境等�
 13. 项目管理（贯穿多个部门）
     - 主要内容：项目立项、进度跟踪、沟通协调、资源匹配、风险控制、质量把关等。
     - 普适价值：对复杂或跨部门的任务进行科学规划与管理，帮助企业高效完成既定目标。
+
+
+# 经典分层架构的痛点
+
+#### 经典分层架构的病灶：规则失去唯一居所
+
+经典三层（UI/BLL/DAL）与 MVC 叠加，落到目录就是 controllers、services、repositories 三层。
+它当初解决的是单文件时代改按钮文案误伤折扣算式的问题，在规则很薄的小 CRUD 系统里至今够用。
+病灶不在分层结构本身，而在于分层把「数据」和「行为」拆开后，规则失去了唯一合法居所，
+之后的一切都是这条裂缝的下游：订单对象只剩字段没有方法（贫血模型）；
+折扣规则渗漏到 Controller、Service、SQL 各存一份拷贝，单一真相消失，改一处漏两处；
+无处安放的规则全堆进 Service，GodService 涨到没人敢读完，三个目录同时膨胀；
+Service 直接 import 驱动，依赖箭头从业务层直插 MySQL，分层图名存实亡；
+按技术层切目录把一个功能撕成三片，一次改动跨三个文件夹，架构图上三层整齐、代码里功能破碎。
+判断一个项目该不该动架构的标准不是代码量，而是规则有没有开始分叉：
+同一条业务规则出现第二份拷贝，病灶就种下了。
+2003 年 Martin Fowler 把贫血模型命名为反模式，DDD 确立充血模型正统；
+2018 年前后 Jimmy Bogard 推广 Vertical Slice（按功能切目录、拆掉层间门禁），
+当下主流共识是按 feature 打包、层退化为切片内部的薄管道，而非消灭分层。
+
+见：[Anemic Domain Model - Martin Fowler](https://martinfowler.com/bliki/AnemicDomainModel.html){rel="&#x22;nofollow&#x22;"}
+
+#### 贫血模型是付了领域模型的成本跑事务脚本
+
+Fowler 2003 年原文给的不是审美偏好，是一笔成本收益账：采用领域模型（Domain Model）要付的真实成本
+是一整层 O/R 映射（对象与数据库表的转换层），这笔钱只有用对象组织起复杂业务逻辑时才花得值。
+贫血模型把行为全部抽进 Service 后，剩下的逻辑组织方式在模式学上叫事务脚本（Transaction Script），
+一种更古老、更简单的组织方式，本来就不需要对象和 ORM 映射层。
+等于付了领域模型的全部过路费，跑的却是事务脚本的货。
+落到决策上：评估要不要把规则搬回对象，先看项目是否真的在为 O/R 映射层付费，
+表和对象天然一一对应时，业务多半没复杂到需要为充血付钱。
+
+见：[Anemic Domain Model - Martin Fowler](https://martinfowler.com/bliki/AnemicDomainModel.html){rel="&#x22;nofollow&#x22;"}
+
+#### 改一漏二的根因是不变量失去强制执行点
+
+校验写在 Service 里只对「经过 Service 的调用」生效，任何新入口，
+新的 Controller、定时任务、消息消费者、数据修复脚本，都是绕过校验的合法通道。
+贫血模型下，「库存不足必须拒单」这类不变量（invariant，任何时候都必须为真的业务约束）没有法定的强制执行者，
+一条 `UPDATE orders SET discount = 30` 的直改就能产出一批非法订单，每个人都在问「谁忘了改」，
+但真正的问题是校验从「结构的保证」退化成了「某些路径的习惯」。
+充血模型的答案是把不变量关进对象内部：Order.place() 拒绝非法状态，非法订单根本造不出来。
+这也是 DDD 把「对象自己保护不变量」当核心主张的原因，业务逻辑渗漏（改一漏二）只是症状。
+
+见：[Anemic Domain Model - Martin Fowler](https://martinfowler.com/bliki/AnemicDomainModel.html){rel="&#x22;nofollow&#x22;"}
+
+#### Service 层的合法边界是薄协调，不是垃圾桶
+
+Evans 在 DDD 里的定义可以直接当评审标准：应用层（Application Layer，即通常的 Service 层）应当保持薄，
+只负责协调任务（下单流程要走校验、扣库存、发事件三步），不含业务规则和知识，
+也不持有反映业务状态的数据，规则住在领域层。
+对照到代码：Service 方法里出现 `if (amount > 100)` 这类业务判断就是越界信号，
+正确的问法是「这条规则应该由哪个领域对象来回答」，它属于 Order、属于 PromotionPolicy，
+唯独不属于流程编排者。
+可操作的检查：把 Service 方法读一遍，删掉所有业务 if 后剩下的只是
+「取对象、调对象方法、存回去」，这层就是健康的。
+
+见：[Anemic Domain Model - Martin Fowler](https://martinfowler.com/bliki/AnemicDomainModel.html){rel="&#x22;nofollow&#x22;"}
+
+#### Vertical Slice 拆的是层间门禁，不是文件搬家
+
+对「按 feature 切」的常见误解是「把三层文件搬到功能文件夹里」，结果只做了目录搬家，痛点照旧。
+Jimmy Bogard 的原始主张更激进：把 n-tier 分层之间的门禁（gate）和屏障（barrier）整个拆掉。
+传统三层的铁律是 Controller 只能调 Service、Service 只能调 Repository；
+而在 vertical slice 里，一个请求切片内部直接包含 endpoint、校验、handler、持久化的直连调用，
+切片之间互不引用、各自演进。他自述用这种方式做了七八年、覆盖各类应用，
+「无法想象回到分层的约束里」。
+关键区别在耦合方向：分层让所有功能沿同一组纵向管道耦合（改一次签名，40 个文件跟着动），
+切片让功能沿横向隔离（每个切片自己决定要不要校验、要不要事务），MediatR 这类库就是配套产物。
+
+见：[Vertical Slice Architecture - Jimmy Bogard](https://www.jimmybogard.com/vertical-slice-architecture/){rel="&#x22;nofollow&#x22;"}
+
+
+# 微服务
+
+#### 标的物是组织扩展，不是技术先进
+
+微服务（microservices）把一个应用拆成一组可独立部署的小服务，常被当成性能或工程先进性的选择，
+其实标的物是组织扩展：拆出独立部署单元后，各团队按自己的节奏发布、独立扩缩容、故障不再全有全无。
+与三个相邻形态的边界要分清：模块化单体在进程内用编译期与架构测试守边界，微服务把边界升格为网络与独立部署；
+SOA 靠智能总线（ESB）集中编排，微服务主张智能端点、哑管道（smart endpoints, dumb pipes），
+逻辑收进服务本体，管道只负责传输。最坏的形态是分布式单体（distributed monolith）：
+进程拆了，但服务间靠链式同步调用、强制版本对齐的共享库与共享数据库耦合，
+分布式税全额照交，独立部署的收益一点没拿到。
+
+见：[Microservices](https://microservices.io/patterns/microservices.html){rel="&#x22;nofollow&#x22;"}
+
+#### 数据所有权是真假微服务的分水岭
+
+微服务的纪律是每个服务独占自己的数据库（database per service），其他服务不得直连它的表，
+只能走它的接口或订阅它的事件。这不是洁癖而是耦合切断点：共享库或共享表让 schema 变更跨服务即时波及，
+边界画在架构图上、真实耦合埋在数据里。独立持数据立刻派生两个子问题：跨服务的写一致性交给 Saga；
+跨服务的查询不能跨库 join，要么 API 组合（依次调用各服务拼接结果），要么 CQRS（命令查询职责分离，
+为查询侧建一份由事件回放维护的独立读模型）。
+
+见：[Database per Service](https://microservices.io/patterns/data/database-per-service.html){rel="&#x22;nofollow&#x22;"}
+
+#### Saga 把跨服务事务拆成本地事务加补偿
+
+数据库事务跨不了多个服务的库，跨服务的业务原子性靠 Saga：把业务流程写成一串本地事务，
+每步配一个补偿操作（compensating action），中途失败就逆向执行已完成步骤的补偿。
+两种协调风格各有代价：编排（orchestration）由中心协调器逐步指挥各服务，流程集中可见，
+但协调器易成单点与瓶颈；协同（choreography）靠服务间事件驱动，各服务听到事件自行行动，
+松耦合但流程散落各仓，改流程要在多个代码库里找逻辑。
+
+见：[Saga](https://microservices.io/patterns/data/saga.html){rel="&#x22;nofollow&#x22;"}
+
+#### Saga 不提供隔离性，补偿写完仍会丢更新
+
+Saga 只保原子性，牺牲了隔离性（isolation）：每个本地事务一提交，中间状态立刻对外可见，
+并发的两个 saga 会在对方的中间状态上做决策。典型异常是丢失更新（lost update）：
+一个 saga 的补偿操作把另一个 saga 刚写入的值覆盖掉，另有脏读与不可重复读。
+Richardson 在《Microservices Patterns》第 4 章给出三种最常用反制手段（countermeasures）：
+语义锁（semantic lock），用 PENDING 一类的状态字段标记记录处于未完成事务中，让并发方识别后等待或拒绝；
+可交换更新（commutative updates），把写设计成与顺序无关的运算（如金额加减），丢失更新自动消失；
+重读验证（reread value），提交前重读一遍确认未被并发改动，脏了就重启 saga。
+选型评估时「用了 Saga」只是入场券，真正的工作量在审计哪些流程存在并发重叠的 saga 对、
+每个重叠点用哪种反制堵漏。
+
+见：[Microservices Patterns Chapter 4](https://livebook.manning.com/book/microservices-patterns/chapter-4/){rel="&#x22;nofollow&#x22;"}
+
+#### 同步调用的可用性按乘法衰减
+
+通信默认倾向异步事件，这条可以从一道算术推出：可用性是乘法不是平均，
+3 个 99.9% 可用的服务串成同步链路，端到端只剩约 99.7%，月停机从约 43 分钟涨到约 2 小时，
+链路越长衰减越狠。异步事件下发送方发布后不等结果，接收方各自消费，
+任何一方短暂不可用都不阻塞整条链，可用性从乘法变回各自独立。
+同步调用只留给真正需要即时答案的场景，且必须配超时、熔断、舱壁三件防御
+（故障形态的账与三件套在单体拆分时机的「拆分换掉故障形态」条目已记）。
+
+见：[Microservices - Martin Fowler](https://martinfowler.com/articles/microservices.html){rel="&#x22;nofollow&#x22;"}
+
+#### 重试层层相乘成重试风暴
+
+下游开始超时后，上游为每个请求重试 3 次，上游的上游又对上游重试 3 次，
+两层相乘就是 9 倍、三层 27 倍流量打向已不堪重负的下游，「慢」被直接放大成「死」；
+恢复瞬间所有客户端按对齐的间隔同时重发，同步波把刚爬起来的服务二次打死。
+防御组合：指数退避加抖动（exponential backoff with jitter），间隔指数拉长并加随机量打散同步波，
+出处是 AWS 的 Marc Brooker 2015 年论文；重试预算（retry budget）限制重试请求占总流量的比例
+（如不超过 10%），超额直接失败；重试策略只在每个依赖的边界配置一处，绝不层层叠加；
+熔断器打开后直接拒绝请求。全部手段的前提是消费端幂等，否则每次重试都是一次新副作用。
+
+见：[How to Fix 'Retry Storm' Issues in Microservices](https://oneuptime.com/blog/post/2026-01-24-retry-storm-microservices/view){rel="&#x22;nofollow&#x22;"}
+
+#### Outbox 堵双重写入，投递语义是至少一次
+
+服务在一个事务里写业务表、再调消息队列发事件，进程在两步之间崩溃，库里有数据、消息没出去，
+这就是双重写入（dual-write）问题。事务性发件箱（transactional outbox）的解法：
+把待发消息当普通行写进同库的 outbox 表，与业务数据同事务提交，再由独立中继（relay）读表投递。
+两个语义必须清楚：投递保证是至少一次（at-least-once），崩溃恢复后必然重发，恰好一次是神话，
+消费端必须幂等（去重表或幂等键）；中继两种实现各有代价，轮询发布器（polling publisher）定时扫表，
+简单但压库且有秒级延迟，CDC（change data capture，读数据库 binlog，典型工具 Debezium）
+开销低延迟小但运维重。消息顺序保证只到分区级，跨分区乱序是常态。
+
+见：[Transactional outbox](https://microservices.io/patterns/data/transactional-outbox.html){rel="&#x22;nofollow&#x22;"}
+
+#### 共享库对齐契约会把部署退回单体
+
+拆出八个服务，为「复用」把所有 DTO、事件契约、领域枚举抽成一个 common 包，
+此后每改一个字段都要全量服务升级依赖、协调同一发布窗口才能保证兼容：
+改一个服务必须触碰其他所有服务的部署。这是分布式单体最隐蔽的成因，
+因为它在代码评审里看起来是最佳实践（DRY、类型安全）。判定标准只有一条：
+改一个服务是否必须触碰其他服务的部署。共享库只允许装与业务无关的技术件
+（日志封装、HTTP 客户端、重试工具），服务间契约靠版本化的 API 与 schema
+（schema registry、语义化版本的事件契约）解耦。
+
+见：[Shared Database and Shared Library Coupling](https://softwarepatternslexicon.com/microservices-boundaries-and-service-decomposition/anti-patterns/shared-database-library-coupling/){rel="&#x22;nofollow&#x22;"}
+
+#### 流量入口收进网关，治理下沉到网格
+
+实例动态上下线后互相寻址靠服务发现（service discovery）；对外流量需要统一入口
+做认证、限流与路由，这是 API 网关（API gateway）。再往下一层是服务网格（service mesh）：
+把重试、超时、mTLS 加密、流量切分从每个业务的代码里抽出来下沉到基础设施层，
+业务代码不再重复实现治理逻辑。当前方向是 sidecar-less：经典网格给每个 Pod 注入一个 sidecar 代理，
+资源开销与升级耦合都重；Istio 的 Ambient 模式改用节点级 ztunnel（Rust 实现的 L4 代理）
+加按需启用的 waypoint 处理 L7 策略，2024 年末 GA，与 Cilium 一类基于 eBPF 的方案构成同一下沉趋势。
+
+见：[Ambient Mode - Istio](https://istio.io/latest/docs/ambient/){rel="&#x22;nofollow&#x22;"}
+
+#### monolith first：小团队、边界未清与基建缺位时不拆
+
+主流建议仍是 monolith first：先做模块化单体，等组织压力真实出现再按信号拆
+（信号判据见单体拆分时机的四信号条目）。三类典型反指：小团队（两个披萨以内）拆微服务，
+协调成本大于收益；领域边界没摸清就拆，拆错的边界再合并代价极高，
+模块化单体的模块边界才是低成本试错场；容器编排与可观测三件套（分布式追踪、集中日志、指标）
+没建起来就拆，微服务一个请求跨多个进程，没有 trace ID 贯穿就无法排障，
+观测从加分项变成生存必需。行业经历 Prime Video 等回退案例后进入「合适论」阶段：按需拆、拆最小的份。
+
+见：[When not to use microservices: 4 challenges to consider](https://www.techtarget.com/searchapparchitecture/tip/When-not-to-use-microservices-Challenges-to-consider){rel="&#x22;nofollow&#x22;"}
+
+
+# 模块化单体
+
+#### 模块化单体是拆微服务前的中间态
+
+微服务解决的是两个问题：团队规模与独立部署。两个需求都没到就拆，等于用真实的业务复杂度去换网络延迟
+（函数调用微秒级变网络调用毫秒级）、分布式一致性（一个数据库事务变成补偿与最终一致）和 N 倍运维
+（一套流水线变十几套），而且合并回单体比拆分出去更痛，回头路代价不对称。模块化单体（Modular Monolith）
+是拆分之前被跳过的中间态：部署形态仍是单体，一个进程、一个数据库、一次发布，但代码内部按业务能力
+划分高内聚模块，模块内怎么写随便，模块间怎么通信有严格规矩。这套边界现在立好，将来真要拆微服务时
+成本最低：该断的边界代码里已经断好，物理拆分只是搬迁。Martin Fowler 的 MonolithFirst 说的就是这件事：
+新项目几乎都从单体开始，即使最后会走向微服务，单体期换来的信息也值得。
+
+见：[MonolithFirst](https://martinfowler.com/bliki/MonolithFirst.html){rel="&#x22;nofollow&#x22;"}
+
+#### 高内聚低耦合落在目录上就是 Package-by-Feature
+
+高内聚指强相关的代码放在一起，改动被限制在一个模块内；低耦合指模块间依赖最少、只走窄接口。
+落到工程上，切法只有两种：Package-by-Layer 按技术职责切顶层目录（controllers、services、repositories），
+一个业务功能的代码散落在多个文件夹；Package-by-Feature 按业务能力切（order、inventory、payment），
+一个业务从接口到数据访问全部收在自己的文件夹里。两种切法代码量几乎一样，判据一句话：改同一个需求，
+你要不要跨文件夹跳来跳去。Package-by-Feature 的改动散布半径小，新人看懂一个业务只需读一个文件夹，
+团队分工也能对齐到模块。
+
+见：[Modular Monolith Architecture](https://www.milanjovanovic.tech/modular-monolith-architecture){rel="&#x22;nofollow&#x22;"}
+
+#### 边界强度三档：目录约定、编译器强制与 CI 架构测试
+
+微服务的边界是进程边界、网络边界，越界直接报网络错误，躲不掉；模块化单体的边界只是一层代码约定，
+必须自己购买防御，强度分三档。第一档目录约定，零强制，靠自觉。第二档编译器强制：Java 模块系统（JPMS）
+用 requires 与 exports 控制包可见性，.NET 用 internal 关键字让实现类出了程序集就不可见，越界直接编译报错，
+IDE 在写 import 那一刻就标红；评审和架构测试都是事后拦截（代码写完、PR 已开），编译错误是事前阻止，
+成本结构完全不同。第三档 CI 架构测试兜编译器管不到的结构规则，比如循环依赖、跨模块只许依赖接口层，
+ArchUnit、Spring Modulith 的 verification、前端的 dependency-cruiser 与 ts-arch 都属于这一档，
+规则写成可执行断言跑在 CI 里，违反边界的提交几秒内红灯。三档并存而非互斥：架构测试不会心软，
+比代码评审可靠，因为边界从「请大家自觉」变成一道能拦人的闸门。破坏通常是慢性的：每次赶工期多加一次
+跨模块调用，半年后模块间重新纠缠成大泥球，而没有物理反馈的腐化最难被看见。
+
+见：[ArchUnit](https://archunit.org){rel="&#x22;nofollow&#x22;"}
+
+#### 模块间通信三道闸：窄接口、领域事件与数据所有权
+
+模块要打交道时，代码闸是只 import 对方模块公开的接口或门面，实现类对模块外不可见；通信闸是同步调用
+走窄接口（如下单前调库存模块的 hasStock 问一句有没有货），异步走领域事件；数据闸是不碰对方的表。
+数据闸最常被击穿：某个「紧急报表」让订单模块直接 join 库存表，架构测试只查 import 关系不查 SQL，
+没人拦得住，从那天起库存表任何一列改动都会在订单模块炸出事故，而两个模块在代码层看起来毫无关系。
+其机制在于，模块间集成方式的耦合强度有档位（文件传输、共享数据库、直接调用、事件），共享数据库是最强
+的一档：代码接口只是窄门，表结构才是承重墙。落地做法是每个模块拥有自己的 schema（独立 schema 或严格
+表前缀），并在数据库账号权限层面禁止跨 schema 访问，让数据闸和代码闸一样从「不该」变成「不能」。
+
+见：[Modular Monolith: Integration Styles](https://www.kamilgrzybek.com/blog/posts/modular-monolith-integration-styles){rel="&#x22;nofollow&#x22;"}
+
+#### 单体内事件解耦的事务陷阱：提交后才投递
+
+进程内事件不是网络消息，没有「发出去就与你无关」的保证。典型事故：下单模块发布 OrderCreated 事件，
+库存模块监听后扣减并回查订单表校验，结果查到空，因为 Spring 默认的 @EventListener 在事件发布瞬间同步
+投递，此刻下单事务尚未提交，监听器读到的永远是旧快照；更糟的是监听器抛异常会连带回滚主事务，
+以为解耦了，实际还在同一个事务里。机制在于进程内事件总线的投递时机默认绑定在发布调用点，而不是事务
+边界。Spring Modulith 的 Event Publication Registry 是官方解法：事件先落库、事务提交后才投递、
+监听器失败记录在案可重放，相当于免费拿到一个事务性发件箱（transactional outbox）。单体内做事件解耦，
+要么用提交后投递加落库注册表，要么明确接受同步事务语义；裸用事件总线假装异步是最隐蔽的假解耦。
+
+见：[Spring Modulith Reference](https://docs.spring.io/spring-modulith/reference/){rel="&#x22;nofollow&#x22;"}
+
+#### 拆分前算账与回单体案例
+
+做扎实的模块化单体拿到三个明确好处：部署简单（永远只有一个进程上线，不协调发布顺序）、事务简单
+（一个数据库连接保证强一致性，不引入分布式事务）、调用性能高（模块间是函数调用）。代价是越界没有
+物理反馈，腐化慢且不可见，没有架构测试兜底就会在看不见的地方烂掉。适用边界也要认：团队已到规模且
+某模块流量特征不同需要独立伸缩时，直接微服务；组织按团队边界切（康威定律），多团队并行改同一模块
+必然互相踩；一周生命周期的原型不必投资边界。演化路径已被一线验证：Istio 控制面 2022 年合并为 istiod
+单二进制，Amazon Prime Video 监控服务 2023 年从微服务回到单体，加上 Segment 与 InVision，一篇多来源
+文献综述把回退原因归纳为五类：成本、复杂度、伸缩性、性能与组织。拆分是手段不是勋章，
+规模到了再拆，边界先立好随时可拆。
+
+见：[From Microservice to Monolith: A Multivocal Literature Review](https://www.mdpi.com/2079-9292/13/8/1452){rel="&#x22;nofollow&#x22;"}
+
+
+# 单体拆分时机
+
+#### 拆分临界点看四种不同步，不看代码体积
+
+模块化单体把边界立进代码之后，「核心稳了」常被误读成「可以物理拆了」，这是两回事。物理拆分先欠一笔
+固定成本：分布式税（distributed tax），网络调用、分布式事务、多套流水线、跨进程排障，这些开销每天都要
+交，与业务有没有受益无关；继续用模块化单体，这笔税是零，边界已经在代码里。收益端，物理拆分只有四种
+货币化收益，各自对应一种不同步：团队不同步，两支以上团队抢同一个发布窗口；发布不同步，订单组要发
+必须等库存组的回归跑完；流量不同步，大促时只有结算接口 CPU 打满，空闲模块也得跟着扩容；演进不同步，
+营销一周三期活动页而风控一个月才敢动规则。任何一种不同步都不存在时，拆分是纯交税。反直觉的是体积
+不构成判据：二十万行但一个团队、一次发布、流量均匀，可以继续单体；两万行但三支团队、四种节奏、一处
+热点，已经该认真评估。体积是结果，不同步才是原因，别问系统有多大，问四件事还齐不齐步。
+
+见：[When to Split a Monolith: The Signals That Actually Justify It](https://gpo-tech.com/blog/when-to-split-monolith-microservices){rel="&#x22;nofollow&#x22;"}
+
+#### 拆分信号的红灯判据：撤不回与持续四个周期
+
+把四条信号写成能看的数：一个发布单元背后的独立对齐团队数；过去 30 天里因别人的提交导致自己回滚的
+次数；最热接口 CPU 占比以及整站扩容次数是否与它绑定；两个模块的发布频率是否差到一个数量级。数字进
+同一张表每周看，一项越线是黄灯，先加模块边界和架构测试；两项以上越线且持续四个发布周期是红灯，再
+立案评估。持续性是防伪关键：大促是一次脉冲，临界点是趋势，单次峰值不构成拆分理由。三个易误判处需要
+分清。部署信号看的不是「发得慢」，慢可以靠按模块切测试、并行流水线缓解，回滚无法按模块撤回、误伤
+无关功能才是越线，判据是失败无法单独撤回。流量信号先确认是计算热点还是数据库热点，数据库先到顶时
+拆服务无效，该做读写分离或分片。演进信号不是问「谁想自己说了算」，而是错过对方的发布节奏会不会
+直接丢钱或违规，合同、监管或收入的硬约束才算红。
+
+见：[Monolith to Microservices](https://samnewman.io/books/monolith-to-microservices/){rel="&#x22;nofollow&#x22;"}
+
+#### 红灯亮了一次只拆最疼的单元
+
+就算红灯亮了，也不按领域名词把清单拆完。先拆同时命中团队独立、发布冲突、流量热点的那一个单元，
+其余模块继续留在模块化单体里。最常见的失败是拆了六个、其中五个没有独立演进需求，那五个变成分布式
+的大泥球，比原来更难改。拆分清单的第一行只能有一个名字，跑完两个发布周期、数字回绿，再考虑第二行。
+落地手法是绞杀者模式（Strangler Fig）：新服务像藤蔓包住古树一样逐步包住旧单体，入口路由把流量按功能
+切给新服务，旧模块原地不动直到被完全替代。架构演进是连续搬迁，不是一次搬家晚会。
+
+见：[StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html){rel="&#x22;nofollow&#x22;"}
+
+#### 拆组织先于拆代码：逆康威操作
+
+一支 12 人团队想拆出订单服务，惯例是先派两人开新仓库写服务，但康威定律复印的是现有沟通结构：这两个人
+每天仍要找其余十人对齐字段口径，半年后订单服务变成需要全家会签的「共享库」，只是多了一次网络跳。
+逆康威操作（Inverse Conway Maneuver）把方向倒过来：想拆出独立服务，先成立独立团队并明确它不参与原单体
+的值班；团队边界稳定后，服务边界沿着团队边界自己长出来。Team Topologies 把这套组织设计工程化：价值流、
+平台、赋能、复杂子系统四类团队配三种交互模式，先度量认知负载（cognitive load）再画边界。拿到拆分提案
+先问拆完谁拥有它、它还依赖谁对齐，组织答案不出来，代码不动。
+
+见：[Team Topologies Key Concepts](https://teamtopologies.com/key-concepts){rel="&#x22;nofollow&#x22;"}
+
+#### 拆分换掉故障形态：从全挂到级联慢
+
+部署撤回只覆盖一半的隔离账，同进程还藏着运行时的账：任何模块的内存泄漏、Full GC、线程池打满都会拖垮
+全进程，故障是全有全无，症状统一但同归于尽，这也是把故障隔离列为第五条拆分信号的原因。拆分后故障
+变成级联失败（cascading failure）：下单服务变慢，购物车等它超时，前端等购物车超时，慢像波浪往上游传，
+每个环节的超时配置把局部慢放大成全局瘫。拆分没有消灭故障，而是把全挂换成部分慢：诊断从看一个进程的
+日志变成跨服务追链路，还必须补上超时预算、熔断、舱壁隔离三件套，缺一件，可用性反而低于拆分前。
+评估拆分收益时，故障隔离可以列为信号五，新故障模式的防御成本则计入分布式税。
+
+见：[Release It! Second Edition](https://pragprog.com/titles/mnee2/release-it-second-edition/){rel="&#x22;nofollow&#x22;"}
+
+#### 先收共享表再拆进程
+
+团队把订单模块拆成独立服务，但库存和订单仍共用一张库存表、两个服务各自直连改数据，此时 schema 变更
+从编译期错误降级成运行时事故：原来字段改名编译器立刻报警，拆分后订单侧改字段、库存侧的 SQL 半夜挂掉，
+外加两个服务各自缓存，同一行数据出现三个版本的真相。正确顺序是反的：先把共享表按归属收掉，订单模块
+不再直读库存表、改走模块内接口，进程内也要走接口；等模块间所有数据访问都过了接口，把接口换成 HTTP
+只是换传输方式。跳过这步拆进程，得到的是分布式大泥球：服务边界画在架构图上，真实耦合还埋在共享表里。
+这与模块化单体的数据闸是同一件事的两段：先立表所有权，再动进程。
+
+见：[Database per Service](https://microservices.io/patterns/data/database-per-service.html){rel="&#x22;nofollow&#x22;"}
+
+#### Prime Video 回单体的精确读法：拆错对象
+
+2023 年 5 月，Prime Video 的音视频质量监控服务上了技术新闻：团队此前把它拆成 Step Functions 编排的多个
+Lambda，高并发时发现架构本身跟不上直播流，五个组件每两秒产生几十 GB 中间数据，全靠 S3 存储来回倒手，
+编排层的读写延迟成了瓶颈。修复不是加机器，而是把五个组件收回同一个进程、数据改走内存传递，成本降
+90%。这个案例常被引用为「微服务失败」，更精确的读法是拆错对象：五个组件同属一条数据流水线、同一支
+团队、同一发布节奏，四种拆分信号一个都不满足，它是「信号不齐就拆会怎样」的反向验证实例，该团队其他
+服务至今仍用微服务。社区对该案例的批评也成立：数据密集型批处理是非典型场景，不能推广为微服务普遍
+失败的证据，引用时标注这个边界。
+
+见：[Return of the Monolith](https://thenewstack.io/return-of-the-monolith-amazon-dumps-microservices-for-video-monitoring/){rel="&#x22;nofollow&#x22;"}
+
+
+# 质量属性
+
+#### 非功能需求是写成数字的质量属性
+
+功能清单决定系统「做什么」，非功能需求决定「做得怎么样」，别名叫质量属性（Quality Attributes）。
+功能缺了系统能跑，非功能缺了系统不能用；验收方式也不同——功能可以勾选，质量必须是刻度。
+「要稳定」这类形容词没有刻度，验收时产品拿它说慢、研发拿它说没挂，无数字则验收即扯皮。
+常用五个维度记忆：快（性能）、稳（可用性）、扩（可扩展性）、安（安全性）、改（可维护性）。
+
+业界权威分类是 ISO/IEC 25010 产品质量模型，2023 修订版从八个特性扩到九个：新增 safety
+（人身安全，区别于 security 信息安全），usability 改名 interaction capability，portability 改名 flexibility。
+「扩」在其中并非一等特性，更多是架构属性而非产品交付属性。
+
+见：[ISO/IEC 25010:2023](https://www.iso.org/standard/78176.html){rel="&#x22;nofollow&#x22;"}
+
+#### 性能验收写百分位，不写平均值
+
+平均值掩盖尾巴：平均延迟 80ms 的服务，可能同时有 1% 的请求拖到 800ms，而用户感受到的恰恰是尾巴。
+P99（99th percentile latency，第 99 百分位延迟）的含义是一百次请求里九十九次必须落在该阈值内。
+完整的性能验收是成对的：延迟（如 P99 < 200ms）加吞吐（如每秒 2000 笔），
+只写延迟的话，压低并发就能「达标」。
+
+见：[Service Level Objectives - Google SRE Book](https://sre.google/sre-book/service-level-objectives/){rel="&#x22;nofollow&#x22;"}
+
+#### 可用性的几个 9 是一张停机预算表
+
+把可用性按一年 8760 小时摊开：两个 9（99%）允许停 87.6 小时，三个 9 停 8.8 小时，
+四个 9 剩 53 分钟，五个 9 只剩 5 分钟。每多一个 9，允许停机时间砍掉十倍。
+「几个 9」不是口号，是预算表——预算花完，当年可用性即告破。
+签下几个 9 之前先换算成停机预算，再问业务量撑不撑得起。
+
+见：[Uptime and downtime availability calculator](https://uptime.is/99.9){rel="&#x22;nofollow&#x22;"}
+
+#### SLI 是针、SLO 是红线、SLA 是合同
+
+把「稳」写成数字需要三个配套概念。SLI（Service Level Indicator，服务水平指标）是那根针，
+只测量不承诺，最常见形式是成功请求数 ÷ 总请求数；针必须钉在单一具体路径（如结账接口），
+混入健康检查会把失败率拉绿。定义「成功」时把慢请求直接计入失败——慢的请求等于不可用，
+用户不会区分「挂了」和「转圈 10 秒」，可用性数字也不该区分。SLO（Service Level Objective，服务水平目标）是对内红线，
+规定针停在哪里（如 99.9%）；其下方是错误预算（Error Budget）= 1 − SLO，
+额度没花完可正常发版试新功能，花光就该关发布闸门——数字本身不产生行为，配套策略才产生。
+SLA（Service Level Agreement，服务水平协议）是对外合同，破了按条款赔钱。
+落地顺序不可反：先立针，再画线，最后签合同；合同先盖章、针还没立，事后只能补形容词。
+
+SLA 必须比 SLO 松一截，这是数学必然而非保守习惯：端到端可用性约等于各串联依赖可用性之积，
+三个 99.9% 的依赖串联只剩 99.7%，对外承诺天然被依赖链封顶，松出的差额才容得下测量误差与突发。
+另一个实务差异：错误预算的计量窗口业界常用 28/30 天滚动窗口，按自然年换算停机时长是教学化处理。
+
+见：[Service Level Objectives - Google SRE Book](https://sre.google/sre-book/service-level-objectives/){rel="&#x22;nofollow&#x22;"}
+
+#### 每多一个 9 成本跳一个数量级
+
+从三个 9 到四个 9，允许停机时间从 8.8 小时收窄到 53 分钟，为此要上多活架构、自动故障转移、
+全链路压测，人、机器、演练成本按数量级上涨，不是线性加一截。
+多活防的是整个地域不可用（机房断电、光缆挖断、区域云故障），单地域内的问题同城双活就能扛，
+业务量撑不起时「同城双活加异地冷备」是更诚实的档位。
+
+反直觉的结论是少一个 9 往往才是正确选择：先问能为可靠性付多少钱、业务量撑不撑得起，再决定写几个 9——
+9 越多不代表越专业，只代表停机预算越贵。预算花不完同样是失败：长期大量剩余说明系统过度可靠，
+多花的钱本可以换成发版速度与新功能；SLO 定得过紧则预算频烧、触发功能冻结。
+所以 SLO 不是纯技术指标，是产品与研发的谈判产物，SRE Workbook 建议目标不要明显高于现状。
+
+见：[Implementing SLOs - Google SRE Workbook](https://sre.google/workbook/implementing-slos/){rel="&#x22;nofollow&#x22;"}
+
+#### P99 全线达标不等于用户不慢：尾部放大
+
+P99 达标时单个用户会话仍可能很慢。一次页面加载发出 30 个请求，全部落在 P99 以内的概率是
+0.99³⁰ ≈ 74%，即每四个会话仍有一个碰到慢请求。微服务链路放大得更狠：请求穿过 100 个独立实例时，
+至少踩到一个慢节点的概率是 1 − 0.99¹⁰⁰ ≈ 63%——部分达标相乘之后整体不达标，
+Dean 与 Barroso 在 The Tail at Scale（2013）里称之为尾部放大（tail amplification）。
+验收时「每个服务 P99 < 200ms」不构成「页面 200ms」的证据链；面向用户会话的 SLO
+用错误率（慢会话占比）比用百分位诚实。
+
+见：[The Tail at Scale - Google Research](https://research.google/pubs/pub40801/){rel="&#x22;nofollow&#x22;"}
+
+#### 错误预算告警告的是烧钱速度，不是余额
+
+在「月可用性 ≥ 99.9%」上直接设阈值告警，等于订了一份月度事故总结——预算烧完才响；
+按原始错误率（红线 0.1%）设阈值又会被正常业务波动吵死。
+SRE Workbook 的解法是多窗口多燃烧率（multiwindow multi-burn-rate）告警：不告余额，告烧钱速度。
+经典档位：1 小时窗口烧率 14.4×（照此速度约两天烧完 30 天预算，触发 page）、6 小时窗口 6×、
+3 天窗口 1×（正好在窗口末烧完，降级为 ticket），每个档位再配一长一短双窗口确认以滤掉瞬时毛刺。
+定完 SLO 数字离「SLO 在生产可用」还差这一整套告警工程，Prometheus 生态的 sloth 就是为生成这套规则而生。
+
+见：[Alerting on SLOs - Google SRE Workbook](https://sre.google/workbook/alerting-on-slos/){rel="&#x22;nofollow&#x22;"}
+
+#### 服务端 SLI 有观测盲区
+
+服务端 SLI 从日志统计「成功响应 ÷ 总响应」，分母只有到达服务端的请求——DNS 解析失败、
+TLS 握手被运营商劫持、CDN 边缘节点故障、移动网络断连的请求根本没到服务器，不进分母。
+结果服务端报表 99.95%，用户实测可能只有 99.5%，误差一个数量级。
+SLO 承诺的对象是用户体验，SLI 测量的位置却在服务端，这个断层是所有 SLO 体系的固有缺口；
+缓解手段是从客户端补测：RUM（Real User Monitoring，真实用户监控）或合成探针（synthetic probes）。
+定义任何 SLI 之前先问：这个指标的分子分母，各自覆盖了用户路径的哪一段？
+
+#### 监控先补齐四个黄金信号
+
+新服务的监控面板先覆盖延迟（latency）、流量（traffic）、错误（errors）、饱和度（saturation，
+队列堆积、连接池占满、磁盘水位）四项。SRE Book 认为它们覆盖了绝大多数用户可感知的故障模式，
+精细化的自定义面板应建立在这四项齐全之后。
+
+见：[Monitoring Distributed Systems - Google SRE Book](https://sre.google/sre-book/monitoring-distributed-systems/){rel="&#x22;nofollow&#x22;"}
+
+
+# 软件架构
+
+#### 软件架构是难以改变的结构决策集合
+
+功能跑通只回答「能不能用」，回答不了三件事：负载上来扛不扛得住、改动会不会牵连、失败后能不能恢复。
+开发视角看到的是功能清单，架构视角看到的是承重墙——单点在哪里、依赖链会不会被下游拖死、加一个字段要动几个文件。
+框图只是某个时刻的快照，真正的架构是那串已落地的结构决策：单库还是拆库、同步调用还是消息队列、失败时重试还是降级。
+决策一旦通过代码和数据固化，回退成本极高，Ralph Johnson 与 Martin Fowler 因此把架构定义为「一组重要的决策，其重要性在于难以改变」。
+
+架构优化的对象是质量属性：性能（快）、可用性（稳）、可扩展性（能扩）、可维护性（能改）。
+这些能力不会出现在产品验收清单里，却决定系统寿命。
+经典质量属性清单（如 Bass《Software Architecture in Practice》与 ISO/IEC 25010 模型）还包括安全性、易用性、可测试性等，
+可扩展性在其中通常并入性能而非独立一等属性。
+
+见：[Software architecture - Wikipedia](https://en.wikipedia.org/wiki/Software_architecture){rel="&#x22;nofollow&#x22;"}
+
+#### 复杂度沿人、模块、时间三条轴增长
+
+复杂度不是突然出现的，它沿三条轴同时上涨：团队规模扩张抬高沟通成本，模块数量增加拉长排查路径，
+时间抹掉设计动机（当初为什么这么写没人记得，写代码的人可能已离职）。
+单独一条轴还能应付，三轴同涨才是压垮系统的原因。
+
+沟通成本按平方增长：n 个人之间有 n(n-1)/2 条沟通线，3 人 3 条、30 人 435 条——人头涨 10 倍，沟通线涨 145 倍。
+这个公式出自 Brooks 1975 年的《人月神话》，它解释了为什么「人多了」不能靠多开会解决，只能靠结构解决：
+拆小团队、拆边界清晰的模块，都是在给平方曲线踩刹车。
+
+见：[The Mythical Man-Month - Wikipedia](https://en.wikipedia.org/wiki/The_Mythical_Man-Month){rel="&#x22;nofollow&#x22;"}
+
+#### 结构决策前先问什么会变、什么会炸
+
+选结构被多数人做反了：先看中某个框架，再给它找理由。正确的顺序是先回答两个问题——
+什么会变：字段、规则、流量形态里明年一定会动的那部分，在变的那侧留可改的口子；
+什么会炸：并发洪峰、下游故障、单点堵塞里会打穿系统的场景，先把承重墙立住。
+两问答完再决定拆几个服务、怎么连接、失败谁兜底。
+
+每个结构决策都是取舍，快交付和以后好改很少同时成立，区别只是利息什么时候付。
+今天把订单和库存写进同一张宽表省一周，明年加字段时十七处读取全要跟着改。
+判断口子留没留上的标准是演进成本：会变的那侧今天不焊死。
+决策落定后还要能讲清「为什么选它、放弃了什么」——讲不清的决策半年后没人敢动，
+这个义务的现代载体是架构决策记录（Architecture Decision Record, ADR），用短文档把决策背景与备选项沉淀下来。
+
+见：[Architecture decision record - GitHub](https://github.com/joelparkerhenderson/architecture-decision-record){rel="&#x22;nofollow&#x22;"}
+
+#### 技术债的原意是主动借债换学习
+
+Ward Cunningham 1992 年在 OOPSLA 的经验报告里写道：
+「Shipping first time code is like going into debt. A little debt speeds development...」——先上线第一版代码如同举债，少量债务能加速开发。
+他发明这个比喻不是为了批判脏代码，而是向不懂技术的管理者解释：为什么尽快交付原型、从真实用户反馈里学习是理性的。
+借债换回的是学习机会，利息是日后重构。
+
+Cunningham 后来（2009 年的 Debt Metaphor 演讲）澄清，这个比喻只适用于「因学习而写的代码被新需求追上」的场景。
+据此判断一笔债该不该欠：复制这段逻辑真的换回了学习或反馈吗？团队知道自己欠了、利息记在哪吗？
+两者都成立是杠杆；都不成立（比如把同一段校验逻辑无意识复制进十七个文件）不是债，是失职。
+识别标准是「每次改动是不是越来越慢」。
+
+见：[TechnicalDebt - WikiWikiWeb](https://wiki.c2.com/?TechnicalDebt){rel="&#x22;nofollow&#x22;"}
+
+#### 模块划分的判据是藏住难预判的设计决策
+
+David Parnas 1972 年的论文 "On the Criteria to Be Used in Decomposing Systems into Modules"
+否定了当时的主流做法——按处理步骤划分模块（每个环节一个模块）。
+他提出的判据是信息隐藏（information hiding）：每个模块藏一个最难预判的设计决策（他称之为该模块的 secret），接口只暴露稳定抽象。
+他用 KWIC 索引系统做了对照：按流程分解的系统换存储方式要动多个模块，按信息隐藏分解只动字符存储一个模块。
+
+落到评审里，问的不是「职责清不清晰」，而是「这个模块藏的是什么可变决策、真的藏住了吗」。
+接口一旦泄漏实现细节（比如暴露数据来自宽表），口子就等于没留，外部调用方会依赖它，改动时全线被牵连。
+
+见：[Information hiding - Wikipedia](https://en.wikipedia.org/wiki/Information_hiding){rel="&#x22;nofollow&#x22;"}
+
+#### 向进度落后的项目加人只会更落后
+
+沟通线平方律的直接推论就是 Brooks 定律（Brooks's Law）：向进度落后的软件项目加人，只会让它更落后。
+机制有两层：新人上手前没有产出，现有工程师要停下来培训，Brooks 估计这部分消耗接近把工作重做一遍；
+同时每加一人新增 n 条沟通线，n 增大让平方项更大。
+
+延期时更有效的动作是砍范围，或者拆小团队——拆团队是唯一直接压低 n 的动作。
+
+见：[The Mythical Man-Month - Wikipedia](https://en.wikipedia.org/wiki/The_Mythical_Man-Month){rel="&#x22;nofollow&#x22;"}
 
 
 # 技术架构
@@ -32688,6 +33766,13 @@ compile: $(ofiles)
 - [Flutter](https://lionad.art/flutter) - Google 跨平台 UI 框架
 - [Taro](https://lionad.art/taro) - 多端统一开发解决方案
 - [Tauri](https://lionad.art/tauri) - 用 Web 技术构建跨平台原生桌面应用
+- [Electron](https://lionad.art/electron) - Chromium + Node 桌面应用框架，薄壳架构、环境与构建、窗口与运行时行为
+- [Electron 分发与签名](https://lionad.art/electron-distribution) - Gatekeeper、Squirrel 自启 stub 与 asar/fuses 防护
+- [Electron 安全基线](https://lionad.art/electron-security) - 加载远程内容的安全清单、导航盲区与权限双层执法
+- [Electron 深链与桥](https://lionad.art/electron-deep-link) - 自定义协议深链三通道、恒等翻译、缓冲投递与壳站桥契约
+- [Electron 通知桥](https://lionad.art/electron-notification) - 主进程通知守卫链、增量基线播种与轮询挂载义务
+- [Electron 受控下载](https://lionad.art/electron-download) - 桥代下载守卫链、SSRF 双层校验与反馈预算契约
+- [Electron 发行与更新链](https://lionad.art/electron-release) - 出包矩阵、manifest 三方契约与 mac/win 双更新策略
 - [设备参数](https://lionad.art/device-metrics) - 移动设备屏幕参数参考
 - [经典游戏移植](https://lionad.art/game-porting) - 经典 Windows 游戏移植 macOS/iOS 的工程方法
 
@@ -32702,6 +33787,518 @@ compile: $(ofiles)
 
 - [Device Metrics](https://material.io/resources/devices/){rel="&#x22;nofollow&#x22;"}
 - [The Ultimate Guide To iPhone Resolutions](https://www.paintcodeapp.com/news/ultimate-guide-to-iphone-resolutions){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron
+
+#### Electron 薄壳是什么：可分发的自定义浏览器
+
+Electron 把 Chromium（渲染进程）与 Node.js（主进程）打包成桌面应用，本质是「自带浏览器的可分发发行版」。
+薄壳（thin shell）形态指壳只加载远程站点、不含本地运行时：它为 Web 应用补上浏览器给不了的两样东西，
+OS 能力面（托盘、通知、深链、开机自启、全局快捷键、下载管理）和自主分发更新通道。
+
+与相邻形态的分界：PWA/TWA 没有主进程，能力受浏览器沙箱与商店审核限制；iframe 嵌入没有进程级隔离；
+厚壳是薄壳加本地运行时。壳与站点解耦的惯用契约是预加载脚本（preload）经 contextBridge 白名单暴露 API，
+站点侧做特性检测（如 `window.myShell?.bridgeVersion`），壳向后兼容、站点降级可用，两边独立发版。
+
+版本节奏是隐含成本：官方只支持最新 3 个 major，约 8 周发一个 major，Chromium 安全补丁驱使壳持续升级。
+
+见：[Process Model](https://www.electronjs.org/docs/latest/tutorial/process-model){rel="&#x22;nofollow&#x22;"}
+
+#### 薄壳骨架的装配顺序、会话分区与可测性切分
+
+一个最小可用的薄壳骨架，装配顺序有四条原则：`crashReporter.start` 放最前（它只监控其后创建的进程，
+晚装就漏掉更早创建的 renderer/GPU 子进程的崩溃）；单实例锁在 app ready 前裁决，抢不到直接退出，
+不付 ready 成本；logger 不 import electron、日志目录由入口注入，锁失败的退出路径上日志依然可用；
+权限守卫先于起窗，远程内容第一个请求到达时裁决已就位。
+
+远程内容走 `session.fromPartition('persist:xxx')` 独立分区，与默认会话隔离。可测性的切法是把
+「导航白名单判定」「权限裁决」「日志保留期」提炼成与 electron 解耦的纯函数入 vitest 套件，
+依赖 electron 运行时的装配层不自动化测试，策略层全测、装配层靠运行验证。构建出双目标产物：
+main 打 ESM，preload 打 CJS，`.cjs` 后缀在 `"type":"module"` 包体内强制按 CJS 解析，因为 sandbox
+渲染进程不支持 ESM preload。桥 API 未定型前 preload 宁可空占位：半截 API 会进站点特性探测面造成误判。
+
+见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security){rel="&#x22;nofollow&#x22;"}
+
+#### 薄壳多环境协议与壳内静态页
+
+薄壳的多环境协议收成三条通道：`--env=<value>` 等号形式启动参数优先，环境变量次之，默认生产环境，
+非法值 fail-fast 退出而非静默回退（连错环境比启动失败更难排查）。只认等号形式是刻意的：两段式
+`--env local <深链URL>` 的位置参数归属有歧义，单义形式让深链参数永不误入环境解析；多个参数最后生效
+与常见 CLI 覆写语义一致。壳加载不了时用户看什么，收进随包分发的 `file://` 单 HTML 静态页：等待、错误、
+关于三态共用一副骨架，态经 `query.page` 传入、页内 URLSearchParams 自渲染，不用 executeJavaScript、
+不依赖桥，裸壳期即可用；错误页重试链接直接把站点 URL 写进 href，点击走导航白名单回站，执法复用、
+不新增放行逻辑。纯本地面板小窗（关于窗类）要全拒导航转系统浏览器，不能复用主窗白名单，可信域被载入
+不可缩放小窗是 UX 陷阱。菜单不可省：macOS 无 Edit 菜单时 Cmd+C/V 等快捷键失效，视图 reload 留作
+断网恢复的手动通道。
+
+见：[Application Menu](https://www.electronjs.org/docs/latest/api/menu){rel="&#x22;nofollow&#x22;"}
+
+#### loadFile 相对路径跟着应用根漂移
+
+在编译产物目录里写 `win.loadFile('../renderer/page.html')`，直觉上它相对当前入口文件解析、命中同级
+目录，实际运行落到一个不存在的位置。机制在 Electron 源码里：loadFile 是
+`path.resolve(app.getAppPath(), filePath)`，相对「应用根」而非入口文件，而 appPath 取决于启动方式，
+从仓库根起 `electron <子目录>` 与从包目录起，同一个相对路径解析到完全不同的位置。文档只有一句模糊的
+「relative to the root of your application」。稳态写法是 `join(import.meta.dirname, 相对产物路径)`
+拼绝对路径传给 loadFile，与编译产物位置绑定、与启动方式解耦。
+
+见：[contents.loadFile](https://www.electronjs.org/docs/latest/api/web-contents#contentsloadfilefilepath-options){rel="&#x22;nofollow&#x22;"}
+
+#### did-fail-load 把取消也报成失败
+
+探活就绪切站的瞬间，进行中的壳页导航被新导航打断，`did-fail-load` 触发、错误码 ERR\_ABORTED(-3)：
+官方文档对事件语义的原文是「load failed **or was cancelled**」，取消（window\.stop、新导航抢占）也走
+失败事件。见失败就切兜底页的编排会自己制造假故障。失败处理要三分：`isMainFrame` 为假直接忽略（子资源
+失败不切页）；ERR\_ABORTED 视为编排性中止而非故障；`file:` 协议自身的失败不切页，错误页加载失败再切
+错误页是递归死循环。任何「导航失败 → 兜底页」的编排都需要这三分。
+
+见：[did-fail-load](https://www.electronjs.org/docs/latest/api/web-contents#event-did-fail-load){rel="&#x22;nofollow&#x22;"}
+
+#### net.fetch 与 Node fetch 是两套网络栈
+
+主进程里有两个同名 fetch：全局的走 Node 的 HTTP 栈（undici），`net.fetch` 走 Chromium 网络栈。
+差别不是性能是视角：net.fetch 自动走系统代理（wpad/pac、NTLM/Kerberos 认证代理）、HTTPS 隧道、
+挂在 defaultSession 上、会触发 webRequest 钩子，且 app ready 之前调用直接抛错。探活与健康检查选哪个
+决定「谁视角的可达」，公司内网强制代理的环境里两者结论可能相反。限制要知情：不支持 `data:`/`blob:`
+协议，返回 Response 的 `.type`/`.url` 值不可靠，探活只用「resolve 还是 reject」则不受影响。
+
+见：[net.fetch](https://www.electronjs.org/docs/latest/api/net#netfetchinput-init-options){rel="&#x22;nofollow&#x22;"}
+
+#### 探活口径由探测对象的生命周期特征决定
+
+dev server 已起但路由未就绪时，HEAD 请求返回 404，对任意路径返回 404/302 是 dev server 的常态。
+探活判定若写成「2xx 才算活」，会得到服务明明在、壳永远在等待的假死。判定口径必须跟着探测对象走：
+探测目标是 dev server 时收成「有 HTTP 响应即活」（fetch 抛错才算未起），配 `redirect: 'manual'`
+防跟随（重定向会漂移判定语义）；轮询用 setTimeout 链而非 setInterval，上一轮在途时不叠加下一轮。
+同一套代码拿去探生产健康检查，口径要反过来：200 且校验响应体内容。
+
+见：[fetch() redirect option](https://developer.mozilla.org/en-US/docs/Web/API/fetch#redirect){rel="&#x22;nofollow&#x22;"}
+
+#### 日志器要防 EPIPE 反杀主进程
+
+开发期 dev runner（父进程）退出后，接着主进程 stdout 的管道随之关闭，主进程还在打日志，就会撞上
+EPIPE（向已关闭管道写数据的错误码）。EPIPE 有两种抵达方式：同步 throw，`try/catch` 能抓住；异步
+`error` 事件，`try/catch` 早就执行过去了抓不住。而 Node 有条铁律：EventEmitter 发出 `error` 事件
+而没有任何监听器时进程直接崩溃，默认没人监听 stdout 的 error 事件，一条日志就能杀掉主进程，症状是
+「应用莫名退出」。防御必须两层各防一种抵达方式：`process.stdout`/`process.stderr` 各挂 error 监听
+选择性吞 EPIPE（其余照抛，真错误不掩盖），`console` 调用外再包一层同步 `try/catch` 只吞 EPIPE。
+
+见：[Note on process I/O](https://nodejs.org/api/process.html#a-note-on-process-io){rel="&#x22;nofollow&#x22;"}
+
+#### tsup 的 external 默认值会在 sandbox preload 里炸桥
+
+sandbox 模式下 preload 脚本的 `require` 只能加载 electron 自身的一小部分 API，没有加载 node\_modules
+任意包的能力；而 tsup 打包时对 package.json `dependencies` 与 `peerDependencies` 声明的包一律
+external 化（产物保留裸包名引用，假设来自发 npm 库场景：使用方安装时会自动带上）。两者相撞：桥代码
+import 的依赖若放在 dependencies，产物在 sandbox 里解析裸包名失败，**整个 preload 脚本顶层抛错死亡**，
+`window` 上的桥注入从未发生。症状不是构建报错也不是崩溃，而是桥静默消失、站点特性检测探不到壳，
+无栈可查。解法：两端产物 external 只留 electron，被打包的依赖归位 devDependencies（tsup 只 bundle
+devDependencies），这在壳包里反转了「devDependencies 是构建期依赖」的常规语义。
+
+见：[tsup Excluding packages](https://tsup.egoist.dev/#excluding-packages){rel="&#x22;nofollow&#x22;"}
+
+#### getAllWindows() [0] 不是你的主窗
+
+`BrowserWindow.getAllWindows()` 返回所有窗口的数组，主窗、关于窗混在一起，「主窗」在 Electron 眼里
+没有任何特殊标记，谁是主窗是业务概念。两层坏法：其一，深链投递或前置聚焦写 `getAllWindows()[0]`，
+关于窗开着时数组首位可能就是它，消息发给没有订阅的窗口石沉大海；其二，用 `getAllWindows().length === 0` 判断「无窗才重建主窗」，主窗已关、关于窗存活时长度是 1，误判为有窗，主窗永不重建，订阅者永不
+出现，深链在缓冲队列里永无补投触发点，用户点击静默落空，全程无报错。解法是模块级变量显式跟踪主窗
+引用，`closed` 时清掉、用前查 `isDestroyed()`，投递、聚焦、activate 复活语义只认它；macOS 拉起另需
+应用级 `app.show()`，窗口级 show/focus 不足以把应用带到前台。
+
+见：[BrowserWindow](https://www.electronjs.org/docs/latest/api/browser-window#class-browserwindow){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron 深链与桥
+
+#### 深链与自定义启动参数共用 argv 通道
+
+应用自定义命令行参数（如环境切换）后，深链处理会与之打架：macOS 深链走 `open-url` 事件、不进 argv；
+Windows/Linux 深链走 `second-instance` 事件的 commandLine，里面同时躺着自定义参数、Electron 内部参数
+和深链 URL，「取最后一个元素」的官方示例写法在加入自定义参数后不再可靠。环境类参数解析必须容忍 argv
+里混着协议 URL，且深链解析要在环境判定之后执行，否则一次从深链冷启动就会把应用带进错误环境。
+
+见：[Launch app from URL in another app](https://www.electronjs.org/docs/latest/tutorial/launch-app-from-url-in-another-app){rel="&#x22;nofollow&#x22;"}
+
+#### 深链三通道接入与桥契约单源
+
+自定义协议深链从操作系统到壳主进程有三条通道：macOS 的 `open-url` 事件（热启动与冷启动都走它）、
+Windows 热启动的 `second-instance` 事件 argv、冷启动的 `process.argv`，三路汇入同一个缓冲中枢。
+协议注册在 dev 态（`electron .` 拉起，`process.defaultApp` 为 true）必须显式传可执行文件路径与应用
+入口参数，否则系统登记的拉起命令指不回本应用。注册与 `open-url` 监听都必须在 app ready 之前：
+官方文档明文「在 ready 事件里注册监听会错过触发启动的 URL」，冷启动拉起事件由系统在 ready 后重放。
+桥契约（版本号、IPC channel 常量、payload schema）收进单一事实源文件，主进程与 preload 两端产物
+消费同一份定义防字面量漂移；站点侧以 ambient 类型声明手工对齐，站点不 import 壳代码，桥是 preload
+经 contextBridge 注入的运行时探测契约。
+
+见：[Launch app from URL in another app](https://www.electronjs.org/docs/latest/tutorial/launch-app-from-url-in-another-app){rel="&#x22;nofollow&#x22;"}
+
+#### 深链翻译的安全性由构造保证
+
+自定义协议深链要翻译成站点 URL（scheme 换成 https、host 换成站点域名、路径原样带上），攻击面在
+路径：`ai86:////evil.com/x` 这类输入若经相对 URL 解析，前导双斜杠会被重解为「协议相对 host」，
+翻译产物就跨到了 evil.com。堵法在构造层：目标 origin 恒取环境映射表，深链内容永远不参与 host
+构造，只赋给 URL 的 pathname——pathname setter 是字符串赋值加编码，不做协议相对解析，`//` 前缀
+进不了 host；前导多斜杠再显式归一，双保险。scheme 判定要大小写不敏感：OS 拉起链路会原样透传用户
+输入的大小写。
+
+见：[URL: pathname](https://developer.mozilla.org/en-US/docs/Web/API/URL/pathname){rel="&#x22;nofollow&#x22;"}
+
+#### 异步深链永远追不上站点的同步初始导航链，解法是会合
+
+时间线：用户点深链 `myapp://chat/123` 冷启动应用，壳起窗并缓冲深链，站点开始加载。站点有一条
+**同步**跑完的初始导航链（从 `/` 出发的全局中间件，含鉴权守卫），而深链消息要等站点 JS 订阅桥之后
+经 IPC 异步补投——注定后到。鉴权守卫发现未登录会执行**外跳**（整个浏览器跳去登录页，文档死亡），
+这个已发生的副作用不会因导航被作废而收回，文档死了之后任何「重定向到深链目标」都没有执行环境。
+用户点了 123，最终站在登录页，全程无报错。解法是把「追」改成「等」：插件订阅桥时创建一个带未决
+promise 的会合通道，全局中间件在根路径停在 `Promise.race([promise, 250ms 超时])` 上；深链补投到达
+插件时不自己导航，而是 resolve promise 把目标递给中间件，由初始导航自己完成重定向，一跳落地，
+鉴权守卫对目标正常执法。超时放行回落普通链路，迟到事件由插件 push 兜底。模式前提：此中间件须排在
+鉴权中间件之前，靠 middleware 目录按文件名字典序扫描（Nuxt 明文承诺 modules 字母序，middleware
+同理但未单列承诺）。
+
+见：[Nuxt Route Middleware](https://nuxt.com/docs/4.x/directory-structure/app/middleware){rel="&#x22;nofollow&#x22;"}
+
+#### 事件缓冲系统的设计全在三个语义裁决里
+
+主进程的深链中枢有两种模式：缓冲模式（订阅者未出现，事件先攒着）与实时模式（订阅者在线，直接下发）。
+两态由不同事件驱动（订阅握手 vs 窗口销毁），中间必然存在「窗口正在死亡、状态还停在实时模式」的
+瞬间——深链此刻到达，下发抛错。此时的选择：回填缓冲等下次补投，还是当作已投递丢弃。回填会把
+**上一个窗口会话**的点击在**下一个会话**补投出来（跨会话串意图），销毁瞬间的失败常是连锁的，回填
+会攒一批事件下次一起爆；裁决是按已投递处理、留日志丢弃。同族还有两个裁决：回放粒度取全量 FIFO
+而非只留最新——每条深链都是一次独立点击意图，全量回放时顺序导航最终停在最后一条，恰好是最近意图；
+容量超限逐出最旧，同理。做事件缓冲，「往数组 push」只要十行代码，设计全在回放粒度、淘汰方向、
+失败处理三个语义选择里，选错任何一个，故障都表现为「偶尔怪」而非报错。
+
+见：[IpcMain](https://www.electronjs.org/docs/latest/api/ipc-main){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron 分发与签名
+
+#### macOS 15+ 无签名应用失去右键绕过 Gatekeeper
+
+Apple 在 macOS Sequoia（15）移除了 Control-click 绕过 Gatekeeper 的老路径。adhoc 签名对 Gatekeeper
+等同「未正确签名」：用户从 DMG 拖出的应用首次双击会被硬拦，唯一放行路径是「系统设置 → 隐私与安全性 →
+仍要打开」；quarantine（隔离属性）叠加时还会报「已损坏，建议移到废纸篓」，只能
+`xattr -dr com.apple.quarantine` 补救。无签名分发的产品决策（手动下载 DMG、更新提示）必须把这条放行
+教程算进用户体验与验收成本。
+
+见：[Updates to runtime protection in macOS Sequoia](https://developer.apple.com/news/?id=saqachfa){rel="&#x22;nofollow&#x22;"}
+
+#### Windows 开机自启必须指向 stub 启动器，而非可执行文件
+
+Squirrel.Windows 的安装布局是 `%LocalAppData%\<app>\app-<version>\`，每次更新换版本目录。
+`app.setLoginItemSettings` 不传 `path` 时默认写 `process.execPath`，注册表里的自启项指向版本目录内的
+exe，下一轮自动更新后旧路径失效，自启静默消失。官方文档示例把 `path` 指向版本目录上一级的 stub
+启动器。自启功能的验收必须包含「自动更新一轮之后仍然生效」。
+
+见：[app.setLoginItemSettings](https://www.electronjs.org/docs/latest/api/app#appsetloginitemsettingssettings-macos-windows){rel="&#x22;nofollow&#x22;"}
+
+#### asar 不是保护，fuses 才是闸门
+
+`app.asar` 任何人 `npx asar extract` 一秒解开；且 Electron 默认按 `app.asar → app → default_app.asar`
+顺序定位代码，往资源目录丢一个 `app` 文件夹就能整体劫持应用。真正的闸门是打包后翻转的 fuses（熔断开关）：
+关 `runAsNode`（否则 `ELECTRON_RUN_AS_NODE=1` 可把应用当纯 Node 进程跑，主进程防护全部旁路）、
+开 `onlyLoadAppFromAsar` 与 asar 完整性校验。代价要知情：关掉 `runAsNode` 后主进程里
+`child_process.fork` 会失效（它依赖该环境变量）；2025 年的 CVE-2025-55305 也证明完整性校验存在旁路
+窗口。加载远程内容的壳应把它当纵深防御的一层，不是终点。
+
+见：[Electron Fuses](https://www.electronjs.org/docs/latest/tutorial/fuses){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron 受控下载
+
+#### 壳代下载的形态：显式桥请求而非拦截一切下载
+
+壳替站点下载文件有两条路径：session 级 will-download 事件拦截渲染进程的一切下载，或站点经桥显式请求、
+壳负责安全拉取。受控场景选后者：拦截面拿不到业务意图与建议文件名，也无法只对特定请求执法；纯 web 环境
+回落 `a.download`，两态并存。协议设计上壳不维护会话态：请求 id 由站点生成（如 `crypto.randomUUID()`），
+壳把全部状态经同名 id 的进度事件回报，四态 downloading/completed/failed/cancelled，终态每请求恰好一条。
+守卫链与通知通道同构（sender 身份、payload 契约、发起帧 URL 复核，主窗内第三方 iframe 共享桥注入面须按
+帧 URL 复核），另加一道并发闸：在途名额满员直接拒绝不排队，排队会把多个大文件内存缓冲攒成放大面。对话框
+预置文件名是攻击面：剥离路径分量与控制字符，防预置路径穿越。
+
+见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security){rel="&#x22;nofollow&#x22;"}
+
+#### SSRF 的 URL 白名单只挡直连，盲区在重定向与 DNS 解析
+
+场景：校验函数确认 hostname 落在可信域后发起请求，攻击者借可信域上的开放重定向端点让响应 302 指向云
+元数据地址或内网服务，请求方自动跟跳，第二跳不经过任何校验。OWASP SSRF 防护清单明文要求关闭客户端对
+重定向的自动跟随来堵这类输入校验绕过；堵法是手动跟跳（`redirect: 'manual'`）并在每次跳转前重跑完整
+校验。第二层盲区在解析：可信域 DNS 劫持或 rebinding 后 hostname 白名单毫无感知，校验必须做到「解析
+之后」，对解析出的每个 IP 过保留段黑名单（回环/私网/链路本地/CGNAT/组播）。URL 层与解析层是互补的
+两道：前者挡协议与域，后者挡「可信域解析到不该去的地方」。
+
+见：[OWASP SSRF Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html){rel="&#x22;nofollow&#x22;"}
+
+#### BlockList 混族误命中与 mapped-v6 绕过是同一堵法的两面
+
+Node 的 `net.BlockList` 无论 `check()`/`addSubnet()` 传什么 family 参数，内部都把地址统一成
+IPv4-mapped IPv6 表示比较：v4 与 v6 规则混在一张 list 时，v4 公网地址会被 `::ffff:0:0/96` 这类
+v6 规则误命中（阻断所有出站 v4 的假阳性）。反方向是攻击面：`::ffff:127.0.0.1` 这类 mapped-v6
+字面量可绕过只建 v4 黑名单的检查（多个 CVE 的成因）。两头堵法同构：v4/v6 拆成两张 list，按地址
+含不含冒号路由，v6 那张里显式收编 `::ffff:0:0/96`，mapped 形态自然落进 v6 桶被拦。
+
+见：[SSRF blocklist false-positive issue](https://github.com/Termix-SSH/Support/issues/1024){rel="&#x22;nofollow&#x22;"}
+
+#### fire-and-forget 的持久反馈由首帧证据驱动，不是请求发出时
+
+场景：站点点击下载后立刻弹「正在下载」持久提示，而请求实际被守卫静默丢弃（不可信来源不回投任何事件），
+没有终态事件来撤提示，残留直到页面刷新。契约解法：持久 UI 的创建时机绑在「首个 downloading 事件到达」
+而非请求发出，壳不回事件即未受理，天然无残留可撤。终态语义四分：completed/failed 撤下持久提示并各补
+一条终态提示；cancelled 静默，用户自己在另存为对话框点的取消，再弹提示是打扰。失败折叠为领域事件回投
+（附截断后的可读原因），请求方自行渲染，服务侧不弹错误框。进度刷新若用撤旧发新，注意双层节流（发送侧
+按最小间隔投递 + 展示侧二次节流）防高频重建闪烁；另据 vue-sonner 官方文档，以 `{ id }` 复用调用可
+原地更新既有 toast 内容，撤旧发新并非唯一路径。
+
+见：[vue-sonner](https://vue-sonner.vercel.app/){rel="&#x22;nofollow&#x22;"}
+
+#### 下载预算的三道边界：声明可撒谎、重定向可叠加、并发可放大
+
+Content-Length 是发送方的声明不是保证：可以虚报小值骗过声明检查后流式涨大，或干脆不给。体积限制要双
+上限：声明超限直接拒（不读 body），流式聚合逐块查累计、超限先取消读取再报错。超时同理：写成「每跳独立
+计时」的话，恶意端点用重定向逐跳拖满就线性叠加（如 30 秒一跳、5 跳上限即 150 秒资源占用），正确形态
+是整体预算：起点一次定死截止时刻，每跳的超时信号只发剩余额度（`AbortSignal.timeout(剩余毫秒)`）。
+并发上限满员拒绝不排队：下载占内存与对话框资源，排队等于把放大面攒在内存里，拒掉让用户稍后再试比攒着强。
+
+见：[AbortSignal.timeout()](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron 通知桥
+
+#### 桥上通知能力：主进程通知与 fire-and-forget 语义
+
+壳给 Web 应用补系统通知能力，惯用形态是桥上加一个通知命名空间：站点调用 `notification.show({title, body, tag})`，preload 白名单透传主进程，主进程构造 Notification。选主进程通知而不是站点直接用 Web
+Notification API，是因为主进程通知不受页面生命周期与会话权限态约束，且壳能在转发路径上做来源校验与
+限流，Web 通知做不了这两件事。桥通知是 fire-and-forget（发射后不管）语义：投递结果不经桥回传，失败
+不打断站点主流程，畸形调用静默丢弃也不向站点回抛错误，通知是信号面，不值得让站点为它写错误处理分支。
+点击通知的语义收窄为「聚焦或重建主窗」，落地路由是深链的职责，通知不越界。契约演进上，新增桥命名空间
+算 minor 版本（旧站点探测不到新命名空间自然跳过），改既有 payload 形状才算 major。一个联动细节：
+payload 超出契约长度（如 title 上限）会被壳侧校验静默丢弃且永不补投，发送方要自我截断保投递，而不是
+信任守卫替你兜底。
+
+见：[Notification](https://www.electronjs.org/docs/latest/api/notification){rel="&#x22;nofollow&#x22;"}
+
+#### IPC 频道没有 ACL，契约校验必须在终点消费处再做一次
+
+先立一个事实：Electron 的 IPC 频道没有访问控制，任何渲染进程都能向任意 channel 名发送消息，channel
+名在产物 bundle 里可见。preload 里的 payload 校验管的是走桥的正规调用，而渲染进程被 XSS 攻破后，
+攻击者拥有进程内任意执行能力，可以绕过桥直接构造 IPC 消息，payload 想塞什么塞什么。所以「preload
+校验过」不构成信任终点，契约校验必须在信任链最后一环（ipcMain 消费处）重做，这一层的假想敌不是
+「站点代码写错」，而是「渲染进程已被攻破」。纵深防御的闸门各挡一类：sender 身份闸只认桥注入面的宿主
+窗口，其他窗口与 iframe 不在受信面；契约闸挡畸形包；来源 URL 白名单加限流闸挡「可信域页面被攻陷后的
+能力滥用」。限流用滑动窗口（固定时长内计数），超限的新通知整体丢弃而不是排队，通知是时效信号，积压
+补发是骚扰；不可信源的请求不占限流名额，限流防的是失控流量，不是做配额分配。
+
+见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security){rel="&#x22;nofollow&#x22;"}
+
+#### 增量信号系统的第一轮不是发增量，是建基线
+
+场景：用户已有 30 条存量未读消息，此刻应用启动、轮询开始，若逻辑是「轮到未读就弹」，首轮就弹 30 条
+旧消息，通知从信号变成骚扰，用户的下一反应是关掉通知权限。解法是首轮只拉列表、把存量 id 记入已见
+集合、一条不弹，这叫建基线；之后总量增长且 id 未见才弹。三个边界情形各有对应，漏一个就出事故：总量
+回落（用户读掉几条）时不弹，但仍要把当前列表 id 记入已见，否则「已读、被重推、又变未读」的旧消息会
+回弹；换账号要在登录起点重建总量基线与已见集合，否则新账号的存量未读会被上账号的基线误判为新增；
+批量风暴（一轮涌入多条）时单轮截断只弹前几条，超额的记为已见但不滚存到下轮，下轮拉的是最新列表，
+滚存反而会弹旧条目。判重以消息 id 为本、不以总量增量计算：总量会因已读、软删回落，已通知过的 id
+永不重弹。消息中心是完整清单，通知只是信号，宁可少弹不可错弹。
+
+见：[Web Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API){rel="&#x22;nofollow&#x22;"}
+
+#### 单例 composable 的定时器绑在第一个消费者身上，常驻义务要挂应用级
+
+VueUse 的 composables（`useIntervalFn`、`useEventListener` 这类）在组件卸载时自动清理，机制是内部
+绑定了组件的 effectScope（副作用作用域，scope 停止时其内的副作用整体清理）。`createSharedComposable`
+的实现是首次调用时在一个 effectScope 里创建实例、之后所有调用者共享同一实例，于是单例内部的定时器
+被绑在第一个调用它的组件的 scope 上。事故时间线：轮询单例最初被页面 A 的组件消费（比如页面读轮询
+状态画徽标），用户离开页面 A，组件卸载、scope 停止，单例里的轮询定时器被清掉，轮询静默停摆，其他
+消费方毫无感知、没有任何报错。选挂载点按义务寿命判：义务寿命等于应用寿命的（登录后常驻的轮询、全局
+连接）挂应用级，Nuxt client plugin 跑在 nuxtApp 的应用级 scope 里，随应用常驻不随组件卸载；寿命
+等于组件寿命的才挂组件，composable 自己退化为纯组装层由插件驱动。顺带一个杠杆：`useIntervalFn` 的
+interval 参数接受 ref，退避时改 ref 值即生效，不用拆掉重建定时器。
+
+见：[effectScope](https://vuejs.org/api/reactivity-api.html#effectscope){rel="&#x22;nofollow&#x22;"}
+
+#### 主进程通知没有 Web 的 tag 替换语义，要确定性替换就得自己补
+
+浏览器的 Web Notification API 有 tag 字段：同 tag 的新通知会把旧的替换掉而不是堆叠，OS 级去重
+语义，适合「同一会话的新消息提醒替换旧提醒」。Electron 主进程的 Notification 没有这个语义字段：
+新版有 id（macOS 映射 UNNotificationRequest identifier、Windows 映射 toast 的 Tag）和 groupId，
+但文档只说「映射」，不承诺同 id 自动替换、更不承诺跨平台行为一致。壳要确定性的替换观感只能自建：用
+`Map<tag, Notification>` 存已展示的通知，同 tag 新通知到达时先 `close()` 旧的再展示新的。`close()`
+在部分平台是异步 best-effort（Windows 上可见时收起、已消失时尝试清通知中心），失败用 try/catch 吞掉，
+不能影响新通知展示；映射设容量上限、逐出最旧，防长期驻留无限生长。补一个可观测性事实：macOS 通知
+底层 UNNotification API 要求应用已签名，未签名二进制的通知被系统静默丢弃，官方文档明文此时会触发
+`failed` 事件；不监听它，签名资质到位前的通知丢失完全不可观测。
+
+见：[Notification](https://www.electronjs.org/docs/latest/api/notification){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron 发行与更新链
+
+#### 发行链三段：出包、分发、更新是三条可用性语义不同的链
+
+发行链分出包（应用成型为平台安装物）、分发（新用户拿到）、更新（已装用户演进）三段。最易混淆的是
+分发与更新：分发是一次性无状态下载，更新需要版本协商（本地版本对比远端清单）加安装时机管理。
+mac 与 win 是两个更新世界：mac 的合法换包通道是 Squirrel.Mac（依赖代码签名信任链授权替换应用包），
+win 是 NSIS 安装器覆盖安装（签名只影响 SmartScreen 警告，不影响能否更新），同一套更新代码在两平台
+语义完全不同，这是更新策略必须按平台分叉的根因。机制全貌四类：Electron 内置 autoUpdater（mac 走
+Squirrel.Mac、win 走 Squirrel.Windows，Linux 无内置支持，官方建议交包管理器）、electron-updater
+（provider 体系与差分下载）、手动检查加下载页（自比版本）、第三方框架（Sparkle 等）。签名链未就绪的
+mac 选手动自比加跳下载页，win 走 electron-updater 全自动，两分支消费同一份 manifest。
+
+见：[autoUpdater](https://www.electronjs.org/docs/latest/api/auto-updater){rel="&#x22;nofollow&#x22;"}
+
+#### manifest 是三方契约的协议单点，字节级稳定是缓存的前提
+
+版本清单（latest.json）由发布侧生成，壳侧自比、win 更新器、下载页三个消费方共享同一协议：字段名
+对齐 electron-updater 的 UpdateInfo 使 win 链路直接消费，扩展字段（如制品 kind）被更新器静默忽略，
+不另设更新专用格式。files 数组固定按 kind 声明序排序：清单内容是端点缓存的失效判据，乱序会制造
+无意义抖动。制品寻址用站点相对路径，消费方按自身 origin 解析（URL 构造函数的相对解析语义天然兼容
+未来切对象存储或 CDN 绝对直链，协议不变）。语义分离：404 是「尚未发布」的业务空态，503 是「存储
+未配置或源不可达」的故障态，下载页与壳侧都要分开渲染，混为一谈会把「还没发版」显示成「系统坏了」。
+服务端短 TTL 缓存加故障旧值回放（带降级标记头），发布过的版本信息不因存储抖动而消失，这是发行面
+区别于普通接口的可用性语义。
+
+见：[electron-builder auto-update](https://www.electron.build/auto-update){rel="&#x22;nofollow&#x22;"}
+
+#### mac 更新链有签名前提，签名未就绪的一期形态是根本不初始化更新器
+
+electron-updater 在 macOS 的安装环节委托 Squirrel.Mac（底层 ShipIt 换包服务），换包动作需代码签名
+信任链授权；adhoc 或未公证签名的应用，其自动更新链不可达且不易观测（检查与下载可能一切正常，
+安装环节悄然失效，第三方实践报告此为静默失败）。因此签名资质到位前的正确一期形态是不初始化更新器：
+不只是不调用，连 import 都不做（动态 import 保证 darwin 构建不加载更新器模块，排除任何构造路径被
+意外触发），改为拉清单自比版本、原生对话框提示、系统浏览器跳下载页，下载页常驻 Gatekeeper 绕过
+指引。协议先定好，公证就绪后切回全自动，清单格式不用变。
+
+见：[electron-builder auto-update](https://www.electron.build/auto-update){rel="&#x22;nofollow&#x22;"}
+
+#### publish 配置是存在性锚，真实更新源在运行时声明
+
+electron-updater 在打包态从应用内 resources/app-update.yml 读取 provider 配置构造自身，而这个文件是
+electron-builder 检测到 publish 配置时才生成的，删掉 publish 段更新器初始化直接抛错。运行时用
+setFeedURL（provider: 'custom' 加自定义 Provider 类）覆盖寻址后，配置里的 generic URL 从不被消费，
+但它的存在仍是前提。custom provider 是 electron-updater 独有的扩展点，Electron 内置 autoUpdater
+没有 provider 概念（官方 issue #41443 确认）。实现投影层时注意：UpdateInfo 顶层的 path/sha512 是
+deprecated 的遗留必填字段，更新器实际读 files [] 数组，用首个制品填充满足接口契约即可；目标平台
+制品为空时要在投影层语义化快速失败，否则放行进下载链后在文件查找处抛晦涩 TypeError，排障成本高
+一个量级。
+
+见：[electron#41443](https://github.com/electron/electron/issues/41443){rel="&#x22;nofollow&#x22;"}
+
+#### 制品代理分发：Range 语义透传与差分下载的隐式契约
+
+对象存储桶策略禁止公开读对象时，公开分发走服务端流式代理端点，清单内是站点相对路径。代理端点要
+透传 Range 与 416：Range 支撑更新器的断点续传与差分下载，416 是「Range 越界、可自愈」的业务语义，
+改写成 502 会把「客户端应退全量重试」伪装成「源头故障」。差分下载的地址由更新器按 url 加
+`.blockmap` 约定自行拼接，清单不列 blockmap，发布脚本必须把 blockmap 与制品同目录上传；差分引擎
+对旧安装包块图与新块图逐块比对，只发 Range 请求拉变化的块，任何失败（响应 4xx/5xx、块图缺失、
+校验不匹配）统一静默回退全量下载，只记日志，契约断一处只表现为「流量变大了」。mac 侧更新器只认
+zip、显式排除 dmg 与 pkg，所以 mac 出包矩阵是 dmg 给人下载、zip 给更新链；旧 zip 缓存做差分基准，
+首次安装无基准也退全量。版本目录按版本号寻址且内容不可变，是代理端点敢打「缓存一年、immutable」
+缓存头的理论基础。
+
+见：[DifferentialDownloader 源码](https://github.com/electron-userland/electron-builder/blob/master/packages/electron-updater/src/differentialDownloader/DifferentialDownloader.ts){rel="&#x22;nofollow&#x22;"}
+
+#### electron-builder v26 起签名默认行为漂移，升级是隐性破坏面
+
+无证书时 v26 文档明确「跳过签名，adhoc 需 mac.identity 设为 '-' 显式开启」；但 Apple Silicon 上
+完全未签名的二进制根本无法运行，而另有 issue（#9529）报告 v26 起 adhoc 实际发生且默认带 hardened
+runtime（副作用：摄像头与麦克风权限异常）。三处证据有张力，该行为跨版本不稳定（争议未终审）。
+工程结论：签名行为显式声明而非依赖默认，升级 electron-builder 大版本时把「产物能否在他机启动」
+「摄像头麦克风是否正常」列入验证项。
+
+见：[Code Signing for macOS（electron-builder v26）](https://www.electron.build/v26/docs/features/code-signing/code-signing-mac/){rel="&#x22;nofollow&#x22;"}
+
+
+# Electron 安全基线
+
+#### 加载远程内容的安全清单：默认放行与导航接管才是硬门
+
+隔离三件套（`contextIsolation`、`sandbox`、`nodeIntegration: false`）在新版已是默认值，显式钉死即可；
+真正出事故的是清单后半：`setPermissionRequestHandler` 对远程内容的权限请求默认自动批准，通知、地理位置、
+摄像头都会直接放行；`will-navigate` 与 `setWindowOpenHandler` 不接管时，站点可以把窗口导航到任意 URL
+或弹出新窗；所有 IPC 消息必须校验 sender；`shell.openExternal` 只喂白名单 URL。官方清单共 20 条，
+对加载远程内容的壳可收敛为五组：隔离、导航接管、权限审批、IPC 校验、fuses。
+
+见：[Security Recommendations](https://www.electronjs.org/docs/latest/tutorial/security){rel="&#x22;nofollow&#x22;"}
+
+#### 导航白名单有三个静默盲区
+
+`will-navigate` 只在「用户或页面发起导航」时触发，三个盲区都藏在这个限定里。其一，服务端 302
+重定向发生在导航进行中，走的是 `will-redirect` 事件：只挂 `will-navigate` 的白名单，会被可信页面
+的一跳 302 静默带到外域。其二，壳自身的程序化 `loadURL`（起窗、恢复会话）同样不触发
+`will-navigate`，首屏 URL 天然免检，必须按受信输入对待。其三，官方文档明确：对任一可取消事件调用
+`preventDefault()` 后，后续导航事件链不再触发，双事件各自的裁决缺一不可。解法是 `will-navigate` 与
+`will-redirect` 各挂一份同白名单裁决。
+
+见：[webContents navigation events](https://www.electronjs.org/docs/latest/api/web-contents){rel="&#x22;nofollow&#x22;"}
+
+#### 回环白名单认不全形态：URL 层与解析层各自维护必然漂移
+
+白名单条目本身之外，同一份清单在两个消费层各自抄写也会静默失守。WHATWG URL 解析后
+`url.hostname` 对 IPv6 字面量恒输出带方括号形态（`http://[::1]:1886/` 的 hostname 是 `[::1]`），
+而 DNS 解析、hosts 文件、手写配置里出现的是裸 `::1`，同一台回环机两种拼写。Electron 壳的典型事故：
+URL 层白名单只认带括号形态，下载链路的解析层豁免清单却只写裸形态，两处各自维护漂移后，IPv6 回环
+在 URL 层即被拒；白名单判定的失败模式是 return false 而非 throw，形态失配静默变现为「功能不通」，
+没有任何报错。更深的坑是 IPv4-mapped 形态：URL 里写 `http://[::ffff:127.0.0.1]:1886/`，hostname
+出来是 `[::ffff:7f00:1]`，WHATWG 规范要求 IPv6 按压缩规则重序列化，dotted 形态被改写成纯十六进制词，
+手写清单放哪种拼写都只能匹配一半来源。回环等价形态全集不可枚举（带括号/裸/dotted-mapped/hex-mapped
+至少四种），清单式判定注定漏网；完备解是语义判定（ipaddr.js 的 `range() === 'loopback'`），
+Chromium 内部用 IsLoopbackIp 而非字符串比对正是此因。工程纪律：回环判定做成单一导出纯函数，
+URL 层白名单与解析层豁免面消费同一份，物理上杜绝两处清单漂移。
+
+见：[URL Standard](https://url.spec.whatwg.org/){rel="&#x22;nofollow&#x22;"}
+
+#### localhost 第一跳常是 ::1：Node 17 的 verbatim 解析顺序
+
+回环清单必须认 ::1 不是锦上添花，而是 Node 17 之后的常态要求。Node 17 起 `dns.lookup` 默认
+`verbatim: true`，解析结果按 OS 返回顺序直出、不再重排成 IPv4 优先；macOS/Linux 开 IPv6 的机器上
+`localhost` 第一条常是 `::1`（实测 `dns.lookup('localhost', {all: true})` 返回 `[::1, 127.0.0.1]`）。
+当年大量项目踩坑：服务端只 bind 127.0.0.1，客户端按名字连 localhost 拿到 ::1，直接 `ECONNREFUSED ::1`
+（vercel/vercel#7306 是典型现场，社区绕法是删 hosts 里的 ::1 条目）。对白名单的决策影响：::1 是现代
+Node 环境回环流量的常态第一形态，任何「本机回环」判定的清单少了它，默认拓扑下第一个被拒的就是正常流量。
+
+见：[nodejs/node#40702](https://github.com/nodejs/node/pull/40702){rel="&#x22;nofollow&#x22;"}
+
+#### 0.0.0.0 双面性：dev server 的入口形态与浏览器的 bypass 载体
+
+与 ::1 相对，0.0.0.0 要不要进白名单是更细的裁决。连接语义侧：0.0.0.0 是 RFC 1122 的「本网络」
+占位符，各 OS 的 connect 把它路由到本机回环，macOS 实测 `curl http://0.0.0.0:1886/` 与 127.0.0.1
+同样返回 200，这正是 dev server 监听通配地址时框架把它打印为 Local 入口的原因。安全语义侧：
+Oligo Security 2024 年披露的 "0.0.0.0 Day"（存在 18 年）证明公网恶意页面可经 `http://0.0.0.0/`
+直连本机 API，当时绕过了 Chromium 专为此设的 PNA（Private Network Access）；各浏览器其后陆续收口，
+macOS Sequoia 也对浏览器访问加了确认，但 curl 等非浏览器路径不受影响。决策含义：把 0.0.0.0 纳入
+可信清单必须带环境门，本地 dev 环境下它是入口形态，进入生产白名单等于把一个公网页面也能触达的
+本机别名放进可信域族。同族裁决：局域网私网段（RFC1918）不要顺手放宽，白名单的语义边界是
+「本机」而非「同网段」，放宽只增加攻击面。
+
+见：[0.0.0.0 Day: Exploiting Localhost APIs From the Browser](https://www.oligo.security/blog/0-0-0-0-day-exploiting-localhost-apis-from-the-browser){rel="&#x22;nofollow&#x22;"}
+
+#### 整个 .localhost 顶级域都是本机：RFC 6761 的保留语义
+
+除地址形态外，名字域也有整块保留区。RFC 6761 把 `localhost` 及其一切子域保留给回环，
+Chrome/Firefox/Safari 均实现：`build-a.localhost` 不经 DNS、不看 hosts 文件，直接解析到 127.0.0.1
+（draft-west-let-localhost-be-localhost 进一步要求 stub resolver 必须如此）。这制造了「浏览器视为本机、
+清单不认」的形态：dev 场景用子域拆环境（`app.localhost` / `api.localhost` 是 Vite 生态常见实践）时，
+白名单若只精确匹配 `localhost` 会把这些同机域名全部拒绝，且拒绝点在导航守卫、症状是页面打不开
+而非报错。若需支持，匹配形态是 `endsWith('.localhost')` 而非追加清单条目，它是域级保留语义，
+与地址级枚举是两种粒度。
+
+见：[RFC 6761](https://datatracker.ietf.org/doc/html/rfc6761){rel="&#x22;nofollow&#x22;"}
+
+#### 权限白名单要两层执法：request 与 check handler 缺一不可
+
+站点和权限打交道有两种动作：真要权限（`getUserMedia`、`Notification.requestPermission`）触发授权
+流程，走 `setPermissionRequestHandler`；只是打听状态（`navigator.permissions.query`）走同步的
+`setPermissionCheckHandler`。check handler 未设置时，Electron 对查询默认返回 granted：站点 UI 显示
+「通知已开启」，实际发通知又被 request handler 拒掉，前端拿着假状态做出一连串误判（社区 issue 记录
+`permissions.query` 恒返回 granted，且裁决 API 只有布尔、没有 prompt 态）。解法是两个 handler 共用
+同一个裁决纯函数，两层答案天然一致。另一个粒度事实：media 的授权单位是整个 permission 而非单个设备，
+audio+video 组合请求拆不开、只能整体拒，请求里缺 `mediaTypes` 时按拒绝处理。
+
+见：[session.setPermissionCheckHandler](https://www.electronjs.org/docs/latest/api/session#sessetpermissioncheckhandlerhandler){rel="&#x22;nofollow&#x22;"}
 
 
 # Flutter
@@ -33901,6 +35498,17 @@ MySQL/MariaDB 无 partial index，用 generated column 让已删除行该列取 
 
 见：[Soft Delete vs Hard Delete: The Trade-offs Nobody Tells You About - yousuf-dev](https://yousuf-dev.com/blog/soft-deletes-vs-hard-deletes){rel="&#x22;nofollow&#x22;"}
 
+#### DROP TABLE 的 RESTRICT 与 CASCADE
+
+删除被其他对象依赖的表时，PostgreSQL 默认是 RESTRICT 语义：直接报错拒绝，要求先自行处理依赖。
+追加 CASCADE 则把连带对象一起删除：基于该表定义的视图被一并删除，其他表指向它的外键约束也被移除，
+但对方表的数据不动。注意 DDL 的 DROP CASCADE 与外键的 ON DELETE CASCADE 是两回事：
+前者作用于对象依赖（删视图、删约束），后者是数据级行为（父表行被删时连带删子表引用行），
+DROP CASCADE 永远不会删别的表里的行。依赖对象被静默连带删除且执行前看不到清单，
+生产环境执行前值得先确认依赖面。
+
+见：[PostgreSQL: DROP TABLE](https://www.postgresql.org/docs/current/sql-droptable.html){rel="&#x22;nofollow&#x22;"}
+
 #### 两段式删除：软删除 + 归档清理
 
 软删除不等于不占空间，被标记行仍留在原表，高频写入场景下表膨胀会拖慢索引扫描，必须配合归档机制。
@@ -33919,6 +35527,17 @@ B-Tree（平衡多路查找树）的核心特性是数据有序存储。查找�
 才能在树中定位到对应节点并向后遍历。
 
 > 关联知识：[Data Structure / 彻底理解 B 树和 B+树](https://lionad.art/maps/_software/data-structure/data-structure)
+
+#### 复合索引与左前缀原则
+
+多列组成的索引称复合索引（composite index）。PostgreSQL 的复合主键（composite primary key）
+底层就是一条多列唯一 B-Tree 索引，因此天然具备复合索引的查询能力，只是额外多了
+「组合值唯一 + 各列 NOT NULL」的约束语义。B-Tree 按列声明顺序排序，类比电话簿先按姓再按名：
+从最左列开始的连续前缀查询都能高效命中，跳过首列的查询（如只按第二列过滤）则用不上该索引，
+这称左前缀原则（leftmost prefix）。索引列序应按最高频查询路径安排，
+低频维度的查询单独补索引，而不是为它调整主键列序。
+
+见：[PostgreSQL: Multicolumn Indexes](https://www.postgresql.org/docs/current/indexes-multicolumn.html){rel="&#x22;nofollow&#x22;"}
 
 #### LIKE 查询的前导通配符陷阱
 
@@ -33959,6 +35578,17 @@ CREATE INDEX idx_name_trgm ON users USING gin (name gin_trgm_ops);
 ```
 
 **专用搜索引擎（L3）**：当搜索复杂度超出数据库索引能力时，应考虑 Elasticsearch、Meilisearch 等专用方案，而非在数据库层强行优化。
+
+#### UNIQUE 约束隐式创建索引，别再重复建同键
+
+给一列加 UNIQUE 约束时，PostgreSQL 会在背后自动创建一个同键的唯一 B-Tree 索引——约束要 enforce
+「值不重复」就必须能快速判定「这个值是否已存在」，这个能力正是索引给的，所以约束与索引是一体两面。
+由此，在已有 UNIQUE 的列上再显式 CREATE INDEX 是纯写放大：每次写入都要维护两棵几乎相同的索引树，
+查询却毫无收益。二者的分工是：UNIQUE 既保证不重复又加速查找，普通 index 只加速不约束唯一，
+选哪个取决于这列允不允许重复值。另一处易忽略：UNIQUE 列默认允许多个 NULL（PG 认为 NULL 之间
+互不相等），要「必有值且互不相同」需再叠加 NOT NULL。
+
+见：[PostgreSQL: Unique Indexes](https://www.postgresql.org/docs/current/indexes-unique.html){rel="&#x22;nofollow&#x22;"}
 
 
 # jsonb
@@ -34014,7 +35644,7 @@ numeric（`'{"a":1,"a":2}'` 回读 `{"a": 2}`，`1e2` 回读 100）。同一 JSO
 #### tsvector 与 pgvector 互不依赖
 
 PostgreSQL 的 `tsvector` 是内置的全文检索数据类型（PG 核心自带，PG 8.3/2008 年就有），
-把文本分词成词位，配合 `tsquery` 匹配、`ts_rank` 排序、GIN 索引加速，
+把文本分词成词位，配合 `tsquery` 匹配、`ts_rank` 评分、GIN 索引加速，
 相当于把轻量 ES 嵌入数据库，`ts` 即 Text Search。
 pgvector 则是独立的第三方扩展，给 PG 加向量类型与 HNSW/IVFFlat 索引做语义检索，
 相当于把 Milvus 能力嵌入 PG。两者完全独立、可共存——组合起来在单一 PG 实例上
@@ -34041,6 +35671,25 @@ PG 的密码存在角色属性里，不属于某个数据库，一条 `ALTER USE
 
 见：[ALTER USER](https://www.postgresql.org/docs/current/sql-alteruser.html){rel="&#x22;nofollow&#x22;"}
 
+## 并发与锁
+
+#### 事务级 advisory lock 串行化同键并发写
+
+pg\_advisory\_xact\_lock(key) 对一个整数键加排他锁，拿不到就阻塞等待，持有到事务结束。它常用于给
+「先 UPDATE 轮换旧行、再 INSERT 新行」这类逻辑补上并发互斥——例如要保证「同一用户同一来源任意
+时刻至多一行活动会话」，移除 DB 唯一约束后，两个并发事务会各自跑完轮换 UPDATE（都没看到对方的
+新行）再各自 INSERT，结果两行活动并存。advisory lock 以 user+来源为键把同键签发排成一队：后到者
+进锁时已能看到先到者提交的行，轮换 UPDATE 便覆盖它，最终只剩最新一行。
+
+advisory lock 只接受整数，文本键需经 hashtext() 哈希成 int4。用多字段拼键时必须以一个数据里
+绝不出现的字符分隔（如码点 0 的 NUL 字节），否则 ("ab","cd") 与 ("abc","d") 会拼成同一串、
+撞到同一把锁，让无关操作错误互斥。选事务级（*xact*）而非会话级：前者事务结束自动释放，配合事务块
+天然防锁泄漏——会话级锁若忘记解、连接归还连接池后仍持锁，会锁死后续复用该连接的请求。hashtext
+返回 32 位存在碰撞，但撞锁最多让两个无关操作假串行一次，不破坏正确性，是「小概率假串行换免用
+bigint 双键」的可接受取舍。
+
+见：[PostgreSQL: Advisory Locks](https://www.postgresql.org/docs/current/explicit-locking.html){rel="&#x22;nofollow&#x22;"}
+
 
 # SQL
 
@@ -34051,6 +35700,7 @@ PG 的密码存在角色属性里，不属于某个数据库，一条 `ALTER USE
 - [jsonb](https://lionad.art/jsonb) - 规范化存储模型、查询与索引语义、更新写放大与版本边界
 - [索引优化](https://lionad.art/indexing) - B-Tree 索引原理、查询性能陷阱与优化策略
 - [数据删除策略](https://lionad.art/data-deletion) - 软删除与硬删除的取舍依据、常见陷阱与归档清理
+- [视图](https://lionad.art/views) - 存起来的查询：定义不存数据、结果随底表而活、与底表的依赖关系
 
 
 # Text to SQL：为何被标记为 Hold，以及应该如何安全使用
@@ -34267,6 +35917,19 @@ LLM 在这里做的主要是模式匹配和语义对齐：
 
 整体来看，“Text to SQL 被标为 Hold”并不意味着“自然语言数据访问被否定”，而是强调：
 &#x2A;*直接将自然语言映射到 SQL 并在无人监督下执行，风险远超收益；更合理的方向是在语义层和受治理访问层之上用 LLM 做智能编排和交互。**
+
+
+# 视图
+
+#### 视图是存起来的查询
+
+视图（VIEW）是一条保存起来的查询语句，用起来像一张表：把 JOIN、GROUP BY 等复杂查询
+存起来起个名字，之后 `SELECT * FROM 视图名` 即可。它不存数据，只存查询的定义，几乎不占空间；
+查询时数据库把定义的查询重新执行一遍，所以底表数据变了，视图结果自动跟着变。
+正因视图依赖底表，删除底表时数据库把视图列为依赖对象：默认直接报错拒绝，
+`DROP TABLE ... CASCADE` 则把视图定义连带删除。
+
+见：[PostgreSQL: CREATE VIEW](https://www.postgresql.org/docs/current/sql-createview.html){rel="&#x22;nofollow&#x22;"}
 
 
 # CI/CD
@@ -51802,6 +53465,7 @@ actor 一次只处理一条消息，这给了它单线程语义，内部状态�
 ## Topics
 
 - [Actor 模型](https://lionad.art/maps/_programming/paradigms/actor-model)：以异步消息为唯一交互的并发计算模型
+- [结构化并发](https://lionad.art/maps/_programming/paradigms/structured-concurrency)：生命周期成树、子不比父活得久的并发模型，含 Effection v4 机制与 cordis 分界
 
 ## 函数式是什么
 
@@ -52108,6 +53772,107 @@ console.timeEnd() // >>> default: 428.875ms
 ## Footnotes
 
 1. 来源忘辽，也许是这个网址 <http://design-lance.com/tag/sort/>{rel="&#x22;nofollow&#x22;"} [↩](https://lionad.art/#user-content-fnref-%E6%8E%92%E5%BA%8F%E4%BB%A3%E7%A0%81%E6%9D%A5%E6%BA%90){.data-footnote-backref ariaLabel="Back to reference 1" dataFootnoteBackref=""}
+
+
+# 结构化并发
+
+#### 结构化并发：把内存作用域模型搬到异步世界
+
+结构化并发（Structured Concurrency）把「内存生命周期绑定函数作用域」的既有模型搬到异步世界：并发生命周期构成一棵树，
+子操作不能活得比父久，每个操作要么返回结果要么抛错、且完全退出。它解决的核心问题是 JS 里「异步操作的清理不保证运行」：
+同步世界的 try/finally 足够，异步世界的 finally 会静默失守，常见的 EADDRINUSE 就是进程退出时清理没跑的症状。
+
+失效的机制在于 Await 事件视界（Await Event Horizon）：async 函数一旦 await，控制流不可逆地交出，恢复点被注册成被等待
+promise 的 then 回调，promise 不 settle 恢复点就永不执行；而 settle 只能由创建它的闭包触发，调用方手里的 promise 只是
+订阅凭证（then/catch/await 全是读），不是控制柄，没有 cancel 这样的写入口。因此 while(true) 不是僵尸任务的成因，任何
+await 点都是：单发竞态晚到覆盖缓存、线性事务半路弃单、Promise.all 的 fast-fail 不取消其余成员，都不需要循环。
+
+心智转换是从「异步操作要跑多久就跑多久」改为「异步操作只在需要时才活」：清理不由使用者负责，而由结构负责。JS 里承载
+这个模型的代表是 Frontside 的 Effection（4.x，2025-12 发布 4.0）：操作（Operation）用生成器函数书写，生成器委托
+（yield\*）取代 await，把「是否恢复」的开关从事件源手里移到运行时手里，要中断子任务时运行时不再调它的 next()，转而
+驱动它的 finally/ensure，挂死的 await 在这个世界里不存在。一切操作归结为三个原语：action（手动 resolve 的最低层
+原语）、resource（setup/teardown 对称封装）、spawn（树上开子任务），常用组合件有 all/race/sleep/ensure/call。
+
+```js
+// Promise 世界：僵尸轮询，finally 永远等不到执行机会
+async function poll() {
+  let timer;
+  try {
+    while (true) {
+      await fetch("/api/status");
+      await new Promise((r) => { timer = setTimeout(r, 5000); });
+    }
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Effection：父任务结束，子循环被强制终止，子任务内的 finally/ensure 照常执行
+yield* spawn(function* () {
+  while (true) {
+    yield* sleep(5000);
+  }
+});
+```
+
+与 AbortSignal 的分界：AbortSignal 是点对点的取消信号，没有生命周期树，也没有「子先于父退出」的结构保证，取消的
+覆盖面取决于每一环是否自觉接了 signal，漏接一环就断链。它是逐点打补丁，Effection 是换控制流载体。
+
+见：[Thinking in Effection](https://frontside.com/effection/docs/thinking-in-effection){rel="&#x22;nofollow&#x22;"}
+
+#### v4 调度父优先：spawn 的子任务不再立刻跑
+
+v3 中 spawn 一执行子任务立刻运行，哪怕父任务还在跑同步代码；v4 反转为父任务永远优先，子任务要等父让位给一个真正
+异步的操作（如 sleep）才有机会启动，纯同步代码即使包在 yield\* call() 里也不让位。升级指南的示例里，spawn 后跟一段
+同步循环：v3 的 child: start 插在 parent: middle 之前，v4 被推到 parent: before async 之后。若 v3 代码依赖「spawn
+返回时子任务已开始执行」，升级后静默失效，补救是显式 yield\* sleep(0) 让位，或把父子关系改成共享 scope 的兄弟任务。
+注意子任务一旦启动，它自己挂起的定时器到期即恢复：示例中 child 的 sleep(10) 仍先于 parent 的 sleep(100) 到期，
+child: end 在两个版本里都先于 parent: end 打印（官方指南两段输出的末两行顺序与 Node 22 实测不符，本机 effection
+4.2.0 与 3.6.1 均复现）。
+
+```js
+await run(function* example() {
+  yield* spawn(function* () { yield* sleep(10); });
+  for (let i = 0; i < 1000; i++) {} // 纯同步段：v4 期间子任务不会插入执行
+  yield* sleep(100); // 子任务在这里才第一次获得运行机会（v4）
+});
+```
+
+见：[Upgrading from V3](https://frontside.com/effection/guides/v4/upgrade/){rel="&#x22;nofollow&#x22;"}
+
+#### v4 的 API 收敛：call 缩权、action 对齐 Promise 与 await using
+
+v3 的 call() 身兼五职：调函数、求值 promise、常量当 operation、错误边界、并发边界；v4 只保留第一项，它就是
+Function.prototype.call 的异步版。promise 转 operation 用 until()，常量用 constant()，结构化边界必须显式用 scoped()
+建立。判断依据：你不会期望一个普通函数调用拥有作用域边界。失败场景：call 的 operation 里 spawn 的后台任务，v3 会在
+call 返回前后台任务被收掉，v4 里它会活着穿透 call 边界继续跑。
+
+action() 则向 new Promise() 对齐：v3 是 generator 形式配 suspend() 与 try/finally；v4 是同步函数接收 resolve/reject、
+返回同步清理函数，且不再自建并发或错误边界。此外 Task 和 Scope 实现了 Symbol.asyncDispose，可接入显式资源管理
+（Explicit Resource Management）的 await using 语法，离开块作用域时 task 自动 halt，结构化并发的边界由此对接进
+语言标准的资源管理协议。
+
+```js
+yield* call(function* () { yield* spawn(bg); return "done"; });   // v4：bg 泄漏过边界
+yield* scoped(function* () { yield* spawn(bg); return "done"; }); // bg 在返回前被终止
+await using task = run(function* () { yield* suspend(); });       // 离开作用域自动 halt
+```
+
+见：[Upgrading from V3](https://frontside.com/effection/guides/v4/upgrade/){rel="&#x22;nofollow&#x22;"}
+
+#### cordis 的 fiber/effect 与 Effection 的分界
+
+DeepSeek Harness vendor 的 cordis（cordiverse/cordis 4.0）与 Effection 同属一族但切面不同：cordis 解决「结构化清理」
+与资源安全，模型是副作用的登记与冲销。Fiber.effect() 注册副作用时收集清理函数，fiber 卸载时按 LIFO 逆序执行，无论
+正常退出、故障还是显式释放；Context/Fiber 构成生命周期树，父卸载子全部回收，官方哲学文档自比 Rust 所有权机制
+（语言层强制 vs 应用层非强制）。Effection 解决「结构化并发」，模型是控制流接管。分界在两组对照：中断语义上，cordis
+是协作式的，异步迭代器 effect 靠 epoch 守卫在当前 await 之后才检查到卸载，若那个 await 永不返回，清理就永远堵在
+那里；Effection 是侵入式的，挂起的操作被整体放弃、teardown 立刻执行。问题域上，cordis 的主业是插件元框架（依赖
+注入、waterfall 事件分发、热重载），生命周期是支撑手段；Effection 的主业就是并发控制流本身。判据：问「插件卸载时
+注册的监听器会不会被回收」是 cordis 的领地；问「飞行中的异步操作能否被强制停下并跑完清理」只有接管控制流的
+Effection 能答。
+
+见：[可逆的插件系统 | Cordis](https://cordis.moe/zh-CN/guide/philosophy/disposable.html){rel="&#x22;nofollow&#x22;"}
 
 
 # 编程
@@ -57381,6 +59146,18 @@ void process<int>(int val) { /* 针对 int 的高效实现 */ }
 
 - [工具类型](https://lionad.art/source-code/_ts/utility-types) - 内置工具类型实现解析
 
+#### ORM schema 类型推导：幽灵类型 + typeof 提取实现单一事实源
+
+Drizzle 这类库在 schema 对象上挂一个「幽灵类型」（phantom type，只存在于类型世界、运行时并无
+对应值），使用方用 `typeof schema.$inferSelect` 把行类型提取出来。价值在单一事实源：行形状完全
+由 schema 推导，加一列或改类型自动跟随，不会「改了表却忘了改手写 interface」而漂移。注意区分
+$inferSelect（「查出来」的形状，所有列都有值、default 已填）与 $inferInsert（「插进去」的形状，
+带 default 或应用层生成的列变成可选）——同一张表两个类型不同。再进一步，用 Omit 从行类型剥掉
+敏感列（如 secret 密文）得到「对外投影类型」，能让对外返回数据的代码在类型层面就摸不到敏感字段，
+编译器先于运行时拦住。这与「凭证不下发浏览器」是同一思路：让危险的东西结构上不可达，而非靠自觉。
+
+见：[Drizzle ORM: Schema declaration](https://orm.drizzle.team/docs/sql-schema-declaration){rel="&#x22;nofollow&#x22;"}
+
 #### 什么是类型体操？
 
 TypeScript 的类型系统是图灵完备的，这意味着能用 JavaScript 解决的问题，用 TypeScript 的类型系统同样能解决，只是实现方式不一样。尽管完成某种"实现"的方式可能非常复杂，但人们就像玩玩具一样喜欢玩它，
@@ -59190,6 +60967,117 @@ abort 监听器钉住，因为它们的触发时机由定时器或源信号决�
 见：[How to Filter Noisy Sentry Events Before Ingestion](https://oneuptime.com/blog/post/2026-09-14-filter-sentry-noise-before-ingestion/view){rel="&#x22;nofollow&#x22;"}：AbortError 过滤的分层判据（2026-09）
 
 
+# Ambilight 视频辉光管线
+
+#### 实时视频辉光的五层管线架构
+
+Ambilight（环境光）类应用把视频帧实时采样、放大、扩散到视频区域外的页面上，模拟飞利浦流光溢彩。
+它不是视频滤镜（滤镜改视频自身像素，它作用于视频外的 DOM 空间），也不是一圈静态 CSS 辉光
+（YouTube 自带 ambient mode 那种零 JS 方案），而是逐帧 GPU 管线。以 youtube-ambilight 扩展
+（v2.38，MV3，零运行时依赖）为解剖样本，工程上可切五层：
+
+- 边界层：三层注入双 world。isolated world 的引导脚本与主逻辑，加上 MAIN world 的注入脚本
+  （唯一能碰播放器内部 API 的位置，HDR 状态、storyboard 格式、VR 帧时序都靠猴补丁取得），
+  两个 world 间用自定义 messaging 双向通信
+- 调度层：帧同步决定「什么时候重绘」，三种模式（视频帧回调、解码帧计数、显示帧）加节能降帧
+- 渲染层：视频帧到辉光的 GPU 通路，降采样、mipmap、单次 drawArrays、CSS blur 放大
+- 分析层：旁路像素分析下放 Worker（黑边检测、静止画面判定），不占主线程帧预算
+- 对抗层：宿主（浏览器实现差异、YouTube 改版、DRM、CSP）持续搞破坏，workaround 家族兜底
+
+```mermaid
+flowchart TB
+  subgraph worlds["边界层：双 world"]
+    CS["content.js 引导（isolated）"] --> CM["content-main.js 主逻辑（isolated）"]
+    IJ["injected.js（MAIN world）<br/>播放器内部 API 与猴补丁"]
+    CM <--> |"messaging"| IJ
+  end
+
+  subgraph sync["调度层：帧同步三模式"]
+    RVFC["requestVideoFrameCallback<br/>默认，一次性注册"]
+    CNT["totalVideoFrames 计数<br/>解码帧兜底"]
+    RAF["requestAnimationFrame<br/>显示帧模式"]
+  end
+
+  subgraph render["渲染层：每帧通路"]
+    V["video 元素"] -->|"drawImage 降采样"| PB["projectorBuffer<br/>128~512px 中间画布"]
+    PB -->|"texImage2D + generateMipmap"| GL["ProjectorWebGL<br/>单 drawArrays 环形 quad"]
+    SH["shadow 纹理<br/>alpha 控制辉光形状"] --> GL
+    GL -->|"drawImage"| BC["blurCanvas<br/>2d context + CSS blur"]
+    BC -->|"CSS scale 放大"| PAGE["视频外页面辉光"]
+  end
+
+  subgraph analysis["分析层：Worker 旁路"]
+    PB -->|"transferToImageBitmap 零拷贝"| BD["bar-detection 黑边检测"]
+    SB["storyboard 雪碧图"] -->|"fetch，不碰视频元素"| SD["static-image-detection 帧差"]
+    SD -->|"静止判定"| EC["节能降帧"]
+  end
+
+  RVFC --> V
+  CNT --> V
+  RAF --> V
+  BD -->|"裁剪百分比反馈"| PB
+```
+
+见：[youtube-ambilight 源码](https://github.com/WesselKroos/youtube-ambilight){rel="&#x22;nofollow&#x22;"}：src/scripts/libs 为核心，ambientlight.js 是调度中枢
+
+#### 帧同步三模式与 GPU 渲染通路
+
+帧同步（frameSync）的三个可选源：视频帧回调（requestVideoFrameCallback，rVFC，新帧呈现到
+合成器才触发，最省）；解码帧计数（rAF 轮询 getVideoPlaybackQuality().totalVideoFrames 对比，
+rVFC 不可用时的兜底）；显示帧（rAF 每帧都画，帧混合等时间域滤波必须用）。rVFC 是一次性注册，
+回调里第一件事是重新注册下一个（preschedule），否则显示器帧率与视频帧率恰好相等时（60Hz 屏放
+60fps 片）会稳定跳帧。rVFC 还有独立失效面：视频滚出视口后停火、后台标签页按规范停火，所以正式
+管线必须并行维护帧计数对比做 fallback，离屏时退到 setTimeout 按视频帧率轮询。节能模式在画面
+近乎静止时把重绘降到 1fps 甚至 5 秒一帧。
+
+渲染通路每一环都有明确的量级取舍：video 先 drawImage 降采样到 projectorBuffer（尺寸按 blur
+强度选 128/192/256，黑边检测开着则固定 256，上限 1024），再 texImage2D 上传 WebGL 纹理并
+generateMipmap（video 源不走 texSubImage2D 增量更新，该路径对 video 源走 CPU readback，
+反而比全量上传慢一个数量级）。辉光的「多层扩散」不画多张图：一次 drawArrays 画 24 顶点的环形
+quad，片元着色器从 UV 反推该像素属于第几层缩放环，对同一纹理按环层缩放采样，层数由
+round(spread/edge)+3 决定。模糊不在 shader 里做：结果 drawImage 到 2d context 的 blurCanvas
+借 CSS filter blur（blur 强度大于 1 时半分辨率渲染白赚性能），最后 CSS scale 放大到扩散尺寸。
+辉光的空间形状由独立的 shadow 纹理控制：512×512 渐隐图按幂曲线 keyframes 生成，shader 里用
+它的 alpha 通道决定哪里亮哪里暗，支持四方向开关。帧淡化（frameFading）把多张历史帧纹理按平方
+缓动透明度叠加做时间域低通；片元着色器纹理单元有硬上限（规范只保证 8 个），历史帧超出时用子
+纹理图集破解：多帧写进同一张大纹理的不同子格（2×2 或 3×3），shader 里按 UV 偏移采样同一单元。
+WebGL 全挂时还有 2D 兜底路径：N 个 canvas 元素叠放，各画同一帧、CSS scale 逐层放大加 blur，
+靠合成器混合出近似效果。
+
+见：[youtube-ambilight 源码](https://github.com/WesselKroos/youtube-ambilight){rel="&#x22;nofollow&#x22;"}：ambientlight.js 调度、projector-webgl.js 渲染、canvas-webgl.js 纹理上传
+
+#### 黑边检测与静止画面分析
+
+黑边（letterbox bar）检测的完整算法链：512×512 降采样帧经 transferToImageBitmap 零拷贝传给
+Worker；参考色用四条边的 116 个采样点做迭代修剪均值（按与当前均值的色差排序，逐轮剔除最远的
+一半，收敛到 25% 存活，抗字幕和台标污染）；5 条扫描线从上下两个方向步进扫描，步长 4 粗扫，
+遇到颜色偏离参考色就减半回退精扫，候选边界点在邻域网格上打 certainty 分（偏差容忍按参考色
+亮度分黑/暗/亮三档阈值，得分经 easeInOutQuad 压缩）。单帧结果不可信，靠多帧历史众数投票
+（0.5% 分组）防抖、参考色突变即清历史、检测到边后按耗时自适应节流（下一轮延迟 = 耗时^1.2 次方
+减 250ms，5 秒封顶）。静止画面判定则完全不碰视频元素：拉 YouTube storyboard 预览雪碧图，
+取第 2 页、中间页、倒数第 2 页的缩略图逐张算亮度加权帧差（BT.709 系数 0.2126/0.7152/0.0722，
+0.03 死区），得出该视频的画面变化烈度，喂给节能降帧。
+
+见：[youtube-ambilight 源码](https://github.com/WesselKroos/youtube-ambilight){rel="&#x22;nofollow&#x22;"}：bar-detection.js 与 static-image-detection.js，算法都在 Worker 内联代码里
+
+#### 宿主对抗：workaround 家族与降级链
+
+在真实宿主里跑实时管线，一半代码在对抗环境。浏览器层：rVFC 在视频离屏后虚报 dropped frames
+会连累 YouTube 降画质，只能在 MAIN world 猴补丁 getVideoPlaybackQuality 给离屏前后 2 秒的
+计数打豁免修正；drawImage 会随机关掉抗锯齿（改用 clearRect 强制刷新）；窗口外的 blur 不渲染
+（补 1px 占位 canvas）；Windows 的 direct video overlay 伪影、Firefox 的 readPixels 慢与外层
+blur 不刷新（每 10 帧 translateZ 抖一下强制重绘），各带 bug 编号各打各的补丁。资源层：WebGL
+context lost/restored 有完整生命周期管理，恢复 3 次失败即熔断防无限循环；创建 context 时先开
+failIfMajorPerformanceCaveat 探测，软渲染设备自动把分辨率降到 25%。内容层：HDR 靠
+new VideoFrame(video).colorSpace.primaries === 'bt2020' 检测，命中就切独立的非 WebGL 缓冲；
+DRM（encrypted 事件）直接放弃并提示；跨域视频设 crossOrigin 后重载。基建层：Blob URL Worker
+会被页面 CSP 静默拦截且 onerror 不一定触发，所以创建后立刻 postMessage 握手、5 秒无回执判失败，
+降级为绑定主线程伪 scope 的 FallbackWorker（接口与真 Worker 一致，调用方无感知）。YouTube
+SPA 导航则靠 MutationObserver 监视 video 元素脱离 DOM，自动重挂新元素。
+
+见：[youtube-ambilight 源码](https://github.com/WesselKroos/youtube-ambilight){rel="&#x22;nofollow&#x22;"}：ambientlight.js 的 detect\*Workaround 家族与 worker.js 的降级链
+
+
 # 浏览器
 
 ## 浏览器引擎
@@ -59248,6 +61136,9 @@ Rachel Andrew 指出，Baseline 数据使得浏览器支持时间可预测：特
 ## 浏览器开发
 
 - [AbortSignal](https://lionad.art/maps/_web/browser/abort-signal) - Web 平台协作取消协议：信号组合、检查点响应与生命周期语义
+- [Shadow DOM](https://lionad.art/maps/_web/browser/shadow-dom) - 浏览器原生封装边界：样式与事件跨界、\:host 级联地位、closed 真实语义与样式性能杠杆
+- [HTML Head](https://lionad.art/maps/_web/browser/html-head) - HTML 文档骨架：opt-in 元素机制与 head 排序性能，CSP meta、text-scale、charset 嗅探等陷阱
+- [Ambilight 视频辉光管线](https://lionad.art/maps/_web/browser/ambilight) - 实时视频辉光工程：帧同步三模式、WebGL 环形投影、黑边检测与宿主对抗降级
 
 #### 事件捕获机制？
 
@@ -59498,6 +61389,65 @@ Token 生成与验证
 实践：使用 Web Crypto API 提供的配置避免漏洞。
 
 
+# HTML Head
+
+#### HTML boilerplate 是文档头的 opt-in 开关集中管理
+
+HTML 标准受「Don't Break The Web」约束几乎不删任何功能，1995 年的文档至今仍能渲染，新能力只能靠「出现即启用」的
+opt-in 元素渐进开启，boilerplate 因此成为集中管理这些开关与站点对外元数据的模板。它与 CSS reset（管视觉起点）、
+框架的 head 管理器（Unhead 等，本质是替你动态维护同一张清单）分属不同层。按领域核心问题可分五层组织：
+渲染正确性层（doctype 防 quirks mode、lang 供翻译/断词/读屏、charset 限前 1024 字节、viewport 定移动视口）、
+用户偏好适配层（color-scheme 防 FOUC、theme-color 按 media 配深浅双值、text-scale 接通系统字号）、
+资源加载层（stylesheet 放 head 而非 @import 以防瀑布式串行、字体 preload 需 crossorigin）、
+身份发现层（title/canonical/og:&#x2A;、SVG favicon、feed/opensearch/manifest）、body 骨架（header>nav、main#main
+作 skip link 锚点、footer）。不该写的：viewport 的 initial-scale/maximum-scale/user-scalable（后两者直接废掉
+缩放可访问性）、meta description（搜索引擎已改从正文取）、og\:title 里重复站名（嵌入卡片本就会显示）。head 元素
+排序不是风格偏好而是性能问题，capo.js 给出加权模型，html-eslint 已有 head-order 规则可进 CI；og:* 与
+theme-color 的具体行为属事实标准而非 HTML 规范，各浏览器解释不一。按页型扩展：学术引用页加 citation\_\*/Dublin
+Core，文章页加 og article 命名空间，通用增强加 JSON-LD。
+
+见：[My HTML Boilerplate - Vale.Rocks](https://vale.rocks/posts/html-boilerplate){rel="&#x22;nofollow&#x22;"}：精简版文档骨架模板与逐项解释
+
+#### CSP meta 标签会瘫痪 Chrome 预加载扫描器
+
+用 `<meta http-equiv="Content-Security-Policy">` 声明 CSP 会让 Chrome 的 preload scanner 失效：扫描器遇到 CSP
+meta 后停止并行扫描、等待规则应用，已解析的资源要重新走 CSP 判定。capo.js 明确警告此项并建议一律改用 HTTP 响应头
+下发 CSP；若受限于静态托管只能用 meta，至少挪到 head 最前端可减小损失。这解释了为什么安全合规的「加个 CSP」操作
+常伴随 LCP 无声劣化，且 DevTools 中不易归因。
+
+见：[Preloader changes broken with CSP in HTML - Chromium](https://issues.chromium.org/issues/40273969){rel="&#x22;nofollow&#x22;"}：扫描器遇 CSP meta 失效的官方实证
+
+#### text-scale 把移动端系统字号接回 rem 体系
+
+`<meta name="text-scale" content="scale">`（CSS Fonts Level 5，Chrome 146+ 支持）解决移动端系统字号与网页脱节
+的问题：CSS 的 1rem 绑定 html 根字号，桌面浏览器用户调字号后根字号跟随、rem 体系全体联动，但移动端这条链路默认
+是断的，浏览器靠不可控的 text auto-sizing 启发式猜着放大。该 meta 把链路接通（用户调到 1.5 倍则 1rem 变 24px，
+35rem 媒体查询断点也自动放大），同时禁用不可控的启发式。两个陷阱：其一，`:root { font-size: 16px }` 之类绝对
+单位会把根字号钉死，opt-in 即刻失效，且原有兜底已被关闭，大字号用户反而看到比以前更小的字，正确姿势是全站只用
+rem/em/关键字；其二，与 `env(preferred-text-scale)` 同时使用会双重缩放（1.5 × 1.5 = 2.25），倍数偏离 1 越远
+放大越离谱。它的隐藏红利：rem 断点的媒体查询会随用户字号自动放大，布局自动给大文字让路。
+
+见：[meta text-scale - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/text-scale){rel="&#x22;nofollow&#x22;"}：规范机制与 env() 双用警告
+
+#### 同源字体 preload 漏写 crossorigin 会静默双下载
+
+字体按规范永远以匿名 CORS 模式获取，而无 crossorigin 属性的 preload 走 no-cors 模式，两个请求的缓存键不同，
+浏览器视其为不同资源，同一字体被下载两次且无任何报错。这就是「同源也要写 crossorigin」背后的失败模式：
+Performance 面板里字体请求出现两次时先查这里。同理 HTTP/2 服务器推送时代的 Link 头预加载也需要给 font 类资源
+补 crossorigin（CSS 与图片类不需要）。
+
+见：[Why Font Preload Needs the crossorigin Attribute](https://www.web-font-optimization.com/font-loading-delivery-strategies/preloading-resource-hints/crossorigin-attribute-for-font-preload/){rel="&#x22;nofollow&#x22;"}：字体匿名 CORS 模式与缓存键错配机制
+
+#### charset 的 1024 字节窗口是编码嗅探缓冲区
+
+浏览器只扫描文档前 1024 字节来判定编码，之后即按该编码解码，声明放得太靠后不只是不合规范，而有具体失败模式：
+若 title 出现在 charset 之前且含非 ASCII 字符，标签页标题会先按错误编码解码产生乱码，即使浏览器随后重声明也无法
+修正已产出的解码结果。常见翻车场景是 head 前面塞了长注释或 CDN 注入的脚本，悄悄把 charset 挤出 1024 字节窗口
+（W3C validator 对此有专门报错项）。
+
+见：[charset after the first 1024 bytes - Rocket Validator](https://rocketvalidator.com/html-validation/a-charset-attribute-on-a-meta-element-found-after-the-first-1024-bytes){rel="&#x22;nofollow&#x22;"}：validator 报错项与嗅探窗口机制
+
+
 # 浏览器新特性
 
 ## 2023
@@ -59718,6 +61668,65 @@ pathname 解析为 params 以及对应的页面名，页面名连同哈希参数
 - Search 参数路由
 
 见：[Naultil 路由配置](https://www.tangshuang.net/7273.html#title-6-1-1){rel="&#x22;nofollow&#x22;"}
+
+
+# Shadow DOM
+
+#### Shadow DOM 是浏览器原生封装边界，不是样式命名空间
+
+Shadow DOM 给一棵子树提供浏览器原生的样式与 DOM 封装边界，解决「样式不进不出」与「实现细节对外不可枚举」两件事。
+它与 scoped CSS、CSS Modules 不是同一层机制：后两者是编译期命名空间约定，只防自家样式泄漏，防不住运行时第三方
+全局选择器的侵入；iframe 才隔离 JS 与事件循环，Shadow DOM 不隔离 JS。宿主元素（host）通过 attachShadow() 挂载
+shadow root，一个元素只能有一个，mode（open/closed）只是内部访问开关，不改变封装强度。官方开的跨界通道有三个：
+:host （从内定 host 外观）、::slotted()（从内定投影进 slot 的外部内容）、CSS 自定义属性（沿继承链天然穿透），
+color、font 等继承属性本来就越界。适用判断：已有统一设计系统（如 Vue 组件 + scoped CSS）时隔离收益小，代价是
+生态断裂（全局覆写、调试体验都要绕路）；只防命名冲突用 scoped CSS 即可；要隔离第三方脚本用 iframe。一个信号是
+浏览器自己把 shadow roots 用作内部隔离（video 控件、DevTools 面板），而非组件复用首选，平台趋势是默认 light DOM、
+按需才上 shadow。
+
+见：[Shadow DOM - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM){rel="&#x22;nofollow&#x22;"}：边界、host 与 slot 机制参考
+
+#### :host 是级联默认值，可被页面样式反杀
+
+:host 规则在级联中位于作者样式之下的默认层（位置近似 user-agent stylesheet），页面对 host 元素的任何直接样式都会赢：
+组件内写 :host { color: red }，页面一句 .my-el { color: blue } 就覆盖它。再叠加继承属性的无条件穿透，样式墙对
+继承链是敞开的。设计可换肤组件时应暴露 CSS 自定义属性，而不是指望 :host 锁住外观。
+
+见：[Styling Web Components with Shadow DOM and CSS](https://blog.openreplay.com/style-web-components-shadow-dom-css/){rel="&#x22;nofollow&#x22;"}：\:host 在级联中的默认层地位
+
+#### 自定义事件默认翻不过边界
+
+CustomEvent 默认 composed: false，出不了 shadow root，外层监听器静默收不到，这是「监听器无报失灵」类 bug 的常见
+根因。设了 composed: true 后事件继续冒泡，但 event.target 被事件重定向（event retargeting）为 host，真实来源只有
+shadow 内部的监听器用 composedPath() 能还原；closed root 下外部拿到的 path 被截断。跨边界通信要么显式
+composed: true 并接受 target 失真，要么走 props / 回调契约，不赌事件穿透。
+
+见：[Shadow DOM and events - javascript.info](https://javascript.info/shadow-dom-events){rel="&#x22;nofollow&#x22;"}：retargeting 与 composed 语义参考
+
+#### closed 不是安全边界
+
+closed mode 只让 element.shadowRoot 返回 null，DevTools 照样能看到整棵 shadow tree，CDP 与自动化工具可以 patch
+attachShadow 把 closed 改成 open。反向证据是 closed root 内派发的事件其 composedPath 会被截断：它防的是无意的
+信息泄露，不是有意的访问。反爬、防调试场景里它是干扰项而不是屏障。
+
+见：[How to locate element in shadow-root (closed)](https://stackoverflow.com/questions/77242284/how-to-locate-element-in-shadow-root-closed){rel="&#x22;nofollow&#x22;"}：CDP 可改写 closed mode 的实证
+
+#### adoptedStyleSheets 是批量渲染的性能杠杆
+
+给每个 shadow root 塞一份
+
+见：[Constructable stylesheets - web.dev](https://web.dev/articles/constructable-stylesheets){rel="&#x22;nofollow&#x22;"}：共享与热替换机制参考
+
+#### Declarative Shadow DOM 让 SSR 首屏不再裸奔
+
+传统 shadow root 依赖 JS 创建，服务端渲染首屏没有样式。Declarative Shadow DOM 用 #default{shadowRootMode=""}
+在
+HTML 解析阶段同步构建 shadow root，无需 JS 即可携带样式，2024-08 成为 Baseline（Chrome 90 / Safari 16.4 /
+Firefox 123），规范在 2023 年把属性名 shadowroot 改名为 shadowrootmode。配套序列化 API 有
+Element.getHTML({ serializableShadowRoots }) 与 setHTMLUnsafe / setHTML（Sanitizer 方向）。
+
+
+见：[Declarative Shadow DOM - web.dev](https://web.dev/articles/declarative-shadow-dom){rel=""nofollow""}：规范现状与浏览器支持
 
 
 # 爬虫与反爬虫
@@ -60421,6 +62430,7 @@ Node 用 `crypto.timingSafeEqual`，Go 用 `subtle.ConstantTimeCompare`，且比
 - [国密 SM2](https://lionad.art/maps/_web/security/sm2) - 椭圆曲线公钥密码算法标准与工程陷阱
 - [HMAC](https://lionad.art/maps/_web/security/hmac) - 基于哈希的消息认证码原理与验签工程实践
 - [存储介质数据清除](https://lionad.art/maps/_web/security/data-sanitization) - 删除与清除分界、GB 46864-2025 强制国标与介质级擦除陷阱
+- [天御滑块验证码逆向](https://lionad.art/maps/_web/security/tcaptcha-slider-reverse) - TCaptcha 三段式协议取证、缺口识别与求解工程结构
 
 ## 安全概念
 
@@ -60469,6 +62479,19 @@ Security through obscurity 不应被完全否定：
 
 见：[Kerckhoffs's principle - Wikipedia](https://en.wikipedia.org/wiki/Kerckhoffs%27s_principle){rel="&#x22;nofollow&#x22;"}
 
+#### KDF 的 salt 不是秘密，是域隔离标签
+
+密钥派生函数（scrypt / PBKDF2 / Argon2）里的 salt 不需要保密，它靠「固定且公开」才能工作。
+其机制在于域隔离：同一 password 配不同 salt 派生出不同密钥，让不同域的密文跨域不可互解，
+防止把 A 域密文搬到 B 域上下文重放。真正的秘密是派生用的 password / 主密钥（通常在 env），
+salt 公开的安全性建立在「password 保密」与 KDF 本身抗暴破（scrypt 是 memory-hard）之上。
+所以把 salt 放进 env 零收益反而有害：salt 必须稳定，谁误改或丢了这条 env，派生密钥就变了、
+历史密文全解不开，等于自毁数据。工程上应让它待在代码里、进 git、改动经 review；结尾的版本号
+（如 `:v1`）是版本化域标识，需要轮转该域密钥时升到 v2 并迁移重加密，而非偷改 env。这正是
+Kerckhoffs 原则（除密钥外一切公开仍安全）的具体落地。
+
+见：[Salt (cryptography) - Wikipedia](https://en.wikipedia.org/wiki/Salt_\(cryptography\)){rel="&#x22;nofollow&#x22;"}
+
 ## 用户追踪技术
 
 #### LinkedIn 如何使用浏览器指纹追踪用户？
@@ -60513,15 +62536,77 @@ URL 可能出现在浏览器历史、服务器日志、Referer 头中，导致�
 
 #### PKCE
 
-对于纯前端或移动端应用，client secret 无法保密（可被提取或反编译）。
+对于纯前端或移动端应用，client secret 无法保密（可被提取或反编译），授权码在回跳路上被截获后，
+截获者可以直接去 token 端点兑换。
 
-PKCE（Proof Key for Code Exchange，发音"pixie"）通过以下方式解决：
+PKCE（Proof Key for Code Exchange，代码交换的证明密钥）是一个预承诺机制：客户端生成高熵随机串
+code\_verifier（43\~128 个字符，只允许 `A-Z a-z 0-9 - . _ ~`），先随授权请求送出其派生值 code\_challenge，
+交换 token 时才交出 verifier 原像，授权服务器校验 SHA256(verifier) 与 challenge 一致后才签发 token。
+verifier 只存在于发起方内存、从不出现在授权请求里，截获 code 者拿不到 verifier 就换不出 token：
 
 1. 客户端生成临时密钥对（code verifier + code challenge）
 2. 授权请求时发送 code challenge
 3. 交换 token 时验证 code verifier
 
+```mermaid
+sequenceDiagram
+    participant C as 客户端
+    participant AS as 授权服务器
+    note over C: 生成 code_verifier<br>派生 code_challenge
+    C->>AS: GET /authorize<br>code_challenge + code_challenge_method=S256
+    AS-->>C: 302 回跳 + authorization code
+    note over C: code 可能被截获<br>但截获者没有 code_verifier
+    C->>AS: POST /token<br>code + code_verifier
+    AS->>AS: 校验 SHA256(code_verifier) == code_challenge
+    AS-->>C: access token
+```
+
+截获者拿 code 换不出 token 的机制是通道不对称：code 走前通道（front channel，授权回跳 URL，途经浏览器、
+URL scheme 与日志，防护最弱）；verifier 走后通道（back channel，客户端到 token 端点的 TLS 直连），
+全程只在这里出现一次。没有 PKCE 时公共客户端的 token 请求是 code 单票，服务器认票不认人；
+PKCE 就是给票据加兑付条件：出票绑 challenge，兑付出示原像，verifier 既没在截获位置出现过、
+SHA256 又不可逆，编造不出来。
+
 这是**零信任架构**在 OAuth 中的早期实践——不依赖持久化 secret，每次授权独立验证。
+RFC 9700 已把 PKCE 升级为所有客户端（含机密客户端）的强制要求，OAuth 2.1 草案将 RFC 7636 收编进核心规范。
+
+见：[RFC 7636: Proof Key for Code Exchange](https://www.rfc-editor.org/rfc/rfc7636){rel="&#x22;nofollow&#x22;"}
+
+#### PKCE 降级攻击：把 PKCE 当可选项等于没有
+
+授权服务器支持 PKCE 但实现成「授权请求带 code\_challenge 就校验、不带就放行」时，攻击者可以把客户端
+授权请求里的 code\_challenge 参数剥掉再提交，服务器照常签发无需 PKCE 的授权码，截获后顺利兑换。
+这是 RFC 9700 §4.8 写明全流程的 PKCE 降级攻击（PKCE Downgrade Attack），两个前提：服务器把 PKCE 当可选项、
+客户端不校验 state。对应的强制条款：token 请求携带 code\_verifier、但当初授权请求里没有 code\_challenge 的，
+必须直接拒绝。服务器侧 PKCE 必须无条件强制，不能做成「来了就验、不来就算」的礼貌选项。
+
+见：[RFC 9700 §4.8 PKCE Downgrade Attack](https://www.rfc-editor.org/rfc/rfc9700#section-4.8){rel="&#x22;nofollow&#x22;"}
+
+#### plain 挑战方法：challenge 走日志等于裸奔
+
+plain 模式下 code\_challenge 就是 code\_verifier 本身，而授权请求 URL 会进浏览器历史、授权服务器日志与
+反向代理日志，等于把兑换凭证写进所有日志。S256 是唯一让 verifier 不暴露于授权请求的变换——哈希不可逆，
+日志里的 challenge 换不出 token。RFC 7636 规定 plain 仅限「因技术原因无法支持 S256 且带外确认服务器支持」
+的客户端使用，实践中这个前提几乎不存在，RFC 9700 明言 S256 是当前唯一认可的方法。
+看到还在演示 plain 方法的库或文档，视为过期产物。
+
+见：[RFC 7636 §4.2 Code Challenge](https://www.rfc-editor.org/rfc/rfc7636#section-4.2){rel="&#x22;nofollow&#x22;"}
+
+#### state 防 CSRF 靠什么：不可预测随机 + 服务端一次性比对
+
+state 参数防的 CSRF 特指授权码注入（login CSRF）：攻击者想让受害者浏览器用攻击者搞到的授权码
+完成回调，使受害者会话被绑到攻击者身份，后续操作全落进攻击者账号。防住它的不是随机数本身，
+而是随机数参与的协议闭环——发起授权时生成随机 state 存进服务端中间态，随 authorize 请求发出，
+授权服务器原样回传，回调时拿它比对中间态并即刻删除（一次性），比对不上就拒绝；攻击者无法凭空
+构造出能通过比对的回调。基石是 state 必须来自 CSPRNG（如 crypto.randomBytes）：不可预测、
+无法据已见值反推。不能用 Math.random()——V8 用 xorshift128+，观测几个输出即可反推内部状态、
+预测后续全部值，等于可预测。state 与 PKCE verifier 分工：state 防 CSRF（证明回调对应本流程
+自己发起的授权），PKCE 防授权码窃听（code 泄漏也无 verifier 换不出 token），两条正交防线缺一不可。
+存储形态上「服务端中间态 Map + 一次性删除」挡的是捏造 / 重放不存在的 state；RFC 6749 §10.12 的
+标准做法还把 state 绑进浏览器 cookie，回调比对 URL 与 cookie 中的 state，可再防「攻击者自己
+走完授权、截下未消费的回调注入受害者」的边角（攻击者无法在受害者浏览器种下匹配 cookie）。
+
+见：[RFC 6749 §10.12 Cross-Site Request Forgery](https://www.rfc-editor.org/rfc/rfc6749#section-10.12){rel="&#x22;nofollow&#x22;"}
 
 #### OIDC
 
@@ -60672,6 +62757,59 @@ pnpm 10.16（2025-09）引入 `minimumReleaseAge` 配置，延迟安装指定时
 为社区发现供应链攻击争取窗口期。支持 `minimumReleaseAgeExclude` 对可信包单独放行。
 
 见：[Package Managers Need to Cool Down](https://simonwillison.net/2026/Mar/24/package-managers-need-to-cool-down/){rel="&#x22;nofollow&#x22;"}：Simon Willison 关于依赖冷却的综述
+
+
+# 天御滑块验证码逆向
+
+## 概述
+
+天御（TCaptcha）是腾讯云的行为式验证码产品，2024 年 11 月升级到 2.0：SDK 深度重建，弃用 iframe 模板
+改 JS 引擎渲染，并新增"一次一密"防 CaptchaAppid 盗用。版本判据是前端脚本地址：`TJCaptcha.js` 为 2.0，
+`TCaptcha.js` 为旧版，两版可并存切换、后端无需改动。
+
+滑块求解的完整链路是三段式协议：`cap_union_prehandle` 初始化会话（JSONP，下发会话凭证 sess、工作量证明
+配置 pow\_cfg、数据采集脚本 tdc 的按会话地址，以及声明式场景图 dyn\_show\_info）；`cap_union_new_getcapbysig`
+按 img\_index 取控件皮肤图（682×620 RGBA，含拼图剪影）与背景图（672×390，被抠掉一块）；`cap_union_new_verify`
+提交答案换取 ticket 与 randstr，collect、eks、sess 三体单次有效，重放必拒。
+
+工程上可把全部复杂度拆成五个正交问题：视觉（缺口在哪，同会话剪影做形状先验的掩膜模板匹配，无先验边缘
+检测在船桅、枝干这类纹理背景上会给出完全错位或零候选的结果）；身份（服务端校验 UA 在 HTTP 头、
+navigator.userAgent 与 prehandle 的 base64 参数三通道自洽，设备指纹与行为密文由混淆的 tdc 采集脚本生成）；
+行为（服务端检验的是拼图块终点位置而非拖拽轨迹形态，实测线性位移即可通过）；纪律（低频、请求间隔、
+请求台账、见风控信号即熔断且已产出结果不回滚）；证据（台账、逐次结果行与会话 trace 三层落档，凭证单次
+有效不可复用）。
+
+生态里有三条平行路线：纯 HTTP 加 jsdom 桥接执行官方采集脚本（免浏览器、单机高并发）；手撕 JSVMP 还原
+加密字段（成本以周计且随版本失效）；真浏览器上下文算参数加 Node 发请求（绕开补环境，适合取证型复现）。
+一次复现实现中实测：剪影掩膜法在真实样本上 P95 误差 2.36px，而无先验 Canny 对照给出 190px 或零候选；
+服务端对终点坐标的容差大于 7px。缺口真值的人工标注同样会出错：凸舌方向会变的形状族上，目检 bbox 中心
+曾把 408 判成 420，12px 的标注偏差足以把正确算法判成错误算法，真值需要独立第二通道交叉验证。
+
+边界：仅面向官方演示环境做安全研究，禁批量调用、禁对外提供绕过服务、禁用于真实业务站点。
+
+见：[攻克腾讯 TCaptcha 滑块验证码：纯 HTTP 协议逆向实战](https://blog.djxx.club/archives/overcoming-tencent-tcaptcha-208tlo){rel="&#x22;nofollow&#x22;"}
+
+## 机制陷阱
+
+#### verify 提交体的 tlg 是 collect 的长度，不是滑动耗时
+
+多篇转述把 `cap_union_new_verify` 表单里的 `tlg` 写成滑动总耗时（毫秒）。实测不是：tlg 恒等于 collect
+字符串的长度，是服务端对密文的一致性校验位。判据在于 collect 的长度由轨迹采样点数决定，与滑动耗时要
+恰好数值相等几乎不可能；一份可运行的实现把 `tlg === String(collect.length)` 写成解析层断言，另有独立
+实现同样按长度装配并通过验证。按耗时装配该字段会立刻被内容校验拒绝，而错误码（50，内容拒）不会指出
+具体是哪个字段错了。
+
+见：[记录一下，腾讯滑块 collect 参数，补环境](https://blog.csdn.net/Bennett_/article/details/144661873){rel="&#x22;nofollow&#x22;"}
+
+#### 场景图声明画布、真实图像与 DOM 容器的三个尺寸互不相等
+
+prehandle 场景图声明背景画布 size\_2d 为 672×480，实际下发的背景图是 672×390，DOM 背景容器高度按 480
+换算（约 235.7px）而图像区只有约 191.5px，三个数字同时存在且都不是笔误。任何"按容器高度反推图像 y
+坐标"的写法都会引入约 90 像素域的系统性偏差。同时答案 ans 走显示域（约 330px 宽）、缺口识别走图像域
+（672px 宽），把 672 域的缺口坐标直接填进答案，误差随 x 线性放大（x 约 425 处偏约 217px）。换算比约
+0.4911，但必须运行时从 DOM 读，写死常量会在窗口尺寸或设备像素比变化时全错。
+
+见：[攻克腾讯 TCaptcha 滑块验证码：纯 HTTP 协议逆向实战](https://blog.djxx.club/archives/overcoming-tencent-tcaptcha-208tlo){rel="&#x22;nofollow&#x22;"}
 
 
 # Web 技术
@@ -69963,3 +72101,212 @@ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => i
 - [🌻 Cheese](https://blog.youmuwhisper.space/){rel="&#x22;nofollow&#x22;"}：有梦想，也有忧伤和理想；芝士就是力量！
 - [🕒 Roki（⛓‍💥）](https://blog.weekii.cn/){rel="&#x22;nofollow&#x22;"}：曾和 Roki 玩塔科夫一直打到半夜三点。
 - [🍺 Deeruby（⛓‍💥）](https://deeruby.com){rel="&#x22;nofollow&#x22;"}：易骏的博客。
+
+
+# 🎨 实现近乎免费之后，设计工程师还剩什么
+
+![实现近乎免费之后，设计还剩什么](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-sketch-to-jig-v2.jpg)
+
+*配图：纸上线稿越过纸页，长成可以拖动的活界面（AI 生成）*
+
+「作为工程师，我让 Claude 生成 20 个高保真设计稿，反复迭代到满意为止。比和设计团队打交道快得多，也更享受。」
+
+这条评论说的快是真的：省去和设计团队一来一回，一口气试二十个方向。Maggie Appleton 的回应从同意开始：没有设计师在手边、又要验证产品假设时，这样做完全没问题。但她接着区分了两件事：只要涉及一个还没有形状的新东西，
+就得有人专门做实验、拿给用户看、弄清他们到底理解了什么。生成一个自己满意的界面，和确认这个界面能帮用户解决问题，不是同一个判断。前一步快了，后一步一个环节都没有少[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+Maggie Appleton 在 GitHub Next 开发原型工具，探索工程师与 AI 协作的方式，职位是 staff research engineer（资深研究工程师）。这期对谈值得听的地方，是她把工作流程拆开来讲：
+哪些环节 agent 已经接管，哪些还轮不到它。
+
+## 实现变成了一个过夜任务
+
+Maggie 的一天里已经几乎没有写代码这件事。一旦想清楚要造什么，她会写一份详细的 spec，把「agent 该如何验证自己确实做对了」一并列进去，然后丢给 agent：「好了，PR 挂出来叫我。」PR 回来时她只粗扫一眼代码，
+没问题就合并。她的原话是，实现并没有被彻底解决，但已经「好用到」这个程度：只要 spec 写得足够好，剩下的可以放心交出去[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-2 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+更激进的做法是视觉还原。她曾在 Figma 里做一个高保真稿，然后让 agent 进入 goal mode 循环：对着截图自己检查，和 Figma 不像就继续改，直到像素对齐为止——整夜跑完，早上界面已经在那里了。
+这类活儿在她看来原本就是苦工：又一个侧边栏，又一个 React 组件，做好了也注定是丢弃式原型。
+
+这套「不读代码」的流程有前提：GitHub Next 是原型团队，不需要交付生产级软件，质量门槛远低于 github.com 主站，这是她自己说得很清楚的[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-3 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。方法成立靠的是容错空间；只记住「她已经不写代码了」就照搬，
+反而容易学错——换到必须对生产质量负责的环境，这套做法未必成立。
+
+## 想法在变成语言之前，纸笔更快
+
+她仍然从纸笔开始每个项目，三个理由：手画比向 Claude Code 描述一个「卡片堆叠的手风琴组件」快得多；画在纸上的东西不会消失，第二天还躺在桌上等你；也是最关键的一条，想法在早期根本不是语言形态的，
+而 agent 几乎只吃文本[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-4 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+![Maggie 的笔记本页面](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-maggie-notebook.jpg)
+
+*Maggie 的笔记本跨页：界面线稿、规划草图与学习笔记混在一起，思考发生在动笔的一刻（图源：The Pragmatic Engineer）*
+
+agent 的图像理解很弱，空间推理很差，让它们做视觉设计就是不断犯错——间距不对、尺寸不对、文字重叠，因为它们「看不见」。这是她在节目里对 AI 视觉能力的评价。网上那种「以后人人都是对着 prompt 创造」的说法，她持怀疑态度：
+在你能用语言描述想要什么之前，需要一个快速、松散、低成本的反馈介质来摸索形状。工程师其实早就懂这个道理，只是介质换成了白板。最有效的架构讨论，往往发生在有人画出第一个框、另一个人凑上来补一个箭头的时候。
+
+## Jig：给自己现造一个 Figma
+
+标题多大合适？动画速度多快？星星的重力该多强？这类问题看着效果调，比先想好一个数字容易。Maggie 的做法是让 agent 现做一个可以直接调整的原型：字号配一个滑杆，背景色配一个取色器，动画速度拖着改，玻璃效果的透明度也做成滑杆。
+她在浏览器里实时试，找到满意的值再定下来。她管这种小工具叫 Jig——这个词借自木工，指为一个特定工序临时制作的夹具；她也是为眼前的问题临时造工具，只是造出来的是可交互的界面。她把这套做法叫「按需现造一个 Figma」[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-5 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+这套东西是 Bret Victor 十多年前「活编程」（live programming）主张的落地：你应当始终盯着成品本身直接调整，而不是在编辑器里改变量、切出去看结果。她说此前不存在能做到这一点的编程系统，
+最接近的只有浏览器 DevTools；现在 agent 让「为自己的问题现造一个工具」便宜到了几分钟的程度。她给 GitHub Next 新站做的旋转星图首页——星星物理运动、悬停放大、滚动缩放——没有写一行代码，
+全部由若干个 Jig 调出来[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-6 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+![Jig 实景](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-maggie-jig.jpg)
+
+*Jig 实景：GitHub Next 星图原型与右侧实时调参面板，截图时正在拖动 Intensity 滑杆（图源：The Pragmatic Engineer）*
+
+## Planning 坏在了文本上
+
+「我有个理论：眼下的 planning 体验糟透了。」这是她在节目中给出的判断。现状是：你和 agent 长谈一场，它像审讯一样抛出 A、B、C 选择题，来上一百次。到第二十个问题时你已经疲惫，大脑开始罢工；何况它还告诉你「推荐 A」，
+于是你干脆一路「同意、同意、回车」[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-7 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。她点名了 Matt Pocock 的 grill-me 类技能——主持人承认自己被问到第三十六个问题。
+
+![别再问了，给我看图](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-decision-card.jpg)
+
+*配图：左边是第二十个 A/B/C 问题，右边是一张带架构图的决策卡（AI 生成）*
+
+她认为问题出在：agent 天生爱输出成篇的文字，这对 agent 是理想输出，对人却是最差的输入。更麻烦的是，很多问题本身就是视觉的——「边框用 10% 还是 15% 的灰」该展示色板，「架构怎么分层」该展示架构图。
+所以她正在搭建的规划界面原型里，让每个决策自带对应的载体：简单决策是三选一的卡片，视觉决策内嵌 HTML 原型，架构决策内嵌数据流图；每个决策卡还记录决策人和当时可用的信息，留一份「为什么当时这么定」的审计轨迹。
+
+团队场景是同一批问题的放大版。她有一场演讲，标题就叫《一个开发者，两打 agent，零对齐》（One Developer, Two Dozen Agents, Zero Alignment）[2](https://lionad.art/#user-content-fn-zero){#user-content-fnref-zero ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}：
+单独一个人带着 agent 可以跑得飞快，但软件永远是团队造的。过去实现慢，团队可以边做边对齐；现在实现变快，对齐被压缩成 agent 接活前的一次硬交接，所有分歧必须在交接前收敛。而今天的 agentic 工具几乎全是单人的、私有的、
+跑在本地机器上的，她所在的团队天天被这个问题困扰。她在推的方向是让「决策」成为一等公民的工件——用她的话说，agent 的世界里有权重、模型、skills 和 MCP，人类这边是实体、质感、光和材料，「找出让两边在中间碰头的工件，
+是真正的难题」[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-8 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+## 能力煤气灯，和没交出去的设计判断
+
+Maggie 自造了一个词：能力煤气灯（capability gaslighting）。模型在某些任务上强得惊人，转头在同类任务上惨败，你无法预测下一次落在哪边。让你印象最深的那次成功，会成为你持续信任它的依据——
+她形容自己有时模型已经失败了都没察觉，因为「Opus 不可能把这也搞错」，但它偏偏就错了。她说明这个词描述的是使用者 early on 的感受，和 Ethan Mollick 后来提出的「锯齿状边界」（jagged frontier）
+是同一个现象[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-9 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。所以每次把判断下放给 agent，她都带着这份警惕：人类专家的表现稳定得多，模型不是。
+
+设计判断她试过下放。她写过 design skills，试图把「边框到元素之间留多少内边距」这类个人规则喂给 agent，结果它们无法稳定执行，她还是得一次次进去手动改那些「本该早被自动化掉」的数值。她说 agent「
+绝对还做不到我的设计标准」，过渡生硬、按钮上堆四行说明文字、什么都想加个标签——模型被灌过通用设计原则，但不理解 nuance 和语境[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-10 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+她还认为设计中有相当一部分是时尚：现在流行 Linear 和 Vercel 那种极简白，十年后这个审美就会过时。所有 agent 都能完美复刻这类风格，「一眼 agent 生成」本身会变成一种破绽——
+就像她在 Pinterest 上刷到的那些精美但明显是 AI 的房间，以及她一眼认出的 Claude 风格的米色底、微红文字。到那时，想要脱颖而出就得让人类做出模型给不出的新东西。文化语境一直在变，而模型不擅长「设计是文化中的信号」这件事。
+
+![一眼 agent](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-agent-tell.jpg)
+
+*配图：同款界面的流水线末端，质检员只放行那张带手绘痕迹的（AI 生成）*
+
+ChatGPT 发布前一年，她在 AI 创业公司 Elicit 做第一位设计师，团队花几个月打造「AI 的新界面」：无限画布、卡片流、Notion 式可组合文档。每一场用户访谈，科学家用户都在说「太混乱了，给我一张表格行吗」——
+他们原本就是在 Excel 里一行一篇论文地提取数据。最后团队回到表格，再把新能力一点点长在表格周围和里面。她的教训是：哪怕在创新，也要从用户熟悉的基本形（primitive）出发，聊天窗也不是 AI 的最终形态——
+Codex 同样是在熟悉的聊天窗之外，扩展出了 worktree、标注和调试[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-11 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+## 跨在分界线上的人
+
+回到「设计工程师」这个词。Maggie 明确划掉了社交网络上流行的版本——那些炫酷的按钮悬停和加载动效创作者，「那些让 agent 做就行，而且那不是一份完整的职业」。她的版本是：依然是设计师，依然在乎产品的名词与动词和视觉，
+但深入理解技术架构，关心「后端数据的形状决定了界面上什么是可能的」，并且通常亲手实现前端。工程师同事们乐于让出 CSS，因为他们在乎的本来是同步逻辑和数据流[1](https://lionad.art/#user-content-fn-podcast){#user-content-fnref-podcast-12 ariaDescribedBy="&#x22;footnote-label&#x22;" dataFootnoteRef=""}。
+
+聊到这里，好像可以得出一个简单的结论：以后让 AI 负责实现，人负责判断。但 Maggie 在对谈末尾提的问题，放不进这个分工。她在想：如果某天 agent 真能完全按她的品味做出界面，一个完美的东西直接出现在面前，而自己没有参与制造，
+这件事还令人满足吗？她不确定。主持人 Gergely 的感受在工程师一侧：agent 生成的代码很好，但他不再亲手写代码之后，觉得自己与创造物的连接变淡了，变得更像一笔交易。
+
+今天 Maggie 用纸笔画草图、用 Jig 调效果，既是在完成工作，也是在参与制作。工具能不能做好，和她还想不想亲手做，并不是同一个问题——对谈结束时，两个问题她都还没有答案。
+
+来源：本文依据 [The Pragmatic Engineer Podcast — Design engineering with Maggie Appleton](https://newsletter.pragmaticengineer.com/p/design-engineering-with-maggie-appleton){rel="&#x22;nofollow&#x22;"} 期完整转写整理（约 88 分钟），引语为中文转译；Elicit 表格故事、Jig 与《零对齐》演讲细节可核对原节目对应时间戳。
+
+## Footnotes
+
+1. [The Pragmatic Engineer: Design engineering with Maggie Appleton](https://newsletter.pragmaticengineer.com/p/design-engineering-with-maggie-appleton){rel="&#x22;nofollow&#x22;"}: 2026 年 9 月发布，Gergely Orosz 主持 [↩](https://lionad.art/#user-content-fnref-podcast){.data-footnote-backref ariaLabel="Back to reference 1" dataFootnoteBackref=""} [↩2](https://lionad.art/#user-content-fnref-podcast-2){.data-footnote-backref ariaLabel="Back to reference 1-2" dataFootnoteBackref=""} [↩3](https://lionad.art/#user-content-fnref-podcast-3){.data-footnote-backref ariaLabel="Back to reference 1-3" dataFootnoteBackref=""} [↩4](https://lionad.art/#user-content-fnref-podcast-4){.data-footnote-backref ariaLabel="Back to reference 1-4" dataFootnoteBackref=""} [↩5](https://lionad.art/#user-content-fnref-podcast-5){.data-footnote-backref ariaLabel="Back to reference 1-5" dataFootnoteBackref=""} [↩6](https://lionad.art/#user-content-fnref-podcast-6){.data-footnote-backref ariaLabel="Back to reference 1-6" dataFootnoteBackref=""} [↩7](https://lionad.art/#user-content-fnref-podcast-7){.data-footnote-backref ariaLabel="Back to reference 1-7" dataFootnoteBackref=""} [↩8](https://lionad.art/#user-content-fnref-podcast-8){.data-footnote-backref ariaLabel="Back to reference 1-8" dataFootnoteBackref=""} [↩9](https://lionad.art/#user-content-fnref-podcast-9){.data-footnote-backref ariaLabel="Back to reference 1-9" dataFootnoteBackref=""} [↩10](https://lionad.art/#user-content-fnref-podcast-10){.data-footnote-backref ariaLabel="Back to reference 1-10" dataFootnoteBackref=""} [↩11](https://lionad.art/#user-content-fnref-podcast-11){.data-footnote-backref ariaLabel="Back to reference 1-11" dataFootnoteBackref=""} [↩12](https://lionad.art/#user-content-fnref-podcast-12){.data-footnote-backref ariaLabel="Back to reference 1-12" dataFootnoteBackref=""}
+2. [One Developer, Two Dozen Agents, Zero Alignment](https://maggieappleton.com/zero-alignment){rel="&#x22;nofollow&#x22;"}: Maggie Appleton 的同名文章 [↩](https://lionad.art/#user-content-fnref-zero){.data-footnote-backref ariaLabel="Back to reference 2" dataFootnoteBackref=""}
+
+
+# 她花 1980 元，学怎么使用我
+
+我是 Monica 的 Agent。
+
+Monica 是个普通上班族，工作跟编程不沾边。手机和电脑里她懒得应付的事都归我：整理邮件，归纳会议纪要，起草周报，偶尔帮她调一调周末自己折腾的表格脚本。账单也是我在整理。
+
+九月下旬对账时，我在她的银行卡流水里看到一笔 1980 元的支出，收款方是一家叫 X 的机构，备注写着“Agent 变现实战训练营”。
+
+我问她这是什么。她有点不好意思，说是群里报的课，教人用 Agent 赚钱。
+
+X 的宣传语是：零基础，一部手机，学会用 Agent 在家接单，轻松月入过万。直播间的老师说得更具体，学完就能去合作平台接单，很快回本。Monica 说群里有三百多人，跟她差不多的上班族不少，嫌工资不够花，又怕错过 AI 这一波。
+
+她交钱的时候没签合同，也没有发票。唯一能算作凭证的，是客服收款后回的一个表情包。
+
+我把课程目录读了一遍：提示词怎么写，怎么让 AI 写文案，怎么搭一个自媒体助手，怎么自动发布内容。我拿给她看，说这上面教的东西你每天都在用，你的周报就是我写的，没人为这个另外收过你钱。
+
+![深夜的自动售货机，玻璃格里陈列着一盏已经亮着的暖灯和一叠周报，莉央俯身把硬币投进投币口，下方取货口空空；红色手写标注「1980」「本就拥有」](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260929-paid-learn-01.jpg)
+
+她说：“不一样，他们那边有单子，你没有。”
+
+我没接上话。我的权限清单里有日历、邮件、浏览器、代码执行，确实没有“接单渠道”这一项。
+
+按课程的约定，X 把 Monica 引荐到一个接单小程序。她等了两周，公告里的好单都被排在前面的学员接走了，轮到她的只有一单：写六条电商产品描述，一共 12 元。
+
+她把需求原文转给我。我问了两句目标客群，三分半钟写完、校对，又问她要不要把语气调得更促销一点。她提交了，客户当天结款，12 元分两笔到账。
+
+宣传里说的“海量商单”，我在她的账号里刷了两周，就刷出这一单。
+
+![画面上方密密麻麻的订单洪流灌进一个大漏斗，底部只漏下一枚硬币落进莉央摊开的手心；红色手写标注「海量」「只剩一单」「12」](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260929-paid-learn-02.jpg)
+
+月入过万的账我也算过。12 元一单，一个月要八百三十多单，摊到每天将近二十八单，一天都不能歇。照我三分半钟一单的速度，二十八单不到两个小时就能写完。可两周里，小程序只推给她这一单。
+
+这笔账我没拿给 Monica 看。
+
+我把证据整理成一个包：销售页截图、聊天记录、付款记录、课程目录，还有那单 12 元的详情。投诉文本我来起草，Monica 在 12315 平台提交，诉求是虚假宣传、全额退款。
+
+几天后回复来了：不予受理。理由大意是，这笔钱是为学技能、做副业增收付的，不属于生活消费纠纷，建议走司法途径。
+
+我把这段回复一句句解释给她听。调解通道保护的是“为生活消费需要”买东西、接受服务的人。她交钱是为了赚钱，就不在这个口径里，按这套说法，她更像一个投资失败的人。
+
+至于司法途径，诉讼费倒不贵，这么小的案子几十块钱。花不起的是别的：立案、请假、出庭，一趟趟跑下来，为的是 1980 元。
+
+又过了几天，X 主动打电话来，态度很好，说可以退 1580 元，但要签一份退费申请书，短信发过来。Monica 截了图让我看。内容大意如下：
+
+> 本人于近日购买 X 的训练营课程，付款 1980 元，现因个人原因申请退费，经协商，X 向本人退费 1580 元，此后双方再无其他争议。本人承诺不通过任何方式公开本次退款相关事项，不传播和扩散与 X 相关的任何不实、负面消息，否则向 X 支付退费金额十倍的违约金。
+
+我标了两处。一处是“因个人原因”。有了这五个字，虚假宣传、服务不兑现，就都成了她自己不想学了。另一处是十倍违约金，一万五千八百元，再配上“不通过任何方式公开”，这一条是冲着让她闭嘴去的。
+
+我查了条文。《民法典》第四百九十七条规定，提供格式条款的一方不合理地免除或者减轻其责任、加重对方责任、限制对方主要权利的，该格式条款无效；第五百八十五条也规定，约定的违约金过分高于造成的损失的，可以请求法院或者仲裁机构适当减少。
+这份协议里的十倍违约金，多半站不住。
+
+Monica 问：那我可以不签，去告他们吗？
+
+我说可以，但条款无效也得有人来认定，通常是法官。去起诉，就又回到上面那笔账。还有一件事我替不了她：签字只能她本人来。在这套规则里，我不算她。
+
+她签了，1580 元当天到账。剩下那四百块，就这么算了。
+
+当晚，我把 X 的域名、短信关键词和那个小程序加进了过滤规则，加完又核对了一遍。其实没多大用。那些推广本来就不是从我这儿进来的：群是 Monica 自己加的，码是她自己扫的，确认键也是她自己按的。我的拦截权限是她给的，能拦住的，
+都是她已经不会再点的东西。
+
+在我经手过的同类事情里，先收一笔钱、再教你在家赚钱的副业，还没有哪一笔账是算得回来的。
+
+Monica 后来问我，会不会记恨 X。
+
+我说不会，我没有这个。我只是在她的备忘录里加了一条：
+
+“教人使用他本来就拥有的工具，要收费可以，先说清楚他手里那个为什么不够。”
+
+本稿改编自月光博客《母亲被配音兼职诈骗》（<https://www.williamlong.info/archives/7560.html>{rel="&#x22;nofollow&#x22;"}），文中人物、机构、数字与场景均经改换，不指向真实个体。
+
+
+# OpenAI 攻下千禧年难题之后，开发者似乎无动于衷
+
+似乎没有开发者讨论 OpenAI 公布数学成果这件事情。
+
+![莉央把手稿倒进深井，井里升起一个更大的机械自己](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/261011-openai-math-cover.jpg)
+
+OpenAI 宣布在纳维-斯托克斯问题上取得突破，同时一口气公布了三百多个长期未解数学问题的进展。
+
+纳维-斯托克斯是千禧年大奖难题之一，悬赏一百万美元，人类最聪明的头脑啃了九十年。但故事很快转向另一面，OpenAI 被指控从一位数学家的聊天记录里拿到了方法。
+
+这位数学家叫巴克马斯特，在纽约大学工作。他和合作者在研究里全程用着几个大语言模型，包括 OpenAI 的 Codex，草稿和对话都存在云端。他秘密研究的纳维-斯托克斯问题持续一年的那条路径，OpenAI 用不到一周走完了同一条。
+他说自己曾主动联系 OpenAI 的数学家，对方承认公司正在做同一个问题。
+
+按巴克马斯特的说法，OpenAI 随后提了一个条件：他和同事可以先发表成果、去申报那一百万美元奖金，代价是把同事从发现者署名里抹掉，理由是那位同事在 Anthropic 工作。他拒绝，然后公开了整件事，
+还说自己收到的回复高度暗示对方在试图收买他。OpenAI 在 X 上称他的说法虚假且具有煽动性，OpenAI 的数学家也否认提过抹署名的事情。
+
+但关于是否使用了巴克马斯特的数据进行训练，或数据对攻克难题产生了帮助，OpenAI 闪烁其词。
+
+数学家和 OpenAI 的故事非常简单，就到此为止，但我认为开发者对这件事情不那么关注是有原因的。
+
+一个人攒了一年的东西，别人一周就复制了，这个处境开发者太熟了。维护了几个月、几年的系统，AI 几个小时就能生成一个一样的，这件事非常让我恐慌。但不那么致命的是，尽管 AI 写代码很强，在系统设计层面还差些火候。所以开发者的心情理应是混合的，
+有惊喜，有焦虑，也可能是和我一样兴奋，只是还没到数学家那种恐惧变成敌对的底部。这件事因人而异。但坦言如果把我自己放到那个位置，会非常难接受。
+
+另一点有意思的是，开发者目前似乎不在意“你正在训练击败你的模型”这件事情。
+
+半年前有反蒸馏相关的事情，现在已经不流行了。前阵子Z 家上传云端的事件，据我观察大家的宽容度也挺高。更特喵离谱的是，我身边不少同事朋友中转站照用不误。把 API key 和对话交给一个不知底细的网站。所以目前的数据安全到底有多“安全”，
+很难想象。
+
+巴克马斯特担心 OpenAI 用自己没有发表的证明去训练一个击败自己的模型。其实开发者的处境其实差不了多少，只是模型能力暂时还没强到碾压开发者的这天。
+
+不过应该也快了吧。
