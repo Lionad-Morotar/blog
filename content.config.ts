@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { defineCollection, defineContentConfig, z } from '@nuxt/content'
 
 // 基础 Schema - 所有内容类型共有的字段
@@ -173,6 +174,20 @@ export default defineContentConfig({
         exclude: excludesWithUnderscore
       },
       schema: baseSchema
+    }),
+
+    // 外发文章/External Posts（公众号等外部平台的成稿存档）
+    // 仅通过 URL、sitemap、RSS 访问，不进 sidebar 导航与搜索索引（两者均为白名单制，未列入即隐藏）
+    // cwd 指向仓库根的 external-posts/，路径按 YYYYMM/DD/slug.md 组织，映射为 /external/YYYYMM/DD/slug
+    external: defineCollection({
+      type: 'page',
+      source: {
+        cwd: fileURLToPath(new URL('./external-posts', import.meta.url)),
+        include: '**/*.md',
+        exclude: commonExcludes,
+        prefix: '/external'
+      },
+      schema: articleSchema
     }),
 
     // 归档内容（已发布但大概不再维护）

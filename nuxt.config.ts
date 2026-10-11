@@ -1,4 +1,36 @@
+import { existsSync, readdirSync } from 'node:fs'
+import { join, relative } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 const baseUrl = 'https://lionad.art'
+
+/**
+ * 静态部署靠 crawlLinks 发现页面，而 external 文章刻意不进 sidebar 与列表页，
+ * 没有任何入链会导致其 HTML 不被预渲染。构建期扫描 external-posts 生成种子路由，
+ * 新增文章无需再手动登记。
+ */
+function listExternalPostRoutes(): string[] {
+  const rootDir = fileURLToPath(new URL('./external-posts', import.meta.url))
+  if (!existsSync(rootDir)) return []
+
+  const routes: string[] = []
+  const walk = (dir: string) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      // 跳过 .work 等点开头的工作目录
+      if (entry.name.startsWith('.')) continue
+      const fullPath = join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(fullPath)
+      }
+      else if (entry.name.endsWith('.md')) {
+        const slug = relative(rootDir, fullPath).replace(/\\/g, '/').replace(/\.md$/, '')
+        routes.push(`/external/${slug}`)
+      }
+    }
+  }
+  walk(rootDir)
+  return routes
+}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 // @ts-expect-error vue-tsc 的 vue-router/volar/sfc-route-blocks 插件加载失败导致 DefineNuxtConfig 类型暂时不可用
@@ -161,7 +193,8 @@ export default defineNuxtConfig({
         '/music',
         '/books',
         '/links',
-        '/sitemap.xml'
+        '/sitemap.xml',
+        ...listExternalPostRoutes()
       ]
     }
   },
@@ -230,7 +263,7 @@ export default defineNuxtConfig({
           author: { email: '1806234223@qq.com', name: 'lionad' },
           copyright: 'CC BY-NC-SA 4.0'
         },
-        collections: ['flows', 'articles'],
+        collections: ['flows', 'articles', 'external'],
         mapping: [
           ['link', 'path'],
           ['date', 'modified'],

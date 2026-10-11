@@ -4,9 +4,10 @@ import { resolveCoverImage, type ParsedContentLike } from '#shared/utils/feed-co
 import { getLocaleFromPath, stripEnPrefix, withLocalePath, type PreferredLocale } from '~/utils/locale'
 
 // 根据路径确定 collection
-type CollectionName = 'flows' | 'articles' | 'books' | 'music' | 'maps' | 'tools' | 'sourceCode' | 'hire' | 'links' | 'achieved' | 'other'
+type CollectionName = 'flows' | 'articles' | 'books' | 'music' | 'maps' | 'tools' | 'sourceCode' | 'hire' | 'links' | 'external' | 'achieved' | 'other'
 
 function getCollectionFromPath(path: string): CollectionName {
+  if (path.startsWith('/external')) return 'external'
   if (path.startsWith('/1.flows') || path.startsWith('/flows')) return 'flows'
   if (path.startsWith('/2.articles') || path.startsWith('/articles')) return 'articles'
   if (path.startsWith('/4.books') || path.startsWith('/books')) return 'books'

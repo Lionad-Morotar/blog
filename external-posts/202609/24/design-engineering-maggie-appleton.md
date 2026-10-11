@@ -1,6 +1,7 @@
 ---
 title: 🎨 实现近乎免费之后，设计工程师还剩什么
 description: GitHub Next 设计工程师 Maggie Appleton 的 AI 时代工作流：纸笔、Jig、spec 前置，以及她仍然自己拿在手里的那部分判断。
+created: 2026-09-24
 ---
 
 ![实现近乎免费之后，设计还剩什么](https://mgear-image.oss-cn-shanghai.aliyuncs.com/image/other/260924-illo-sketch-to-jig-v2.jpg)

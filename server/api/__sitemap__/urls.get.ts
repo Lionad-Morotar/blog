@@ -11,7 +11,8 @@ const COLLECTIONS = [
   'tools',
   'sourceCode',
   'hire',
-  'links'
+  'links',
+  'external'
 ] as const
 
 type CollectionName = typeof COLLECTIONS[number]
