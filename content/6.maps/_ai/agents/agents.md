@@ -68,6 +68,7 @@ original_path: _ai/agents.md
 * [SoL-Pi：auto-research 搜出的效率机制集](/maps/_ai/agents/sol-pi)：四类 token 浪费的机制归因、压缩投资回收、组合损失累积、自动研究局部盆地与一次性编排循环
 * [Pi Durable：持久化 Agent Harness 库](/maps/_ai/agents/pi-durable)：先落盘再展示的事务内核、replay 分级与模型裁决、requestId 幂等边界、fork 指针语义与缓存折衷
 * [herdr：coding agent 的终端运行时](/maps/_ai/agents/herdr)：server/client 复用架构、agent 五态生命周期与 tmux 的分界
+* [Claude Code 插件](/maps/_ai/agents/claude-code-plugins)：MessageDisplay 屏显层契约、流式会合状态机与 wasm 渲染工程决策
 
 ## 企业落地
 
