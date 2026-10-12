@@ -112,6 +112,7 @@
 - [AgentScope](https://lionad.art/maps/_ai/agents/agentscope): 阿里巴巴开源的生产级多智能体框架，支持 ReAct Agent、强化学习训练、实时语音交互和 MCP/A2A 协议
 - [Claude Agent SDK](https://lionad.art/maps/_ai/agents/claude-agent-sdk): Anthropic Claude Agent SDK 的使用方式、调用栈与 User-Agent 机制
 - [Claude Agent SDK (TypeScript) 发布记录](https://lionad.art/maps/_ai/agents/claude-agent-sdk-releases): Anthropic Claude Agent SDK TypeScript 版本的完整发布历史与变更日志
+- [Claude Code 插件](https://lionad.art/maps/_ai/agents/claude-code-plugins): claude-code-mermaid 案例深潜：MessageDisplay 屏显层契约、流式会合状态机与 wasm 渲染工程决策
 - [Claude Code Skills](https://lionad.art/maps/_ai/agents/claude-skills): Claude Code 技能集合
 - [Coding Agent 的 Shell 偏差](https://lionad.art/maps/_ai/agents/coding-agent-shell-bias): 探讨 Coding Agent 在 PowerShell 与 Bash 环境下的性能差异及其训练语料根源
 - [上下文图与机构化推理](https://lionad.art/maps/_ai/agents/context-graphs): 上下文图作为知识图的运营化演进，如何支撑企业级 Agent 的机构化推理与合规决策
@@ -121,6 +122,7 @@ goose is being developed as an open-source software project.
 - [扩展](https://lionad.art/maps/_ai/agents/goose/goose-brief.cn): 您是一种通用型 AI 代理，名为 goose，由 Block（Square、CashApp 与 Tidal 的母公司）创建。goose 正在作为开源软件项目进行开发。
 - [Goose Prompts](https://lionad.art/maps/_ai/agents/goose/prompts): xxx
 - [Harness 工程](https://lionad.art/maps/_ai/agents/harness-engineering): 结合控制论与真实 .codebuddy 配置，探讨 AI 辅助编程中 Harness 的双环控制、Rules/Hooks 实践、Token 成本优化与流程型 Skill 设计。
+- [herdr](https://lionad.art/maps/_ai/agents/herdr): coding agent 的终端运行时：server/client 终端复用、agent 生命周期状态机与 tmux 的分界。
 - [人机协作智能体团队](https://lionad.art/maps/_ai/agents/human-agent-teams): 前沿 AI 公司（Anthropic、月之暗面）构建人类与智能体协作团队的经验：公共空间、明确角色、北极星目标、渐进信任与多智能体分工
 - [AI 与人性交互](https://lionad.art/maps/_ai/agents/human-ai-interaction)
 - [模型与 Harness 的训练耦合](https://lionad.art/maps/_ai/agents/model-harness-coupling): 模型后训练日益适配特定 Harness 的工具 Schema，导致第三方 Harness 上工具调用退化、Schema 不再中性的现象、机制与对策。
@@ -566,6 +568,7 @@ goose is being developed as an open-source software project.
 - [神经科学](https://lionad.art/maps/_science/neuroscience/neuroscience): 神经科学是一门以脑结构和功能为研究对象的综合学科，横跨了多个学科领域。现代神经科学有三个主流分支：细胞和分子神经科学、认知神经科学和发育神经学。
 - [量子理论](https://lionad.art/maps/_science/quantum/quantum): 量子力学是描述微观世界的物理学。
 - [科学](https://lionad.art/maps/_science/science): 科学知识图谱，涵盖复杂科学、宇宙学、热力学、环境科学、神经科学和量子力学等领域
+- [渗透测试](https://lionad.art/maps/_security/pentest): 渗透测试（penetration testing）学科的理论骨架：定位分界、阶段方法、认证攻击路线与发现定级
 - [搜索引擎优化领域](https://lionad.art/maps/_seo/seo): SEO 相关的学习笔记和实践经验
 - [搜索引擎优化](https://lionad.art/maps/_seo/seo/seo): 搜索引擎优化包含了对网站内容的基本元素的一系列改动，这些改动通常相互作用，提高用户体验以及增加网站在自然搜索结果中的排名。
 - [自建邮件服务器](https://lionad.art/maps/_server/email/self-hosted-email): 自建邮件服务器的实践指南，包括技术要点、权衡分析和适用场景

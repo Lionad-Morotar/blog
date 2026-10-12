@@ -8441,6 +8441,8 @@ OpenShell 把模型推理流量做成独立的执法域：沙箱内的 <https://
 - [模型与 Harness 的训练耦合](https://lionad.art/maps/_ai/agents/model-harness-coupling)：新模型在第三方 harness 编造工具参数、后训练过拟合机制与约束采样对策
 - [SoL-Pi：auto-research 搜出的效率机制集](https://lionad.art/maps/_ai/agents/sol-pi)：四类 token 浪费的机制归因、压缩投资回收、组合损失累积、自动研究局部盆地与一次性编排循环
 - [Pi Durable：持久化 Agent Harness 库](https://lionad.art/maps/_ai/agents/pi-durable)：先落盘再展示的事务内核、replay 分级与模型裁决、requestId 幂等边界、fork 指针语义与缓存折衷
+- [herdr：coding agent 的终端运行时](https://lionad.art/maps/_ai/agents/herdr)：server/client 复用架构、agent 五态生命周期与 tmux 的分界
+- [Claude Code 插件](https://lionad.art/maps/_ai/agents/claude-code-plugins)：MessageDisplay 屏显层契约、流式会合状态机与 wasm 渲染工程决策
 
 ## 企业落地
 
@@ -9143,6 +9145,65 @@ Claude Agent SDK TypeScript 版本的初始发布。
 
 - [Claude Agent SDK TypeScript - GitHub](https://github.com/anthropics/claude-agent-sdk-typescript){rel="&#x22;nofollow&#x22;"}
 - [Claude Agent SDK 官方文档](https://platform.claude.com/docs/en/agent-sdk/typescript){rel="&#x22;nofollow&#x22;"}
+
+
+# Claude Code 插件
+
+## Brief
+
+claude-code-mermaid 是一个 Claude Code 插件，把回复里的 mermaid 围栏在屏幕上替换为 Unicode 盒线字符画，
+全程离线（Node ≥ 18、零 npm 依赖，核心是 162KB 的 wasm）。与最易混淆的浏览器预览类 MCP 相比，它出字符画
+而非真图，换取零依赖零网络；只支持 flowchart、sequence、state、class、er 五类图。渲染器出处链：Grok CLI
+（xai-org/grok-build）的 Rust 终端渲染器经 Simon Willison 编译为 wasm，插件再分发并包上流式显示层。
+
+#### MessageDisplay 是 Claude Code 唯一只作用于屏显层的 hook 事件
+
+Claude Code 约有 35 个 hook 事件，几乎全部作用于执行流（拦截工具调用、注入上下文、裁决权限），只有
+MessageDisplay 作用于显示层：它把回复流按「新完成的行」分批交给插件进程，插件输出 `displayContent`
+即可替换屏幕上的这一批文本，省略输出则原文直通。它的权力边界被刻意收窄：无 decision control，不能阻断
+消息，`systemMessage` 与 `continue` 被直接丢弃，transcript 存储与模型所见始终保持原文。由此形成三层分离：
+屏幕显示可被任意改写，存储与模型上下文不可触碰，模型永远校验不了自己「画」出的渲染效果。
+
+见：[Claude Code hooks 文档](https://code.claude.com/docs/en/hooks){rel="&#x22;nofollow&#x22;"}
+
+#### claude-code-mermaid 的流式会合：扣住、落盘、原样吐回
+
+回复流式到达，每批增量文本触发一个全新 node 进程，单个进程凑不齐完整围栏。插件用状态机三层化解：开着的
+mermaid 围栏整块扣住不发，用户看到的是延迟到齐的整幅图；中间状态落盘 `/tmp` 下以「会话 ID-消息 ID」命名
+的文件，围栏关闭或 final 即删，普通消息不留痕迹；final 时围栏还开着就把攒下的原文原样吐回，宁可显示源码
+也不丢内容。成本控制是配套的：hook 不写 stdout 即原文直通，每批先做围栏特征正则预检，不命中则连状态文件
+都不读不写，绝大多数批次零磁盘成本。任何「改流式显示」的插件都要重解这道跨进程会合题，这份实现是现成参考。
+
+见：[gecm0/claude-code-mermaid](https://github.com/gecm0/claude-code-mermaid){rel="&#x22;nofollow&#x22;"}
+
+#### wasm 渲染失败不报错，探测靠嗅探 class="t"
+
+grok-mermaid.wasm 对不支持的类型和语法错误从不返回错误码，而是把原始源码画进 ASCII 边框当正常 HTML 返回，
+框的 header 是全部输出中唯一带 `class="t"` 的 span，插件用 `includes('class="t"')` 判断失败。宽度归因用
+对比法：限宽渲染命中特征时用不限宽重渲一次，两次都失败才归因类型或语法错误，仅限宽失败归因为超出终端宽度。
+这套探测依赖渲染器输出格式这一未成契约的内部细节，上游 grok-build 一升级就可能静默失效；也正因部分语法
+错误被渲染器静默忽略，渲染结果只是预览而非语法校验。
+
+见：[claude-code-mermaid.mjs](https://github.com/gecm0/claude-code-mermaid/blob/main/scripts/claude-code-mermaid.mjs){rel="&#x22;nofollow&#x22;"}
+
+#### panic=abort 让每张图重新实例化整个 wasm
+
+162KB 的 wasm 每画一张图都要重新 `new WebAssembly.Module` 加 `Instance`，连编译产物都不缓存。根源在上游
+构建用了 panic=abort：Rust panic 直接 trap，trap 过的实例整个报废不可恢复；与其维护实例池再检测中毒状态，
+不如每图新建实例，把崩溃爆炸半径隔离在单张图内，catch 后降级为一行 `renderer crashed`。这是用可预测开销
+买故障隔离的典型决策，批量渲染的性能预算要按每图一次完整编译估算。
+
+见：[claude-code-mermaid.mjs](https://github.com/gecm0/claude-code-mermaid/blob/main/scripts/claude-code-mermaid.mjs){rel="&#x22;nofollow&#x22;"}
+
+#### /tmp 状态文件的防符号链接组合拳
+
+多用户机器上，他人可预建状态目录里的符号链接指向任意文件，而 hook 每条消息流都会执行一次写入，等于以用户
+完整权限定时写一个可被劫持的路径。插件防御分三层：lstatSync 检查目录本身（不跟随链接，是链接直接拒绝）、
+stat.uid 必须等于当前 uid（防他人预建目录）、每次写入前 chmodSync 重申 0700 与 0600（防宽权限目录抢先
+就位）；文件名先经字符白名单消毒防路径穿越，读状态失败走删除兜底而非带病续跑。单用户 Mac 上是过度防御，
+共享服务器与 CI 上是必需品，任何往共享临时目录写跨进程状态的 hook 都该抄这套组合拳。
+
+见：[claude-code-mermaid.mjs](https://github.com/gecm0/claude-code-mermaid/blob/main/scripts/claude-code-mermaid.mjs){rel="&#x22;nofollow&#x22;"}
 
 
 # Claude Code Skills
@@ -14826,6 +14887,23 @@ agent 经常无视被指派的接口自行其是，因此不验证实际行为�
 对选型的含义：通用性应体现在持久化、恢复、可组合这类正交能力上，而不是功能堆叠。
 
 见：[The Scaffolding Matters More Than the Interface](https://arxiv.org/abs/2608.08654){rel="&#x22;nofollow&#x22;"}
+
+
+# herdr
+
+herdr 是为并行运行 coding agent 设计的终端工作区管理器，单 Rust 二进制，Apache-2.0，最新稳定版 v0.9.3（2026-09）。
+
+#### herdr：为 coding agent 而生的终端运行时
+
+herdr 是单 Rust 二进制的终端工作区管理器，架构上由后台 server 持有真实 PTY 进程、客户端只负责渲染，
+detach（默认 ctrl+b q）后 agent 进程不死，重连即恢复现场。它针对两个痛点：agent 跑在普通终端里，
+窗口一关或 SSH 一断进程就死；同时跑多个 coding agent 时不知道哪个在等审批、哪个已完成，只能逐个终端轮询。
+与 tmux 的分界：prefix 键、detach/attach 这套键盘模型承自 tmux，但 tmux 不理解 pane 里跑的是什么，
+herdr 的核心增量是 agent 生命周期状态机（working/blocked/done/idle/unknown）、状态向上汇总的侧边栏、
+以及让脚本或 agent 通过 CLI/socket API 编排彼此的能力；鼠标是一等公民，键盘是可选层。
+单 agent 且不需要 detach 的场景它只是多余一层，纯复用器需求 tmux/zellij 仍是更轻的选择。
+
+见：[herdr README](https://github.com/herdrdev/herdr){rel="&#x22;nofollow&#x22;"}
 
 
 # 人机协作智能体团队
@@ -55218,6 +55296,43 @@ Smolin（1992）提出宇宙自然选择（CNS）：黑洞是新宇宙的"出生
 科学是人类探索自然规律、理解宇宙本质的系统化知识体系。本领域涵盖从微观量子世界到宏观宇宙演化的多个学科分支，致力于揭示自然界的深层规律与复杂性。
 
 
+# 渗透测试
+
+#### 渗透测试是什么：以证明影响为目的的授权模拟攻击
+
+在书面授权范围内模拟攻击者，产出「利用链成立」的证据链。它解决的问题是：漏洞扫描器报出缺陷不等于有人能借它造成真实损失。与相邻工作分界：漏洞扫描（vulnerability scanning）自动化、广度优先、误报多；红队（red teaming）目标导向且隐蔽，顺带检验防守方的检测响应；安全审计（security audit）对照标准逐项合规而不主动利用。渗透测试居中：手动加工具、深度优先、以真实利用证明风险。入场券与技术无关：无书面授权的测试即非法入侵，授权范围（scope）与交战规则（ROE）先于一切动作。
+
+#### 渗透测试的核心问题分层
+
+四个递进的问题构成学科主干。入场：威胁建模先于动手，资产价值排序决定精力分配，公网面优先内网面、认证边界优先已登录功能。发现：侦察分被动（OSINT）与主动（端口扫描、目录爆破），枚举的产出不是列表而是优先级，管理面、免登录写面、代理转发面常年高价值。真假：「扫描器说有」与「利用链成立」之间隔着的验证劳动是渗透测试的本体，打之前先读目标防护做在哪一层，防守做对时不硬刚，「已防护」同样写进报告防回归。价值：定级看影响链不看点位，报告三要素是可复现步骤、业务语言的影响、一行能改的修复建议。
+
+#### 认证攻击的路线选择：拿到 hash 先问环境接受什么协议
+
+NTLM（NT LAN Manager）是质询-响应式认证：认证全程只传输「用密码 hash 加密的质询」，不传明文，因此 hash 等价于密码本身。由此派生三条路线：Pass-the-Hash 直接拿 hash 应答 NTLM 认证；relay 中继把受害者的认证响应原样转发给另一台服务器（要求目标未开 SMB 签名）；Overpass-the-Hash 在 Kerberos-only 环境把 NTLM hash 换取 Kerberos 票据（TGT）后走 Kerberos 协议。破解明文是最后的选项：存在可中继目标时连明文都不需要。
+
+#### CVSS v4.0 的四组指标与定级现实
+
+CVSS 由 FIRST 组织维护，v4.0 把分数拆成四组：Base（漏洞内在质量）、Threat（利用成熟度）、Environmental（按部署环境修正）、Supplemental（补充信息）。CVE 编号回答「这是什么洞」，CVSS 回答「有多严重」；同一个 SQL 注入打内网测试库与公网生产库，差异落在环境组修正上。一线做法：Base 分数进表格保持可比性，环境修正写成影响段里的口头论证，让「高分为什么定中危」的质问在报告内部就有答案。
+
+#### 反序列化漏洞的 RCE 判据：gadget 链可用性
+
+gadget 指目标程序依赖库里本身无害、但可被攻击者借力调用的普通代码片段，单个 gadget 不构成危害，串成利用链（gadget chain）才能从反序列化入口走到命令执行。判据一句话：no chain, no execution，目标 classpath 里没有可用链时，反序列化漏洞只能降级写 DoS 或理论风险，不能标 RCE。扫描器不会替你查这一步。
+
+#### 廉价信号改道：枚举阶段就重排战场优先级
+
+有经验的做法是在枚举阶段收集「改道信号」随时重排优先级，而非按清单顺序打完所有洞。几条硬规则：AD 环境拿到 DCSync 后停止一切主机级提权（krbtgt 路径一票压过全部）；云环境 SSRF 只要能触达 169.254.169.254 元数据端点，发现定性立即从端口扫描改写为凭据泄露；Linux 提权先看 sudo -l 输出再谈 exploit，多数提权是配置错误而非 CVE。
+
+#### 配置滥用优先于 CVE 利用
+
+CVE 利用要求目标补丁差且漏洞可靠，还有进程崩溃与触发 EDR 告警的风险；ACL 配错、委派滥用、ADCS 模板可写这类配置弱点不需要 exploit、不崩进程，产物也更持久（错误策略签发的证书以年计有效期，且扛得住目标改密码，而 Kerberoast 的 hash 随密码失效）。面对陌生目标先枚举「它自己配错了什么」，再考虑「它缺了哪个补丁」。
+
+#### 知识库按原语归档，工具文档按需临时查
+
+工具页（flag、UI、API）一两年就面目全非，原语页（SSRF、ACL 滥用、tcache 投毒）十年不变，个人知识库按原语组织才能长期复利。配套一条交付纪律：报告引用 MITRE ATT\&CK 编号前先查该 ID 是否已废弃（deprecated），过期编号出现在交付物里会被内行当作未实操的信号。
+
+见：[FIRST CVSS v4.0 规范](https://www.first.org/cvss/specification-document){rel="&#x22;nofollow&#x22;"}、[corpus-pentest 决策手册（本地语料 \~/.claude/skills/corpus-pentest/cheatsheet.md）](https://github.com/bergeouss/corpus-pentest){rel="&#x22;nofollow&#x22;"}
+
+
 # 搜索引擎优化领域
 
 ## 概述
@@ -72287,26 +72402,25 @@ Monica 后来问我，会不会记恨 X。
 
 OpenAI 宣布在纳维-斯托克斯问题上取得突破，同时一口气公布了三百多个长期未解数学问题的进展。
 
-纳维-斯托克斯是千禧年大奖难题之一，悬赏一百万美元，人类最聪明的头脑啃了九十年。但故事很快转向另一面，OpenAI 被指控从一位数学家的聊天记录里拿到了方法。
+纳维-斯托克斯是千禧年大奖难题之一，悬赏一百万美元，人类最聪明的头脑啃了九十年。但这件事还有另一面：OpenAI 被指控从一位数学家的聊天记录里拿到了方法。
 
-这位数学家叫巴克马斯特，在纽约大学工作。他和合作者在研究里全程用着几个大语言模型，包括 OpenAI 的 Codex，草稿和对话都存在云端。他秘密研究的纳维-斯托克斯问题持续一年的那条路径，OpenAI 用不到一周走完了同一条。
+这位数学家叫巴克马斯特，在纽约大学。他和合作者做研究时全程用着几个大语言模型，包括 OpenAI 的 Codex，草稿和对话都存在云端。他秘密研究了一年的那条纳维-斯托克斯路径，OpenAI 用不到一周走完。
 他说自己曾主动联系 OpenAI 的数学家，对方承认公司正在做同一个问题。
 
-按巴克马斯特的说法，OpenAI 随后提了一个条件：他和同事可以先发表成果、去申报那一百万美元奖金，代价是把同事从发现者署名里抹掉，理由是那位同事在 Anthropic 工作。他拒绝，然后公开了整件事，
-还说自己收到的回复高度暗示对方在试图收买他。OpenAI 在 X 上称他的说法虚假且具有煽动性，OpenAI 的数学家也否认提过抹署名的事情。
+按巴克马斯特的说法，OpenAI 随后提了一个条件：他和同事可以先发表成果、去申报那一百万美元奖金，代价是把同事从发现者署名里抹掉，理由是那位同事在 Anthropic 工作。他拒绝，然后公开了整件事。
+他说对方后来的那几番回复，高度暗示是在试图收买他。OpenAI 在 X 上称他的说法虚假且具有煽动性，自家的数学家也否认提过抹署名。
 
-但关于是否使用了巴克马斯特的数据进行训练，或数据对攻克难题产生了帮助，OpenAI 闪烁其词。
+但关于是否用巴克马斯特的数据训练过，或数据对攻克难题有没有帮助，OpenAI 一直闪烁其词。
 
-数学家和 OpenAI 的故事非常简单，就到此为止，但我认为开发者对这件事情不那么关注是有原因的。
+数学家和 OpenAI 的故事到这里就结束了，很简单。但开发者对这件事不那么关注，是有原因的。
 
-一个人攒了一年的东西，别人一周就复制了，这个处境开发者太熟了。维护了几个月、几年的系统，AI 几个小时就能生成一个一样的，这件事非常让我恐慌。但不那么致命的是，尽管 AI 写代码很强，在系统设计层面还差些火候。所以开发者的心情理应是混合的，
-有惊喜，有焦虑，也可能是和我一样兴奋，只是还没到数学家那种恐惧变成敌对的底部。这件事因人而异。但坦言如果把我自己放到那个位置，会非常难接受。
+攒了一年的东西，AI 一周就复制了，这个处境开发者太熟了。维护几个月、几年的系统，AI 几个小时就能生成一个一样的。
+AI 写代码很强，系统设计层面还差些火候，所以开发者没那么杞人忧天，还没被推到那种恐惧变成敌对的地步。
+对这件事的感受因人而异。但坦言换我在那个位置，会非常难接受。
 
 另一点有意思的是，开发者目前似乎不在意“你正在训练击败你的模型”这件事情。
 
-半年前有反蒸馏相关的事情，现在已经不流行了。前阵子Z 家上传云端的事件，据我观察大家的宽容度也挺高。更特喵离谱的是，我身边不少同事朋友中转站照用不误。把 API key 和对话交给一个不知底细的网站。所以目前的数据安全到底有多“安全”，
-很难想象。
+半年前有反蒸馏相关的事情，现在已经不流行。前阵子 Z 家上传云端的事件，据我观察，大家的宽容度也非常高。但特喵离谱的是，我身边不少同事朋友，就算中转站也还是照用不误。
+把 API key 和对话交给一个不知底细的网站，目前所谓“数据安全”到底有多安全，不难想象。
 
-巴克马斯特担心 OpenAI 用自己没有发表的证明去训练一个击败自己的模型。其实开发者的处境其实差不了多少，只是模型能力暂时还没强到碾压开发者的这天。
-
-不过应该也快了吧。
+巴克马斯特担心 OpenAI 用自己没有发表的证明去训练一个击败自己的模型。开发者的处境差不了多少，虽说模型能力目前还没碾压开发者的，不过应该也快了吧。
